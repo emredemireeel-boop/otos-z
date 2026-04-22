@@ -1,5 +1,9 @@
 {
   "firestore": {
+<<<<<<< HEAD
     "rules": "firestore.rules"
+=======
+    "indexes": "firestore.indexes.json"
+>>>>>>> 735306d (İlk yükleme: Proje dosyaları eklendi)
   }
 }

@@ -1,0 +1,184 @@
+{
+    "fuelTypes": [
+        {
+            "id": "benzin",
+            "name": "Benzin",
+            "description": "Traditional gasoline engine"
+        },
+        {
+            "id": "dizel",
+            "name": "Dizel",
+            "description": "Diesel engine"
+        },
+        {
+            "id": "lpg",
+            "name": "LPG",
+            "description": "Liquefied petroleum gas"
+        },
+        {
+            "id": "benzin_lpg",
+            "name": "Benzin & LPG",
+            "description": "Dual fuel system"
+        },
+        {
+            "id": "elektrik",
+            "name": "Elektrik",
+            "description": "Electric motor"
+        },
+        {
+            "id": "hibrit",
+            "name": "Hibrit",
+            "description": "Hybrid electric and fuel"
+        },
+        {
+            "id": "plug_in_hibrit",
+            "name": "Plug-in Hibrit",
+            "description": "Plug-in hybrid electric vehicle"
+        }
+    ],
+    "transmissionTypes": [
+        {
+            "id": "manuel",
+            "name": "Manuel",
+            "description": "Manual transmission"
+        },
+        {
+            "id": "otomatik",
+            "name": "Otomatik",
+            "description": "Automatic transmission"
+        },
+        {
+            "id": "yarimotomatik",
+            "name": "Yarı Otomatik",
+            "description": "Semi-automatic transmission"
+        },
+        {
+            "id": "dsg",
+            "name": "DSG",
+            "description": "Direct-Shift Gearbox"
+        },
+        {
+            "id": "cvt",
+            "name": "CVT",
+            "description": "Continuously Variable Transmission"
+        },
+        {
+            "id": "tiptronic",
+            "name": "Tiptronic",
+            "description": "Tiptronic automatic"
+        }
+    ],
+    "engineTypes": [
+        {
+            "id": "turbo",
+            "name": "Turbo",
+            "description": "Turbocharged engine"
+        },
+        {
+            "id": "atmosferik",
+            "name": "Atmosferik",
+            "description": "Naturally aspirated engine"
+        },
+        {
+            "id": "supercharger",
+            "name": "Supercharger",
+            "description": "Supercharged engine"
+        },
+        {
+            "id": "twin_turbo",
+            "name": "Twin Turbo",
+            "description": "Twin turbocharged engine"
+        }
+    ],
+    "drivetrainTypes": [
+        {
+            "id": "on_ceker",
+            "name": "Önden Çeker",
+            "description": "Front-wheel drive"
+        },
+        {
+            "id": "arkadan_itisli",
+            "name": "Arkadan İtişli",
+            "description": "Rear-wheel drive"
+        },
+        {
+            "id": "4x4",
+            "name": "4x4",
+            "description": "Four-wheel drive"
+        },
+        {
+            "id": "awd",
+            "name": "AWD",
+            "description": "All-wheel drive"
+        }
+    ],
+    "engineDisplacements": [
+        "1.0",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6",
+        "1.8",
+        "2.0",
+        "2.2",
+        "2.4",
+        "2.5",
+        "2.7",
+        "3.0",
+        "3.2",
+        "3.5",
+        "3.6",
+        "4.0",
+        "4.2",
+        "4.4",
+        "4.6",
+        "5.0",
+        "5.2",
+        "5.5",
+        "6.0",
+        "6.2"
+    ],
+    "horsepowerRanges": [
+        {
+            "min": 0,
+            "max": 100,
+            "label": "0-100 HP"
+        },
+        {
+            "min": 100,
+            "max": 150,
+            "label": "100-150 HP"
+        },
+        {
+            "min": 150,
+            "max": 200,
+            "label": "150-200 HP"
+        },
+        {
+            "min": 200,
+            "max": 250,
+            "label": "200-250 HP"
+        },
+        {
+            "min": 250,
+            "max": 300,
+            "label": "250-300 HP"
+        },
+        {
+            "min": 300,
+            "max": 400,
+            "label": "300-400 HP"
+        },
+        {
+            "min": 400,
+            "max": 500,
+            "label": "400-500 HP"
+        },
+        {
+            "min": 500,
+            "max": 1000,
+            "label": "500+ HP"
+        }
+    ]
+}

@@ -1,0 +1,746 @@
+{
+  "interestingFacts": {
+    "dailyTips": [
+      {
+        "id": "tip_001",
+        "title": "Kış Cam Buğusu",
+        "tip": "Kışın cam buğusunu hızlı çözmek için iç sirkülasyonu kapat, A/C'yi aç ve hava akışını camlara yönlendir. Klima nem alır, cam hızla açılır.",
+        "category": "winter",
+        "icon": "tips_and_updates"
+      },
+      {
+        "id": "tip_002",
+        "title": "Soğuk Motor Koruması",
+        "tip": "Soğuk havada ilk 2-3 dakika sert gaz yapma. Motor yağı henüz ısınmadığı için yüksek yük metal aşınmasını hızlandırır.",
+        "category": "engine",
+        "icon": "ac_unit"
+      },
+      {
+        "id": "tip_003",
+        "title": "Lastik Basıncı Kontrolü",
+        "tip": "Doğru lastik basıncı %3-5 yakıt tasarrufu sağlar, fren mesafesini kısaltır ve lastik ömrünü uzatır. Ayda bir kontrol et.",
+        "category": "tire",
+        "icon": "speed"
+      },
+      {
+        "id": "tip_004",
+        "title": "Aerodinamik Yük",
+        "tip": "Tavan taşıyıcıları ve gereksiz bagaj yükü aerodinamik direnci artırır. Kullanmadığın zaman çıkar, yakıt tasarrufu sağla.",
+        "category": "fuel",
+        "icon": "inventory_2"
+      },
+      {
+        "id": "tip_005",
+        "title": "Kaliteli Yakıt Kullanımı",
+        "tip": "Kaliteli yakıt ve düzenli hava filtresi değişimi motor vuruntusu ve kurum birikimini azaltır, performans artar.",
+        "category": "fuel",
+        "icon": "local_gas_station"
+      },{
+        "id": "tip_006",
+        "title": "Gizli Anahtar Özelliği",
+        "tip": "Birçok araçta kilit açma tuşuna uzun basarsan tüm camlar açılır (yazın sıcak havayı atmak için), kilitlemeye uzun basarsan hepsi kapanır.",
+        "category": "comfort",
+        "icon": "settings_remote"
+      },
+      {
+        "id": "tip_007",
+        "title": "Depo Kapağı Yönü",
+        "tip": "Benzinliğe girdiğinde kapağın ne tarafta olduğunu unuttuysan gösterge panelindeki benzin pompası simgesine bak. Yanındaki küçük ok yönü gösterir.",
+        "category": "fuel",
+        "icon": "arrow_forward"
+      },
+      {
+        "id": "tip_008",
+        "title": "Direksiyon Kilidi",
+        "tip": "Kontak anahtarı dönmüyorsa direksiyon kilitlenmiştir. Direksiyonu hafifçe sağa-sola oynatırken aynı anda anahtarı çevir, kilit açılacaktır.",
+        "category": "troubleshoot",
+        "icon": "lock_open"
+      },
+      {
+        "id": "tip_009",
+        "title": "Klima Kokusunu Önleme",
+        "tip": "Aracı stop etmeden 2-3 dakika önce A/C'yi kapatıp sadece fanı çalıştır. Bu, kanallardaki nemi kurutur ve kötü koku/bakteri oluşumunu engeller.",
+        "category": "maintenance",
+        "icon": "air"
+      },
+      {
+        "id": "tip_010",
+        "title": "Kışın El Freni",
+        "tip": "Çok soğuk havalarda (-10°C altı) el frenini çekik bırakma; balatalar diske yapışıp donabilir. Düz zeminde viteste (veya P modunda) bırakmak daha güvenlidir.",
+        "category": "winter",
+        "icon": "severe_cold"
+      },
+      {
+        "id": "tip_011",
+        "title": "Sıcak Direksiyon",
+        "tip": "Yazın güneş altına park ederken direksiyonu 180 derece çevirip bırak. Döndüğünde tutacağın üst kısım gölgede kaldığı için elini yakmaz.",
+        "category": "comfort",
+        "icon": "wb_sunny"
+      },
+      {
+        "id": "tip_012",
+        "title": "Kör Nokta Ayarı",
+        "tip": "Yan aynaları ayarlarken kafanı cama yasla ve aracını görmeyecek kadar dışa aç. Bu, kör noktayı minimuma indirir ve görüş açını genişletir.",
+        "category": "safety",
+        "icon": "visibility"
+      },
+      {
+        "id": "tip_013",
+        "title": "Yakıt Işığı Menzili",
+        "tip": "Yakıt ışığı yandığında araçlar genellikle 50-80 km daha gider. Ancak dibine kadar kullanmak yakıt pompasını ısıtır ve arızaya yol açabilir.",
+        "category": "fuel",
+        "icon": "warning"
+      },
+      {
+        "id": "tip_014",
+        "title": "Çamura Saplanma",
+        "tip": "Çamura veya kara saplanırsan gaza yüklenme. Tekerleklerin altına araç paspaslarını koyarak çekiş kazanabilir ve kurtulabilirsin.",
+        "category": "emergency",
+        "icon": "terrain"
+      },
+      {
+        "id": "tip_015",
+        "title": "Güneşlik Yönü",
+        "tip": "Güneşliklerin menteşe kısmından çıkıp yan cama döndüğünü biliyor muydun? Yandan gelen güneşi engellemek için tasarlanmıştır.",
+        "category": "comfort",
+        "icon": "wb_iridescent"
+      },
+      {
+        "id": "tip_016",
+        "title": "Cam Suyu Hortumu Isıtıcısı",
+        "tip": "Kış aylarında cam suyunuz donmasın diye kaputun altındaki hortumları yalıtım süngeriyle sarmak, sabahları silecek aynasını kurtaran basit ancak usta işi bir hiledir.",
+        "category": "winter",
+        "icon": "ac_unit"
+      },
+      {
+        "id": "tip_017",
+        "title": "Depo Havalandırma Düğmesi",
+        "tip": "Benzin doldururken pompa attığı an dolumu bırakın. Ağzına kadar doldurmaya çalışmak hem depodaki havalandırma kanisterini bozar hem de taşma riski yaratır.",
+        "category": "fuel",
+        "icon": "local_gas_station"
+      },
+      {
+        "id": "tip_018",
+        "title": "Oynak Aynalarla Park",
+        "tip": "Dar bir yere paralel park ederken sağ yan aynanızı arka lastiği görecek kadar aşağı indirmek jantlarınızı kaldırıma sürtmekten kurtaracak altın kuraldır.",
+        "category": "safety",
+        "icon": "car_crash"
+      },
+      {
+        "id": "tip_019",
+        "title": "Anahtar Pili Bittiğinde Çalıştırma",
+        "tip": "Anahtarsız çalışan aracınızın kumanda pili bitse dahi yolda kalmazsınız. Çoğu modelde anahtarın logosunu (uç kısmını) doğrudan Start/Stop tuşuna dayayarak düğmeye basarsanız motor çalışacaktır.",
+        "category": "emergency",
+        "icon": "settings_remote"
+      },
+      {
+        "id": "tip_020",
+        "title": "Silecek Ömrünü Uzatan Sirke",
+        "tip": "Ses yapan veya atlayarak silen silecek lastiklerini değiştirmeden önce temiz bir beze biraz beyaz sirke döküp lastikleri silin. Çoğu zaman kir yağmasını çözer ve ilk günkü gibi sessiz çalıştırır.",
+        "category": "maintenance",
+        "icon": "water_drop"
+      },
+      {
+        "id": "tip_021",
+        "title": "Bagajda Yük Dağılımı",
+        "tip": "Bagaja ağır eşya koyarken ağırlığı her zaman arka koltuklara en yakın (olabildiğince öne) ve alta koyun. Tampona yakın koyulan ağır yükler, aracın ön lastiklerinin yeri tutuşunu zayıflatır.",
+        "category": "safety",
+        "icon": "inventory_2"
+      },
+      {
+        "id": "tip_022",
+        "title": "Duvar Yankısı İle Arıza Dinleme",
+        "tip": "Aracınızdan gelen tuhaf seslerin yerini çözemiyorsanız; sakin bir sokakta camları indirip solunuzu veya sağınızı bir duvara yakın tutarak sürün. Duvar, sesi süspansiyon sisteminden net şekilde size geri yansıtacaktır.",
+        "category": "troubleshoot",
+        "icon": "hearing"
+      }
+
+    ],
+    "checklists": [
+      {
+        "id": "checklist_001",
+        "title": "Kış Sürüş Seti",
+        "category": "winter",
+        "gradient": ["#667EEA", "#764BA2"],
+        "items": [
+          "Antifriz seviyesi ve donma noktası ölçümü (-25°C için uygun)",
+          "Akü yük testi yapılmalı (soğukta kapasite %30-40 düşer)",
+          "Kış lastiği takılı, basınç ayarlı, diş derinliği min 4mm",
+          "Cam suyu antifrizli (-20°C), silecek lastikleri yeni",
+          "Acil durum kiti: battaniye, eldiven, powerbank, fener, ilkyardım",
+          "Karlı zeminde hareket için ince kum torbaları veya çekme halatı",
+          "Buz kazıyıcı ve kar fırçası bagajda hazır",
+          "Reflektör üçgeni ve fosforlu yelek",
+          "Motor soğutma sıvısı (Antifriz) derecesi ölçümü (Min -25°C)",
+          "Akü soğuk marş (CCA) testi ve voltaj ölçümü",
+          "Akü kutup başlarının temizliği ve oksit kontrolü",
+          "Alternatör şarj voltajı kontrolü (Isıtıcılar açıkken test)",
+          "Kış lastikleri takılı (Diş derinliği min. 4mm)",
+          "Lastik basınçlarının kontrolü (Soğuk havada basınç düşer)",
+          "Stepne basıncı kontrolü veya lastik tamir kiti kontrolü",
+          "Doğru ebatta kar zinciri veya kar çorabı (denenmiş olmalı)",
+          "Antifrizli cam suyu (Derecesi -20°C ve altı)",
+          "Silecek lastiklerinin durumu (Yırtık/sertleşme var mı?)",
+          "Silecek fıskiyelerinin iğne ile ayarı ve temizliği",
+          "Motor yağı seviyesi ve viskozite kontrolü (Kışa uygunluk)",
+          "Tüm aydınlatma sistemi (Sis farları dahil) kontrolü",
+          "Far yükseklik ayarının doğru yapılması",
+          "Kalorifer ısıtma performansı kontrolü",
+          "Arka cam ve yan ayna rezistanslarının çalıştığı teyit edilmeli",
+          "Polen filtresi değişimi (Buğuyu önlemek için hava akışı şart)",
+          "Sağlam bir buz kazıyıcı",
+          "Uzun saplı kar fırçası (Tavanı temizlemek için)",
+          "Buğu önleyici sprey veya mendil",
+          "Kilit buz çözücü sprey (Aracın içinde değil, cepte/çantada!)",
+          "Kalın kesitli takviye kablosu (Jumper)",
+          "Çekme halatı (Çelik veya dayanıklı örme)",
+          "Çeki demiri (Aracın neresinde olduğunu öğren ve yerinde mi bak)",
+          "Katlanabilir mini kürek (Tekerlek açmak için)",
+          "Patinaj önleyici için bir torba kedi kumu veya tuz",
+          "Reflektör (Şehirlerarası yol için 2 adet)",
+          "Fosforlu yelek (Araçtan inmek gerekirse hayat kurtarır)",
+          "Kafa lambası veya güçlü bir el feneri (Yedek pilleriyle)",
+          "İş eldiveni (Zincir takarken eller donmasın diye)",
+          "Termal battaniye veya polar şal",
+          "İlk yardım çantası (İçeriği tam ve tarihleri güncel)",
+          "Tam dolu Powerbank ve şarj kabloları",
+          "Yüksek enerjili kuru gıdalar (Çikolata, kuruyemiş, bisküvi)"
+        ]
+      },
+      {
+        "id": "checklist_002",
+        "title": "Uzun Yola Çıkmadan Önce",
+        "category": "travel",
+        "gradient": ["#7F7FD5", "#91EAE4"],
+        "items": [
+          "Motor yağı, soğutma suyu, fren hidroliği, silecek suyu kontrol",
+          "Lastik basınçları (stepne dahil) + kriko + bijon anahtarı + şişirme pompası",
+          "Fren balata kalınlığı ve disklerde oluk/korozyon kontrolü",
+          "Seyahat rotasında dinlenme noktaları ve servisler planlandı",
+          "Reflektör üçgeni, ilkyardım çantası, yangın tüpü hazır",
+          "Yedek araç anahtarı, ruhsat fotokopisi, sigorta belgeleri",
+          "Telefon şarj kablolarınız ve araç için powerbank",
+          "Araç son kontrolden geçti mi, garantisi aktif mi?",
+          "Motor yağı seviyesi ve kalitesi (Eksilme veya kirlilik var mı?)",
+          "Soğutma suyu (Antifriz) seviyesi ve hortum sızıntı kontrolü",
+          "Fren hidroliği seviyesi ve rengi (Kararma eskidiğini gösterir)",
+          "Dizel araçlar için AdBlue deposu doluluğu",
+          "Cam suyu deposu tam dolu + Bagajda yedek saf su",
+          "V kayışı gerginliği ve çatlak kontrolü (Koparsa şarj/klima gider)",
+          "Akü kutup başları sıkılığı ve oksit temizliği",
+          "Lastik hava basınçları (Yüklü araç değerlerine göre ayarla!)",
+          "Lastik diş derinliği ve yanaklarda balon/kesik kontrolü",
+          "Stepne havası kontrolü veya Tamir Kiti (Son kullanma tarihi?)",
+          "Kriko, bijon anahtarı ve şifreli bijon başlığının yerinde olduğu",
+          "Fren balatalarının kalınlığı ve disk yüzey kontrolü",
+          "Rot-Balans ayarı (Yüksek hızda titreme yorar, lastik yer)",
+          "Tüm aydınlatma sistemi (Fren, sinyal, geri vites, plaka) kontrolü",
+          "Far yükseklik ayarı (Bagaj yüklü araçta farlar havaya bakar, indirin)",
+          "Silecek lastiklerinin durumu (İz bırakıyorsa değiştirin)",
+          "Klima performansı ve polen filtresi (Koku ve soğutma testi)",
+          "HGS / OGS bakiye kontrolü veya otomatik ödeme talimatı",
+          "Trafik Sigortası ve Muayene geçerlilik tarihleri",
+          "Ehliyet ve Ruhsat (Fiziksel olarak yanınızda mı?)",
+          "Yedek anahtar (Ana anahtardan ayrı bir yerde, örneğin eşinizin çantasında)",
+          "Yangın tüpü (Basınç ibresi yeşilde mi, kolay ulaşılabilir mi?)",
+          "İlk yardım çantası (Eksikler tamamlanmalı)",
+          "Reflektör (2 adet) ve Fosforlu yelek (Şoför kapısında)",
+          "Navigasyon için çevrimdışı haritaların indirilmesi (İnternetsiz bölgeler)",
+          "Telefon tutucu, şarj kabloları ve araç içi şarj adaptörü",
+          "Güneş gözlüğü (Sabah doğuya, akşam batıya sürüşte hayati önem taşır)",
+          "Nakit para (Kart geçmeyen yerler veya bahşiş için bozukluk)",
+          "Çöp poşeti, ıslak mendil, rulo kağıt havlu",
+          "Yedek ampul seti ve basit tamir için kargaburun/tornavida",
+          "Koli bandı ve plastik kelepçe (Hayat kurtarıcı tamir kiti)",
+          "Bagaj yerleşimi (Ağır eşyalar alta ve öne, hafifler üste)",
+          "Yola çıkmadan önceki gece iyi uyku!"
+        ]
+      },
+      {
+        "id": "checklist_003",
+        "title": "İlk 30 Gün - Yeni Araç Sahibi",
+        "category": "new_car",
+        "gradient": ["#FA709A", "#FEE140"],
+        "items": [
+          "Tüm sıvı seviyeleri kontrol et ve sızıntıları gözlemle",
+          "Lastik basıncı kontrolünü alışkanlık haline getir (haftada bir)",
+          "Motor çalışırken anormal ses veya titreşimleri not al",
+          "Kullanım kılavuzunu detaylıca oku, bakım periyotlarını öğren",
+          "Tüm elektrik sistemlerini test et (far, sinyal, klima, cam)",
+          "Ruhsat, sigorta, trafik cezası kontrolü yap",
+          "Yakıt tüketimini ilk 1000 km boyunca takip et",
+          "Yetkili servis ile tanış, ilk bakım randevusunu al",
+          "Ruhsat bilgilerini (Motor/Şasi No) araç üzerindekiyle eşleştir",
+          "Yedek anahtarı test et (Pili zayıf mı, kapıları açıyor mu?)",
+          "Trafik sigortası ve kasko poliçesi detaylarını incele (Çekici var mı?)",
+          "MTV (Motorlu Taşıtlar Vergisi) borcu var mı kontrol et",
+          "HGS / OGS etiketini kendi adına yenile",
+          "Kullanım kılavuzunu torpidoya koy, yoksa dijitalini indir",
+          "Sigorta kutusunun yerini ve şemasını öğren",
+          "Kaput açma mandalı ve depo kapağı açma düğmesi yerini ezberle",
+          "Motor yağı seviyesi ve rengi (Sabah motor soğukken bak)",
+          "Soğutma suyu (Antifriz) seviyesi (Min-Max arasında mı?)",
+          "Lastik hava basınçlarını kapı içi etiketine göre ayarla",
+          "Lastik üretim tarihlerine (DOT) bak (5 yıldan eskiyse değiştir)",
+          "Stepne havasını kontrol et veya tamir kitinin tarihine bak",
+          "Kriko, bijon anahtarı, şifreli bijon ve çeki demiri yerinde mi?",
+          "Yangın tüpü basınç ibresi (Yeşil alanda mı?) ve tarihi",
+          "İlk yardım çantası içeriğini kontrol et ve tamamla",
+          "Detaylı iç temizlik ve dezenfeksiyon yaptır (Önceki sahibinden arın)",
+          "Koltuk, direksiyon ve ayna ayarlarını kendine göre sabitle",
+          "Telefonu Bluetooth/CarPlay ile eşleştir, mikrofon kalitesini dene",
+          "Tüm camların ve varsa sunroof'un tam açılıp kapandığını test et",
+          "Klima ısıtma/soğutma performansı ve koku testi",
+          "İç ve dış tüm aydınlatma ampullerini kontrol et",
+          "Silecek suyu doldur, fıskiyelerin yönünü iğne ile ayarla",
+          "Yakıt tüketim sayacını sıfırla, kendi kullanımınla gerçek veriyi gör",
+          "Güvenli bir alanda fren dozajını ve ABS tepkisini test et",
+          "El freninin tutuş gücünü dik bir yokuşta dene",
+          "Motor ısındıktan sonra rölantide dalgalanma var mı izle",
+          "Radyo ve ses sistemi ayarlarını (Bass/Treble) yap",
+          "Çocuk kilidi (Arka kapılar) aktif mi kontrol et",
+          "Kapı fitillerini silikon sprey ile besle (Ses ve yapışmayı önler)",
+          "Boyada pasta-cila veya seramik kaplama ihtiyacını belirle",
+          "Marka/Model forumlarına veya gruplarına üye ol, kronik sorunları öğren"
+        ]
+      }
+    ],
+    "doAndDont": [
+      {
+        "id": "fuel_economy",
+        "title": "Yakıt Tasarrufu",
+        "gradient": ["#4FACFE", "#00F2FE"],
+        "do": {
+          "title": "Yap",
+          "icon": "thumb_up",
+          "points": [
+            "Sabit hız kullan, erken ama uygun vites yükselt",
+            "Lastik basıncını düzenli kontrol et, hafif yük taşı",
+            "Yumuşak ivmelenme ve frenleme yap, öngörülü sür",
+            "Hava filtresi ve bujileri periyodik değiştir",
+            "Düşük sürtünmeli sentetik motor yağı kullan",
+            "Gereksiz elektrikli cihazları kapalı tut"
+          ]
+        },
+        "dont": {
+          "title": "Yapma",
+          "icon": "thumb_down",
+          "points": [
+            "Soğuk motorda yüksek devir çekme",
+            "Gereksiz rölanti ve uzun süreli ısıtma",
+            "Tavan taşıyıcılarını boşken takılı bırakma",
+            "Aşırı geniş/ağır jant-lastik kullanma",
+            "Ani gaz-fren hareketleri yapma",
+            "Klimayı maksimum soğukta sürekli açık tutma"
+          ]
+        }
+      },
+      {
+        "id": "winter_driving",
+        "title": "Kış Sürüşü",
+        "gradient": ["#667EEA", "#764BA2"],
+        "do": {
+          "title": "Yap",
+          "icon": "thumb_up",
+          "points": [
+            "Mesafeleri 2-3 katına çıkar, erken fren yap",
+            "Yumuşak gaz, düşük devir, yüksek vites kullan",
+            "ESP/ASR sistemini açık bırak",
+            "Virajlara yavaş gir, viraj içinde gaz kapat",
+            "Kar zincirlerini önceden pratik yap",
+            "Motor frenini aktif kullan (manuel vites)"
+          ]
+        },
+        "dont": {
+          "title": "Yapma",
+          "icon": "thumb_down",
+          "points": [
+            "Yaz lastiği ile karlı-buzlu yola çıkma",
+            "Ani direksiyon, gaz veya fren hareketi yapma",
+            "Viraj içinde fren yapma",
+            "Cruise control'u buzlu yolda kullanma",
+            "Önündeki araçla mesafe bırakmadan gitme",
+            "Tepelerde momentum kaybettirme"
+          ]
+        }
+      },
+      {
+        "id": "battery_care",
+        "title": "Akü Bakımı",
+        "gradient": ["#F093FB", "#F5576C"],
+        "do": {
+          "title": "Yap",
+          "icon": "thumb_up",
+          "points": [
+            "Terminalleri yılda 2 kez temizle ve sık",
+            "Kısa mesafe kullanımda haftada 30 dk uzun yol yap",
+            "3 yıldan eski aküyü kıştan önce değiştir",
+            "Voltajı ayda bir kontrol et (12.6V ideal)",
+            "Uzun süre kullanmayacaksan negatif kabloyu çıkar",
+            "Alternatör şarj gerilimini test ettir (13.5-14.5V)"
+          ]
+        },
+        "dont": {
+          "title": "Yapma",
+          "icon": "thumb_down",
+          "points": [
+            "Donmuş aküyü şarj etme (patlama riski)",
+            "Terminal oksidasyonunu ihmal etme",
+            "Motor kapalıyken uzun süre far/radyo açma",
+            "Takviye kablosu hatalarını yapma (kutup karışımı)",
+            "Zayıf akü ile marş motoru zorla çalıştırma",
+            "Akü üstünde metal alet bırakma"
+          ]
+        }
+      },
+      {
+        "id": "turbo_driving",
+        "title": "Turbo Motor Kullanımı",
+        "gradient": ["#F5576C", "#f093fb"],
+        "do": {
+          "title": "Yap",
+          "icon": "thumb_up",
+          "points": [
+            "İlk çalıştırmada yağ basıncı için 30 sn bekle",
+            "Stop etmeden önce turbonun soğuması için rölantide bekle",
+            "Kesinlikle üreticinin önerdiği tam sentetik yağı kullan",
+            "Kurum atması için ayda bir devirli ve tempolu sür",
+            "Hava filtresini her bakımda mutlaka değiştir",
+            "Yağ değişim periyotlarını kesinlikle aksatma"
+          ]
+        },
+        "dont": {
+          "title": "Yapma",
+          "icon": "thumb_down",
+          "points": [
+            "Motor ısınmadan (mavi ışık sönmeden) gaza yüklenme",
+            "Ağır yük ve yokuş tırmanışı sonrası anında stop etme",
+            "Yakıt tasarrufu için aracı çok düşük devirde boğma",
+            "Açık hava filtreleri veya kalitesiz filtreler kullanma",
+            "Ufak yağ sızıntılarını veya ıslık sesini görmezden gelme",
+            "Turbo arızasında tamir kiti yerine çıkma derme çatma parça takma"
+          ]
+        }
+      }
+    ],
+    "quickFacts": [
+      {
+        "id": "fact_001",
+        "text": "Soğuk havada ilk 2-3 dakika sert gaz yok; yağ ısınmadan yüksek yük aşınmayı artırır.",
+        "category": "engine",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_002",
+        "text": "Kısa mesafede rölantide ısıtmak verimsizdir; yumuşak sürüşle ısınmasını sağla.",
+        "category": "engine",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_003",
+        "text": "Doğru lastik basıncı %3-5 yakıt tasarrufu ve daha dengeli fren mesafesi sağlar.",
+        "category": "tire",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_004",
+        "text": "Tavan taşıyıcıları ve gereksiz yük aerodinamik sürüklemeyi %25'e kadar artırır.",
+        "category": "fuel",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_005",
+        "text": "Kaliteli yakıt ve düzenli hava filtresi vuruntuyu ve kurum birikimini azaltır.",
+        "category": "fuel",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_006",
+        "text": "Uzun yolda sabit hız tüketimi %15-20 düşürür ve sürücü yorgunluğunu azaltır.",
+        "category": "driving",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_007",
+        "text": "Yokuş inişte N vitese almak tehlikelidir; viteste süzülmek daha güvenli ve verimli.",
+        "category": "driving",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_008",
+        "text": "Aracı serinletmek için ilk 2-3 dakika A/C + dış hava kullan, sonra iç sirkülasyon aç.",
+        "category": "comfort",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_009",
+        "text": "Fren diskleri sıcakken derin suya girmek disk revdesi yapar; önce kısa serinleme turu.",
+        "category": "brake",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_010",
+        "text": "Eski lastik yeni dişli lastikten daha tehlikelidir; DOT kodunu ve çatlak kontrolü yap.",
+        "category": "tire",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_011",
+        "text": "Motor yağı değişiminde filtre contasını yağla; sızıntı ve aşırı sıkılma önlenir.",
+        "category": "maintenance",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_012",
+        "text": "Turbo araçlarda park öncesi 30-60 saniye rölanti yaparak turbo soğumasını sağla.",
+        "category": "engine",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_013",
+        "text": "Cam açık klimalı sürüş %5-10 daha fazla yakıt tüketir; kapalı pencere + klima verimli.",
+        "category": "fuel",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_014",
+        "text": "Araç çakmağı 12V çıkışı 10-15A ile sınırlı; yüksek güç cihazlar direkt akü bağlantısı ister.",
+        "category": "electric",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_015",
+        "text": "ESP/ASR sistemi karlı yolda bile açık kalmalı; deneyimli sürücüler bile kazadan korunur.",
+        "category": "safety",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },{
+        "id": "fact_016",
+        "text": "Hava yastıkları kaza anında 300 km/s hızla patlar; emniyet kemeri takılı değilse bu hız öldürücü olabilir.",
+        "category": "safety",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_017",
+        "text": "90 km/s hızla giderken saniyede 25 metre yol alırsınız. Telefona 2 saniye bakmak, 50 metre kör gitmektir.",
+        "category": "safety",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_018",
+        "text": "Fren hidroliği havadaki nemi emer; 2 yılda bir değişmezse kaynama noktası düşer ve frenler tutmayabilir.",
+        "category": "maintenance",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_019",
+        "text": "Silecek suyuna çeşme suyu koymak fıskiyelerde kireçlenmeye ve kışın haznenin donup çatlamasına neden olur.",
+        "category": "maintenance",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_020",
+        "text": "Yağmurlu havada 'Hız Sabitleyici' (Cruise Control) kullanmak, su birikintisinde kızaklama (aquaplaning) riskini artırır.",
+        "category": "driving",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_021",
+        "text": "Yazın kış lastiği kullanmak fren mesafesini uzatır, lastiği eritir ve yakıt tüketimini artırır.",
+        "category": "tire",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_022",
+        "text": "Direksiyonu sonuna kadar kırıp (tam tur) uzun süre bekletmek, hidrolik pompasına aşırı yük bindirir ve bozar.",
+        "category": "driving",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_023",
+        "text": "Kaza anında arka koltuktaki sabitlenmemiş bir tablet veya su şişesi, öndekiler için ölümcül bir füzeye dönüşür.",
+        "category": "safety",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_024",
+        "text": "Dizel araçlarda DPF (Partikül Filtresi) tıkanmaması için ayda bir kez 20 dk yüksek devirli sürüş gerekir.",
+        "category": "engine",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_025",
+        "text": "Farklı renklerdeki antifrizleri (Mavi/Kırmızı) karıştırmak kimyasal tepkimeye yol açar ve sistemi tıkayabilir.",
+        "category": "maintenance",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_026",
+        "text": "Start-Stop sistemi, yoğun şehir içi trafikte %15'e varan yakıt tasarrufu sağlar ve emisyonu düşürür.",
+        "category": "technology",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_027",
+        "text": "Akü kutup başlarında oluşan beyaz toz (oksit), elektriği iyi iletmez ve aracın zor çalışmasına neden olur.",
+        "category": "electric",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_028",
+        "text": "Beygir gücü (HP) aracın son süratini, Tork (NM) ise aracın ne kadar çabuk hızlanacağını ve yük çekeceğini belirler.",
+        "category": "engine",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_029",
+        "text": "Klimayı sadece yazın değil, kışın da ara sıra çalıştırmak sistemdeki contaların kurumasını ve gaz kaçırmasını önler.",
+        "category": "maintenance",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      },
+      {
+        "id": "fact_030",
+        "text": "Yan aynaları kendi aracınızı görmeyecek kadar dışa açmak, kör noktaları azaltır ve görüş açısını genişletir.",
+        "category": "driving",
+        "gradient": ["#667EEA", "#8B5CF6"]
+      }
+
+    ],
+    "timeBasedPlans": [
+      {
+        "id": "new_car_plan",
+        "title": "İlk Sahip Olunan Araç",
+        "gradient": ["#FA709A", "#FEE140"],
+        "phases": [
+          {
+            "period": "İlk 30 gün",
+            "tasks": [
+              "Tüm sıvı seviyeleri ve sızıntı kontrolü",
+              "Lastik basıncı alışkanlığı kazan (haftada bir)",
+              "Kritik ses/vibrasyonları not al ve servise bildir",
+              "Kullanım kitabını detaylıca oku, bakım periyotlarını öğren",
+              "Tüm elektrikli sistemleri test et",
+              "Yakıt tüketimi takibi başlat"
+            ]
+          },
+          {
+            "period": "60 gün",
+            "tasks": [
+              "Basit OBD taraması yap (varsa uyarı kodu kontrol et)",
+              "Kısa/uzun far ayarı ve tüm aydınlatma kontrolü",
+              "Akü voltaj gözlemi ve terminal temizliği",
+              "Fren pedalı hissi ve ABS testi (güvenli alanda)",
+              "İlk 1000 km yağ seviyesi kontrolü",
+              "Servis randevusu planlama"
+            ]
+          },
+          {
+            "period": "90 gün",
+            "tasks": [
+              "Rutin bakım kalemlerini planla (yağ, filtre, hava filtresi)",
+              "Sigorta/kasko teminatlarını gözden geçir",
+              "Mevsim öncesi lastik/klima servisine randevu al",
+              "Uzun yol öncesi genel kontrol yaptır",
+              "Acil durum kitini güncelle",
+              "Kullanım alışkanlıklarını değerlendir ve optimize et"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "seasonal_plan",
+        "title": "Mevsimsel Bakım Planı",
+        "gradient": ["#43E97B", "#38F9D7"],
+        "phases": [
+          {
+            "period": "İlkbahar (Mart-Mayıs)",
+            "tasks": [
+              "Kış lastiklerini çıkar, yaz lastikleri tak ve balans yaptır",
+              "Klima sistemi kontrolü ve gaz dolumu",
+              "Polen filtresi değişimi (alerjik dönem öncesi)",
+              "Cam suyu ve silecek lastikleri yenile",
+              "Motor yağı ve filtre değişimi (kışın yıpranma fazla)",
+              "Akü terminal temizliği"
+            ]
+          },
+          {
+            "period": "Yaz (Haziran-Ağustos)",
+            "tasks": [
+              "Soğutma sistemi kontrolü (aşırı ısınma riski)",
+              "Klima performans testi",
+              "Lastik basınçları (sıcakta artar) kontrol et",
+              "Motor yağı seviyesi ve renk kontrolü",
+              "Uzun yol öncesi genel check-up",
+              "Cam filmi ve güneşlik kontrolleri"
+            ]
+          },
+          {
+            "period": "Sonbahar (Eylül-Kasım)",
+            "tasks": [
+              "Yağmur öncesi silecek ve cam suyu hazırlığı",
+              "Far ve sinyal lambalarını kontrol et (erken kararan hava)",
+              "Fren sistemi detaylı kontrolü (kış öncesi)",
+              "Antifriz seviyesi ve donma noktası testi",
+              "Akü yük testi (soğuk yaklaşıyor)",
+              "Lastik diş derinliği ölçümü"
+            ]
+          },
+          {
+            "period": "Kış (Aralık-Şubat)",
+            "tasks": [
+              "Kış lastikleri tak (7°C altında)",
+              "Antifriz ve soğutma sistemi son kontrol",
+              "Akü ve marş motoru testi",
+              "Isıtma sistemi (kalorifer) kontrolü",
+              "Acil durum kiti hazırlığı (battaniye, kablo, fener)",
+              "Buz kazıyıcı ve kar fırçası temin et"
+            ]
+          }
+        ]
+      }
+    ],
+    "mythBusters": [
+      {
+        "id": "myth_001",
+        "myth": "Motor ısınmadan 5-10 dakika rölantide beklemeli",
+        "truth": "Modern motorlar 30-60 saniye rölantiden sonra yumuşak sürüşle ısınmalı. Uzun rölanti yakıt israfı ve karbon birikimi yapar.",
+        "category": "engine",
+        "gradient": ["#EF4444", "#DC2626"]
+      },
+      {
+        "id": "myth_002",
+        "myth": "Yüksek oktan yakıt her zaman daha iyidir",
+        "truth": "Oktan sadece vuruntuyu önler. Motoru gerektirmiyorsa 95 oktan yeterli, 98 oktan ekstra performans vermez.",
+        "category": "fuel",
+        "gradient": ["#EF4444", "#DC2626"]
+      },
+      {
+        "id": "myth_003",
+        "myth": "Manuel vites otomatikten her zaman ekonomiktir",
+        "truth": "Modern çift kavramalı otomatikler manuel kadar veya daha verimlidir. Sürüş tarzı ve motor tipi belirleyicidir.",
+        "category": "transmission",
+        "gradient": ["#EF4444", "#DC2626"]
+      },
+      {
+        "id": "myth_004",
+        "myth": "Yağ değişiminde motoru yıkatmak şarttır",
+        "truth": "Normal kullanımda yağ, motor yıkama gereksizdir. Kötü bakımlı araçlarda bile dikkatli yapılmalı, yoksa pislik yağ yollarına kaçar.",
+        "category": "maintenance",
+        "gradient": ["#EF4444", "#DC2626"]
+      },
+      {
+        "id": "myth_005",
+        "myth": "Nitrojen lastik için çok daha iyidir",
+        "truth": "Nitrojen hafif avantaj sağlar (yarış/ticari) ama günlük kullanımda normal hava yeterli. Düzenli basınç kontrolü daha önemli.",
+        "category": "tire",
+        "gradient": ["#EF4444", "#DC2626"]
+      },
+      {
+        "id": "myth_006",
+        "myth": "Daha geniş lastik her zaman daha iyi tutuş sağlar",
+        "truth": "Geniş lastik kuru zeminde avantaj verir ama yağışta suda kama riski artar. Kar ve buzda dar lastik daha iyi.",
+        "category": "tire",
+        "gradient": ["#EF4444", "#DC2626"]
+      }
+    ]
+  }
+}

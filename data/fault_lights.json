@@ -1,0 +1,169 @@
+{
+  "warningLights": [
+    {
+      "id": "light_red_001",
+      "title": "Motor Yağ Basıncı",
+      "severity": "critical",
+      "color": "#FF3B30",
+      "icon_resource": "ic_oil_pressure",
+      "visual_desc": "Damlayan bir yağdanlık (Aladdin'in lambası Şeklinde)",
+      "meaning": "Motor yağ basıncı kritik seviyede düşük. Yağlama yapılmıyor.",
+      "action": "HEMEN DUR! Motoru stop et ve çekici çağır. Asla yola devam etme, motor kilitlenir.",
+      "tags": ["Motor", "Yağ", "Kırmızı"]
+    },
+    {
+      "id": "light_red_002",
+      "title": "Motor Hararet",
+      "severity": "critical",
+      "color": "#FF3B30",
+      "icon_resource": "ic_engine_temp",
+      "visual_desc": "Dalgalı çizgiler üzerinde dik duran termometre",
+      "meaning": "Motor aşırı ısındı veya soğutma suyu bitti.",
+      "action": "Güvenli bir yerde dur. Motoru rölantide çalıştır ve kaloriferi en sıcağa al. Radyatör kapağını ASLA sıcakken açma!",
+      "tags": ["Hararet", "Su", "Kırmızı"]
+    },
+    {
+      "id": "light_red_003",
+      "title": "Akü / Şarj Sistemi",
+      "severity": "critical",
+      "color": "#FF3B30",
+      "icon_resource": "ic_battery_alert",
+      "visual_desc": "Üzerinde + ve - işaretleri olan dikdörtgen kutu",
+      "meaning": "Alternatör (Şarj dinamosu) elektrik üretmiyor, araç aküden yiyor.",
+      "action": "Radyo, klima ve gereksiz ışıkları kapat. Stop etmeden en yakın servise gitmeye çalıŞ.",
+      "tags": ["Elektrik", "Akü", "Kırmızı"]
+    },
+    {
+      "id": "light_red_004",
+      "title": "Fren Sistemi Uyarısı",
+      "severity": "critical",
+      "color": "#FF3B30",
+      "icon_resource": "ic_brake_system",
+      "visual_desc": "Daire içinde ünlem işareti (!) veya 'BRAKE' yazısı",
+      "meaning": "El freni çekik olabilir VEYA fren hidroliği bitmiŞ/kaçak var.",
+      "action": "El frenini kontrol et. İndirdiğin halde sönmüyorsa frenlerin tutmayabilir, çekici çağır.",
+      "tags": ["Fren", "Hidrolik", "Kırmızı"]
+    },
+    {
+      "id": "light_yellow_001",
+      "title": "Motor Arıza (Check Engine)",
+      "severity": "warning",
+      "color": "#FFCC00",
+      "icon_resource": "ic_check_engine",
+      "visual_desc": "Sarı renkli motor bloğu Şekli (Bazen musluğa benzer)",
+      "meaning": "Motor sensörlerinde, emisyonda veya ateşlemede bir sorun tespit edildi.",
+      "action": "Araç çalışır ancak performansı düşebilir. En kısa sürede servise gidip bilgisayara bağlatın. Yanıp sönüyorsa acildir.",
+      "tags": ["Motor", "Sensör", "Sarı"]
+    },
+    {
+      "id": "light_yellow_002",
+      "title": "Lastik Basıncı (TPMS)",
+      "severity": "warning",
+      "color": "#FFCC00",
+      "icon_resource": "ic_tire_pressure",
+      "visual_desc": "Altı düzleşmiŞ daire içinde ünlem işareti (!)",
+      "meaning": "Lastiklerden birinin veya birkaçının basıncı düşük.",
+      "action": "İlk benzinlikte lastik havalarını kontrol et. Patlak yoksa hava basıp sistemi sıfırla.",
+      "tags": ["Lastik", "Basınç", "Sarı"]
+    },
+    {
+      "id": "light_yellow_003",
+      "title": "ABS Fren Sistemi",
+      "severity": "warning",
+      "color": "#FFCC00",
+      "icon_resource": "ic_abs_warning",
+      "visual_desc": "Daire içinde 'ABS' yazısı",
+      "meaning": "ABS sistemi devre dışı. Frenler tutar ancak tekerlekler kilitlenmeyi önlemez.",
+      "action": "Ani frenlerden kaçınarak dikkatli sür. Servis kontrolü gerekir.",
+      "tags": ["Fren", "ABS", "Sarı"]
+    },
+    {
+      "id": "light_yellow_004",
+      "title": "ESP / ASR (Patinaj)",
+      "severity": "warning",
+      "color": "#FFCC00",
+      "icon_resource": "ic_esp_traction",
+      "visual_desc": "Kaygan yolda zikzak yapan araba simgesi",
+      "meaning": "Sürekli yanıyorsa sistem arızalıdır. Yanıp sönüyorsa o an kayıyorsunuz ve sistem devrede demektir.",
+      "action": "Yanıp sönerken gazı azalt. Sürekli yanıyorsa virajlarda dikkatli ol, savrulma önleyici çalışmıyor.",
+      "tags": ["Güvenlik", "Yol TutuŞ", "Sarı"]
+    },
+    {
+      "id": "light_yellow_005",
+      "title": "Isıtma Bujisi (Dizel)",
+      "severity": "info_warning",
+      "color": "#FFCC00",
+      "icon_resource": "ic_glow_plug",
+      "visual_desc": "Yay Şeklinde kıvrımlı sarı tel (Bobin)",
+      "meaning": "Motor soğuk, ısıtma yapılıyor (MarŞ öncesi). Sürüşte yanarsa arıza var demektir.",
+      "action": "MarŞ öncesi sönmesini bekle. Yolda yanıp sönerse servise git.",
+      "tags": ["Dizel", "Motor", "Sarı"]
+    },
+    {
+      "id": "light_yellow_006",
+      "title": "Dizel Partikül Filtresi (DPF)",
+      "severity": "warning",
+      "color": "#FFCC00",
+      "icon_resource": "ic_dpf_filter",
+      "visual_desc": "İçi noktalı dikdörtgen veya egzoz borusu",
+      "meaning": "Egzoz filtresi kurumla dolmuŞ, temizlenmesi gerekiyor.",
+      "action": "Aracı otobanda yüksek devirde (3000 rpm) 15-20 dk sürerek temizlenmesini sağla.",
+      "tags": ["Egzoz", "Filtre", "Sarı"]
+    },
+    {
+      "id": "light_yellow_007",
+      "title": "Yakıt Az Uyarısı",
+      "severity": "warning",
+      "color": "#FFCC00",
+      "icon_resource": "ic_low_fuel",
+      "visual_desc": "Benzin pompası simgesi",
+      "meaning": "Yakıt rezerv seviyesine düştü (Genellikle 50-80 km menzil kaldı).",
+      "action": "En yakın istasyondan yakıt al. Yakıt pompasını yakmamak için dibine kadar kullanma.",
+      "tags": ["Yakıt", "Sarı"]
+    },
+    {
+      "id": "light_blue_001",
+      "title": "Uzun Farlar",
+      "severity": "info",
+      "color": "#007AFF",
+      "icon_resource": "ic_high_beam",
+      "visual_desc": "Mavi renkli, düz çizgili far simgesi",
+      "meaning": "Uzun hüzmeli farlar açık.",
+      "action": "Karşıdan araç geliyorsa kapat, sürücülerin gözünü alma.",
+      "tags": ["Aydınlatma", "Mavi"]
+    },
+    {
+      "id": "light_green_001",
+      "title": "Kısa Farlar / Parklar",
+      "severity": "info",
+      "color": "#34C759",
+      "icon_resource": "ic_low_beam",
+      "visual_desc": "Yeşil renkli, önü hafif eğik çizgili far simgesi",
+      "meaning": "Farlar veya park lambaları açık.",
+      "action": "Gündüz tünele girerken veya gece sürüşünde açık olduğundan emin ol.",
+      "tags": ["Aydınlatma", "Yeşil"]
+    },
+    {
+      "id": "light_green_002",
+      "title": "Sis Farları",
+      "severity": "info",
+      "color": "#34C759",
+      "icon_resource": "ic_fog_light",
+      "visual_desc": "Yeşil, çizgileri üzerinde dalga işareti olan far",
+      "meaning": "Ön sis farları açık.",
+      "action": "Sadece sisli, yağmurlu veya karlı havada kullan. Açık havada kullanmak yasaktır.",
+      "tags": ["Aydınlatma", "Yeşil"]
+    },
+    {
+      "id": "light_red_005",
+      "title": "Hava Yastığı (Airbag)",
+      "severity": "critical",
+      "color": "#FF3B30",
+      "icon_resource": "ic_airbag_warning",
+      "visual_desc": "Koltukta oturan ve önünde balon olan adam simgesi",
+      "meaning": "Airbag sistemi arızalı. Kaza anında hava yastıkları açılmayabilir.",
+      "action": "Güvenlik riskidir, servise gösterin. Bazen koltuk altı soketlerinden kaynaklanır.",
+      "tags": ["Güvenlik", "Kırmızı"]
+    }
+  ]
+}
