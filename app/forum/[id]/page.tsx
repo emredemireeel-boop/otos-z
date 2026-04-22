@@ -11,7 +11,7 @@ import {
     incrementViews, formatTimestamp,
     type ForumThread, type ForumEntry
 } from "@/lib/forumService";
-import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag } from "lucide-react";
+import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star } from "lucide-react";
 import { sampleListings, formatListingPrice } from "@/data/listings";
 
 const parseComparisonContent = (text: string) => {
@@ -50,6 +50,7 @@ export default function ForumThreadPage() {
     const [reportNote, setReportNote] = useState('');
     const [reportSending, setReportSending] = useState(false);
     const [reportToast, setReportToast] = useState<string | null>(null);
+    const [activeUserMenu, setActiveUserMenu] = useState<string | null>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const viewCounted = useRef(false);
 
@@ -359,25 +360,58 @@ export default function ForumThreadPage() {
                                             </div>
 
                                             {/* Author Info */}
-                                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                                                <div style={{
-                                                    width: '40px', height: '40px', borderRadius: '50%',
-                                                    background: (isFirstEntry && isKarsilastirma) ? 'linear-gradient(135deg, #3b82f6, #2563eb)' : 'linear-gradient(135deg, var(--primary), #3b82f6)',
-                                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                    fontSize: '16px', fontWeight: '700', color: 'white',
-                                                    flexShrink: 0,
-                                                    boxShadow: (isFirstEntry && isKarsilastirma) ? '0 4px 10px rgba(0,0,0,0.1)' : 'none'
-                                                }}>
-                                                    {entry.username.charAt(0).toUpperCase()}
-                                                </div>
-                                                <div>
-                                                    <div style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                                        @{entry.username}
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', position: 'relative' }}>
+                                                <div 
+                                                    style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '12px' }}
+                                                    onClick={() => setActiveUserMenu(activeUserMenu === entry.id ? null : entry.id)}
+                                                >
+                                                    <div style={{
+                                                        width: '40px', height: '40px', borderRadius: '50%',
+                                                        background: (isFirstEntry && isKarsilastirma) ? 'linear-gradient(135deg, #3b82f6, #2563eb)' : 'linear-gradient(135deg, var(--primary), #3b82f6)',
+                                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                        fontSize: '16px', fontWeight: '700', color: 'white',
+                                                        flexShrink: 0,
+                                                        boxShadow: (isFirstEntry && isKarsilastirma) ? '0 4px 10px rgba(0,0,0,0.1)' : 'none'
+                                                    }}>
+                                                        {entry.username.charAt(0).toUpperCase()}
                                                     </div>
-                                                    <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-                                                        {formatTimestamp(entry.createdAt)}
+                                                    <div>
+                                                        <div style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                            @{entry.username} <span style={{ fontSize: '10px', color: 'var(--text-muted)' }}>▼</span>
+                                                        </div>
+                                                        <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                                                            {formatTimestamp(entry.createdAt)}
+                                                        </div>
                                                     </div>
                                                 </div>
+
+                                                {/* Author Dropdown Menu */}
+                                                {activeUserMenu === entry.id && (
+                                                    <div style={{
+                                                        position: 'absolute', top: '45px', left: '0', zIndex: 10,
+                                                        background: 'var(--card-bg)', border: '1px solid var(--card-border)',
+                                                        borderRadius: '12px', padding: '8px', minWidth: '180px',
+                                                        boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+                                                    }}>
+                                                        <button style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                            <User size={14} /> Profili Ziyaret Et
+                                                        </button>
+                                                        <button style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                            <MessageSquare size={14} /> Mesaj Gönder
+                                                        </button>
+                                                        <button style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                            <Star size={14} color="#f59e0b" /> Puan Ver
+                                                        </button>
+                                                        {user && user.id !== entry.authorId && (
+                                                            <>
+                                                                <div style={{ height: '1px', background: 'var(--card-border)', margin: '4px 0' }} />
+                                                                <button onClick={() => { setReportModal({ entry, threadTitle: thread.title }); setActiveUserMenu(null); }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: '#ef4444', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='rgba(239,68,68,0.1)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                                    <Flag size={14} /> Şikayet Et
+                                                                </button>
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                )}
                                             </div>
 
                                             {/* Content */}
@@ -439,26 +473,6 @@ export default function ForumThreadPage() {
                                                 <ThumbsUp size={14} />
                                                 {entry.likes}
                                             </button>
-                                            {/* Şikayet Et */}
-                                            {user && user.id !== entry.authorId && (
-                                                <button
-                                                    onClick={() => setReportModal({ entry, threadTitle: thread.title })}
-                                                    style={{
-                                                        display: 'flex', alignItems: 'center', gap: '5px',
-                                                        padding: '6px 12px', marginLeft: 'auto',
-                                                        background: 'transparent',
-                                                        border: '1px solid transparent',
-                                                        borderRadius: '8px',
-                                                        color: 'var(--text-muted)',
-                                                        fontSize: '12px', fontWeight: '600',
-                                                        cursor: 'pointer', transition: 'all 0.2s',
-                                                    }}
-                                                    onMouseEnter={(e) => { e.currentTarget.style.color = '#EF4444'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.style.background = 'rgba(239,68,68,0.05)'; }}
-                                                    onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.background = 'transparent'; }}
-                                                >
-                                                    <Flag size={13} /> Şikayet Et
-                                                </button>
-                                            )}
                                         </div>
                                     </div>
                                 );

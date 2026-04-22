@@ -28,8 +28,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
+# env files (ONEMLI: private key'ler burada!)
 .env*
+
+# Firebase service account keys
+*.json.key
+otosozindex-*.json
+otosoz-*.json
 
 # typescript
 *.tsbuildinfo

@@ -96,7 +96,7 @@ export default function ProfilPage() {
                     });
                     setOtherUserData({
                         id: userDoc.id,
-                        role: data.role || "cirak",
+                        role: data.role || "caylak",
                         entryCount: data.entryCount || 0,
                         createdAt: data.createdAt || null,
                     });

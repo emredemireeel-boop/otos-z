@@ -5,6 +5,7 @@ import {
     type DocumentData, type QuerySnapshot
 } from "firebase/firestore";
 import { db } from "./firebase";
+import { sanitizeText, validateThreadTitle, validateEntryContent, validateTags } from "./validation";
 
 /* ── Types ── */
 export interface ForumEntry {
@@ -29,6 +30,7 @@ export interface ForumThread {
     tags: string[];
     entryCount: number;
     lastEntryAt: Timestamp | null;
+    vehicleVotes?: Record<string, string[]>;
 }
 
 /* ── Helpers ── */
@@ -46,6 +48,7 @@ function mapThread(docSnap: DocumentData, id: string): ForumThread {
         tags: d.tags || [],
         entryCount: d.entryCount || 0,
         lastEntryAt: d.lastEntryAt || d.createdAt || null,
+        vehicleVotes: d.vehicleVotes || {},
     };
 }
 
@@ -113,18 +116,30 @@ export async function createThread(data: {
     authorId: string;
     authorUsername: string;
 }): Promise<string> {
+    // Input dogrulama
+    const titleCheck = validateThreadTitle(data.title);
+    if (!titleCheck.valid) throw new Error(titleCheck.error);
+
+    const contentCheck = validateEntryContent(data.content);
+    if (!contentCheck.valid) throw new Error(contentCheck.error);
+
+    const safeTags = validateTags(data.tags);
+    const safeUsername = sanitizeText(data.authorUsername).slice(0, 30);
+    const safeDescription = sanitizeText(data.description || '').slice(0, 500);
+    const safeCategory = sanitizeText(data.category).slice(0, 50);
+
     const now = serverTimestamp();
 
     // Thread olustur
     const threadRef = await addDoc(collection(db, "threads"), {
-        title: data.title,
-        category: data.category,
-        description: data.description || "",
+        title: titleCheck.sanitized,
+        category: safeCategory,
+        description: safeDescription,
         authorId: data.authorId,
-        authorUsername: data.authorUsername,
+        authorUsername: safeUsername,
         createdAt: now,
         views: 0,
-        tags: data.tags,
+        tags: safeTags,
         entryCount: 1,
         lastEntryAt: now,
     });
@@ -132,8 +147,8 @@ export async function createThread(data: {
     // Ilk entry olustur
     await addDoc(collection(db, "threads", threadRef.id, "entries"), {
         authorId: data.authorId,
-        username: data.authorUsername,
-        content: data.content,
+        username: safeUsername,
+        content: contentCheck.sanitized,
         createdAt: now,
         likes: 0,
         likedBy: [],
@@ -148,13 +163,18 @@ export async function addEntry(threadId: string, data: {
     username: string;
     content: string;
 }): Promise<string> {
+    // Input dogrulama
+    const contentCheck = validateEntryContent(data.content);
+    if (!contentCheck.valid) throw new Error(contentCheck.error);
+
+    const safeUsername = sanitizeText(data.username).slice(0, 30);
     const now = serverTimestamp();
 
     // Entry ekle
     const entryRef = await addDoc(collection(db, "threads", threadId, "entries"), {
         authorId: data.authorId,
-        username: data.username,
-        content: data.content,
+        username: safeUsername,
+        content: contentCheck.sanitized,
         createdAt: now,
         likes: 0,
         likedBy: [],
@@ -184,6 +204,38 @@ export async function toggleLike(threadId: string, entryId: string, userId: stri
     });
 
     return !isLiked;
+}
+
+/** Tek araca oy verme (Karsilastirma icin) */
+export async function toggleVehicleVote(threadId: string, vehicleName: string, userId: string): Promise<boolean> {
+    const threadRef = doc(db, "threads", threadId);
+    const snap = await getDoc(threadRef);
+    if (!snap.exists()) return false;
+
+    const currentVotes: Record<string, string[]> = snap.data().vehicleVotes || {};
+    
+    // Check if user already voted for this specific vehicle
+    const hasVotedForThis = currentVotes[vehicleName]?.includes(userId);
+
+    // Remove user's vote from ALL vehicles to ensure single vote
+    const updatedVotes: Record<string, string[]> = {};
+    for (const [vName, voters] of Object.entries(currentVotes)) {
+        updatedVotes[vName] = (voters as string[]).filter(id => id !== userId);
+    }
+
+    let isNowVoted = false;
+    // If they didn't already vote for this vehicle, add their vote to this vehicle
+    if (!hasVotedForThis) {
+        if (!updatedVotes[vehicleName]) updatedVotes[vehicleName] = [];
+        updatedVotes[vehicleName].push(userId);
+        isNowVoted = true;
+    }
+
+    await updateDoc(threadRef, {
+        vehicleVotes: updatedVotes
+    });
+
+    return isNowVoted;
 }
 
 /** Goruntuleme sayisini artir */

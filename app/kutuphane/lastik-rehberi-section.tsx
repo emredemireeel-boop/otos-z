@@ -16,11 +16,11 @@ function parseTireSize(input: string): TireSize | null {
 }
 
 const PRESSURE_GUIDE = [
-  { tip: "Binek Araç (küçük)", on: "2.0–2.2 bar", arka: "1.9–2.1 bar", icon: "🚗" },
-  { tip: "Binek Araç (orta/büyük)", on: "2.2–2.5 bar", arka: "2.1–2.4 bar", icon: "🚙" },
-  { tip: "SUV / Crossover", on: "2.4–2.8 bar", arka: "2.3–2.7 bar", icon: "🚐" },
-  { tip: "Minivan / Van", on: "2.6–3.0 bar", arka: "3.0–3.5 bar", icon: "🚌" },
-  { tip: "Pikap / 4x4", on: "2.2–2.8 bar", arka: "2.4–3.2 bar (yüke göre)", icon: "🛻" },
+  { tip: "Binek Araç (küçük)", on: "29–32 psi", arka: "28–30 psi", icon: "🚗" },
+  { tip: "Binek Araç (orta/büyük)", on: "32–36 psi", arka: "30–35 psi", icon: "🚙" },
+  { tip: "SUV / Crossover", on: "35–41 psi", arka: "33–39 psi", icon: "🚐" },
+  { tip: "Minivan / Van", on: "38–44 psi", arka: "44–51 psi", icon: "🚌" },
+  { tip: "Pikap / 4x4", on: "32–41 psi", arka: "35–46 psi (yüke göre)", icon: "🛻" },
 ];
 
 const SEASON_DATA = [
@@ -175,7 +175,7 @@ export default function LastikRehberiSection() {
         </div>
         <div style={{ marginTop: "12px", padding: "10px 14px", background: "rgba(59,130,246,0.08)", borderRadius: "10px", fontSize: "12px", color: "var(--text-muted)", display: "flex", gap: "8px" }}>
           <Info size={14} color="#3B82F6" style={{ flexShrink: 0 }} />
-          <span>Basıncı soğuk lastik üzerinde ölçün. Sıcak lastik ~0.3 bar daha yüksek gösterebilir. Üretici manuel değerlerine uyun.</span>
+          <span>Basıncı soğuk lastik üzerinde ölçün. Sıcak lastik ~4-5 psi daha yüksek gösterebilir. Üretici manuel değerlerine uyun.</span>
         </div>
       </div>
 

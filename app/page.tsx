@@ -10,6 +10,7 @@ import { useAuth } from "@/context/AuthContext";
 
 
 import { events } from "@/data/events";
+import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 import { subscribeToThreads, formatTimestamp, type ForumThread as FirestoreThread } from "@/lib/forumService";
 import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 import { db } from "@/lib/firebase";
@@ -26,7 +27,7 @@ const levelColors: Record<string, { bg: string; text: string }> = {
 
 
 // Kategoriler (statik)
-const FORUM_CATS = ["Genel", "Teknik", "Deneyim", "Karsilastirma", "Marka", "Alim-Satim"];
+const FORUM_CATS = ["Genel", "Teknik", "Deneyim", "Karşılaştırma", "Marka", "Alim-Satim"];
 const categories = [
     { name: "Tümü", count: 0, type: "topic" },
     ...FORUM_CATS.map(cat => ({ name: cat, count: 0, type: "topic" })),
@@ -154,7 +155,7 @@ export default function Home() {
                 const snap = await getDocs(usersRef);
                 const allUsers = snap.docs.map(d => ({
                     username: d.data().username || 'anonim',
-                    role: d.data().role || 'cirak',
+                    role: d.data().role || 'caylak',
                     entryCount: d.data().entryCount || 0,
                 }));
                 setPlatformStats(prev => ({ ...prev, totalUsers: allUsers.length }));
@@ -173,7 +174,7 @@ export default function Home() {
         id: thread.id,
         title: thread.title,
         entryCount: thread.entryCount || 0,
-        category: thread.category,
+        category: thread.category === "Karsilastirma" ? "Karşılaştırma" : thread.category,
         isHot: thread.views > 50,
         lastActivity: formatTimestamp(thread.createdAt),
         lastAuthor: thread.authorUsername,
@@ -581,6 +582,50 @@ export default function Home() {
                                     </div>
                                 </Link>
                             )}
+
+                            {/* Pazar Vitrini */}
+                            <div style={{
+                                marginTop: '16px',
+                                background: 'var(--card-bg)',
+                                border: '1px solid var(--card-border)',
+                                borderRadius: '16px',
+                                padding: '16px',
+                                overflow: 'hidden'
+                            }}>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                                    <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                        Pazar Vitrini
+                                    </h3>
+                                    <Link href="/pazar" style={{ fontSize: '12px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }}>
+                                        Tümü
+                                    </Link>
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    {sampleListings.slice(0, 2).map((listing, index) => (
+                                        <Link key={listing.id || index} href="/pazar" style={{ textDecoration: 'none' }}>
+                                            <div style={{
+                                                background: 'var(--secondary)',
+                                                border: '1px solid var(--card-border)',
+                                                borderRadius: '12px',
+                                                padding: '12px',
+                                                transition: 'all 0.2s',
+                                                cursor: 'pointer'
+                                            }}
+                                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
+                                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
+                                            >
+                                                <div style={{ fontSize: '13px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                                    {listing.brand} {listing.model}
+                                                </div>
+                                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                                    <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {formatKm(listing.km)}</span>
+                                                    <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e' }}>{formatListingPrice(listing.price)}</span>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
                         </aside>
 
                         {/* Main Content - BAşLIKLAR LİSTESİ */}
@@ -737,7 +782,7 @@ export default function Home() {
                                             {[...liveThreads].sort((a, b) => b.views - a.views).slice(0, 5).map((thread, index) => (
                                                 <li key={thread.id}>
                                                     <Link
-                                                        href={`/forum/konu/${thread.id}`}
+                                                        href={`/forum/${thread.id}`}
                                                         style={{
                                                             display: 'flex',
                                                             alignItems: 'flex-start',
@@ -768,15 +813,15 @@ export default function Home() {
                                     marginBottom: '16px',
                                 }}>
                                     <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                        <Crown size={14} color="#FFD700" /> Top Yazarlar
+                                        <Crown size={14} color="var(--primary)" /> Top Yazarlar
                                     </h3>
                                     {topUsers.length === 0 ? (
                                         <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '12px 0' }}>Henüz yazar yok</p>
                                     ) : (
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                             {topUsers.map((u, i) => (
-                                                <div key={`${u.username}-${i}`} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px', borderRadius: '8px', background: i === 0 ? 'rgba(255, 215, 0, 0.06)' : 'transparent' }}>
-                                                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: i === 0 ? '#FFD700' : i === 1 ? '#C0C0C0' : i === 2 ? '#CD7F32' : 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '700', color: 'white', flexShrink: 0 }}>{i + 1}</div>
+                                                <div key={`${u.username}-${i}`} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px', borderRadius: '8px', background: 'transparent' }}>
+                                                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--secondary)', border: '1px solid var(--card-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '700', color: 'var(--foreground)', flexShrink: 0 }}>{i + 1}</div>
                                                     <div style={{ flex: 1 }}>
                                                         <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--foreground)' }}>@{u.username}</span>
                                                         <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{u.role === 'usta' ? 'Usta' : 'Çırak'}</div>
@@ -1109,9 +1154,9 @@ export default function Home() {
                         <h2 className="forum-section-title">
                             <div style={{
                                 width: '40px', height: '40px', borderRadius: '12px',
-                                background: isDark ? 'rgba(168,85,247,0.1)' : 'rgba(168,85,247,0.06)',
+                                background: isDark ? 'rgba(0,90,226,0.1)' : 'rgba(0,90,226,0.06)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                color: '#a855f7',
+                                color: 'var(--primary)',
                             }}>
                                 <Crown size={20} />
                             </div>
@@ -1125,26 +1170,23 @@ export default function Home() {
                             <p style={{ gridColumn: '1 / -1', textAlign: 'center', color: 'var(--text-muted)', fontSize: '14px', padding: '24px 0' }}>Henüz yazar bulunmuyor</p>
                         ) : (
                             topUsers.map((u, i) => {
-                                const rankColors = ['#f59e0b', '#94a3b8', '#cd7f32'];
                                 return (
                                     <div key={`${u.username}-${i}`} className="author-card">
-                                        {i < 3 && (
-                                            <div style={{
-                                                position: 'absolute', top: '10px', right: '12px',
-                                                width: '24px', height: '24px', borderRadius: '50%',
-                                                background: rankColors[i], display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                color: i === 0 ? '#000' : '#fff', fontSize: '11px', fontWeight: '800',
-                                                boxShadow: `0 2px 8px ${rankColors[i]}40`,
-                                            }}>
-                                                {i + 1}
-                                            </div>
-                                        )}
+                                        <div style={{
+                                            position: 'absolute', top: '10px', right: '12px',
+                                            width: '24px', height: '24px', borderRadius: '50%',
+                                            background: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                            color: 'var(--text-muted)', fontSize: '11px', fontWeight: '800',
+                                            border: '1px solid var(--card-border)',
+                                        }}>
+                                            {i + 1}
+                                        </div>
                                         <div style={{
                                             width: '52px', height: '52px', borderRadius: '50%',
-                                            background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.04)',
+                                            background: 'var(--secondary)',
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                            fontSize: '20px', fontWeight: '700', color: 'var(--primary)', margin: '0 auto 12px',
-                                            border: i < 3 ? `2px solid ${rankColors[i]}` : '2px solid var(--card-border)',
+                                            fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', margin: '0 auto 12px',
+                                            border: '1px solid var(--card-border)',
                                         }}>
                                             {u.username.charAt(0).toUpperCase()}
                                         </div>
@@ -1152,9 +1194,9 @@ export default function Home() {
                                             @{u.username}
                                         </h4>
                                         <span style={{
-                                            display: 'inline-block', padding: '2px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: '700',
-                                            background: u.role === 'usta' ? 'rgba(245,158,11,0.2)' : 'rgba(100,100,100,0.2)',
-                                            color: u.role === 'usta' ? '#f59e0b' : '#888', marginBottom: '10px',
+                                            display: 'inline-block', padding: '4px 12px', borderRadius: '6px', fontSize: '11px', fontWeight: '700',
+                                            background: 'var(--secondary)', border: '1px solid var(--card-border)',
+                                            color: 'var(--text-muted)', marginBottom: '10px',
                                         }}>
                                             {u.role === 'usta' ? 'Usta' : 'Çırak'}
                                         </span>
@@ -1387,7 +1429,7 @@ export default function Home() {
                                     {[
                                         { id: 'topic', label: '📑� Başlık', desc: 'Forum başlığı' },
                                         { id: 'survey', label: '📊 Anket', desc: 'Oylama' },
-                                        { id: 'expert', label: ' Soru', desc: 'Uzmana Sor' },
+                                        { id: 'expert', label: '💡 Soru', desc: 'Uzmana Sor' },
                                     ].map((type) => (
                                         <button
                                             key={type.id}
@@ -1471,7 +1513,7 @@ export default function Home() {
                                     type="text"
                                     value={newTopicData.title}
                                     onChange={(e) => setNewTopicData({ ...newTopicData, title: e.target.value })}
-                                    placeholder="BaşlıÃ„şınızı yazın..."
+                                    placeholder="Başlığınızı yazın..."
                                     style={{
                                         width: '100%',
                                         padding: '12px 16px',

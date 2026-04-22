@@ -5,6 +5,9 @@ import {
     query, orderBy, limit, where, serverTimestamp,
     Timestamp
 } from 'firebase/firestore';
+import { requireAdmin, type AuthResult } from '@/lib/authGuard';
+import { checkRateLimit, RATE_LIMITS, getClientIP } from '@/lib/rateLimit';
+import { sanitizeText, isValidDocId } from '@/lib/validation';
 
 /**
  * Admin API - Firestore uzerinden gercek platform verilerini yonetir
@@ -24,6 +27,21 @@ function tsToStr(ts: any): string {
 
 // -- GET --
 export async function GET(request: Request) {
+    // ── Rate limit kontrolu ──
+    const ip = getClientIP(request);
+    const rl = checkRateLimit(`admin-get:${ip}`, RATE_LIMITS.admin);
+    if (!rl.allowed) {
+        return NextResponse.json(
+            { success: false, message: 'Çok fazla istek. Lütfen bekleyin.' },
+            { status: 429, headers: { 'Retry-After': String(Math.ceil((rl.retryAfterMs || 60000) / 1000)) } }
+        );
+    }
+
+    // ── Yetkilendirme kontrolu ──
+    const authResult = await requireAdmin(request);
+    if (authResult instanceof NextResponse) return authResult;
+    const adminUser = authResult as AuthResult;
+
     const { searchParams } = new URL(request.url);
     const section = searchParams.get('section') || 'stats';
 
@@ -192,10 +210,32 @@ export async function GET(request: Request) {
 
 // ── POST ──
 export async function POST(request: Request) {
+    // ── Rate limit kontrolu ──
+    const ip = getClientIP(request);
+    const rl = checkRateLimit(`admin-post:${ip}`, RATE_LIMITS.admin);
+    if (!rl.allowed) {
+        return NextResponse.json(
+            { success: false, message: 'Çok fazla istek. Lütfen bekleyin.' },
+            { status: 429, headers: { 'Retry-After': String(Math.ceil((rl.retryAfterMs || 60000) / 1000)) } }
+        );
+    }
+
+    // ── Yetkilendirme kontrolu ──
+    const authResult = await requireAdmin(request);
+    if (authResult instanceof NextResponse) return authResult;
+    const adminUser = authResult as AuthResult;
+
     try {
         const body = await request.json();
-        const { action, target, detail, actor } = body;
-        const logActor = actor || 'Admin';
+        const { action, target, detail } = body;
+
+        // Input dogrulama: target bir document ID ise kontrol et
+        if (target && !isValidDocId(target)) {
+            return NextResponse.json({ success: false, message: 'Geçersiz hedef ID formatı.' }, { status: 400 });
+        }
+
+        // Actor bilgisi artik token'dan geliyor, client'a guvenme
+        const logActor = adminUser.email || adminUser.uid || 'Admin';
 
         // Log yaz helper
         async function writeLog(act: string, tgt: string, det: string) {

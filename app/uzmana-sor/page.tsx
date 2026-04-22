@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
 import { subscribeToThreads, createThread, formatTimestamp, type ForumThread } from "@/lib/forumService";
-import { HelpCircle, Plus, X, Sparkles, Users, Clock, MessageSquare, Eye, Lightbulb, RefreshCw } from "lucide-react";
+import { HelpCircle, Plus, X, Sparkles, Users, Clock, MessageSquare, Eye, Lightbulb, RefreshCw, Award } from "lucide-react";
 
 const CATEGORIES = ["Tumu", "Motor", "Sanziman", "Lastik", "Bakim", "Elektrik", "Fren", "Suspansiyon"];
 
@@ -78,7 +78,7 @@ export default function UzmanaSorPage() {
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
                 {/* Header */}
                 <div style={{
-                    background: 'linear-gradient(135deg, #064e3b, #0f766e)',
+                    background: 'linear-gradient(135deg, #0a3d2e, #1a6b5a)',
                     borderBottom: '1px solid var(--card-border)', padding: '48px 24px'
                 }}>
                     <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
@@ -131,11 +131,51 @@ export default function UzmanaSorPage() {
                         <div>
                             {loading ? (
                                 <div style={{ textAlign: 'center', padding: '60px' }}>
-                                    <div style={{ width: 40, height: 40, border: '3px solid var(--card-border)', borderTop: '3px solid #3b82f6', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 16px' }} />
+                                    <div style={{ width: 40, height: 40, border: '3px solid var(--card-border)', borderTop: '3px solid #4CE0B3', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 16px' }} />
                                     <p style={{ color: 'var(--text-muted)' }}>Sorular yükleniyor...</p>
                                 </div>
                             ) : (
                                 <>
+                                    {/* Vitrin Alanı */}
+                                    {!loading && threads.length > 0 && (
+                                        <div style={{ marginBottom: '32px' }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                                                <div style={{ background: 'rgba(251, 191, 36, 0.1)', padding: '6px', borderRadius: '8px' }}>
+                                                    <Award size={18} color="#fbbf24" />
+                                                </div>
+                                                <h2 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)' }}>Uzmanların Seçimi</h2>
+                                            </div>
+                                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+                                                {threads.slice(0, 2).map(thread => (
+                                                    <Link key={`vitrin-${thread.id}`} href={`/uzmana-sor/${thread.id}`} style={{ textDecoration: 'none' }}>
+                                                        <div style={{
+                                                            background: 'linear-gradient(to bottom right, var(--card-bg), rgba(251, 191, 36, 0.05))',
+                                                            border: '1px solid var(--card-border)', borderRadius: '12px', padding: '16px',
+                                                            position: 'relative', height: '100%', transition: 'all 0.2s',
+                                                        }}
+                                                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#fbbf24'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                                            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                                                        >
+                                                            <div style={{ position: 'absolute', top: 0, right: 0, background: '#fbbf24', color: 'black', fontSize: '10px', fontWeight: '800', padding: '2px 8px', borderBottomLeftRadius: '8px' }}>VİTRİN</div>
+                                                            <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px', paddingRight: '40px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{thread.title}</h3>
+                                                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '12px', color: 'var(--text-muted)' }}>
+                                                                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Users size={12}/>{thread.authorUsername}</span>
+                                                                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={12}/>{thread.entryCount} Yanıt</span>
+                                                            </div>
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                                        <div style={{ background: 'rgba(76, 224, 179, 0.1)', padding: '6px', borderRadius: '8px' }}>
+                                            <HelpCircle size={18} color="#4CE0B3" />
+                                        </div>
+                                        <h2 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)' }}>Tüm Sorular</h2>
+                                    </div>
+
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                         {filteredThreads.map(thread => (
                                             <Link key={thread.id} href={`/uzmana-sor/${thread.id}`} style={{ textDecoration: 'none' }}>
@@ -143,14 +183,14 @@ export default function UzmanaSorPage() {
                                                     background: 'var(--card-bg)', border: '1px solid var(--card-border)',
                                                     borderRadius: '16px', padding: '24px', cursor: 'pointer', transition: 'all 0.2s',
                                                 }}
-                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; e.currentTarget.style.transform = 'translateX(4px)'; }}
+                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#4CE0B3'; e.currentTarget.style.transform = 'translateX(4px)'; }}
                                                     onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.transform = 'translateX(0)'; }}
                                                 >
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
                                                         <div style={{ flex: 1, minWidth: '250px' }}>
                                                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
                                                                 {thread.tags.slice(0, 2).map(tag => (
-                                                                    <span key={tag} style={{ padding: '4px 10px', background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>
+                                                                    <span key={tag} style={{ padding: '4px 10px', background: 'rgba(76, 224, 179, 0.1)', color: '#4CE0B3', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>
                                                                         {tag}
                                                                     </span>
                                                                 ))}
@@ -168,7 +208,7 @@ export default function UzmanaSorPage() {
                                                         </div>
                                                         <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
                                                             <div style={{ textAlign: 'center' }}>
-                                                                <div style={{ fontSize: '24px', fontWeight: '700', color: '#3b82f6' }}>{thread.entryCount}</div>
+                                                                <div style={{ fontSize: '24px', fontWeight: '700', color: '#4CE0B3' }}>{thread.entryCount}</div>
                                                                 <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Yanıt</div>
                                                             </div>
                                                             <div style={{ textAlign: 'center' }}>
@@ -201,6 +241,23 @@ export default function UzmanaSorPage() {
                         {/* Right sidebar */}
                         <aside>
                             <div style={{ position: 'sticky', top: '100px' }}>
+                                {/* Reklam Alanı */}
+                                <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block', marginBottom: '16px' }}>
+                                    <div style={{
+                                        background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
+                                        height: '220px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                                        color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '20px', textAlign: 'center'
+                                    }}
+                                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
+                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
+                                        <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
+                                            <Sparkles size={20} color="currentColor" />
+                                        </div>
+                                        <h3 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '8px' }}>Buraya Reklam Ver</h3>
+                                        <p style={{ fontSize: '12px', lineHeight: '1.5', margin: 0 }}>Günde 10.000+ otomotiv tutkununa markanızı ulaştırın.</p>
+                                    </div>
+                                </Link>
+
                                 <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px', marginBottom: '16px' }}>
                                     <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px' }}>Nasıl Çalışır?</h3>
                                     <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>
@@ -216,7 +273,7 @@ export default function UzmanaSorPage() {
                                     </div>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                         <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
-                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#3b82f6' }}>{threads.length}</div>
+                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#4CE0B3' }}>{threads.length}</div>
                                             <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Toplam Soru</div>
                                         </div>
                                         <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>

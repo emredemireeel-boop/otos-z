@@ -1,5 +1,3 @@
-
-
 export interface TrustCategory {
     id: string;
     title: string;
@@ -15,6 +13,8 @@ export interface BrandRating {
     rating: number;
     totalReviews: number;
     logoEmoji: string;
+    logoUrl?: string;
+    brandColor?: string;
     trend: "up" | "stable" | "down";
 }
 
@@ -45,7 +45,7 @@ export const categories: TrustCategory[] = [
         description: "Tarafsız ekspertiz noktalarını bulun ve puanlayın.",
         icon: "ShieldCheck",
         colors: ["#4A148C", "#6A1B9A", "#7B1FA2"],
-        stats: "20+ firma"
+        stats: "18 firma"
     },
     {
         id: "private_service",
@@ -105,184 +105,111 @@ export const categories: TrustCategory[] = [
     }
 ];
 
-
-// Brands Data Functions â€” Tüm oylar sıfır, gerçek kullanıcı verileri geldiğinde dolacak
 export const getBrandsForCategory = (categoryId: string): BrandRating[] => {
-    const z = (id: string, name: string, emoji: string): BrandRating =>
-        ({ id, name, rating: 0, totalReviews: 0, logoEmoji: emoji, trend: "stable" });
+    const z = (id: string, name: string, emoji: string, logoUrl?: string, brandColor?: string): BrandRating =>
+        ({ id, name, rating: 0, totalReviews: 0, logoEmoji: emoji, logoUrl, brandColor, trend: "stable" });
 
     switch (categoryId) {
-        /* â”€â”€ Yakıt İstasyonları â€“ Türkiye'nin En Meşhur 10'u â”€â”€ */
+        /* ── Yakıt İstasyonları ── */
         case "fuel_stations": return [
-            z("shell",        "Shell",           "ðŸ”´"),
-            z("opet",         "Opet",            "ðŸŸ¢"),
-            z("bp",           "BP",              "ðŸŸ¡"),
-            z("petrol_ofisi", "Petrol Ofisi",    "âšª"),
-            z("total",        "TotalEnergies",   "ðŸ”´"),
-            z("aytemiz",      "Aytemiz",         "ðŸ”µ"),
-            z("lukoil",       "Lukoil",          "ðŸ”´"),
-            z("alpet",        "Alpet",           "ðŸŸ "),
-            z("moil",         "M-Oil",           "ðŸŸ£"),
-            z("go",           "GO",              "ðŸŸ¤"),
+            z("shell",        "Shell",           "P", "https://logo.clearbit.com/shell.com", "#FFD500"),
+            z("opet",         "Opet",            "O", "https://logo.clearbit.com/opet.com.tr", "#004B87"),
+            z("bp",           "BP",              "B", "https://logo.clearbit.com/bp.com", "#009900"),
+            z("petrol_ofisi", "Petrol Ofisi",    "P", "https://logo.clearbit.com/petrolofisi.com.tr", "#E3000F"),
+            z("total",        "TotalEnergies",   "T", "https://logo.clearbit.com/totalenergies.com", "#ED0000"),
+            z("aytemiz",      "Aytemiz",         "A", "https://logo.clearbit.com/aytemiz.com.tr", "#00447C"),
+            z("lukoil",       "Lukoil",          "L", "https://logo.clearbit.com/lukoil.com", "#E4002B"),
+            z("alpet",        "Alpet",           "A", "https://logo.clearbit.com/alpet.com.tr", "#002E6D"),
+            z("moil",         "M-Oil",           "M", "https://logo.clearbit.com/moil.com.tr", "#E3000F"),
+            z("go",           "GO",              "G", "https://logo.clearbit.com/goyakit.com.tr", "#509E2F"),
         ];
 
-        /* â”€â”€ Ekspertiz Firmaları â€“ 15 Firma â”€â”€ */
+        /* ── Ekspertiz Firmaları ── */
         case "expertise": return [
-            z("dekra",          "DEKRA",                      "ðŸ”µ"),
-            z("tuv_sud",        "TÜV SÜD",                    "ðŸ”µ"),
-            z("ototest",        "OtoTest Ekspertiz",          "ðŸŸ¢"),
-            z("ekspertime",     "EksperTime",                 "ðŸŸ "),
-            z("aracsepeti",     "AraçSepeti Ekspertiz",       "ðŸ”´"),
-            z("oguz",           "Oğuz Ekspertiz",             "âšª"),
-            z("otohasar",       "OtoHasar Tespit",            "ðŸŸ¡"),
-            z("netekspertiz",   "Net Ekspertiz",              "ðŸŸ¢"),
-            z("proeksper",      "Pro Ekspertiz",              "ðŸ”µ"),
-            z("turk_ekspertiz", "Türk Ekspertiz",             "ðŸ”´"),
-            z("garage",         "Garage Ekspertiz",           "âš«"),
-            z("mts",            "MTS Araç Değerleme",         "ðŸŸ£"),
-            z("carcheck",       "CarCheck",                   "ðŸ”µ"),
-            z("autoscan",       "AutoScan",                   "ðŸŸ¢"),
-            z("eksperguven",    "EksperGüven",                "ðŸŸ "),
+            z("pilot_garage", "Pilot Garage", "P", "https://logo.clearbit.com/pilotgarage.com", "#005B9A"),
+            z("otorapor", "Otorapor", "O", "https://logo.clearbit.com/otorapor.com", "#E30613"),
+            z("dynobil", "Dynobil", "D", "https://logo.clearbit.com/dynobil.com", "#F15A24"),
+            z("yamanlar", "Yamanlar", "Y", "https://logo.clearbit.com/yamanlarotoekspertiz.com", "#1F3A93"),
+            z("auto_king", "Auto King", "A", "https://logo.clearbit.com/autoking.com.tr", "#E60000"),
+            z("computest", "Computest", "C", "https://logo.clearbit.com/computest.com.tr", "#004B87"),
+            z("rs", "RS", "R", "https://logo.clearbit.com/rservis.com.tr", "#0A2A5E"),
+            z("experix", "Experix", "E", "https://logo.clearbit.com/experix.com.tr", "#F58220"),
+            z("otonu_tani", "Otonu Tanı", "O", "https://logo.clearbit.com/otonutani.com", "#18365D"),
+            z("auto_kale", "AUTO KALE", "A", "https://logo.clearbit.com/autokale.com", "#E63946"),
+            z("ekspertiz_360", "Ekspertiz 360", "E", "https://logo.clearbit.com/ekspertiz360.com", "#00A8E8"),
+            z("tarcanlar", "Tarcanlar", "T", "https://logo.clearbit.com/tarcanlarotoekspertiz.com", "#C1121F"),
+            z("oto_experim", "Oto Experim", "O", "https://logo.clearbit.com/otoexperim.com.tr", "#1D3557"),
+            z("hospitacar", "Hospitacar", "H", "https://logo.clearbit.com/hospitacar.com", "#457B9D"),
+            z("dynomoss", "DYNOMOSS", "D", "https://logo.clearbit.com/dynomoss.com.tr", "#E76F51"),
+            z("vizyon_garage", "Vizyon Garage", "V", "https://logo.clearbit.com/vizyongarage.com", "#2A9D8F"),
+            z("europe", "Europe", "E", "https://logo.clearbit.com/europeotoekspertiz.com", "#264653"),
+            z("arabam_com", "Arabam.com", "A", "https://logo.clearbit.com/arabam.com", "#ED1C24"),
         ];
 
-        /* â”€â”€ Özel Servis â”€â”€ */
-        case "private_service": return [
-            z("bosch",     "Bosch Car Service", "ðŸ”µ"),
-            z("koc_oto",   "Koç Özel Servis",   "ðŸ”´"),
-            z("euro_car",  "EuroCar Servis",    "ðŸŸ¢"),
-            z("motul_srv", "Motul Servis",      "ðŸŸ "),
-        ];
+        /* ── Özel Servis ── */
+        case "private_service": return [];
 
-        /* â”€â”€ Yetkili Bayi ve Servis â”€â”€ */
+        /* ── Yetkili Bayi ve Servis ── */
         case "authorized_service": return [
-            z("tofa_srv",  "Tofaş Yetkili",   "🔵"),
-            z("renault",   "Renault Yetkili",  "ðŸŸ¡"),
-            z("toyota_srv","Toyota Yetkili",   "ðŸ”´"),
-            z("hyundai_srv","Hyundai Yetkili", "ðŸ”µ"),
-            z("ford_srv",  "Ford Yetkili",     "ðŸ”µ"),
-            z("fiat_srv",  "Fiat Yetkili",     "ðŸ”´"),
-            z("vw_srv",    "VW Yetkili",       "âšª"),
+            z("tofa_srv",  "Tofaş Yetkili",   "T", "https://logo.clearbit.com/tofas.com.tr", "#00519E"),
+            z("renault",   "Renault Yetkili",  "R", "https://logo.clearbit.com/renault.com.tr", "#F4D03F"),
+            z("toyota_srv","Toyota Yetkili",   "T", "https://logo.clearbit.com/toyota.com.tr", "#EB0A1E"),
+            z("hyundai_srv","Hyundai Yetkili", "H", "https://logo.clearbit.com/hyundai.com.tr", "#002C5F"),
+            z("ford_srv",  "Ford Yetkili",     "F", "https://logo.clearbit.com/ford.com.tr", "#003478"),
+            z("fiat_srv",  "Fiat Yetkili",     "F", "https://logo.clearbit.com/fiat.com.tr", "#900C3F"),
+            z("vw_srv",    "VW Yetkili",       "V", "https://logo.clearbit.com/vw.com.tr", "#001E50"),
         ];
 
-        /* â”€â”€ Galericiler â”€â”€ */
+        /* ── Galericiler ── */
         case "dealers": return [
-            z("arabam",    "Arabam.com Galeri",  "ðŸŸ "),
-            z("sahibinden","Sahibinden Galeri",  "ðŸ”µ"),
-            z("otokoc",    "Otokoç Galeri",      "ðŸ”´"),
-            z("dersa",     "Dersa Galericiler",  "ðŸŸ¢"),
+            z("arabam",    "Arabam.com Galeri",  "A", "https://logo.clearbit.com/arabam.com", "#ED1C24"),
+            z("sahibinden","Sahibinden Galeri",  "S", "https://logo.clearbit.com/sahibinden.com", "#FFF000"),
+            z("otokoc",    "Otokoç Galeri",      "O", "https://logo.clearbit.com/otokoc.com.tr", "#E30613"),
+            z("vava",      "VavaCars",           "V", "https://logo.clearbit.com/vava.cars", "#FF385C"),
         ];
 
-        /* â”€â”€ Yedek Parçacılar â”€â”€ */
-        case "spare_parts": return [
-            z("bosch_parca", "Bosch Parça",         "ðŸ”µ"),
-            z("valeo",       "Valeo",               "ðŸŸ¡"),
-            z("continental", "Continental Parts",   "âšª"),
-            z("oguz_parca",  "Oğuz Parça",          "ðŸŸ¢"),
-            z("komponent",   "Komponent",           "ðŸ”´"),
-        ];
+        /* ── Yedek Parçacılar ── */
+        case "spare_parts": return [];
 
-        /* â”€â”€ Oto Aksesuarcılar â”€â”€ */
-        case "accessories": return [
-            z("motoline",  "Motoline",          "ðŸ”´"),
-            z("osd",       "OSD Aksesuar",      "ðŸŸ¢"),
-            z("superspeed","SuperSpeed",         "ðŸ”µ"),
-        ];
+        /* ── Oto Aksesuarcılar ── */
+        case "accessories": return [];
 
-        /* â”€â”€ Oto Yıkama & Detailing â”€â”€ */
-        case "car_wash": return [
-            z("detay",     "Detay Plus",        "ðŸ”µ"),
-            z("carwiz",    "CarWiz",            "ðŸŸ¢"),
-            z("mobiclean", "MobiClean",         "ðŸŸ "),
-            z("prodetail", "Pro Detailing",     "ðŸ”´"),
-        ];
+        /* ── Oto Yıkama & Detailing ── */
+        case "car_wash": return [];
 
-        /* â”€â”€ Araç Markaları â€“ 60+ Marka â”€â”€ */
+        /* ── Araç Markaları ── */
         case "car_brands": return [
-            // Alman
-            z("mercedes",    "Mercedes-Benz", "âšª"),
-            z("bmw",         "BMW",           "ðŸ”µ"),
-            z("audi",        "Audi",          "âšª"),
-            z("volkswagen",  "Volkswagen",    "ðŸ”µ"),
-            z("porsche",     "Porsche",       "ðŸŸ¡"),
-            z("opel",        "Opel",          "ðŸŸ¡"),
-            // Japon
-            z("toyota",      "Toyota",        "ðŸ”´"),
-            z("honda",       "Honda",         "ðŸ”´"),
-            z("nissan",      "Nissan",        "âšª"),
-            z("mazda",       "Mazda",         "ðŸ”´"),
-            z("subaru",      "Subaru",        "ðŸ”µ"),
-            z("mitsubishi",  "Mitsubishi",    "ðŸ”´"),
-            z("suzuki",      "Suzuki",        "ðŸ”µ"),
-            z("lexus",       "Lexus",         "âš«"),
-            z("infiniti",    "Infiniti",      "âš«"),
-            z("daihatsu",    "Daihatsu",      "ðŸ”´"),
-            z("isuzu",       "Isuzu",         "âšª"),
-            // Amerikan
-            z("ford",        "Ford",          "ðŸ”µ"),
-            z("chevrolet",   "Chevrolet",     "ðŸŸ¡"),
-            z("jeep",        "Jeep",          "âš«"),
-            z("dodge",       "Dodge",         "ðŸ”´"),
-            z("cadillac",    "Cadillac",      "âšª"),
-            z("lincoln",     "Lincoln",       "âš«"),
-            z("gmc",         "GMC",           "ðŸ”´"),
-            z("chrysler",    "Chrysler",      "ðŸ”µ"),
-            // Fransız
-            z("renault",     "Renault",       "ðŸŸ¡"),
-            z("peugeot",     "Peugeot",       "ðŸ”µ"),
-            z("citroen",     "Citroën",       "âšª"),
-            z("ds",          "DS",            "âšª"),
-            // İtalyan
-            z("fiat",        "Fiat",          "ðŸ”´"),
-            z("alfa_romeo",  "Alfa Romeo",    "ðŸ”´"),
-            z("ferrari",     "Ferrari",       "ðŸ”´"),
-            z("lamborghini", "Lamborghini",   "ðŸŸ¡"),
-            z("maserati",    "Maserati",      "ðŸ”µ"),
-            z("lancia",      "Lancia",        "ðŸ”µ"),
-            // İngiliz
-            z("land_rover",  "Land Rover",    "ðŸŸ¢"),
-            z("jaguar",      "Jaguar",        "ðŸŸ¢"),
-            z("bentley",     "Bentley",       "âšª"),
-            z("rolls_royce", "Rolls-Royce",   "âšª"),
-            z("mini",        "MINI",          "ðŸ”´"),
-            z("aston_martin","Aston Martin",  "ðŸŸ¢"),
-            z("mclaren",     "McLaren",       "ðŸŸ "),
-            // İsveç
-            z("volvo",       "Volvo",         "ðŸ”µ"),
-            z("saab",        "Saab",          "âšª"),
-            // Kore
-            z("hyundai",     "Hyundai",       "ðŸ”µ"),
-            z("kia",         "Kia",           "ðŸ”´"),
-            z("genesis",     "Genesis",       "âš«"),
-            z("ssangyong",   "SsangYong",     "âšª"),
-            z("daewoo",      "Daewoo",        "ðŸ”µ"),
-            // Çek-Slovak
-            z("skoda",       "Å koda",         "ðŸŸ¢"),
-            z("seat",        "SEAT",          "ðŸ”´"),
-            z("cupra",       "CUPRA",         "ðŸ”´"),
-            // Yerli
-            z("togg",        "Togg",          "ðŸ”µ"),
-            // Romanya
-            z("dacia",       "Dacia",         "ðŸ”µ"),
-            // Çin
-            z("byd",         "BYD",           "ðŸ”µ"),
-            z("chery",       "Chery",         "ðŸ”´"),
-            z("haval",       "Haval",         "ðŸŸ¡"),
-            z("MG",          "MG",            "ðŸ”´"),
-            z("geely",       "Geely",         "ðŸ”µ"),
-            z("dongfeng",    "Dongfeng",      "ðŸ”µ"),
-            // Diğer
-            z("tesla",       "Tesla",         "ðŸ”´"),
-            z("smart",       "Smart",         "âšª"),
-            z("hummer",      "Hummer",        "ðŸŸ¡"),
-            z("pontiac",     "Pontiac",       "ðŸ”´"),
-            z("buick",       "Buick",         "ðŸ”´"),
+            z("mercedes",    "Mercedes-Benz", "M", "https://logo.clearbit.com/mercedes-benz.com", "#000000"),
+            z("bmw",         "BMW",           "B", "https://logo.clearbit.com/bmw.com", "#0066B1"),
+            z("audi",        "Audi",          "A", "https://logo.clearbit.com/audi.com", "#BB0A30"),
+            z("volkswagen",  "Volkswagen",    "V", "https://logo.clearbit.com/vw.com", "#001E50"),
+            z("porsche",     "Porsche",       "P", "https://logo.clearbit.com/porsche.com", "#D32A20"),
+            z("opel",        "Opel",          "O", "https://logo.clearbit.com/opel.com", "#F4D03F"),
+            z("toyota",      "Toyota",        "T", "https://logo.clearbit.com/toyota.com", "#EB0A1E"),
+            z("honda",       "Honda",         "H", "https://logo.clearbit.com/honda.com", "#E40521"),
+            z("nissan",      "Nissan",        "N", "https://logo.clearbit.com/nissan.com", "#C3002F"),
+            z("mazda",       "Mazda",         "M", "https://logo.clearbit.com/mazda.com", "#101010"),
+            z("subaru",      "Subaru",        "S", "https://logo.clearbit.com/subaru.com", "#013C74"),
+            z("ford",        "Ford",          "F", "https://logo.clearbit.com/ford.com", "#003478"),
+            z("chevrolet",   "Chevrolet",     "C", "https://logo.clearbit.com/chevrolet.com", "#CDA434"),
+            z("renault",     "Renault",       "R", "https://logo.clearbit.com/renault.com", "#F4D03F"),
+            z("peugeot",     "Peugeot",       "P", "https://logo.clearbit.com/peugeot.com", "#00538A"),
+            z("citroen",     "Citroën",       "C", "https://logo.clearbit.com/citroen.com", "#ED1C24"),
+            z("fiat",        "Fiat",          "F", "https://logo.clearbit.com/fiat.com", "#900C3F"),
+            z("volvo",       "Volvo",         "V", "https://logo.clearbit.com/volvocars.com", "#143A62"),
+            z("hyundai",     "Hyundai",       "H", "https://logo.clearbit.com/hyundai.com", "#002C5F"),
+            z("kia",         "Kia",           "K", "https://logo.clearbit.com/kia.com", "#BB162B"),
+            z("skoda",       "Škoda",         "S", "https://logo.clearbit.com/skoda-auto.com", "#4BA82E"),
+            z("seat",        "SEAT",          "S", "https://logo.clearbit.com/seat.com", "#E3000F"),
+            z("togg",        "Togg",          "T", "https://logo.clearbit.com/togg.com.tr", "#000000"),
+            z("dacia",       "Dacia",         "D", "https://logo.clearbit.com/dacia.com", "#52605E"),
+            z("tesla",       "Tesla",         "T", "https://logo.clearbit.com/tesla.com", "#E31937"),
         ];
 
         default: return [];
     }
 };
 
-// Kullanıcı değerlendirmeleri sıfırlandı â€” gerçek oylar geldiğinde buraya eklenecek
 export const getReviewsForBrand = (_brandId: string): UserReview[] => {
     return [];
 };

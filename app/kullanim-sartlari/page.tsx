@@ -240,12 +240,13 @@ export default function KullanimSartlariPage() {
                         borderRadius: '24px', padding: '48px',
                         boxShadow: 'var(--card-shadow)',
                     }}>
+
                         {/* Intro */}
                         <div className="legal-highlight" style={{
                             background: isDark ? 'rgba(255,107,0,0.06)' : 'rgba(0,90,226,0.04)',
                             border: `1px solid ${isDark ? 'rgba(255,107,0,0.12)' : 'rgba(0,90,226,0.08)'}`,
                         }}>
-                            <strong style={{ color: 'var(--foreground)' }}>⚠️� Önemli Bilgilendirme:</strong>{' '}
+                            <strong style={{ color: 'var(--foreground)' }}>⚠️ Önemli Bilgilendirme:</strong>{' '}
                             <span style={{ color: 'var(--text-muted)' }}>
                                 Bu Kullanım Şartları Sözleşmesi, 6098 Sayılı Türk Borçlar Kanunu, 5651 Sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi Kanunu,
                                 6502 Sayılı Tüketicinin Korunması Hakkında Kanun ve 6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) çerçevesinde hazırlanmıştır.
@@ -255,82 +256,92 @@ export default function KullanimSartlariPage() {
                         {/* 1. Taraflar */}
                         <div data-section="taraflar" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>1</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <Users size={18} />
+                                </span>
                                 Taraflar ve Tanımlar
                             </h2>
                             <p className="legal-p">
-                                İŞbu Kullanım Şartları Sözleşmesi (&quot;Sözleşme&quot;), bir tarafta <strong style={{ color: 'var(--foreground)' }}>Otosöz İnternet Hizmetleri</strong> (&quot;Platform&quot;, &quot;Biz&quot;, &quot;Şirket&quot;) ile diğer tarafta platforma erişen ve/veya üye olan gerçek ya da tüzel kişi (&quot;Kullanıcı&quot;, &quot;Üye&quot;, &quot;Siz&quot;) arasında, elektronik ortamda akdedilmiştir.
+                                İşbu Kullanım Şartları Sözleşmesi (&quot;Sözleşme&quot;), bir tarafta <strong style={{ color: 'var(--foreground)' }}>Otosöz İnternet Hizmetleri</strong> (&quot;Platform&quot;, &quot;Biz&quot;, &quot;Şirket&quot;) ile diğer tarafta platforma erişen ve/veya üye olan gerçek ya da tüzel kişi (&quot;Kullanıcı&quot;, &quot;Üye&quot;, &quot;Siz&quot;) arasında, elektronik ortamda akdedilmiştir.
                             </p>
                             <h3 className="legal-h3">1.1 Tanımlar</h3>
                             <ul className="legal-list">
                                 <li><strong style={{ color: 'var(--foreground)' }}>Platform:</strong> www.Otosöz.com alan adı üzerinden erişilebilen web sitesi, mobil uygulama ve tüm dijital uzantılar.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Üye:</strong> Platformda kayıt işlemini tamamlayarak hesap oluşturan gerçek veya tüzel kişi.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Ziyaretçi:</strong> Platform&#39;a üye olmaksızın erişim saÃ„şlayan kişi.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>İçerik:</strong> Kullanıcılar tarafından paylaşılan yazı, yorum, fotoÃ„şraf, video, ilan ve benzeri her türlü materyal.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Hizmet:</strong> Platform aracılıÃ„şıyla sunulan forum, pazar yeri, araç karşılaştırma, fiyat analizi ve diğer tüm fonksiyonlar.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Ziyaretçi:</strong> Platform&#39;a üye olmaksızın erişim sağlayan kişi.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>İçerik:</strong> Kullanıcılar tarafından paylaşılan yazı, yorum, fotoğraf, video, ilan ve benzeri her türlü materyal.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Hizmet:</strong> Platform aracılığıyla sunulan forum, pazar yeri, araç karşılaştırma, fiyat analizi ve diğer tüm fonksiyonlar.</li>
                             </ul>
                         </div>
 
                         {/* 2. Konu */}
                         <div data-section="konu" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>2</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <FileText size={18} />
+                                </span>
                                 Sözleşmenin Konusu
                             </h2>
                             <p className="legal-p">
-                                İŞbu Sözleşme&#39;nin konusu, Platform üzerinden sunulan hizmetlerden yararlanma koşullarının ve tarafların hak ve yükümlülüklerinin, 6098 Sayılı Türk Borçlar Kanunu ve ilgili mevzuat hükümleri çerçevesinde belirlenmesidir.
+                                İşbu Sözleşme&#39;nin konusu, Platform üzerinden sunulan hizmetlerden yararlanma koşullarının ve tarafların hak ve yükümlülüklerinin, 6098 Sayılı Türk Borçlar Kanunu ve ilgili mevzuat hükümleri çerçevesinde belirlenmesidir.
                             </p>
                             <p className="legal-p">
-                                Kullanıcı, Platform&#39;a erişim saÃ„şladıÃ„şı veya üyelik oluşturduÃ„şu andan itibaren işbu Sözleşme&#39;nin tüm hükümlerini okumuş, anlamış ve kabul etmiş sayılır. Bu Sözleşme, Kullanıcı ile Platform arasında baÃ„şlayıcı bir hukuki ilişki tesis eder.
+                                Kullanıcı, Platform&#39;a erişim sağladığı veya üyelik oluşturduğu andan itibaren işbu Sözleşme&#39;nin tüm hükümlerini okumuş, anlamış ve kabul etmiş sayılır. Bu Sözleşme, Kullanıcı ile Platform arasında bağlayıcı bir hukuki ilişki tesis eder.
                             </p>
                         </div>
 
                         {/* 3. Hizmetler */}
                         <div data-section="hizmetler" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>3</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <Globe size={18} />
+                                </span>
                                 Hizmetlerin Kapsamı
                             </h2>
-                            <p className="legal-p">Platform, aşaÃ„şıdaki hizmetleri sunmaktadır:</p>
+                            <p className="legal-p">Platform, aşağıdaki hizmetleri sunmaktadır:</p>
                             <ul className="legal-list">
                                 <li><strong style={{ color: 'var(--foreground)' }}>Forum ve Topluluk:</strong> Otomobil tutkunlarının deneyim paylaşımı, teknik tartışma ve bilgi alışverişi yapabildiği topluluk alanı.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Pazaryeri:</strong> Kullanıcılar arası araç ve yedek parça alım-satım ilanlarının yayınlandıÃ„şı alan.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Pazaryeri:</strong> Kullanıcılar arası araç ve yedek parça alım-satım ilanlarının yayınlandığı alan.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Araç Karşılaştırma:</strong> Farklı marka ve modellerin teknik özelliklerinin karşılaştırılması.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Piyasa Analizi:</strong> Yakıt fiyatları, araç değerleme ve piyasa trendlerinin takibi.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Araç DNA:</strong> Araç geçmişi sorgulama ve güvenilirlik değerlendirmesi.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Uzman Görüşleri:</strong> Otomotiv alanında uzman kişilerin değerlendirme ve analizleri.</li>
                             </ul>
                             <p className="legal-p">
-                                Platform, sunduÃ„şu hizmetlerin kapsamını, özelliklerini ve fiyatlandırmasını önceden bildirimde bulunmaksızın değiştirme, askıya alma veya sona erdirme hakkını saklı tutar.
+                                Platform, sunduğu hizmetlerin kapsamını, özelliklerini ve fiyatlandırmasını önceden bildirimde bulunmaksızın değiştirme, askıya alma veya sona erdirme hakkını saklı tutar.
                             </p>
                         </div>
 
                         {/* 4. Üyelik */}
                         <div data-section="uyelik" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>4</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <Shield size={18} />
+                                </span>
                                 Üyelik Şartları
                             </h2>
                             <h3 className="legal-h3">4.1 Üyelik Koşulları</h3>
                             <ul className="legal-list">
                                 <li>Platform&#39;a üye olabilmek için 18 yaşını doldurmuş olmak veya 18 yaşından küçükler için yasal vasinin onayı gerekmektedir (4721 Sayılı Türk Medeni Kanunu m.11).</li>
-                                <li>Üyelik başvurusunda doÃ„şru, eksiksiz ve güncel bilgiler verilmelidir.</li>
+                                <li>Üyelik başvurusunda doğru, eksiksiz ve güncel bilgiler verilmelidir.</li>
                                 <li>Her gerçek veya tüzel kişi yalnızca bir (1) hesap açabilir. Çoklu hesap kullanımı tespit edildiğinde tüm hesaplar kapatılabilir.</li>
-                                <li>Üyelik bilgileri ile hesap güvenliÃ„şi tamamen Kullanıcı&#39;nın sorumluluÃ„şundadır.</li>
+                                <li>Üyelik bilgileri ile hesap güvenliği tamamen Kullanıcı&#39;nın sorumluluğundadır.</li>
                             </ul>
-                            <h3 className="legal-h3">4.2 Hesap GüvenliÃ„şi</h3>
+                            <h3 className="legal-h3">4.2 Hesap Güvenliği</h3>
                             <p className="legal-p">
-                                Kullanıcı, hesap bilgilerini (kullanıcı adı, Şifre vb.) gizli tutmakla yükümlüdür. Hesabın yetkisiz kullanımından doÃ„şabilecek her türlü zarar Kullanıcı&#39;ya aittir. Şüpheli bir erişim tespit edilmesi halinde derhal Platform&#39;a bildirimde bulunulmalıdır.
+                                Kullanıcı, hesap bilgilerini (kullanıcı adı, Şifre vb.) gizli tutmakla yükümlüdür. Hesabın yetkisiz kullanımından doğabilecek her türlü zarar Kullanıcı&#39;ya aittir. Şüpheli bir erişim tespit edilmesi halinde derhal Platform&#39;a bildirimde bulunulmalıdır.
                             </p>
                         </div>
 
                         {/* 5. Yükümlülükler */}
                         <div data-section="yukumlulukler" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>5</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <Scale size={18} />
+                                </span>
                                 Kullanıcı Yükümlülükleri
                             </h2>
-                            <p className="legal-p">Kullanıcı, Platform&#39;u kullanırken aşaÃ„şıdaki kurallara uymayı kabul ve taahhüt eder:</p>
+                            <p className="legal-p">Kullanıcı, Platform&#39;u kullanırken aşağıdaki kurallara uymayı kabul ve taahhüt eder:</p>
                             <ul className="legal-list">
                                 <li>Türkiye Cumhuriyeti kanunlarına, uluslararası anlaşmalara ve genel ahlak kurallarına aykırı davranışlarda bulunmamak.</li>
                                 <li>5237 Sayılı Türk Ceza Kanunu kapsamında suç teşkil eden eylem ve içeriklerden kaçınmak.</li>
@@ -348,7 +359,7 @@ export default function KullanimSartlariPage() {
                             }}>
                                 <strong style={{ color: '#EF4444' }}>⚠️� Uyarı:</strong>{' '}
                                 <span style={{ color: 'var(--text-muted)' }}>
-                                    Yukarıdaki kurallara aykırı hareket eden kullanıcıların hesapları derhal ve süresiz olarak askıya alınır. Platform, gerekli gördüÃ„şü hallerde konuyu yetkili adli makamlara bildirir ve yasal süreç başlatır.
+                                    Yukarıdaki kurallara aykırı hareket eden kullanıcıların hesapları derhal ve süresiz olarak askıya alınır. Platform, gerekli gördüğü hallerde konuyu yetkili adli makamlara bildirir ve yasal süreç başlatır.
                                 </span>
                             </div>
                         </div>
@@ -356,16 +367,18 @@ export default function KullanimSartlariPage() {
                         {/* 6. İçerik */}
                         <div data-section="icerik" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>6</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <FileText size={18} />
+                                </span>
                                 İçerik Politikası
                             </h2>
                             <h3 className="legal-h3">6.1 Kullanıcı Tarafından Üretilen İçerik</h3>
                             <p className="legal-p">
-                                Kullanıcılar tarafından paylaşılan her türlü içeriÃ„şin (forum yazıları, yorumlar, ilanlar, görseller) hukuki sorumluluÃ„şu paylaşan kişiye aittir. 5651 Sayılı Kanun m.5 uyarınca Platform, yer saÃ„şlayıcı konumundadır ve içeriklerden doÃ„şrudan sorumlu değildir; ancak hukuka aykırı içeriÃ„şin kendisine bildirilmesi halinde erişimi engellemekle yükümlüdür.
+                                Kullanıcılar tarafından paylaşılan her türlü içeriğin (forum yazıları, yorumlar, ilanlar, görseller) hukuki sorumluluğu paylaşan kişiye aittir. 5651 Sayılı Kanun m.5 uyarınca Platform, yer sağlayıcı konumundadır ve içeriklerden doğrudan sorumlu değildir; ancak hukuka aykırı içeriğin kendisine bildirilmesi halinde erişimi engellemekle yükümlüdür.
                             </p>
                             <h3 className="legal-h3">6.2 İçerik Lisansı</h3>
                             <p className="legal-p">
-                                Kullanıcı, Platform&#39;da paylaştıÃ„şı içerikler üzerindeki telif haklarını muhafaza eder. Ancak içeriÃ„şi paylaşmakla, Platform&#39;a söz konusu içeriÃ„şi düzenleme, çoÃ„şaltma ve Platform hizmetleri kapsamında kullanma konusunda münhasır olmayan, dünya çapında geçerli, bedelsiz bir lisans vermiş sayılır.
+                                Kullanıcı, Platform&#39;da paylaştığı içerikler üzerindeki telif haklarını muhafaza eder. Ancak içeriği paylaşmakla, Platform&#39;a söz konusu içeriği düzenleme, çoğaltma ve Platform hizmetleri kapsamında kullanma konusunda münhasır olmayan, dünya çapında geçerli, bedelsiz bir lisans vermiş sayılır.
                             </p>
                             <h3 className="legal-h3">6.3 Yasak İçerikler</h3>
                             <ul className="legal-list">
@@ -381,53 +394,61 @@ export default function KullanimSartlariPage() {
                         {/* 7. Pazar */}
                         <div data-section="pazar" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>7</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <Globe size={18} />
+                                </span>
                                 Pazaryeri Kuralları
                             </h2>
                             <p className="legal-p">
-                                Platform&#39;un pazaryeri bölümü, kullanıcılar arası araç ve yedek parça alım-satım ilanlarının yayınlanmasına aracılık eder. Platform, 6563 Sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun uyarınca yalnızca aracı hizmet saÃ„şlayıcıdır.
+                                Platform&#39;un pazaryeri bölümü, kullanıcılar arası araç ve yedek parça alım-satım ilanlarının yayınlanmasına aracılık eder. Platform, 6563 Sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun uyarınca yalnızca aracı hizmet sağlayıcıdır.
                             </p>
                             <ul className="legal-list">
-                                <li>İlan veren, ilanda belirtilen bilgilerin doÃ„şruluÃ„şundan ve güncelliÃ„şinden tamamen sorumludur.</li>
+                                <li>İlan veren, ilanda belirtilen bilgilerin doğruluğundan ve güncelliğinden tamamen sorumludur.</li>
                                 <li>Çalıntı, hacizli veya hukuki ihtilaf altındaki araçların ilanı kesinlikle yasaktır.</li>
-                                <li>Araç satış işlemlerinde tüm yasal prosedürler (noter devir, MTBS kaydı vb.) tarafların sorumluluÃ„şundadır.</li>
+                                <li>Araç satış işlemlerinde tüm yasal prosedürler (noter devir, MTBS kaydı vb.) tarafların sorumluluğundadır.</li>
                                 <li>Platform, alıcı ile satıcı arasındaki ticari anlaşmazlıklarda taraf değildir.</li>
-                                <li>Güven Metre™ sistemi bilgilendirme amaçlıdır ve hukuki taahhüt niteliÃ„şi taşımaz.</li>
+                                <li>Güven Metre™ sistemi bilgilendirme amaçlıdır ve hukuki taahhüt niteliği taşımaz.</li>
                             </ul>
                         </div>
 
                         {/* 8. Fikri Mülkiyet */}
                         <div data-section="fikri" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>8</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <Lock size={18} />
+                                </span>
                                 Fikri Mülkiyet Hakları
                             </h2>
                             <p className="legal-p">
                                 Platform&#39;a ait tüm içerikler (yazılım kaynak kodu, tasarımlar, logolar, &quot;Otosöz&quot;, &quot;Güven Metre&quot;, &quot;Araç DNA&quot; gibi marka ve hizmet adları, algoritmalar, veritabanları ve benzeri tüm unsurlar) 5846 Sayılı Fikir ve Sanat Eserleri Kanunu, 6769 Sayılı Sınai Mülkiyet Kanunu ve ilgili uluslararası anlaşmalar kapsamında korunmaktadır.
                             </p>
                             <p className="legal-p">
-                                Bu içeriklerin önceden yazılı izin alınmaksızın kopyalanması, çoÃ„şaltılması, daÃ„şıtılması, işlenmesi veya herhangi bir Şekilde ticari amaçla kullanılması kesinlikle yasaktır ve hukuki/cezai yaptırıma tabidir.
+                                Bu içeriklerin önceden yazılı izin alınmaksızın kopyalanması, çoğaltılması, dağıtılması, işlenmesi veya herhangi bir Şekilde ticari amaçla kullanılması kesinlikle yasaktır ve hukuki/cezai yaptırıma tabidir.
                             </p>
                         </div>
 
                         {/* 9. Sorumluluk */}
                         <div data-section="sorumluluk" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>9</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <AlertTriangle size={18} />
+                                </span>
                                 Sorumluluk Sınırları
                             </h2>
                             <ul className="legal-list">
                                 <li>Platform üzerinde sunulan araç teknik verileri, fiyat analizleri, piyasa tahminleri ve benzeri içerikler yalnızca bilgilendirme amaçlıdır. Bu bilgilere dayanılarak yapılan alım-satım kararlarından Platform sorumlu tutulamaz.</li>
-                                <li>Platform, teknik arızalar, bakım çalışmaları veya mücbir sebeplerden (doÃ„şal afet, siber saldırı, yasal düzenleme vb.) kaynaklanan hizmet kesintilerinden sorumlu değildir.</li>
-                                <li>Kullanıcılar arası iletişim ve ticari işlemlerden doÃ„şan uyuşmazlıklarda Platform taraf değildir.</li>
-                                <li>Platform, üçüncü taraf web sitelerine verilen baÃ„şlantıların içeriÃ„şinden sorumlu değildir.</li>
+                                <li>Platform, teknik arızalar, bakım çalışmaları veya mücbir sebeplerden (doğal afet, siber saldırı, yasal düzenleme vb.) kaynaklanan hizmet kesintilerinden sorumlu değildir.</li>
+                                <li>Kullanıcılar arası iletişim ve ticari işlemlerden doğan uyuşmazlıklarda Platform taraf değildir.</li>
+                                <li>Platform, üçüncü taraf web sitelerine verilen bağlantıların içeriğinden sorumlu değildir.</li>
                             </ul>
                         </div>
 
                         {/* 10. Fesih */}
                         <div data-section="fesih" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>10</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <Shield size={18} />
+                                </span>
                                 Üyelik Feshi ve Hesap Kapatma
                             </h2>
                             <h3 className="legal-h3">10.1 Kullanıcı Tarafından Fesih</h3>
@@ -443,11 +464,13 @@ export default function KullanimSartlariPage() {
                         {/* 11. Değişiklik */}
                         <div data-section="degisiklik" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>11</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <FileText size={18} />
+                                </span>
                                 Sözleşme Değişiklik Hakkı
                             </h2>
                             <p className="legal-p">
-                                Platform, işbu Sözleşme&#39;nin herhangi bir maddesini, dilediği zaman, tek taraflı olarak değiştirme, güncelleme veya kaldırma hakkını saklı tutar. Değişiklikler, Platform&#39;da yayımlandıÃ„şı tarihte yürürlüÃ„şe girer. Esaslı değişiklikler durumunda kullanıcılara e-posta ve/veya platform içi bildirim yoluyla bilgilendirme yapılır.
+                                Platform, işbu Sözleşme&#39;nin herhangi bir maddesini, dilediği zaman, tek taraflı olarak değiştirme, güncelleme veya kaldırma hakkını saklı tutar. Değişiklikler, Platform&#39;da yayımlandığı tarihte yürürlüğe girer. Esaslı değişiklikler durumunda kullanıcılara e-posta ve/veya platform içi bildirim yoluyla bilgilendirme yapılır.
                             </p>
                             <p className="legal-p">
                                 Değişiklik sonrasında Platform&#39;u kullanmaya devam eden Kullanıcı, yeni koşulları kabul etmiş sayılır.
@@ -457,14 +480,16 @@ export default function KullanimSartlariPage() {
                         {/* 12. Uyuşmazlık */}
                         <div data-section="uyusmazlik" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>12</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <Scale size={18} />
+                                </span>
                                 Uyuşmazlık Çözümü
                             </h2>
                             <p className="legal-p">
-                                İŞbu Sözleşme&#39;den doÃ„şan veya Sözleşme ile baÃ„şlantılı her türlü uyuşmazlıÃ„şın çözümünde <strong style={{ color: 'var(--foreground)' }}>Türkiye Cumhuriyeti hukuku</strong> uygulanır.
+                                İşbu Sözleşme&#39;den doğan veya Sözleşme ile bağlantılı her türlü uyuşmazlığın çözümünde <strong style={{ color: 'var(--foreground)' }}>Türkiye Cumhuriyeti hukuku</strong> uygulanır.
                             </p>
                             <p className="legal-p">
-                                Taraflar, aralarındaki uyuşmazlıkları öncelikle müzakere ve uzlaşma yoluyla çözmeye çalışacaklardır. Uzlaşma saÃ„şlanamaması halinde, 6100 Sayılı Hukuk Muhakemeleri Kanunu uyarınca <strong style={{ color: 'var(--foreground)' }}>İstanbul (ÇaÃ„şlayan) Mahkemeleri ve İcra Daireleri</strong> münhasır yetkilidir.
+                                Taraflar, aralarındaki uyuşmazlıkları öncelikle müzakere ve uzlaşma yoluyla çözmeye çalışacaklardır. Uzlaşma sağlanamaması halinde, 6100 Sayılı Hukuk Muhakemeleri Kanunu uyarınca <strong style={{ color: 'var(--foreground)' }}>İstanbul (Çağlayan) Mahkemeleri ve İcra Daireleri</strong> münhasır yetkilidir.
                             </p>
                             <p className="legal-p">
                                 Tüketici işlemleri açısından, 6502 Sayılı Kanun kapsamında il ve ilçe tüketici hakem heyetlerine başvuru hakkı saklıdır.
@@ -474,11 +499,13 @@ export default function KullanimSartlariPage() {
                         {/* 13. Yürürlük */}
                         <div data-section="yururluk" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>13</span>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                    <Shield size={18} />
+                                </span>
                                 Yürürlük
                             </h2>
                             <p className="legal-p">
-                                İŞbu Sözleşme, toplam 13 (on üç) maddeden oluşmakta olup, Kullanıcı&#39;nın Platform&#39;a erişim saÃ„şladıÃ„şı veya üyelik oluşturduÃ„şu tarih itibarıyla yürürlüÃ„şe girer ve üyelik devam ettiÃ„şi sürece geçerliliÃ„şini korur.
+                                İşbu Sözleşme, toplam 13 (on üç) maddeden oluşmakta olup, Kullanıcı&#39;nın Platform&#39;a erişim sağladığı veya üyelik oluşturduğu tarih itibarıyla yürürlüğe girer ve üyelik devam ettiği sürece geçerliliğini korur.
                             </p>
                             <div className="legal-highlight" style={{
                                 background: isDark ? 'rgba(34,197,94,0.06)' : 'rgba(34,197,94,0.04)',
@@ -487,7 +514,7 @@ export default function KullanimSartlariPage() {
                             }}>
                                 <strong style={{ color: '#22c55e' }}>✅ Onay:</strong>{' '}
                                 <span style={{ color: 'var(--text-muted)' }}>
-                                    Platform&#39;a kayıt olarak veya Platform&#39;u kullanarak işbu Kullanım Şartları Sözleşmesi&#39;nin tüm hükümlerini okuduÃ„şunuzu, anladıÃ„şınızı ve kabul ettiÃ„şinizi beyan etmektesiniz.
+                                    Platform&#39;a kayıt olarak veya Platform&#39;u kullanarak işbu Kullanım Şartları Sözleşmesi&#39;nin tüm hükümlerini okuduğunuzu, anladığınızı ve kabul ettiğinizi beyan etmektesiniz.
                                 </span>
                             </div>
                             <p className="legal-p" style={{ marginTop: '24px', fontSize: '13px', opacity: 0.7 }}>

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
-import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap } from "lucide-react";
+import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import ObdSection from "./obd-section";
 import GostergeSection from "./gosterge-section";
@@ -860,6 +860,11 @@ export default function LibraryPage() {
                                     Bu tablo <strong style={{ color: 'var(--foreground)', fontWeight: '600' }}>Otosöz</strong> tarafından 2026 yılı güncel mevzuatı kapsamında hazırlanmıştır. Kesin bilgi için yetkili makamlara başvurunuz.
                                 </p>
                             </div>
+                            
+                            {/* e-Devlet Sorgulama Linki */}
+                            <a href="https://www.turkiye.gov.tr/emniyet-arac-plakasina-yazilan-ceza-sorgulama?hizmet=Ekrani" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '16px', padding: '16px', background: 'var(--primary)', color: 'white', borderRadius: '12px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', position: 'relative', zIndex: 1, boxShadow: '0 4px 15px rgba(255, 107, 0, 0.2)' }}>
+                                <ExternalLink size={20} /> e-Devlet'ten Trafik Cezası Sorgula
+                            </a>
                         </div>
                     )}
 

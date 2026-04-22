@@ -39,10 +39,10 @@ export default function GizlilikPolitikasiPage() {
         { id: 'hukuki-sebepler', label: '5. Hukuki Sebepler', icon: <Shield size={15} /> },
         { id: 'veri-paylasimi', label: '6. Veri Paylaşımı', icon: <Globe size={15} /> },
         { id: 'cerezler', label: '7. Çerezler (Cookies)', icon: <Database size={15} /> },
-        { id: 'veri-guvenligi', label: '8. Veri GüvenliÃ„şi', icon: <Lock size={15} /> },
+        { id: 'veri-guvenligi', label: '8. Veri Güvenliği', icon: <Lock size={15} /> },
         { id: 'saklama-suresi', label: '9. Saklama Süreleri', icon: <FileText size={15} /> },
         { id: 'ilgili-haklari', label: '10. İlgili Kişi Hakları', icon: <UserCheck size={15} /> },
-        { id: 'cocuk-gizlilik', label: '11. Çocukların GizliliÃ„şi', icon: <Shield size={15} /> },
+        { id: 'cocuk-gizlilik', label: '11. Çocukların Gizliliği', icon: <Shield size={15} /> },
         { id: 'degisiklikler', label: '12. Politika Değişiklikleri', icon: <Bell size={15} /> },
         { id: 'iletisim', label: '13. İletişim', icon: <Mail size={15} /> },
     ];
@@ -219,7 +219,7 @@ export default function GizlilikPolitikasiPage() {
                         Gizlilik Politikası
                     </h1>
                     <p style={{ fontSize: '17px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>
-                        Kişisel verilerinizin korunması bizim en önemli önceliÃ„şimizdir.
+                        Kişisel verilerinizin korunması bizim en önemli önceliğimizdir.
                         KVKK ve GDPR standartlarına tam uyumluluk.
                     </p>
                     <div style={{
@@ -277,8 +277,8 @@ export default function GizlilikPolitikasiPage() {
                         }}>
                             <strong style={{ color: 'var(--foreground)' }}> KVKK Aydınlatma Metni:</strong>{' '}
                             <span style={{ color: 'var(--text-muted)' }}>
-                                Bu Gizlilik Politikası, 6698 Sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;) m.10 uyarınca hazırlanan aydınlatma yükümlülüÃ„şünü yerine getirmektedir.
-                                Ayrıca AB Genel Veri Koruma TüzüÃ„şü (GDPR) ilkelerine de uyum saÃ„şlamaktadır.
+                                Bu Gizlilik Politikası, 6698 Sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;) m.10 uyarınca hazırlanan aydınlatma yükümlülüğünü yerine getirmektedir.
+                                Ayrıca AB Genel Veri Koruma Tüzüğü (GDPR) ilkelerine de uyum sağlamaktadır.
                             </span>
                         </div>
 
@@ -289,7 +289,7 @@ export default function GizlilikPolitikasiPage() {
                                 Veri Sorumlusu
                             </h2>
                             <p className="legal-p">
-                                KVKK m.3/ı uyarınca, kişisel verilerinizin işlenmesine ilişkin amaç ve vasıtaları belirleyen veri sorumlusu sıfatıyla hareket eden tüzel kişi bilgileri aşaÃ„şıda sunulmaktadır:
+                                KVKK m.3/ı uyarınca, kişisel verilerinizin işlenmesine ilişkin amaç ve vasıtaları belirleyen veri sorumlusu sıfatıyla hareket eden tüzel kişi bilgileri aşağıda sunulmaktadır:
                             </p>
                             <div style={{
                                 padding: '20px 24px', borderRadius: '14px',
@@ -312,7 +312,7 @@ export default function GizlilikPolitikasiPage() {
                                 Politika Kapsamı
                             </h2>
                             <p className="legal-p">
-                                Bu Gizlilik Politikası, www.Otosöz.com web sitesi, mobil uygulamaları ve tüm dijital uzantıları aracılıÃ„şıyla toplanan kişisel verilerin; nasıl toplandıÃ„şını, hangi amaçlarla işlendiğini, kimlere ve hangi koşullarla aktarılabileceÃ„şini ve veri sahiplerinin KVKK kapsamındaki haklarını düzenler.
+                                Bu Gizlilik Politikası, www.Otosöz.com web sitesi, mobil uygulamaları ve tüm dijital uzantıları aracılığıyla toplanan kişisel verilerin; nasıl toplandığını, hangi amaçlarla işlendiğini, kimlere ve hangi koşullarla aktarılabileceğini ve veri sahiplerinin KVKK kapsamındaki haklarını düzenler.
                             </p>
                             <p className="legal-p">
                                 Politika; Platform&#39;a üye olan, ziyaret eden veya herhangi bir Şekilde hizmetlerinden yararlanan tüm gerçek kişilere uygulanır.
@@ -325,7 +325,7 @@ export default function GizlilikPolitikasiPage() {
                                 <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>3</span>
                                 Toplanan Kişisel Veriler
                             </h2>
-                            <p className="legal-p">KVKK m.3/d tanımına istinaden, aşaÃ„şıdaki kategorilerdeki kişisel veriler işlenmektedir:</p>
+                            <p className="legal-p">KVKK m.3/d tanımına istinaden, aşağıdaki kategorilerdeki kişisel veriler işlenmektedir:</p>
 
                             <table className="data-table">
                                 <thead>
@@ -375,7 +375,7 @@ export default function GizlilikPolitikasiPage() {
                             }}>
                                 <strong style={{ color: '#22c55e' }}>✅ Özel Nitelikli Kişisel Veri:</strong>{' '}
                                 <span style={{ color: 'var(--text-muted)' }}>
-                                    KVKK m.6 kapsamında tanımlanan özel nitelikli kişisel veriler (ırk, saÃ„şlık, biyometrik vb.) Platform tarafından hiçbir koşulda toplanmaz ve işlenmez.
+                                    KVKK m.6 kapsamında tanımlanan özel nitelikli kişisel veriler (ırk, sağlık, biyometrik vb.) Platform tarafından hiçbir koşulda toplanmaz ve işlenmez.
                                 </span>
                             </div>
                         </div>
@@ -386,15 +386,15 @@ export default function GizlilikPolitikasiPage() {
                                 <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>4</span>
                                 Kişisel Verilerin İŞlenme Amaçları
                             </h2>
-                            <p className="legal-p">KVKK m.5 ve m.6 çerçevesinde kişisel verileriniz aşaÃ„şıdaki amaçlarla işlenmektedir:</p>
+                            <p className="legal-p">KVKK m.5 ve m.6 çerçevesinde kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:</p>
                             <ul className="legal-list">
-                                <li><strong style={{ color: 'var(--foreground)' }}>Üyelik İŞlemleri:</strong> Hesap oluşturma, kimlik doÃ„şrulama ve oturum yönetimi.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Hizmet Sunumu:</strong> Platform hizmetlerinin (forum, pazar, karşılaştırma vb.) saÃ„şlanması ve kişiselleştirilmesi.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Üyelik İŞlemleri:</strong> Hesap oluşturma, kimlik doğrulama ve oturum yönetimi.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Hizmet Sunumu:</strong> Platform hizmetlerinin (forum, pazar, karşılaştırma vb.) sağlanması ve kişiselleştirilmesi.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>İletişim:</strong> Bildirimler, duyurular ve destek taleplerinin yönetimi.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Güvenlik:</strong> Platform güvenliÃ„şinin saÃ„şlanması, kötüye kullanımın ve yetkisiz erişimin önlenmesi.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Güvenlik:</strong> Platform güvenliğinin sağlanması, kötüye kullanımın ve yetkisiz erişimin önlenmesi.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Analiz:</strong> Anonim kullanım iİstatistikleri üretme, hizmet kalitesini artırma ve kullanıcı deneyimini iyileştirme.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Hukuki Yükümlülük:</strong> Yasal düzenlemeler ve yetkili makam taleplerine uyum (5651 Sayılı Kanun, CMK vb.).</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Meşru Menfaat:</strong> Dolandırıcılık tespiti, sistem saÃ„şlıÃ„şı izleme ve hizmet iyileştirme.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Meşru Menfaat:</strong> Dolandırıcılık tespiti, sistem sağlığı izleme ve hizmet iyileştirme.</li>
                             </ul>
                         </div>
 
@@ -404,14 +404,14 @@ export default function GizlilikPolitikasiPage() {
                                 <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>5</span>
                                 Kişisel Verilerin İŞlenmesinin Hukuki Sebepleri
                             </h2>
-                            <p className="legal-p">Kişisel verileriniz KVKK m.5/2 kapsamında aşaÃ„şıdaki hukuki sebeplere dayanarak işlenmektedir:</p>
+                            <p className="legal-p">Kişisel verileriniz KVKK m.5/2 kapsamında aşağıdaki hukuki sebeplere dayanarak işlenmektedir:</p>
                             <ul className="legal-list">
                                 <li><strong style={{ color: 'var(--foreground)' }}>m.5/2-a:</strong> Kanunlarda açıkça öngörülmesi (5651 Sayılı Kanun uyarınca trafik log kayıtlarının tutulması).</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>m.5/2-c:</strong> Bir sözleşmenin kurulması veya ifasıyla doÃ„şrudan ilgili olması (üyelik sözleşmesi kapsamındaki hizmetlerin sunulması).</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>m.5/2-ç:</strong> Veri sorumlusunun hukuki yükümlülüÃ„şünü yerine getirebilmesi.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>m.5/2-c:</strong> Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması (üyelik sözleşmesi kapsamındaki hizmetlerin sunulması).</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>m.5/2-ç:</strong> Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>m.5/2-e:</strong> Bir hakkın tesisi, kullanılması veya korunması.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>m.5/2-f:</strong> İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>m.5/1:</strong> Belirtilen sebeplerin mevcut olmadıÃ„şı hallerde, açık rızanızın alınması.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>m.5/1:</strong> Belirtilen sebeplerin mevcut olmadığı hallerde, açık rızanızın alınması.</li>
                             </ul>
                         </div>
 
@@ -422,11 +422,11 @@ export default function GizlilikPolitikasiPage() {
                                 Kişisel Verilerin Aktarılması
                             </h2>
                             <p className="legal-p">
-                                Kişisel verileriniz, KVKK m.8 ve m.9 hükümleri çerçevesinde ve yalnızca aşaÃ„şıda belirtilen taraflarla, belirtilen amaçlarla sınırlı olarak paylaşılabilir:
+                                Kişisel verileriniz, KVKK m.8 ve m.9 hükümleri çerçevesinde ve yalnızca aşağıda belirtilen taraflarla, belirtilen amaçlarla sınırlı olarak paylaşılabilir:
                             </p>
                             <ul className="legal-list">
                                 <li><strong style={{ color: 'var(--foreground)' }}>Yetkili Kamu Kurum ve Kuruluşları:</strong> Yasal yükümlülükler kapsamında (mahkeme kararları, savcılık talepleri vb.).</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Teknik Hizmet SaÃ„şlayıcıları:</strong> Sunucu barındırma, CDN ve analitik hizmetleri sunan iş ortakları (veri işleyen sıfatıyla, veri işleme sözleşmesi kapsamında).</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Teknik Hizmet Sağlayıcıları:</strong> Sunucu barındırma, CDN ve analitik hizmetleri sunan iş ortakları (veri işleyen sıfatıyla, veri işleme sözleşmesi kapsamında).</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Hukuki Danışmanlar:</strong> Hukuki uyuşmazlıkların çözümünde.</li>
                             </ul>
                             <div className="legal-highlight" style={{
@@ -435,7 +435,7 @@ export default function GizlilikPolitikasiPage() {
                             }}>
                                 <strong style={{ color: '#EF4444' }}>⛔� Kesin Taahhüt:</strong>{' '}
                                 <span style={{ color: 'var(--text-muted)' }}>
-                                    Kişisel verileriniz hiçbir koşulda üçüncü taraf reklam Şirketlerine satılmaz, kiralanmaz veya ticari amaçla paylaşılmaz. Yurt dışına veri aktarımı yapılması halinde KVKK m.9 hükümlerine tam uyum saÃ„şlanır.
+                                    Kişisel verileriniz hiçbir koşulda üçüncü taraf reklam Şirketlerine satılmaz, kiralanmaz veya ticari amaçla paylaşılmaz. Yurt dışına veri aktarımı yapılması halinde KVKK m.9 hükümlerine tam uyum sağlanır.
                                 </span>
                             </div>
                         </div>
@@ -484,10 +484,10 @@ export default function GizlilikPolitikasiPage() {
                         <div data-section="veri-guvenligi" className="legal-section">
                             <h2 className="legal-h2">
                                 <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>8</span>
-                                Veri GüvenliÃ„şi Tedbirleri
+                                Veri Güvenliği Tedbirleri
                             </h2>
                             <p className="legal-p">
-                                KVKK m.12 uyarınca kişisel verilerinizin güvenliÃ„şi için aşaÃ„şıdaki idari ve teknik tedbirler uygulanmaktadır:
+                                KVKK m.12 uyarınca kişisel verilerinizin güvenliği için aşağıdaki idari ve teknik tedbirler uygulanmaktadır:
                             </p>
                             <h3 className="legal-h3">8.1 Teknik Tedbirler</h3>
                             <ul className="legal-list">
@@ -495,12 +495,12 @@ export default function GizlilikPolitikasiPage() {
                                 <li><strong style={{ color: 'var(--foreground)' }}>Güvenlik Duvarı (WAF):</strong> Web uygulaması güvenlik duvarı ile siber saldırılara karşı koruma.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Şifreli Depolama:</strong> Kullanıcı Şifreleri bcrypt algoritması ile hash&#39;lenerek saklanır; düz metin olarak hiçbir yerde tutulmaz.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Penetrasyon Testleri:</strong> Periyodik güvenlik taramaları ve zafiyet testleri uygulanır.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Yedekleme:</strong> Düzenli, Şifreli yedekler coÃ„şrafi olarak ayrılmış sunucularda saklanır.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Yedekleme:</strong> Düzenli, Şifreli yedekler coğrafi olarak ayrılmış sunucularda saklanır.</li>
                             </ul>
                             <h3 className="legal-h3">8.2 İdari Tedbirler</h3>
                             <ul className="legal-list">
                                 <li>Erişim yetkilendirme matrisi (en az yetki prensibi).</li>
-                                <li>Çalışan gizlilik sözleşmeleri ve düzenli veri koruma eÃ„şitimleri.</li>
+                                <li>Çalışan gizlilik sözleşmeleri ve düzenli veri koruma eğitimleri.</li>
                                 <li>Veri ihlali müdahale planı ve 72 saat içinde KVKK Kurulu&#39;na bildirim prosedürü.</li>
                                 <li>Periyodik iç denetim ve uyumluluk kontrolleri.</li>
                             </ul>
@@ -562,16 +562,16 @@ export default function GizlilikPolitikasiPage() {
                                 <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>10</span>
                                 İlgili Kişi Hakları (KVKK m.11)
                             </h2>
-                            <p className="legal-p">KVKK m.11 uyarınca, kişisel veri sahibi olarak aşaÃ„şıdaki haklara sahipsiniz:</p>
+                            <p className="legal-p">KVKK m.11 uyarınca, kişisel veri sahibi olarak aşağıdaki haklara sahipsiniz:</p>
                             <ul className="legal-list">
-                                <li><strong style={{ color: 'var(--foreground)' }}>Bilgi Talep Hakkı:</strong> Kişisel verilerinizin işlenip işlenmediğini öÃ„şrenme.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Bilgi Talep Hakkı:</strong> Kişisel verilerinizin işlenip işlenmediğini öğrenme.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Bilgi Edinme Hakkı:</strong> İŞlenmişse buna ilişkin bilgi talep etme.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Amaç ÖÃ„şrenme Hakkı:</strong> İŞlenme amacını ve amacına uygun kullanılıp kullanılmadıÃ„şını öÃ„şrenme.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Aktarım Bilgisi Hakkı:</strong> Yurt içinde veya yurt dışında aktarıldıÃ„şı üçüncü kişileri bilme.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Amaç Öğrenme Hakkı:</strong> İŞlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Aktarım Bilgisi Hakkı:</strong> Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Düzeltme Hakkı:</strong> Eksik veya yanlış işlenmiş ise düzeltilmesini isteme.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>Silme/Yok Etme Hakkı:</strong> KVKK m.7 kapsamında silinmesini veya yok edilmesini isteme.</li>
                                 <li><strong style={{ color: 'var(--foreground)' }}>İtiraz Hakkı:</strong> Münhasıran otomatik sistemler vasıtasıyla analiz sonucu aleyhinize bir sonuç çıkmasına itiraz etme.</li>
-                                <li><strong style={{ color: 'var(--foreground)' }}>Tazminat Hakkı:</strong> Kanuna aykırı işleme nedeniyle zarara uÃ„şranması halinde zararın giderilmesini talep etme.</li>
+                                <li><strong style={{ color: 'var(--foreground)' }}>Tazminat Hakkı:</strong> Kanuna aykırı işleme nedeniyle zarara uğranması halinde zararın giderilmesini talep etme.</li>
                             </ul>
 
                             <div className="legal-highlight" style={{
@@ -587,14 +587,14 @@ export default function GizlilikPolitikasiPage() {
                             </div>
                         </div>
 
-                        {/* 11. Çocukların GizliliÃ„şi */}
+                        {/* 11. Çocukların Gizliliği */}
                         <div data-section="cocuk-gizlilik" className="legal-section">
                             <h2 className="legal-h2">
                                 <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>11</span>
-                                Çocukların GizliliÃ„şi
+                                Çocukların Gizliliği
                             </h2>
                             <p className="legal-p">
-                                Platform hizmetleri 18 yaşın üzerindeki bireylere yöneliktir. 18 yaşından küçük bireylerin kişisel verilerinin işlenmesi, yalnızca yasal vasi/velinin açık rızası ile mümkündür (TMK m.11, KVKK m.6). Ebeveynlerin, çocuklarının bilgilerinin rızaları dışında toplandıÃ„şını fark etmeleri halinde derhal kvkk@Otosöz.com adresine bildirimde bulunmaları gerekmektedir.
+                                Platform hizmetleri 18 yaşın üzerindeki bireylere yöneliktir. 18 yaşından küçük bireylerin kişisel verilerinin işlenmesi, yalnızca yasal vasi/velinin açık rızası ile mümkündür (TMK m.11, KVKK m.6). Ebeveynlerin, çocuklarının bilgilerinin rızaları dışında toplandığını fark etmeleri halinde derhal kvkk@Otosöz.com adresine bildirimde bulunmaları gerekmektedir.
                             </p>
                         </div>
 
@@ -605,7 +605,7 @@ export default function GizlilikPolitikasiPage() {
                                 Politika Değişiklikleri
                             </h2>
                             <p className="legal-p">
-                                Platform, bu Gizlilik Politikası&#39;nı yasal düzenlemelerdeki değişikliklere, teknolojik gelişmelere veya iç politika güncellemelerine baÃ„şlı olarak güncelleme hakkını saklı tutar. Esaslı değişikliklerde kullanıcılara e-posta ve platform içi bildirim yoluyla bilgilendirme yapılır.
+                                Platform, bu Gizlilik Politikası&#39;nı yasal düzenlemelerdeki değişikliklere, teknolojik gelişmelere veya iç politika güncellemelerine bağlı olarak güncelleme hakkını saklı tutar. Esaslı değişikliklerde kullanıcılara e-posta ve platform içi bildirim yoluyla bilgilendirme yapılır.
                             </p>
                             <p className="legal-p">
                                 Güncel Gizlilik Politikası her zaman bu sayfada yayımlanır. Politikayı periyodik olarak gözden geçirmenizi öneririz.
@@ -640,8 +640,8 @@ export default function GizlilikPolitikasiPage() {
                             }}>
                                 <strong style={{ color: '#22c55e' }}>✅ Taahhüt:</strong>{' '}
                                 <span style={{ color: 'var(--text-muted)' }}>
-                                    Otosöz olarak, kişisel verilerinizin korunması konusundaki sorumluluÃ„şumuzu en üst düzeyde tutuyoruz.
-                                    KVKK ve ilgili mevzuata tam uyum saÃ„şlamayı ve veri güvenliÃ„şi standartlarımızı sürekli iyileştirmeyi taahhüt ediyoruz.
+                                    Otosöz olarak, kişisel verilerinizin korunması konusundaki sorumluluğumuzu en üst düzeyde tutuyoruz.
+                                    KVKK ve ilgili mevzuata tam uyum sağlamayı ve veri güvenliği standartlarımızı sürekli iyileştirmeyi taahhüt ediyoruz.
                                 </span>
                             </div>
 

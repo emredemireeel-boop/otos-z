@@ -11,7 +11,7 @@ import { db } from "@/lib/firebase";
 import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
 
 type Role = string;
-type FilterType = "hepsi" | "yazar" | "caylak" | "silik";
+type FilterType = "hepsi" | "usta" | "caylak" | "silik";
 
 interface LiveUser {
     id: string;
@@ -36,7 +36,6 @@ type ModalType =
     | { type: "ban"; user: LiveUser }
     | { type: "affet"; user: LiveUser }
     | { type: "warn"; user: LiveUser }
-    | { type: "yazar"; user: LiveUser }
     | { type: "usta"; user: LiveUser }
     | { type: "caylak"; user: LiveUser }
     | null;
@@ -161,11 +160,11 @@ export default function AdminUsersPage() {
         }
     };
 
-    const applyRole = async (action: "yazar" | "usta" | "caylak") => {
+    const applyRole = async (action: "usta" | "caylak") => {
         if (!modal) return;
         const user = (modal as any).user as LiveUser;
-        const newRole = action === "yazar" ? "yazar" : action === "usta" ? "usta" : "standard";
-        const displayRole = action === "yazar" ? "Yazar" : action === "usta" ? "Usta" : "Caylak";
+        const newRole = action === "usta" ? "usta" : "caylak";
+        const displayRole = action === "usta" ? "Usta" : "Caylak";
         const ok = await apiAction('set_role', user.id, newRole);
         if (ok) {
             setModal(null); setSelectedUser(null);
@@ -176,7 +175,6 @@ export default function AdminUsersPage() {
     const getRoleStyle = (u: LiveUser) => {
         if (u.banned) return { bg: 'rgba(239,68,68,0.12)', color: '#EF4444', label: 'Ban’lı' };
         switch (u.role) {
-            case 'yazar':     return { bg: 'rgba(16,185,129,0.12)',  color: '#10B981', label: 'Yazar' };
             case 'usta':      return { bg: 'rgba(139,92,246,0.12)',  color: '#8B5CF6', label: 'Usta' };
             case 'moderator': return { bg: 'rgba(59,130,246,0.12)',  color: '#3B82F6', label: 'Modöratör' };
             case 'admin':     return { bg: 'rgba(239,68,68,0.12)',   color: '#EF4444', label: 'Admin' };
@@ -185,16 +183,16 @@ export default function AdminUsersPage() {
     };
 
     const filtered = users.filter(u => {
-        if (filter === "yazar") return !u.banned && (u.role === "yazar" || u.role === "usta" || u.role === "moderator" || u.role === "admin");
-        if (filter === "caylak") return !u.banned && (u.role === "standard" || !u.role);
+        if (filter === "usta") return !u.banned && (u.role === "usta" || u.role === "moderator" || u.role === "admin");
+        if (filter === "caylak") return !u.banned && (!u.role || u.role === "caylak" || u.role === "standard" || u.role === "cirak");
         if (filter === "silik") return u.banned;
         return true;
     });
 
     const counts = {
         hepsi: users.length,
-        yazar: users.filter(u => !u.banned && (u.role === "yazar" || u.role === "usta" || u.role === "moderator" || u.role === "admin")).length,
-        caylak: users.filter(u => !u.banned && (u.role === "standard" || !u.role)).length,
+        usta: users.filter(u => !u.banned && (u.role === "usta" || u.role === "moderator" || u.role === "admin")).length,
+        caylak: users.filter(u => !u.banned && (!u.role || u.role === "caylak" || u.role === "standard" || u.role === "cirak")).length,
         silik: users.filter(u => u.banned).length,
     };
 
@@ -226,7 +224,7 @@ export default function AdminUsersPage() {
                 <div style={{ display: 'flex', gap: '6px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', padding: '4px' }}>
                     {([
                         { key: "hepsi", label: "Tümü" },
-                        { key: "yazar", label: "Yazar" },
+                        { key: "usta", label: "Usta" },
                         { key: "caylak", label: "Caylak" },
                         { key: "silik", label: "Ban'lı" },
                     ] as { key: FilterType; label: string }[]).map(tab => (
@@ -401,13 +399,10 @@ export default function AdminUsersPage() {
                             {/* Aksiyonlar */}
                             <h4 style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>Aksiyonlar</h4>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                {!selectedUser.banned && selectedUser.role !== 'yazar' && selectedUser.role !== 'usta' && selectedUser.role !== 'moderator' && (
-                                    <ActionBtn color="#10B981" label="✓ Yazar Yap" desc="Forum'a entry girme yetkisi ver" onClick={() => setModal({ type: "yazar", user: selectedUser })} />
-                                )}
                                 {!selectedUser.banned && selectedUser.role !== 'usta' && selectedUser.role !== 'moderator' && (
                                     <ActionBtn color="#8B5CF6" label="★ Usta Yap" desc="Uzman olarak ata" onClick={() => setModal({ type: "usta", user: selectedUser })} />
                                 )}
-                                {!selectedUser.banned && (selectedUser.role === 'yazar' || selectedUser.role === 'usta') && (
+                                {!selectedUser.banned && (selectedUser.role === 'usta') && (
                                     <ActionBtn color="#F59E0B" label="↓ Caylak Yap" desc="Yetkileri geri al" onClick={() => setModal({ type: "caylak", user: selectedUser })} />
                                 )}
                                 {!selectedUser.banned && (
@@ -490,40 +485,34 @@ export default function AdminUsersPage() {
                             </>
                         )}
 
-                        {(modal.type === "yazar" || modal.type === "usta" || modal.type === "caylak") && (
+                        {(modal.type === "usta" || modal.type === "caylak") && (
                             <>
                                 <ModalHeader
                                     icon={
-                                        modal.type === "yazar" ? <UserCheck size={22} color="#10B981" /> :
                                         modal.type === "usta"  ? <UserCheck size={22} color="#8B5CF6" /> :
                                         <UserX size={22} color="#F59E0B" />
                                     }
                                     iconBg={
-                                        modal.type === "yazar" ? "rgba(16,185,129,0.1)" :
                                         modal.type === "usta"  ? "rgba(139,92,246,0.1)" :
                                         "rgba(245,158,11,0.1)"
                                     }
                                     title={
-                                        modal.type === "yazar" ? "Yazar Yap" :
                                         modal.type === "usta"  ? "Usta Yap" :
                                         "Caylak Yap"
                                     }
                                     sub={`@${(modal as any).user.username}`}
                                 />
                                 <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: 1.6 }}>
-                                    {modal.type === "yazar"
-                                        ? "Bu kullanıcı Yazar statüsüne getirilecek ve foruma entry girebilecek."
-                                        : modal.type === "usta"
+                                    {modal.type === "usta"
                                         ? "Bu kullanıcı Usta statüsüne yükseltilecek ve uzman rozetini alacak."
-                                        : "Bu yazarın yetkileri kısıtlanacak, Caylak yapılacak."
+                                        : "Bu kullanıcının yetkileri kısıtlanacak, Çaylak yapılacak."
                                     }
                                 </p>
                                 <div style={{ display: 'flex', gap: '10px' }}>
                                     <button onClick={() => setModal(null)} style={cancelBtnStyle}>Vazgeç</button>
-                                    <button onClick={() => applyRole(modal.type as "yazar" | "usta" | "caylak")} disabled={actionLoading}
-                                        style={modal.type === "yazar" ? successBtnStyle : modal.type === "usta" ? ustaBtnStyle : warnBtnStyle}>
+                                    <button onClick={() => applyRole(modal.type as "usta" | "caylak")} disabled={actionLoading}
+                                        style={modal.type === "usta" ? ustaBtnStyle : warnBtnStyle}>
                                         {actionLoading ? "..." :
-                                            modal.type === "yazar" ? "Yazar Yap" :
                                             modal.type === "usta"  ? "Usta Yap" :
                                             "Caylak Yap"}
                                     </button>

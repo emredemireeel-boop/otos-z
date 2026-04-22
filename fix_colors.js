@@ -1,22 +1,16 @@
 const fs = require('fs');
+const file = 'app/pazar/page.tsx';
+let content = fs.readFileSync(file, 'utf8');
 
-let path = 'app/uzmana-sor/page.tsx';
-let txt = fs.readFileSync(path, 'utf8');
+content = content.replace(/rgba\(255, 255, 255, 0\.6\)/g, "var(--text-muted)");
+content = content.replace(/rgba\(255, 255, 255, 0\.06\)/g, "var(--secondary)");
+content = content.replace(/rgba\(255, 255, 255, 0\.12\)/g, "var(--card-border)");
+content = content.replace(/color: 'white'/g, "color: 'var(--foreground)'");
+content = content.replace(/background: '#1a1a1a'/g, "background: 'var(--card-bg)'");
+content = content.replace(/color: brand \? 'white' : 'rgba\(255, 255, 255, 0\.3\)'/g, "color: brand ? 'var(--foreground)' : 'var(--text-muted)'");
+content = content.replace(/color: city \? 'white' : 'rgba\(255, 255, 255, 0\.3\)'/g, "color: city ? 'var(--foreground)' : 'var(--text-muted)'");
+content = content.replace(/background: 'rgba\(255, 255, 255, 0\.04\)'/g, "background: 'var(--secondary)'");
+content = content.replace(/color: 'rgba\(255, 255, 255, 0\.8\)'/g, "color: 'var(--foreground)'");
 
-const regex = /\/\/ Her kategoriye \?zel renk[\s\S]*?};/;
-
-const newColors = `// Her kategoriye özel profesyonel (minimalist) renk
-const CATEGORY_COLORS: Record<string, { gradient: string; bg: string; text: string; border: string }> = {
-    "Tümü":       { gradient: "linear-gradient(135deg, var(--primary), #ff8533)", bg: "rgba(255,255,255,0.03)", text: "var(--text-muted)", border: "rgba(255,255,255,0.08)" },
-    "Motor":       { gradient: "linear-gradient(135deg, var(--primary), #ff8533)", bg: "rgba(255,255,255,0.03)", text: "var(--text-muted)", border: "rgba(255,255,255,0.08)" },
-    "Şanzıman":    { gradient: "linear-gradient(135deg, var(--primary), #ff8533)", bg: "rgba(255,255,255,0.03)", text: "var(--text-muted)", border: "rgba(255,255,255,0.08)" },
-    "Lastik":      { gradient: "linear-gradient(135deg, var(--primary), #ff8533)", bg: "rgba(255,255,255,0.03)", text: "var(--text-muted)", border: "rgba(255,255,255,0.08)" },
-    "Bakım":       { gradient: "linear-gradient(135deg, var(--primary), #ff8533)", bg: "rgba(255,255,255,0.03)", text: "var(--text-muted)", border: "rgba(255,255,255,0.08)" },
-    "Elektrik":    { gradient: "linear-gradient(135deg, var(--primary), #ff8533)", bg: "rgba(255,255,255,0.03)", text: "var(--text-muted)", border: "rgba(255,255,255,0.08)" },
-    "Fren":        { gradient: "linear-gradient(135deg, var(--primary), #ff8533)", bg: "rgba(255,255,255,0.03)", text: "var(--text-muted)", border: "rgba(255,255,255,0.08)" },
-    "Süspansiyon": { gradient: "linear-gradient(135deg, var(--primary), #ff8533)", bg: "rgba(255,255,255,0.03)", text: "var(--text-muted)", border: "rgba(255,255,255,0.08)" },
-};`;
-
-txt = txt.replace(regex, newColors);
-fs.writeFileSync(path, txt, 'utf8');
-console.log("Replaced CATEGORY_COLORS array with clean palette.");
+fs.writeFileSync(file, content);
+console.log("Done");

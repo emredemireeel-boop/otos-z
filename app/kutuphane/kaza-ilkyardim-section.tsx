@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, AlertTriangle, FileText, CheckCircle, Heart, Shield, Clock, ChevronDown, ChevronUp, Car, Activity } from "lucide-react";
+import { Phone, AlertTriangle, FileText, CheckCircle, Heart, Shield, Clock, ChevronDown, ChevronUp, Car, Activity, Download } from "lucide-react";
 
 /* ══════════════════════════════════════
    DATA
@@ -91,40 +91,53 @@ const ILKYARDIM = [
     baslik: "Bilinç Kontrolü",
     color: "#EF4444",
     adimlar: [
-      "Yaralıya yaklaşın, omzuna dokunup seslenin.",
-      "Yanıt vermiyorsa 112'yi arayın.",
-      "Nefes alıp almadığını kontrol edin (göğüs hareketi).",
+      "Yaralıya yaklaşın, omzuna dokunup 'İyi misiniz?' diye seslenin.",
+      "Yanıt vermiyorsa derhal 112'yi arayın veya etraftaki birine aratın.",
+      "Nefes alıp almadığını kontrol edin (Vaktinizi kaybetmeden göğüs hareketlerini 10 saniye dinleyin).",
+      "Solunum yoksa ve eğitiminiz varsa Temel Yaşam Desteğine (Kalp Masajı) başlayın.",
     ],
   },
   {
     baslik: "Kanama Durdurma",
     color: "#F97316",
     adimlar: [
-      "Temiz bez veya gaz bezini yaranın üzerine bastırın.",
-      "Basıncı en az 10 dakika sürdürün.",
-      "Yaralı uzvu kalp seviyesinin üstüne kaldırın.",
-      "Turnike sadece hayati tehlike varsa, son çare olarak kullanın.",
+      "Temiz bez veya gaz bezini yaranın üzerine kuvvetlice bastırın.",
+      "Basıncı en az 10-15 dakika hiç kaldırmadan sürdürün.",
+      "Kanama durmuyorsa ilk bezin üzerine ikinci bir bez koyarak basınca devam edin.",
+      "Yaralı uzvu (kol/bacak) kalp seviyesinin üstüne kaldırın.",
+      "Turnike sadece uzuv kopması veya durdurulamayan hayati kanamalarda, son çare olarak kullanın.",
     ],
   },
   {
     baslik: "Kırık & Burkulma",
     color: "#3B82F6",
     adimlar: [
-      "Kırık bölgeyi hareket ettirmeyin.",
-      "Soğuk kompres uygulayın (şişmeyi azaltır).",
-      "Boyun/sırt yaralanması şüphesinde yaralıyı kesinlikle oynatmayın.",
-      "Ambulans gelene kadar sakinleştirin.",
+      "Kırık şüphesi olan bölgeyi kesinlikle hareket ettirmeyin ve düzeltmeye çalışmayın.",
+      "Bulduğunuz sert bir cisimle (tahta, kalın karton) eklemleri içine alacak şekilde sabitleyin.",
+      "Soğuk kompres uygulayın (Buzu direkt deriye değil, bir beze sararak uygulayın).",
+      "Boyun/sırt/omurga yaralanması şüphesinde yaralıyı KESİNLİKLE yerinden oynatmayın.",
     ],
   },
   {
     baslik: "Yanık",
     color: "#10B981",
     adimlar: [
-      "Yanık bölgeyi akan soğuk su altında 10\u201320 dk tutun.",
-      "Buz uygulamayın, yanığa yapışmaz pansuman örtün.",
-      "Yanığın üzerindeki giysileri çıkarmayın (yapışmışsa).",
+      "Yanık bölgeyi tazyiksiz, akan soğuk (buzlu olmayan) su altında 15-20 dk tutun.",
+      "Asla buz, diş macunu, yoğurt veya krem sürmeyin.",
+      "Yanığın üzerindeki giysileri çıkarmaya çalışmayın, yapışmışsa etrafından kesin.",
+      "Yanığı temiz ve nemli bir bezle veya streç filmle gevşekçe örtün.",
     ],
   },
+  {
+    baslik: "Şok Pozisyonu",
+    color: "#8B5CF6",
+    adimlar: [
+      "Yaralıyı sırtüstü düz bir zemine yatırın.",
+      "Bacaklarını 30 cm kadar yukarı kaldırıp destekleyin.",
+      "Üzerini battaniye veya mont ile örterek vücut ısısını koruyun.",
+      "Bilinci kapalıysa ağızdan kesinlikle yiyecek/içecek vermeyin.",
+    ]
+  }
 ];
 
 const SURUCU_HAKLARI = [
@@ -176,6 +189,23 @@ export default function KazaIlkYardimSection() {
             Trafik kazasında adım adım ne yapmalısınız? Telaşlanmayın, bu rehberi takip edin.
           </p>
         </div>
+      </div>
+
+      {/* Tutanak Download Banner */}
+      <div style={{ background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(16, 185, 129, 0.05))', border: '1px solid rgba(59, 130, 246, 0.2)', borderRadius: '16px', padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+        <div>
+          <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FileText size={20} color="var(--primary)" />
+            Maddi Hasarlı Trafik Kazası Tespit Tutanağı
+          </h3>
+          <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: 0, maxWidth: '500px' }}>
+            Kaza anında torpidonuzda mutlaka bulunması gereken resmi kaza tespit tutanağını PDF olarak indirebilir ve çıktısını alabilirsiniz.
+          </p>
+        </div>
+        <a href="/Otosöz_kazatespit.pdf" download="Maddi_Hasarli_Kaza_Tespit_Tutanagi.pdf" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: 'var(--primary)', color: 'white', textDecoration: 'none', borderRadius: '10px', fontWeight: '700', fontSize: '14px', whiteSpace: 'nowrap', transition: 'transform 0.2s', boxShadow: '0 4px 12px rgba(255, 107, 0, 0.2)' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+          <Download size={18} />
+          Tutanağı İndir (PDF)
+        </a>
       </div>
 
       {/* Emergency Numbers */}

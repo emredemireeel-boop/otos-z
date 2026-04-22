@@ -1,26 +1,79 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { User, Bell, Lock, Globe, Shield, Trash2, DollarSign, ArrowRight, Moon, Sun } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import {
+    Bell, Lock, Globe, Trash2, ArrowRight, Moon, Sun, Award,
+    MessageSquare, Store, BarChart3, Dna, ClipboardCheck, Shield,
+    CheckCircle, ExternalLink, Loader2, MapPin, Phone, Building2, Plus, X
+} from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
+import { getQuestProgress, QUEST_DEFINITIONS, type QuestProgress } from "@/lib/questService";
+import { addBusiness, BUSINESS_TYPES, type BusinessType } from "@/lib/businessService";
+
+const QUEST_ICONS: Record<string, React.ReactNode> = {
+    MessageSquare: <MessageSquare size={20} />,
+    Store: <Store size={20} />,
+    BarChart3: <BarChart3 size={20} />,
+    Dna: <Dna size={20} />,
+    ClipboardCheck: <ClipboardCheck size={20} />,
+    Shield: <Shield size={20} />,
+};
 
 export default function SettingsPage() {
     const { user } = useAuth();
     const { theme, toggleTheme } = useTheme();
-    const [activeTab, setActiveTab] = useState("notifications");
+    const searchParams = useSearchParams();
+    const initialTab = searchParams.get("tab") === "usta" ? "usta" : "notifications";
+    const [activeTab, setActiveTab] = useState(initialTab);
     const [settings, setSettings] = useState({
-        // Notifications
         emailNotifications: true,
         pushNotifications: true,
         messageNotifications: true,
     });
 
+    // Quest state
+    const [questProgress, setQuestProgress] = useState<QuestProgress | null>(null);
+    const [questLoading, setQuestLoading] = useState(false);
+    const [showBusinessForm, setShowBusinessForm] = useState(false);
+    const [bizForm, setBizForm] = useState({ name: "", type: "tamirci" as BusinessType, city: "", district: "", phone: "", address: "" });
+    const [bizSubmitting, setBizSubmitting] = useState(false);
+    const [bizSuccess, setBizSuccess] = useState(false);
+
+    useEffect(() => {
+        if (activeTab === "usta" && user && !questProgress) {
+            setQuestLoading(true);
+            getQuestProgress(user.id.toString()).then(p => {
+                setQuestProgress(p);
+                setQuestLoading(false);
+            }).catch(() => setQuestLoading(false));
+        }
+    }, [activeTab, user, questProgress]);
+
+    const handleBizSubmit = async () => {
+        if (!user || !bizForm.name.trim() || !bizForm.city.trim()) return;
+        setBizSubmitting(true);
+        try {
+            await addBusiness({ ...bizForm, addedBy: user.id.toString(), addedByUsername: user.username });
+            setBizSuccess(true);
+            setShowBusinessForm(false);
+            setBizForm({ name: "", type: "tamirci", city: "", district: "", phone: "", address: "" });
+            // Refresh quest progress
+            const p = await getQuestProgress(user.id.toString());
+            setQuestProgress(p);
+            setTimeout(() => setBizSuccess(false), 3000);
+        } catch (e) { console.error(e); }
+        setBizSubmitting(false);
+    };
+
+    const isUsta = user?.role === "usta" || user?.role === "admin" || user?.role === "moderator";
+
     const tabs = [
         { id: "notifications", name: "Bildirimler", icon: Bell },
         { id: "appearance", name: "Görünüm", icon: Moon },
-        { id: "expert", name: "Uzman Ol", icon: DollarSign },
+        { id: "usta", name: "Usta Ol!", icon: Award },
         { id: "account", name: "Hesap", icon: Lock },
         { id: "about", name: "Hakkında", icon: Globe },
     ];
@@ -44,7 +97,7 @@ export default function SettingsPage() {
                 }}>Ayarlar</h1>
                 <p style={{
                     fontSize: '14px',
-                    color: 'rgba(255,255,255,0.6)',
+                    color: 'var(--text-muted)',
                     marginBottom: '32px',
                 }}>Hesap ayarlarınızı ve tercihlerinizi yönetin</p>
 
@@ -73,18 +126,18 @@ export default function SettingsPage() {
                                         display: 'flex',
                                         alignItems: 'center',
                                         gap: '12px',
-                                        background: activeTab === tab.id ? 'rgba(255, 107, 0, 0.1)' : 'transparent',
+                                        background: activeTab === tab.id ? 'rgba(59, 130, 246, 0.15)' : 'transparent',
                                         border: 'none',
                                         borderRadius: '8px',
-                                        color: activeTab === tab.id ? 'var(--primary)' : 'var(--foreground)',
+                                        color: activeTab === tab.id ? '#3B82F6' : 'var(--foreground)',
                                         fontSize: '14px',
                                         fontWeight: '600',
                                         cursor: 'pointer',
                                         transition: 'all 0.2s',
                                         marginBottom: '4px',
                                     }}
-                                    onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)'}
-                                    onMouseLeave={(e) => e.currentTarget.style.background = activeTab === tab.id ? 'rgba(255, 107, 0, 0.1)' : 'transparent'}
+                                    onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(59, 130, 246, 0.15)'}
+                                    onMouseLeave={(e) => e.currentTarget.style.background = activeTab === tab.id ? 'rgba(59, 130, 246, 0.15)' : 'transparent'}
                                 >
                                     <Icon size={18} />
                                     {tab.name}
@@ -128,7 +181,7 @@ export default function SettingsPage() {
                                             }}>E-posta Bildirimleri</div>
                                             <div style={{
                                                 fontSize: '12px',
-                                                color: 'rgba(255,255,255,0.6)',
+                                                color: 'var(--text-muted)',
                                             }}>Önemli güncellemeler için e-posta alın</div>
                                         </div>
                                         <input
@@ -157,7 +210,7 @@ export default function SettingsPage() {
                                             }}>Push Bildirimleri</div>
                                             <div style={{
                                                 fontSize: '12px',
-                                                color: 'rgba(255,255,255,0.6)',
+                                                color: 'var(--text-muted)',
                                             }}>Tarayıcı üzerinden bildirim alın</div>
                                         </div>
                                         <input
@@ -186,7 +239,7 @@ export default function SettingsPage() {
                                             }}>Mesaj Bildirimleri</div>
                                             <div style={{
                                                 fontSize: '12px',
-                                                color: 'rgba(255,255,255,0.6)',
+                                                color: 'var(--text-muted)',
                                             }}>Yeni mesajlar için bildirim alın</div>
                                         </div>
                                         <input
@@ -200,107 +253,146 @@ export default function SettingsPage() {
                             </div>
                         )}
 
-                        {activeTab === "expert" && (
+                        {activeTab === "usta" && (
                             <div>
-                                <h2 style={{
-                                    fontSize: '20px',
-                                    fontWeight: '700',
-                                    color: 'var(--foreground)',
-                                    marginBottom: '24px',
-                                }}>Uzman Ol</h2>
-
-                                <div style={{
-                                    padding: '32px',
-                                    background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 152, 0, 0.1))',
-                                    border: '1px solid rgba(255, 215, 0, 0.3)',
-                                    borderRadius: '16px',
-                                    marginBottom: '24px',
-                                    textAlign: 'center',
-                                }}>
-                                    <div style={{
-                                        width: '80px',
-                                        height: '80px',
-                                        margin: '0 auto 20px',
-                                        borderRadius: '50%',
-                                        background: 'linear-gradient(135deg, #FFD700, #FFB300)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}>
-                                        <DollarSign style={{ width: '40px', height: '40px', color: 'white' }} />
+                                {/* Header */}
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                                    <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: isUsta ? 'rgba(139,92,246,0.15)' : 'rgba(255,107,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <Award size={24} color={isUsta ? '#8B5CF6' : 'var(--primary)'} />
                                     </div>
-                                    <h3 style={{
-                                        fontSize: '24px',
-                                        fontWeight: '700',
-                                        color: '#FFD700',
-                                        marginBottom: '12px',
-                                    }}>Otosöz ile Uzman Olun!</h3>
-                                    <p style={{
-                                        fontSize: '14px',
-                                        color: 'rgba(255,255,255,0.8)',
-                                        marginBottom: '24px',
-                                        lineHeight: '1.6',
-                                    }}>
-                                        Toplulukta aktif olun, profesyonel kimliÃ„şinizi doÃ„şrulayın ve para kazanma özelliÃ„şini aktif edin.
-                                    </p>
-                                    <Link href="/para-kazan">
-                                        <button style={{
-                                            padding: '14px 28px',
-                                            background: 'linear-gradient(135deg, #FFD700, #FFB300)',
-                                            border: 'none',
-                                            borderRadius: '12px',
-                                            color: 'white',
-                                            fontSize: '16px',
-                                            fontWeight: '700',
-                                            cursor: 'pointer',
-                                            display: 'inline-flex',
-                                            alignItems: 'center',
-                                            gap: '8px',
-                                        }}>
-                                            Şartları Gör
-                                            <ArrowRight size={20} />
-                                        </button>
-                                    </Link>
-                                </div>
-
-                                <div style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: '1fr 1fr',
-                                    gap: '16px',
-                                }}>
-                                    <div style={{
-                                        padding: '20px',
-                                        background: 'var(--secondary)',
-                                        borderRadius: '12px',
-                                    }}>
-                                        <div style={{
-                                            fontSize: '32px',
-                                            fontWeight: '700',
-                                            color: 'var(--primary)',
-                                            marginBottom: '8px',
-                                        }}>4</div>
-                                        <div style={{
-                                            fontSize: '14px',
-                                            color: 'rgba(255,255,255,0.8)',
-                                        }}>Temel Gereksinim</div>
-                                    </div>
-                                    <div style={{
-                                        padding: '20px',
-                                        background: 'var(--secondary)',
-                                        borderRadius: '12px',
-                                    }}>
-                                        <div style={{
-                                            fontSize: '32px',
-                                            fontWeight: '700',
-                                            color: '#FFD700',
-                                            marginBottom: '8px',
-                                        }}>1</div>
-                                        <div style={{
-                                            fontSize: '14px',
-                                            color: 'rgba(255,255,255,0.8)',
-                                        }}>Profesyonel DoÃ„şrulama</div>
+                                    <div>
+                                        <h2 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--foreground)', margin: 0 }}>
+                                            {isUsta ? 'Usta Statünüz Aktif!' : 'Usta Ol!'}
+                                        </h2>
+                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: 0 }}>
+                                            {isUsta ? 'Tüm ayrıcalıkların kilidi açıldı' : 'Görevleri tamamla, Usta ol!'}
+                                        </p>
                                     </div>
                                 </div>
+
+                                {questLoading ? (
+                                    <div style={{ textAlign: 'center', padding: '40px' }}>
+                                        <Loader2 size={32} style={{ animation: 'spin 0.8s linear infinite', color: 'var(--primary)' }} />
+                                        <p style={{ color: 'var(--text-muted)', marginTop: '12px', fontSize: '14px' }}>Görevler yükleniyor...</p>
+                                    </div>
+                                ) : isUsta && !questProgress ? (
+                                    <div style={{ textAlign: 'center', padding: '40px', background: 'rgba(139,92,246,0.06)', borderRadius: '16px', border: '1px solid rgba(139,92,246,0.2)' }}>
+                                        <div style={{ fontSize: '48px', marginBottom: '12px' }}>🏆</div>
+                                        <h3 style={{ fontSize: '20px', fontWeight: '700', color: '#8B5CF6', marginBottom: '8px' }}>Zaten Usta Statüsündesiniz!</h3>
+                                        <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Tüm forum özelliklerini kullanabilirsiniz.</p>
+                                    </div>
+                                ) : (
+                                    <>
+                                        {/* Progress Bar */}
+                                        <div style={{ marginBottom: '24px', background: 'var(--secondary)', borderRadius: '12px', padding: '16px' }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                                                <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>İlerleme</span>
+                                                <span style={{ fontSize: '13px', fontWeight: '800', color: 'var(--primary)' }}>{questProgress?.completedCount || 0}/6</span>
+                                            </div>
+                                            <div style={{ height: '8px', borderRadius: '4px', background: 'rgba(255,255,255,0.1)', overflow: 'hidden' }}>
+                                                <div style={{ height: '100%', borderRadius: '4px', background: 'linear-gradient(90deg, var(--primary), #8B5CF6)', width: `${((questProgress?.completedCount || 0) / 6) * 100}%`, transition: 'width 0.5s ease' }} />
+                                            </div>
+                                        </div>
+
+                                        {/* Quest Cards */}
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
+                                            {QUEST_DEFINITIONS.map(quest => {
+                                                const done = questProgress?.[quest.key] || false;
+                                                const isBusinessQuest = quest.key === "businessAdded";
+                                                return (
+                                                    <div key={quest.key} style={{
+                                                        display: 'flex', alignItems: 'center', gap: '14px',
+                                                        padding: '14px 16px', borderRadius: '12px',
+                                                        background: done ? 'rgba(16,185,129,0.06)' : 'var(--secondary)',
+                                                        border: `1px solid ${done ? 'rgba(16,185,129,0.25)' : 'var(--card-border)'}`,
+                                                        transition: 'all 0.2s',
+                                                    }}>
+                                                        <div style={{
+                                                            width: '40px', height: '40px', borderRadius: '10px',
+                                                            background: done ? 'rgba(16,185,129,0.15)' : `${quest.color}15`,
+                                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                            color: done ? '#10B981' : quest.color, flexShrink: 0,
+                                                        }}>
+                                                            {done ? <CheckCircle size={20} /> : QUEST_ICONS[quest.icon]}
+                                                        </div>
+                                                        <div style={{ flex: 1, minWidth: 0 }}>
+                                                            <p style={{ margin: 0, fontSize: '14px', fontWeight: '700', color: done ? '#10B981' : 'var(--foreground)', textDecoration: done ? 'line-through' : 'none' }}>
+                                                                {quest.title}
+                                                            </p>
+                                                            <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-muted)' }}>{quest.description}</p>
+                                                        </div>
+                                                        {!done && (
+                                                            isBusinessQuest ? (
+                                                                <button onClick={() => setShowBusinessForm(true)} style={{
+                                                                    padding: '7px 14px', borderRadius: '8px', border: 'none',
+                                                                    background: quest.color, color: 'white', fontSize: '12px',
+                                                                    fontWeight: '700', cursor: 'pointer', display: 'flex',
+                                                                    alignItems: 'center', gap: '5px', flexShrink: 0,
+                                                                }}>
+                                                                    <Plus size={14} /> Ekle
+                                                                </button>
+                                                            ) : (
+                                                                <Link href={quest.href}>
+                                                                    <button style={{
+                                                                        padding: '7px 14px', borderRadius: '8px', border: 'none',
+                                                                        background: quest.color, color: 'white', fontSize: '12px',
+                                                                        fontWeight: '700', cursor: 'pointer', display: 'flex',
+                                                                        alignItems: 'center', gap: '5px', flexShrink: 0,
+                                                                    }}>
+                                                                        <ExternalLink size={14} /> Git
+                                                                    </button>
+                                                                </Link>
+                                                            )
+                                                        )}
+                                                        {done && <span style={{ fontSize: '11px', fontWeight: '700', color: '#10B981', flexShrink: 0 }}>Tamamlandı</span>}
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+
+                                        {/* Business Form Modal */}
+                                        {showBusinessForm && (
+                                            <div style={{ background: 'var(--secondary)', borderRadius: '16px', padding: '20px', marginBottom: '20px', border: '1px solid var(--card-border)' }}>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                                                    <h4 style={{ margin: 0, fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                                        <Building2 size={18} color="#10B981" /> Oto İşletme Ekle
+                                                    </h4>
+                                                    <button onClick={() => setShowBusinessForm(false)} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}><X size={18} /></button>
+                                                </div>
+                                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '10px' }}>
+                                                    <input placeholder="İşletme Adı *" value={bizForm.name} onChange={e => setBizForm({...bizForm, name: e.target.value})} style={{ padding: '10px', borderRadius: '8px', border: '1px solid var(--input-border)', background: 'var(--input-bg)', color: 'var(--foreground)' }} />
+                                                    <select value={bizForm.type} onChange={e => setBizForm({...bizForm, type: e.target.value as BusinessType})} style={{ padding: '10px', borderRadius: '8px', border: '1px solid var(--input-border)', background: 'var(--input-bg)', color: 'var(--foreground)' }}>
+                                                        {BUSINESS_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
+                                                    </select>
+                                                    <input placeholder="Şehir *" value={bizForm.city} onChange={e => setBizForm({...bizForm, city: e.target.value})} style={{ padding: '10px', borderRadius: '8px', border: '1px solid var(--input-border)', background: 'var(--input-bg)', color: 'var(--foreground)' }} />
+                                                    <input placeholder="İlçe" value={bizForm.district} onChange={e => setBizForm({...bizForm, district: e.target.value})} style={{ padding: '10px', borderRadius: '8px', border: '1px solid var(--input-border)', background: 'var(--input-bg)', color: 'var(--foreground)' }} />
+                                                    <input placeholder="Telefon" value={bizForm.phone} onChange={e => setBizForm({...bizForm, phone: e.target.value})} style={{ padding: '10px', borderRadius: '8px', border: '1px solid var(--input-border)', background: 'var(--input-bg)', color: 'var(--foreground)' }} />
+                                                    <input placeholder="Adres" value={bizForm.address} onChange={e => setBizForm({...bizForm, address: e.target.value})} style={{ padding: '10px', borderRadius: '8px', border: '1px solid var(--input-border)', background: 'var(--input-bg)', color: 'var(--foreground)' }} />
+                                                </div>
+                                                <button onClick={handleBizSubmit} disabled={bizSubmitting || !bizForm.name.trim() || !bizForm.city.trim()} style={{
+                                                    width: '100%', padding: '12px', borderRadius: '10px', border: 'none',
+                                                    background: '#10B981', color: 'white', fontSize: '14px', fontWeight: '700',
+                                                    cursor: 'pointer', opacity: (!bizForm.name.trim() || !bizForm.city.trim()) ? 0.4 : 1,
+                                                }}>
+                                                    {bizSubmitting ? 'Gönderiliyor...' : 'İşletmeyi Gönder (Admin Onayına Düşer)'}
+                                                </button>
+                                            </div>
+                                        )}
+
+                                        {bizSuccess && (
+                                            <div style={{ padding: '12px 16px', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: '10px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                                <CheckCircle size={16} color="#10B981" />
+                                                <span style={{ fontSize: '13px', fontWeight: '600', color: '#10B981' }}>İşletme başarıyla gönderildi! Admin onayından sonra yayına alınacak.</span>
+                                            </div>
+                                        )}
+
+                                        {/* Info Box */}
+                                        <div style={{ padding: '14px 16px', background: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: '10px', fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                                            <strong style={{ color: 'var(--foreground)' }}>Nasıl çalışır?</strong><br />
+                                            6 görevi tamamlayın ve otomatik olarak Usta statüsüne yükselin. Usta olunca tüm forum özelliklerine erişebilirsiniz.
+                                        </div>
+                                    </>
+                                )}
                             </div>
                         )}
 
@@ -399,7 +491,7 @@ export default function SettingsPage() {
                                     </h3>
                                     <p style={{
                                         fontSize: '13px',
-                                        color: 'rgba(255,255,255,0.6)',
+                                        color: 'var(--text-muted)',
                                         marginBottom: '16px',
                                     }}>
                                         Hesabınızı silmek tüm verilerinizin kalıcı olarak silinmesine neden olur. Bu işlem geri alınamaz.
@@ -436,18 +528,18 @@ export default function SettingsPage() {
                                     }}>
                                         <Globe style={{ width: '40px', height: '40px', color: 'white' }} />
                                     </div>
-                                    <h2 style={{ fontSize: '32px', fontWeight: '800', marginBottom: '12px', background: 'linear-gradient(to right, #fff, rgba(255,255,255,0.7))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                                        Otosöz
+                                    <h2 style={{ fontSize: '32px', fontWeight: '800', marginBottom: '12px', background: 'linear-gradient(to right, var(--foreground), var(--text-muted))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                                        OTOSÖZ
                                     </h2>
-                                    <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', maxWidth: '500px', margin: '0 auto', lineHeight: '1.6' }}>
+                                    <p style={{ fontSize: '16px', color: 'var(--text-muted)', maxWidth: '500px', margin: '0 auto', lineHeight: '1.6' }}>
                                         Türkiye'nin yapay zeka destekli en kapsamlı ikinci el araç pazar yeri ve analiz platformu.
                                     </p>
                                 </div>
 
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '40px' }}>
                                     {[
-                                        { title: "Veri Odaklı", desc: "Milyonlarca veri noktasıyla en doÃ„şru fiyat analizi.", icon: "📊" },
-                                        { title: "Güvenli", desc: "DoÃ„şrulanmış satıcılar ve Şeffaf ekspertiz raporları.", icon: "🛠️¡ïÂ¸Â�" },
+                                        { title: "Veri Odaklı", desc: "Milyonlarca veri noktasıyla en doğru fiyat analizi.", icon: "📊" },
+                                        { title: "Güvenli", desc: "Doğrulanmış satıcılar ve şeffaf ekspertiz raporları.", icon: "🛠️" },
                                         { title: "Hızlı", desc: "Saniyeler içinde ilan verin, hayalinizdeki aracı bulun.", icon: "⚡" }
                                     ].map((item, idx) => (
                                         <div key={idx} style={{
@@ -458,8 +550,8 @@ export default function SettingsPage() {
                                             textAlign: 'center'
                                         }}>
                                             <div style={{ fontSize: '32px', marginBottom: '12px' }}>{item.icon}</div>
-                                            <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '8px', color: 'white' }}>{item.title}</h3>
-                                            <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.5' }}>{item.desc}</p>
+                                            <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '8px', color: 'var(--foreground)' }}>{item.title}</h3>
+                                            <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5' }}>{item.desc}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -470,26 +562,26 @@ export default function SettingsPage() {
                                     borderRadius: '16px',
                                     border: '1px solid var(--card-border)',
                                 }}>
-                                    <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '20px', color: 'white' }}>İletişim & Künye</h3>
+                                    <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '20px', color: 'var(--foreground)' }}>İletişim & Künye</h3>
 
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                                            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>E-posta</span>
-                                            <span style={{ color: 'white', fontWeight: '500', fontSize: '14px' }}>otosoz.destek@gmail.com</span>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid var(--card-border)' }}>
+                                            <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>E-posta</span>
+                                            <span style={{ color: 'var(--foreground)', fontWeight: '500', fontSize: '14px' }}>otosoz.destek@gmail.com</span>
                                         </div>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                                            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Genel Merkez</span>
-                                            <span style={{ color: 'white', fontWeight: '500', fontSize: '14px', textAlign: 'right' }}>Teknopark İzmir, A1 Blok<br />Urla, İzmir</span>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid var(--card-border)' }}>
+                                            <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Genel Merkez</span>
+                                            <span style={{ color: 'var(--foreground)', fontWeight: '500', fontSize: '14px', textAlign: 'right' }}>Teknopark İzmir, A1 Blok<br />Urla, İzmir</span>
                                         </div>
                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Versiyon</span>
+                                            <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Versiyon</span>
                                             <span style={{ color: 'var(--primary)', fontWeight: '700', fontSize: '14px' }}>v1.0.0 Alpha</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div style={{ marginTop: '40px', textAlign: 'center' }}>
-                                    <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>Ã‚© 2024 Otosöz Inc. Tüm hakları saklıdır.</p>
+                                    <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>© 2025 OTOSÖZ. Tüm hakları saklıdır.</p>
                                 </div>
                             </div>
                         )}

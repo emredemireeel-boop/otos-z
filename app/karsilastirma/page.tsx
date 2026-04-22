@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
 import { subscribeToThreads, formatTimestamp, type ForumThread } from "@/lib/forumService";
-import { ArrowLeftRight, Plus, Search, Users, Clock, MessageSquare, Eye } from "lucide-react";
+import { ArrowLeftRight, Plus, Search, Users, Clock, MessageSquare, Eye, Award, Sparkles } from "lucide-react";
 
 const VEHICLE_COUNTS = ["Tumu", "2 Arac", "3 Arac", "4 Arac", "5 Arac"];
 
@@ -59,7 +59,7 @@ export default function ComparisonPage() {
                             <ArrowLeftRight size={40} color="white" />
                         </div>
                         <h1 style={{ fontSize: '36px', fontWeight: '800', color: 'white', marginBottom: '16px' }}>
-                            Arac Karsilastirma
+                            Araç Karşılaştırma
                         </h1>
                         <p style={{ fontSize: '18px', color: 'rgba(255, 255, 255, 0.7)', maxWidth: '600px', margin: '0 auto 24px' }}>
                             Araclari karsilastirin, toplulukla paylasin ve oy verin
@@ -71,7 +71,7 @@ export default function ComparisonPage() {
                                 cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px',
                                 boxShadow: '0 4px 15px var(--primary-glow)', textDecoration: 'none',
                             }}>
-                                <Plus size={18} /> Yeni Karsilastirma
+                                <Plus size={18} /> Yeni Karşılaştırma
                             </Link>
                         )}
                     </div>
@@ -121,10 +121,67 @@ export default function ComparisonPage() {
                                 borderTop: '3px solid var(--primary)', borderRadius: '50%',
                                 animation: 'spin 0.8s linear infinite', margin: '0 auto 16px'
                             }} />
-                            <p style={{ color: 'var(--text-muted)' }}>Karsilastirmalar yukleniyor...</p>
+                            <p style={{ color: 'var(--text-muted)' }}>Karşılaştırmalar yükleniyor...</p>
                         </div>
                     ) : (
                         <>
+                            {/* Reklam Alanı */}
+                            <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block', marginBottom: '32px' }}>
+                                <div style={{
+                                    background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
+                                    height: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                                    color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '20px', textAlign: 'center'
+                                }}
+                                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
+                                     onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
+                                    <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
+                                        <Sparkles size={20} color="currentColor" />
+                                    </div>
+                                    <h3 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '8px' }}>Buraya Reklam Ver</h3>
+                                    <p style={{ fontSize: '12px', lineHeight: '1.5', margin: 0 }}>Karşılaştırma yapan binlerce kullanıcıya doğrudan ulaşın.</p>
+                                </div>
+                            </Link>
+
+                            {/* Vitrin Alanı */}
+                            {!loading && threads.length > 0 && (
+                                <div style={{ marginBottom: '40px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                                        <div style={{ background: 'rgba(251, 191, 36, 0.1)', padding: '8px', borderRadius: '10px' }}>
+                                            <Award size={20} color="#fbbf24" />
+                                        </div>
+                                        <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>Popüler Karşılaştırmalar</h2>
+                                    </div>
+                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
+                                        {sortedThreads.slice(0, 2).map(thread => (
+                                            <Link key={`vitrin-${thread.id}`} href={`/karsilastirma/${thread.id}`} style={{ textDecoration: 'none' }}>
+                                                <div style={{
+                                                    background: 'linear-gradient(145deg, var(--card-bg), rgba(255,255,255,0.02))',
+                                                    border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px',
+                                                    position: 'relative', overflow: 'hidden', transition: 'all 0.2s', height: '100%',
+                                                }}
+                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#fbbf24'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                                                >
+                                                    <div style={{ position: 'absolute', top: 0, right: 0, background: '#fbbf24', color: 'black', fontSize: '11px', fontWeight: '800', padding: '4px 12px', borderBottomLeftRadius: '12px' }}>VİTRİN</div>
+                                                    <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px', paddingRight: '60px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{thread.title}</h3>
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px' }}>
+                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}><Users size={12}/>{thread.authorUsername}</span>
+                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={12}/>{thread.entryCount}</span>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                                <div style={{ background: 'rgba(255, 107, 53, 0.1)', padding: '8px', borderRadius: '10px' }}>
+                                    <ArrowLeftRight size={20} color="#FF6B35" />
+                                </div>
+                                <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>Tüm Karşılaştırmalar</h2>
+                            </div>
+
                             {/* Thread List */}
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                 {sortedThreads.map(thread => (
@@ -145,7 +202,7 @@ export default function ComparisonPage() {
                                                             padding: '4px 12px', background: 'rgba(255, 107, 0, 0.1)',
                                                             color: '#FF6B35', borderRadius: '6px',
                                                             fontSize: '11px', fontWeight: '700', textTransform: 'uppercase'
-                                                        }}>Karsilastirma</span>
+                                                        }}>Karşılaştırma</span>
                                                     </div>
                                                     <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>
                                                         {thread.title}
@@ -192,10 +249,10 @@ export default function ComparisonPage() {
                                 }}>
                                     <ArrowLeftRight size={48} color="var(--text-muted)" style={{ marginBottom: '16px' }} />
                                     <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>
-                                        Henuz karsilastirma yok
+                                        Henüz karşılaştırma yok
                                     </h3>
                                     <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '24px' }}>
-                                        Ilk karsilastirmayi siz olusturun!
+                                        İlk karşılaştırmayı siz oluşturun!
                                     </p>
                                     {user && (
                                         <Link href="/karsilastirma/yeni" style={{
@@ -204,7 +261,7 @@ export default function ComparisonPage() {
                                             cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px',
                                             textDecoration: 'none',
                                         }}>
-                                            <Plus size={16} /> Yeni Karsilastirma
+                                            <Plus size={16} /> Yeni Karşılaştırma
                                         </Link>
                                     )}
                                 </div>

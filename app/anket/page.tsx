@@ -5,7 +5,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
-import { Settings, Fuel, CarFront, Activity, Award, CheckCircle, AlertCircle, Plus, X, Trash2 } from "lucide-react";
+import { Settings, Fuel, CarFront, Activity, Award, CheckCircle, AlertCircle, Plus, X, Trash2, Sparkles, TrendingUp, Users, CheckSquare } from "lucide-react";
 import {
     collection, addDoc, getDocs, doc, updateDoc, deleteDoc,
     serverTimestamp, query, orderBy, increment
@@ -50,6 +50,7 @@ export default function AnketPage() {
             case "CarFront": return <CarFront {...props} />;
             case "Activity": return <Activity {...props} />;
             case "Award": return <Award {...props} />;
+            case "none": return null;
             default: return <Award {...props} />;
         }
     };
@@ -238,7 +239,86 @@ export default function AnketPage() {
                     </div>
                 </div>
 
-                <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px' }}>
+                <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+                        {/* Sol Sidebar */}
+                        <aside>
+                            <div style={{ position: 'sticky', top: '100px' }}>
+                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px', marginBottom: '16px' }}>
+                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                        <TrendingUp size={16} color="var(--primary)" /> Anket Trendleri
+                                    </h3>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                            <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(59, 130, 246, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3b82f6' }}><Users size={14}/></div>
+                                            <div>
+                                                <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>Topluluğun Sesi</div>
+                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Binlerce Oy</div>
+                                            </div>
+                                        </div>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                            <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981' }}><CheckSquare size={14}/></div>
+                                            <div>
+                                                <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>Güncel Veri</div>
+                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Gerçek Zamanlı</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px' }}>
+                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Nasıl Çalışır?</h3>
+                                    <p style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>Fikrinizi belirtmek için anketlere katılın. Sonuçlar anında güncellenir. Dilerseniz kendi anketinizi de oluşturabilirsiniz.</p>
+                                </div>
+                            </div>
+                        </aside>
+
+                        {/* Orta İçerik */}
+                        <div>
+
+                    {/* Vitrin Alanı */}
+                    {!loading && surveys.length > 0 && (
+                        <div style={{ marginBottom: '40px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                                <div style={{ background: 'rgba(251, 191, 36, 0.1)', padding: '8px', borderRadius: '10px' }}>
+                                    <Award size={20} color="#fbbf24" />
+                                </div>
+                                <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>Günün Vitrini</h2>
+                            </div>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
+                                {surveys.slice(0, 2).map((survey) => (
+                                    <div key={`vitrin-${survey.id}`} style={{
+                                        background: 'linear-gradient(145deg, var(--card-bg), rgba(255,255,255,0.02))',
+                                        border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px',
+                                        position: 'relative', overflow: 'hidden'
+                                    }}>
+                                        <div style={{ position: 'absolute', top: 0, right: 0, background: '#fbbf24', color: 'black', fontSize: '11px', fontWeight: '800', padding: '4px 12px', borderBottomLeftRadius: '12px' }}>ÖNE ÇIKAN</div>
+                                        <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px', paddingRight: '60px' }}>{survey.title}</h3>
+                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{survey.description}</p>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: '600' }}>{survey.totalVotes.toLocaleString()} oy</span>
+                                            <button onClick={() => {
+                                                const el = document.getElementById(`survey-${survey.id}`);
+                                                if (el) {
+                                                    const y = el.getBoundingClientRect().top + window.scrollY - 100;
+                                                    window.scrollTo({ top: y, behavior: 'smooth' });
+                                                }
+                                            }} style={{ padding: '6px 12px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '8px', color: 'var(--foreground)', fontSize: '12px', cursor: 'pointer', fontWeight: '600', transition: 'all 0.2s' }}>
+                                                Oyla
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                        <div style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '8px', borderRadius: '10px' }}>
+                            <Activity size={20} color="#3b82f6" />
+                        </div>
+                        <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>Tüm Anketler</h2>
+                    </div>
+
                     {loading ? (
                         <div style={{ padding: '60px', textAlign: 'center', color: 'var(--text-muted)' }}>Anketler yukleniyor...</div>
                     ) : (
@@ -253,7 +333,7 @@ export default function AnketPage() {
                                     const hasVoted = myVote !== undefined;
 
                                     return (
-                                        <div key={survey.id} style={{
+                                        <div id={`survey-${survey.id}`} key={survey.id} style={{
                                             background: 'var(--card-bg)', border: '1px solid var(--card-border)',
                                             borderRadius: '16px', overflow: 'hidden', transition: 'border-color 0.3s ease',
                                         }}
@@ -263,13 +343,15 @@ export default function AnketPage() {
                                             {/* Survey Header */}
                                             <div style={{ padding: '20px', borderBottom: '1px solid var(--card-border)' }}>
                                                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                                                    <div style={{
-                                                        width: '48px', height: '48px', borderRadius: '12px',
-                                                        background: 'var(--primary)', display: 'flex',
-                                                        alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                                                    }}>
-                                                        {getIcon(survey.iconName)}
-                                                    </div>
+                                                    {survey.iconName !== 'none' && (
+                                                        <div style={{
+                                                            width: '48px', height: '48px', borderRadius: '12px',
+                                                            background: 'var(--primary)', display: 'flex',
+                                                            alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                                                        }}>
+                                                            {getIcon(survey.iconName)}
+                                                        </div>
+                                                    )}
                                                     <div style={{ flex: 1 }}>
                                                         <h2 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px' }}>
                                                             {survey.title}
@@ -366,6 +448,47 @@ export default function AnketPage() {
                             )}
                         </div>
                     )}
+                        </div>
+
+                        {/* Sağ Sidebar */}
+                        <aside>
+                            <div style={{ position: 'sticky', top: '100px' }}>
+                                {/* Reklam Alanı */}
+                                <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block', marginBottom: '16px' }}>
+                                    <div style={{
+                                        background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
+                                        height: '220px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                                        color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '20px', textAlign: 'center'
+                                    }}
+                                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
+                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
+                                        <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
+                                            <Sparkles size={20} color="currentColor" />
+                                        </div>
+                                        <h3 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '8px' }}>Buraya Reklam Ver</h3>
+                                        <p style={{ fontSize: '12px', lineHeight: '1.5', margin: 0 }}>Günde binlerce otomotiv tutkununa markanızı ulaştırın.</p>
+                                    </div>
+                                </Link>
+
+                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                                        <Activity size={16} color="var(--primary)" />
+                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>İstatistikler</h3>
+                                    </div>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                        <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
+                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#3b82f6' }}>{surveys.length}</div>
+                                            <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Toplam Anket</div>
+                                        </div>
+                                        <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
+                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#10b981' }}>{surveys.reduce((acc, s) => acc + s.totalVotes, 0)}</div>
+                                            <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Kullanılan Oy</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
                 </div>
 
                 {/* Create Survey Modal */}
@@ -393,11 +516,11 @@ function CreateSurveyModal({
     onCreate: (data: { title: string; description: string; category: string; iconName: string; options: string[] }) => void;
     categories: string[];
 }) {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [category, setCategory] = useState(categories[0] || "Genel");
-    const [iconName, setIconName] = useState("Award");
-    const [options, setOptions] = useState(["", ""]);
+    const [title, setTitle] = useState("Motor Tipi Tercihi: Benzin mi, Dizel mi, Elektrik mi?");
+    const [description, setDescription] = useState("Performans, yakıt ekonomisi ve gelecek vizyonu açısından en doğru seçim hangisi?");
+    const [category, setCategory] = useState("Genel");
+    const [iconName, setIconName] = useState("none");
+    const [options, setOptions] = useState(["Benzin", "Dizel", "Elektrik"]);
 
     const addOption = () => {
         if (options.length < 8) setOptions([...options, ""]);
@@ -474,6 +597,17 @@ function CreateSurveyModal({
                             <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '6px' }}>Kategori</label>
                             <select value={category} onChange={e => setCategory(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
                                 {categories.map(c => <option key={c} value={c}>{c}</option>)}
+                            </select>
+                        </div>
+                        <div style={{ marginTop: '12px' }}>
+                            <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '6px' }}>İkon</label>
+                            <select value={iconName} onChange={e => setIconName(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
+                                <option value="none">İkon Yok</option>
+                                <option value="Award">Ödül</option>
+                                <option value="CarFront">Araç</option>
+                                <option value="Fuel">Yakıt</option>
+                                <option value="Settings">Ayar</option>
+                                <option value="Activity">Aktivite</option>
                             </select>
                         </div>
                     </div>

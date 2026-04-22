@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { Wrench, CheckCircle, AlertTriangle, Clock, ChevronDown, ChevronUp, Gauge, Car, Zap, Fuel } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Wrench, CheckCircle, AlertTriangle, Clock, ChevronDown, ChevronUp, Gauge, Car, Zap, Fuel, Bell, BellOff, Loader2 } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 /* ══════════════════════════════════════
    VEHICLE TYPES
@@ -197,15 +200,54 @@ export default function BakimTakvimiSection() {
   const [aracTuru, setAracTuru] = useState<AracTuru>("benzinli");
   const [currentKm, setCurrentKm] = useState(0);
   const [expanded, setExpanded] = useState<Set<number>>(new Set([0]));
+  const { user } = useAuth();
+  const [notificationsEnabled, setNotificationsEnabled] = useState(false);
+  const [savingNotifications, setSavingNotifications] = useState(false);
 
-  const data = BAKIM_MAP[aracTuru];
-  const turuConfig = ARAC_TURLERI.find(t => t.key === aracTuru)!;
+  useEffect(() => {
+    if (user?.id) {
+      const fetchSettings = async () => {
+        try {
+          const docRef = doc(db, "user_settings", String(user.id));
+          const snap = await getDoc(docRef);
+          if (snap.exists()) {
+            setNotificationsEnabled(snap.data().maintenanceNotifications || false);
+          }
+        } catch (e) {
+          console.error("Bildirim ayarları alınamadı", e);
+        }
+      };
+      fetchSettings();
+    }
+  }, [user]);
+
+  const toggleNotifications = async () => {
+    if (!user) {
+      alert("Bakım bildirimlerini açmak için giriş yapmalısınız.");
+      return;
+    }
+    const newVal = !notificationsEnabled;
+    setNotificationsEnabled(newVal);
+    setSavingNotifications(true);
+    try {
+      const docRef = doc(db, "user_settings", String(user.id));
+      await setDoc(docRef, { maintenanceNotifications: newVal, lastUpdated: new Date() }, { merge: true });
+    } catch (e) {
+      console.error("Bildirim ayarı kaydedilemedi", e);
+      setNotificationsEnabled(!newVal); // revert
+    } finally {
+      setSavingNotifications(false);
+    }
+  };
 
   const toggle = (km: number) => {
     const s = new Set(expanded);
     if (s.has(km)) s.delete(km); else s.add(km);
     setExpanded(s);
   };
+
+  const data = BAKIM_MAP[aracTuru];
+  const turuConfig = ARAC_TURLERI.find(t => t.key === aracTuru)!;
 
   const isDue = (km: number) => currentKm > 0 && currentKm >= km;
   const isUpcoming = (km: number) => {
@@ -230,6 +272,30 @@ export default function BakimTakvimiSection() {
           <p style={{ fontSize: "13px", color: "var(--text-muted)", margin: "4px 0 0 0" }}>
             Araç türüne göre özelleştirilmiş kapsamlı bakım rehberi
           </p>
+        </div>
+        <div style={{ marginLeft: "auto" }}>
+          <button
+            onClick={toggleNotifications}
+            disabled={savingNotifications}
+            style={{
+              display: "flex", alignItems: "center", gap: "8px",
+              padding: "10px 16px", borderRadius: "12px",
+              background: notificationsEnabled ? "rgba(34, 197, 94, 0.15)" : "var(--secondary)",
+              border: `1px solid ${notificationsEnabled ? "rgba(34, 197, 94, 0.4)" : "var(--card-border)"}`,
+              color: notificationsEnabled ? "#22c55e" : "var(--text-muted)",
+              fontSize: "13px", fontWeight: "700", cursor: savingNotifications ? "wait" : "pointer",
+              transition: "all 0.3s"
+            }}
+          >
+            {savingNotifications ? (
+              <Loader2 size={16} className="animate-spin" />
+            ) : notificationsEnabled ? (
+              <Bell size={16} color="#22c55e" />
+            ) : (
+              <BellOff size={16} color="currentColor" />
+            )}
+            {notificationsEnabled ? "Bildirimler Açık" : "Ajanda Bildirimleri"}
+          </button>
         </div>
       </div>
 

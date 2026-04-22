@@ -124,14 +124,28 @@ function PodiumItem({
                 width: '40px',
                 height: '40px',
                 borderRadius: '50%',
-                background: '#262626',
-                border: '2px solid #404040',
+                background: brand.brandColor || 'var(--card-bg)',
+                border: '2px solid var(--card-border)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginBottom: '8px'
+                marginBottom: '8px',
+                overflow: 'hidden'
             }}>
-                <span style={{ fontSize: '20px' }}>{brand.logoEmoji}</span>
+                {brand.logoUrl ? (
+                    <img 
+                        src={brand.logoUrl} 
+                        alt={brand.name} 
+                        style={{ width: '100%', height: '100%', objectFit: 'contain', background: 'white', padding: '4px' }}
+                        onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            if (e.currentTarget.nextElementSibling) {
+                                e.currentTarget.nextElementSibling.classList.remove('hidden');
+                            }
+                        }}
+                    />
+                ) : null}
+                <span className={brand.logoUrl ? 'hidden' : ''} style={{ fontSize: '18px', fontWeight: '900', color: 'white' }}>{brand.logoEmoji}</span>
             </div>
 
             {/* Brand Info */}
@@ -148,7 +162,7 @@ function PodiumItem({
                 }}>{brand.name}</p>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
                     <Star style={{ width: '12px', height: '12px', color: c.text, fill: c.text }} />
-                    <span style={{ fontWeight: '700', fontSize: '12px', color: c.text }}>{brand.rating === 0 ? 'â€”' : brand.rating.toFixed(1)}</span>
+                    <span style={{ fontWeight: '700', fontSize: '12px', color: c.text }}>{brand.rating === 0 ? '—' : brand.rating.toFixed(1)}</span>
                 </div>
             </div>
 

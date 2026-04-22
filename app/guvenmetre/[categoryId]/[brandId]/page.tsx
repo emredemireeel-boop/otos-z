@@ -75,14 +75,30 @@ export default function BrandDetailPage() {
                                     width: '80px',
                                     height: '80px',
                                     borderRadius: '20px',
-                                    background: 'var(--card-bg)',
+                                    background: brand.brandColor || 'var(--card-bg)',
                                     border: '1px solid var(--card-border)',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    fontSize: '48px'
+                                    fontSize: '40px',
+                                    fontWeight: '900',
+                                    color: 'white',
+                                    overflow: 'hidden'
                                 }}>
-                                    {brand.logoEmoji}
+                                    {brand.logoUrl ? (
+                                        <img 
+                                            src={brand.logoUrl} 
+                                            alt={brand.name} 
+                                            style={{ width: '100%', height: '100%', objectFit: 'contain', background: 'white', padding: '10px' }}
+                                            onError={(e) => {
+                                                e.currentTarget.style.display = 'none';
+                                                if (e.currentTarget.nextElementSibling) {
+                                                    e.currentTarget.nextElementSibling.classList.remove('hidden');
+                                                }
+                                            }}
+                                        />
+                                    ) : null}
+                                    <span className={brand.logoUrl ? 'hidden' : ''}>{brand.logoEmoji}</span>
                                 </div>
                                 <div>
                                     <h1 style={{ fontSize: '32px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>{brand.name}</h1>

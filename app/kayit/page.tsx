@@ -65,7 +65,11 @@ export default function KayitPage() {
         }
     };
 
-    const handleGoogleRegister = async () => {
+        const handleGoogleRegister = async () => {
+        if (!acceptTerms) {
+            setRegisterError("Devam etmek için Gizlilik Politikası ve Kullanım Koşullarını kabul etmelisiniz.");
+            return;
+        }
         setIsLoading(true);
         setRegisterError("");
         const result = await loginWithGoogle();
@@ -91,8 +95,8 @@ export default function KayitPage() {
     const passwordsMatch = formData.password && formData.confirmPassword && formData.password === formData.confirmPassword;
     const passwordsDontMatch = formData.password && formData.confirmPassword && formData.password !== formData.confirmPassword;
 
-    const canProceedStep1 = formData.username.length >= 3 && formData.email.includes('@') && formData.city.length > 0;
-    const canProceedStep2 = formData.password.length >= 6 && passwordsMatch && acceptTerms;
+    const canProceedStep1 = formData.username.length >= 3 && formData.email.includes('@') && formData.city.length > 0 && acceptTerms;
+    const canProceedStep2 = formData.password.length >= 6 && passwordsMatch;
 
     // Success Screen
     if (success) {
@@ -723,6 +727,43 @@ export default function KayitPage() {
                                     </div>
                                 </div>
 
+                                {/* Terms */}
+                                <div style={{
+                                    padding: '16px',
+                                    background: isDark ? 'rgba(255,107,0,0.06)' : 'rgba(0,90,226,0.04)',
+                                    border: `1px solid ${isDark ? 'rgba(255,107,0,0.15)' : 'rgba(0,90,226,0.1)'}`,
+                                    borderRadius: '14px',
+                                }}>
+                                    <label style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer', userSelect: 'none' }}>
+                                        <div
+                                            onClick={() => setAcceptTerms(!acceptTerms)}
+                                            style={{
+                                                width: '22px', height: '22px', borderRadius: '7px',
+                                                border: `2px solid ${acceptTerms ? 'var(--primary)' : 'var(--card-border)'}`,
+                                                background: acceptTerms ? 'var(--primary)' : 'transparent',
+                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                transition: 'all 0.2s', flexShrink: 0, marginTop: '1px',
+                                            }}
+                                        >
+                                            {acceptTerms && (
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                                    <polyline points="20 6 9 17 4 12" />
+                                                </svg>
+                                            )}
+                                        </div>
+                                        <span style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+                                            <Link href="/kullanim-sartlari" target="_blank" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: '700' }}>
+                                                Kullanım Şartlarını
+                                            </Link>
+                                            {" "}ve{" "}
+                                            <Link href="/gizlilik-politikasi" target="_blank" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: '700' }}>
+                                                Gizlilik Politikasını
+                                            </Link>
+                                            {" "}okudum ve kabul ediyorum.
+                                        </span>
+                                    </label>
+                                </div>
+
                                 <button
                                     type="button"
                                     className="reg-btn"
@@ -841,43 +882,6 @@ export default function KayitPage() {
                                     )}
                                 </div>
 
-                                {/* Terms */}
-                                <div style={{
-                                    padding: '16px',
-                                    background: isDark ? 'rgba(255,107,0,0.06)' : 'rgba(0,90,226,0.04)',
-                                    border: `1px solid ${isDark ? 'rgba(255,107,0,0.15)' : 'rgba(0,90,226,0.1)'}`,
-                                    borderRadius: '14px',
-                                }}>
-                                    <label style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer', userSelect: 'none' }}>
-                                        <div
-                                            onClick={() => setAcceptTerms(!acceptTerms)}
-                                            style={{
-                                                width: '22px', height: '22px', borderRadius: '7px',
-                                                border: `2px solid ${acceptTerms ? 'var(--primary)' : 'var(--card-border)'}`,
-                                                background: acceptTerms ? 'var(--primary)' : 'transparent',
-                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                transition: 'all 0.2s', flexShrink: 0, marginTop: '1px',
-                                            }}
-                                        >
-                                            {acceptTerms && (
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                                                    <polyline points="20 6 9 17 4 12" />
-                                                </svg>
-                                            )}
-                                        </div>
-                                        <span style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                                            <Link href="/kullanim-sartlari" target="_blank" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: '700' }}>
-                                                Kullanım Şartlarını
-                                            </Link>
-                                            {" "}ve{" "}
-                                            <Link href="/gizlilik-politikasi" target="_blank" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: '700' }}>
-                                                Gizlilik Politikasını
-                                            </Link>
-                                            {" "}okudum ve kabul ediyorum.
-                                        </span>
-                                    </label>
-                                </div>
-
                                 {/* Error */}
                                 {registerError && (
                                     <div style={{
@@ -930,7 +934,7 @@ export default function KayitPage() {
                             borderTop: '1px solid var(--card-border)',
                         }}>
                             <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                                Zaten hesab�n�z var mı?{" "}
+                                Zaten hesabınız var mı?{" "}
                                 <Link href="/giris" style={{
                                     color: 'var(--primary)',
                                     textDecoration: 'none',

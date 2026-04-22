@@ -100,7 +100,7 @@ export default function NewComparisonPage() {
 
             router.push(`/karsilastirma/${threadId}`);
         } catch (e) {
-            console.error("Karsilastirma olusturulamadi:", e);
+            console.error("Karşılaştırma oluşturulamadı:", e);
             alert("Hata olustu, lutfen tekrar deneyin.");
         }
         setPublishing(false);
@@ -113,7 +113,7 @@ export default function NewComparisonPage() {
                     <div style={{ textAlign: 'center' }}>
                         <LogIn size={48} style={{ color: 'var(--text-muted)', marginBottom: '16px' }} />
                         <h2 style={{ color: 'var(--foreground)', marginBottom: '12px' }}>Giris Yapmaniz Gerekiyor</h2>
-                        <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>Karsilastirma olusturmak icin giris yapin.</p>
+                        <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>Karşılaştırma oluşturmak için giriş yapın.</p>
                         <Link href="/giris"><button style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', border: 'none', borderRadius: '10px', fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}>Giris Yap</button></Link>
                     </div>
                 </main><Footer />
@@ -135,7 +135,7 @@ export default function NewComparisonPage() {
                                         <ArrowLeftRight style={{ width: '36px', height: '36px', color: 'white' }} />
                                     </div>
                                     <div>
-                                        <h1 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--foreground)', margin: 0, marginBottom: '4px' }}>Yeni Karsilastirma</h1>
+                                        <h1 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--foreground)', margin: 0, marginBottom: '4px' }}>Yeni Karşılaştırma</h1>
                                         <p style={{ fontSize: '16px', color: 'var(--text-muted)', margin: 0 }}>Araclari karsilastirin ve paylasin</p>
                                     </div>
                                 </div>
@@ -251,7 +251,7 @@ export default function NewComparisonPage() {
                             <FileText style={{ width: '20px', height: '20px', color: 'var(--primary)' }} />
                             <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', margin: 0 }}>Aciklama</h3>
                         </div>
-                        <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Karsilastirma hakkinda detaylar..."
+                        <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Karşılaştırma hakkında detaylar..."
                             rows={5} style={{ width: '100%', padding: '12px 16px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '8px', color: 'var(--foreground)', fontSize: '14px', resize: 'vertical', lineHeight: '1.6', outline: 'none' }} />
                     </div>
 
@@ -263,7 +263,7 @@ export default function NewComparisonPage() {
                         opacity: canPublish ? 1 : 0.5, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px',
                     }}>
                         <Star style={{ fontSize: '24px' }} />
-                        {publishing ? 'Yayimlaniyor...' : canPublish ? 'Karsilastirmayi Yayimla' : `Her Arac Icin Isim ve Gecerli Link Girin`}
+                        {publishing ? 'Yayımlanıyor...' : canPublish ? 'Karşılaştırmayı Yayımla' : `Her Araç İçin İsim ve Geçerli Link Girin`}
                     </button>
                 </div>
             </main>

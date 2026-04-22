@@ -276,7 +276,7 @@ export default function PazarPage() {
                             gap: '12px',
                             marginTop: '40px',
                             padding: '20px 0',
-                            borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+                            borderTop: '1px solid var(--card-border)'
                         }}>
                             <button
                                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
@@ -284,9 +284,9 @@ export default function PazarPage() {
                                 style={{
                                     padding: '10px 20px',
                                     borderRadius: '10px',
-                                    background: currentPage === 1 ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.1)',
-                                    color: currentPage === 1 ? 'rgba(255, 255, 255, 0.3)' : 'white',
-                                    border: 'none',
+                                    background: currentPage === 1 ? 'var(--secondary)' : 'var(--card-bg)',
+                                    color: currentPage === 1 ? 'var(--text-muted)' : 'var(--foreground)',
+                                    border: '1px solid var(--card-border)',
                                     cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
                                     fontWeight: '600',
                                     transition: 'all 0.2s'
@@ -295,7 +295,7 @@ export default function PazarPage() {
                                 ← Önceki
                             </button>
 
-                            <span style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '14px', fontWeight: '500' }}>
+                            <span style={{ color: 'var(--text-muted)', fontSize: '14px', fontWeight: '500' }}>
                                 Sayfa {currentPage} / {totalPages}
                             </span>
 
@@ -305,9 +305,9 @@ export default function PazarPage() {
                                 style={{
                                     padding: '10px 20px',
                                     borderRadius: '10px',
-                                    background: currentPage === totalPages ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.1)',
-                                    color: currentPage === totalPages ? 'rgba(255, 255, 255, 0.3)' : 'white',
-                                    border: 'none',
+                                    background: currentPage === totalPages ? 'var(--secondary)' : 'var(--card-bg)',
+                                    color: currentPage === totalPages ? 'var(--text-muted)' : 'var(--foreground)',
+                                    border: '1px solid var(--card-border)',
                                     cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
                                     fontWeight: '600',
                                     transition: 'all 0.2s'
@@ -391,7 +391,7 @@ function ListingCard({ listing }: { listing: CarListing }) {
                     background: listing.isHeavilyDamaged
                         ? 'linear-gradient(135deg, #DC2626, #991B1B)'
                         : 'linear-gradient(135deg, #F59E0B, #D97706)',
-                    color: 'white',
+                    color: 'var(--foreground)',
                     padding: '4px 40px',
                     fontSize: '9px',
                     fontWeight: '900',
@@ -948,7 +948,7 @@ function NewListingModal({
                     background: 'var(--card-bg)',
                     zIndex: 10,
                 }}>
-                    <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'white' }}>
+                    <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>
                         Yeni İlan Ekle
                     </h2>
                     <button
@@ -956,7 +956,7 @@ function NewListingModal({
                         style={{
                             background: 'transparent',
                             border: 'none',
-                            color: 'rgba(255, 255, 255, 0.5)',
+                            color: 'var(--text-muted)',
                             cursor: 'pointer',
                             padding: '8px',
                         }}
@@ -970,7 +970,7 @@ function NewListingModal({
                     {/* Brand & Model */}
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
                         <div>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                                 Marka *
                             </label>
                             <select
@@ -979,21 +979,21 @@ function NewListingModal({
                                 style={{
                                     width: '100%',
                                     padding: '12px 16px',
-                                    background: 'rgba(255, 255, 255, 0.06)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '10px',
-                                    color: 'white',
+                                    color: 'var(--foreground)',
                                     fontSize: '14px',
                                 }}
                             >
-                                <option value="" style={{ background: '#1a1a1a' }}>Marka seçin</option>
+                                <option value="" style={{ background: 'var(--card-bg)', color: 'var(--foreground)' }}>Marka seçin</option>
                                 {brands.map(b => (
-                                    <option key={b} value={b} style={{ background: '#1a1a1a' }}>{b}</option>
+                                    <option key={b} value={b} style={{ background: 'var(--card-bg)' }}>{b}</option>
                                 ))}
                             </select>
                         </div>
                         <div>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                                 Model *
                             </label>
                             <select
@@ -1003,16 +1003,16 @@ function NewListingModal({
                                 style={{
                                     width: '100%',
                                     padding: '12px 16px',
-                                    background: 'rgba(255, 255, 255, 0.06)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '10px',
-                                    color: brand ? 'white' : 'rgba(255, 255, 255, 0.3)',
+                                    color: brand ? 'var(--foreground)' : 'var(--text-muted)',
                                     fontSize: '14px',
                                 }}
                             >
-                                <option value="" style={{ background: '#1a1a1a' }}>Model seçin</option>
+                                <option value="" style={{ background: 'var(--card-bg)' }}>Model seçin</option>
                                 {models.map(m => (
-                                    <option key={m} value={m} style={{ background: '#1a1a1a' }}>{m}</option>
+                                    <option key={m} value={m} style={{ background: 'var(--card-bg)' }}>{m}</option>
                                 ))}
                             </select>
                         </div>
@@ -1021,7 +1021,7 @@ function NewListingModal({
                     {/* Color & Location */}
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginBottom: '20px' }}>
                         <div>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                                 Renk *
                             </label>
                             <select
@@ -1030,21 +1030,21 @@ function NewListingModal({
                                 style={{
                                     width: '100%',
                                     padding: '12px 16px',
-                                    background: 'rgba(255, 255, 255, 0.06)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '10px',
-                                    color: 'white',
+                                    color: 'var(--foreground)',
                                     fontSize: '14px',
                                 }}
                             >
-                                <option value="" style={{ background: '#1a1a1a' }}>Renk seçin</option>
+                                <option value="" style={{ background: 'var(--card-bg)' }}>Renk seçin</option>
                                 {colors.map(c => (
-                                    <option key={c.id} value={c.id} style={{ background: '#1a1a1a' }}>{c.name}</option>
+                                    <option key={c.id} value={c.id} style={{ background: 'var(--card-bg)' }}>{c.name}</option>
                                 ))}
                             </select>
                         </div>
                         <div>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                                 İl *
                             </label>
                             <select
@@ -1053,21 +1053,21 @@ function NewListingModal({
                                 style={{
                                     width: '100%',
                                     padding: '12px 16px',
-                                    background: 'rgba(255, 255, 255, 0.06)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '10px',
-                                    color: 'white',
+                                    color: 'var(--foreground)',
                                     fontSize: '14px',
                                 }}
                             >
-                                <option value="" style={{ background: '#1a1a1a' }}>İl seçin</option>
+                                <option value="" style={{ background: 'var(--card-bg)' }}>İl seçin</option>
                                 {cities.map(c => (
-                                    <option key={c} value={c} style={{ background: '#1a1a1a' }}>{c}</option>
+                                    <option key={c} value={c} style={{ background: 'var(--card-bg)' }}>{c}</option>
                                 ))}
                             </select>
                         </div>
                         <div>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                                 İlçe *
                             </label>
                             <select
@@ -1077,16 +1077,16 @@ function NewListingModal({
                                 style={{
                                     width: '100%',
                                     padding: '12px 16px',
-                                    background: 'rgba(255, 255, 255, 0.06)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '10px',
-                                    color: city ? 'white' : 'rgba(255, 255, 255, 0.3)',
+                                    color: city ? 'var(--foreground)' : 'var(--text-muted)',
                                     fontSize: '14px',
                                 }}
                             >
-                                <option value="" style={{ background: '#1a1a1a' }}>İlçe seçin</option>
+                                <option value="" style={{ background: 'var(--card-bg)' }}>İlçe seçin</option>
                                 {districts.map(d => (
-                                    <option key={d} value={d} style={{ background: '#1a1a1a' }}>{d}</option>
+                                    <option key={d} value={d} style={{ background: 'var(--card-bg)' }}>{d}</option>
                                 ))}
                             </select>
                         </div>
@@ -1096,7 +1096,7 @@ function NewListingModal({
                     {/* Year, KM, Price */}
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginBottom: '20px' }}>
                         <div>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                                 Yıl
                             </label>
                             <input
@@ -1108,16 +1108,16 @@ function NewListingModal({
                                 style={{
                                     width: '100%',
                                     padding: '12px 16px',
-                                    background: 'rgba(255, 255, 255, 0.06)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '10px',
-                                    color: 'white',
+                                    color: 'var(--foreground)',
                                     fontSize: '14px',
                                 }}
                             />
                         </div>
                         <div>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                                 KM
                             </label>
                             <input
@@ -1128,16 +1128,16 @@ function NewListingModal({
                                 style={{
                                     width: '100%',
                                     padding: '12px 16px',
-                                    background: 'rgba(255, 255, 255, 0.06)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '10px',
-                                    color: 'white',
+                                    color: 'var(--foreground)',
                                     fontSize: '14px',
                                 }}
                             />
                         </div>
                         <div>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                                 Fiyat (₺)
                             </label>
                             <input
@@ -1148,10 +1148,10 @@ function NewListingModal({
                                 style={{
                                     width: '100%',
                                     padding: '12px 16px',
-                                    background: 'rgba(255, 255, 255, 0.06)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '10px',
-                                    color: 'white',
+                                    color: 'var(--foreground)',
                                     fontSize: '14px',
                                 }}
                             />
@@ -1160,7 +1160,7 @@ function NewListingModal({
 
                     {/* External Link */}
                     <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                        <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                             İlan Linki * (arabam.com veya sahibinden.com)
                         </label>
                         <input
@@ -1171,10 +1171,10 @@ function NewListingModal({
                             style={{
                                 width: '100%',
                                 padding: '12px 16px',
-                                background: 'rgba(255, 255, 255, 0.06)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                background: 'var(--secondary)',
+                                border: '1px solid var(--card-border)',
                                 borderRadius: '10px',
-                                color: 'white',
+                                color: 'var(--foreground)',
                                 fontSize: '14px',
                             }}
                         />
@@ -1182,7 +1182,7 @@ function NewListingModal({
 
                     {/* Phone Number */}
                     <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                        <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                             Telefon Numarası * (İlan linkindeki ile aynı olmalı)
                         </label>
                         <input
@@ -1193,10 +1193,10 @@ function NewListingModal({
                             style={{
                                 width: '100%',
                                 padding: '12px 16px',
-                                background: 'rgba(255, 255, 255, 0.06)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                background: 'var(--secondary)',
+                                border: '1px solid var(--card-border)',
                                 borderRadius: '10px',
-                                color: 'white',
+                                color: 'var(--foreground)',
                                 fontSize: '14px',
                             }}
                         />
@@ -1239,7 +1239,7 @@ function NewListingModal({
 
                     {/* Paint Status */}
                     <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '12px', fontWeight: '600' }}>
+                        <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '12px', fontWeight: '600' }}>
                             ARAÇ DURUMU
                         </label>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
@@ -1251,10 +1251,10 @@ function NewListingModal({
                                         alignItems: 'center',
                                         justifyContent: 'space-between',
                                         padding: '10px 14px',
-                                        background: 'rgba(255, 255, 255, 0.04)',
+                                        background: 'var(--secondary)',
                                         borderRadius: '10px',
                                     }}>
-                                        <span style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.8)' }}>
+                                        <span style={{ fontSize: '13px', color: 'var(--foreground)' }}>
                                             {panel.name}
                                         </span>
                                         <select
@@ -1270,11 +1270,11 @@ function NewListingModal({
                                                 fontWeight: '600',
                                             }}
                                         >
-                                            <option value="orijinal" style={{ background: '#1a1a1a', color: 'white' }}>Orijinal</option>
-                                            <option value="boyali" style={{ background: '#1a1a1a', color: 'white' }}>Boyalı</option>
-                                            <option value="lokal" style={{ background: '#1a1a1a', color: 'white' }}>Lokal Boya</option>
-                                            <option value="degisen" style={{ background: '#1a1a1a', color: 'white' }}>Değişen</option>
-                                            <option value="hasarli" style={{ background: '#1a1a1a', color: 'white' }}>Hasarlı</option>
+                                            <option value="orijinal" style={{ background: 'var(--card-bg)', color: 'var(--foreground)' }}>Orijinal</option>
+                                            <option value="boyali" style={{ background: 'var(--card-bg)', color: 'var(--foreground)' }}>Boyalı</option>
+                                            <option value="lokal" style={{ background: 'var(--card-bg)', color: 'var(--foreground)' }}>Lokal Boya</option>
+                                            <option value="degisen" style={{ background: 'var(--card-bg)', color: 'var(--foreground)' }}>Değişen</option>
+                                            <option value="hasarli" style={{ background: 'var(--card-bg)', color: 'var(--foreground)' }}>Hasarlı</option>
                                         </select>
                                     </div>
                                 );
@@ -1284,7 +1284,7 @@ function NewListingModal({
 
                     {/* Description */}
                     <div style={{ marginBottom: '24px' }}>
-                        <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                        <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                             Açıklama (Opsiyonel)
                         </label>
                         <textarea
@@ -1295,10 +1295,10 @@ function NewListingModal({
                             style={{
                                 width: '100%',
                                 padding: '12px 16px',
-                                background: 'rgba(255, 255, 255, 0.06)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                background: 'var(--secondary)',
+                                border: '1px solid var(--card-border)',
                                 borderRadius: '10px',
-                                color: 'white',
+                                color: 'var(--foreground)',
                                 fontSize: '14px',
                                 resize: 'vertical',
                             }}
@@ -1313,7 +1313,7 @@ function NewListingModal({
 
                         {/* Next Maintenance KM */}
                         <div style={{ marginBottom: '16px' }}>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '8px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
                                 Sonraki Rutin Bakım (km)
                             </label>
                             <input
@@ -1324,10 +1324,10 @@ function NewListingModal({
                                 style={{
                                     width: '100%',
                                     padding: '12px 16px',
-                                    background: 'rgba(255, 255, 255, 0.06)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '10px',
-                                    color: 'white',
+                                    color: 'var(--foreground)',
                                     fontSize: '14px',
                                 }}
                             />
@@ -1335,7 +1335,7 @@ function NewListingModal({
 
                         {/* Completed Major Maintenance */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '12px', fontWeight: '600' }}>
+                            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '12px', fontWeight: '600' }}>
                                 Yapılan Ağır Bakımlar
                             </label>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
@@ -1347,20 +1347,20 @@ function NewListingModal({
                                             alignItems: 'center',
                                             gap: '8px',
                                             padding: '10px 12px',
-                                            background: completedMaintenance.includes(option) ? 'rgba(168, 85, 247, 0.15)' : 'rgba(255, 255, 255, 0.04)',
-                                            border: completedMaintenance.includes(option) ? '1px solid rgba(168, 85, 247, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
+                                            background: completedMaintenance.includes(option) ? 'rgba(168, 85, 247, 0.15)' : 'var(--secondary)',
+                                            border: completedMaintenance.includes(option) ? '1px solid rgba(168, 85, 247, 0.3)' : '1px solid var(--card-border)',
                                             borderRadius: '8px',
                                             cursor: 'pointer',
                                             transition: 'all 0.2s'
                                         }}
                                         onMouseEnter={(e) => {
                                             if (!completedMaintenance.includes(option)) {
-                                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                                                e.currentTarget.style.background = 'rgba(168, 85, 247, 0.08)';
                                             }
                                         }}
                                         onMouseLeave={(e) => {
                                             if (!completedMaintenance.includes(option)) {
-                                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+                                                e.currentTarget.style.background = 'var(--secondary)';
                                             }
                                         }}
                                     >
@@ -1381,7 +1381,7 @@ function NewListingModal({
                                                 accentColor: '#A855F7'
                                             }}
                                         />
-                                        <span style={{ fontSize: '12px', color: completedMaintenance.includes(option) ? '#A855F7' : 'rgba(255, 255, 255, 0.7)', fontWeight: '500' }}>
+                                        <span style={{ fontSize: '12px', color: completedMaintenance.includes(option) ? '#A855F7' : 'var(--foreground)', fontWeight: '500' }}>
                                             {option}
                                         </span>
                                     </label>

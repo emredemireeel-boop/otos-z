@@ -14,7 +14,7 @@ import {
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db, googleProvider } from "@/lib/firebase";
 
-export type UserRole = "cirak" | "usta" | "standard" | "corporate" | "luxury" | "admin" | "moderator";
+export type UserRole = "caylak" | "usta" | "admin" | "moderator";
 
 export interface User {
     id: number | string;
@@ -45,6 +45,7 @@ interface AuthContextType {
     completeProfile: (data: { firstName: string; lastName: string; username: string; city: string }) => Promise<boolean>;
     logout: () => void;
     updateRole: (role: UserRole) => void;
+    getIdToken: () => Promise<string | null>;
     isLoading: boolean;
     error: string | null;
     needsProfileCompletion: boolean;
@@ -75,7 +76,7 @@ async function mapFirebaseUser(fbUser: FirebaseUser): Promise<User> {
         avatar: fbUser.photoURL || null,
         level: (profile.level as string) || "Yeni Uye",
         notifications: 0,
-        role: (profile.role as UserRole) || "cirak",
+        role: (profile.role as UserRole) || "caylak",
         isAdmin: (profile.role as string) === "admin",
         isModerator: (profile.role as string) === "moderator",
         city: (profile.city as string) || undefined,
@@ -128,6 +129,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 setUser(appUser);
                 localStorage.setItem("Otosoz_user", JSON.stringify(appUser));
 
+                // Firebase ID Token ile guvenli cookie set et
+                try {
+                    const idToken = await fbUser.getIdToken();
+                    const isSecure = window.location.protocol === 'https:' ? '; Secure' : '';
+                    document.cookie = `auth_token=${idToken}; path=/; max-age=3600; SameSite=Strict${isSecure}`;
+                    document.cookie = `user_role=${appUser.role}; path=/; max-age=3600; SameSite=Strict${isSecure}`;
+                } catch (e) {
+                    console.warn('Token cookie hatasi:', e);
+                }
+
                 // Profil tamamlanmamissa flag'i ayarla
                 if (!appUser.profileComplete) {
                     setNeedsProfileCompletion(true);
@@ -139,6 +150,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 setUser(null);
                 setNeedsProfileCompletion(false);
                 localStorage.removeItem("Otosoz_user");
+                document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+                document.cookie = "user_role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
             }
             setIsLoading(false);
         });
@@ -180,7 +193,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                     email: fbUser.email || "",
                     googleDisplayName: fbUser.displayName || "",
                     googlePhotoURL: fbUser.photoURL || "",
-                    role: "cirak",
+                    role: "caylak",
                     level: "Cirak",
                     createdAt: new Date().toISOString(),
                     provider: "google",
@@ -252,7 +265,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 username,
                 displayName: username,
                 email,
-                role: "cirak",
+                role: "caylak",
                 level: "Cirak",
                 city: city || "",
                 createdAt: new Date().toISOString(),
@@ -291,8 +304,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
     };
 
+    /* ── Get Firebase ID Token (API calls icin) ── */
+    const getIdToken = async (): Promise<string | null> => {
+        if (!firebaseUser) return null;
+        try {
+            return await firebaseUser.getIdToken(true);
+        } catch {
+            return null;
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, firebaseUser, login, loginWithGoogle, register, completeProfile, logout, updateRole, isLoading, error, needsProfileCompletion }}>
+        <AuthContext.Provider value={{ user, firebaseUser, login, loginWithGoogle, register, completeProfile, logout, updateRole, getIdToken, isLoading, error, needsProfileCompletion }}>
             {children}
         </AuthContext.Provider>
     );

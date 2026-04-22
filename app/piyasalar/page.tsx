@@ -14,11 +14,21 @@ import {
     getRankColor,
     getDemandColor
 } from "@/data/markets";
-import { Search, Trophy, BarChart3, Car, Target, TrendingUp } from "lucide-react";
+import { Search, Trophy, BarChart3, Car, Target, TrendingUp, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { sampleListings, formatListingPrice } from "@/data/listings";
+import { useEffect } from "react";
 
 export default function PiyasalarPage() {
     const [selectedTab, setSelectedTab] = useState<"brands" | "models">("brands");
     const [searchQuery, setSearchQuery] = useState("");
+
+    const [randomListings, setRandomListings] = useState<any[]>([]);
+
+    useEffect(() => {
+        const shuffled = [...sampleListings].sort(() => 0.5 - Math.random());
+        setRandomListings(shuffled.slice(0, 3));
+    }, []);
 
     const filteredBrands = turkeyBrandMarkets.filter(row =>
         row.brand.toLowerCase().includes(searchQuery.toLowerCase())

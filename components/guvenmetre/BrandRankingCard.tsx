@@ -20,21 +20,39 @@ export default function BrandRankingCard({
             href={`/guvenmetre/${categoryId}/${brand.id}`}
             className="block group"
         >
-            <div className="bg-[#1A1A1A] rounded-2xl p-4 md:p-5 flex items-center gap-4 border border-white/5 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[var(--primary)]/10">
+            <div className="bg-[var(--card-bg)] rounded-2xl p-4 md:p-5 flex items-center gap-4 border border-[var(--card-border)] hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[var(--primary)]/10">
                 {/* Rank */}
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${isTop3 ? 'bg-yellow-500/10 text-yellow-500' : 'bg-white/5 text-neutral-400'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${isTop3 ? 'bg-yellow-500/10 text-yellow-500' : 'bg-[var(--secondary)] text-[var(--text-muted)]'
                     }`}>
                     <span className="text-xl font-bold">#{rank}</span>
                 </div>
 
                 {/* Logo */}
-                <div className="w-12 h-12 flex items-center justify-center text-4xl shrink-0">
-                    {brand.logoEmoji}
+                <div 
+                    className="w-12 h-12 flex items-center justify-center shrink-0 rounded-xl overflow-hidden shadow-sm border border-[var(--card-border)]"
+                    style={{ background: brand.brandColor || 'var(--secondary)' }}
+                >
+                    {brand.logoUrl ? (
+                        <img 
+                            src={brand.logoUrl} 
+                            alt={`${brand.name} logo`} 
+                            className="w-full h-full object-contain p-1.5 bg-white"
+                            onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                                if (e.currentTarget.nextElementSibling) {
+                                    e.currentTarget.nextElementSibling.classList.remove('hidden');
+                                }
+                            }}
+                        />
+                    ) : null}
+                    <span className={`text-xl font-black text-white ${brand.logoUrl ? 'hidden' : ''}`}>
+                        {brand.logoEmoji}
+                    </span>
                 </div>
 
                 {/* Info */}
                 <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-bold text-white truncate group-hover:text-[var(--primary)] transition-colors">
+                    <h3 className="text-lg font-bold text-[var(--foreground)] truncate group-hover:text-[var(--primary)] transition-colors">
                         {brand.name}
                     </h3>
                     <div className="flex items-center gap-3 text-sm mt-1">
@@ -50,7 +68,7 @@ export default function BrandRankingCard({
                                     />
                                 ))}
                             </div>
-                            <span className="font-bold text-yellow-500 ml-1">{brand.rating === 0 ? 'â€”' : brand.rating}</span>
+                            <span className="font-bold text-yellow-500 ml-1">{brand.rating === 0 ? '—' : brand.rating}</span>
                         </div>
                         <div className="flex items-center gap-1 text-neutral-500">
                             <Users className="w-3.5 h-3.5" />

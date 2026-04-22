@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { sampleListings, formatListingPrice } from "@/data/listings";
 
-const CATEGORIES = ["Tumu", "Genel", "Teknik", "Deneyim", "Karsilastirma", "Uzmana Sor", "Marka", "Alim-Satim"];
+const CATEGORIES = ["Tümü", "Genel", "Teknik", "Deneyim", "Karşılaştırma", "Uzmana Sor", "Marka", "Alim-Satim"];
 
 export default function ForumPage() {
     const { user } = useAuth();
@@ -104,7 +104,7 @@ export default function ForumPage() {
                         <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 24px' }}>
                             Otomotiv tutkunlariyla deneyimlerinizi paylasin, sorularinizi sorun ve tartismalara katilin
                         </p>
-                        {user && user.role !== 'cirak' && (
+                        {user && user.role !== 'caylak' && (
                             <button
                                 onClick={() => setShowNewTopicModal(true)}
                                 style={{
@@ -117,7 +117,7 @@ export default function ForumPage() {
                                 <Plus size={18} /> Yeni Konu Ac
                             </button>
                         )}
-                        {user && user.role === 'cirak' && (
+                        {user && user.role === 'caylak' && (
                             <div style={{
                                 padding: '12px 24px', background: 'rgba(245,158,11,0.1)',
                                 border: '1px solid rgba(245,158,11,0.3)', borderRadius: '12px',
@@ -145,7 +145,7 @@ export default function ForumPage() {
                                     <GitCompare size={24} color="var(--primary)" />
                                 </div>
                                 <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>Arac Karsilastir</h3>
-                                <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6' }}>Iki araci yan yana koyup detayli karsilastirma yapin</p>
+                                <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6' }}>İki aracı yan yana koyup detaylı karşılaştırma yapın</p>
                             </div>
                         </Link>
                         <Link href="/uzmana-sor" style={{ textDecoration: 'none' }}>
@@ -228,7 +228,7 @@ export default function ForumPage() {
                                 {/* Thread List */}
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                 {currentThreads.map(thread => {
-                                    const isComp = thread.category === "Karsilastirma";
+                                    const isComp = thread.category === "Karsilastirma" || thread.category === "Karşılaştırma";
                                     const isExpert = thread.category === "Uzmana Sor";
                                     const href = isComp ? `/karsilastirma/${thread.id}` : isExpert ? `/uzmana-sor/${thread.id}` : `/forum/${thread.id}`;
                                     return (
@@ -450,7 +450,7 @@ export default function ForumPage() {
                                         color: 'var(--foreground)', fontSize: '14px', outline: 'none',
                                     }}>
                                     {["Genel", "Teknik", "Deneyim", "Karsilastirma", "Marka", "Alim-Satim"].map(c => (
-                                        <option key={c} value={c}>{c}</option>
+                                        <option key={c} value={c}>{c === "Karsilastirma" ? "Karşılaştırma" : c}</option>
                                     ))}
                                 </select>
                             </div>

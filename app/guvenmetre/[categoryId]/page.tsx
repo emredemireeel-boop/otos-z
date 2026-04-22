@@ -238,14 +238,21 @@ export default function CategoryDetailPage() {
                                 </div>
 
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                    {filteredBrands.map((brand, idx) => (
-                                        <BrandRankingCard
-                                            key={brand.id}
-                                            brand={brand}
-                                            rank={idx + 1}
-                                            categoryId={categoryId}
-                                        />
-                                    ))}
+                                    {filteredBrands.length === 0 ? (
+                                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '60px 20px', textAlign: 'center' }}>
+                                            <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>Bu kategoride henüz firma bulunmuyor</h3>
+                                            <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Çok yakında yeni firmalar eklenecektir.</p>
+                                        </div>
+                                    ) : (
+                                        filteredBrands.map((brand, idx) => (
+                                            <BrandRankingCard
+                                                key={brand.id}
+                                                brand={brand}
+                                                rank={idx + 1}
+                                                categoryId={categoryId}
+                                            />
+                                        ))
+                                    )}
                                 </div>
                             </div>
                         </div>

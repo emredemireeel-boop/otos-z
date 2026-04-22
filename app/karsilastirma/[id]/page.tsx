@@ -8,10 +8,10 @@ import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
 import {
     getThreadById, subscribeToEntries, addEntry, toggleLike,
-    incrementViews, formatTimestamp,
+    incrementViews, formatTimestamp, subscribeToThreads, toggleVehicleVote,
     type ForumThread, type ForumEntry
 } from "@/lib/forumService";
-import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles } from "lucide-react";
+import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Loader2 } from "lucide-react";
 import { sampleListings, formatListingPrice } from "@/data/listings";
 
 const parseComparisonContent = (text: string) => {
@@ -43,22 +43,27 @@ export default function ComparisonDetailPage() {
     const [newEntry, setNewEntry] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [likingEntry, setLikingEntry] = useState<string | null>(null);
+    const [votingVehicle, setVotingVehicle] = useState<string | null>(null);
     const [randomListings, setRandomListings] = useState<any[]>([]);
     const [sidebarAd, setSidebarAd] = useState<any>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const viewCounted = useRef(false);
 
     useEffect(() => {
-        async function load() {
-            const t = await getThreadById(threadId);
-            setThread(t);
+        // We subscribe to the thread to get real-time vote updates
+        const unsubThread = subscribeToThreads((threads) => {
+            const t = threads.find(th => th.id === threadId);
+            if (t) setThread(t);
             setLoading(false);
-            if (t && !viewCounted.current) {
+        }, 1000);
+
+        async function loadViews() {
+            if (!viewCounted.current) {
                 viewCounted.current = true;
                 incrementViews(threadId);
             }
         }
-        load();
+        loadViews();
 
         // Rastgele ilanları hazırla
         const shuffled = [...sampleListings].sort(() => 0.5 - Math.random());
@@ -82,6 +87,20 @@ export default function ComparisonDetailPage() {
         const unsub = subscribeToEntries(threadId, setEntries);
         return () => unsub();
     }, [threadId]);
+
+    const handleVehicleVote = async (vehicleName: string) => {
+        if (!user || votingVehicle) {
+            if (!user) alert("Oy vermek için giriş yapmalısınız.");
+            return;
+        }
+        setVotingVehicle(vehicleName);
+        try {
+            await toggleVehicleVote(threadId, vehicleName, user.id as string);
+        } catch (e) {
+            console.error(e);
+        }
+        setVotingVehicle(null);
+    };
 
     const handleSubmit = async () => {
         if (!newEntry.trim() || !user || submitting) return;
@@ -111,7 +130,7 @@ export default function ComparisonDetailPage() {
                 <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{ textAlign: 'center' }}>
                         <div style={{ width: 40, height: 40, border: '3px solid var(--card-border)', borderTop: '3px solid #FF6B35', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 16px' }} />
-                        <p style={{ color: 'var(--text-muted)' }}>Karsilastirma yukleniyor...</p>
+                        <p style={{ color: 'var(--text-muted)' }}>Karşılaştırma yükleniyor...</p>
                     </div>
                 </main>
                 <Footer />
@@ -127,9 +146,9 @@ export default function ComparisonDetailPage() {
                 <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{ textAlign: 'center' }}>
                         <h1 style={{ fontSize: '48px', marginBottom: '16px', color: 'var(--foreground)' }}>404</h1>
-                        <p style={{ fontSize: '18px', color: 'var(--text-muted)', marginBottom: '24px' }}>Karsilastirma bulunamadi</p>
+                        <p style={{ fontSize: '18px', color: 'var(--text-muted)', marginBottom: '24px' }}>Karşılaştırma bulunamadı</p>
                         <Link href="/karsilastirma">
-                            <button style={{ padding: '12px 24px', background: '#FF6B35', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Karsilastirmalara Don</button>
+                            <button style={{ padding: '12px 24px', background: '#FF6B35', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Karşılaştırmalara Dön</button>
                         </Link>
                     </div>
                 </main>
@@ -222,25 +241,54 @@ export default function ComparisonDetailPage() {
 
                                         {vehicles.length > 0 && (
                                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px', padding: '24px', background: 'var(--secondary)', borderRadius: '16px', border: '1px solid var(--card-border)' }}>
-                                                {vehicles.map((v, i) => (
-                                                    <div key={i} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '14px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)', transition: 'transform 0.2s' }}
-                                                         onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
-                                                         onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-                                                        <h4 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--foreground)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{v.name}</h4>
-                                                        <div style={{ display: 'flex', gap: '12px' }}>
-                                                            <a href={v.url} target="_blank" rel="noopener noreferrer" style={{ flex: 1, padding: '12px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '14px', fontWeight: '700', transition: 'all 0.2s' }}
-                                                               onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--foreground)'; e.currentTarget.style.background = 'var(--card-bg)'; }}
-                                                               onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.background = 'var(--secondary)'; }}>
-                                                                <ExternalLink size={16} /> İlana Git
-                                                            </a>
-                                                            <button style={{ flex: 1, padding: '12px', background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.3)', borderRadius: '10px', color: '#22c55e', fontSize: '14px', fontWeight: '800', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', transition: 'all 0.2s' }}
-                                                                    onMouseEnter={(e) => { e.currentTarget.style.background = '#22c55e'; e.currentTarget.style.color = 'white'; }}
-                                                                    onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(34, 197, 94, 0.1)'; e.currentTarget.style.color = '#22c55e'; }}>
-                                                                <CheckCircle size={16} /> Oy Ver
-                                                            </button>
+                                                {vehicles.map((v, i) => {
+                                                    const votesObj = thread?.vehicleVotes || {};
+                                                    const totalVotes = Object.values(votesObj).reduce((sum, arr) => sum + arr.length, 0);
+                                                    const vehicleVotesArr = votesObj[v.name] || [];
+                                                    const voteCount = vehicleVotesArr.length;
+                                                    const votePct = totalVotes > 0 ? Math.round((voteCount / totalVotes) * 100) : 0;
+                                                    const isVoted = user ? vehicleVotesArr.includes(user.id as string) : false;
+
+                                                    return (
+                                                        <div key={i} style={{ background: 'var(--card-bg)', border: `2px solid ${isVoted ? '#22c55e' : 'var(--card-border)'}`, borderRadius: '14px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px', boxShadow: isVoted ? '0 0 0 1px #22c55e' : '0 4px 12px rgba(0,0,0,0.03)', transition: 'transform 0.2s, border-color 0.2s' }}
+                                                             onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
+                                                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                                <h4 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--foreground)', textTransform: 'uppercase', letterSpacing: '0.5px', margin: 0 }}>{v.name}</h4>
+                                                                {voteCount > 0 && (
+                                                                    <div style={{ padding: '4px 10px', background: isVoted ? '#22c55e' : 'var(--secondary)', color: isVoted ? 'white' : 'var(--foreground)', borderRadius: '20px', fontSize: '12px', fontWeight: '800' }}>
+                                                                        {voteCount} Oy
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                            <div style={{ display: 'flex', gap: '12px' }}>
+                                                                <a href={v.url} target="_blank" rel="noopener noreferrer" style={{ flex: 1, padding: '12px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '14px', fontWeight: '700', transition: 'all 0.2s' }}
+                                                                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--foreground)'; e.currentTarget.style.background = 'var(--card-bg)'; }}
+                                                                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.background = 'var(--secondary)'; }}>
+                                                                    <ExternalLink size={16} /> İlana Git
+                                                                </a>
+                                                                <button onClick={() => handleVehicleVote(v.name)}
+                                                                        disabled={votingVehicle === v.name}
+                                                                        style={{ flex: 1, padding: '12px', background: isVoted ? '#22c55e' : 'rgba(34, 197, 94, 0.1)', border: '1px solid', borderColor: isVoted ? '#22c55e' : 'rgba(34, 197, 94, 0.3)', borderRadius: '10px', color: isVoted ? 'white' : '#22c55e', fontSize: '14px', fontWeight: '800', cursor: votingVehicle === v.name ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', transition: 'all 0.2s' }}>
+                                                                    {votingVehicle === v.name ? <Loader2 size={16} className="animate-spin" /> : <CheckCircle size={16} />}
+                                                                    {isVoted ? 'Oyunuz' : 'Oy Ver'}
+                                                                </button>
+                                                            </div>
+                                                            
+                                                            {totalVotes > 0 && (
+                                                                <div style={{ marginTop: '4px' }}>
+                                                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '700' }}>
+                                                                        <span>Oy Oranı</span>
+                                                                        <span style={{ color: isVoted ? '#22c55e' : 'var(--foreground)' }}>%{votePct}</span>
+                                                                    </div>
+                                                                    <div style={{ height: '6px', background: 'var(--card-border)', borderRadius: '3px', overflow: 'hidden' }}>
+                                                                        <div style={{ height: '100%', width: `${votePct}%`, background: isVoted ? '#22c55e' : '#FF6B35', borderRadius: '3px', transition: 'width 0.5s ease' }} />
+                                                                    </div>
+                                                                </div>
+                                                            )}
                                                         </div>
-                                                    </div>
-                                                ))}
+                                                    );
+                                                })}
                                             </div>
                                         )}
 
