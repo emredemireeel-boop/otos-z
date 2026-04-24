@@ -217,7 +217,6 @@ export default function BakimZamanlariSection() {
                                 fontSize: '14px',
                                 fontWeight: '600',
                                 whiteSpace: 'nowrap',
-                                border: 'none',
                                 cursor: 'pointer',
                                 display: 'flex',
                                 alignItems: 'center',

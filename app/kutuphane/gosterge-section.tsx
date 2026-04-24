@@ -61,7 +61,7 @@ export default function GostergeSection() {
             const matchesSearch = searchQuery.length < 2 ||
                 item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 item.meaning.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                item.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+                item.tags.some((tag: string) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
 
             // Color filter
             let matchesColor = true;

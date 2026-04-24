@@ -13,7 +13,7 @@ import districtCoordsRaw from "@/data/district-coords.json";
 
 type CitiesData = Record<string, Record<string, string[]>>;
 const citiesData = citiesRaw as CitiesData;
-const districtCoords = districtCoordsRaw as Record<string, Record<string, [number, number]>>;
+const districtCoords = districtCoordsRaw as unknown as Record<string, Record<string, [number, number]>>;
 
 /* ── Accent ── */
 const AC = "#2563EB";
