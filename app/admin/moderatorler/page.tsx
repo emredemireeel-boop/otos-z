@@ -13,7 +13,7 @@ import { ALL_PERMISSIONS, type Moderator, type ModPermission } from "@/data/mode
 const INITIAL: Moderator[] = [
     {
         id: "mod-001", username: "mod_ayse", displayName: "Ayşe Moderatör",
-        password: "mod123", email: "ayse@Otosöz.com", avatar: "🛠️�",
+        password: "mod123", email: "ayse@Otosöz.com", avatar: "🛠️",
         createdAt: "01.03.2026", createdBy: "Admin", status: "aktif",
         permissions: ["rapor_kuyruğu", "kullanici_yonetim", "icerik_moderasyon", "pazar_kontrol", "guvenmetre"],
         lastLogin: "18.04.2026 - 11:00", actionCount: 142, notes: "Forum başlıkları ve kullanıcı yönetimi odaklı.",
@@ -56,7 +56,7 @@ export default function AdminModeratörlerPage() {
     const [fDisplayName, setFDisplayName] = useState("");
     const [fEmail, setFEmail] = useState("");
     const [fPassword, setFPassword] = useState("");
-    const [fAvatar, setFAvatar] = useState("🛠️�");
+    const [fAvatar, setFAvatar] = useState("🛠️");
     const [fNotes, setFNotes] = useState("");
     const [fPerms, setFPerms] = useState<ModPermission[]>([]);
     const [fNewPass, setFNewPass] = useState("");
@@ -76,7 +76,7 @@ export default function AdminModeratörlerPage() {
 
     const openAdd = () => {
         setSelectedMod(null);
-        setFUsername(""); setFDisplayName(""); setFEmail(""); setFPassword(""); setFAvatar("🛠️�"); setFNotes(""); setFPerms([]);
+        setFUsername(""); setFDisplayName(""); setFEmail(""); setFPassword(""); setFAvatar("🛠️"); setFNotes(""); setFPerms([]);
         setModal("ekle");
     };
 
@@ -134,7 +134,7 @@ export default function AdminModeratörlerPage() {
     const toggleSuspend = (id: string, username: string, currentStatus: string) => {
         const newStatus = currentStatus === "askida" ? "aktif" : "askida";
         setMods(prev => prev.map(m => m.id === id ? { ...m, status: newStatus as "aktif" | "askida" | "banlandi" } : m));
-        showToast(newStatus === "askida" ? `⚠️� @${username} askıya alındı.` : `✓ @${username} tekrar aktif edildi.`, newStatus === "askida" ? "warning" : "success");
+        showToast(newStatus === "askida" ? `⚠️ @${username} askıya alındı.` : `✓ @${username} tekrar aktif edildi.`, newStatus === "askida" ? "warning" : "success");
     };
 
     const deleteMod = () => {
@@ -391,10 +391,10 @@ export default function AdminModeratörlerPage() {
             {/* Sil Onay */}
             {modal === "delete" && selectedMod && (
                 <Overlay onClose={() => setModal(null)}>
-                    <ModalHeader icon="🗑️�" title={`@${selectedMod.username} Silinsin mi?`} sub="Bu işlem geri alınamaz. Moderatör hesabı tamamen kaldırılır." />
+                    <ModalHeader icon="🗑️" title={`@${selectedMod.username} Silinsin mi?`} sub="Bu işlem geri alınamaz. Moderatör hesabı tamamen kaldırılır." />
                     <div style={{ padding: "14px", background: "rgba(239,68,68,0.07)", borderRadius: "10px", border: "1px solid rgba(239,68,68,0.2)", marginBottom: "20px" }}>
                         <p style={{ margin: 0, fontSize: "13px", color: "#EF4444", fontWeight: "600" }}>
-                            ⚠️� @{selectedMod.username} ({selectedMod.displayName}) — {selectedMod.actionCount} işlem kaydı, {selectedMod.permissions.length} yetki
+                            ⚠️ @{selectedMod.username} ({selectedMod.displayName}) — {selectedMod.actionCount} işlem kaydı, {selectedMod.permissions.length} yetki
                         </p>
                     </div>
                     <div style={{ display: "flex", gap: "10px" }}>

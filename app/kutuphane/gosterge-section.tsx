@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, X, ChevronDown, ChevronUp, Wrench, AlertTriangle, Info, Lightbulb } from "lucide-react";
+import { Search, X, ChevronDown, ChevronUp, Wrench, AlertTriangle, Info, Lightbulb, ExternalLink } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import faultData from "@/data/fault_lights.json";
 
 interface WarningLight {
@@ -37,7 +38,22 @@ export default function GostergeSection() {
     const [selectedFilter, setSelectedFilter] = useState("all");
     const [expandedId, setExpandedId] = useState<string | null>(null);
 
-    const indicators = faultData.warningLights as WarningLight[];
+    // Helper for URL slugs
+    const createSlug = (text: string) => {
+        const trMap: { [key: string]: string } = {
+            'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
+            'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u',
+        };
+        const slug = text.replace(/[çğıöşüÇĞİÖŞÜ]/g, match => trMap[match] || match)
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .trim();
+        return slug;
+    };
+
+    const indicators = faultData.warningLights as any[];
 
     const filteredIndicators = useMemo(() => {
         return indicators.filter(item => {
@@ -303,7 +319,7 @@ export default function GostergeSection() {
 
                                             {/* Tags */}
                                             <div style={{ display: 'flex', gap: '8px', marginTop: '16px', flexWrap: 'wrap' }}>
-                                                {item.tags.map((tag, i) => (
+                                                {item.tags.map((tag: string, i: number) => (
                                                     <span
                                                         key={i}
                                                         style={{
@@ -317,6 +333,18 @@ export default function GostergeSection() {
                                                         #{tag}
                                                     </span>
                                                 ))}
+                                                <Link href={`/gosterge/${createSlug(item.title)}--${item.urlId}`} style={{ textDecoration: 'none', marginLeft: 'auto' }}>
+                                                    <span style={{
+                                                        display: 'inline-flex', alignItems: 'center', gap: '6px',
+                                                        padding: '6px 14px', fontSize: '13px', fontWeight: '600',
+                                                        background: `${item.color}15`,
+                                                        border: `1px solid ${item.color}30`,
+                                                        borderRadius: '8px', cursor: 'pointer',
+                                                        color: item.color,
+                                                    }}>
+                                                        <ExternalLink size={13} /> Detay Sayfası
+                                                    </span>
+                                                </Link>
                                             </div>
                                         </div>
                                     )}

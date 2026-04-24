@@ -202,7 +202,7 @@ export default function KazaIlkYardimSection() {
             Kaza anında torpidonuzda mutlaka bulunması gereken resmi kaza tespit tutanağını PDF olarak indirebilir ve çıktısını alabilirsiniz.
           </p>
         </div>
-        <a href="/Otosöz_kazatespit.pdf" download="Maddi_Hasarli_Kaza_Tespit_Tutanagi.pdf" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: 'var(--primary)', color: 'white', textDecoration: 'none', borderRadius: '10px', fontWeight: '700', fontSize: '14px', whiteSpace: 'nowrap', transition: 'transform 0.2s', boxShadow: '0 4px 12px rgba(255, 107, 0, 0.2)' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+        <a href="/Otosöz_kazatespit.pdf" download="Maddi_Hasarli_Kaza_Tespit_Tutanagi.pdf" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: 'var(--primary)', color: 'white', textDecoration: 'none', borderRadius: '10px', fontWeight: '700', fontSize: '14px', whiteSpace: 'nowrap', transition: 'transform 0.2s', boxShadow: '0 4px 12px rgba(37, 99, 235, 0.2)' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
           <Download size={18} />
           Tutanağı İndir (PDF)
         </a>

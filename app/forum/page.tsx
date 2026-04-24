@@ -5,7 +5,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
-import { subscribeToThreads, createThread, formatTimestamp, type ForumThread } from "@/lib/forumService";
+import { subscribeToThreads, createThread, formatTimestamp, getThreadSlugUrl, getThreadById, type ForumThread } from "@/lib/forumService";
 import {
     MessageSquare, Eye, Clock, TrendingUp, Search, GitCompare,
     HelpCircle, Users, Tag, ChevronLeft, ChevronRight, Plus, X, Send, LogIn, Sparkles, Car
@@ -25,7 +25,7 @@ export default function ForumPage() {
     const [newTopic, setNewTopic] = useState({ title: "", content: "", category: "Genel", tags: "" });
     const [creating, setCreating] = useState(false);
     const [randomListings, setRandomListings] = useState<any[]>([]);
-    const threadsPerPage = 8;
+    const threadsPerPage = 13;
 
     // Firestore'dan realtime thread'leri dinle
     useEffect(() => {
@@ -73,8 +73,14 @@ export default function ForumPage() {
             });
             setShowNewTopicModal(false);
             setNewTopic({ title: "", content: "", category: "Genel", tags: "" });
+            
             // Yeni konuya yonlendir
-            window.location.href = `/forum/${threadId}`;
+            const newThread = await getThreadById(threadId);
+            if (newThread) {
+                window.location.href = getThreadSlugUrl(newThread);
+            } else {
+                window.location.href = `/forum/${threadId}`;
+            }
         } catch (e) {
             console.error("Konu olusturulamadi:", e);
         }
@@ -230,7 +236,7 @@ export default function ForumPage() {
                                 {currentThreads.map(thread => {
                                     const isComp = thread.category === "Karsilastirma" || thread.category === "Karşılaştırma";
                                     const isExpert = thread.category === "Uzmana Sor";
-                                    const href = isComp ? `/karsilastirma/${thread.id}` : isExpert ? `/uzmana-sor/${thread.id}` : `/forum/${thread.id}`;
+                                    const href = isComp ? `/karsilastirma/${thread.id}` : isExpert ? `/uzmana-sor/${thread.id}` : getThreadSlugUrl(thread);
                                     return (
                                         <Link key={thread.id}
                                             href={href}
@@ -336,35 +342,39 @@ export default function ForumPage() {
 
                             {/* Pagination */}
                             {totalPages > 1 && (
-                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginTop: '32px' }}>
-                                    <button onClick={() => setCurrentPage(p => Math.max(1, p - 1))} disabled={currentPage === 1}
-                                        style={{
-                                            padding: '10px 16px', background: 'var(--card-bg)', border: '1px solid var(--card-border)',
-                                            borderRadius: '8px', color: 'var(--foreground)', fontSize: '14px', fontWeight: '600',
-                                            cursor: currentPage === 1 ? 'not-allowed' : 'pointer', opacity: currentPage === 1 ? 0.5 : 1,
-                                            display: 'flex', alignItems: 'center', gap: '6px'
-                                        }}>
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '6px', marginTop: '40px', paddingTop: '24px', borderTop: '1px solid var(--card-border)', flexWrap: 'wrap' }}>
+                                    <button onClick={() => { setCurrentPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }} disabled={currentPage === 1}
+                                        style={{ padding: '10px 18px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontSize: '14px', fontWeight: '600', cursor: currentPage === 1 ? 'not-allowed' : 'pointer', opacity: currentPage === 1 ? 0.4 : 1, display: 'flex', alignItems: 'center', gap: '6px' }}>
                                         <ChevronLeft size={16} /> Onceki
                                     </button>
-                                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                                        <button key={page} onClick={() => setCurrentPage(page)}
-                                            style={{
-                                                padding: '10px 14px',
-                                                background: currentPage === page ? 'var(--primary)' : 'var(--card-bg)',
-                                                border: currentPage === page ? '1px solid var(--primary)' : '1px solid var(--card-border)',
-                                                borderRadius: '8px', color: currentPage === page ? 'white' : 'var(--foreground)',
-                                                fontSize: '14px', fontWeight: '600', cursor: 'pointer', minWidth: '40px'
-                                            }}>{page}</button>
-                                    ))}
-                                    <button onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} disabled={currentPage === totalPages}
-                                        style={{
-                                            padding: '10px 16px', background: 'var(--card-bg)', border: '1px solid var(--card-border)',
-                                            borderRadius: '8px', color: 'var(--foreground)', fontSize: '14px', fontWeight: '600',
-                                            cursor: currentPage === totalPages ? 'not-allowed' : 'pointer', opacity: currentPage === totalPages ? 0.5 : 1,
-                                            display: 'flex', alignItems: 'center', gap: '6px'
-                                        }}>
+                                    {(() => {
+                                        const pages: (number | string)[] = [];
+                                        if (totalPages <= 7) {
+                                            for (let i = 1; i <= totalPages; i++) pages.push(i);
+                                        } else {
+                                            pages.push(1);
+                                            if (currentPage > 3) pages.push('...');
+                                            for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) pages.push(i);
+                                            if (currentPage < totalPages - 2) pages.push('...');
+                                            pages.push(totalPages);
+                                        }
+                                        return pages.map((page, idx) =>
+                                            typeof page === 'string' ? (
+                                                <span key={`dots-${idx}`} style={{ padding: '10px 4px', color: 'var(--text-muted)', fontSize: '14px' }}>...</span>
+                                            ) : (
+                                                <button key={page} onClick={() => { setCurrentPage(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                                                    style={{ padding: '10px 14px', minWidth: '42px', background: currentPage === page ? 'var(--primary)' : 'var(--card-bg)', border: currentPage === page ? '1px solid var(--primary)' : '1px solid var(--card-border)', borderRadius: '10px', color: currentPage === page ? 'white' : 'var(--foreground)', fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}
+                                                >{page}</button>
+                                            )
+                                        );
+                                    })()}
+                                    <button onClick={() => { setCurrentPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }} disabled={currentPage === totalPages}
+                                        style={{ padding: '10px 18px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontSize: '14px', fontWeight: '600', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer', opacity: currentPage === totalPages ? 0.4 : 1, display: 'flex', alignItems: 'center', gap: '6px' }}>
                                         Sonraki <ChevronRight size={16} />
                                     </button>
+                                    <span style={{ marginLeft: '8px', fontSize: '12px', color: 'var(--text-muted)', fontWeight: '500' }}>
+                                        {currentPage}/{totalPages} &bull; {sortedThreads.length} konu
+                                    </span>
                                 </div>
                             )}
                             </div>

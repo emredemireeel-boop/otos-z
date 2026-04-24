@@ -18,22 +18,17 @@ service cloud.firestore {
 
     // ── Kullanici profilleri ──
     match /users/{userId} {
-      // Herkes profil okuyabilir (username gostermek icin)
       allow read: if true;
-      // Sadece kendi profilini guncelleyebilir
       allow create: if isOwner(userId);
       allow update: if isOwner(userId) || isAdmin();
-      // Kimse silemesin (sadece admin)
       allow delete: if isAdmin();
     }
 
     // ── Forum konulari ──
     match /threads/{threadId} {
-      // Herkes okuyabilir
       allow read: if true;
-      // Giris yapmis kullanici konu olusturabilir
       allow create: if isAuth();
-      // Sadece yazar, mod veya admin guncelleyebilir
+      // Yazar, mod veya admin guncelleyebilir
       allow update: if isAuth() && (
         resource.data.authorId == request.auth.uid ||
         isModerator()
@@ -45,12 +40,16 @@ service cloud.firestore {
       match /entries/{entryId} {
         allow read: if true;
         allow create: if isAuth();
-        // Sadece yazar begeni/icerik, mod/admin her sey
+        // Yazar veya mod/admin guncelleyebilir
         allow update: if isAuth() && (
           resource.data.authorId == request.auth.uid ||
           isModerator()
         );
-        allow delete: if isModerator();
+        // Yazar kendi entry'sini silebilir, mod/admin hepsini
+        allow delete: if isAuth() && (
+          resource.data.authorId == request.auth.uid ||
+          isModerator()
+        );
       }
     }
 
@@ -64,7 +63,6 @@ service cloud.firestore {
 
     // ── Admin loglari ──
     match /admin_logs/{logId} {
-      // Sadece admin okuyup yazabilir
       allow read: if isAdmin();
       allow write: if isAdmin();
     }
@@ -77,9 +75,7 @@ service cloud.firestore {
 
     // ── Raporlar / Sikayetler ──
     match /reports/{reportId} {
-      // Herkes rapor olusturabilir
       allow create: if isAuth();
-      // Sadece admin/mod okuyup guncelleyebilir
       allow read: if isModerator();
       allow update: if isModerator();
       allow delete: if isAdmin();
@@ -89,6 +85,35 @@ service cloud.firestore {
     match /advertisements/{adId} {
       allow read: if true;
       allow write: if isAdmin();
+    }
+
+    // ── Kullanici Puanları ──
+    match /userRatings/{ratingId} {
+      allow read: if isAdmin();
+      allow create: if isAuth();
+      allow update: if isAuth() && resource.data.raterId == request.auth.uid;
+      allow delete: if isAdmin();
+    }
+
+    // ── Mesajlaşma ──
+    match /conversations/{convId} {
+      allow read: if isAuth() && (
+        resource.data.participant1 == request.auth.uid ||
+        resource.data.participant2 == request.auth.uid
+      );
+      allow create: if isAuth();
+      allow update: if isAuth() && (
+        resource.data.participant1 == request.auth.uid ||
+        resource.data.participant2 == request.auth.uid
+      );
+      allow delete: if isAdmin();
+
+      match /messages/{msgId} {
+        allow read: if isAuth();
+        allow create: if isAuth();
+        allow update: if isAuth() && resource.data.senderId == request.auth.uid;
+        allow delete: if isAdmin();
+      }
     }
 
     // ── Varsayilan: her seyi engelle ──

@@ -2,15 +2,17 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
 import {
-    getThreadById, subscribeToEntries, addEntry, toggleLike,
+    getThreadById, getThreadBySlug, subscribeToEntries, addEntry, toggleLike,
     incrementViews, formatTimestamp,
     type ForumThread, type ForumEntry
 } from "@/lib/forumService";
+import { startConversation } from "@/lib/messageService";
+import { rateUser } from "@/lib/userService";
 import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star } from "lucide-react";
 import { sampleListings, formatListingPrice } from "@/data/listings";
 
@@ -34,7 +36,8 @@ const parseComparisonContent = (text: string) => {
 
 export default function ForumThreadPage() {
     const params = useParams();
-    const threadId = params.id as string;
+    const router = useRouter();
+    const slugParam = params.id as string;
     const { user } = useAuth();
 
     const [thread, setThread] = useState<ForumThread | null>(null);
@@ -50,21 +53,26 @@ export default function ForumThreadPage() {
     const [reportNote, setReportNote] = useState('');
     const [reportSending, setReportSending] = useState(false);
     const [reportToast, setReportToast] = useState<string | null>(null);
+    const [ratingModal, setRatingModal] = useState<{ userId: string; username: string } | null>(null);
+    const [ratingScore, setRatingScore] = useState(0);
+    const [hoverScore, setHoverScore] = useState(0);
+    const [ratingSending, setRatingSending] = useState(false);
     const [activeUserMenu, setActiveUserMenu] = useState<string | null>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const viewCounted = useRef(false);
 
-    // Thread yukle
+    // Thread yukle (slug--urlId veya eski ID formatini destekler)
     useEffect(() => {
         async function load() {
-            const t = await getThreadById(threadId);
+            // Slug--urlId formatini parse et, fallback olarak eski ID kullan
+            const t = await getThreadBySlug(slugParam);
             setThread(t);
             setLoading(false);
 
             // Goruntuleme sayacini artir (sayfa basina 1 kez)
             if (t && !viewCounted.current) {
                 viewCounted.current = true;
-                incrementViews(threadId);
+                incrementViews(t.id); // Gercek Firestore ID kullan
             }
         }
         load();
@@ -85,22 +93,23 @@ export default function ForumThreadPage() {
                 }
             })
             .catch(err => console.error("Error loading ads:", err));
-    }, [threadId]);
+    }, [slugParam]);
 
-    // Entry'leri realtime dinle
+    // Entry'leri realtime dinle (thread yuklendikten sonra gercek ID kullan)
     useEffect(() => {
-        const unsub = subscribeToEntries(threadId, (newEntries) => {
+        if (!thread) return;
+        const unsub = subscribeToEntries(thread.id, (newEntries) => {
             setEntries(newEntries);
         });
         return () => unsub();
-    }, [threadId]);
+    }, [thread?.id]);
 
     // Entry gonder
     const handleSubmit = async () => {
         if (!newEntry.trim() || !user || submitting) return;
         setSubmitting(true);
         try {
-            await addEntry(threadId, {
+            await addEntry(thread!.id, {
                 authorId: user.id as string,
                 username: user.username,
                 content: newEntry.trim(),
@@ -118,7 +127,7 @@ export default function ForumThreadPage() {
         if (!user || likingEntry) return;
         setLikingEntry(entryId);
         try {
-            await toggleLike(threadId, entryId, user.id as string);
+            await toggleLike(thread!.id, entryId, user.id as string);
         } catch (e) {
             console.error("Begeni hatasi:", e);
         }
@@ -147,7 +156,7 @@ export default function ForumThreadPage() {
                         reason: reportCategory,
                         category: reportCategory,
                         note: reportNote,
-                        threadId,
+                        threadId: thread!.id,
                     }),
                     actor: user.username,
                 }),
@@ -161,6 +170,22 @@ export default function ForumThreadPage() {
             console.error('Şikayet gonderilemedi:', e);
         }
         setReportSending(false);
+    };
+
+    // Puan ver
+    const handleRateUser = async () => {
+        if (!user || !ratingModal || ratingScore === 0 || ratingSending) return;
+        setRatingSending(true);
+        try {
+            const result = await rateUser(ratingModal.userId, ratingModal.username, user.id as string, ratingScore);
+            setReportToast(result.message);
+            setTimeout(() => setReportToast(null), 3500);
+            setRatingModal(null);
+            setRatingScore(0);
+        } catch (e) {
+            console.error("Puan verilemedi:", e);
+        }
+        setRatingSending(false);
     };
 
     if (loading) {
@@ -393,15 +418,24 @@ export default function ForumThreadPage() {
                                                         borderRadius: '12px', padding: '8px', minWidth: '180px',
                                                         boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
                                                     }}>
-                                                        <button style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                        <button onClick={() => router.push(`/profil/${entry.username}`)} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
                                                             <User size={14} /> Profili Ziyaret Et
                                                         </button>
-                                                        <button style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
-                                                            <MessageSquare size={14} /> Mesaj Gönder
-                                                        </button>
-                                                        <button style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
-                                                            <Star size={14} color="#f59e0b" /> Puan Ver
-                                                        </button>
+                                                        {user && user.id !== entry.authorId && (
+                                                            <button onClick={async () => {
+                                                                try {
+                                                                    const convId = await startConversation(user.id as string, user.username, entry.authorId, entry.username);
+                                                                    router.push(`/mesajlar?conv=${convId}`);
+                                                                } catch(e) { console.error(e); }
+                                                            }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                                <MessageSquare size={14} /> Mesaj Gönder
+                                                            </button>
+                                                        )}
+                                                        {user && user.id !== entry.authorId && (
+                                                            <button onClick={() => { setRatingModal({ userId: entry.authorId, username: entry.username }); setActiveUserMenu(null); }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                                <Star size={14} color="#f59e0b" /> Puan Ver
+                                                            </button>
+                                                        )}
                                                         {user && user.id !== entry.authorId && (
                                                             <>
                                                                 <div style={{ height: '1px', background: 'var(--card-border)', margin: '4px 0' }} />
@@ -686,6 +720,48 @@ export default function ForumThreadPage() {
                             <button onClick={() => setReportModal(null)} style={{ flex: 1, padding: '12px', borderRadius: '10px', background: 'var(--background)', border: '1px solid var(--border-subtle)', color: 'var(--foreground)', fontSize: '14px', fontWeight: '600', cursor: 'pointer' }}>İptal</button>
                             <button onClick={handleReport} disabled={reportSending} style={{ flex: 2, padding: '12px', borderRadius: '10px', background: '#EF4444', border: 'none', color: 'white', fontSize: '14px', fontWeight: '700', cursor: 'pointer', opacity: reportSending ? 0.7 : 1 }}>
                                 {reportSending ? 'Gönderiliyor...' : 'Şikayet Et'}
+                            </button>
+                        </div>
+                    </div>
+                </>
+            )}
+
+            {/* Puan Verme Modalı */}
+            {ratingModal && (
+                <>
+                    <div onClick={() => setRatingModal(null)} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 1100, backdropFilter: 'blur(2px)' }} />
+                    <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '400px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', zIndex: 1200, padding: '28px', animation: 'popIn 0.2s ease', textAlign: 'center' }}>
+                        <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(245, 158, 11, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                            <Star size={24} color="#F59E0B" fill="#F59E0B" />
+                        </div>
+                        <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontWeight: '800', color: 'var(--foreground)' }}>Kullanıcıyı Değerlendir</h3>
+                        <p style={{ margin: '0 0 24px 0', fontSize: '13px', color: 'var(--text-muted)' }}>@{ratingModal.username} için puanınız (Anonim olarak verilecektir)</p>
+                        
+                        <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '24px' }}>
+                            {[1, 2, 3, 4, 5].map((star) => (
+                                <button
+                                    key={star}
+                                    onMouseEnter={() => setHoverScore(star)}
+                                    onMouseLeave={() => setHoverScore(0)}
+                                    onClick={() => setRatingScore(star)}
+                                    style={{
+                                        background: 'none', border: 'none', cursor: 'pointer', padding: '4px',
+                                        transition: 'transform 0.1s'
+                                    }}
+                                >
+                                    <Star 
+                                        size={32} 
+                                        color={star <= (hoverScore || ratingScore) ? '#F59E0B' : 'var(--card-border)'} 
+                                        fill={star <= (hoverScore || ratingScore) ? '#F59E0B' : 'transparent'} 
+                                    />
+                                </button>
+                            ))}
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                            <button onClick={() => setRatingModal(null)} style={{ flex: 1, padding: '12px', borderRadius: '10px', background: 'var(--background)', border: '1px solid var(--border-subtle)', color: 'var(--foreground)', fontSize: '14px', fontWeight: '600', cursor: 'pointer' }}>İptal</button>
+                            <button onClick={handleRateUser} disabled={ratingScore === 0 || ratingSending} style={{ flex: 2, padding: '12px', borderRadius: '10px', background: '#F59E0B', border: 'none', color: 'white', fontSize: '14px', fontWeight: '700', cursor: 'pointer', opacity: (ratingScore === 0 || ratingSending) ? 0.7 : 1 }}>
+                                {ratingSending ? 'Kaydediliyor...' : 'Puan Ver'}
                             </button>
                         </div>
                     </div>

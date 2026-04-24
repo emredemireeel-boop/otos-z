@@ -4,8 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { turkeyBrandMarkets, turkeyModelMarkets } from "@/data/markets";
 import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel } from "@/data/vehicle-dna";
+import { getAllBrands, getModelsForBrand } from "@/data/listings";
+
 import { Dna, Search, TrendingUp, Car, Calendar, AlertCircle, Send, CheckCircle2 } from "lucide-react";
 
 export default function AracDNAPage() {
@@ -15,6 +16,7 @@ export default function AracDNAPage() {
     const [yearEnd, setYearEnd] = useState("");
     const [searchAttempted, setSearchAttempted] = useState(false);
     const [showContributeForm, setShowContributeForm] = useState(false);
+    const [searchResults, setSearchResults] = useState<typeof vehicleDNAData | null>(null);
 
     // Contribution form states
     const [strengths, setStrengths] = useState("");
@@ -23,28 +25,29 @@ export default function AracDNAPage() {
     const [submitted, setSubmitted] = useState(false);
 
     // Get popular vehicles (top 6 by DNA score)
-    const popularVehicles = vehicleDNAData.slice(0, 30);
+    const popularVehicles = vehicleDNAData.slice(0, 50);
 
     const handleSearch = () => {
         setSearchAttempted(true);
         setShowContributeForm(false);
         setSubmitted(false);
 
-        // Check if vehicle exists in database
-        const foundVehicle = vehicleDNAData.find(v =>
-            v.brand.toLowerCase().includes(brandInput.toLowerCase()) &&
+        // Find all matching vehicles
+        const matches = vehicleDNAData.filter(v =>
+            v.brand.toLowerCase() === brandInput.toLowerCase() &&
             v.model.toLowerCase().includes(modelInput.toLowerCase())
         );
 
-        if (!foundVehicle) {
+        if (matches.length > 0) {
+            setSearchResults(matches);
+        } else {
+            setSearchResults([]);
             // Show contribute form after a short delay
             setTimeout(() => setShowContributeForm(true), 500);
-        } else {
-            // Navigate to vehicle page
-            const slug = `${foundVehicle.brand.toLowerCase().replace(/\s+/g, '-')}/${foundVehicle.model.toLowerCase().replace(/\s+/g, '-')}`;
-            window.location.href = `/arac-dna/${slug}`;
         }
     };
+
+    const displayedVehicles = searchResults !== null ? searchResults : popularVehicles;
 
     const handleContribute = () => {
         // Here you would send data to backend
@@ -158,8 +161,8 @@ export default function AracDNAPage() {
                                     onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
                                 >
                                     <option value="" style={{ color: 'black' }}>Marka Seçiniz</option>
-                                    {turkeyBrandMarkets.sort((a, b) => a.brand.localeCompare(b.brand)).map(brand => (
-                                        <option key={brand.rank} value={brand.brand} style={{ color: 'black' }}>{brand.brand}</option>
+                                    {getAllBrands().map(brand => (
+                                        <option key={brand} value={brand} style={{ color: 'black' }}>{brand}</option>
                                     ))}
                                 </select>
                             </div>
@@ -196,12 +199,9 @@ export default function AracDNAPage() {
                                     onBlur={(e) => !brandInput ? null : e.currentTarget.style.borderColor = 'var(--input-border)'}
                                 >
                                     <option value="" style={{ color: 'black' }}>Model Seçiniz</option>
-                                    {turkeyModelMarkets
-                                        .filter(m => m.brand === brandInput)
-                                        .sort((a, b) => a.model.localeCompare(b.model))
-                                        .map(model => (
-                                            <option key={model.rank} value={model.model} style={{ color: 'black' }}>{model.model}</option>
-                                        ))}
+                                    {brandInput && getModelsForBrand(brandInput).map(model => (
+                                        <option key={model} value={model} style={{ color: 'black' }}>{model}</option>
+                                    ))}
                                 </select>
                             </div>
 
@@ -371,7 +371,7 @@ export default function AracDNAPage() {
                                 {/* Weaknesses */}
                                 <div>
                                     <label style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px', display: 'block' }}>
-                                        ⚠️� Zayıf Yönleri
+                                        ⚠️ Zayıf Yönleri
                                     </label>
                                     <textarea
                                         value={weaknesses}
@@ -492,7 +492,9 @@ export default function AracDNAPage() {
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                             <TrendingUp size={24} color="var(--primary)" />
                             <h2 style={{ fontSize: '22px', fontWeight: '700', color: 'var(--foreground)', margin: 0 }}>
-                                Popüler Araçlar
+                                {searchResults !== null 
+                                    ? (searchResults.length > 0 ? 'Arama Sonuçları' : 'Sonuç Bulunamadı') 
+                                    : 'Popüler Araçlar'}
                             </h2>
                         </div>
 
@@ -501,7 +503,7 @@ export default function AracDNAPage() {
                             gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
                             gap: '16px'
                         }}>
-                            {popularVehicles.map((vehicle) => {
+                            {displayedVehicles.map((vehicle) => {
                                 const scoreColor = getDNAScoreColor(vehicle.dnaScore);
                                 const scoreLabel = getDNAScoreLabel(vehicle.dnaScore);
                                 const slug = `${vehicle.brand.toLowerCase().replace(/\s+/g, '-')}/${vehicle.model.toLowerCase().replace(/\s+/g, '-')}`;
@@ -510,7 +512,7 @@ export default function AracDNAPage() {
                                     <Link
                                         key={vehicle.id}
                                         href={`/arac-dna/${slug}`}
-                                        style={{ textDecoration: 'none' }}
+                                        style={{ textDecoration: 'none', display: 'block', height: '100%' }}
                                     >
                                         <div style={{
                                             background: 'var(--secondary)',
@@ -518,7 +520,10 @@ export default function AracDNAPage() {
                                             borderRadius: '12px',
                                             padding: '20px',
                                             cursor: 'pointer',
-                                            transition: 'all 0.2s'
+                                            transition: 'all 0.2s',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            height: '100%'
                                         }}
                                             onMouseEnter={(e) => {
                                                 e.currentTarget.style.borderColor = 'var(--primary)';
@@ -531,8 +536,8 @@ export default function AracDNAPage() {
                                                 e.currentTarget.style.boxShadow = 'none';
                                             }}
                                         >
-                                            <div style={{ marginBottom: '16px' }}>
-                                                <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px' }}>
+                                            <div style={{ marginBottom: '16px', flex: 1 }}>
+                                                <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px', lineHeight: '1.3' }}>
                                                     {vehicle.brand} {vehicle.model}
                                                 </h3>
                                                 <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>

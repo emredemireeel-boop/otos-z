@@ -88,8 +88,8 @@ const CITIES: { name: string; lat: number; lng: number }[] = [
   { name: "Zonguldak", lat: 41.45, lng: 31.79 },
 ].sort((a, b) => a.name.localeCompare(b.name, "tr"));
 
-/* ─── Fuel Types ─── */
-const FUEL_TYPES = [
+/* ─── Fuel Types Default ─── */
+const DEFAULT_FUEL_TYPES = [
   { key: "benzin", label: "Benzin", price: 42.50 },
   { key: "dizel", label: "Dizel", price: 40.80 },
   { key: "lpg", label: "LPG", price: 21.00 },
@@ -325,6 +325,40 @@ export default function YakitHesaplamaSection() {
   const [yakitTuru, setYakitTuru] = useState("benzin");
   const [tuketim, setTuketim] = useState(7.5);
   const [gidisDonusu, setGidisDonusu] = useState(false);
+  const [fuelTypes, setFuelTypes] = useState(DEFAULT_FUEL_TYPES);
+
+  useEffect(() => {
+    const normalize = (s: string) =>
+        s.replace(/İ/g, 'i').replace(/I/g, 'i')
+         .toLowerCase()
+         .replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s')
+         .replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c')
+         .replace(/â/g,'a').replace(/î/g,'i').replace(/û/g,'u')
+         .replace(/\s+/g,'');
+         
+    const citySlug = nereden ? normalize(nereden) : "istanbul";
+
+    fetch(`/api/fiyatlar/${citySlug}`)
+        .then(res => res.json())
+        .then(data => {
+            if (!data.veriler || data.veriler.length === 0) return;
+            const f = data.veriler[0].fiyatlar;
+            const parsePrice = (p: any) => {
+                if (!p) return null;
+                const parsed = parseFloat(p.toString().replace(',', '.'));
+                return isNaN(parsed) ? null : parsed;
+            };
+
+            if (f) {
+                setFuelTypes([
+                    { key: "benzin", label: "Benzin", price: parsePrice(f.benzin_95?.fiyat) || 42.50 },
+                    { key: "dizel", label: "Dizel", price: parsePrice(f.motorin?.fiyat) || 40.80 },
+                    { key: "lpg", label: "LPG", price: parsePrice(f.lpg_otogaz?.fiyat) || 21.00 },
+                ]);
+            }
+        })
+        .catch(err => console.warn('Yakıt API hatası:', err));
+  }, [nereden]);
 
   // When fuel type changes, set default consumption
   const handleFuelChange = useCallback((key: string) => {
@@ -347,7 +381,7 @@ export default function YakitHesaplamaSection() {
 
     const tekYonKm = estimateRoadKm(c1, c2);
     const totalKm = gidisDonusu ? tekYonKm * 2 : tekYonKm;
-    const fuelType = FUEL_TYPES.find((f) => f.key === yakitTuru)!;
+    const fuelType = fuelTypes.find((f) => f.key === yakitTuru)!;
     const yakitLitre = (totalKm * tuketim) / 100;
     const toplamMaliyet = yakitLitre * fuelType.price;
     const kmBasinaMaliyet = (tuketim / 100) * fuelType.price;
@@ -360,9 +394,9 @@ export default function YakitHesaplamaSection() {
       kmBasinaMaliyet,
       yakitFiyati: fuelType.price,
     };
-  }, [nereden, nereye, yakitTuru, tuketim, gidisDonusu]);
+  }, [nereden, nereye, yakitTuru, tuketim, gidisDonusu, fuelTypes]);
 
-  const currentFuel = FUEL_TYPES.find((f) => f.key === yakitTuru)!;
+  const currentFuel = fuelTypes.find((f) => f.key === yakitTuru) || fuelTypes[0];
 
   /* ─── Styles ─── */
   const cardStyle: React.CSSProperties = {
@@ -542,7 +576,7 @@ export default function YakitHesaplamaSection() {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "10px" }}>
-          {FUEL_TYPES.map((fuel) => {
+          {fuelTypes.map((fuel) => {
             const active = yakitTuru === fuel.key;
             return (
               <button

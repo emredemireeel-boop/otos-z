@@ -11,7 +11,7 @@ import { useAuth } from "@/context/AuthContext";
 
 import { events } from "@/data/events";
 import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
-import { subscribeToThreads, formatTimestamp, type ForumThread as FirestoreThread } from "@/lib/forumService";
+import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, getThreadById, type ForumThread as FirestoreThread } from "@/lib/forumService";
 import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
@@ -98,7 +98,7 @@ export default function Home() {
                 ]);
             })
             .catch(() => {
-                // API erişilemez — fallback: boş göster
+                // API erişilemez – fallback: boş göster
                 console.warn('Yakıt fiyatları API\'ye ulaşılamadı.');
             });
     }, [user]);
@@ -180,6 +180,7 @@ export default function Home() {
         lastAuthor: thread.authorUsername,
         authorLevel: "Surucu",
         lastEntry: "",
+        slugUrl: getThreadSlugUrl(thread),
     }));
 
     const currentCat = categories.find(c => c.name === selectedCategory);
@@ -294,7 +295,7 @@ export default function Home() {
         return (
             <div style={{ display: 'grid', gap: '16px' }}>
                 {sortedTopics.map((topic) => (
-                    <Link key={topic.id} href={`/forum/${topic.id}`}>
+                    <Link key={topic.id} href={topic.slugUrl}>
                         <div
                             style={{
                                 background: 'var(--card-bg)',
@@ -450,7 +451,7 @@ export default function Home() {
                                         </span>
                                         <span style={{ width: '1px', height: '14px', background: 'var(--card-border)', display: 'inline-block' }} />
                                     </div>
-                                    {/* Fiyat listesi — 2x tekrar seamless scroll için */}
+                                    {/* Fiyat listesi – 2x tekrar seamless scroll için */}
                                     {[...fuelPrices, ...fuelPrices].map((fuel, i) => (
                                         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                             <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: '600' }}>{fuel.name}</span>
@@ -619,7 +620,7 @@ export default function Home() {
                                                 </div>
                                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                                                     <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {formatKm(listing.km)}</span>
-                                                    <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e' }}>{formatListingPrice(listing.price)}</span>
+                                                    <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e', whiteSpace: 'nowrap' }}>{formatListingPrice(listing.price)}</span>
                                                 </div>
                                             </div>
                                         </Link>
@@ -782,7 +783,7 @@ export default function Home() {
                                             {[...liveThreads].sort((a, b) => b.views - a.views).slice(0, 5).map((thread, index) => (
                                                 <li key={thread.id}>
                                                     <Link
-                                                        href={`/forum/${thread.id}`}
+                                                        href={getThreadSlugUrl(thread)}
                                                         style={{
                                                             display: 'flex',
                                                             alignItems: 'flex-start',
@@ -965,251 +966,9 @@ export default function Home() {
                 </div>
             </main >
 
-            {/* ===== FORUM BOTTOM SECTIONS ===== */}
-
-
-            {/* ===== 1. FORUM ÖNE ÇIKANLAR ===== */}
+            {/* ===== İSTATİSTİKLER ===== */}
             <section style={{
-                padding: '60px 24px',
-                background: 'var(--background)',
-                borderTop: '1px solid var(--card-border)',
-            }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h2 className="forum-section-title">
-                            <div style={{
-                                width: '40px', height: '40px', borderRadius: '12px',
-                                background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                color: 'var(--primary)',
-                            }}>
-                                <Flame size={20} />
-                            </div>
-                            Forum Öne Çıkanlar
-                        </h2>
-                        <Link href="/forum" style={{
-                            display: 'flex', alignItems: 'center', gap: '6px',
-                            color: 'var(--primary)', fontSize: '14px', fontWeight: '600',
-                            textDecoration: 'none',
-                        }}>
-                            Tümünü Gör <ChevronRight size={16} />
-                        </Link>
-                    </div>
-                    <p className="forum-section-desc">En çok etkileşim alan ve en popüler tartışmalar</p>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
-                        {liveThreads.length === 0 ? (
-                            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
-                                <MessageSquare size={32} style={{ marginBottom: '8px', opacity: 0.5 }} />
-                                <p>Henuz konu yok. Forumda ilk konuyu siz acin!</p>
-                            </div>
-                        ) : (
-                            [...liveThreads]
-                                .sort((a, b) => b.views - a.views)
-                                .slice(0, 6)
-                                .map((thread, i) => {
-                                    const gradients = [
-                                        'var(--primary)',
-                                        'linear-gradient(135deg, #3b82f6, #60a5fa)',
-                                        'linear-gradient(135deg, #22c55e, #4ade80)',
-                                        'linear-gradient(135deg, #a855f7, #c084fc)',
-                                        'linear-gradient(135deg, #f59e0b, #fbbf24)',
-                                        'linear-gradient(135deg, #ef4444, #f87171)',
-                                    ];
-                                    return (
-                                        <Link key={thread.id} href={`/forum/${thread.id}`} className="featured-card"
-                                            style={{ animationDelay: `${i * 0.1}s` }}
-                                        >
-                                            <div style={{
-                                                position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
-                                                background: gradients[i], borderRadius: '18px 18px 0 0',
-                                            }} />
-                                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                                                <span style={{
-                                                    padding: '4px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: '700',
-                                                    background: isDark ? 'rgba(255,107,0,0.12)' : 'rgba(0,90,226,0.08)',
-                                                    color: 'var(--primary)',
-                                                }}>
-                                                    {thread.category}
-                                                </span>
-                                                {i < 3 && (
-                                                    <span style={{
-                                                        padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: '700',
-                                                        background: 'rgba(239,68,68,0.1)', color: '#ef4444',
-                                                        display: 'flex', alignItems: 'center', gap: '4px',
-                                                    }}>
-                                                        <Flame size={10} /> HOT
-                                                    </span>
-                                                )}
-                                            </div>
-                                            <h3 style={{
-                                                fontSize: '16px', fontWeight: '700', color: 'var(--foreground)',
-                                                marginBottom: '12px', lineHeight: 1.4,
-                                                display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
-                                                overflow: 'hidden',
-                                            }}>
-                                                {thread.title}
-                                            </h3>
-                                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto' }}>
-                                                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '12px', color: 'var(--text-muted)' }}>
-                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                                        <Eye size={13} /> {thread.views}
-                                                    </span>
-                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                                        <MessageSquare size={13} /> {thread.entryCount}
-                                                    </span>
-                                                </div>
-                                                <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{formatTimestamp(thread.createdAt)}</span>
-                                            </div>
-                                        </Link>
-                                    );
-                                })
-                        )}
-                    </div>
-                </div>
-            </section>
-
-            {/* ===== 2. YENİ KONULAR ===== */}
-            <section style={{
-                padding: '60px 24px',
-                background: isDark ? 'rgba(255,255,255,0.01)' : 'rgba(0,0,0,0.015)',
-                borderTop: '1px solid var(--card-border)',
-            }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h2 className="forum-section-title">
-                            <div style={{
-                                width: '40px', height: '40px', borderRadius: '12px',
-                                background: isDark ? 'rgba(0,212,255,0.1)' : 'rgba(34,197,94,0.06)',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                color: isDark ? '#00d4ff' : '#22c55e',
-                            }}>
-                                <Clock size={20} />
-                            </div>
-                            Yeni Konular
-                        </h2>
-                        <Link href="/forum" style={{
-                            display: 'flex', alignItems: 'center', gap: '6px',
-                            color: 'var(--primary)', fontSize: '14px', fontWeight: '600',
-                            textDecoration: 'none',
-                        }}>
-                            Tümünü Gör <ChevronRight size={16} />
-                        </Link>
-                    </div>
-                    <p className="forum-section-desc">Toplulukta en son açılan tartışma konuları</p>
-
-                    <div style={{
-                        display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0',
-                        background: 'var(--card-bg)', border: '1px solid var(--card-border)',
-                        borderRadius: '20px', overflow: 'hidden',
-                    }}>
-                        {liveThreads.slice(0, 8).map((thread, i) => (
-                            <Link key={thread.id} href={`/forum/${thread.id}`} className="new-topic-row"
-                                style={{
-                                    borderBottom: i < 6 ? '1px solid var(--card-border)' : 'none',
-                                    borderRight: i % 2 === 0 ? '1px solid var(--card-border)' : 'none',
-                                    padding: '18px 24px',
-                                }}
-                            >
-                                <div style={{
-                                    width: '36px', height: '36px', borderRadius: '10px', flexShrink: 0,
-                                    background: isDark ? 'rgba(255,107,0,0.08)' : 'rgba(0,90,226,0.04)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    color: 'var(--primary)', fontSize: '13px', fontWeight: '800',
-                                }}>
-                                    {i + 1}
-                                </div>
-                                <div style={{ flex: 1, minWidth: 0 }}>
-                                    <h4 style={{
-                                        fontSize: '14px', fontWeight: '700', color: 'var(--foreground)',
-                                        marginBottom: '4px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-                                    }}>
-                                        {thread.title}
-                                    </h4>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '12px', color: 'var(--text-muted)' }}>
-                                        <span>{thread.authorUsername}</span>
-                                        <span>•</span>
-                                        <span>{formatTimestamp(thread.createdAt)}</span>
-                                        <span>•</span>
-                                        <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
-                                            <MessageSquare size={11} /> {thread.entryCount}
-                                        </span>
-                                    </div>
-                                </div>
-                                <ChevronRight size={16} style={{ color: 'var(--text-muted)', flexShrink: 0, opacity: 0.5 }} />
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ===== 3. YAZARLAR ===== */}
-            <section style={{
-                padding: '60px 24px',
-                background: 'var(--background)',
-                borderTop: '1px solid var(--card-border)',
-            }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h2 className="forum-section-title">
-                            <div style={{
-                                width: '40px', height: '40px', borderRadius: '12px',
-                                background: isDark ? 'rgba(0,90,226,0.1)' : 'rgba(0,90,226,0.06)',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                color: 'var(--primary)',
-                            }}>
-                                <Crown size={20} />
-                            </div>
-                            Top Yazarlar
-                        </h2>
-                    </div>
-                    <p className="forum-section-desc">En yüksek reputasyona sahip topluluk üyeleri</p>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px' }}>
-                        {topUsers.length === 0 ? (
-                            <p style={{ gridColumn: '1 / -1', textAlign: 'center', color: 'var(--text-muted)', fontSize: '14px', padding: '24px 0' }}>Henüz yazar bulunmuyor</p>
-                        ) : (
-                            topUsers.map((u, i) => {
-                                return (
-                                    <div key={`${u.username}-${i}`} className="author-card">
-                                        <div style={{
-                                            position: 'absolute', top: '10px', right: '12px',
-                                            width: '24px', height: '24px', borderRadius: '50%',
-                                            background: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                            color: 'var(--text-muted)', fontSize: '11px', fontWeight: '800',
-                                            border: '1px solid var(--card-border)',
-                                        }}>
-                                            {i + 1}
-                                        </div>
-                                        <div style={{
-                                            width: '52px', height: '52px', borderRadius: '50%',
-                                            background: 'var(--secondary)',
-                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                            fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', margin: '0 auto 12px',
-                                            border: '1px solid var(--card-border)',
-                                        }}>
-                                            {u.username.charAt(0).toUpperCase()}
-                                        </div>
-                                        <h4 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px' }}>
-                                            @{u.username}
-                                        </h4>
-                                        <span style={{
-                                            display: 'inline-block', padding: '4px 12px', borderRadius: '6px', fontSize: '11px', fontWeight: '700',
-                                            background: 'var(--secondary)', border: '1px solid var(--card-border)',
-                                            color: 'var(--text-muted)', marginBottom: '10px',
-                                        }}>
-                                            {u.role === 'usta' ? 'Usta' : 'Çırak'}
-                                        </span>
-                                    </div>
-                                );
-                            })
-                        )}
-                    </div>
-                </div>
-            </section>
-
-            {/* ===== 4. İSTATİSTİKLER ===== */}
-            <section style={{
                 padding: '60px 24px',
                 background: isDark ? 'rgba(255,255,255,0.01)' : 'rgba(0,0,0,0.015)',
                 borderTop: '1px solid var(--card-border)',
@@ -1427,7 +1186,7 @@ export default function Home() {
                                 </label>
                                 <div style={{ display: 'flex', gap: '10px' }}>
                                     {[
-                                        { id: 'topic', label: '📑� Başlık', desc: 'Forum başlığı' },
+                                        { id: 'topic', label: '📄 Başlık', desc: 'Forum başlığı' },
                                         { id: 'survey', label: '📊 Anket', desc: 'Oylama' },
                                         { id: 'expert', label: '💡 Soru', desc: 'Uzmana Sor' },
                                     ].map((type) => (
@@ -1574,7 +1333,7 @@ export default function Home() {
                                     İptal
                                 </button>
                                 <button
-                                    onClick={() => {
+                                    onClick={async () => {
                                         if (newTopicData.type === 'survey') {
                                             const newSurvey = {
                                                 id: Date.now().toString(),
@@ -1593,15 +1352,39 @@ export default function Home() {
                                                 totalVotes: 0,
                                                 endDate: '7 gün kaldı'
                                             };
-                                            // Prepend to surveys list
                                             setHomeSurveys([newSurvey, ...homeSurveys]);
-                                            // Switch to Anket category to show it
                                             setSelectedCategory("Anket");
+                                            alert(`Anket başarıyla oluşturuldu!`);
+                                            setShowNewTopicModal(false);
+                                            setNewTopicData({ title: "", content: "", category: "", type: "topic" });
+                                        } else {
+                                            if (!user) {
+                                                alert("İçerik oluşturmak için giriş yapmalısınız.");
+                                                return;
+                                            }
+                                            try {
+                                                const threadId = await createThread({
+                                                    title: newTopicData.title.trim(),
+                                                    category: newTopicData.category,
+                                                    content: newTopicData.content.trim(),
+                                                    tags: [],
+                                                    authorId: user.id as string,
+                                                    authorUsername: user.username,
+                                                });
+                                                
+                                                setShowNewTopicModal(false);
+                                                setNewTopicData({ title: "", content: "", category: "", type: "topic" });
+                                                
+                                                const newThread = await getThreadById(threadId);
+                                                if (newThread) {
+                                                    window.location.href = getThreadSlugUrl(newThread);
+                                                } else {
+                                                    window.location.href = `/forum/${threadId}`;
+                                                }
+                                            } catch (e: any) {
+                                                alert("Hata: " + e.message);
+                                            }
                                         }
-
-                                        alert(`${newTopicData.type === 'survey' ? 'Anket' : newTopicData.type === 'expert' ? 'Soru' : 'Başlık'} başarıyla oluşturuldu!`);
-                                        setShowNewTopicModal(false);
-                                        setNewTopicData({ title: "", content: "", category: "", type: "topic" });
                                     }}
                                     disabled={!newTopicData.title.trim() || !newTopicData.category}
                                     style={{

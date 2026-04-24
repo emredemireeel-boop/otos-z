@@ -1,5 +1,5 @@
 import {
-    collection, doc, addDoc, getDoc, getDocs, updateDoc, setDoc,
+    collection, doc, addDoc, getDoc, getDocs, updateDoc, setDoc, deleteDoc,
     query, orderBy, limit, onSnapshot, serverTimestamp, increment,
     arrayUnion, arrayRemove, Timestamp, where,
     type DocumentData, type QuerySnapshot
@@ -31,9 +31,40 @@ export interface ForumThread {
     entryCount: number;
     lastEntryAt: Timestamp | null;
     vehicleVotes?: Record<string, string[]>;
+    urlId?: number;
 }
 
 /* ── Helpers ── */
+
+/** Turkce karakterleri SEO-uyumlu slug'a cevir */
+export function createSlug(text: string): string {
+    const trMap: { [key: string]: string } = {
+        'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
+        'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u',
+    };
+    return text.replace(/[çğıöşüÇĞİÖŞÜ]/g, match => trMap[match] || match)
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '')
+        .slice(0, 80);
+}
+
+/** 8 haneli benzersiz URL ID uret */
+function generateUrlId(): number {
+    return Math.floor(10000000 + Math.random() * 90000000);
+}
+
+/** Thread icin SEO-uyumlu slug URL olustur (eksi sozluk formati) */
+export function getThreadSlugUrl(thread: ForumThread): string {
+    if (thread.urlId) {
+        return `/forum/${createSlug(thread.title)}--${thread.urlId}`;
+    }
+    // Eski thread'ler icin fallback (urlId yoksa Firestore ID kullan)
+    return `/forum/${thread.id}`;
+}
+
 function mapThread(docSnap: DocumentData, id: string): ForumThread {
     const d = docSnap;
     return {
@@ -49,6 +80,7 @@ function mapThread(docSnap: DocumentData, id: string): ForumThread {
         entryCount: d.entryCount || 0,
         lastEntryAt: d.lastEntryAt || d.createdAt || null,
         vehicleVotes: d.vehicleVotes || {},
+        urlId: d.urlId || undefined,
     };
 }
 
@@ -96,6 +128,31 @@ export async function getThreadById(threadId: string): Promise<ForumThread | nul
     return mapThread(snap.data(), snap.id);
 }
 
+/** Slug--urlId formatindan thread getir (eksi sozluk stili) */
+export async function getThreadBySlug(slug: string): Promise<ForumThread | null> {
+    // slug--12345678 formatini parse et
+    const parts = slug.split('--');
+    const urlIdStr = parts[parts.length - 1];
+    const urlId = parseInt(urlIdStr, 10);
+
+    // Eger gecerli 8 haneli bir sayi ise urlId ile ara
+    if (!isNaN(urlId) && urlIdStr.length === 8) {
+        const q = query(
+            collection(db, "threads"),
+            where("urlId", "==", urlId),
+            limit(1)
+        );
+        const snap = await getDocs(q);
+        if (!snap.empty) {
+            const d = snap.docs[0];
+            return mapThread(d.data(), d.id);
+        }
+    }
+
+    // Fallback: eski Firestore doc ID ile ara
+    return getThreadById(slug);
+}
+
 /** Bir konunun entry'lerini getir */
 export async function getEntries(threadId: string): Promise<ForumEntry[]> {
     const q = query(
@@ -129,6 +186,7 @@ export async function createThread(data: {
     const safeCategory = sanitizeText(data.category).slice(0, 50);
 
     const now = serverTimestamp();
+    const urlId = generateUrlId();
 
     // Thread olustur
     const threadRef = await addDoc(collection(db, "threads"), {
@@ -142,6 +200,7 @@ export async function createThread(data: {
         tags: safeTags,
         entryCount: 1,
         lastEntryAt: now,
+        urlId,
     });
 
     // Ilk entry olustur
@@ -154,7 +213,9 @@ export async function createThread(data: {
         likedBy: [],
     });
 
-    return threadRef.id;
+    // Slug URL dondur (yonlendirme icin)
+    const slugUrl = `${createSlug(titleCheck.sanitized)}--${urlId}`;
+    return slugUrl;
 }
 
 /** Konuya entry ekle */
@@ -247,6 +308,25 @@ export async function incrementViews(threadId: string): Promise<void> {
     } catch (e) {
         console.warn("Goruntulenme guncellenemedi:", e);
     }
+}
+
+/** Konuyu (Baslik) Sil (Admin) */
+export async function deleteThread(threadId: string): Promise<void> {
+    // Ilk olarak konuya ait tum entry'leri sil
+    const entriesSnap = await getDocs(collection(db, "threads", threadId, "entries"));
+    const deletePromises = entriesSnap.docs.map(d => deleteDoc(doc(db, "threads", threadId, "entries", d.id)));
+    await Promise.all(deletePromises);
+    // Sonra konuyu sil
+    await deleteDoc(doc(db, "threads", threadId));
+}
+
+/** Entry Sil (Admin) */
+export async function deleteEntry(threadId: string, entryId: string): Promise<void> {
+    await deleteDoc(doc(db, "threads", threadId, "entries", entryId));
+    // Konunun entryCount'unu azalt
+    await updateDoc(doc(db, "threads", threadId), {
+        entryCount: increment(-1)
+    });
 }
 
 /** Realtime listener for threads */

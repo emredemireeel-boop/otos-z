@@ -26,6 +26,7 @@ const navItems = [
         items: [
             { name: "Kullanici Yonetimi", href: "/admin/kullanicilar", icon: Users, badge: null },
             { name: "Sozluk Yonetimi", href: "/admin/moderasyon", icon: BookOpen, badge: null },
+            { name: "Entry Kontrolu", href: "/admin/entry-kontrol", icon: MessageSquareWarning, badge: null },
             { name: "Sikayet Kuyrugu", href: "/admin/raporlar", icon: Flag, badge: null, badgeRed: true },
             { name: "Pazar Kontrolu", href: "/admin/pazar", icon: ShoppingCart, badge: null },
             { name: "Guvenmetre Onayi", href: "/admin/guvenmetre", icon: ShieldCheck, badge: null },

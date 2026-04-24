@@ -1499,33 +1499,241 @@ export const vehicleDNAData: VehicleDNA[] = [
         userExperiences: [],
         totalReports: 2000
     },
+    {
+        id: 31,
+        brand: "Hyundai",
+        model: "i20 (2014-2019 Orta Kasa)",
+        year: "2014-2019 Orta Kasa",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 77,
+        strengths: [
+            "Performanslı ve Dayanıklı Dizel Motor (90 Beygir, 240 Nm Tork)",
+            "Uzun Ömürlü Mekanik Altyapı (Sanayi yüzü göstermeyen sorunsuzluk)",
+            "Ferah İç Mekan ve Cam Tavan (Sınıf standartlarını aşan diz mesafesi)",
+            "Sade ve Kullanışlı Yaşam Alanı (Geniş saklama alanları ve ergonomik dizayn)"
+        ],
+        weaknesses: [
+            "Sert Süspansiyon Karakteri (Yol bozukluklarını net hissettiriyor)",
+            "Yalıtım Zayıflığı (100 km/s üzeri yol ve rüzgar sesi)",
+            "Sert Plastik Malzeme Kalitesi (Kapı içleri ve göğüste ekonomi sınıfı hissi)",
+            "Ağır Kasa / Şehir İçi Tüketimi (1.4 CRDi yoğun trafikte emsallerine göre yüksek kalabiliyor)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DPF ve EGR Tıkanması",
+                severity: "high",
+                reportCount: 420,
+                description: "Sürekli şehir içi ve düşük devir kullanımında DPF'nin kurum bağlaması. Çekiş düşüklüğü, artan yakıt tüketimi ve motor arıza lambasıyla kendini belli eder. Yüksek devirli uzun yol kullanımı ile temizlenmesi gerekir."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Derisi Soyulması",
+                severity: "medium",
+                reportCount: 350,
+                description: "Düşük kilometrelerde bile direksiyon simidinde erken aşınma ve bölgesel soyulmaların başlaması. Özellikle güneşe maruz kalan araçlarda daha sık görülür."
+            },
+            {
+                id: 3,
+                title: "Motor Kulağı Yıpranması / Kabin Titreşimi",
+                severity: "medium",
+                reportCount: 280,
+                description: "Kilometre ilerledikçe motor takozlarının özelliğini yitirmesi sonucu rölantideyken dizel motorun titreşiminin kabin içine, direksiyona ve pedallara fazlaca yansıması."
+            },
+            {
+                id: 4,
+                title: "Turbo Hortumu Terlemesi",
+                severity: "low",
+                reportCount: 150,
+                description: "Yüksek kilometreli araçlarda turbo borularında yağ terlemesi veya ufak basınç kaçakları oluşması. İvmelenme esnasında ekstra ıslık sesiyle fark edilebilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1200
+    },
+    {
+        id: 32,
+        brand: "Hyundai",
+        model: "i30 (2012-2017 GD Kasa)",
+        year: "2012-2017 GD Kasa",
+        ncapStars: 5,
+        ncapYear: "2012",
+        dnaScore: 79,
+        strengths: [
+            "C Segmentinde Zirve Donanım (Elite pakette devasa panoramik cam tavan, anahtarsız çalıştırma, gizli kamera, viraj aydınlatma)",
+            "Bağımsız Arka Süspansiyon (Multi-Link ile virajlarda üst düzey yol tutuş ve arka yolcular için harika konfor)",
+            "Güçlü ve Çekişli Motor (128 HP / 260 Nm veya makyajlı kasada 136 HP / 300 Nm canlı performans)",
+            "Ferah ve Kaliteli Yaşam Alanı (Yumuşak plastik dokusu, diz mesafesi genişliği ve sınıf üstü ses yalıtımı ile premium his)"
+        ],
+        weaknesses: [
+            "Dizel İçin Yüksek Yakıt Tüketimi (1.4 ton kasa ve eski tip 6 ileri tam otomatik ile şehir içi 8-9 litre bandı; DCT'de 1-1.5L daha az)",
+            "Alçak Karoser ve Alt Sürtme Riski (Ön yüzün ve karterin yere çok yakın tasarımı nedeniyle kasis ve otoparklarda sürtme riski)",
+            "Ağır Kasa Hissiyatı (Motor güçlü olsa da ilk kalkış ve ani direksiyon tepkilerinde gemivari hantallık hissi)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Direksiyon Tıkırtı Burcu (Yıldız / EPS) Boşluğu",
+                severity: "high",
+                reportCount: 580,
+                description: "Elektrikli direksiyon motorunun (EPS) içindeki plastik yıldız burcun zamanla aşınıp ufalanması sonucu, bozuk yollarda direksiyon kutusundan kabine belirgin bir 'tık tık tık' ses gelmesi. Uygun maliyetli burç değişimiyle çözülür."
+            },
+            {
+                id: 2,
+                title: "DCT Şanzıman Titremesi (2015 Sonrası)",
+                severity: "medium",
+                reportCount: 420,
+                description: "2015 yılı makyajıyla gelen 7 ileri DCT şanzımanlarda, yoğun dur-kalk trafiğinde kavramanın ısınıp uyarı vermesi veya yokuşlarda 1'den 2'ye geçerken kavrama titremesi."
+            },
+            {
+                id: 3,
+                title: "Geri Görüş Kamerası Mekanizma Takılması",
+                severity: "medium",
+                reportCount: 310,
+                description: "Bagaj kapağındaki Hyundai logosunun arkasında gizli kameranın, toz/pislik girmesi veya mekanik dişli sıyırması sebebiyle takılı kalıp açılmaması ya da kapanmaması durumu."
+            },
+            {
+                id: 4,
+                title: "Panoramik Cam Tavan Esneme Sesi",
+                severity: "medium",
+                reportCount: 450,
+                description: "Elite paketlerdeki büyük cam tavanın fitillerinin kuruması veya ağır kasanın esnemesi sebebiyle çapraz kasis geçişlerinde tavandan gıcırtı ve çıtırtı sesleri gelmesi. Silikon spreyi ile çözülebilir."
+            },
+            {
+                id: 5,
+                title: "Direksiyon Derisi Soyulması",
+                severity: "low",
+                reportCount: 350,
+                description: "Araç kapalı garajda muhafaza edilmediyse, direksiyon simidindeki suni deri kaplamanın el teri ve güneşe bağlı olarak erken kilometrelerde soyulmaya ve matlaşmaya başlaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1400
+    },
+    {
+        id: 33,
+        brand: "Audi",
+        model: "TT (2006-2014 Mk2)",
+        year: "2009-2011 Dönemi Odaklı",
+        dnaScore: 75,
+        strengths: [
+            "Zamana Meydan Okuyan Tasarım (Yuvarlak hatlar, agresif farlar ve aktif arka spoyler ile havalı duruş)",
+            "Alüminyum Uzay Kafesi - ASF (Hafif, dengeli ve çok rijit gövde yapısı)",
+            "Tatmin Edici Performans (2.0 TFSI 200 HP motor ve S tronic kombinasyonu ile muazzam ivmelenme)",
+            "Dinamik Yol Tutuş (Özellikle Quattro versiyonlarında çok yüksek viraj limitleri)",
+            "Sürücü Odaklı İç Mekan (Kesik spor direksiyon, deri/alcantara koltuklar ve premium his)"
+        ],
+        weaknesses: [
+            "Korkutucu Yağ Tüketimi (TFSI motorların karakteristik bir özelliği olarak motorun fazla yağ yakması)",
+            "Sert Sürüş Karakteri (İnce yanak lastikler ve spor süspansiyonlar sebebiyle konforun ikinci planda olması)",
+            "İşlevsiz Arka Koltuklar (Arka bölümün bir yetişkinin sığması için imkansız, sadece eşya koymaya yarayan bir alan olması)",
+            "Bilinçsiz Kullanıcı Faktörü (Türkiye'deki araçların hor kullanılmış, yazılım atılmış ve temizini bulmanın zorluğu)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Piston Segmanı / Aşırı Yağ Yakma Sorunu",
+                severity: "high",
+                reportCount: 850,
+                description: "Özellikle 2009-2011 arası üretilen 1.8 ve 2.0 TFSI (EA888 kodlu) motorların hatalı tasarlanan yağ segmanları nedeniyle 1000 kilometrede 1 litreye varan yağ eksiltmesi. Genellikle motorun açılıp revize edilmiş segman ve pistonlarla toplanması gerekir."
+            },
+            {
+                id: 2,
+                title: "S tronic (DSG) Mekatronik ve Kavrama Yıpranması",
+                severity: "high",
+                reportCount: 620,
+                description: "Hor kullanılmış veya yazılımla torku yükseltilmiş araçlarda çift kavramanın erken bitmesi veya mekatronik beyninin arıza vermesi. Vites geçişlerinde kararsızlık, vuruntu ve silkeleme ile kendini belli eder."
+            },
+            {
+                id: 3,
+                title: "PCV Valfi ve Bobin Arızaları",
+                severity: "medium",
+                reportCount: 410,
+                description: "Karter havalandırma (PCV) valfinin içindeki diyaframın zamanla yırtılması sonucu aracın rölantisinin dalgalanması, ıslık sesi çıkarması ve yağ yakımının artması."
+            },
+            {
+                id: 4,
+                title: "Arka Stop Lambası Şasi Problemi",
+                severity: "low",
+                reportCount: 290,
+                description: "Arka stop lambalarının duy soketlerindeki toprak (şasi) hattının zayıf olması sebebiyle zamanla ısınarak soketin erimesi. Genelde ek bir şasi kablosu çekilerek ucuza çözülür."
+            },
+            {
+                id: 5,
+                title: "Cam Krikosu ve Şalter Arızaları",
+                severity: "low",
+                reportCount: 210,
+                description: "Kapı açıldığında camı bir miktar aşağı indiren mekanizmanın zamanla bozulması veya cam krikosu tellerinin koparak camın kapı içinde düşmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1800
+    },
+    {
+        id: 34,
+        brand: "Renault",
+        model: "Clio 4 (2012-2019 4. Jenerasyon)",
+        year: "2012-2019 Dördüncü Jenerasyon",
+        ncapStars: 5,
+        ncapYear: "2012",
+        dnaScore: 76,
+        strengths: [
+            "Sportif ve Zamansız Tasarım (Arka kapı kollarının C sütununa gizlenmesiyle tek kapı hissi ve kaslı görünüm)",
+            "Rakipsiz Yakıt Ekonomisi (1.5 dCi motorun şehir içi 4.5-5L, uzun yolda 3.5-4L yakması)",
+            "Yaygın Servis ve Yedek Parça Ağı (Türkiye üretimi avantajıyla çok uygun yürütme maliyeti ve bakkalda bile bulunabilen parçalar)",
+            "İkinci El Değeri (Çok hızlı ve değer kaybetmeden aynı gün nakde çevrilebilen altın gibi piyasa)",
+            "Bass Reflex Ses Sistemi (Segmentine göre oldukça başarılı akustik ve bas performansı)"
+        ],
+        weaknesses: [
+            "Vasat Malzeme Kalitesi (Ön konsol ve kapı içlerinde çizilmeye çok müsait sert plastik malzeme kullanımı)",
+            "Yalıtım Problemleri (İnce camlar ve zayıf yalıtım sebebiyle 90-100 km/s hızdan sonra kabine ciddi yol, lastik ve rüzgar sesi alması)",
+            "Dar Arka Yaşam Alanı (Sportif tavan eğimi nedeniyle arka koltukların basık ve klostrofobik hissettirmesi)",
+            "Zayıf Aydınlatma (Makyaj öncesi - Faz 1 modellerde halojen farların gece aydınlatma performansının yetersizliği)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Rüzgar Sesi ve Fitil Problemi",
+                severity: "high",
+                reportCount: 1250,
+                description: "Clio 4'ün en meşhur kronik sorunudur. Ön kelebek camlarından, ayna diplerinden ve kapı fitillerinden 90 km/s hızdan itibaren kabine belirgin ıslık/rüzgar sesi girmesi. Genelde ekstra fitil uygulaması ile çözülür."
+            },
+            {
+                id: 2,
+                title: "EDC Şanzıman Beyni ve Kavrama Sorunları",
+                severity: "high",
+                reportCount: 890,
+                description: "Otomatik vitesli (EDC çift kavrama) versiyonlarda, yoğun dur-kalk trafikte kavramanın çabuk ısınarak silkeleme yapması ve şanzıman beyninin (TCM) lehim atarak arıza vermesi durumu."
+            },
+            {
+                id: 3,
+                title: "Ön Takım ve Süspansiyon Sesleri",
+                severity: "medium",
+                reportCount: 760,
+                description: "Süspansiyonların sertliği sebebiyle viraj demir uç lastikleri, Z rotlar ve amortisör takozlarının erken yıpranması, çukurlarda ön takımdan lok lok vuruntu sesleri gelmesi."
+            },
+            {
+                id: 4,
+                title: "Direksiyon ve Vites Topuzu Soyulması",
+                severity: "medium",
+                reportCount: 650,
+                description: "Özellikle Touch ve Joy paketlerde kullanılan suni deri direksiyon simidinin ve vites topuzu nikelajının el terine dayanamayıp 40-50 bin kilometrelerde soyulup dökülmeye başlaması."
+            },
+            {
+                id: 5,
+                title: "MediaNav Multimedya Çökmeleri",
+                severity: "low",
+                reportCount: 420,
+                description: "Dokunmatik ekranlı MediaNav sisteminin ara sıra logoda takılı kalması, donması veya Bluetooth bağlantısının kopması. Çoğu zaman yazılım güncellemesi ile düzeltilebilmektedir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 2100
+    }
 ];
 
-export const brands = ["Toyota", "Honda", "BMW", "Volkswagen", "Mercedes-Benz", "Audi", "Ford", "Renault", "Hyundai", "Kia", "Fiat", "Dacia", "Peugeot", "Opel", "Togg", "Chery", "Nissan", "Citroen", "Skoda", "Seat", "Tesla"];
 
-export const modelsByBrand: Record<string, string[]> = {
-    "Toyota": ["Corolla", "Yaris", "C-HR"],
-    "Honda": ["Civic", "City", "CR-V"],
-    "BMW": ["320i", "520i", "X1"],
-    "Volkswagen": ["Passat", "Golf", "Polo", "T-Roc", "Tiguan"],
-    "Mercedes-Benz": ["C180", "E200", "A200"],
-    "Audi": ["A3", "A4", "Q3"],
-    "Ford": ["Focus", "Puma", "Kuga"],
-    "Renault": ["Clio", "Megane", "Austral", "Taliant"],
-    "Hyundai": ["i20", "Tucson", "Bayon", "Elantra"],
-    "Kia": ["Sportage", "Stonic", "Ceed"],
-    "Fiat": ["Egea", "500", "Panda"],
-    "Dacia": ["Duster", "Sandero", "Jogger"],
-    "Peugeot": ["3008", "2008", "408", "208"],
-    "Opel": ["Corsa", "Astra", "Mokka", "Crossland"],
-    "Togg": ["T10X"],
-    "Chery": ["Tiggo 8 Pro", "Tiggo 7 Pro", "Omoda 5"],
-    "Nissan": ["Qashqai", "Juke"],
-    "Citroen": ["C4 X", "C3", "C5 Aircross"],
-    "Skoda": ["Octavia", "Superb", "Kamiq"],
-    "Seat": ["Leon", "Ibiza", "Arona"],
-    "Tesla": ["Model Y"]
-};
 
 export function getDNAScoreColor(score: number): string {
     if (score >= 80) return '#22C55E'; // Yeşil - Mükemmel

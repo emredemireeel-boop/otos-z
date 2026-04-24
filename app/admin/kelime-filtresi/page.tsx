@@ -50,7 +50,7 @@ const CATEGORIES: { key: WordCategory | "hepsi"; label: string; color: string }[
 const MODE_STYLE: Record<FilterMode, { bg: string; color: string; label: string; icon: string }> = {
     engelle: { bg: "rgba(239,68,68,0.12)", color: "#EF4444", label: "Engelle", icon: "🛑«" },
     yildizla: { bg: "rgba(245,158,11,0.1)", color: "#F59E0B", label: "Yıldızla", icon: "★★★" },
-    uyar: { bg: "rgba(59,130,246,0.1)", color: "#3B82F6", label: "Uyar", icon: "⚠️�" },
+    uyar: { bg: "rgba(59,130,246,0.1)", color: "#3B82F6", label: "Uyar", icon: "⚠️" },
 };
 
 //  Test Simülatörü 
@@ -91,12 +91,12 @@ function TestSimulator({ words }: { words: BannedWord[] }) {
                 <div style={{ display: "flex", gap: "10px", flexDirection: "column" }}>
                     {result.found.length === 0 ? (
                         <div style={{ padding: "12px 16px", borderRadius: "10px", background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.25)", color: "#10B981", fontSize: "13px", fontWeight: "600" }}>
-                            ✓ Temiz —� Yasaklı kelime bulunamadı
+                            ✓ Temiz — Yasaklı kelime bulunamadı
                         </div>
                     ) : (
                         <>
                             <div style={{ padding: "12px 16px", borderRadius: "10px", background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.25)" }}>
-                                <p style={{ margin: "0 0 6px", fontSize: "12px", fontWeight: "700", color: "#EF4444" }}>⚠️� {result.found.length} eşleşme bulundu</p>
+                                <p style={{ margin: "0 0 6px", fontSize: "12px", fontWeight: "700", color: "#EF4444" }}>⚠️ {result.found.length} eşleşme bulundu</p>
                                 <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
                                     {result.found.map((f, i) => (
                                         <span key={i} style={{ fontSize: "12px", fontWeight: "700", background: MODE_STYLE[f.mode].bg, color: MODE_STYLE[f.mode].color, padding: "2px 8px", borderRadius: "6px" }}>
@@ -209,7 +209,7 @@ export default function AdminKelimeFiltresiPage() {
                             <select value={newMode} onChange={e => setNewMode(e.target.value as FilterMode)} style={{ ...inputStyle, cursor: "pointer" }}>
                                 <option value="yildizla">★★★ Yıldızla</option>
                                 <option value="engelle">🛑« Engelle</option>
-                                <option value="uyar">⚠️� Uyar</option>
+                                <option value="uyar">⚠️ Uyar</option>
                             </select>
                         </div>
                     </div>
@@ -218,7 +218,7 @@ export default function AdminKelimeFiltresiPage() {
                             <input type="checkbox" checked={newRegex} onChange={e => setNewRegex(e.target.checked)} style={{ width: "15px", height: "15px" }} />
                             Regex Pattern (ileri düzey)
                         </label>
-                        {newRegex && <span style={{ fontSize: "11px", color: "#F59E0B", background: "rgba(245,158,11,0.1)", padding: "3px 8px", borderRadius: "6px", fontWeight: "600" }}>⚠️� Regex aktif —� dikkatlice test edin</span>}
+                        {newRegex && <span style={{ fontSize: "11px", color: "#F59E0B", background: "rgba(245,158,11,0.1)", padding: "3px 8px", borderRadius: "6px", fontWeight: "600" }}>⚠️ Regex aktif — dikkatlice test edin</span>}
                     </div>
                     <div style={{ display: "flex", gap: "10px" }}>
                         <button onClick={() => setShowAdd(false)} style={cancelBtnStyle}>İptal</button>
@@ -285,7 +285,7 @@ export default function AdminKelimeFiltresiPage() {
                                     style={{ fontSize: "11px", fontWeight: "700", background: ms.bg, color: ms.color, border: `1px solid ${ms.color}40`, borderRadius: "6px", padding: "3px 7px", cursor: "pointer", outline: "none" }}>
                                     <option value="yildizla">★★★ Yıldızla</option>
                                     <option value="engelle">🛑« Engelle</option>
-                                    <option value="uyar">⚠️� Uyar</option>
+                                    <option value="uyar">⚠️ Uyar</option>
                                 </select>
                             </div>
                             <span style={{ fontSize: "13px", fontWeight: "800", color: w.matchCount > 100 ? "#EF4444" : "var(--foreground)" }}>

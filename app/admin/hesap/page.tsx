@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import {
@@ -25,7 +25,7 @@ interface Session {
 
 const MOCK_SESSIONS: Session[] = [
     { id: "s1", device: "💻 MacBook Pro", os: "macOS 14.4", browser: "Chrome 124", ip: "88.247.xx.xx", location: "İstanbul, TR", lastSeen: "Şu an aktif", current: true, flagged: false },
-    { id: "s2", device: "📑± iPhone 15 Pro", os: "iOS 17.4", browser: "Safari 17", ip: "88.247.xx.xx", location: "İstanbul, TR", lastSeen: "2 saat önce", current: false, flagged: false },
+    { id: "s2", device: "📱 iPhone 15 Pro", os: "iOS 17.4", browser: "Safari 17", ip: "88.247.xx.xx", location: "İstanbul, TR", lastSeen: "2 saat önce", current: false, flagged: false },
     { id: "s3", device: " Windows PC", os: "Windows 11", browser: "Edge 123", ip: "185.61.xx.xx", location: "Ankara, TR", lastSeen: "1 gün önce", current: false, flagged: false },
     { id: "s4", device: " Bilinmeyen", os: "Linux", browser: "Firefox 125", ip: "31.45.xx.xx", location: "Moskova, RU", lastSeen: "3 gün önce", current: false, flagged: true },
 ];
@@ -242,7 +242,7 @@ export default function AdminHesapAyarlariPage() {
                         </FormRow>
                         <FormRow label="Rol">
                             <div style={{ padding: '10px 14px', borderRadius: '9px', background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', fontSize: '13px', fontWeight: '700', color: '#EF4444', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                👔˜ Süper Admin —� değiştirilemez
+                                👔˜ Süper Admin — değiştirilemez
                             </div>
                         </FormRow>
                         <FormRow label="Admin ID">
@@ -304,7 +304,7 @@ export default function AdminHesapAyarlariPage() {
                                     <button onClick={() => setShowConfirm(v => !v)} style={eyeBtn}>{showConfirm ? <EyeOff size={15} /> : <Eye size={15} />}</button>
                                 </div>
                                 {confirmPw && newPw && confirmPw !== newPw && (
-                                    <p style={{ margin: '4px 0 0', fontSize: '11px', color: '#EF4444' }}>⚠️� Şifreler eşleşmiyor</p>
+                                    <p style={{ margin: '4px 0 0', fontSize: '11px', color: '#EF4444' }}>⚠️ Şifreler eşleşmiyor</p>
                                 )}
                             </FormRow>
                             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px', marginTop: '8px' }}>
@@ -384,7 +384,7 @@ export default function AdminHesapAyarlariPage() {
 
                         {/* Backup kodlar */}
                         {twoFAStep === "backup" && (
-                            <Card title=" Yedek Kodlarınız" subtitle="Bu kodları güvenli bir yere kaydedin —� her biri bir kez kullanılabilir">
+                            <Card title=" Yedek Kodlarınız" subtitle="Bu kodları güvenli bir yere kaydedin — her biri bir kez kullanılabilir">
                                 <div style={{ padding: '14px', background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '10px', marginBottom: '16px', display: 'flex', gap: '8px' }}>
                                     <AlertTriangle size={15} color="#F59E0B" style={{ flexShrink: 0, marginTop: '1px' }} />
                                     <p style={{ margin: 0, fontSize: '12px', color: '#F59E0B', fontWeight: '600' }}>Bu kodları kaydetmeyi unutmayın! 2FA cihazınıza erişimi kaybederseniz bunlar hesabınızı kurtarır.</p>
@@ -404,11 +404,11 @@ export default function AdminHesapAyarlariPage() {
                             </Card>
                         )}
 
-                        {/* 2FA yöntem seçenekleri —� sadece aktifken göster */}
+                        {/* 2FA yöntem seçenekleri — sadece aktifken göster */}
                         {twoFAEnabled && twoFAStep === "idle" && (
-                            <Card title="🛠️� Doğrulama Yöntemleri" subtitle="Birden fazla yöntem ekleyerek hesabınızı daha güvenli yapın">
+                            <Card title="🛠️ Doğrulama Yöntemleri" subtitle="Birden fazla yöntem ekleyerek hesabınızı daha güvenli yapın">
                                 {[
-                                    { icon: "📑±", title: "Authenticator Uygulaması", desc: "Google Authenticator, Authy, vb.", active: true },
+                                    { icon: "🔐", title: "Authenticator Uygulaması", desc: "Google Authenticator, Authy, vb.", active: true },
                                     { icon: "💬", title: "SMS Doğrulama", desc: "+90 5xx xxx xx xx", active: false },
                                     { icon: "📧", title: "E-posta Doğrulama", desc: "admin@Otosöz.com", active: false },
                                     { icon: "🔑", title: "Güvenlik Anahtarı (FIDO2)", desc: "YubiKey veya uyumlu donanım", active: false },
@@ -432,7 +432,7 @@ export default function AdminHesapAyarlariPage() {
                 {/*  AKTİF OTURUMLAR  */}
                 {section === "oturumlar" && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        <Card title=" Aktif Oturumlar" subtitle={`${sessions.length} oturum —� ${sessions.filter(s => s.flagged).length > 0 ? '⚠️� Şüpheli oturum var!' : 'Tüm oturumlar tanıdık'}`}>
+                        <Card title=" Aktif Oturumlar" subtitle={`${sessions.length} oturum — ${sessions.filter(s => s.flagged).length > 0 ? '⚠️ Şüpheli oturum var!' : 'Tüm oturumlar tanıdık'}`}>
                             {sessions.filter(s => s.flagged).length > 0 && (
                                 <div style={{ padding: '12px 16px', background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: '10px', marginBottom: '16px', display: 'flex', gap: '10px', alignItems: 'center' }}>
                                     <AlertTriangle size={16} color="#EF4444" />
@@ -450,8 +450,8 @@ export default function AdminHesapAyarlariPage() {
                                         <div style={{ flex: 1, minWidth: 0 }}>
                                             <div style={{ display: 'flex', gap: '6px', marginBottom: '3px', flexWrap: 'wrap', alignItems: 'center' }}>
                                                 <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>{s.device.slice(2)}</span>
-                                                {s.current && <span style={pill("#10B981")}>🟢�Â� Bu cihaz</span>}
-                                                {s.flagged && <span style={pill("#EF4444")}>⚠️� Şüpheli</span>}
+                                                {s.current && <span style={pill("#10B981")}>🟢Â Bu cihaz</span>}
+                                                {s.flagged && <span style={pill("#EF4444")}>⚠️ Şüpheli</span>}
                                             </div>
                                             <p style={{ margin: 0, fontSize: '11px', color: 'var(--text-muted)' }}>
                                                 {s.os} · {s.browser} · {s.ip} · {s.location}

@@ -433,7 +433,7 @@ export default function GizlilikPolitikasiPage() {
                                 background: 'rgba(239, 68, 68, 0.06)',
                                 border: '1px solid rgba(239, 68, 68, 0.12)',
                             }}>
-                                <strong style={{ color: '#EF4444' }}>⛔� Kesin Taahhüt:</strong>{' '}
+                                <strong style={{ color: '#EF4444' }}>⛔ Kesin Taahhüt:</strong>{' '}
                                 <span style={{ color: 'var(--text-muted)' }}>
                                     Kişisel verileriniz hiçbir koşulda üçüncü taraf reklam Şirketlerine satılmaz, kiralanmaz veya ticari amaçla paylaşılmaz. Yurt dışına veri aktarımı yapılması halinde KVKK m.9 hükümlerine tam uyum sağlanır.
                                 </span>

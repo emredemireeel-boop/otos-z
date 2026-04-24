@@ -458,7 +458,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                                     border: '1px solid var(--card-border)'
                                                 }}
                                                 onMouseEnter={(e) => {
-                                                    e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)';
+                                                    e.currentTarget.style.background = 'var(--secondary)';
                                                     e.currentTarget.style.borderColor = 'var(--primary)';
                                                 }}
                                                 onMouseLeave={(e) => {
@@ -473,7 +473,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                 </div>
 
                                 <div style={{
-                                    background: 'linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(0, 212, 255, 0.1))',
+                                    background: 'var(--secondary)',
                                     border: '1px solid var(--primary)',
                                     borderRadius: '16px',
                                     padding: '16px',

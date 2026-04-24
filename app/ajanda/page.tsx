@@ -211,13 +211,14 @@ export default function AgendaPage() {
                 <div style={{ textAlign: 'center', marginBottom: '48px', maxWidth: '800px', margin: '0 auto 48px' }}>
                     <span style={{
                         padding: '6px 16px',
-                        background: 'rgba(255, 107, 0, 0.1)',
+                        background: 'var(--card-bg)',
                         color: 'var(--primary)',
                         borderRadius: '20px',
                         fontSize: '13px',
                         fontWeight: '600',
                         marginBottom: '16px',
-                        display: 'inline-block'
+                        display: 'inline-block',
+                        border: '1px solid var(--card-border)'
                     }}>
                         AKILLI BAKIM TAKİP
                     </span>
@@ -250,13 +251,14 @@ export default function AgendaPage() {
                             <div style={{
                                 width: '48px',
                                 height: '48px',
-                                background: 'rgba(255, 107, 0, 0.1)',
+                                background: 'var(--secondary)',
                                 borderRadius: '12px',
                                 display: 'flex',
                                 alignItems: 'center',
-                                justifyContent: 'center'
+                                justifyContent: 'center',
+                                border: '1px solid var(--card-border)'
                             }}>
-                                <Wrench className="w-6 h-6 text-[var(--primary)]" />
+                                <Wrench size={22} color="var(--primary)" />
                             </div>
                             <div>
                                 <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>Araç Profili</h2>
@@ -303,10 +305,11 @@ export default function AgendaPage() {
                                     <span style={{
                                         fontSize: '11px',
                                         padding: '2px 8px',
-                                        background: 'rgba(255, 107, 0, 0.1)',
-                                        color: 'var(--primary)',
+                                        background: 'var(--secondary)',
+                                        color: 'var(--text-muted)',
                                         borderRadius: '6px',
-                                        fontWeight: '500'
+                                        fontWeight: '500',
+                                        border: '1px solid var(--card-border)'
                                     }}>
                                         Düzenlenebilir
                                     </span>
@@ -329,7 +332,7 @@ export default function AgendaPage() {
                                             width: '100%',
                                             padding: '14px 50px 14px 16px',
                                             background: 'var(--input-bg)',
-                                            border: '2px solid var(--primary)',
+                                            border: '2px solid var(--card-border)',
                                             borderRadius: '12px',
                                             color: 'var(--foreground)',
                                             fontSize: '16px',
@@ -338,14 +341,16 @@ export default function AgendaPage() {
                                             fontFamily: 'monospace',
                                             transition: 'all 0.2s',
                                             cursor: 'text',
-                                            boxShadow: '0 0 0 3px rgba(255, 107, 0, 0.1)'
+                                            boxShadow: 'none'
                                         }}
                                         placeholder="Örn: 15000"
                                         onFocus={(e) => {
-                                            e.currentTarget.style.boxShadow = '0 0 0 4px rgba(255, 107, 0, 0.2)';
+                                            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.15)';
+                                            e.currentTarget.style.borderColor = '#2563eb';
                                         }}
                                         onBlur={(e) => {
-                                            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(255, 107, 0, 0.1)';
+                                            e.currentTarget.style.boxShadow = 'none';
+                                            e.currentTarget.style.borderColor = 'var(--card-border)';
                                         }}
                                     />
                                     <span style={{
@@ -404,7 +409,7 @@ export default function AgendaPage() {
                             <InteractiveCard
                                 title="Araç Muayenesi"
                                 icon={<FileCheck />}
-                                color="text-emerald-500"
+                                color="#0d9488"
                                 item={items["inspection"]}
                                 onToggle={() => toggleItem("inspection")}
                                 onDateChange={(d) => updateDate("inspection", d)}
@@ -414,7 +419,7 @@ export default function AgendaPage() {
                             <InteractiveCard
                                 title="Trafik Sigortası"
                                 icon={<ShieldCheck />}
-                                color="text-blue-500"
+                                color="#2563eb"
                                 item={items["insurance"]}
                                 onToggle={() => toggleItem("insurance")}
                                 onDateChange={(d) => updateDate("insurance", d)}
@@ -424,7 +429,7 @@ export default function AgendaPage() {
                             <InteractiveCard
                                 title="MTV Ödemesi"
                                 icon={<Receipt />}
-                                color="text-purple-500"
+                                color="#7c3aed"
                                 item={items["mtv"]}
                                 onToggle={() => toggleItem("mtv")}
                                 onDateChange={(d) => updateDate("mtv", d)}
@@ -434,7 +439,7 @@ export default function AgendaPage() {
                             <InteractiveCard
                                 title="Kasko"
                                 icon={<Car />}
-                                color="text-amber-500"
+                                color="#d97706"
                                 item={items["kasko"]}
                                 onToggle={() => toggleItem("kasko")}
                                 onDateChange={(d) => updateDate("kasko", d)}
@@ -470,37 +475,37 @@ export default function AgendaPage() {
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
-                            <SmartPartCard title="Periyodik Bakım" itemKey="maintenance" lifeKm={15000} userKm={activeAnnualKm} icon={<Wrench />} color="text-indigo-500" item={items["maintenance"]} onToggle={() => toggleItem("maintenance")} onDateChange={(d) => updateDate("maintenance", d)} onToggleNotify={() => toggleNotify("maintenance")} onReset={() => resetDate("maintenance", 12)} />
+                            <SmartPartCard title="Periyodik Bakım" itemKey="maintenance" lifeKm={15000} userKm={activeAnnualKm} icon={<Wrench />} color="#4f46e5" item={items["maintenance"]} onToggle={() => toggleItem("maintenance")} onDateChange={(d) => updateDate("maintenance", d)} onToggleNotify={() => toggleNotify("maintenance")} onReset={() => resetDate("maintenance", 12)} />
 
                             {activeFuelType !== "Elektrik" && (
                                 <>
-                                    <SmartPartCard title="Motor Yağı" itemKey="oilChange" lifeKm={15000} userKm={activeAnnualKm} icon={<Droplet />} color="text-blue-500" item={items["oilChange"]} onToggle={() => toggleItem("oilChange")} onDateChange={(d) => updateDate("oilChange", d)} onToggleNotify={() => toggleNotify("oilChange")} onReset={() => resetDate("oilChange", 12)} />
-                                    <SmartPartCard title="Yağ Filtresi" itemKey="oilFilter" lifeKm={15000} userKm={activeAnnualKm} icon={<Filter />} color="text-violet-500" item={items["oilFilter"]} onToggle={() => toggleItem("oilFilter")} onDateChange={(d) => updateDate("oilFilter", d)} onToggleNotify={() => toggleNotify("oilFilter")} onReset={() => resetDate("oilFilter", 12)} />
-                                    <SmartPartCard title="Hava Filtresi" itemKey="airFilter" lifeKm={20000} userKm={activeAnnualKm} icon={<Wind />} color="text-emerald-500" item={items["airFilter"]} onToggle={() => toggleItem("airFilter")} onDateChange={(d) => updateDate("airFilter", d)} onToggleNotify={() => toggleNotify("airFilter")} onReset={() => resetDate("airFilter", 18)} />
+                                    <SmartPartCard title="Motor Yağı" itemKey="oilChange" lifeKm={15000} userKm={activeAnnualKm} icon={<Droplet />} color="#2563eb" item={items["oilChange"]} onToggle={() => toggleItem("oilChange")} onDateChange={(d) => updateDate("oilChange", d)} onToggleNotify={() => toggleNotify("oilChange")} onReset={() => resetDate("oilChange", 12)} />
+                                    <SmartPartCard title="Yağ Filtresi" itemKey="oilFilter" lifeKm={15000} userKm={activeAnnualKm} icon={<Filter />} color="#7c3aed" item={items["oilFilter"]} onToggle={() => toggleItem("oilFilter")} onDateChange={(d) => updateDate("oilFilter", d)} onToggleNotify={() => toggleNotify("oilFilter")} onReset={() => resetDate("oilFilter", 12)} />
+                                    <SmartPartCard title="Hava Filtresi" itemKey="airFilter" lifeKm={20000} userKm={activeAnnualKm} icon={<Wind />} color="#0d9488" item={items["airFilter"]} onToggle={() => toggleItem("airFilter")} onDateChange={(d) => updateDate("airFilter", d)} onToggleNotify={() => toggleNotify("airFilter")} onReset={() => resetDate("airFilter", 18)} />
                                 </>
                             )}
 
                             {activeFuelType === "Dizel" && (
                                 <>
-                                    <SmartPartCard title="Mazot Filtresi" itemKey="fuelFilter" lifeKm={30000} userKm={activeAnnualKm} icon={<Fuel />} color="text-amber-500" item={items["fuelFilter"]} onToggle={() => toggleItem("fuelFilter")} onDateChange={(d) => updateDate("fuelFilter", d)} onToggleNotify={() => toggleNotify("fuelFilter")} onReset={() => resetDate("fuelFilter", 24)} />
-                                    <SmartPartCard title="DPF (Partikül)" itemKey="dpf" lifeKm={120000} userKm={activeAnnualKm} icon={<Sparkles />} color="text-stone-500" item={items["dpf"]} onToggle={() => toggleItem("dpf")} onDateChange={(d) => updateDate("dpf", d)} onToggleNotify={() => toggleNotify("dpf")} onReset={() => resetDate("dpf", 96)} />
+                                    <SmartPartCard title="Mazot Filtresi" itemKey="fuelFilter" lifeKm={30000} userKm={activeAnnualKm} icon={<Fuel />} color="#d97706" item={items["fuelFilter"]} onToggle={() => toggleItem("fuelFilter")} onDateChange={(d) => updateDate("fuelFilter", d)} onToggleNotify={() => toggleNotify("fuelFilter")} onReset={() => resetDate("fuelFilter", 24)} />
+                                    <SmartPartCard title="DPF (Partikül)" itemKey="dpf" lifeKm={120000} userKm={activeAnnualKm} icon={<Sparkles />} color="#78716c" item={items["dpf"]} onToggle={() => toggleItem("dpf")} onDateChange={(d) => updateDate("dpf", d)} onToggleNotify={() => toggleNotify("dpf")} onReset={() => resetDate("dpf", 96)} />
                                 </>
                             )}
 
                             {activeFuelType === "Benzin" && (
                                 <>
-                                    <SmartPartCard title="Benzin Filtresi" itemKey="fuelFilter" lifeKm={60000} userKm={activeAnnualKm} icon={<Fuel />} color="text-amber-500" item={items["fuelFilter"]} onToggle={() => toggleItem("fuelFilter")} onDateChange={(d) => updateDate("fuelFilter", d)} onToggleNotify={() => toggleNotify("fuelFilter")} onReset={() => resetDate("fuelFilter", 48)} />
-                                    <SmartPartCard title="Bujiler" itemKey="sparkPlugs" lifeKm={50000} userKm={activeAnnualKm} icon={<Zap />} color="text-yellow-500" item={items["sparkPlugs"]} onToggle={() => toggleItem("sparkPlugs")} onDateChange={(d) => updateDate("sparkPlugs", d)} onToggleNotify={() => toggleNotify("sparkPlugs")} onReset={() => resetDate("sparkPlugs", 40)} />
+                                    <SmartPartCard title="Benzin Filtresi" itemKey="fuelFilter" lifeKm={60000} userKm={activeAnnualKm} icon={<Fuel />} color="#d97706" item={items["fuelFilter"]} onToggle={() => toggleItem("fuelFilter")} onDateChange={(d) => updateDate("fuelFilter", d)} onToggleNotify={() => toggleNotify("fuelFilter")} onReset={() => resetDate("fuelFilter", 48)} />
+                                    <SmartPartCard title="Bujiler" itemKey="sparkPlugs" lifeKm={50000} userKm={activeAnnualKm} icon={<Zap />} color="#ca8a04" item={items["sparkPlugs"]} onToggle={() => toggleItem("sparkPlugs")} onDateChange={(d) => updateDate("sparkPlugs", d)} onToggleNotify={() => toggleNotify("sparkPlugs")} onReset={() => resetDate("sparkPlugs", 40)} />
                                 </>
                             )}
 
                             {activeFuelType !== "Elektrik" && (
-                                <SmartPartCard title="Triger Seti" itemKey="trigerBelt" lifeKm={90000} userKm={activeAnnualKm} icon={<SettingsIcon />} color="text-red-500" item={items["trigerBelt"]} onToggle={() => toggleItem("trigerBelt")} onDateChange={(d) => updateDate("trigerBelt", d)} onToggleNotify={() => toggleNotify("trigerBelt")} onReset={() => resetDate("trigerBelt", 72)} />
+                                <SmartPartCard title="Triger Seti" itemKey="trigerBelt" lifeKm={90000} userKm={activeAnnualKm} icon={<SettingsIcon />} color="#dc2626" item={items["trigerBelt"]} onToggle={() => toggleItem("trigerBelt")} onDateChange={(d) => updateDate("trigerBelt", d)} onToggleNotify={() => toggleNotify("trigerBelt")} onReset={() => resetDate("trigerBelt", 72)} />
                             )}
 
-                            <SmartPartCard title="Polen Filtresi" itemKey="polenFilter" lifeKm={15000} userKm={activeAnnualKm} icon={<Leaf />} color="text-lime-500" item={items["polenFilter"]} onToggle={() => toggleItem("polenFilter")} onDateChange={(d) => updateDate("polenFilter", d)} onToggleNotify={() => toggleNotify("polenFilter")} onReset={() => resetDate("polenFilter", 12)} />
-                            <SmartPartCard title="Fren Balataları" itemKey="brakePads" lifeKm={45000} userKm={activeAnnualKm} icon={<Gauge />} color="text-orange-500" item={items["brakePads"]} onToggle={() => toggleItem("brakePads")} onDateChange={(d) => updateDate("brakePads", d)} onToggleNotify={() => toggleNotify("brakePads")} onReset={() => resetDate("brakePads", 36)} />
-                            <SmartPartCard title="Fren Hidroliği" itemKey="brakeFluid" lifeKm={40000} userKm={activeAnnualKm} icon={<Droplet />} color="text-rose-500" item={items["brakeFluid"]} onToggle={() => toggleItem("brakeFluid")} onDateChange={(d) => updateDate("brakeFluid", d)} onToggleNotify={() => toggleNotify("brakeFluid")} onReset={() => resetDate("brakeFluid", 32)} />
+                            <SmartPartCard title="Polen Filtresi" itemKey="polenFilter" lifeKm={15000} userKm={activeAnnualKm} icon={<Leaf />} color="#65a30d" item={items["polenFilter"]} onToggle={() => toggleItem("polenFilter")} onDateChange={(d) => updateDate("polenFilter", d)} onToggleNotify={() => toggleNotify("polenFilter")} onReset={() => resetDate("polenFilter", 12)} />
+                            <SmartPartCard title="Fren Balataları" itemKey="brakePads" lifeKm={45000} userKm={activeAnnualKm} icon={<Gauge />} color="#ea580c" item={items["brakePads"]} onToggle={() => toggleItem("brakePads")} onDateChange={(d) => updateDate("brakePads", d)} onToggleNotify={() => toggleNotify("brakePads")} onReset={() => resetDate("brakePads", 36)} />
+                            <SmartPartCard title="Fren Hidroliği" itemKey="brakeFluid" lifeKm={40000} userKm={activeAnnualKm} icon={<Droplet />} color="#e11d48" item={items["brakeFluid"]} onToggle={() => toggleItem("brakeFluid")} onDateChange={(d) => updateDate("brakeFluid", d)} onToggleNotify={() => toggleNotify("brakeFluid")} onReset={() => resetDate("brakeFluid", 32)} />
 
                             <SmartPartCard
                                 title={activeFuelType === "Elektrik" ? "Redüktör Yağı" : "Şanzıman Yağı"}
@@ -508,7 +513,7 @@ export default function AgendaPage() {
                                 lifeKm={activeFuelType === "Elektrik" ? 80000 : 60000}
                                 userKm={activeAnnualKm}
                                 icon={<SettingsIcon />}
-                                color="text-gray-500"
+                                color="#6b7280"
                                 item={items["transmissionFluid"]}
                                 onToggle={() => toggleItem("transmissionFluid")}
                                 onDateChange={(d) => updateDate("transmissionFluid", d)}
@@ -516,14 +521,14 @@ export default function AgendaPage() {
                                 onReset={() => resetDate("transmissionFluid", activeFuelType === "Elektrik" ? 64 : 48)}
                             />
 
-                            <SmartPartCard title="Lastik Rotasyonu" itemKey="tireRotation" lifeKm={10000} userKm={activeAnnualKm} icon={<RefreshCw />} color="text-indigo-500" item={items["tireRotation"]} onToggle={() => toggleItem("tireRotation")} onDateChange={(d) => updateDate("tireRotation", d)} onToggleNotify={() => toggleNotify("tireRotation")} onReset={() => resetDate("tireRotation", 8)} />
-                            <SmartPartCard title="Antifriz" itemKey="coolant" lifeKm={45000} userKm={activeAnnualKm} icon={<Thermometer />} color="text-cyan-500" item={items["coolant"]} onToggle={() => toggleItem("coolant")} onDateChange={(d) => updateDate("coolant", d)} onToggleNotify={() => toggleNotify("coolant")} onReset={() => resetDate("coolant", 36)} />
+                            <SmartPartCard title="Lastik Rotasyonu" itemKey="tireRotation" lifeKm={10000} userKm={activeAnnualKm} icon={<RefreshCw />} color="#4f46e5" item={items["tireRotation"]} onToggle={() => toggleItem("tireRotation")} onDateChange={(d) => updateDate("tireRotation", d)} onToggleNotify={() => toggleNotify("tireRotation")} onReset={() => resetDate("tireRotation", 8)} />
+                            <SmartPartCard title="Antifriz" itemKey="coolant" lifeKm={45000} userKm={activeAnnualKm} icon={<Thermometer />} color="#0891b2" item={items["coolant"]} onToggle={() => toggleItem("coolant")} onDateChange={(d) => updateDate("coolant", d)} onToggleNotify={() => toggleNotify("coolant")} onReset={() => resetDate("coolant", 36)} />
 
                             <InteractiveCard
                                 title="Akü (12V)"
                                 subtitle="Ömür: 4-5 Yıl"
                                 icon={<Battery />}
-                                color="text-teal-500"
+                                color="#0d9488"
                                 item={items["battery"]}
                                 onToggle={() => toggleItem("battery")}
                                 onDateChange={(d) => updateDate("battery", d)}
@@ -639,7 +644,15 @@ function InteractiveCard({
             {/* Header with Icon and Toggle */}
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '16px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1 }}>
-                    <div className={`p-2.5 rounded-xl bg-opacity-10 ${color.replace('text-', 'bg-')} ${color}`}>
+                    <div style={{
+                        padding: '10px',
+                        borderRadius: '12px',
+                        background: `${color}14`,
+                        color: color,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
                         {icon}
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
@@ -708,8 +721,8 @@ function InteractiveCard({
                             style={{
                                 padding: '4px 8px',
                                 borderRadius: '6px',
-                                background: 'rgba(255, 107, 0, 0.1)',
-                                border: 'none',
+                                background: 'transparent',
+                                border: '1px solid var(--card-border)',
                                 color: 'var(--primary)',
                                 fontSize: '10px',
                                 fontWeight: '600',
@@ -719,8 +732,8 @@ function InteractiveCard({
                                 alignItems: 'center',
                                 gap: '4px'
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 107, 0, 0.2)'}
-                            onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)'}
+                            onMouseEnter={(e) => e.currentTarget.style.background = 'var(--secondary)'}
+                            onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                         >
                             <RotateCcw className="w-3 h-3" />
                             Sıfırla
@@ -730,7 +743,7 @@ function InteractiveCard({
                     {!showDatePicker ? (
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Calendar className="w-4 h-4" style={{ color: 'white' }} />
+                                <Calendar className="w-4 h-4" style={{ color: 'var(--primary)' }} />
                                 <span style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)' }}>
                                     {formatDate(item.date)}
                                 </span>

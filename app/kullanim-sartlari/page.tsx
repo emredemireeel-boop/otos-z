@@ -357,7 +357,7 @@ export default function KullanimSartlariPage() {
                                 background: 'rgba(239, 68, 68, 0.06)',
                                 border: '1px solid rgba(239, 68, 68, 0.12)',
                             }}>
-                                <strong style={{ color: '#EF4444' }}>⚠️� Uyarı:</strong>{' '}
+                                <strong style={{ color: '#EF4444' }}>⚠️ Uyarı:</strong>{' '}
                                 <span style={{ color: 'var(--text-muted)' }}>
                                     Yukarıdaki kurallara aykırı hareket eden kullanıcıların hesapları derhal ve süresiz olarak askıya alınır. Platform, gerekli gördüğü hallerde konuyu yetkili adli makamlara bildirir ve yasal süreç başlatır.
                                 </span>

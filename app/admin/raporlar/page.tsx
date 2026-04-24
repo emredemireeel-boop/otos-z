@@ -319,7 +319,7 @@ export default function AdminRaporlarPage() {
                                             <p style={{ margin: 0, fontSize: "13px", color: "var(--foreground)", lineHeight: "1.6", borderLeft: `3px solid ${ps.color}`, paddingLeft: "12px", fontStyle: "italic" }}>"{r.targetContent}"</p>
                                             {r.notes && (
                                                 <div style={{ marginTop: "10px", padding: "8px 12px", background: "rgba(16,185,129,0.08)", borderRadius: "8px", border: "1px solid rgba(16,185,129,0.2)" }}>
-                                                    <p style={{ margin: 0, fontSize: "12px", color: "#10B981" }}>📑� Admin Notu: {r.notes}</p>
+                                                    <p style={{ margin: 0, fontSize: "12px", color: "#10B981" }}>📑 Admin Notu: {r.notes}</p>
                                                 </div>
                                             )}
                                         </div>

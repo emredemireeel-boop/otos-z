@@ -21,17 +21,17 @@ interface WarningLight {
 
 const severityLabels: Record<string, { label: string; bg: string; text: string }> = {
     "critical": { label: "ACİL", bg: "rgba(255, 59, 48, 0.15)", text: "#FF3B30" },
-    "warning": { label: "UYARI", bg: "rgba(255, 204, 0, 0.15)", text: "#FFCC00" },
-    "info_warning": { label: "BİLGİ", bg: "rgba(255, 204, 0, 0.15)", text: "#FFCC00" },
+    "warning": { label: "UYARI", bg: "rgba(245, 158, 11, 0.15)", text: "#F59E0B" },
+    "info_warning": { label: "BİLGİ", bg: "rgba(245, 158, 11, 0.15)", text: "#F59E0B" },
     "info": { label: "BİLGİ", bg: "rgba(52, 199, 89, 0.15)", text: "#34C759" },
 };
 
 const filterColors = [
     { id: "all", label: "Tümü", color: null },
     { id: "critical", label: "Acil", color: "#FF3B30" },
-    { id: "warning", label: "Uyarı", color: "#FFCC00" },
+    { id: "warning", label: "Uyarı", color: "#F59E0B" },
     { id: "info", label: "Bilgi", color: "#34C759" },
-    { id: "lights", label: "Farlar", color: "#007AFF" },
+    { id: "lights", label: "Farlar", color: "#3B82F6" },
 ];
 
 export default function GostergePaneliPage() {
@@ -54,11 +54,11 @@ export default function GostergePaneliPage() {
             if (selectedFilter === "critical") {
                 matchesColor = item.color === "#FF3B30";
             } else if (selectedFilter === "warning") {
-                matchesColor = item.color === "#FFCC00";
+                matchesColor = item.color === "#F59E0B";
             } else if (selectedFilter === "info") {
                 matchesColor = item.color === "#34C759";
             } else if (selectedFilter === "lights") {
-                matchesColor = item.color === "#007AFF";
+                matchesColor = item.color === "#3B82F6";
             }
 
             return matchesSearch && matchesColor;
@@ -251,13 +251,18 @@ export default function GostergePaneliPage() {
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
                                                     flexShrink: 0,
+                                                    overflow: 'hidden'
                                                 }}>
                                                     <Image
-                                                        src={`/indicators/${item.icon_resource}.png`}
+                                                        src={item.icon_resource.startsWith('ic_') ? `/indicators/${item.icon_resource}.png` : `/indicators/${item.icon_resource}.png`}
                                                         alt={item.title}
-                                                        width={40}
-                                                        height={40}
-                                                        style={{ objectFit: 'contain' }}
+                                                        width={item.icon_resource.startsWith('ic_') ? 40 : 64}
+                                                        height={item.icon_resource.startsWith('ic_') ? 40 : 64}
+                                                        style={{ 
+                                                            objectFit: item.icon_resource.startsWith('ic_') ? 'contain' : 'cover',
+                                                            width: item.icon_resource.startsWith('ic_') ? '40px' : '100%',
+                                                            height: item.icon_resource.startsWith('ic_') ? '40px' : '100%',
+                                                        }}
                                                     />
                                                 </div>
 
@@ -413,9 +418,9 @@ export default function GostergePaneliPage() {
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                         {[
                                             { color: '#FF3B30', label: 'Kırmızı', desc: 'Acil durum - Hemen dur' },
-                                            { color: '#FFCC00', label: 'Sarı/Turuncu', desc: 'Uyarı - Dikkatli ol' },
+                                            { color: '#F59E0B', label: 'Sarı/Turuncu', desc: 'Uyarı - Dikkatli ol' },
                                             { color: '#34C759', label: 'Yeşil', desc: 'Bilgi - Normal durum' },
-                                            { color: '#007AFF', label: 'Mavi', desc: 'Bilgi - Far/Işık durumu' },
+                                            { color: '#3B82F6', label: 'Mavi', desc: 'Bilgi - Far/Işık durumu' },
                                         ].map((item, i) => (
                                             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                                 <span style={{
@@ -445,8 +450,8 @@ export default function GostergePaneliPage() {
                                         {[
                                             { label: 'Toplam Gösterge', value: indicators.length.toString() },
                                             { label: 'Acil (Kırmızı)', value: indicators.filter(i => i.color === "#FF3B30").length.toString() },
-                                            { label: 'Uyarı (Sarı)', value: indicators.filter(i => i.color === "#FFCC00").length.toString() },
-                                            { label: 'Bilgi (Yeşil/Mavi)', value: indicators.filter(i => i.color === "#34C759" || i.color === "#007AFF").length.toString() },
+                                            { label: 'Uyarı (Sarı)', value: indicators.filter(i => i.color === "#F59E0B").length.toString() },
+                                            { label: 'Bilgi (Yeşil/Mavi)', value: indicators.filter(i => i.color === "#34C759" || i.color === "#3B82F6").length.toString() },
                                         ].map((stat, i) => (
                                             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px' }}>
                                                 <span style={{ color: 'var(--text-muted)' }}>{stat.label}</span>

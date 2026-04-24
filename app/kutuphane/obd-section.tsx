@@ -2,8 +2,9 @@
 
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Activity, AlertCircle, Wrench, X, ChevronRight } from "lucide-react";
+import { Search, Activity, AlertCircle, Wrench, X, ChevronRight, ExternalLink } from "lucide-react";
 import obdCodes from "@/data/obd-codes.json";
+import Link from "next/link";
 
 interface ObdCode {
     code: string;
@@ -63,8 +64,26 @@ export default function ObdSection() {
         }
     };
 
+    const getOBDSchema = () => {
+        if (displayedCodes.length === 0) return null;
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": displayedCodes.slice(0, 20).map((code) => ({
+                "@type": "Question",
+                "name": `${code.code} Arıza Kodu Nedir?`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": `${code.title}. ${code.description}`
+                }
+            }))
+        };
+        return JSON.stringify(schema);
+    };
+
     return (
         <div style={{ width: '100%' }}>
+            {getOBDSchema() && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getOBDSchema()! }} />}
             {/* Category Pills inside the section instead of header, for mobile/quick access mostly handled by sidebar but good to have */}
             <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '16px', marginBottom: '16px', borderBottom: '1px solid var(--card-border)' }}>
                 {CATEGORIES.map((cat) => (
@@ -158,7 +177,7 @@ export default function ObdSection() {
                                 background: 'var(--card-bg)',
                                 border: '1px solid var(--card-border)',
                                 borderRadius: '12px',
-                                color: 'white',
+                                color: 'var(--foreground)',
                                 fontSize: '14px',
                                 outline: 'none',
                             }}
@@ -204,14 +223,12 @@ export default function ObdSection() {
                                 return (
                                     <div
                                         key={code.code}
-                                        onClick={() => setSelectedCode(code)}
                                         style={{
                                             display: 'block',
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
                                             borderRadius: '14px',
                                             padding: '18px',
-                                            cursor: 'pointer',
                                             transition: 'all 0.2s ease',
                                         }}
                                         onMouseEnter={(e) => {
@@ -235,6 +252,7 @@ export default function ObdSection() {
                                                         borderRadius: '8px',
                                                         fontWeight: '700',
                                                         border: `1px solid ${colors.border}`,
+                                                        fontFamily: 'monospace',
                                                     }}>
                                                         {code.code}
                                                     </span>
@@ -266,9 +284,34 @@ export default function ObdSection() {
                                                     display: '-webkit-box',
                                                     WebkitLineClamp: 2,
                                                     WebkitBoxOrient: 'vertical',
+                                                    marginBottom: '12px',
                                                 }}>
                                                     {code.description}
                                                 </p>
+
+                                                {/* Action buttons */}
+                                                <div style={{ display: 'flex', gap: '8px' }}>
+                                                    <button
+                                                        onClick={() => setSelectedCode(code)}
+                                                        style={{
+                                                            padding: '6px 14px', fontSize: '12px', fontWeight: '600',
+                                                            background: 'var(--secondary)', border: '1px solid var(--card-border)',
+                                                            borderRadius: '8px', cursor: 'pointer', color: 'var(--foreground)',
+                                                        }}
+                                                    >
+                                                        Hızlı Bak
+                                                    </button>
+                                                    <Link href={`/obd/${code.code.toLowerCase()}`} style={{ textDecoration: 'none' }}>
+                                                        <span style={{
+                                                            display: 'inline-flex', alignItems: 'center', gap: '4px',
+                                                            padding: '6px 14px', fontSize: '12px', fontWeight: '600',
+                                                            background: colors.bg, border: `1px solid ${colors.border}`,
+                                                            borderRadius: '8px', cursor: 'pointer', color: colors.text,
+                                                        }}>
+                                                            <ExternalLink size={12} /> Detay Sayfası
+                                                        </span>
+                                                    </Link>
+                                                </div>
                                             </div>
 
                                             {/* Arrow */}
@@ -281,7 +324,10 @@ export default function ObdSection() {
                                                 borderRadius: '10px',
                                                 background: 'var(--secondary)',
                                                 flexShrink: 0,
-                                            }}>
+                                                cursor: 'pointer',
+                                            }}
+                                                onClick={() => setSelectedCode(code)}
+                                            >
                                                 <ChevronRight style={{ width: '20px', height: '20px', color: 'var(--text-muted)' }} />
                                             </div>
                                         </div>
@@ -357,7 +403,7 @@ export default function ObdSection() {
 
                         {/* Bilgi Kutusu */}
                         <div style={{
-                            background: 'linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(0, 212, 255, 0.1))',
+                            background: 'var(--secondary)',
                             border: '1px solid var(--primary)',
                             borderRadius: '16px',
                             padding: '16px',
@@ -429,7 +475,7 @@ function DetailModal({ code, onClose, getTypeColor }: { code: ObdCode, onClose: 
                 <div style={{
                     padding: '24px',
                     borderBottom: '1px solid var(--card-border)',
-                    background: '#161616',
+                    background: 'var(--secondary)',
                 }}>
                     <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
                         <div>
@@ -452,7 +498,7 @@ function DetailModal({ code, onClose, getTypeColor }: { code: ObdCode, onClose: 
                                     {code.systems[0] || "Sistem Bilinmiyor"}
                                 </span>
                             </div>
-                            <h2 style={{ fontSize: '24px', fontWeight: '700', color: 'white' }}>
+                            <h2 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>
                                 {code.title}
                             </h2>
                         </div>

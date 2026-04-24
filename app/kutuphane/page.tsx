@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
-import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink } from "lucide-react";
+import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map } from "lucide-react";
 import Link from "next/link";
 import ObdSection from "./obd-section";
 import GostergeSection from "./gosterge-section";
@@ -14,6 +14,8 @@ import IkinciElSection from "./ikinci-el-section";
 import KazaIlkYardimSection from "./kaza-ilkyardim-section";
 import MevsimselBakimSection from "./mevsimsel-bakim-section";
 import SigortaRehberiSection from "./sigorta-rehberi-section";
+import OtoyolUcretleriSection from "./otoyol-ucretleri-section";
+import BakimZamanlariSection from "./bakim-zamanlari-section";
 
 // Types for Library Guides
 interface GuideDetail {
@@ -109,12 +111,89 @@ const SectionCarousel = ({ title, icon, children }: { title: string, icon?: Reac
 
 export default function LibraryPage() {
     const router = useRouter();
-    const [activeTab, setActiveTab] = useState(0);
+    const searchParams = useSearchParams();
+
+    // SEO-friendly slug mappings
+    const tabSlugs = [
+        { slug: 'makaleler', name: 'Makale', icon: BookOpen, title: 'Otomotiv Makaleleri | OtoSöz Kütüphane', description: 'Otomotiv dünyasına dair detaylı makaleler, bakım rehberleri ve uzman önerileri.' },
+        { slug: 'ilginc-bilgiler', name: 'İlginç', icon: Lightbulb, title: 'İlginç Otomotiv Bilgileri | OtoSöz', description: 'Otomobil dünyasından ilginç bilgiler, ipucları, mit kırıcılar ve kontrol listeleri.' },
+        { slug: 'otomotiv-sozluk', name: 'Sözlük', icon: BookMarked, title: 'Otomotiv Sözlüğü - Türkçe Araç Terimleri | OtoSöz', description: 'A\'dan Z\'ye tüm otomotiv terimlerinin Türkçe açıklamaları. ABS, ESP, Tramer, Ekspertiz ve daha fazlası.' },
+        { slug: 'obd-ariza-kodlari', name: 'OBD', icon: Wrench, title: 'OBD Arıza Kodları Sorgulama | OtoSöz', description: 'P0, P1, P2 ve tüm OBD arıza kodlarının Türkçe açıklamaları, nedenleri ve çözüm önerileri.' },
+        { slug: 'gosterge-isiklari', name: 'Göstergeler', icon: AlertTriangle, title: 'Araç Gösterge Işıkları ve Anlamları | OtoSöz', description: 'Arabadaki tüm ikaz lambalarının anlamları: motor arıza, ABS, yağ basıncı, hararet ve daha fazlası.' },
+        { slug: 'trafik-cezalari', name: 'Trafik Cezaları', icon: ShieldAlert, title: '2026 Trafik Ceza Tablosu - Güncel Tutarlar | OtoSöz', description: '2026 yılı güncel trafik ceza tutarları, ehliyet ceza puanları, alkol sınırları ve araç men süreleri.' },
+        { slug: 'lastik-rehberi', name: 'Lastik Rehberi', icon: TrendingUp, title: 'Lastik Rehberi - Ebat, Mevsim, Bakım | OtoSöz', description: 'Lastik ebat okuma, kış/yaz lastik rehberi, hava basıncı tablosu ve lastik bakım önerileri.' },
+        { slug: 'ikinci-el-rehberi', name: 'İkinci El', icon: CheckCircle, title: 'İkinci El Araç Kontrol Listesi | OtoSöz', description: 'İkinci el araç alırken dikkat edilmesi gerekenler: ekspertiz, tramer, km kontrolü ve pazarlık taktikleri.' },
+        { slug: 'kaza-ilkyardim', name: 'Kaza & İlk Yardım', icon: ShieldAlert, title: 'Trafik Kazasında Ne Yapılmalı? | OtoSöz', description: 'Kaza anında yapılması gerekenler, ilk yardım adımları, sigorta bildirimi ve hukuki süreç.' },
+        { slug: 'mevsimsel-bakim', name: 'Mevsimsel Bakım', icon: Tag, title: 'Mevsimsel Araç Bakım Rehberi | OtoSöz', description: 'Kış ve yaz hazırlığı için araç bakım kontrol listesi. Antifriz, lastik, akü ve klima bakımı.' },
+        { slug: 'sigorta-rehberi', name: 'Sigorta Rehberi', icon: BookMarked, title: 'Kasko vs Trafik Sigortası Karşılaştırma | OtoSöz', description: 'Kasko ve trafik sigortası arasındaki farklar, hasar süreci, sigorta yaptırma rehberi.' },
+        { slug: 'otoyol-ve-kopru-ucretleri', name: 'Otoyol Ücretleri', icon: Map, title: 'Otoyol ve Köprü Geçiş Ücretleri 2026 | OtoSöz', description: '2026 yılı güncel Karayolları (KGM) ve Yap-İşlet-Devret otoyol, köprü, tünel geçiş ücretleri.' },
+        { slug: 'bakim-zamanlari', name: 'Bakım Zamanları', icon: Clock, title: 'Araç Bakım Zamanları ve Periyotları | OtoSöz', description: 'Benzinli, dizel, LPG, hibrit ve elektrikli araçlar için kilometre ve yıl bazlı periyodik bakım takvimi.' },
+    ];
+
+    // Determine active tab from URL
+    const sekmeParam = searchParams.get('kategori');
+    const activeTab = useMemo(() => {
+        if (!sekmeParam) return 0;
+        const idx = tabSlugs.findIndex(t => t.slug === sekmeParam);
+        return idx >= 0 ? idx : 0;
+    }, [sekmeParam]);
+
+    // Dynamic page title & meta description for SEO
+    useEffect(() => {
+        const currentTab = tabSlugs[activeTab];
+        document.title = currentTab.title;
+        
+        // Update meta description
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+            metaDesc = document.createElement('meta');
+            metaDesc.setAttribute('name', 'description');
+            document.head.appendChild(metaDesc);
+        }
+        metaDesc.setAttribute('content', currentTab.description);
+
+        // Update canonical URL  
+        let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonical);
+        }
+        const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+        canonical.setAttribute('href', activeTab === 0 ? `${baseUrl}/kutuphane` : `${baseUrl}/kutuphane?kategori=${currentTab.slug}`);
+    }, [activeTab]);
+
+    const setActiveTab = (index: number) => {
+        const slug = tabSlugs[index].slug;
+        if (index === 0) {
+            router.push('/kutuphane', { scroll: false });
+        } else {
+            router.push(`/kutuphane?kategori=${slug}`, { scroll: false });
+        }
+    };
+
     const [guides, setGuides] = useState<GuideDetail[]>([]);
     const [interestingData, setInterestingData] = useState<any>(null);
     const [expandedChecklists, setExpandedChecklists] = useState<Set<string>>(new Set());
     const [selectedLetter, setSelectedLetter] = useState<string>('A');
     const [searchQuery, setSearchQuery] = useState("");
+    const [guidePage, setGuidePage] = useState(1);
+    const GUIDES_PER_PAGE = 10;
+
+    // Helper for URL slugs
+    const createSlug = (text: string) => {
+        const trMap: { [key: string]: string } = {
+            'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
+            'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u',
+        };
+        const slug = text.replace(/[çğıöşüÇĞİÖŞÜ]/g, match => trMap[match] || match)
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .trim();
+        return slug;
+    };
 
     // Load JSON data
     useEffect(() => {
@@ -141,19 +220,7 @@ export default function LibraryPage() {
         setExpandedChecklists(newSet);
     };
 
-    const tabs = [
-        { name: 'Makale', icon: BookOpen },
-        { name: 'İlginç', icon: Lightbulb },
-        { name: 'Sözlük', icon: BookMarked },
-        { name: 'OBD', icon: Wrench },
-        { name: 'Göstergeler', icon: AlertTriangle },
-        { name: 'Trafik Cezaları', icon: ShieldAlert },
-        { name: 'Lastik Rehberi', icon: TrendingUp },
-        { name: 'İkinci El', icon: CheckCircle },
-        { name: 'Kaza & İlk Yardım', icon: ShieldAlert },
-        { name: 'Mevsimsel Bakım', icon: Tag },
-        { name: 'Sigorta Rehberi', icon: BookMarked },
-    ];
+    const tabs = tabSlugs.map(t => ({ name: t.name, icon: t.icon }));
 
     // Copy protection handler
     const blockCopy = (e: React.SyntheticEvent) => {
@@ -175,23 +242,49 @@ export default function LibraryPage() {
 
     // --- Search Logic ---
     const filteredGuides = useMemo(() => {
-        if (!searchQuery) return guides;
+        // En yeni önce: urlId büyük olan daha yeni
+        const sorted = [...guides].sort((a, b) => {
+            const aId = parseInt((a as any).urlId || a.id.replace(/\D/g, '')) || 0;
+            const bId = parseInt((b as any).urlId || b.id.replace(/\D/g, '')) || 0;
+            return bId - aId;
+        });
+        if (!searchQuery) return sorted;
         const query = searchQuery.toLowerCase();
-        return guides.filter(g =>
+        return sorted.filter(g =>
             g.title.toLowerCase().includes(query) ||
             g.description.toLowerCase().includes(query) ||
             g.tags.some(tag => tag.toLowerCase().includes(query))
         );
     }, [guides, searchQuery]);
 
+    const totalGuidePages = Math.ceil(filteredGuides.length / GUIDES_PER_PAGE);
+    const paginatedGuides = filteredGuides.slice((guidePage - 1) * GUIDES_PER_PAGE, guidePage * GUIDES_PER_PAGE);
+
     const filteredDictionary = useMemo(() => {
         let terms = dictionaryTerms;
         if (searchQuery) {
             const query = searchQuery.toLowerCase();
-            return terms.filter(t =>
+            const filtered = terms.filter(t =>
                 t.term.toLowerCase().includes(query) ||
                 t.description.toLowerCase().includes(query)
             );
+            
+            // Sort by relevance (Exact match > Starts with > Term includes > Description includes)
+            return filtered.sort((a, b) => {
+                const aTerm = a.term.toLowerCase();
+                const bTerm = b.term.toLowerCase();
+                
+                if (aTerm === query && bTerm !== query) return -1;
+                if (bTerm === query && aTerm !== query) return 1;
+                
+                if (aTerm.startsWith(query) && !bTerm.startsWith(query)) return -1;
+                if (bTerm.startsWith(query) && !aTerm.startsWith(query)) return 1;
+                
+                if (aTerm.includes(query) && !bTerm.includes(query)) return -1;
+                if (bTerm.includes(query) && !aTerm.includes(query)) return 1;
+                
+                return 0;
+            });
         }
         return terms.filter(item => item.letter === selectedLetter);
     }, [dictionaryTerms, searchQuery, selectedLetter]);
@@ -212,6 +305,22 @@ export default function LibraryPage() {
         }
     }, [interestingData, searchQuery]);
 
+    const getMythBustersSchema = () => {
+        if (!filteredInteresting || !filteredInteresting.mythBusters || filteredInteresting.mythBusters.length === 0) return null;
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": filteredInteresting.mythBusters.map((myth: any) => ({
+                "@type": "Question",
+                "name": myth.myth,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": myth.truth
+                }
+            }))
+        };
+        return JSON.stringify(schema);
+    };
 
     return (
         <div>
@@ -269,14 +378,14 @@ export default function LibraryPage() {
                                 alignItems: 'center',
                                 gap: '10px',
                                 padding: '10px 16px',
-                                background: 'rgba(255, 255, 255, 0.06)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                background: 'var(--secondary)',
+                                border: '1px solid var(--card-border)',
                                 borderRadius: '12px',
                                 minWidth: '250px',
                                 flex: '1',
                                 maxWidth: '400px',
                             }}>
-                                <Search style={{ width: '18px', height: '18px', color: 'rgba(255, 255, 255, 0.5)' }} />
+                                <Search style={{ width: '18px', height: '18px', color: 'var(--text-muted)' }} />
                                 <input
                                     type="text"
                                     placeholder="Kütüphanede ara..."
@@ -287,7 +396,7 @@ export default function LibraryPage() {
                                         background: 'transparent',
                                         border: 'none',
                                         outline: 'none',
-                                        color: 'white',
+                                        color: 'var(--foreground)',
                                         fontSize: '14px',
                                     }}
                                 />
@@ -297,7 +406,7 @@ export default function LibraryPage() {
                                         style={{
                                             background: 'transparent',
                                             border: 'none',
-                                            color: 'rgba(255, 255, 255, 0.5)',
+                                            color: 'var(--text-muted)',
                                             cursor: 'pointer',
                                             display: 'flex',
                                             alignItems: 'center'
@@ -336,7 +445,7 @@ export default function LibraryPage() {
                                         onMouseEnter={(e) => {
                                             if (activeTab !== index) {
                                                 e.currentTarget.style.borderColor = 'var(--primary)';
-                                                e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)';
+                                                e.currentTarget.style.background = 'var(--card-bg)';
                                             }
                                         }}
                                         onMouseLeave={(e) => {
@@ -359,9 +468,19 @@ export default function LibraryPage() {
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
                     {/* Tab 1: Makale (Guides) */}
                     {activeTab === 0 && (
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
-                            {filteredGuides.map((guide) => (
-                                <Link key={guide.id} href={`/kutuphane/${guide.id}`} style={{ textDecoration: 'none' }}>
+                        <div>
+                            {/* Sayfa bilgisi */}
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                                <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+                                    Toplam <strong style={{ color: 'var(--foreground)' }}>{filteredGuides.length}</strong> makale
+                                    {totalGuidePages > 1 && <> · Sayfa <strong style={{ color: 'var(--foreground)' }}>{guidePage}/{totalGuidePages}</strong></>}
+                                </p>
+                                {searchQuery && <button onClick={() => setSearchQuery('')} style={{ fontSize: '12px', color: 'var(--primary)', background: 'none', border: 'none', cursor: 'pointer' }}>Aramayı Temizle</button>}
+                            </div>
+
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
+                            {paginatedGuides.map((guide) => (
+                                <Link key={guide.id} href={`/makale/${createSlug(guide.title)}--${(guide as any).urlId}`} style={{ textDecoration: 'none' }}>
                                     <div style={{
                                         background: 'var(--card-bg)',
                                         border: '1px solid var(--card-border)',
@@ -374,7 +493,7 @@ export default function LibraryPage() {
                                         onMouseEnter={(e) => {
                                             e.currentTarget.style.borderColor = 'var(--primary)';
                                             e.currentTarget.style.transform = 'translateY(-4px)';
-                                            e.currentTarget.style.boxShadow = '0 12px 24px rgba(255, 107, 0, 0.15)';
+                                            e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.08)';
                                         }}
                                         onMouseLeave={(e) => {
                                             e.currentTarget.style.borderColor = 'var(--card-border)';
@@ -477,26 +596,76 @@ export default function LibraryPage() {
                                     </div>
                                 </Link>
                             ))}
+                            </div>
+
+                            {/* Pagination */}
+                            {totalGuidePages > 1 && (
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '6px', marginTop: '40px', paddingTop: '24px', borderTop: '1px solid var(--card-border)', flexWrap: 'wrap' }}>
+                                    <button
+                                        onClick={() => { setGuidePage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                                        disabled={guidePage === 1}
+                                        style={{ padding: '10px 18px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontSize: '14px', fontWeight: '600', cursor: guidePage === 1 ? 'not-allowed' : 'pointer', opacity: guidePage === 1 ? 0.4 : 1, display: 'flex', alignItems: 'center', gap: '6px' }}
+                                    >
+                                        <ChevronLeft size={16} /> Önceki
+                                    </button>
+                                    {(() => {
+                                        const pages: (number | string)[] = [];
+                                        if (totalGuidePages <= 7) {
+                                            for (let i = 1; i <= totalGuidePages; i++) pages.push(i);
+                                        } else {
+                                            pages.push(1);
+                                            if (guidePage > 3) pages.push('...');
+                                            for (let i = Math.max(2, guidePage - 1); i <= Math.min(totalGuidePages - 1, guidePage + 1); i++) pages.push(i);
+                                            if (guidePage < totalGuidePages - 2) pages.push('...');
+                                            pages.push(totalGuidePages);
+                                        }
+                                        return pages.map((page, idx) =>
+                                            typeof page === 'string' ? (
+                                                <span key={`d${idx}`} style={{ padding: '10px 4px', color: 'var(--text-muted)', fontSize: '14px' }}>...</span>
+                                            ) : (
+                                                <button key={page} onClick={() => { setGuidePage(page as number); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                                                    style={{ padding: '10px 14px', minWidth: '42px', background: guidePage === page ? 'var(--primary)' : 'var(--card-bg)', border: guidePage === page ? '1px solid var(--primary)' : '1px solid var(--card-border)', borderRadius: '10px', color: guidePage === page ? 'white' : 'var(--foreground)', fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}
+                                                >{page}</button>
+                                            )
+                                        );
+                                    })()}
+                                    <button
+                                        onClick={() => { setGuidePage(p => Math.min(totalGuidePages, p + 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                                        disabled={guidePage === totalGuidePages}
+                                        style={{ padding: '10px 18px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontSize: '14px', fontWeight: '600', cursor: guidePage === totalGuidePages ? 'not-allowed' : 'pointer', opacity: guidePage === totalGuidePages ? 0.4 : 1, display: 'flex', alignItems: 'center', gap: '6px' }}
+                                    >
+                                        Sonraki <ChevronRight size={16} />
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     )}
 
-                    {/* Tab 2: ?İlginç? (Interesting Facts) */}
+                    {/* Tab 2: İlginç (Interesting Facts) */}
                     {activeTab === 1 && filteredInteresting && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                            {getMythBustersSchema() && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getMythBustersSchema()! }} />}
                             {/* Daily Tips */}
                             {filteredInteresting.dailyTips.length > 0 && <SectionCarousel title="Günlük İpuçları" icon={<Lightbulb color="#F59E0B" />}>
                                 {filteredInteresting.dailyTips.map((tip: DailyTip) => (
-                                    <div key={tip.id} style={{
-                                        minWidth: '280px', flex: '0 0 auto', scrollSnapAlign: 'start',
-                                        background: 'var(--card-bg)',
-                                        border: '1px solid var(--card-border)',
-                                        borderRadius: '14px',
-                                        padding: '20px'
-                                    }}>
-                                        <div style={{ marginBottom: '12px' }}><Lightbulb size={32} color="var(--primary)" /></div>
-                                        <h4 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>{tip.title}</h4>
-                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{tip.tip}</p>
-                                    </div>
+                                    <Link key={tip.id} href={`/kutuphane/ilginc/${createSlug(tip.title)}--${tip.id}`} style={{ textDecoration: 'none', minWidth: '280px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                        <div style={{
+                                            background: 'var(--card-bg)',
+                                            border: '1px solid var(--card-border)',
+                                            borderRadius: '14px',
+                                            padding: '20px',
+                                            height: '100%',
+                                            transition: 'border-color 0.2s, transform 0.2s',
+                                        }}
+                                            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--primary)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
+                                            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--card-border)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
+                                        >
+                                            <div style={{ marginBottom: '12px' }}><Lightbulb size={32} color="var(--primary)" /></div>
+                                            <h4 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>{tip.title}</h4>
+                                            <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{tip.tip}</p>
+                                            <div style={{ marginTop: '10px', fontSize: '11px', color: 'var(--primary)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}><ExternalLink size={11} /> Detaylı İncele</div>
+                                        </div>
+                                    </Link>
                                 ))}
                             </SectionCarousel>}
 
@@ -611,49 +780,62 @@ export default function LibraryPage() {
                             {/* Quick Facts */}
                             {filteredInteresting.quickFacts.length > 0 && <SectionCarousel title="Hızlı Bilgiler" icon={<Zap color="#F59E0B" />}>
                                 {filteredInteresting.quickFacts.map((fact: QuickFactData) => (
-                                        <div key={fact.id} style={{
-                                            minWidth: '300px', flex: '0 0 auto', scrollSnapAlign: 'start',
+                                    <Link key={fact.id} href={`/kutuphane/ilginc/${createSlug(fact.text.slice(0, 40))}--${fact.id}`} style={{ textDecoration: 'none', minWidth: '300px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                        <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
                                             borderRadius: '12px',
                                             padding: '16px',
                                             display: 'flex',
-                                            gap: '12px'
-                                        }}>
+                                            gap: '12px',
+                                            height: '100%',
+                                            transition: 'border-color 0.2s',
+                                        }}
+                                            onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'var(--primary)'}
+                                            onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'var(--card-border)'}
+                                        >
                                             <Zap style={{ width: '20px', height: '20px', color: 'var(--primary)', flexShrink: 0 }} />
                                             <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{fact.text}</p>
                                         </div>
-                                    ))}
+                                    </Link>
+                                ))}
                                 </SectionCarousel>}
 
                             {/* Myth Busters */}
                             {filteredInteresting.mythBusters.length > 0 && <SectionCarousel title="Mit Kırıcılar" icon={<ShieldAlert color="#EF4444" />}>
                                 {filteredInteresting.mythBusters.map((myth: MythBuster) => (
-                                        <div key={myth.id} style={{
-                                            minWidth: '350px', flex: '0 0 auto', scrollSnapAlign: 'start',
+                                    <Link key={myth.id} href={`/kutuphane/ilginc/${createSlug(myth.myth)}--${myth.id}`} style={{ textDecoration: 'none', minWidth: '350px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                        <div style={{
                                             background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05))',
-                                            border: '1px solid #EF4444',
+                                            border: '1px solid rgba(239,68,68,0.4)',
                                             borderRadius: '14px',
-                                            padding: '20px'
-                                        }}>
+                                            padding: '20px',
+                                            height: '100%',
+                                            transition: 'border-color 0.2s',
+                                        }}
+                                            onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = '#EF4444'}
+                                            onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(239,68,68,0.4)'}
+                                        >
                                             <div style={{ display: 'flex', gap: '16px' }}>
                                                 <div style={{ flex: 1 }}>
                                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                                                         <XCircle style={{ width: '18px', height: '18px', color: '#EF4444' }} />
-                                                        <span style={{ fontSize: '12px', fontWeight: '700', color: '#EF4444', textTransform: 'uppercase' }}>Yanlış</span>
+                                                        <span style={{ fontSize: '12px', fontWeight: '700', color: '#EF4444', textTransform: 'uppercase' }}>Yanlış İnanış</span>
                                                     </div>
                                                     <p style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px' }}>{myth.myth}</p>
                                                 </div>
                                                 <div style={{ flex: 1 }}>
                                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                                                         <CheckCircle style={{ width: '18px', height: '18px', color: '#43E97B' }} />
-                                                        <span style={{ fontSize: '12px', fontWeight: '700', color: '#43E97B', textTransform: 'uppercase' }}>Doğru</span>
+                                                        <span style={{ fontSize: '12px', fontWeight: '700', color: '#43E97B', textTransform: 'uppercase' }}>Gerçek</span>
                                                     </div>
                                                     <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{myth.truth}</p>
                                                 </div>
                                             </div>
+                                            <div style={{ marginTop: '10px', fontSize: '11px', color: '#EF4444', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}><ExternalLink size={11} /> Detaylı İncele</div>
                                         </div>
-                                    ))}
+                                    </Link>
+                                ))}
                                 </SectionCarousel>}
 
                             {/* No Results */}
@@ -669,6 +851,42 @@ export default function LibraryPage() {
                     {/* Tab 3: Sözlük */}
                     {activeTab === 2 && (
                         <div>
+                            {/* Dictionary Search Box */}
+                            <div style={{ marginBottom: '24px' }}>
+                                <div style={{
+                                    display: 'flex', alignItems: 'center', gap: '12px',
+                                    background: 'var(--card-bg)', border: '2px solid var(--primary)',
+                                    borderRadius: '16px', padding: '12px 20px',
+                                    boxShadow: '0 8px 24px rgba(37, 99, 235, 0.12)'
+                                }}>
+                                    <Search style={{ width: '24px', height: '24px', color: 'var(--primary)' }} />
+                                    <input
+                                        type="text"
+                                        placeholder="Otomotiv sözlüğünde terim ara... (Örn: Ekspertiz, Tramer, Rot)"
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        style={{
+                                            flex: 1, background: 'transparent', border: 'none',
+                                            outline: 'none', color: 'var(--foreground)',
+                                            fontSize: '16px', fontWeight: '500'
+                                        }}
+                                    />
+                                    {searchQuery && (
+                                        <button
+                                            onClick={() => setSearchQuery("")}
+                                            style={{
+                                                background: 'var(--secondary)', border: 'none',
+                                                borderRadius: '50%', width: '32px', height: '32px',
+                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                cursor: 'pointer', color: 'var(--text-muted)'
+                                            }}
+                                        >
+                                            <XCircle size={18} />
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+
                             {!searchQuery && (
                                 <div style={{
                                     position: 'sticky', top: '60px', background: 'var(--background)',
@@ -687,7 +905,7 @@ export default function LibraryPage() {
                                                     border: `1px solid ${selectedLetter === letter ? 'var(--primary)' : 'var(--card-border)'}`,
                                                     cursor: 'pointer', fontWeight: '700', fontSize: '14px', transition: 'all 0.2s ease'
                                                 }}
-                                                onMouseEnter={(e) => { if (selectedLetter !== letter) { e.currentTarget.style.background = 'rgba(255, 107, 0, 0.1)'; e.currentTarget.style.borderColor = 'var(--primary)'; } }}
+                                                onMouseEnter={(e) => { if (selectedLetter !== letter) { e.currentTarget.style.background = 'var(--card-bg)'; e.currentTarget.style.borderColor = 'var(--primary)'; } }}
                                                 onMouseLeave={(e) => { if (selectedLetter !== letter) { e.currentTarget.style.background = 'var(--secondary)'; e.currentTarget.style.borderColor = 'var(--card-border)'; } }}
                                             >
                                                 {letter}
@@ -699,7 +917,10 @@ export default function LibraryPage() {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                 {filteredDictionary.length > 0 ? (
                                     filteredDictionary.map((term) => (
-                                        <div key={term.id} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '14px', padding: '24px' }}>
+                                        <div key={term.id} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '14px', padding: '24px', transition: 'all 0.2s ease' }}
+                                            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.boxShadow = '0 4px 20px var(--primary-glow)'; }}
+                                            onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.boxShadow = 'none'; }}
+                                        >
                                             <div style={{ display: 'flex', alignItems: 'start', gap: '16px' }}>
                                                 <div style={{
                                                     width: '50px', height: '50px', borderRadius: '12px',
@@ -711,20 +932,32 @@ export default function LibraryPage() {
                                                     {term.letter}
                                                 </div>
                                                 <div style={{ flex: 1 }}>
-                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', flexWrap: 'wrap' }}>
                                                         <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>{term.term}</h3>
                                                         <span style={{ padding: '4px 10px', background: `${categoryColors[term.category]}20`, color: categoryColors[term.category], fontSize: '11px', borderRadius: '6px', fontWeight: '600' }}>
                                                             {term.category}
                                                         </span>
                                                     </div>
                                                     <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '16px' }}>{term.description}</p>
-                                                    <div style={{ padding: '16px', background: 'linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(0, 212, 255, 0.05))', border: '1px solid rgba(255, 107, 0, 0.3)', borderRadius: '10px' }}>
+                                                    <div style={{ padding: '16px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', marginBottom: '14px' }}>
                                                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                                                             <TrendingUp style={{ width: '16px', height: '16px', color: 'var(--primary)' }} />
                                                             <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>Neden Önemli?</span>
                                                         </div>
                                                         <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{term.why}</p>
                                                     </div>
+                                                    <Link href={`/sozluk/${term.id}`} style={{ textDecoration: 'none' }}>
+                                                        <span style={{
+                                                            display: 'inline-flex', alignItems: 'center', gap: '6px',
+                                                            padding: '8px 16px', fontSize: '13px', fontWeight: '600',
+                                                            background: `${categoryColors[term.category]}15`,
+                                                            border: `1px solid ${categoryColors[term.category]}30`,
+                                                            borderRadius: '8px', cursor: 'pointer',
+                                                            color: categoryColors[term.category],
+                                                        }}>
+                                                            <ExternalLink size={13} /> Detay Sayfası
+                                                        </span>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -735,6 +968,7 @@ export default function LibraryPage() {
                                         <p>Bu arama için sonuç bulunamadı.</p>
                                     </div>
                                 )}
+
                             </div>
                         </div>
                     )}
@@ -862,7 +1096,7 @@ export default function LibraryPage() {
                             </div>
                             
                             {/* e-Devlet Sorgulama Linki */}
-                            <a href="https://www.turkiye.gov.tr/emniyet-arac-plakasina-yazilan-ceza-sorgulama?hizmet=Ekrani" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '16px', padding: '16px', background: 'var(--primary)', color: 'white', borderRadius: '12px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', position: 'relative', zIndex: 1, boxShadow: '0 4px 15px rgba(255, 107, 0, 0.2)' }}>
+                            <a href="https://www.turkiye.gov.tr/emniyet-arac-plakasina-yazilan-ceza-sorgulama?hizmet=Ekrani" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '16px', padding: '16px', background: 'var(--primary)', color: 'white', borderRadius: '12px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', position: 'relative', zIndex: 1, boxShadow: '0 4px 15px rgba(37, 99, 235, 0.2)' }}>
                                 <ExternalLink size={20} /> e-Devlet'ten Trafik Cezası Sorgula
                             </a>
                         </div>
@@ -891,6 +1125,16 @@ export default function LibraryPage() {
                     {/* Tab 11: Sigorta Rehberi */}
                     {activeTab === 10 && (
                         <SigortaRehberiSection />
+                    )}
+
+                    {/* Tab 12: Otoyol Ücretleri */}
+                    {activeTab === 11 && (
+                        <OtoyolUcretleriSection />
+                    )}
+
+                    {/* Tab 13: Bakım Zamanları */}
+                    {activeTab === 12 && (
+                        <BakimZamanlariSection />
                     )}
                 </div>
             </main>

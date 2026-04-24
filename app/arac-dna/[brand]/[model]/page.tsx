@@ -22,15 +22,13 @@ export default function VehicleDNADetailPage() {
     const [newExperience, setNewExperience] = useState("");
     const [rating, setRating] = useState(5);
 
-    // Parse brand and model from URL
-    const brand = (params.brand as string)?.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-    const model = (params.model as string)?.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-
-    // Find vehicle data
-    const vehicle = vehicleDNAData.find(v =>
-        v.brand.toLowerCase() === brand?.toLowerCase() &&
-        v.model.toLowerCase() === model?.toLowerCase()
-    );
+    // Find vehicle data by matching the exact slug structure used in routing
+    const vehicle = vehicleDNAData.find(v => {
+        const vBrandSlug = v.brand.toLowerCase().replace(/\s+/g, '-');
+        const vModelSlug = v.model.toLowerCase().replace(/\s+/g, '-');
+        return vBrandSlug === (params.brand as string)?.toLowerCase() && 
+               vModelSlug === (params.model as string)?.toLowerCase();
+    });
 
     if (!vehicle) {
         return (

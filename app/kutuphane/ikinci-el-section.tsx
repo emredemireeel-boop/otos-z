@@ -88,9 +88,9 @@ const CATEGORIES: CheckCategory[] = [
 ];
 
 const ONCELIK = {
-  kritik: { color: "#F87171", bg: "rgba(248,113,113,0.1)", label: "KRİTİK" },
-  onemli: { color: "#FBBF24", bg: "rgba(251,191,36,0.1)", label: "ÖNEMLİ" },
-  rutin: { color: "#34D399", bg: "rgba(52,211,153,0.1)", label: "RUTİN" },
+  kritik: { color: "#dc2626", bg: "rgba(220,38,38,0.08)", label: "KRİTİK" },
+  onemli: { color: "#d97706", bg: "rgba(217,119,6,0.08)", label: "ÖNEMLİ" },
+  rutin: { color: "#6b7280", bg: "rgba(107,114,128,0.08)", label: "RUTİN" },
 };
 
 export default function IkinciElSection() {
@@ -119,10 +119,11 @@ export default function IkinciElSection() {
       <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
         <div style={{
           width: "56px", height: "56px", borderRadius: "14px",
-          background: "linear-gradient(135deg, #F59E0B, #10B981)",
+          background: "var(--secondary)",
+          border: "1px solid var(--card-border)",
           display: "flex", alignItems: "center", justifyContent: "center"
         }}>
-          <ClipboardCheck size={28} color="white" />
+          <ClipboardCheck size={28} color="var(--primary)" />
         </div>
         <div>
           <h2 style={{ fontSize: "22px", fontWeight: "800", color: "var(--foreground)", margin: 0 }}>İkinci El Satın Alma Kontrol Listesi</h2>
@@ -325,7 +326,7 @@ export default function IkinciElSection() {
       })}
 
       {/* TRAMER Note */}
-      <div style={{ display: "flex", gap: "10px", padding: "16px", background: "rgba(245,158,11,0.07)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "12px" }}>
+      <div style={{ display: "flex", gap: "10px", padding: "16px", background: "var(--secondary)", border: "1px solid var(--card-border)", borderRadius: "12px" }}>
         <AlertTriangle size={16} color="#F59E0B" style={{ flexShrink: 0, marginTop: "1px" }} />
         <div>
           <p style={{ fontSize: "13px", fontWeight: "700", color: "var(--foreground)", margin: "0 0 4px 0" }}>Noter Öncesi Son Kontroller</p>

@@ -268,9 +268,28 @@ export async function POST(request: Request) {
                 return NextResponse.json({ success: true });
 
             case 'delete_thread':
+            case 'delete_thread_with_entries': {
+                // Sub-koleksiyonu (entries) once sil
+                const entriesSnap = await getDocs(collection(db, 'threads', target, 'entries'));
+                const delPromises = entriesSnap.docs.map(e => deleteDoc(doc(db, 'threads', target, 'entries', e.id)));
+                await Promise.all(delPromises);
                 await deleteDoc(doc(db, 'threads', target));
-                await writeLog('DELETE_THREAD', target, 'Kalici silindi');
+                await writeLog('DELETE_THREAD', target, `Baslik ve ${entriesSnap.size} entry silindi`);
                 return NextResponse.json({ success: true });
+            }
+
+            case 'delete_entry': {
+                // detail = JSON { threadId, entryId }
+                const { threadId, entryId } = JSON.parse(detail);
+                await deleteDoc(doc(db, 'threads', threadId, 'entries', entryId));
+                // entryCount'u azalt
+                try {
+                    const { increment: inc } = await import('firebase/firestore');
+                    await updateDoc(doc(db, 'threads', threadId), { entryCount: inc(-1) });
+                } catch (_) {}
+                await writeLog('DELETE_ENTRY', entryId, `Thread: ${threadId}`);
+                return NextResponse.json({ success: true });
+            }
 
             case 'change_category':
                 await updateDoc(doc(db, 'threads', target), { category: detail });

@@ -1,0 +1,1410 @@
+[
+  {
+    "code": "P2000",
+    "title": "NOx Tutucu Verimliliği Eşik Değerinin Altında (Sıra 1)",
+    "description": "NOx Tutucu Verimliliği Eşik Değerinin Altında (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Motor performansında düşüş",
+      "DPF rejenerasyonunun sıklaşması veya yapılamaması",
+      "Egzozdan siyah duman atılması",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "DPF filtresinin tıkanması",
+      "Kötü yakıt kalitesi",
+      "EGR valfi arızası",
+      "Egzoz basınç veya sıcaklık sensörü arızası"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2002",
+    "title": "Dizel Partikül Filtresi (DPF) Verimliliği Eşik Değerinin Altında (Sıra 1)",
+    "description": "Dizel Partikül Filtresi (DPF) Verimliliği Eşik Değerinin Altında (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Motor performansında düşüş",
+      "DPF rejenerasyonunun sıklaşması veya yapılamaması",
+      "Egzozdan siyah duman atılması",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "DPF filtresinin tıkanması",
+      "Kötü yakıt kalitesi",
+      "EGR valfi arızası",
+      "Egzoz basınç veya sıcaklık sensörü arızası"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2004",
+    "title": "Emme Manifoldu Yolluk Kontrolü Sıkışık Açık (Sıra 1)",
+    "description": "Emme Manifoldu Yolluk Kontrolü Sıkışık Açık (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Rölantide dalgalanma",
+      "Motorun sarsıntılı çalışması",
+      "Hızlanmada tekleme veya güç kaybı",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Emme manifoldu yolluk valfinin karbon birikimiyle sıkışması",
+      "Vakum hortumu kaçağı",
+      "Yolluk kontrol aktüatörü veya sensörü arızası",
+      "Tesisat veya bağlantı soketi problemi"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2005",
+    "title": "Emme Manifoldu Yolluk Kontrolü Sıkışık Açık (Sıra 2)",
+    "description": "Emme Manifoldu Yolluk Kontrolü Sıkışık Açık (Sıra 2)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Rölantide dalgalanma",
+      "Motorun sarsıntılı çalışması",
+      "Hızlanmada tekleme veya güç kaybı",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Emme manifoldu yolluk valfinin karbon birikimiyle sıkışması",
+      "Vakum hortumu kaçağı",
+      "Yolluk kontrol aktüatörü veya sensörü arızası",
+      "Tesisat veya bağlantı soketi problemi"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2006",
+    "title": "Emme Manifoldu Yolluk Kontrolü Sıkışık Kapalı (Sıra 1)",
+    "description": "Emme Manifoldu Yolluk Kontrolü Sıkışık Kapalı (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Rölantide dalgalanma",
+      "Motorun sarsıntılı çalışması",
+      "Hızlanmada tekleme veya güç kaybı",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Emme manifoldu yolluk valfinin karbon birikimiyle sıkışması",
+      "Vakum hortumu kaçağı",
+      "Yolluk kontrol aktüatörü veya sensörü arızası",
+      "Tesisat veya bağlantı soketi problemi"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2007",
+    "title": "Emme Manifoldu Yolluk Kontrolü Sıkışık Kapalı (Sıra 2)",
+    "description": "Emme Manifoldu Yolluk Kontrolü Sıkışık Kapalı (Sıra 2)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Rölantide dalgalanma",
+      "Motorun sarsıntılı çalışması",
+      "Hızlanmada tekleme veya güç kaybı",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Emme manifoldu yolluk valfinin karbon birikimiyle sıkışması",
+      "Vakum hortumu kaçağı",
+      "Yolluk kontrol aktüatörü veya sensörü arızası",
+      "Tesisat veya bağlantı soketi problemi"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2008",
+    "title": "Emme Manifoldu Yolluk Kontrolü Devresi Açık (Sıra 1)",
+    "description": "Emme Manifoldu Yolluk Kontrolü Devresi Açık (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Rölantide dalgalanma",
+      "Motorun sarsıntılı çalışması",
+      "Hızlanmada tekleme veya güç kaybı",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Emme manifoldu yolluk valfinin karbon birikimiyle sıkışması",
+      "Vakum hortumu kaçağı",
+      "Yolluk kontrol aktüatörü veya sensörü arızası",
+      "Tesisat veya bağlantı soketi problemi"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2009",
+    "title": "Emme Manifoldu Yolluk Kontrolü Devresi Düşük (Sıra 1)",
+    "description": "Emme Manifoldu Yolluk Kontrolü Devresi Düşük (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Rölantide dalgalanma",
+      "Motorun sarsıntılı çalışması",
+      "Hızlanmada tekleme veya güç kaybı",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Emme manifoldu yolluk valfinin karbon birikimiyle sıkışması",
+      "Vakum hortumu kaçağı",
+      "Yolluk kontrol aktüatörü veya sensörü arızası",
+      "Tesisat veya bağlantı soketi problemi"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2010",
+    "title": "Emme Manifoldu Yolluk Kontrolü Devresi Yüksek (Sıra 1)",
+    "description": "Emme Manifoldu Yolluk Kontrolü Devresi Yüksek (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Sensör arızası",
+      "Bağlantı kopukluğu",
+      "Sistem parçası arızası"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2015",
+    "title": "Emme Manifoldu Yolluk Konum Sensörü/Anahtarı Devre Aralığı/Performansı (Sıra 1)",
+    "description": "Emme Manifoldu Yolluk Konum Sensörü/Anahtarı Devre Aralığı/Performansı (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Sensör arızası",
+      "Bağlantı kopukluğu",
+      "Sistem parçası arızası"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2096",
+    "title": "Katalizör Sonrası Yakıt Ayar Sistemi Çok Fakir (Sıra 1)",
+    "description": "Katalizör Sonrası Yakıt Ayar Sistemi Çok Fakir (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Yakıt tüketiminde artış",
+      "Motor çekişinde düşüklük",
+      "Egzoz kokusunda değişiklik (çiğ yakıt kokusu vb.)",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Oksijen (Lambda) sensörü arızası",
+      "Katalitik konvertör verimsizliği",
+      "Egzoz sisteminde hava kaçağı",
+      "Yakıt enjektörlerinde sızıntı veya tıkanıklık"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2097",
+    "title": "Katalizör Sonrası Yakıt Ayar Sistemi Çok Zengin (Sıra 1)",
+    "description": "Katalizör Sonrası Yakıt Ayar Sistemi Çok Zengin (Sıra 1)",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Yakıt tüketiminde artış",
+      "Motor çekişinde düşüklük",
+      "Egzoz kokusunda değişiklik (çiğ yakıt kokusu vb.)",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Oksijen (Lambda) sensörü arızası",
+      "Katalitik konvertör verimsizliği",
+      "Egzoz sisteminde hava kaçağı",
+      "Yakıt enjektörlerinde sızıntı veya tıkanıklık"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "P2263",
+    "title": "Turbo/Süperşarj Takviye Sistemi Performans Sorunu",
+    "description": "Turbo/Süperşarj Takviye Sistemi Performans Sorunu",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarım Sistemi"
+    ],
+    "symptoms": [
+      "Turbo basıncının düşmesi (Limp Mode / Koruma Modu)",
+      "Aniden hızlanamama (Turbo lag)",
+      "Hızlanma anında ıslık veya üfleme sesi",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Turboşarj pallerinde hasar",
+      "Turbo basınç (Boost) hortumlarında yırtık veya kaçak",
+      "Wastegate veya VNT mekanizmasının sıkışması",
+      "MAP sensörü arızası"
+    ],
+    "fixes": [
+      "Sensör/aktüatör sinyal testi ve parça doğrulaması",
+      "ECU arıza kaydını silip yol testiyle doğrulama"
+    ]
+  },
+  {
+    "code": "U0001",
+    "title": "Yüksek Hızlı CAN İletişim Veri Yolu Hatası",
+    "description": "Yüksek Hızlı CAN İletişim Veri Yolu Hatası",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "Gösterge panelinde birden fazla arıza lambasının aynı anda yanması",
+      "Hız göstergesi, devir saati gibi kadranların aniden düşmesi",
+      "Aracın çalışmaması (Crank no start) veya yolda stop etmesi"
+    ],
+    "causes": [
+      "CAN hattında kısa devre veya açık devre",
+      "Korozyona uğramış veya gevşemiş ana tesisat soketleri",
+      "Modüller arası iletişim kablolarında kopukluk",
+      "Akü voltajının aşırı düşmesi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0002",
+    "title": "Yüksek Hızlı CAN İletişim Veri Yolu Performans Sorunu",
+    "description": "Yüksek Hızlı CAN İletişim Veri Yolu Performans Sorunu",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "Gösterge panelinde birden fazla arıza lambasının aynı anda yanması",
+      "Hız göstergesi, devir saati gibi kadranların aniden düşmesi",
+      "Aracın çalışmaması (Crank no start) veya yolda stop etmesi"
+    ],
+    "causes": [
+      "CAN hattında kısa devre veya açık devre",
+      "Korozyona uğramış veya gevşemiş ana tesisat soketleri",
+      "Modüller arası iletişim kablolarında kopukluk",
+      "Akü voltajının aşırı düşmesi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0100",
+    "title": "Motor Kontrol Modülü (ECM/PCM) 'A' ile İletişim Kaybedildi",
+    "description": "Motor Kontrol Modülü (ECM/PCM) 'A' ile İletişim Kaybedildi",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "İlgili modülün işlevini yitirmesi (Örn: ABS ile iletişim koparsa ABS devre dışı kalması)",
+      "Vites geçişlerinde vuruntu (TCM iletişim hatası)",
+      "Göstergelerin tamamen gitmesi (IPC iletişim hatası)"
+    ],
+    "causes": [
+      "İlgili modülün güç veya şasi (toprak) bağlantısında sorun",
+      "Modülün iç donanımsal arızası (su alma vb.)",
+      "CAN veya LIN hattında veri yolu kesintisi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0101",
+    "title": "Şanzıman Kontrol Modülü (TCM) ile İletişim Kaybedildi",
+    "description": "Şanzıman Kontrol Modülü (TCM) ile İletişim Kaybedildi",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "İlgili modülün işlevini yitirmesi (Örn: ABS ile iletişim koparsa ABS devre dışı kalması)",
+      "Vites geçişlerinde vuruntu (TCM iletişim hatası)",
+      "Göstergelerin tamamen gitmesi (IPC iletişim hatası)"
+    ],
+    "causes": [
+      "İlgili modülün güç veya şasi (toprak) bağlantısında sorun",
+      "Modülün iç donanımsal arızası (su alma vb.)",
+      "CAN veya LIN hattında veri yolu kesintisi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0121",
+    "title": "Kilitlenme Karşıtı Fren Sistemi (ABS) Kontrol Modülü ile İletişim Kaybedildi",
+    "description": "Kilitlenme Karşıtı Fren Sistemi (ABS) Kontrol Modülü ile İletişim Kaybedildi",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "İlgili modülün işlevini yitirmesi (Örn: ABS ile iletişim koparsa ABS devre dışı kalması)",
+      "Vites geçişlerinde vuruntu (TCM iletişim hatası)",
+      "Göstergelerin tamamen gitmesi (IPC iletişim hatası)"
+    ],
+    "causes": [
+      "İlgili modülün güç veya şasi (toprak) bağlantısında sorun",
+      "Modülün iç donanımsal arızası (su alma vb.)",
+      "CAN veya LIN hattında veri yolu kesintisi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0140",
+    "title": "Gövde Kontrol Modülü (BCM) ile İletişim Kaybedildi",
+    "description": "Gövde Kontrol Modülü (BCM) ile İletişim Kaybedildi",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "İlgili modülün işlevini yitirmesi (Örn: ABS ile iletişim koparsa ABS devre dışı kalması)",
+      "Vites geçişlerinde vuruntu (TCM iletişim hatası)",
+      "Göstergelerin tamamen gitmesi (IPC iletişim hatası)"
+    ],
+    "causes": [
+      "İlgili modülün güç veya şasi (toprak) bağlantısında sorun",
+      "Modülün iç donanımsal arızası (su alma vb.)",
+      "CAN veya LIN hattında veri yolu kesintisi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0155",
+    "title": "Gösterge Paneli (IPC) Kontrol Modülü ile İletişim Kaybedildi",
+    "description": "Gösterge Paneli (IPC) Kontrol Modülü ile İletişim Kaybedildi",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "İlgili modülün işlevini yitirmesi (Örn: ABS ile iletişim koparsa ABS devre dışı kalması)",
+      "Vites geçişlerinde vuruntu (TCM iletişim hatası)",
+      "Göstergelerin tamamen gitmesi (IPC iletişim hatası)"
+    ],
+    "causes": [
+      "İlgili modülün güç veya şasi (toprak) bağlantısında sorun",
+      "Modülün iç donanımsal arızası (su alma vb.)",
+      "CAN veya LIN hattında veri yolu kesintisi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0300",
+    "title": "Dahili Kontrol Modülü Yazılım Uyumsuzluğu",
+    "description": "Dahili Kontrol Modülü Yazılım Uyumsuzluğu",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "Motorun koruma moduna geçmesi",
+      "Belirli özelliklerin (Hız sabitleyici vb.) kullanılamaması",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Bozuk yazılım güncellemesi (Chip tuning kaynaklı hatalar vb.)",
+      "Sensör verilerindeki tutarsızlığın veri yolunu bozması",
+      "Arızalı kontrol ünitesinin veri hattına parazit göndermesi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0401",
+    "title": "Motor Kontrol Modülünden (ECM/PCM) Geçersiz Veri Alındı",
+    "description": "Motor Kontrol Modülünden (ECM/PCM) Geçersiz Veri Alındı",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "Motorun koruma moduna geçmesi",
+      "Belirli özelliklerin (Hız sabitleyici vb.) kullanılamaması",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Bozuk yazılım güncellemesi (Chip tuning kaynaklı hatalar vb.)",
+      "Sensör verilerindeki tutarsızlığın veri yolunu bozması",
+      "Arızalı kontrol ünitesinin veri hattına parazit göndermesi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0402",
+    "title": "Şanzıman Kontrol Modülünden Geçersiz Veri Alındı",
+    "description": "Şanzıman Kontrol Modülünden Geçersiz Veri Alındı",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "Motorun koruma moduna geçmesi",
+      "Belirli özelliklerin (Hız sabitleyici vb.) kullanılamaması",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Bozuk yazılım güncellemesi (Chip tuning kaynaklı hatalar vb.)",
+      "Sensör verilerindeki tutarsızlığın veri yolunu bozması",
+      "Arızalı kontrol ünitesinin veri hattına parazit göndermesi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U0415",
+    "title": "Kilitlenme Karşıtı Fren Sistemi (ABS) Kontrol Modülünden Geçersiz Veri Alındı",
+    "description": "Kilitlenme Karşıtı Fren Sistemi (ABS) Kontrol Modülünden Geçersiz Veri Alındı",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "Motorun koruma moduna geçmesi",
+      "Belirli özelliklerin (Hız sabitleyici vb.) kullanılamaması",
+      "Arıza lambası (MIL) yanar"
+    ],
+    "causes": [
+      "Bozuk yazılım güncellemesi (Chip tuning kaynaklı hatalar vb.)",
+      "Sensör verilerindeki tutarsızlığın veri yolunu bozması",
+      "Arızalı kontrol ünitesinin veri hattına parazit göndermesi"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "U1000",
+    "title": "Sınıf 2 İletişim Ağı Arızası (Genel Ağ Hatası)",
+    "description": "Sınıf 2 İletişim Ağı Arızası (Genel Ağ Hatası)",
+    "type": "U",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Ağ ve İletişim Sistemi"
+    ],
+    "symptoms": [
+      "Gösterge panelinde uyarı mesajları",
+      "Ağ ile bağlantılı sistemlerin aralıklı çalışmaması"
+    ],
+    "causes": [
+      "Tesisat arızası",
+      "Zayıf akü",
+      "Gevşek şasi bağlantısı"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0001",
+    "title": "Sürücü Ön Hava Yastığı Ateşleme Devresi Açık",
+    "description": "Sürücü Ön Hava Yastığı Ateşleme Devresi Açık",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Airbag (Hava Yastığı) arıza lambasının yanması",
+      "Olası bir kazada ilgili hava yastığının veya kemer gergisinin çalışmaması"
+    ],
+    "causes": [
+      "Koltuk altı airbag soketlerinde temassızlık",
+      "Direksiyon zembereği (Clock spring) kopması",
+      "Darbe sensörünün su alması veya kablo kopukluğu",
+      "Airbag modülünde donanımsal hata"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0010",
+    "title": "Yolcu Ön Hava Yastığı Ateşleme Devresi Açık",
+    "description": "Yolcu Ön Hava Yastığı Ateşleme Devresi Açık",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Airbag (Hava Yastığı) arıza lambasının yanması",
+      "Olası bir kazada ilgili hava yastığının veya kemer gergisinin çalışmaması"
+    ],
+    "causes": [
+      "Koltuk altı airbag soketlerinde temassızlık",
+      "Direksiyon zembereği (Clock spring) kopması",
+      "Darbe sensörünün su alması veya kablo kopukluğu",
+      "Airbag modülünde donanımsal hata"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0020",
+    "title": "Sol Yan Hava Yastığı Ateşleme Devresi Açık",
+    "description": "Sol Yan Hava Yastığı Ateşleme Devresi Açık",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Airbag (Hava Yastığı) arıza lambasının yanması",
+      "Olası bir kazada ilgili hava yastığının veya kemer gergisinin çalışmaması"
+    ],
+    "causes": [
+      "Koltuk altı airbag soketlerinde temassızlık",
+      "Direksiyon zembereği (Clock spring) kopması",
+      "Darbe sensörünün su alması veya kablo kopukluğu",
+      "Airbag modülünde donanımsal hata"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0030",
+    "title": "Sağ Yan Hava Yastığı Ateşleme Devresi Açık",
+    "description": "Sağ Yan Hava Yastığı Ateşleme Devresi Açık",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Airbag (Hava Yastığı) arıza lambasının yanması",
+      "Olası bir kazada ilgili hava yastığının veya kemer gergisinin çalışmaması"
+    ],
+    "causes": [
+      "Koltuk altı airbag soketlerinde temassızlık",
+      "Direksiyon zembereği (Clock spring) kopması",
+      "Darbe sensörünün su alması veya kablo kopukluğu",
+      "Airbag modülünde donanımsal hata"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0042",
+    "title": "Sol Ön Emniyet Kemeri Gergi Sensörü Devresi",
+    "description": "Sol Ön Emniyet Kemeri Gergi Sensörü Devresi",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Airbag (Hava Yastığı) arıza lambasının yanması",
+      "Olası bir kazada ilgili hava yastığının veya kemer gergisinin çalışmaması"
+    ],
+    "causes": [
+      "Koltuk altı airbag soketlerinde temassızlık",
+      "Direksiyon zembereği (Clock spring) kopması",
+      "Darbe sensörünün su alması veya kablo kopukluğu",
+      "Airbag modülünde donanımsal hata"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0052",
+    "title": "Sağ Ön Emniyet Kemeri Gergi Sensörü Devresi",
+    "description": "Sağ Ön Emniyet Kemeri Gergi Sensörü Devresi",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Airbag (Hava Yastığı) arıza lambasının yanması",
+      "Olası bir kazada ilgili hava yastığının veya kemer gergisinin çalışmaması"
+    ],
+    "causes": [
+      "Koltuk altı airbag soketlerinde temassızlık",
+      "Direksiyon zembereği (Clock spring) kopması",
+      "Darbe sensörünün su alması veya kablo kopukluğu",
+      "Airbag modülünde donanımsal hata"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0077",
+    "title": "Sol Ön Darbe Sensörü Devresi",
+    "description": "Sol Ön Darbe Sensörü Devresi",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Airbag (Hava Yastığı) arıza lambasının yanması",
+      "Olası bir kazada ilgili hava yastığının veya kemer gergisinin çalışmaması"
+    ],
+    "causes": [
+      "Koltuk altı airbag soketlerinde temassızlık",
+      "Direksiyon zembereği (Clock spring) kopması",
+      "Darbe sensörünün su alması veya kablo kopukluğu",
+      "Airbag modülünde donanımsal hata"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0078",
+    "title": "Sağ Ön Darbe Sensörü Devresi",
+    "description": "Sağ Ön Darbe Sensörü Devresi",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Airbag (Hava Yastığı) arıza lambasının yanması",
+      "Olası bir kazada ilgili hava yastığının veya kemer gergisinin çalışmaması"
+    ],
+    "causes": [
+      "Koltuk altı airbag soketlerinde temassızlık",
+      "Direksiyon zembereği (Clock spring) kopması",
+      "Darbe sensörünün su alması veya kablo kopukluğu",
+      "Airbag modülünde donanımsal hata"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0080",
+    "title": "Sürücü Emniyet Kemeri Uyarı Göstergesi Devresi",
+    "description": "Sürücü Emniyet Kemeri Uyarı Göstergesi Devresi",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Emniyet kemeri takılı olduğu halde uyarı sesinin veya lambasının kapanmaması",
+      "Kemer takılı değilken uyarının hiç çıkmaması"
+    ],
+    "causes": [
+      "Kemer tokasının içindeki mikro switch arızası",
+      "Koltuk doluluk sensörü arızası",
+      "Toka kablo tesisatında kopukluk"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0081",
+    "title": "Yolcu Emniyet Kemeri Uyarı Göstergesi Devresi",
+    "description": "Yolcu Emniyet Kemeri Uyarı Göstergesi Devresi",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Emniyet kemeri takılı olduğu halde uyarı sesinin veya lambasının kapanmaması",
+      "Kemer takılı değilken uyarının hiç çıkmaması"
+    ],
+    "causes": [
+      "Kemer tokasının içindeki mikro switch arızası",
+      "Koltuk doluluk sensörü arızası",
+      "Toka kablo tesisatında kopukluk"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B0090",
+    "title": "Ön Çarpışma Sensörü Devresi Arızası",
+    "description": "Ön Çarpışma Sensörü Devresi Arızası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Airbag (Hava Yastığı) arıza lambasının yanması",
+      "Olası bir kazada ilgili hava yastığının veya kemer gergisinin çalışmaması"
+    ],
+    "causes": [
+      "Koltuk altı airbag soketlerinde temassızlık",
+      "Direksiyon zembereği (Clock spring) kopması",
+      "Darbe sensörünün su alması veya kablo kopukluğu",
+      "Airbag modülünde donanımsal hata"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1000",
+    "title": "Elektronik Kontrol Ünitesi (ECU) Dahili Bellek Hatası",
+    "description": "Elektronik Kontrol Ünitesi (ECU) Dahili Bellek Hatası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Aracın immobilizer anahtarı tanımaması ve marş basmaması",
+      "Çeşitli konfor donanımlarının tutarsız çalışması"
+    ],
+    "causes": [
+      "BCM (Gövde Kontrol Modülü) arızası",
+      "Yanlış kodlama veya uyumsuz parça değişimi",
+      "Akü zayıflığına bağlı hafıza kaybı"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1001",
+    "title": "Seçenek Yapılandırma (Programlama) Hatası",
+    "description": "Seçenek Yapılandırma (Programlama) Hatası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Aracın immobilizer anahtarı tanımaması ve marş basmaması",
+      "Çeşitli konfor donanımlarının tutarsız çalışması"
+    ],
+    "causes": [
+      "BCM (Gövde Kontrol Modülü) arızası",
+      "Yanlış kodlama veya uyumsuz parça değişimi",
+      "Akü zayıflığına bağlı hafıza kaybı"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1200",
+    "title": "Klima/İklimlendirme Butonu Devre Hatası",
+    "description": "Klima/İklimlendirme Butonu Devre Hatası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın fonksiyonunu yitirmesi"
+    ],
+    "causes": [
+      "Sigorta veya röle arızası",
+      "Düğme arızası",
+      "Tesisat kopukluğu"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1325",
+    "title": "Kontrol Modülü Güç Devresi Voltaj Düşüklüğü",
+    "description": "Kontrol Modülü Güç Devresi Voltaj Düşüklüğü",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın fonksiyonunu yitirmesi"
+    ],
+    "causes": [
+      "Sigorta veya röle arızası",
+      "Düğme arızası",
+      "Tesisat kopukluğu"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1342",
+    "title": "Kontrol Modülü Arızalı (Dahili Hata)",
+    "description": "Kontrol Modülü Arızalı (Dahili Hata)",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Aracın immobilizer anahtarı tanımaması ve marş basmaması",
+      "Çeşitli konfor donanımlarının tutarsız çalışması"
+    ],
+    "causes": [
+      "BCM (Gövde Kontrol Modülü) arızası",
+      "Yanlış kodlama veya uyumsuz parça değişimi",
+      "Akü zayıflığına bağlı hafıza kaybı"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1420",
+    "title": "Yolcu Koltuğu Ağırlık/Doluluk Sensörü Hatası",
+    "description": "Yolcu Koltuğu Ağırlık/Doluluk Sensörü Hatası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın fonksiyonunu yitirmesi"
+    ],
+    "causes": [
+      "Sigorta veya röle arızası",
+      "Düğme arızası",
+      "Tesisat kopukluğu"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1438",
+    "title": "Kapı Kilit Motoru Devresi Kısa Devre/Açık",
+    "description": "Kapı Kilit Motoru Devresi Kısa Devre/Açık",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın fonksiyonunu yitirmesi"
+    ],
+    "causes": [
+      "Sigorta veya röle arızası",
+      "Düğme arızası",
+      "Tesisat kopukluğu"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1440",
+    "title": "Silecek Motoru Devre Hatası",
+    "description": "Silecek Motoru Devre Hatası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Sileceklerin çalışmaması veya camların inip kalkmaması",
+      "İlgili düğmenin tepkisizliği"
+    ],
+    "causes": [
+      "İlgili motorun yanması veya sıkışması",
+      "Kapı içi tesisat körüğünde kopan kablolar",
+      "Cam krikosu modülü şalter arızası",
+      "Atık sigorta"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1442",
+    "title": "Cam Krikosu Motor Devresi Açık veya Kısa Devre",
+    "description": "Cam Krikosu Motor Devresi Açık veya Kısa Devre",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Sileceklerin çalışmaması veya camların inip kalkmaması",
+      "İlgili düğmenin tepkisizliği"
+    ],
+    "causes": [
+      "İlgili motorun yanması veya sıkışması",
+      "Kapı içi tesisat körüğünde kopan kablolar",
+      "Cam krikosu modülü şalter arızası",
+      "Atık sigorta"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1481",
+    "title": "Sürücü Tarafı Koltuk Isıtıcı Devresi Arızası",
+    "description": "Sürücü Tarafı Koltuk Isıtıcı Devresi Arızası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Koltuk ısıtmasının açıldıktan hemen sonra kapanması veya hiç ısınmaması"
+    ],
+    "causes": [
+      "Koltuk süngeri altındaki ısıtıcı ped rezistansının kırılması",
+      "Isıtma rölesi arızası",
+      "Koltuk altı soketlerinde yanma/erime"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1482",
+    "title": "Yolcu Tarafı Koltuk Isıtıcı Devresi Arızası",
+    "description": "Yolcu Tarafı Koltuk Isıtıcı Devresi Arızası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Koltuk ısıtmasının açıldıktan hemen sonra kapanması veya hiç ısınmaması"
+    ],
+    "causes": [
+      "Koltuk süngeri altındaki ısıtıcı ped rezistansının kırılması",
+      "Isıtma rölesi arızası",
+      "Koltuk altı soketlerinde yanma/erime"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1596",
+    "title": "Servis Hatası Sürekli (Genel İletişim Hatası)",
+    "description": "Servis Hatası Sürekli (Genel İletişim Hatası)",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın fonksiyonunu yitirmesi"
+    ],
+    "causes": [
+      "Sigorta veya röle arızası",
+      "Düğme arızası",
+      "Tesisat kopukluğu"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1600",
+    "title": "Kontak Anahtarı Transponder (İmmobilizer) Sinyali Alınamadı",
+    "description": "Kontak Anahtarı Transponder (İmmobilizer) Sinyali Alınamadı",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Göstergede anahtar/kilit lambasının yanıp sönmesi",
+      "Motorun marş basması ancak çalışmaması (ateşleme kesmesi)"
+    ],
+    "causes": [
+      "Anahtar pilinin bitmesi veya çipin düşmesi",
+      "Kontak anteni (Okuyucu bilezik) arızası",
+      "İmmobilizer modülü ile ECU arasındaki senkronizasyon kaybı"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1601",
+    "title": "İmmobilizer Anahtar Kodu Yanlış veya Tanınmıyor",
+    "description": "İmmobilizer Anahtar Kodu Yanlış veya Tanınmıyor",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Göstergede anahtar/kilit lambasının yanıp sönmesi",
+      "Motorun marş basması ancak çalışmaması (ateşleme kesmesi)"
+    ],
+    "causes": [
+      "Anahtar pilinin bitmesi veya çipin düşmesi",
+      "Kontak anteni (Okuyucu bilezik) arızası",
+      "İmmobilizer modülü ile ECU arasındaki senkronizasyon kaybı"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B1602",
+    "title": "İmmobilizer Anahtar Kodu Kısmen Okundu / Format Hatası",
+    "description": "İmmobilizer Anahtar Kodu Kısmen Okundu / Format Hatası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Göstergede anahtar/kilit lambasının yanıp sönmesi",
+      "Motorun marş basması ancak çalışmaması (ateşleme kesmesi)"
+    ],
+    "causes": [
+      "Anahtar pilinin bitmesi veya çipin düşmesi",
+      "Kontak anteni (Okuyucu bilezik) arızası",
+      "İmmobilizer modülü ile ECU arasındaki senkronizasyon kaybı"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B2596",
+    "title": "Far Rölesi Devresi Kısa Devre",
+    "description": "Far Rölesi Devresi Kısa Devre",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Farların yanmaması veya sürekli yanık kalması",
+      "Kapıların kumandadan kilitlenmemesi veya kendi kendine açılması"
+    ],
+    "causes": [
+      "Sigorta kutusu su alması",
+      "Kapı kilit motoru dişli kırılması",
+      "Kısa devre yapan tesisat"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B2792",
+    "title": "Merkezi Kilit Sistemi Devresi Arızası",
+    "description": "Merkezi Kilit Sistemi Devresi Arızası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "Farların yanmaması veya sürekli yanık kalması",
+      "Kapıların kumandadan kilitlenmemesi veya kendi kendine açılması"
+    ],
+    "causes": [
+      "Sigorta kutusu su alması",
+      "Kapı kilit motoru dişli kırılması",
+      "Kısa devre yapan tesisat"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B2832",
+    "title": "Radyo/Eğlence Hoparlör Devresi Açık veya Kısa Devre",
+    "description": "Radyo/Eğlence Hoparlör Devresi Açık veya Kısa Devre",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın fonksiyonunu yitirmesi"
+    ],
+    "causes": [
+      "Sigorta veya röle arızası",
+      "Düğme arızası",
+      "Tesisat kopukluğu"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  },
+  {
+    "code": "B2955",
+    "title": "Güvenlik Sistemi Sensör Veri Yolu Hatası",
+    "description": "Güvenlik Sistemi Sensör Veri Yolu Hatası",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın fonksiyonunu yitirmesi"
+    ],
+    "causes": [
+      "Sigorta veya röle arızası",
+      "Düğme arızası",
+      "Tesisat kopukluğu"
+    ],
+    "fixes": [
+      "Bağlantıların ve tesisatın kontrolü/onarımı",
+      "Hatalı modül/sensör değişimi ve yeniden kodlama",
+      "ECU arıza kaydının silinmesi"
+    ]
+  }
+]

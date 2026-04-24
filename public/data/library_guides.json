@@ -247,7 +247,8 @@
             "Ekspertiz raporu olumlu"
           ]
         }
-      ]
+      ],
+      "urlId": 10000
     },
     {
       "id": "guide_004",
@@ -444,7 +445,8 @@
             "Para hesaba geçmeden (veya blokeli onay gelmeden) imza atılmadı"
           ]
         }
-      ]
+      ],
+      "urlId": 10001
     },
     {
       "id": "guide_005",
@@ -615,7 +617,8 @@
             "Noterde imza öncesi para hesapta teyit edildi"
           ]
         }
-      ]
+      ],
+      "urlId": 10002
     },
     {
       "id": "guide_006",
@@ -795,7 +798,8 @@
             "Lastik ve balata kokusu kontrolü yaptım"
           ]
         }
-      ]
+      ],
+      "urlId": 10003
     },
     {
       "id": "guide_002",
@@ -1040,7 +1044,8 @@
             "✓ Motor yağı kış için uygun viskozitede mi kontrol edildi"
           ]
         }
-      ]
+      ],
+      "urlId": 10004
     },
     {
       "id": "guide_007",
@@ -1182,7 +1187,8 @@
             "Su dolu bardak varmış gibi yumuşak kullandım"
           ]
         }
-      ]
+      ],
+      "urlId": 10005
     },
     {
       "id": "guide_008",
@@ -1329,7 +1335,8 @@
             "Kafa anteni yöntemi test edildi (ve şaşırıldı)"
           ]
         }
-      ]
+      ],
+      "urlId": 10006
     },
     {
       "id": "guide_009",
@@ -1484,7 +1491,8 @@
             "Sarı motor ışığı yanarsa OBD cihazı ile kontrol ettir"
           ]
         }
-      ]
+      ],
+      "urlId": 10007
     },
     {
       "id": "guide_003",
@@ -1760,7 +1768,8 @@
             "✓ İlk 1000 km sonrası seviye kontrol edilecek"
           ]
         }
-      ]
+      ],
+      "urlId": 10008
     },
     {
       "id": "guide_010",
@@ -1866,7 +1875,8 @@
             "Hava filtresi ve bakımlarım tam"
           ]
         }
-      ]
+      ],
+      "urlId": 10009
     },
     {
       "id": "guide_011",
@@ -1987,7 +1997,8 @@
             "Stepne havasını kontrol ettim"
           ]
         }
-      ]
+      ],
+      "urlId": 10010
     },
     {
       "id": "guide_012",
@@ -2140,7 +2151,8 @@
             "Lastikler parlatıldı"
           ]
         }
-      ]
+      ],
+      "urlId": 10011
     },
     {
       "id": "guide_013",
@@ -2322,7 +2334,8 @@
             "Egzoz emisyon ölçümü yapıldı"
           ]
         }
-      ]
+      ],
+      "urlId": 10012
     },
     {
       "id": "guide_014",
@@ -2482,7 +2495,8 @@
             "Aracın çekilmesi gerekirse çekici çağırıyorum"
           ]
         }
-      ]
+      ],
+      "urlId": 10013
     },
     {
       "id": "guide_008",
@@ -2542,7 +2556,8 @@
             "text": "İstatistiklere göre, dünya genelindeki araçlar ömürlerinin ortalama %95'ini park halinde geçirir. Sadece %5'lik sürede hareket ederler."
           }
         }
-      ]
+      ],
+      "urlId": 10014
     },
     {
       "id": "guide_009",
@@ -2683,7 +2698,8 @@
             "Telefon şarj aleti ve müzik listesi hazır"
           ]
         }
-      ]
+      ],
+      "urlId": 10015
     },
     {
       "id": "guide_010",
@@ -2781,7 +2797,8 @@
             "Park ederken önce el frenini çekiyorum"
           ]
         }
-      ]
+      ],
+      "urlId": 10016
     },
     {
       "id": "guide_seo_001",
@@ -2927,7 +2944,8 @@
             "Motoru uzun süre rölantide çalıştırarak ısıtmıyorum"
           ]
         }
-      ]
+      ],
+      "urlId": 10017
     },
     {
       "id": "guide_seo_002",
@@ -3102,7 +3120,8 @@
             "Aracın kilometresine göre Yetkili veya Uzman serviste şanzıman yağımı periyodik değiştirtiyorum"
           ]
         }
-      ]
+      ],
+      "urlId": 10018
     },
     {
       "id": "guide_seo_003",
@@ -3265,7 +3284,8 @@
             "Aşırı soğuk gecelerde aracı viteste park edip el freni çekmiyorum (Güvenli yerlerde)"
           ]
         }
-      ]
+      ],
+      "urlId": 10019
     },
     {
       "id": "guide_seo_004",
@@ -3412,7 +3432,8 @@
             "Çocuklarım için arka kapı mekanik kilidinin yerini buldum"
           ]
         }
-      ]
+      ],
+      "urlId": 10020
     },
     {
       "id": "guide_seo_005",
@@ -3547,7 +3568,8 @@
             "Fren balatalarının et kalınlığını jant arasından ışıkla kontrol ettim"
           ]
         }
-      ]
+      ],
+      "urlId": 10021
     },
     {
       "id": "guide_seo_006",
@@ -3669,7 +3691,8 @@
             "Aracı sürekli düşük devirde boğmayıp, ayda bir kez devirli kullanarak kurumu atıyorum"
           ]
         }
-      ]
+      ],
+      "urlId": 10022
     },
     {
       "id": "guide_seo_007",
@@ -3795,7 +3818,8 @@
             "Zorlu rampalarda veya acil sollamalarda klimayı geçici olarak kapatıyorum"
           ]
         }
-      ]
+      ],
+      "urlId": 10023
     },
     {
       "id": "guide_seo_008",
@@ -3920,7 +3944,8 @@
             "Bagaj zeminini (stepne havuzunu) ve paspas altlarını ıslaklık/rutubet için yokladım"
           ]
         }
-      ]
+      ],
+      "urlId": 10024
     },
     {
       "id": "guide_seo_009",
@@ -4038,7 +4063,8 @@
             "Boya kireç tutmasın diye aracımı kızgın güneşin altında yıkamıyorum"
           ]
         }
-      ]
+      ],
+      "urlId": 10025
     },
     {
       "id": "guide_seo_010",
@@ -4155,7 +4181,8 @@
             "Tutanakta 'Kusurluyum' kelimesini kullanmak yerine sadece kazanın oluş şeklini objektif olarak çizip anlattım"
           ]
         }
-      ]
+      ],
+      "urlId": 10026
     },
     {
       "id": "guide_seo_011",
@@ -4259,7 +4286,8 @@
             "Akü takviyesi (jump start) yaparken KIRMIZI (+) kutbun her zaman İLK takılan ve SON sökülen kablo olduğunu ezberledim"
           ]
         }
-      ]
+      ],
+      "urlId": 10027
     }
   ]
 }

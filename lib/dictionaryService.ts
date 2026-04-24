@@ -1,7 +1,7 @@
 import { db } from "@/lib/firebase";
 import {
     collection, addDoc, updateDoc, deleteDoc, doc,
-    onSnapshot, query, orderBy, serverTimestamp,
+    onSnapshot, query, orderBy, serverTimestamp, getDocs,
     type Unsubscribe
 } from "firebase/firestore";
 
@@ -16,20 +16,54 @@ export interface DictionaryTerm {
 
 const COLLECTION = "dictionary";
 
-/** Tum terimleri dinle */
-export function subscribeToTerms(callback: (terms: DictionaryTerm[]) => void): Unsubscribe {
-    const q = query(collection(db, COLLECTION), orderBy("term"));
-    return onSnapshot(q, (snap) => {
-        const terms = snap.docs.map(d => ({
-            id: d.id,
-            term: d.data().term || "",
-            description: d.data().description || "",
-            why: d.data().why || "",
-            category: d.data().category || "Mekanik",
-            letter: d.data().letter || "",
-        }));
-        callback(terms);
-    });
+/** Tum terimleri dinle — hata olursa fallback olarak getDocs kullanir */
+export function subscribeToTerms(
+    callback: (terms: DictionaryTerm[]) => void,
+    onError?: (error: Error) => void
+): Unsubscribe {
+    const col = collection(db, COLLECTION);
+
+    // orderBy olmadan basit sorgu — index gerektirmez
+    return onSnapshot(
+        col,
+        (snap) => {
+            const terms = snap.docs.map(d => ({
+                id: d.id,
+                term: d.data().term || "",
+                description: d.data().description || "",
+                why: d.data().why || "",
+                category: d.data().category || "Mekanik",
+                letter: d.data().letter || "",
+            }));
+            // Client-side sort
+            terms.sort((a, b) => a.term.localeCompare(b.term, 'tr'));
+            callback(terms);
+        },
+        (error) => {
+            console.error("Dictionary subscription error:", error);
+            if (onError) onError(error);
+
+            // Fallback: tek seferlik okuma dene
+            getDocs(col)
+                .then((snap) => {
+                    const terms = snap.docs.map(d => ({
+                        id: d.id,
+                        term: d.data().term || "",
+                        description: d.data().description || "",
+                        why: d.data().why || "",
+                        category: d.data().category || "Mekanik",
+                        letter: d.data().letter || "",
+                    }));
+                    terms.sort((a, b) => a.term.localeCompare(b.term, 'tr'));
+                    callback(terms);
+                })
+                .catch((e) => {
+                    console.error("Dictionary fallback fetch also failed:", e);
+                    // Return empty array so the UI at least shows "no results"
+                    callback([]);
+                });
+        }
+    );
 }
 
 /** Yeni terim ekle */

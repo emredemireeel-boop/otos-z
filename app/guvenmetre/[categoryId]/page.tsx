@@ -100,7 +100,7 @@ export default function CategoryDetailPage() {
                                         cursor: 'pointer',
                                     }}
                                     onClick={() => router.back()}>
-                                        ⚠️� Şehir seçilmedi —� geri dön
+                                        ⚠️ Şehir seçilmedi — geri dön
                                     </span>
                                 )}
                                 <span style={{
@@ -288,7 +288,7 @@ export default function CategoryDetailPage() {
                                                 }}>{index + 1}</span>
                                                 <div style={{ flex: 1 }}>
                                                     <div style={{ color: 'var(--foreground)', fontSize: '13px', fontWeight: '600' }}>{brand.name}</div>
-                                                    <div style={{ color: 'var(--text-muted)', fontSize: '11px' }}>⭐� {brand.rating.toFixed(1)}</div>
+                                                    <div style={{ color: 'var(--text-muted)', fontSize: '11px' }}>⭐ {brand.rating.toFixed(1)}</div>
                                                 </div>
                                             </li>
                                         ))}

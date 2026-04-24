@@ -109,7 +109,7 @@ const kartalSchedule: DaySchedule[] = [
 
 export const events: Event[] = [
     {
-        id: "istanbul-kartal",
+        id: "istanbul-kartal-otopazari",
         title: "Kartal Oto Pazarı (Anadolu Yakası)",
         description: "Anadolu yakasının en köklü oto pazarlarından biri.",
         imageUrl: "/kartalotopazari.png",
@@ -128,7 +128,7 @@ export const events: Event[] = [
         schedule: kartalSchedule
     },
     {
-        id: "ankara-pursaklar",
+        id: "ankara-pursaklar-otopazari",
         title: "Ankara (Karacaören) Açık Oto Pazarı",
         description: "Ankara'nın en büyük oto pazarı. 2026 yılı itibarıyla araç başına giriş ücreti 300 TL'dir.",
         imageUrl: "/pursaklarotopazari.png",
@@ -147,7 +147,7 @@ export const events: Event[] = [
         schedule: ankaraSchedule
     },
     {
-        id: "izmir-kemalpasa",
+        id: "izmir-kemalpasa-otopazari",
         title: "Kemalpaşa Açık Oto Pazarı",
         description: "Ege Bölgesinden çok sayıda araç gelir. Hafta sonu açık olan en büyük oto pazarlarından biri.",
         imageUrl: "/izmirkemalpasaotopazari.png",
@@ -166,7 +166,7 @@ export const events: Event[] = [
         schedule: kemalpasaSchedule
     },
     {
-        id: "izmir-gaziemir",
+        id: "izmir-gaziemir-otopazari",
         title: "Gaziemir Oto Pazarı",
         description: "Optimum Outlet arkası. Kalabalık ve çeşitli araçların bulunduğu popüler pazar.",
         imageUrl: "/gaziemirotopazari.png",
@@ -183,6 +183,33 @@ export const events: Event[] = [
         organizer: "Bilinmiyor",
         tags: ["Gaziemir", "Kalabalık", "Ekspertiz"],
         schedule: gaziemirSchedule
+    },
+    {
+        id: "bursa-nilufer-otopazari",
+        title: "Nilüfer Açık Oto Pazarı",
+        description: "Bursa'nın en büyük ve popüler oto pazarlarından biri. Her pazar günü Üçevler mahallesinde hizmet vermektedir.",
+        imageUrl: "/bursaotopazari.png",
+        date: getNextSunday(),
+        duration: "08:00 - 17:00",
+        location: "Üçevler Mah. 70. Sk. No: 38 Nilüfer / Bursa",
+        city: "Bursa",
+        priceText: "Bilinmiyor",
+        isFree: false,
+        category: "pazar",
+        attendeesCount: null,
+        maxAttendees: null,
+        isOnline: false,
+        organizer: "Bilinmiyor",
+        tags: ["Büyük Pazar", "Bursa", "Nilüfer", "Marmara"],
+        schedule: [
+            { dayName: "Pazartesi", hours: "Kapalı", isOpen: false },
+            { dayName: "Salı", hours: "Kapalı", isOpen: false },
+            { dayName: "Çarşamba", hours: "Kapalı", isOpen: false },
+            { dayName: "Perşembe", hours: "Kapalı", isOpen: false },
+            { dayName: "Cuma", hours: "Kapalı", isOpen: false },
+            { dayName: "Cumartesi", hours: "Kapalı", isOpen: false },
+            { dayName: "Pazar", hours: "08:00 - 17:00", isOpen: true }
+        ]
     }
 ];
 

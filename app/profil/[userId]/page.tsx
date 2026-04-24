@@ -11,6 +11,8 @@ import { getAllBrands, getModelsForBrand } from "@/data/listings";
 import { doc, getDoc, setDoc, collection, query, where, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { startConversation } from "@/lib/messageService";
+import { getUserRating } from "@/lib/userService";
+import { Star } from "lucide-react";
 
 // Yazar seviye renkleri
 const levelColors: Record<string, { bg: string; text: string }> = {
@@ -45,7 +47,9 @@ export default function ProfilPage() {
     const { user, isLoading } = useAuth();
     const router = useRouter();
     const params = useParams();
-    const userId = params?.userId as string;    const [activeTab, setActiveTab] = useState<"posts" | "comments" | "likes">("posts");
+    const rawUserId = params?.userId as string;    
+    const userId = rawUserId ? decodeURIComponent(rawUserId) : "";
+    const [activeTab, setActiveTab] = useState<"posts" | "comments" | "likes">("posts");
     const [showEditModal, setShowEditModal] = useState(false);
     const [photoToast, setPhotoToast] = useState(false);
     const [showReportModal, setShowReportModal] = useState(false);
@@ -72,6 +76,7 @@ export default function ProfilPage() {
     const [profileLoaded, setProfileLoaded] = useState(false);
     const [otherUserData, setOtherUserData] = useState<{id:string; role:string; entryCount:number; createdAt?:any} | null>(null);
     const [userThreads, setUserThreads] = useState<{id:string;title:string;views:number;entryCount:number}[]>([]);
+    const [userRating, setUserRating] = useState({ average: 0, count: 0 });
 
     // Load profile from Firestore (own or other user)
     useEffect(() => {
@@ -100,6 +105,9 @@ export default function ProfilPage() {
                         entryCount: data.entryCount || 0,
                         createdAt: data.createdAt || null,
                     });
+                    // Fetch user rating
+                    const ratingData = await getUserRating(userDoc.id);
+                    setUserRating(ratingData);
                 }
                 // Load user's threads
                 const threadsSnap = await getDocs(query(collection(db, "threads"), where("authorUsername", "==", userId)));
@@ -180,8 +188,23 @@ export default function ProfilPage() {
         return <div className="min-h-screen bg-[var(--background)] flex items-center justify-center text-white">Yükleniyor...</div>;
     }
 
-    const roleLabel = otherUserData?.role === 'usta' ? 'Usta' : 'Cirak';
-    const roleColor = otherUserData?.role === 'usta' ? { bg: 'rgba(245,158,11,0.2)', text: '#f59e0b' } : { bg: 'rgba(100,100,100,0.2)', text: '#888' };
+    const getRoleInfo = (role: string | undefined) => {
+        if (!role) return { label: 'Çaylak', color: { bg: 'rgba(100,100,100,0.2)', text: '#888' } };
+        
+        switch (role.toLowerCase()) {
+            case 'admin':
+                return { label: 'Admin', color: { bg: 'rgba(239,68,68,0.2)', text: '#ef4444' } };
+            case 'moderator':
+                return { label: 'Moderatör', color: { bg: 'rgba(168,85,247,0.2)', text: '#a855f7' } };
+            case 'usta':
+                return { label: 'Usta', color: { bg: 'rgba(245,158,11,0.2)', text: '#f59e0b' } };
+            case 'caylak':
+            default:
+                return { label: 'Çaylak', color: { bg: 'rgba(100,100,100,0.2)', text: '#888' } };
+        }
+    };
+
+    const { label: roleLabel, color: roleColor } = getRoleInfo(otherUserData?.role);
     const locationString = profileData.city && profileData.district ? `${profileData.city}, ${profileData.district}` : profileData.city || "";
     const carString = profileData.carBrand && profileData.carModel ? `${profileData.carBrand} ${profileData.carModel}${profileData.carYear ? ` (${profileData.carYear})` : ''}` : profileData.carBrand || "";
 
@@ -235,20 +258,41 @@ export default function ProfilPage() {
 
                             {/* User Info */}
                             <div style={{ flex: 1, minWidth: '280px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px', flexWrap: 'wrap' }}>
-                                    <h1 style={{ fontSize: '28px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                                    <h1 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--foreground)', letterSpacing: '-0.5px' }}>
                                         @{profileData.displayUsername}
                                     </h1>
                                     <span style={{
-                                        padding: '4px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: '600',
+                                        padding: '6px 14px', borderRadius: '24px', fontSize: '13px', fontWeight: '700',
                                         background: roleColor.bg, color: roleColor.text,
+                                        border: `1px solid ${roleColor.text}40`,
+                                        boxShadow: `0 2px 10px ${roleColor.bg}`,
+                                        display: 'inline-flex', alignItems: 'center', gap: '6px'
                                     }}>
-                                        {roleLabel}
+                                        <Award size={14} /> {roleLabel}
                                     </span>
                                 </div>
-                                <p style={{ color: 'var(--primary)', fontSize: '14px', marginBottom: '4px' }}>
-                                    @{profileData.displayUsername}
-                                </p>
+                                
+                                {/* User Rating */}
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+                                        {[1, 2, 3, 4, 5].map(star => (
+                                            <Star 
+                                                key={star} 
+                                                size={16} 
+                                                color={star <= Math.round(userRating.average) ? '#F59E0B' : 'var(--card-border)'} 
+                                                fill={star <= Math.round(userRating.average) ? '#F59E0B' : 'transparent'} 
+                                            />
+                                        ))}
+                                    </div>
+                                    <span style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                        {userRating.average.toFixed(1)}
+                                    </span>
+                                    <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                                        ({userRating.count} Değerlendirme)
+                                    </span>
+                                </div>
+
                                 {(profileData.firstName || profileData.lastName) && (
                                     <p style={{ color: 'var(--text-muted)', fontSize: '13px', marginBottom: '12px', fontStyle: 'italic' }}>
                                         {maskName(profileData.firstName)} {maskName(profileData.lastName)}

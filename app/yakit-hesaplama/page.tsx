@@ -5,6 +5,7 @@ import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info,
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import citiesRaw from "@/data/cities.json";
+import districtCoordsRaw from "@/data/district-coords.json";
 
 /* ═══════════════════════════════════════════
    TYPES & DATA
@@ -12,6 +13,7 @@ import citiesRaw from "@/data/cities.json";
 
 type CitiesData = Record<string, Record<string, string[]>>;
 const citiesData = citiesRaw as CitiesData;
+const districtCoords = districtCoordsRaw as Record<string, Record<string, [number, number]>>;
 
 /* ── Accent ── */
 const AC = "#2563EB";
@@ -20,7 +22,7 @@ const AC_B = "rgba(37,99,235,0.20)";
 const AC_BG = "rgba(37,99,235,0.04)";
 
 /* ── Fuel types & prices (cetvel) ── */
-const FUEL_TYPES = [
+const DEFAULT_FUEL_TYPES = [
   { key: "benzin", label: "Benzin", price: 42.50 },
   { key: "dizel", label: "Dizel", price: 40.80 },
   { key: "lpg", label: "LPG", price: 21.00 },
@@ -71,6 +73,12 @@ const PC: Record<string, [number, number]> = {
 
 function getCoords(province: string): [number, number] | null {
   return PC[norm(province)] || null;
+}
+
+function getDistrictCoords(province: string, district: string): [number, number] | null {
+  const prov = districtCoords[norm(province)];
+  if (!prov) return null;
+  return prov[norm(district)] || null;
 }
 
 /* ── Haversine ── */
@@ -173,19 +181,19 @@ function Dropdown({ value, onChange, options, placeholder, disabled }: {
 /* ═══════════════════════════════════════════
    LOCATION SELECTOR (il > ilçe > mahalle)
    ═══════════════════════════════════════════ */
-function LocationSelector({ label, il, ilce, mahalle, onIl, onIlce, onMahalle, excludeIl }: {
+function LocationSelector({ label, il, ilce, mahalle, onIl, onIlce, onMahalle, excludeIlce }: {
   label: string; il: string; ilce: string; mahalle: string;
   onIl: (v: string) => void; onIlce: (v: string) => void; onMahalle: (v: string) => void;
-  excludeIl?: string;
+  excludeIlce?: string;
 }) {
   const provinces = useMemo(() => {
-    return Object.keys(citiesData).filter(p => p !== excludeIl).sort((a, b) => a.localeCompare(b, "tr"));
-  }, [excludeIl]);
+    return Object.keys(citiesData).sort((a, b) => a.localeCompare(b, "tr"));
+  }, []);
 
   const districts = useMemo(() => {
     if (!il || !citiesData[il]) return [];
-    return Object.keys(citiesData[il]).sort((a, b) => a.localeCompare(b, "tr"));
-  }, [il]);
+    return Object.keys(citiesData[il]).filter(d => d !== excludeIlce).sort((a, b) => a.localeCompare(b, "tr"));
+  }, [il, excludeIlce]);
 
   const neighborhoods = useMemo(() => {
     if (!il || !ilce || !citiesData[il]?.[ilce]) return [];
@@ -223,6 +231,32 @@ export default function YakitHesaplamaPage() {
   const [yakit, setYakit] = useState("benzin");
   const [tuketim, setTuketim] = useState(7.5);
   const [gidisDon, setGidisDon] = useState(false);
+  const [fuelTypes, setFuelTypes] = useState(DEFAULT_FUEL_TYPES);
+
+  useEffect(() => {
+    const citySlug = fromIl ? norm(fromIl).toLowerCase() : "istanbul";
+
+    fetch(`/api/fiyatlar/${citySlug}`)
+        .then(res => res.json())
+        .then(data => {
+            if (!data.veriler || data.veriler.length === 0) return;
+            const f = data.veriler[0].fiyatlar;
+            const parsePrice = (p: any) => {
+                if (!p) return null;
+                const parsed = parseFloat(p.toString().replace(',', '.'));
+                return isNaN(parsed) ? null : parsed;
+            };
+
+            if (f) {
+                setFuelTypes([
+                    { key: "benzin", label: "Benzin", price: parsePrice(f.benzin_95?.fiyat) || 42.50 },
+                    { key: "dizel", label: "Dizel", price: parsePrice(f.motorin?.fiyat) || 40.80 },
+                    { key: "lpg", label: "LPG", price: parsePrice(f.lpg_otogaz?.fiyat) || 21.00 },
+                ]);
+            }
+        })
+        .catch(err => console.warn('Yakıt API hatası:', err));
+  }, [fromIl]);
 
   const handleFuel = (k: string) => { setYakit(k); setTuketim(DEF_CONS[k]); };
   const swap = () => {
@@ -233,18 +267,45 @@ export default function YakitHesaplamaPage() {
 
   const results = useMemo(() => {
     if (!fromIl || !toIl) return null;
-    const c1 = getCoords(fromIl), c2 = getCoords(toIl);
-    if (!c1 || !c2) return null;
-    const tek = roadKm(c1, c2);
+    
+    let tek: number;
+    
+    if (fromIl === toIl) {
+        // Aynı il içinde: ilçe koordinatlarıyla hesapla
+        if (!fromIlce || !toIlce || fromIlce === toIlce) return null;
+        const dc1 = getDistrictCoords(fromIl, fromIlce);
+        const dc2 = getDistrictCoords(toIl, toIlce);
+        if (dc1 && dc2) {
+            tek = roadKm(dc1, dc2);
+            if (tek < 5) tek = 5; // Minimum 5km
+        } else {
+            tek = 30; // Koordinat bulunamazsa fallback
+        }
+    } else {
+        // Farklı iller: ilçe varsa ilçe koordinatı, yoksa il koordinatı
+        let c1: [number, number] | null = null;
+        let c2: [number, number] | null = null;
+        
+        if (fromIlce) c1 = getDistrictCoords(fromIl, fromIlce);
+        if (!c1) c1 = getCoords(fromIl);
+        
+        if (toIlce) c2 = getDistrictCoords(toIl, toIlce);
+        if (!c2) c2 = getCoords(toIl);
+        
+        if (!c1 || !c2) return null;
+        tek = roadKm(c1, c2);
+    }
+
+    if (isNaN(tek) || tek <= 0) return null;
     const total = gidisDon ? tek * 2 : tek;
-    const fuel = FUEL_TYPES.find(f => f.key === yakit)!;
+    const fuel = fuelTypes.find(f => f.key === yakit)!;
     const lt = (total * tuketim) / 100;
     const cost = lt * fuel.price;
     const perKm = (tuketim / 100) * fuel.price;
     return { tek, total, lt, cost, perKm, price: fuel.price };
-  }, [fromIl, toIl, yakit, tuketim, gidisDon]);
+  }, [fromIl, toIl, fromIlce, toIlce, yakit, tuketim, gidisDon, fuelTypes]);
 
-  const curFuel = FUEL_TYPES.find(f => f.key === yakit)!;
+  const curFuel = fuelTypes.find(f => f.key === yakit) || fuelTypes[0];
 
   const fromLabel = [fromIl && fmt(fromIl), fromIlce && fmt(fromIlce), fromMah && fmt(fromMah)].filter(Boolean).join(", ");
   const toLabel = [toIl && fmt(toIl), toIlce && fmt(toIlce), toMah && fmt(toMah)].filter(Boolean).join(", ");
@@ -280,7 +341,7 @@ export default function YakitHesaplamaPage() {
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "12px", alignItems: "start" }}>
               <LocationSelector label="Nereden" il={fromIl} ilce={fromIlce} mahalle={fromMah}
-                onIl={setFromIl} onIlce={setFromIlce} onMahalle={setFromMah} excludeIl={toIl} />
+                onIl={setFromIl} onIlce={setFromIlce} onMahalle={setFromMah} excludeIlce={fromIl === toIl ? toIlce : undefined} />
 
               <button onClick={swap} style={{
                 width: "38px", height: "38px", borderRadius: "10px", border: `1.5px solid ${AC_B}`,
@@ -294,7 +355,7 @@ export default function YakitHesaplamaPage() {
               </button>
 
               <LocationSelector label="Nereye" il={toIl} ilce={toIlce} mahalle={toMah}
-                onIl={setToIl} onIlce={setToIlce} onMahalle={setToMah} excludeIl={fromIl} />
+                onIl={setToIl} onIlce={setToIlce} onMahalle={setToMah} excludeIlce={fromIl === toIl ? fromIlce : undefined} />
             </div>
 
             {/* Round trip */}
@@ -317,7 +378,7 @@ export default function YakitHesaplamaPage() {
           <div style={{ ...card, marginBottom: "16px" }}>
             <div style={secTitle}><Fuel size={13} color={AC} /> {"Yakıt Türü & Fiyat Cetveli"}</div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px" }}>
-              {FUEL_TYPES.map(f => {
+              {fuelTypes.map(f => {
                 const on = yakit === f.key;
                 return (
                   <button key={f.key} onClick={() => handleFuel(f.key)} style={{
