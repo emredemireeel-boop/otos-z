@@ -96,7 +96,7 @@ export default function ChronicIssuesPage() {
                                     <p style={{ fontSize: '16px', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '16px' }}>
                                         {issue.description}
                                     </p>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: 'var(--foreground)', background: 'var(--card-bg)', padding: '12px 16px', borderRadius: '8px', display: 'inline-flex' }}>
+                                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: 'var(--foreground)', background: 'var(--card-bg)', padding: '12px 16px', borderRadius: '8px' }}>
                                         <span style={{ fontSize: '18px' }}>📊</span>
                                         <span>Bugüne kadar</span>
                                         <strong style={{ color: 'var(--primary)', fontSize: '16px' }}>{issue.reportCount}</strong>
