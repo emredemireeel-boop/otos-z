@@ -64,26 +64,8 @@ export default function ObdSection() {
         }
     };
 
-    const getOBDSchema = () => {
-        if (displayedCodes.length === 0) return null;
-        const schema = {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": displayedCodes.slice(0, 20).map((code) => ({
-                "@type": "Question",
-                "name": `${code.code} Arıza Kodu Nedir?`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": `${code.title}. ${code.description}`
-                }
-            }))
-        };
-        return JSON.stringify(schema);
-    };
-
     return (
         <div style={{ width: '100%' }}>
-            {getOBDSchema() && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getOBDSchema()! }} />}
             {/* Category Pills inside the section instead of header, for mobile/quick access mostly handled by sidebar but good to have */}
             <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '16px', marginBottom: '16px', borderBottom: '1px solid var(--card-border)' }}>
                 {CATEGORIES.map((cat) => (
@@ -107,7 +89,7 @@ export default function ObdSection() {
                 ))}
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+            <div className="obd-layout">
                 {/* Left Sidebar */}
                 <aside>
                     <div style={{
@@ -534,7 +516,7 @@ function DetailModal({ code, onClose, getTypeColor }: { code: ObdCode, onClose: 
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '24px' }}>
+                    <div className="obd-two-col">
                         <div>
                             <h3 style={{ fontSize: '14px', fontWeight: '600', color: '#ef4444', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                 <Activity style={{ width: '16px', height: '16px' }} />
@@ -580,7 +562,7 @@ function DetailModal({ code, onClose, getTypeColor }: { code: ObdCode, onClose: 
                                 <Wrench style={{ width: '16px', height: '16px' }} />
                                 ÇÖZÜM ÖNERİLERİ
                             </h3>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                            <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                                 {code.fixes.map((f, i) => (
                                     <div key={i} style={{
                                         display: 'flex',

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import {
@@ -44,6 +44,7 @@ type ModalType = "ekle" | "duzenle" | "sifre" | "ban" | "delete" | null;
 
 export default function AdminModeratörlerPage() {
     const [mods, setMods] = useState<Moderator[]>(INITIAL);
+    const [isLoaded, setIsLoaded] = useState(false);
     const [selectedMod, setSelectedMod] = useState<Moderator | null>(null);
     const [expandedId, setExpandedId] = useState<string | null>(null);
     const [modal, setModal] = useState<ModalType>(null);
@@ -61,6 +62,26 @@ export default function AdminModeratörlerPage() {
     const [fPerms, setFPerms] = useState<ModPermission[]>([]);
     const [fNewPass, setFNewPass] = useState("");
     const [showNewPass, setShowNewPass] = useState(false);
+
+    // Load from localStorage on mount
+    useEffect(() => {
+        const saved = localStorage.getItem("otosöz_admin_mods");
+        if (saved) {
+            try {
+                setMods(JSON.parse(saved));
+            } catch (e) {
+                console.error("Failed to parse saved moderators", e);
+            }
+        }
+        setIsLoaded(true);
+    }, []);
+
+    // Save to localStorage whenever mods changes
+    useEffect(() => {
+        if (isLoaded) {
+            localStorage.setItem("otosöz_admin_mods", JSON.stringify(mods));
+        }
+    }, [mods, isLoaded]);
 
     const showToast = (msg: string, type = "success") => {
         setToast({ msg, type });

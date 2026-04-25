@@ -93,7 +93,7 @@ export default function QuestionDetailPage() {
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
                 {/* Header */}
                 <div style={{
-                    background: 'linear-gradient(135deg, #064e3b, #0f766e)',
+                    background: 'linear-gradient(135deg, #006C4C, #00C9B8)',
                     borderBottom: '1px solid var(--card-border)', padding: '32px 24px'
                 }}>
                     <div style={{ maxWidth: '900px', margin: '0 auto' }}>

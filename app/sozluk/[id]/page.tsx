@@ -19,6 +19,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const description = `${term.term} nedir? ${term.description.slice(0, 120)}... OtoSöz Otomotiv Sözlüğünde ${term.category} kategorisinde.`;
 
+    const ogUrl = `/api/og?title=${encodeURIComponent(term.term)}&desc=${encodeURIComponent(term.description.slice(0, 160))}`;
+
     return {
         title: `${term.term} Nedir? Anlamı ve Önemi | OtoSöz Otomotiv Sözlüğü`,
         description: description.slice(0, 160),
@@ -28,6 +30,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             description: description.slice(0, 160),
             type: 'article',
             url: `https://www.otosoz.com/sozluk/${id}`,
+            images: [
+                {
+                    url: ogUrl,
+                    width: 1200,
+                    height: 630,
+                    alt: term.term,
+                }
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${term.term} Nedir? | OtoSöz`,
+            description: description.slice(0, 160),
+            images: [ogUrl],
         },
         alternates: {
             canonical: `https://www.otosoz.com/sozluk/${id}`,
@@ -88,11 +104,36 @@ export default async function SozlukTermPage({ params }: PageProps) {
         }
     };
 
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Sayfa",
+                "item": "https://www.otosoz.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Otomotiv Sözlüğü",
+                "item": "https://www.otosoz.com/kutuphane?kategori=otomotiv-sozluk"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": term.term,
+                "item": `https://www.otosoz.com/sozluk/${id}`
+            }
+        ]
+    };
+
     return (
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]) }}
             />
             <SozlukDetailClient term={term} relatedTerms={relatedTerms} sameLetterTerms={sameLetterTerms} />
         </>

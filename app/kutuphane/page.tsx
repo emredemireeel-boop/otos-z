@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
-import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map } from "lucide-react";
+import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard } from "lucide-react";
 import Link from "next/link";
 import ObdSection from "./obd-section";
 import GostergeSection from "./gosterge-section";
@@ -16,7 +16,13 @@ import MevsimselBakimSection from "./mevsimsel-bakim-section";
 import SigortaRehberiSection from "./sigorta-rehberi-section";
 import OtoyolUcretleriSection from "./otoyol-ucretleri-section";
 import BakimZamanlariSection from "./bakim-zamanlari-section";
+import TuvturkMuayeneSection from "./tuvturk-muayene-section";
+import AracSegmentleriSection from "./arac-segmentleri-section";
+import PlakaKodlariSection from "./plaka-kodlari-section";
+import NoterIslemleriSection from "./noter-islemleri-section";
+import EhliyetSiniflariSection from "./ehliyet-siniflari-section";
 import trafikCezalariData from "@/data/trafik_cezalari.json";
+import obdCodes from "@/data/obd-codes.json";
 
 // Types for Library Guides
 interface GuideDetail {
@@ -129,6 +135,11 @@ export default function LibraryPage() {
         { slug: 'sigorta-rehberi', name: 'Sigorta Rehberi', icon: BookMarked, title: 'Kasko vs Trafik Sigortası Karşılaştırma | OtoSöz', description: 'Kasko ve trafik sigortası arasındaki farklar, hasar süreci, sigorta yaptırma rehberi.' },
         { slug: 'otoyol-ve-kopru-ucretleri', name: 'Otoyol Ücretleri', icon: Map, title: 'Otoyol ve Köprü Geçiş Ücretleri 2026 | OtoSöz', description: '2026 yılı güncel Karayolları (KGM) ve Yap-İşlet-Devret otoyol, köprü, tünel geçiş ücretleri.' },
         { slug: 'bakim-zamanlari', name: 'Bakım Zamanları', icon: Clock, title: 'Araç Bakım Zamanları ve Periyotları | OtoSöz', description: 'Benzinli, dizel, LPG, hibrit ve elektrikli araçlar için kilometre ve yıl bazlı periyodik bakım takvimi.' },
+        { slug: 'tuvturk-muayene', name: 'TÜVTÜRK', icon: ShieldAlert, title: 'TÜVTÜRK Araç Muayenesi Rehberi 2026 | OtoSöz', description: 'Ağır kusurlar, hafif kusurlar, randevu alma ve araç muayene aşamaları.' },
+        { slug: 'arac-segmentleri', name: 'Kasa ve Segmentler', icon: BookMarked, title: 'Araç Kasa Tipleri ve Segmentler (A,B,C,D) | OtoSöz', description: 'SUV, Sedan, Hatchback nedir? A, B, C, D sınıfı araç farkları ve karşılaştırma tablosu.' },
+        { slug: 'plaka-kodlari', name: 'Plaka Kodları', icon: MapPin, title: 'Türkiye Plaka Kodları ve Özel Plakalar | OtoSöz', description: '01-81 tüm il plaka kodları sorgulama ve kırmızı, yeşil, sarı renkli özel plakaların anlamları.' },
+        { slug: 'noter-islemleri', name: 'Noter & Alım Satım', icon: Handshake, title: '2026 Araç Noter İşlemleri ve Devir Ücretleri | OtoSöz', description: '2026 güncel noter araç satış ve plaka devir harçları. Güvenli ödeme sistemi rehberi.' },
+        { slug: 'ehliyet-siniflari', name: 'Ehliyet & Harçlar', icon: IdCard, title: '2026 Ehliyet Sınıfları ve Sınav Harçları | OtoSöz', description: 'A, B, C, D sınıfı ehliyetler neleri kullanır? 2026 ehliyet harcı ücretleri ve SRC belgesi rehberi.' },
     ];
 
     // Determine active tab from URL
@@ -143,7 +154,7 @@ export default function LibraryPage() {
     useEffect(() => {
         const currentTab = tabSlugs[activeTab];
         document.title = currentTab.title;
-        
+
         // Update meta description
         let metaDesc = document.querySelector('meta[name="description"]');
         if (!metaDesc) {
@@ -269,21 +280,21 @@ export default function LibraryPage() {
                 t.term.toLowerCase().includes(query) ||
                 t.description.toLowerCase().includes(query)
             );
-            
+
             // Sort by relevance (Exact match > Starts with > Term includes > Description includes)
             return filtered.sort((a, b) => {
                 const aTerm = a.term.toLowerCase();
                 const bTerm = b.term.toLowerCase();
-                
+
                 if (aTerm === query && bTerm !== query) return -1;
                 if (bTerm === query && aTerm !== query) return 1;
-                
+
                 if (aTerm.startsWith(query) && !bTerm.startsWith(query)) return -1;
                 if (bTerm.startsWith(query) && !aTerm.startsWith(query)) return 1;
-                
+
                 if (aTerm.includes(query) && !bTerm.includes(query)) return -1;
                 if (bTerm.includes(query) && !aTerm.includes(query)) return 1;
-                
+
                 return 0;
             });
         }
@@ -323,8 +334,26 @@ export default function LibraryPage() {
         return JSON.stringify(schema);
     };
 
+    const getOBDSchema = () => {
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": obdCodes.slice(0, 20).map((code: any) => ({
+                "@type": "Question",
+                "name": `${code.code} Arıza Kodu Nedir?`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": `${code.title}. ${code.description}`
+                }
+            }))
+        };
+        return JSON.stringify(schema);
+    };
+
     return (
         <div>
+            {getMythBustersSchema() && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getMythBustersSchema()! }} />}
+            {getOBDSchema() && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getOBDSchema()! }} />}
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -356,72 +385,76 @@ export default function LibraryPage() {
                                         fontWeight: '600',
                                         color: 'var(--text-muted)'
                                     }}>
-                                         {activeTab === 1 ? 'İpuçları & Bilgiler'
+                                        {activeTab === 1 ? 'İpuçları & Bilgiler'
                                             : activeTab === 2 ? `${filteredDictionary.length} Terim`
-                                            : activeTab === 3 ? 'OBD Veritabanı'
-                                            : activeTab === 4 ? 'Gösterge Paneli'
-                                            : activeTab === 5 ? '2026 Trafik Cezaları'
-                                            : activeTab === 6 ? 'Yakıt & Maliyet Hesaplama'
-                                            : activeTab === 7 ? 'Km Bazlı Bakım Takvimi'
-                                            : activeTab === 8 ? 'Lastik Kodu & Mevsim Rehberi'
-                                            : activeTab === 9 ? 'İkinci El Kontrol Listesi'
-                                            : activeTab === 10 ? 'Kaza Anında Ne Yapmalı'
-                                            : activeTab === 11 ? 'Kış & Yaz Hazırlığı'
-                                            : 'Kasko vs Trafik Sigortası'}
+                                                : activeTab === 3 ? 'OBD Veritabanı'
+                                                    : activeTab === 4 ? 'Gösterge Paneli'
+                                                        : activeTab === 5 ? '2026 Trafik Cezaları'
+                                                            : activeTab === 6 ? 'Yakıt & Maliyet Hesaplama'
+                                                                : activeTab === 7 ? 'Km Bazlı Bakım Takvimi'
+                                                                    : activeTab === 8 ? 'Lastik Kodu & Mevsim Rehberi'
+                                                                        : activeTab === 9 ? 'İkinci El Kontrol Listesi'
+                                                                                 : activeTab === 11 ? 'Kış & Yaz Hazırlığı'
+                                                                                    : activeTab === 12 ? 'Kasko vs Trafik Sigortası'
+                                                                                        : activeTab === 13 ? 'Araç Muayene Rehberi'
+                                                                                            : activeTab === 14 ? 'Kasa Tipleri ve Segmentler'
+                                                                                                : activeTab === 15 ? 'Plaka Kodları'
+                                                                                                    : activeTab === 16 ? 'Noter İşlemleri'
+                                                                                                        : 'Ehliyet Sınıfları ve Harçlar'}
                                     </span>
                                 )}
                             </div>
 
                             {/* Search Bar */}
                             {(activeTab !== 3 && activeTab !== 4 && activeTab < 6) && (
-                            <div style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '10px',
-                                padding: '10px 16px',
-                                background: 'var(--secondary)',
-                                border: '1px solid var(--card-border)',
-                                borderRadius: '12px',
-                                minWidth: '250px',
-                                flex: '1',
-                                maxWidth: '400px',
-                            }}>
-                                <Search style={{ width: '18px', height: '18px', color: 'var(--text-muted)' }} />
-                                <input
-                                    type="text"
-                                    placeholder="Kütüphanede ara..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    style={{
-                                        flex: 1,
-                                        background: 'transparent',
-                                        border: 'none',
-                                        outline: 'none',
-                                        color: 'var(--foreground)',
-                                        fontSize: '14px',
-                                    }}
-                                />
-                                {searchQuery && (
-                                    <button
-                                        onClick={() => setSearchQuery("")}
+                                <div style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '10px',
+                                    padding: '10px 16px',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '12px',
+                                    minWidth: '250px',
+                                    flex: '1',
+                                    maxWidth: '400px',
+                                }}>
+                                    <Search style={{ width: '18px', height: '18px', color: 'var(--text-muted)' }} />
+                                    <input
+                                        type="text"
+                                        placeholder="Kütüphanede ara..."
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
                                         style={{
+                                            flex: 1,
                                             background: 'transparent',
                                             border: 'none',
-                                            color: 'var(--text-muted)',
-                                            cursor: 'pointer',
-                                            display: 'flex',
-                                            alignItems: 'center'
+                                            outline: 'none',
+                                            color: 'var(--foreground)',
+                                            fontSize: '14px',
                                         }}
-                                    >
-                                        <XCircle style={{ width: '16px', height: '16px' }} />
-                                    </button>
-                                )}
-                            </div>
+                                    />
+                                    {searchQuery && (
+                                        <button
+                                            onClick={() => setSearchQuery("")}
+                                            style={{
+                                                background: 'transparent',
+                                                border: 'none',
+                                                color: 'var(--text-muted)',
+                                                cursor: 'pointer',
+                                                display: 'flex',
+                                                alignItems: 'center'
+                                            }}
+                                        >
+                                            <XCircle style={{ width: '16px', height: '16px' }} />
+                                        </button>
+                                    )}
+                                </div>
                             )}
                         </div>
 
                         {/* Tab Pills */}
-                        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', paddingBottom: '4px' }}>
+                        <div className="kutuphane-tabs">
                             {tabs.map((tab, index) => {
                                 const Icon = tab.icon;
                                 return (
@@ -479,124 +512,124 @@ export default function LibraryPage() {
                                 {searchQuery && <button onClick={() => setSearchQuery('')} style={{ fontSize: '12px', color: 'var(--primary)', background: 'none', border: 'none', cursor: 'pointer' }}>Aramayı Temizle</button>}
                             </div>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
-                            {paginatedGuides.map((guide) => (
-                                <Link key={guide.id} href={`/makale/${createSlug(guide.title)}--${(guide as any).urlId}`} style={{ textDecoration: 'none' }}>
-                                    <div style={{
-                                        background: 'var(--card-bg)',
-                                        border: '1px solid var(--card-border)',
-                                        borderRadius: '16px',
-                                        padding: '24px',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.2s ease',
-                                        height: '100%'
-                                    }}
-                                        onMouseEnter={(e) => {
-                                            e.currentTarget.style.borderColor = 'var(--primary)';
-                                            e.currentTarget.style.transform = 'translateY(-4px)';
-                                            e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.08)';
+                            <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
+                                {paginatedGuides.map((guide) => (
+                                    <Link key={guide.id} href={`/makale/${createSlug(guide.title)}--${(guide as any).urlId}`} style={{ textDecoration: 'none' }}>
+                                        <div style={{
+                                            background: 'var(--card-bg)',
+                                            border: '1px solid var(--card-border)',
+                                            borderRadius: '16px',
+                                            padding: '24px',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.2s ease',
+                                            height: '100%'
                                         }}
-                                        onMouseLeave={(e) => {
-                                            e.currentTarget.style.borderColor = 'var(--card-border)';
-                                            e.currentTarget.style.transform = 'translateY(0)';
-                                            e.currentTarget.style.boxShadow = 'none';
-                                        }}>
-                                        {/* Header */}
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                                            <div style={{
-                                                width: '50px',
-                                                height: '50px',
-                                                borderRadius: '12px',
-                                                background: 'linear-gradient(135deg, #1e293b, #0f172a)',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center'
+                                            onMouseEnter={(e) => {
+                                                e.currentTarget.style.borderColor = 'var(--primary)';
+                                                e.currentTarget.style.transform = 'translateY(-4px)';
+                                                e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.08)';
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                e.currentTarget.style.borderColor = 'var(--card-border)';
+                                                e.currentTarget.style.transform = 'translateY(0)';
+                                                e.currentTarget.style.boxShadow = 'none';
                                             }}>
-                                                <BookOpen size={24} color="white" />
+                                            {/* Header */}
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                                                <div style={{
+                                                    width: '50px',
+                                                    height: '50px',
+                                                    borderRadius: '12px',
+                                                    background: 'linear-gradient(135deg, #1e293b, #0f172a)',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center'
+                                                }}>
+                                                    <BookOpen size={24} color="white" />
+                                                </div>
+                                                <div style={{ flex: 1 }}>
+                                                    <div style={{ display: 'flex', gap: '8px', marginBottom: '4px' }}>
+                                                        <span style={{
+                                                            padding: '4px 10px',
+                                                            background: 'var(--background)',
+                                                            border: '1px solid var(--border-subtle)',
+                                                            color: 'var(--foreground)',
+                                                            fontSize: '11px',
+                                                            borderRadius: '6px',
+                                                            fontWeight: '600',
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: '4px'
+                                                        }}>
+                                                            <Clock style={{ width: '12px', height: '12px', color: 'var(--text-muted)' }} />
+                                                            {guide.minutes} dk
+                                                        </span>
+                                                        <span style={{
+                                                            padding: '4px 10px',
+                                                            background: 'var(--background)',
+                                                            border: `1px solid ${getDifficultyColor(guide.difficulty)}`,
+                                                            color: getDifficultyColor(guide.difficulty),
+                                                            fontSize: '11px',
+                                                            borderRadius: '6px',
+                                                            fontWeight: '700'
+                                                        }}>
+                                                            {guide.difficulty}
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div style={{ flex: 1 }}>
-                                                <div style={{ display: 'flex', gap: '8px', marginBottom: '4px' }}>
-                                                    <span style={{
+
+                                            {/* Title */}
+                                            <h3 style={{
+                                                fontSize: '18px',
+                                                fontWeight: '700',
+                                                color: 'var(--foreground)',
+                                                marginBottom: '12px',
+                                                lineHeight: '1.4',
+                                                display: '-webkit-box',
+                                                WebkitLineClamp: 2,
+                                                WebkitBoxOrient: 'vertical',
+                                                overflow: 'hidden'
+                                            }}>
+                                                {guide.title}
+                                            </h3>
+
+                                            {/* Description */}
+                                            <p style={{
+                                                fontSize: '14px',
+                                                color: 'var(--text-muted)',
+                                                lineHeight: '1.6',
+                                                marginBottom: '16px',
+                                                display: '-webkit-box',
+                                                WebkitLineClamp: 2,
+                                                WebkitBoxOrient: 'vertical',
+                                                overflow: 'hidden'
+                                            }}>
+                                                {guide.description}
+                                            </p>
+
+                                            {/* Tags */}
+                                            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                                                {guide.tags.slice(0, 3).map((tag, idx) => (
+                                                    <span key={idx} style={{
                                                         padding: '4px 10px',
-                                                        background: 'var(--background)',
-                                                        border: '1px solid var(--border-subtle)',
-                                                        color: 'var(--foreground)',
-                                                        fontSize: '11px',
+                                                        background: 'var(--secondary)',
+                                                        border: '1px solid var(--card-border)',
                                                         borderRadius: '6px',
-                                                        fontWeight: '600',
+                                                        fontSize: '11px',
+                                                        color: 'var(--text-muted)',
                                                         display: 'flex',
                                                         alignItems: 'center',
                                                         gap: '4px'
                                                     }}>
-                                                        <Clock style={{ width: '12px', height: '12px', color: 'var(--text-muted)' }} />
-                                                        {guide.minutes} dk
+                                                        <Tag style={{ width: '10px', height: '10px' }} />
+                                                        {tag}
                                                     </span>
-                                                    <span style={{
-                                                        padding: '4px 10px',
-                                                        background: 'var(--background)',
-                                                        border: `1px solid ${getDifficultyColor(guide.difficulty)}`,
-                                                        color: getDifficultyColor(guide.difficulty),
-                                                        fontSize: '11px',
-                                                        borderRadius: '6px',
-                                                        fontWeight: '700'
-                                                    }}>
-                                                        {guide.difficulty}
-                                                    </span>
-                                                </div>
+                                                ))}
                                             </div>
                                         </div>
-
-                                        {/* Title */}
-                                        <h3 style={{
-                                            fontSize: '18px',
-                                            fontWeight: '700',
-                                            color: 'var(--foreground)',
-                                            marginBottom: '12px',
-                                            lineHeight: '1.4',
-                                            display: '-webkit-box',
-                                            WebkitLineClamp: 2,
-                                            WebkitBoxOrient: 'vertical',
-                                            overflow: 'hidden'
-                                        }}>
-                                            {guide.title}
-                                        </h3>
-
-                                        {/* Description */}
-                                        <p style={{
-                                            fontSize: '14px',
-                                            color: 'var(--text-muted)',
-                                            lineHeight: '1.6',
-                                            marginBottom: '16px',
-                                            display: '-webkit-box',
-                                            WebkitLineClamp: 2,
-                                            WebkitBoxOrient: 'vertical',
-                                            overflow: 'hidden'
-                                        }}>
-                                            {guide.description}
-                                        </p>
-
-                                        {/* Tags */}
-                                        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                                            {guide.tags.slice(0, 3).map((tag, idx) => (
-                                                <span key={idx} style={{
-                                                    padding: '4px 10px',
-                                                    background: 'var(--secondary)',
-                                                    border: '1px solid var(--card-border)',
-                                                    borderRadius: '6px',
-                                                    fontSize: '11px',
-                                                    color: 'var(--text-muted)',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    gap: '4px'
-                                                }}>
-                                                    <Tag style={{ width: '10px', height: '10px' }} />
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
+                                    </Link>
+                                ))}
                             </div>
 
                             {/* Pagination */}
@@ -642,10 +675,8 @@ export default function LibraryPage() {
                         </div>
                     )}
 
-                    {/* Tab 2: İlginç (Interesting Facts) */}
                     {activeTab === 1 && filteredInteresting && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                            {getMythBustersSchema() && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getMythBustersSchema()! }} />}
                             {/* Daily Tips */}
                             {filteredInteresting.dailyTips.length > 0 && <SectionCarousel title="Günlük İpuçları" icon={<Lightbulb color="#F59E0B" />}>
                                 {filteredInteresting.dailyTips.map((tip: DailyTip) => (
@@ -724,7 +755,7 @@ export default function LibraryPage() {
                                             onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'var(--card-border)'}
                                         >
                                             <h4 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '20px' }}>{item.title}</h4>
-                                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+                                            <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
                                                 <div>
                                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                                                         <ThumbsUp style={{ width: '16px', height: '16px', color: '#43E97B' }} />
@@ -774,7 +805,7 @@ export default function LibraryPage() {
                                         </div>
                                     </Link>
                                 ))}
-                                </SectionCarousel>}
+                            </SectionCarousel>}
 
                             {/* Myth Busters */}
                             {filteredInteresting.mythBusters.length > 0 && <SectionCarousel title="Mit Kırıcılar" icon={<ShieldAlert color="#EF4444" />}>
@@ -811,7 +842,7 @@ export default function LibraryPage() {
                                         </div>
                                     </Link>
                                 ))}
-                                </SectionCarousel>}
+                            </SectionCarousel>}
 
                             {/* No Results */}
                             {Object.values(filteredInteresting).every((arr: any) => arr.length === 0) && (
@@ -1037,7 +1068,7 @@ export default function LibraryPage() {
                                     Bu tablo <strong style={{ color: 'var(--foreground)', fontWeight: '600' }}>Otosöz</strong> tarafından 2026 yılı güncel mevzuatı kapsamında hazırlanmıştır. Kesin bilgi için yetkili makamlara başvurunuz.
                                 </p>
                             </div>
-                            
+
                             {/* e-Devlet Sorgulama Linki */}
                             <a href="https://www.turkiye.gov.tr/emniyet-arac-plakasina-yazilan-ceza-sorgulama?hizmet=Ekrani" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '16px', padding: '16px', background: 'var(--primary)', color: 'white', borderRadius: '12px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', position: 'relative', zIndex: 1, boxShadow: '0 4px 15px rgba(37, 99, 235, 0.2)' }}>
                                 <ExternalLink size={20} /> e-Devlet'ten Trafik Cezası Sorgula
@@ -1078,6 +1109,31 @@ export default function LibraryPage() {
                     {/* Tab 13: Bakım Zamanları */}
                     {activeTab === 12 && (
                         <BakimZamanlariSection />
+                    )}
+
+                    {/* Tab 14: TÜVTÜRK Araç Muayenesi */}
+                    {activeTab === 13 && (
+                        <TuvturkMuayeneSection />
+                    )}
+
+                    {/* Tab 15: Kasa ve Segmentler */}
+                    {activeTab === 14 && (
+                        <AracSegmentleriSection />
+                    )}
+
+                    {/* Tab 16: Plaka Kodları */}
+                    {activeTab === 15 && (
+                        <PlakaKodlariSection />
+                    )}
+
+                    {/* Tab 17: Noter İşlemleri */}
+                    {activeTab === 16 && (
+                        <NoterIslemleriSection />
+                    )}
+
+                    {/* Tab 18: Ehliyet Sınıfları */}
+                    {activeTab === 17 && (
+                        <EhliyetSiniflariSection />
                     )}
                 </div>
             </main>

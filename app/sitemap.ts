@@ -109,6 +109,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { slug: 'sigorta-rehberi', priority: 0.7 },
         { slug: 'ilginc-bilgiler', priority: 0.6 },
         { slug: 'makaleler', priority: 0.7 },
+        { slug: 'otoyol-ve-kopru-ucretleri', priority: 0.8 },
+        { slug: 'bakim-zamanlari', priority: 0.75 },
+        { slug: 'tuvturk-muayene', priority: 0.85 },
+        { slug: 'arac-segmentleri', priority: 0.75 },
+        { slug: 'plaka-kodlari', priority: 0.75 },
+        { slug: 'noter-islemleri', priority: 0.85 },
+        { slug: 'ehliyet-siniflari', priority: 0.85 },
     ].map(s => ({
         url: `${baseUrl}/kutuphane?kategori=${s.slug}`,
         lastModified: now,
@@ -137,11 +144,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
 
     // ═══════════════════════════════════════════════════════════════
-    // 9. GÖSTERGELER, MAKALELER & OTOYOL ÜCRETLERİ — Dinamik İçerik
+    // 9. GÖSTERGELER, MAKALELER, OTOYOL & TÜVTÜRK — Dinamik İçerik
     // ═══════════════════════════════════════════════════════════════
     let gostergePages: any[] = [];
     let makalePages: any[] = [];
     let otoyolPages: any[] = [];
+    let tuvturkFaqPages: any[] = [];
     try {
         const faultLightsPath = path.join(process.cwd(), 'data', 'fault_lights.json');
         const faultLightsData = JSON.parse(fs.readFileSync(faultLightsPath, 'utf8'));
@@ -169,6 +177,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
                 lastModified: now,
                 changeFrequency: 'weekly' as const,
                 priority: 0.8,
+            }));
+        }
+
+        const tuvturkFaqPath = path.join(process.cwd(), 'data', 'tuvturk_faq.json');
+        if (fs.existsSync(tuvturkFaqPath)) {
+            const tuvturkFaqData = JSON.parse(fs.readFileSync(tuvturkFaqPath, 'utf8'));
+            tuvturkFaqPages = tuvturkFaqData.map((faq: any) => ({
+                url: `${baseUrl}/kutuphane/tuvturk/${faq.slug}--${faq.id}`,
+                lastModified: now,
+                changeFrequency: 'monthly' as const,
+                priority: 0.85,
             }));
         }
     } catch (e) {
@@ -199,6 +218,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...gostergePages,
         ...makalePages,
         ...otoyolPages,
+        ...tuvturkFaqPages,
         ...infoPages,
     ];
 }

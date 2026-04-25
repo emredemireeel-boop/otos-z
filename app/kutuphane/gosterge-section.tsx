@@ -124,7 +124,7 @@ export default function GostergeSection() {
             </div>
 
             {/* Main Content */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '32px' }}>
+            <div className="gosterge-layout">
                 {/* Indicators Grid */}
                 <div>
                     {/* Search Box */}

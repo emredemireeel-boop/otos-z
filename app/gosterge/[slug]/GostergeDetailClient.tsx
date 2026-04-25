@@ -5,6 +5,9 @@ import { ArrowLeft, AlertTriangle, AlertCircle, Share2, ChevronRight, Activity, 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import AutoLinkText from "@/components/AutoLinkText";
+import RelatedContent from "@/components/RelatedContent";
+import FloatingActionBar from "@/components/FloatingActionBar";
 
 export default function GostergeDetailClient({ light }: { light: any }) {
     const handleShare = () => {
@@ -83,9 +86,10 @@ export default function GostergeDetailClient({ light }: { light: any }) {
                                     {light.title}
                                 </h1>
 
-                                <p style={{ fontSize: '16px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '24px' }}>
-                                    {light.meaning}
-                                </p>
+                                <AutoLinkText 
+                                    text={light.meaning} 
+                                    style={{ fontSize: '16px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '24px' }} 
+                                />
 
                                 <button
                                     onClick={handleShare}
@@ -130,7 +134,10 @@ export default function GostergeDetailClient({ light }: { light: any }) {
                         </div>
                         <div>
                             <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>Nasıl Görünür?</h3>
-                            <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{light.visual_desc}</p>
+                            <AutoLinkText 
+                                text={light.visual_desc} 
+                                style={{ fontSize: '15px', color: 'var(--text-muted)' }} 
+                            />
                         </div>
                     </div>
 
@@ -139,9 +146,10 @@ export default function GostergeDetailClient({ light }: { light: any }) {
                         <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '20px', fontWeight: '800', color: isCritical ? '#ef4444' : '#eab308', marginBottom: '16px' }}>
                             <Wrench size={24} /> Yapılması Gerekenler
                         </h3>
-                        <p style={{ fontSize: '17px', color: 'var(--foreground)', lineHeight: '1.7', fontWeight: isCritical ? '600' : '400' }}>
-                            {light.action}
-                        </p>
+                        <AutoLinkText 
+                            text={light.action} 
+                            style={{ fontSize: '17px', color: 'var(--foreground)', fontWeight: isCritical ? 600 : 400 }} 
+                        />
                     </div>
 
                     <div style={{ marginTop: '20px', borderTop: '1px solid var(--card-border)', paddingTop: '32px', display: 'flex', justifyContent: 'center' }}>
@@ -163,8 +171,17 @@ export default function GostergeDetailClient({ light }: { light: any }) {
                             </div>
                         </Link>
                     </div>
+                    
+                    {/* Related Content / Recommendations */}
+                    <div style={{ paddingBottom: '20px' }}>
+                        <RelatedContent currentId={light.id} tags={light.tags || []} titleKeywords={light.title.split(' ')} />
+                    </div>
                 </div>
             </main>
+            <FloatingActionBar 
+                title={light.title} 
+                url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/gosterge/${light.id}`} 
+            />
             <Footer />
         </>
     );

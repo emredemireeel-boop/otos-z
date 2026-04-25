@@ -1,0 +1,74 @@
+{
+    "ucretler": [
+        {
+            "islem": "2. El Araç Devir Ücreti",
+            "ucret": "1.870 TL - 1.970 TL + Nispi Harç",
+            "detay": "2026 Nisan güncel tutarıdır. Sabit noter hizmet bedeline ek olarak, aracın satış bedeli üzerinden binde 2 oranında (minimum 1.000 TL) nispi satış harcı ödenmektedir."
+        },
+        {
+            "islem": "Sıfır Araç Tescil (Ruhsat) Ücreti",
+            "ucret": "1.138,15 TL",
+            "detay": "Bayiden alınan sıfır kilometre aracın ilk tescil ve ruhsat çıkarılma bedeli."
+        },
+        {
+            "islem": "Plaka Değişikliği (Yenileme) Masrafı",
+            "ucret": "2.050,00 TL",
+            "detay": "Araç devri sırasında veya zayi durumunda plakanın yenilenmesi (Noter harcı + Şoförler Odası plaka basım ücreti)."
+        },
+        {
+            "islem": "Ruhsat Yaprağı Yenileme",
+            "ucret": "885,00 TL",
+            "detay": "Kayıp, çalıntı veya yıpranma nedeniyle ruhsatın (Motorlu Araç Tescil Belgesi) yenilenmesi."
+        },
+        {
+            "islem": "Güvenli Ödeme Sistemi Komisyonu",
+            "ucret": "105,00 TL",
+            "detay": "Araç satışında dolandırıcılığı önlemek için 2023 itibarıyla zorunlu hale gelen ödeme sisteminin hizmet bedeli."
+        }
+    ],
+    "guvenliOdeme": {
+        "baslik": "Güvenli Ödeme Sistemi Nedir? (ZORUNLU)",
+        "aciklama": "Araç alım-satım işlemlerinde nakit taşıma riskini ve 'Para gelmedi ama imza atıldı' şeklindeki dolandırıcılık vakalarını önlemek amacıyla Adalet Bakanlığı ve Türkiye Noterler Birliği tarafından 2026'da tam zorunlu hale getirilen sistemdir.",
+        "adimlar": [
+            "ADIM 1 (SATICI): Satıcı, e-Devlet üzerinden veya doğrudan kendi kullandığı bankanın mobil uygulamasından 'Ödemeler > Güvenli Araç Alım Satım > Satıcıyım' menüsüne girer. Araç plakası ve satış tutarını sisteme girerek benzersiz bir 'Referans Numarası' oluşturur.",
+            "ADIM 2 (ALICI): Alıcı, satıcının oluşturduğu bu referans numarasını alır. Kendi bankasının mobil uygulamasına girip 'Ödemeler > Güvenli Araç Alım Satım > Alıcıyım' bölümüne referans numarasını yazar.",
+            "ADIM 3 (PARA TRANSFERİ): Alıcı, satış bedelini doğrudan satıcının hesabına DEĞİL, banka aracılığıyla Türkiye Noterler Birliği'nin (TNB) özel takas havuz hesabına (Emanet hesaba) EFT/Havale yapar.",
+            "ADIM 4 (GÜVENCE TEYİDİ): Para TNB havuz hesabına ulaştığında, hem alıcıya hem satıcıya 'Para güvene alınmıştır, noter işlemine başlayabilirsiniz' şeklinde onay SMS'i gelir.",
+            "ADIM 5 (NOTER İMZASI): Taraflar notere gider. Noter tescil ekranında paranın havuzda beklediğini görür ve satış sözleşmesini yazdırıp taraflara imzalatır.",
+            "ADIM 6 (OTOMATİK AKTARIM): Noter satış onay butonuna bastığı milisaniye içerisinde, sistem bloke altındaki parayı otomatik olarak satıcının önceden belirlediği banka hesabına geçirir. İşlem iptal edilirse, para anında alıcıya iade edilir."
+        ]
+    },
+    "adimlar": [
+        {
+            "id": 1,
+            "baslik": "Ön Kontrol ve Borç Sorgulama",
+            "aciklama": "Notere gitmeden önce aracın MTV borcu, trafik cezası, HGS/OGS borcu veya üzerinde haciz/rehin olup olmadığı kontrol edilmelidir. Aksi halde noter satışa onay vermez."
+        },
+        {
+            "id": 2,
+            "baslik": "Güvenli Ödeme İşleminin Başlatılması",
+            "aciklama": "Alıcı ve satıcı bankaları üzerinden Güvenli Ödeme referans kodunu oluşturup parayı Noterler Birliği havuzuna aktarmalıdır."
+        },
+        {
+            "id": 3,
+            "baslik": "Noter Huzurunda İşlem",
+            "aciklama": "Alıcı ve satıcı, kimlik belgeleri ve araç ruhsatı ile notere başvurur. Noter kimlik tespiti yapar ve devir sözleşmesini hazırlar."
+        },
+        {
+            "id": 4,
+            "baslik": "İmza ve Para Transferi",
+            "aciklama": "Sözleşme okunup imzalandığı anda, havuzdaki araç bedeli anında satıcının hesabına transfer edilir. Dolandırıcılık riski sıfıra iner."
+        },
+        {
+            "id": 5,
+            "baslik": "Geçici Ruhsat ve Sigorta",
+            "aciklama": "Noter 1 ay geçerli 'Geçici Tescil Belgesi' (Ruhsat) verir. Alıcı 15 gün içinde kendi adına Zorunlu Trafik Sigortası yaptırmak zorundadır."
+        }
+    ],
+    "dolandiricilikUyarilari": [
+        "Havale/EFT yaparken açıklama kısmına MUTLAKA '... plakalı aracın satış bedeli' yazın.",
+        "Vekalet ile yapılan satışlarda vekaletnamenin tarihini, kapsamını ve noterden geçerliliğini teyit edin.",
+        "Asla kaparo veya ön ödeme adı altında tanımadığınız kişilere araç görmeden para göndermeyin.",
+        "Sahte dekont dolandırıcılığına karşı paranın kendi hesabınıza geçtiğini banka uygulamanızdan bizzat teyit etmeden noterde imza atmayın (Artık güvenli ödeme sistemi bu riski engelliyor)."
+    ]
+}

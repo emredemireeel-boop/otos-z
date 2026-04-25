@@ -121,22 +121,25 @@ function PodiumItem({
 
             {/* Avatar */}
             <div style={{
-                width: '40px',
-                height: '40px',
+                width: '44px',
+                height: '44px',
                 borderRadius: '50%',
-                background: brand.brandColor || 'var(--card-bg)',
-                border: '2px solid var(--card-border)',
+                background: `linear-gradient(135deg, ${brand.brandColor || '#3b82f6'}, #0f172a)`,
+                border: `2px solid ${c.border}`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginBottom: '8px',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                position: 'relative',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
             }}>
-                {brand.logoUrl ? (
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top right, rgba(0,0,0,0.4), transparent, rgba(255,255,255,0.2))' }}></div>
+                {brand.logoUrl && (
                     <img 
                         src={brand.logoUrl} 
                         alt={brand.name} 
-                        style={{ width: '100%', height: '100%', objectFit: 'contain', background: 'white', padding: '4px' }}
+                        style={{ position: 'relative', zIndex: 10, width: '100%', height: '100%', objectFit: 'contain', background: 'white', padding: '4px' }}
                         onError={(e) => {
                             e.currentTarget.style.display = 'none';
                             if (e.currentTarget.nextElementSibling) {
@@ -144,8 +147,24 @@ function PodiumItem({
                             }
                         }}
                     />
-                ) : null}
-                <span className={brand.logoUrl ? 'hidden' : ''} style={{ fontSize: '18px', fontWeight: '900', color: 'white' }}>{brand.logoEmoji}</span>
+                )}
+                <span 
+                    className={brand.logoUrl ? 'hidden' : ''} 
+                    style={{ 
+                        position: 'relative', 
+                        zIndex: 10, 
+                        fontSize: '18px', 
+                        fontWeight: '900', 
+                        color: 'transparent',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        backgroundImage: 'linear-gradient(to bottom right, #ffffff, rgba(255,255,255,0.6))',
+                        filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))',
+                        letterSpacing: '-0.5px'
+                    }}
+                >
+                    {brand.name.substring(0, 2).toUpperCase()}
+                </span>
             </div>
 
             {/* Brand Info */}

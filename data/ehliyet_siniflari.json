@@ -1,0 +1,118 @@
+{
+    "siniflar": [
+        {
+            "id": "M",
+            "isim": "M Sınıfı (Moped)",
+            "araclar": "Motorlu Bisiklet (Moped) - İki, üç ve dört tekerlekli",
+            "yasSiniri": 16,
+            "tecrube": "Gerekmiyor"
+        },
+        {
+            "id": "A1",
+            "isim": "A1 Sınıfı (Hafif Motosiklet)",
+            "araclar": "Silindir hacmi 125 cc'ye kadar, gücü 11 kW'ı geçmeyen motosikletler",
+            "yasSiniri": 16,
+            "tecrube": "Gerekmiyor"
+        },
+        {
+            "id": "A2",
+            "isim": "A2 Sınıfı (Motosiklet)",
+            "araclar": "Gücü 35 kW'ı geçmeyen (Ortalama 500 cc'ye kadar) motosikletler",
+            "yasSiniri": 18,
+            "tecrube": "Gerekmiyor"
+        },
+        {
+            "id": "A",
+            "isim": "A Sınıfı (Büyük Motosiklet)",
+            "araclar": "Gücü 35 kW'ı geçen tüm motosikletler",
+            "yasSiniri": 20,
+            "tecrube": "En az 2 yıllık A2 ehliyeti (24 yaş üstü iseniz tecrübe şartı aranmaz)"
+        },
+        {
+            "id": "B",
+            "isim": "B Sınıfı (Otomobil / Kamyonet)",
+            "araclar": "Otomobil, Kamyonet (Azami yüklü ağırlığı 3.500 kg'ı geçmeyen)",
+            "yasSiniri": 18,
+            "tecrube": "Gerekmiyor (M, B1 ve F sınıfı araçları da kullanabilir)"
+        },
+        {
+            "id": "C",
+            "isim": "C Sınıfı (Kamyon)",
+            "araclar": "Azami yüklü ağırlığı 3.500 kg'dan fazla olan Kamyon ve Çekici",
+            "yasSiniri": 21,
+            "tecrube": "En az B sınıfı ehliyet"
+        },
+        {
+            "id": "D",
+            "isim": "D Sınıfı (Minibüs / Otobüs)",
+            "araclar": "Yolcu taşıma amaçlı (Minibüs ve Otobüs)",
+            "yasSiniri": 24,
+            "tecrube": "En az B sınıfı ehliyet"
+        },
+        {
+            "id": "E",
+            "isim": "CE Sınıfı (TIR / Römorklu Kamyon)",
+            "araclar": "Kamyon veya Çekiciye takılan ağır römorklu araçlar (TIR)",
+            "yasSiniri": 21,
+            "tecrube": "En az C sınıfı ehliyet"
+        },
+        {
+            "id": "F",
+            "isim": "F Sınıfı (Traktör)",
+            "araclar": "Lastik Tekerlekli Traktör",
+            "yasSiniri": 18,
+            "tecrube": "Gerekmiyor"
+        }
+    ],
+    "ucretler2026": [
+        {
+            "sinif": "A, A1, A2 ve F Sınıfı",
+            "harc": "2.239,90 TL",
+            "degerliKagit": "1.690,00 TL",
+            "vakifPayi": "425,00 TL",
+            "toplam": "4.354,90 TL"
+        },
+        {
+            "sinif": "B Sınıfı (Otomobil)",
+            "harc": "6.754,60 TL",
+            "degerliKagit": "1.690,00 TL",
+            "vakifPayi": "425,00 TL",
+            "toplam": "8.869,60 TL"
+        },
+        {
+            "sinif": "B1, BE, C1, C1E, C, CE, D1, D1E, D, DE",
+            "harc": "11.271,20 TL",
+            "degerliKagit": "1.690,00 TL",
+            "vakifPayi": "425,00 TL",
+            "toplam": "13.386,20 TL"
+        }
+    ],
+    "digerUcretler": [
+        {
+            "islem": "Kayıp / Yenileme / Çalıntı Ehliyet Çıkarma",
+            "ucret": "2.115,00 TL",
+            "detay": "Eski tip (2016 öncesi) ehliyetlerin yeni tipe çevrilmesi süresi dolduğu için cezalı tarife (değerli kağıt + vakıf payı tam tutarı) alınmaktadır."
+        },
+        {
+            "islem": "Sürücü Kursu Ortalama Taban Fiyatları (B Sınıfı)",
+            "ucret": "25.000 TL - 30.000 TL",
+            "detay": "İllere ve valiliklerin belirlediği taban fiyatlara göre değişiklik gösterir. Direksiyon ve teorik eğitim dahildir."
+        },
+        {
+            "islem": "Milli Eğitim (MEB) Sınav Ücretleri",
+            "ucret": "E-Sınav (Teorik): 900 TL / Direksiyon: 2.000 TL",
+            "detay": "E-sınav (Teorik) ve Direksiyon sınavlarına her girişinizde MEB'e yatırılan harç tutarı (2026 güncel)."
+        }
+    ],
+    "srcBelgesi": {
+        "baslik": "SRC Belgesi Nedir?",
+        "aciklama": "Karayolu Taşıma Yönetmeliğine göre, ticari amaçla yük, eşya veya yolcu taşıyan sürücülerin alması zorunlu olan Mesleki Yeterlilik Belgesidir. Ehliyet yeterli değildir, ayrıca SRC alınmalıdır.",
+        "turler": [
+            {"id": "SRC 1", "tanim": "Uluslararası Yolcu Taşımacılığı (Otobüs vb.)"},
+            {"id": "SRC 2", "tanim": "Yurtiçi Yolcu Taşımacılığı (Dolmuş, Taksi, Minibüs, Otobüs)"},
+            {"id": "SRC 3", "tanim": "Uluslararası Eşya-Kargo Taşımacılığı (TIR, Kamyon)"},
+            {"id": "SRC 4", "tanim": "Yurtiçi Eşya-Kargo Taşımacılığı (Kamyonet, Kamyon, Panelvan)"},
+            {"id": "SRC 5", "tanim": "Tehlikeli Madde Taşımacılığı (Akaryakıt, Kimyasal vb.)"}
+        ]
+    }
+}

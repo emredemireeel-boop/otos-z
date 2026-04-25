@@ -101,7 +101,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         dnaScore: 75,
         strengths: [
             "Fiyat/Performans Lideri (En ulaşılabilir C-Sedan)",
-            "GeniŞ Bagaj Hacmi (520 Litre) ve Yaşam Alanı",
+            "Geniş Bagaj Hacmi (520 Litre) ve Yaşam Alanı",
             "Parçası Bakkalda Bile Var (Çok ucuz bakım)",
             "1.3 & 1.6 Multijet Motorların Efsane Dayanıklılığı",
             "City Modu ile Şehir İçi Pamuk Gibi Direksiyon",
@@ -109,7 +109,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         weaknesses: [
             "Düşük Güvenlik Donanımı (Baz paketlerde yetersiz)",
-            "Yüksek Hızda Güven Vermeyen Yol TutuŞ",
+            "Yüksek Hızda Güven Vermeyen Yol Tutuş",
             "İç Mekan Malzeme Kalitesi (Sert plastikler)",
             "Yalıtım Zayıflığı (Rüzgar ve yol sesi)",
             "DCT Şanzıman Kararsızlığı (Özellikle 1.6 Dizel'de)"
@@ -141,7 +141,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 title: "Krom Parça Soyulmaları",
                 severity: "low",
                 reportCount: 320,
-                description: "DıŞ kapı kollarındaki ve ön panjurda bulunan krom kaplamalar zamanla kabarabilir veya soyulabilir."
+                description: "Dış kapı kollarındaki ve ön panjurda bulunan krom kaplamalar zamanla kabarabilir veya soyulabilir."
             }
         ],
         userExperiences: [],
@@ -159,9 +159,9 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Sorunsuzluk Abidesi (Sanayi yolunu unutturur)",
             "Hibrit Teknolojisi ile Şehir İçi Rakipsiz Tüketim",
             "Yüksek İkinci El Değeri (Çeyrek Altın)",
-            "Konforlu SürüŞ ve Yumuşak Süspansiyon",
+            "Konforlu Sürüş ve Yumuşak Süspansiyon",
             "Standart Güvenlik Donanımı (Safety Sense)",
-            "GeniŞ İç Hacim ve Ferah Arka Koltuk"
+            "Geniş İç Hacim ve Ferah Arka Koltuk"
         ],
         weaknesses: [
             "Rüzgar ve Yol Sesi (Özellikle 110 km/s üzeri)",
@@ -214,15 +214,15 @@ export const vehicleDNAData: VehicleDNA[] = [
         strengths: [
             "Tesla Tipi Dikey Multimedya Ekranı (R-Link)",
             "C-Şekilli LED Farlar ve Etkileyici Tasarım",
-            "GeniŞ İç Hacim ve Konforlu Koltuklar",
+            "Geniş İç Hacim ve Konforlu Koltuklar",
             "1.3 TCe Motorun Mercedes Ortaklığı ve Performansı",
-            "Güçlü Yol TutuŞ ve SürüŞ Dinamikleri",
+            "Güçlü Yol Tutuş ve Sürüş Dinamikleri",
             "5 Yıldız Euro NCAP (2015 Testi)"
         ],
         weaknesses: [
             "EDC Şanzıman Isınması (Yoğun trafikte)",
             "Trim Sesleri (Özellikle Sunroof ve Konsol)",
-            "Arka GörüŞ Açısı (Tasarım kaynaklı dar)",
+            "Arka Görüş Açısı (Tasarım kaynaklı dar)",
             "R-Link Ekran Donmaları (Erken modellerde)",
             "Klimanın Soğutma Performansı (Bazı serilerde)"
         ],
@@ -268,10 +268,10 @@ export const vehicleDNAData: VehicleDNA[] = [
         ncapYear: "2022",
         dnaScore: 82,
         strengths: [
-            "SürüŞ Dinamikleri ve Yol TutuŞ (Sınıfının en iyilerinden)",
+            "Sürüş Dinamikleri ve Yol Tutuş (Sınıfının en iyilerinden)",
             "5 Yıl/150.000 KM Garantili LPG (Eco Elegance/Executive)",
-            "GeniŞ ve Alçak Oturma Pozisyonu (Sportif his)",
-            "İkinci Elde Hızlı SatıŞ (Altın gibi)",
+            "Geniş ve Alçak Oturma Pozisyonu (Sportif his)",
+            "İkinci Elde Hızlı Satış (Altın gibi)",
             "Sorunsuz VTEC Turbo Motor ve CVT Uyumu",
             "5 Yıldız Euro NCAP (2022 Testi - Güncel Kasa)"
         ],
@@ -326,7 +326,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         strengths: [
             "Tartışmasız İkinci El Kralı (Altın Bilezik)",
             "Makam Aracı Konforu ve Yalıtımı (Sınıf Referansı)",
-            "GeniŞ ve Ferah İç Mekan (Arka diz mesafesi)",
+            "Geniş ve Ferah İç Mekan (Arka diz mesafesi)",
             "Yüksek Malzeme Kalitesi ve İŞçilik",
             "Güçlü ve Ekonomik TDI Motor Seçenekleri",
             "Şık ve Zamanız Tasarım (Highline/Elegance)"
@@ -384,8 +384,8 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Gerçek 4x4 Arazi Kabiliyeti (Sınıfının en iyisi)",
             "Dayanıklı ve Basit Alt Yapı (Az sorun)",
             "LPG Fabrika Çıkışlı Seçenek (ECO-G)",
-            "GeniŞ İç Hacim ve Pratik Kullanım",
-            "Yüksek İkinci El Talebi ve Hızlı SatıŞ"
+            "Geniş İç Hacim ve Pratik Kullanım",
+            "Yüksek İkinci El Talebi ve Hızlı Satış"
         ],
         weaknesses: [
             "Düşük Euro NCAP Puanı (Güvenlik yardımcıları eksik)",
@@ -421,7 +421,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 title: "Yakıt Göstergesi Tutarsızlığı",
                 severity: "low",
                 reportCount: 220,
-                description: "LPG'li modellerde benzin/LPG göstergesinin yanlıŞ seviye göstermesi veya takılı kalması."
+                description: "LPG'li modellerde benzin/LPG göstergesinin yanlış seviye göstermesi veya takılı kalması."
             }
         ],
         userExperiences: [],
@@ -437,8 +437,8 @@ export const vehicleDNAData: VehicleDNA[] = [
         dnaScore: 77,
         strengths: [
             "Çok Zengin Donanım (Elite/Style Paketlerde Sunroof, Dijital Kadran)",
-            "Modern ve Agresif DıŞ Tasarım (Parametrik)",
-            "Sınıfına Göre GeniŞ İç ve Bagaj Hacmi (352 Litre)",
+            "Modern ve Agresif Dış Tasarım (Parametrik)",
+            "Sınıfına Göre Geniş İç ve Bagaj Hacmi (352 Litre)",
             "5 Yıl Garanti Avantajı (Üretici Güveni)",
             "Sorunsuz Atmosferik Motor Seçeneği (1.4 MPI)",
             "Kablosuz Şarj ve Apple CarPlay Desteği"
@@ -448,7 +448,7 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Yüksek Hızda Yol ve Rüzgar Sesi (Yalıtım zayıf)",
             "DCT Şanzıman Isınma Uyarısı (Yoğun dur-kalk trafikte)",
             "Şehir İçi Yüksek Yakıt Tüketimi (1.4 Otomatik 9-10L)",
-            "Sert SürüŞ Karakteri (Çukurları hissettiriyor)"
+            "Sert Sürüş Karakteri (Çukurları hissettiriyor)"
         ],
         chronicIssues: [
             {
@@ -491,60 +491,100 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 1100
     },
     {
-        id: 9,
+        id: 901,
         brand: "Peugeot",
-        model: "3008",
-        year: "2017-2025",
+        model: "3008 (1. Nesil 2009-2016)",
+        year: "2009-2016",
         ncapStars: 5,
-        ncapYear: "2016",
-        dnaScore: 79,
+        ncapYear: "2009",
+        dnaScore: 71,
         strengths: [
-            "Fütüristik i-Cockpit Tasarımı (Uçak kokpiti hissi)",
-            "EAT8 Şanzıman Konforu ve Sorunsuzluğu",
-            "Düşük Yakıt Tüketimi (1.5 BlueHDi ile Şehir içi 5.5L)",
-            "Küçük Deri Direksiyonun SürüŞ Keyfi",
-            "GeniŞ İç Hacim ve Ferah Cam Tavan",
-            "İkinci Elde Yüksek Talep (Altın gibi)"
+            "Ferah ve Geniş Cam Tavan (Cielo)",
+            "Geniş Bagaj Hacmi (512 Litre)",
+            "1.6 HDi Motorun Düşük Yakıt Tüketimi"
         ],
         weaknesses: [
-            "AdBlue Sistemi Arızaları (Kronik ve Maliyetli)",
-            "Sert Süspansiyon (Arka taraf biraz zıplatır)",
-            "Geri GörüŞ Kamerası Çözünürlüğü Düşük",
-            "Direksiyon Simidinin Göstergeyi Perdelemesi",
-            "Triger Kayışı Problemi (1.2 PureTech Motorlar)"
+            "Auto6R Yarı Otomatik Şanzımanın Sarsıntılı Geçişleri",
+            "Süspansiyonların Sertliği ve Gelen Sesler",
+            "Tasarımın MPV ile SUV Arasında Kalması"
         ],
         chronicIssues: [
             {
                 id: 1,
-                title: "AdBlue Depo Arızası (BlueHDi)",
+                title: "1.6 THP Triger Zinciri Uzaması",
                 severity: "high",
-                reportCount: 1100,
-                description: "AdBlue deposundaki pompa veya sensör arızası nedeniyle 'Motoru Durdurun' uyarısı verir. Genellikle depo değişimi gerekir ve maliyetlidir."
+                reportCount: 350,
+                description: "Erken dönem 1.6 THP benzinli motorlarda triger zincirinin erken uzaması ve sente atlaması sonucu motor arıza lambası yakması kroniktir."
             },
             {
                 id: 2,
-                title: "Triger Kayışı Soyulması (1.2 PureTech)",
+                title: "Auto6R Şanzıman Kavrama/Volan Arızası",
                 severity: "high",
-                reportCount: 850,
-                description: "Yağ içinde çalışan triger kayışı zamanla dökülerek yağ pompasını tıkayabilir. 1.2 benzinli motorlarda periyodik kontrol hayati önem taşır."
+                reportCount: 520,
+                description: "Yarı otomatik Auto6R şanzımanda kavrama (baskı balata) ve volan dişlisinin erken ömrünü tamamlaması, dur-kalklarda silkeleme yapması yaygındır."
             },
             {
                 id: 3,
-                title: "Eksantrik Zincir Sesi (1.5 Dizel)",
-                severity: "high",
-                reportCount: 620,
-                description: "1.5 BlueHDi motorlarda eksantrik zincirinin uzaması veya kopması riski. Metalik Şıkırtı sesi gelirse acil servis gerekir (Genellikle 7mm zincir değişimi yapılır)."
-            },
-            {
-                id: 4,
-                title: "Hayalet Ekran Kararması",
+                title: "Amortisör Takozu Sesleri",
                 severity: "low",
-                reportCount: 340,
-                description: "Dijital gösterge panelinin nadiren kararması veya donması."
+                reportCount: 410,
+                description: "Ön süspansiyonlardan, özellikle kasis geçişlerinde lokurtu/gıcırtı sesleri gelmesi sık rastlanan bir montaj/parça zayıflığıdır."
             }
         ],
         userExperiences: [],
-        totalReports: 2500
+        totalReports: 1200
+    },
+    {
+        id: 902,
+        brand: "Peugeot",
+        model: "3008 (2. Nesil 2016-2023)",
+        year: "2016-2023",
+        ncapStars: 5,
+        ncapYear: "2016",
+        dnaScore: 86,
+        strengths: [
+            "Göz Alıcı ve Modern i-Cockpit Tasarımı",
+            "EAT8 Şanzımanın Kusursuz Geçişleri",
+            "Yüksek İzolasyon ve Sürüş Konforu",
+            "Agresif Dış Tasarım"
+        ],
+        weaknesses: [
+            "Arka Diz Mesafesi Sınıf Rakiplerinden Dar",
+            "Multimedya Ekranının Zaman Zaman Donması",
+            "Yüksek Yedek Parça ve Servis Maliyetleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "1.5 BlueHDi AdBlue Sistemi Arızası",
+                severity: "high",
+                reportCount: 1250,
+                description: "PSA grubunun kronik sorunudur. AdBlue deposu, pompası veya enjektörünün tıkanması sonucu 'Motor Arızası - Aracı Durdurun' veya 'Emisyon Hatası' vererek sistemin komple değişmesini gerektirebilir."
+            },
+            {
+                id: 2,
+                title: "1.2 PureTech Triger Kayışı Soyulması",
+                severity: "high",
+                reportCount: 890,
+                description: "Yağ içinde çalışan triger kayışının erken yıpranarak (soyularak) partiküllerinin yağ süzgecini tıkaması ve motor yağ basıncı arızası vermesi durumudur. Erken bakım şarttır."
+            },
+            {
+                id: 3,
+                title: "EAT6/EAT8 Şanzıman Düşük Hız Vuruntusu",
+                severity: "medium",
+                reportCount: 560,
+                description: "Özellikle 2. vitesten 1. vitese düşerken veya durmaya yakın hızlarda şanzımandan hafif bir vuruntu veya sarsıntı hissedilebilir. Yazılım güncellemesi ile büyük ölçüde çözülür."
+            },
+            {
+                id: 4,
+                title: "Multimedya (SMEG/NAC) Ekran Donması",
+                severity: "low",
+                reportCount: 730,
+                description: "Orta ekranın kendi kendine kapanması, geri görüş kamerasının siyah ekranda kalması veya Bluetooth bağlantısının kopması sorunları yazılımsal olarak yaşanmaktadır."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 3400
     },
     {
         id: 10,
@@ -555,11 +595,11 @@ export const vehicleDNAData: VehicleDNA[] = [
         ncapYear: "2019",
         dnaScore: 76,
         strengths: [
-            "Alman SürüŞ Hissi (Sert ve Tok)",
+            "Alman Sürüş Hissi (Sert ve Tok)",
             "EAT8 Şanzıman (Sınıfının en iyisi)",
             "Şık ve Sportif Tasarım (GS Line)",
             "Matriks LED Far Teknolojisi (Sınıfında nadir)",
-            "Seri ve Atak SürüŞ Karakteri"
+            "Seri ve Atak Sürüş Karakteri"
         ],
         weaknesses: [
             "Dar Arka Yaşam Alanı ve Bagaj",
@@ -604,9 +644,9 @@ export const vehicleDNAData: VehicleDNA[] = [
         dnaScore: 80,
         strengths: [
             "Yerli ve Milli Gurur (Servis/Muhatap avantajı)",
-            "GeniŞ İç Hacim ve Devasa Bagaj",
+            "Geniş İç Hacim ve Devasa Bagaj",
             "Uçtan Uca Ekran Deneyimi (Dünyada nadir)",
-            "Güçlü Motor ve Arkadan İtiŞ (Keyifli sürüŞ)",
+            "Güçlü Motor ve Arkadan İtiş (Keyifli sürüş)",
             "Hızlı Şarj Desteği (Trugo)",
             "Ücretsiz Güncellemeler ve İyileştirmeler"
         ],
@@ -623,7 +663,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 title: "Ekran Donması ve Resetleme",
                 severity: "medium",
                 reportCount: 600,
-                description: "Ana ekranın veya göstergelerin sürüŞ esnasında donması, kararması. Reset atılarak (iki tuşa basılı tutarak) çözülüyor ancak can sıkıcı."
+                description: "Ana ekranın veya göstergelerin sürüş esnasında donması, kararması. Reset atılarak (iki tuşa basılı tutarak) çözülüyor ancak can sıkıcı."
             },
             {
                 id: 2,
@@ -653,7 +693,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         dnaScore: 78,
         strengths: [
             "Fiyatına Göre İnanılmaz Donanım (Lüks hissiyatı)",
-            "7 Koltuklu GeniŞ Aile Aracı",
+            "7 Koltuklu Geniş Aile Aracı",
             "Güçlü Motor (183 HP) ve Hızlanma",
             "Sony Ses Sistemi ve Kaliteli Deri Koltuklar",
             "Heybetli ve Prestijli Görünüm"
@@ -707,11 +747,11 @@ export const vehicleDNAData: VehicleDNA[] = [
             "İkinci Elde Değerini Koruma"
         ],
         weaknesses: [
-            "Dokunmatik TuŞ Ergonomisi (Direksiyon ve Klima zor)",
+            "Dokunmatik Tuş Ergonomisi (Direksiyon ve Klima zor)",
             "Yazılım ve Multimedya Hataları (Kronik)",
             "DSG Şanzıman Riski (Kavrama ve Mekatronik)",
             "Yüksek Fiyat Politikası",
-            "Baz Paketlerin Çok BoŞ Olması"
+            "Baz Paketlerin Çok Boş Olması"
         ],
         chronicIssues: [
             {
@@ -719,7 +759,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 title: "Yazılım ve Ekran Hataları",
                 severity: "medium",
                 reportCount: 550,
-                description: "Golf 8'in en büyük baŞ belası. Ekranın donması, siyah ekran, asistan sistemlerin 'Şu an kullanılamıyor' uyarısı vermesi. Güncellemelerle çözülmeye çalışılıyor."
+                description: "Golf 8'in en büyük baş belası. Ekranın donması, siyah ekran, asistan sistemlerin 'Şu an kullanılamıyor' uyarısı vermesi. Güncellemelerle çözülmeye çalışılıyor."
             },
             {
                 id: 2,
@@ -752,11 +792,11 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Doğrudan ve Hissli Direksiyon Sistemi",
             "Sessiz Kabin Yalıtımı (Rüzgar ve yol sesi az)",
             "Sağlam Şasi ve Güvenlik Hissi",
-            "GeniŞ İç Hacim (Dingil mesafesi avantajı)"
+            "Geniş İç Hacim (Dingil mesafesi avantajı)"
         ],
         weaknesses: [
             "8 İleri Otomatik Şanzıman Kararsızlığı",
-            "Dar Arka BaŞ Mesafesi (Tasarım kaynaklı)",
+            "Dar Arka Baş Mesafesi (Tasarım kaynaklı)",
             "Pahalı Servis ve Yedek Parça",
             "Bagaj Hacmi Rakiplerden Küçük (375 Litre)",
             "Trim Sesleri (B sütunu ve kapı içleri)"
@@ -796,11 +836,11 @@ export const vehicleDNAData: VehicleDNA[] = [
         ncapYear: "2019",
         dnaScore: 83,
         strengths: [
-            "Saf SürüŞ Keyfi (Arkadan İtiŞ)",
+            "Saf Sürüş Keyfi (Arkadan İtiş)",
             "Mükemmel ZF 8 İleri Şanzıman Uyumu",
             "Yüksek Prestij ve Marka İmajı",
             "Kaliteli ve Sürücü Odaklı İç Mekan",
-            "GelişmiŞ Teknoloji ve Multimedya (iDrive)"
+            "Gelişmiş Teknoloji ve Multimedya (iDrive)"
         ],
         weaknesses: [
             "Yüksek İŞletme ve Bakım Maliyeti",
@@ -845,10 +885,10 @@ export const vehicleDNAData: VehicleDNA[] = [
         dnaScore: 79,
         strengths: [
             "Baby S-Class İç Mekan (Ambians aydınlatma kralı)",
-            "Yüksek SürüŞ Konforu ve Sessizlik",
+            "Yüksek Sürüş Konforu ve Sessizlik",
             "Prestijli Yıldız Logosu",
             "9G-Tronic Şanzıman Pürüzsüzlüğü",
-            "GelişmiŞ MBUX Multimedya Sistemi"
+            "Gelişmiş MBUX Multimedya Sistemi"
         ],
         weaknesses: [
             "48V Hafif Hibrit Sistem Arızaları",
@@ -901,7 +941,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         weaknesses: [
             "Vasat Yakıt Tüketimi (Şehir içi 10-11 Litre)",
             "Küçük Bagaj Hacmi (Tasarım kurbanı)",
-            "Arka GörüŞ Açısı Kısıtlılığı",
+            "Arka Görüş Açısı Kısıtlılığı",
             "Fren Pedal Hissiyatı ve Ses Problemleri",
             "Multimedya Çeviri Hataları"
         ],
@@ -940,15 +980,15 @@ export const vehicleDNAData: VehicleDNA[] = [
         ncapYear: "2021",
         dnaScore: 78,
         strengths: [
-            "e-Power Teknolojisi (Elektrikli sürüŞ hissi, benzinli menzili)",
+            "e-Power Teknolojisi (Elektrikli sürüş hissi, benzinli menzili)",
             "Kaliteli ve Modern İç Mekan",
-            "Sessiz SürüŞ (Şehir içi elektrik modu)",
-            "GelişmiŞ ProPilot Güvenlik Sistemleri",
+            "Sessiz Sürüş (Şehir içi elektrik modu)",
+            "Gelişmiş ProPilot Güvenlik Sistemleri",
             "Konforlu Süspansiyon"
         ],
         weaknesses: [
             "e-Power Sistem Arızası (Kronik Risk)",
-            "Arka Kapı Açılma Açısı (GiriŞ çıkıŞ zorluğu)",
+            "Arka Kapı Açılma Açısı (Giriş çıkış zorluğu)",
             "Multimedya Ekran Donmaları",
             "Yüksek Fiyat Etiketi",
             "Ortalama Bagaj Hacmi"
@@ -989,9 +1029,9 @@ export const vehicleDNAData: VehicleDNA[] = [
         dnaScore: 81,
         strengths: [
             "Cesur ve Fütüristik Tasarım (Parametrik farlar)",
-            "GeniŞ ve Ferah İç Mekan (Aileler için ideal)",
+            "Geniş ve Ferah İç Mekan (Aileler için ideal)",
             "Zengin Donanım (Soğutmalı koltuk, 360 kamera)",
-            "Konforlu SürüŞ Karakteri",
+            "Konforlu Sürüş Karakteri",
             "Güçlü Motor Seçenekleri (1.6 T-GDI 180 HP)"
         ],
         weaknesses: [
@@ -1014,7 +1054,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 title: "Kalkışta Titreme",
                 severity: "low",
                 reportCount: 320,
-                description: "DCT Şanzımanın kavraması kaynaklı, özellikle yokuŞ kalkışlarında veya 1-2 vites geçişlerinde titreme."
+                description: "DCT Şanzımanın kavraması kaynaklı, özellikle yokuş kalkışlarında veya 1-2 vites geçişlerinde titreme."
             },
             {
                 id: 3,
@@ -1038,9 +1078,9 @@ export const vehicleDNAData: VehicleDNA[] = [
         strengths: [
             "Kavisli Dev Ekran Tasarımı (Premium his)",
             "Kaliteli Malzemeler ve İŞçilik",
-            "Sessiz ve Konforlu SürüŞ (Tucson'dan bir tık sert)",
-            "Dikkat Çekici DıŞ Tasarım",
-            "GeniŞ Arka Diz Mesafesi"
+            "Sessiz ve Konforlu Sürüş (Tucson'dan bir tık sert)",
+            "Dikkat Çekici Dış Tasarım",
+            "Geniş Arka Diz Mesafesi"
         ],
         weaknesses: [
             "DCT Şanzıman Isınma Uyarısı (Yoğun trafik)",
@@ -1091,7 +1131,7 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Düşük Yakıt Tüketimi (Özellikle Dizel)"
         ],
         weaknesses: [
-            "Dar Arka Yaşam Alanı ve BaŞ Mesafesi",
+            "Dar Arka Yaşam Alanı ve Baş Mesafesi",
             "Sert Süspansiyon (Konforu azaltıyor)",
             "Triger Kayışı Riski (1.2 PureTech)",
             "Küçük Direksiyonun Göstergeyi Perdelemesi",
@@ -1131,7 +1171,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         ncapStars: 4,
         ncapYear: "2022",
         dnaScore: 78,
-        strengths: ["Keskin tasarım (Vizor)", "Alman ergonomisi", "Yol tutuŞ"],
+        strengths: ["Keskin tasarım (Vizor)", "Alman ergonomisi", "Yol tutuş"],
         weaknesses: ["Multimedya hızı", "Sert koltuklar", "Vasat arka görüş"],
         chronicIssues: [
             { id: 1, title: "Ekran Kararması", severity: "low", reportCount: 150, description: "Pure Panel ekran sorunları." }
@@ -1147,7 +1187,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         ncapStars: 4, // ASEAN NCAP 5 stars
         ncapYear: "2020",
         dnaScore: 74,
-        strengths: ["GeniŞ iç hacim", "Ekonomik motor", "Sorunsuzluk"],
+        strengths: ["Geniş iç hacim", "Ekonomik motor", "Sorunsuzluk"],
         weaknesses: ["Yalıtım zayıf", "Dar lastikler", "Bazı donanımlar eksik"],
         chronicIssues: [
             { id: 1, title: "Boya Kalitesi", severity: "medium", reportCount: 110, description: "İnce boya katmanı." }
@@ -1164,11 +1204,11 @@ export const vehicleDNAData: VehicleDNA[] = [
         ncapYear: "2017",
         dnaScore: 79,
         strengths: [
-            "Sınıfının En Olgun SürüŞ Karakteri (Golf'e yakın)",
+            "Sınıfının En Olgun Sürüş Karakteri (Golf'e yakın)",
             "Yüksek Malzeme Kalitesi (Yumuşak ön konsol)",
             "İkinci Elde Altın Bilezik (Değer kaybetmez)",
             "Verimli ve Performanslı 1.0 TSI Motor",
-            "GeniŞ İç Hacim (B segmenti liderlerinden)"
+            "Geniş İç Hacim (B segmenti liderlerinden)"
         ],
         weaknesses: [
             "DSG Şanzıman Riski (Kavrama titremesi)",
@@ -1213,15 +1253,15 @@ export const vehicleDNAData: VehicleDNA[] = [
         dnaScore: 75,
         strengths: [
             "Uçan Halı Konforu (Progressive Hydraulic Cushions)",
-            "GeniŞ ve Derin Bagaj (Sedan Pratikliği)",
+            "Geniş ve Derin Bagaj (Sedan Pratikliği)",
             "Özgün ve Dikkat Çekici Fastback Tasarım",
-            "Yüksek OturuŞ Pozisyonu (SUV Hissi)",
+            "Yüksek Oturuş Pozisyonu (SUV Hissi)",
             "Ekonomik 1.2 PureTech ve Elektrikli (ë-C4 X) Seçenekleri"
         ],
         weaknesses: [
             "Tablet Ekran Sorunları (Yavaşlık ve donma)",
             "Yumuşak Fren Hissi (Dozajlama alışkanlık ister)",
-            "Yatık Arka Cam Nedeniyle Kısıtlı GörüŞ",
+            "Yatık Arka Cam Nedeniyle Kısıtlı Görüş",
             "Süspansiyon Çalışma Sesi (Lokurtu)",
             "Baz Paketlerdeki Malzeme Kalitesi"
         ],
@@ -1231,7 +1271,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 title: "Tablet Ekran Kararması",
                 severity: "medium",
                 reportCount: 350,
-                description: "Multimedya ekranının sürüŞ esnasında siyah olması, donması veya 'Hello Citroen' asistanının çalışmaması. Yazılım güncellemesi ile düzeliyor."
+                description: "Multimedya ekranının sürüş esnasında siyah olması, donması veya 'Hello Citroen' asistanının çalışmaması. Yazılım güncellemesi ile düzeliyor."
             },
             {
                 id: 2,
@@ -1245,7 +1285,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 title: "AdBlue Uyarısı",
                 severity: "medium",
                 reportCount: 180,
-                description: "Dizel versiyonlarda AdBlue sistemi arızası veya yanlıŞ seviye uyarısı."
+                description: "Dizel versiyonlarda AdBlue sistemi arızası veya yanlış seviye uyarısı."
             }
         ],
         userExperiences: [],
@@ -1262,7 +1302,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         strengths: [
             "Devasa Bagaj Hacmi (Liftback avantajı)",
             "Simply Clever Çözümler (Şemsiye, buz kazıyıcı)",
-            "Ferah ve GeniŞ İç Mekan",
+            "Ferah ve Geniş İç Mekan",
             "Kaliteli ve Modern Kokpit",
             "Düşük Yakıt Tüketimi (e-TEC Hibrit)"
         ],
@@ -1311,12 +1351,12 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Makam Aracı Konforu ve Prestiji",
             "İnanılmaz Arka Diz Mesafesi (Bacak bacak üstüne atılır)",
             "Devasa Bagaj (Sınıf lideri)",
-            "Tok ve Güvenli SürüŞ Hissi",
+            "Tok ve Güvenli Sürüş Hissi",
             "Güçlü 1.5 TSI ve 2.0 TDI Motorlar"
         ],
         weaknesses: [
             "DSG Şanzıman Hassasiyeti (Mekatronik)",
-            "DıŞ Krom Çıtaların Solması",
+            "Dış Krom Çıtaların Solması",
             "Süspansiyonun Kasislerde Ses Yapması",
             "Büyük Boyutlar Nedeniyle Park Sorunu",
             "Yüksek Bakım Maliyetleri"
@@ -1360,7 +1400,7 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Zengin Donanım (Panoramik cam tavan standart)",
             "Şık ve Modern Tasarım",
             "360 Derece Kamera Kalitesi",
-            "GeniŞ Arka Yaşam Alanı"
+            "Geniş Arka Yaşam Alanı"
         ],
         weaknesses: [
             "Yüksek Yakıt Tüketimi (Şehir içi 10-11 Litre)",
@@ -1405,8 +1445,8 @@ export const vehicleDNAData: VehicleDNA[] = [
         dnaScore: 80,
         strengths: [
             "Genç ve Sportif Tasarım (Matrix LED)",
-            "Dinamik SürüŞ Karakteri (Sınıfının en iyisi)",
-            "GeniŞ ve Modern İç Mekan",
+            "Dinamik Sürüş Karakteri (Sınıfının en iyisi)",
+            "Geniş ve Modern İç Mekan",
             "Güçlü Motor Seçenekleri (eTSI)",
             "Yüksek Donanım Seviyesi (FR Paket)"
         ],
@@ -1453,9 +1493,9 @@ export const vehicleDNAData: VehicleDNA[] = [
         dnaScore: 88,
         strengths: [
             "Rakipsiz Performans ve Hızlanma (Performance: 0-100 3.7sn)",
-            "Dünyanın En GelişmiŞ Şarj Ağı (Supercharger)",
+            "Dünyanın En Gelişmiş Şarj Ağı (Supercharger)",
             "Sürekli Güncellenen Yazılım (OTA) ile Yeni Özellikler",
-            "GeniŞ İç Hacim ve Devasa Cam Tavan",
+            "Geniş İç Hacim ve Devasa Cam Tavan",
             "Minimalist ve Teknoloji Odaklı İç Mekan",
             "Sınıfının En Güvenli Araçlarından Biri (Euro NCAP)"
         ],

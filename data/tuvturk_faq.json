@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "question": "Cam filmi TÜVTÜRK muayenesinde ağır kusur mu?",
+        "slug": "cam-filmi-agir-kusur-mu",
+        "answer": "Hayır, yan ve arka camlardaki cam filmleri TÜVTÜRK araç muayenesinde 'Hafif Kusur' olarak değerlendirilir ve aracın muayeneden geçmesine engel değildir. Ancak, ön camda (sürücünün doğrudan yola baktığı cam) cam filmi bulunması kesinlikle yasaktır ve görüşü engellediği gerekçesiyle 'Ağır Kusur' sayılarak aracın muayeneden kalmasına neden olur. Ön camdaki filmi sökerek muayeneye girmeniz gerekmektedir.",
+        "category": "Görüş ve Camlar",
+        "tags": ["cam filmi", "hafif kusur", "ön cam"]
+    },
+    {
+        "id": 2,
+        "question": "Far merceklerinin kararması muayeneden geçmeye engel mi?",
+        "slug": "far-merceklerinin-kararmasi-muayeneden-gecer-mi",
+        "answer": "Evet, far merceklerinin ve aynalarının aşırı derecede kararması, aydınlatma şiddetini yasal sınırların altına düşürüyorsa 'Ağır Kusur' olarak değerlendirilir. Gece görüşünü tehlikeye atan bu durum nedeniyle aracınız muayeneden kalır. Farların temizletilmesi, merceklerin yenilenmesi veya far grubunun tamamen değiştirilmesi gerekebilir. Eğer kararma sadece yüzeyselse ve far cihazında yeterli aydınlatma şiddeti ölçülürse hafif kusurla geçebilir.",
+        "category": "Aydınlatma",
+        "tags": ["far merceği", "far kararması", "aydınlatma"]
+    },
+    {
+        "id": 3,
+        "question": "TÜVTÜRK araç muayene randevusu nasıl alınır?",
+        "slug": "tuvturk-arac-muayene-randevusu-nasil-alinir",
+        "answer": "TÜVTÜRK araç muayene randevusu tamamen ücretsizdir ve üç farklı yolla alınabilir:\n1. **İnternet Üzerinden:** Resmi web sitesi olan tuvturk.com.tr adresine girerek plaka, ruhsat no ve il seçimiyle randevu oluşturabilirsiniz.\n2. **e-Devlet Üzerinden:** e-Devlet kapısına giriş yapıp 'TÜVTÜRK Araç Muayene Randevu Kayıt' hizmetini kullanarak alabilirsiniz.\n3. **Çağrı Merkezi:** 0850 222 88 88 numaralı çağrı merkezini arayarak temsilci aracılığıyla randevu oluşturabilirsiniz. Aracı aracı kurumlar üzerinden ücret ödeyerek randevu almaktan kaçının.",
+        "category": "Randevu ve Süreç",
+        "tags": ["randevu alma", "e-devlet", "ücretsiz randevu"]
+    },
+    {
+        "id": 4,
+        "question": "Egzoz emisyon ölçümü olmadan muayeneye girilir mi?",
+        "slug": "egzoz-emisyon-olcumu-olmadan-muayeneye-girilir-mi",
+        "answer": "Hayır, geçerli bir Egzoz Gazı Emisyon Ölçümü olmadan aracınız TÜVTÜRK genel muayenesinden 'Ağır Kusur' ile kalır. Egzoz ölçümünü muayene tarihinizden önce herhangi bir yetkili egzoz emisyon istasyonunda veya doğrudan TÜVTÜRK istasyonlarında muayeneden hemen önce (randevusuz olarak sıra alarak) yaptırabilirsiniz.",
+        "category": "Belgeler ve Şartlar",
+        "tags": ["egzoz emisyon", "ağır kusur", "hazırlık"]
+    },
+    {
+        "id": 5,
+        "question": "Araçta yangın tüpü ve ilk yardım çantası yoksa ağır kusur mu?",
+        "slug": "yangin-tupu-ve-ilk-yardim-cantasi-olmamasi-agir-kusur-mu",
+        "answer": "Hayır, geçmiş yıllardaki uygulamanın aksine, güncel TÜVTÜRK yönetmeliğine göre araçta yangın söndürme tüpü, ilk yardım çantası ve reflektör bulunmaması veya bu ekipmanların son kullanma tarihlerinin geçmiş olması 'Hafif Kusur' olarak değerlendirilmektedir. Yani bu eksiklikler aracın muayeneden geçmesine engel değildir, ancak raporda hafif kusur olarak belirtilir.",
+        "category": "Donanım",
+        "tags": ["yangın tüpü", "ilk yardım çantası", "hafif kusur"]
+    },
+    {
+        "id": 6,
+        "question": "Motor arıza lambası (Check Engine) yanarken muayeneden geçilir mi?",
+        "slug": "motor-ariza-lambasi-yanarken-muayeneden-gecilir-mi",
+        "answer": "Motor arıza lambasının (Check Engine / Sarı Motor Simgesi) yanması tek başına bir ağır kusur sebebi değildir; genellikle 'Hafif Kusur' (motor kontrol ünitesi uyarısı) olarak yazılır ve araç muayeneden geçebilir. Ancak, bu lamba yandığı için aracın egzoz emisyon değerleri yüksek çıkarsa, 'Egzoz Gazı Emisyon Ölçümü'nden geçemeyeceğiniz için dolaylı yoldan ağır kusurlu sayılıp muayeneden kalırsınız. Ayrıca OBD cihazı bağlanan yeni nesil araçlarda kritik emisyon hataları verirse geçemeyebilir.",
+        "category": "Gösterge ve Motor",
+        "tags": ["arıza lambası", "check engine", "hafif kusur"]
+    },
+    {
+        "id": 7,
+        "question": "ABS arıza lambası yanması ağır kusur mu?",
+        "slug": "abs-ariza-lambasi-yanmasi-agir-kusur-mu",
+        "answer": "Evet, gösterge panelinde ABS arıza lambasının sürekli yanması (kontak açıldıktan sonra sönmemesi) veya ABS sisteminin hiç çalışmaması TÜVTÜRK muayenesinde 'Ağır Kusur' olarak değerlendirilir. Frenleme güvenliğini doğrudan etkilediği için aracınız muayeneden geçemez. Sensör veya beyin arızasının giderilip lambanın söndürülmesi şarttır.",
+        "category": "Fren Sistemi",
+        "tags": ["ABS", "arıza lambası", "ağır kusur", "fren"]
+    },
+    {
+        "id": 8,
+        "question": "Airbag (Hava Yastığı) lambasının yanması ağır kusur mu?",
+        "slug": "airbag-lambasi-yanmasi-agir-kusur-mu",
+        "answer": "Evet, Airbag (Hava Yastığı) sisteminin uyarı lambasının yanması, kapağının yırtık/patlak olması veya sisteme dışarıdan müdahale edilerek direnç (yanıltıcı) atıldığının fiziki olarak tespit edilmesi durumunda araç 'Ağır Kusur' ile muayeneden kalır. Sürüş ve yolcu güvenliği açısından kritik bir donanım olduğu için sistemin aktif ve orijinal durumunda çalışması gerekmektedir.",
+        "category": "Güvenlik",
+        "tags": ["airbag", "hava yastığı", "ağır kusur"]
+    },
+    {
+        "id": 9,
+        "question": "Muayenede lastik diş derinliği sınırı nedir? Kabak lastik geçer mi?",
+        "slug": "muayenede-lastik-dis-derinligi-siniri-nedir",
+        "answer": "TÜVTÜRK muayenesinde binek ve hafif ticari araçlar için yasal lastik diş derinliği minimum sınırı **1.6 milimetredir**. Eğer lastiklerinizin diş derinliği 1.6 mm'nin altındaysa (kabak lastik), araç 'Ağır Kusur' alır ve muayeneden geçemez. Kış lastikleri için tavsiye edilen güvenlik sınırı 4 mm olsa da, TÜVTÜRK yasal sınır olan 1.6 mm'yi baz alır. Ayrıca lastik yanağında derin kesik, balon (şişkinlik) veya kord tellerinin görünmesi de doğrudan ağır kusurdur.",
+        "category": "Lastik ve Jant",
+        "tags": ["lastik diş derinliği", "kabak lastik", "ağır kusur"]
+    },
+    {
+        "id": 10,
+        "question": "Çatlak ön cam muayeneden geçer mi?",
+        "slug": "catlak-on-cam-muayeneden-gecer-mi",
+        "answer": "Duruma göre değişir. Eğer ön camdaki çatlak veya yıldız şeklindeki taş izi **sürücünün görüş alanında değilse** ve görüşü tehlikeye atacak kadar büyük değilse (sileceklerin taradığı ana alanın dışındaysa), 'Hafif Kusur' ile muayeneden geçer. Ancak çatlak çok büyükse, silecek süpürgelerinin olduğu ana görüş hizasındaysa veya camın kırılma tehlikesi oluşturacak boyuttaysa 'Ağır Kusur' sayılır ve camın değişmesi istenir.",
+        "category": "Görüş ve Camlar",
+        "tags": ["cam çatlağı", "ön cam", "hafif kusur"]
+    },
+    {
+        "id": 11,
+        "question": "Farklı ebatta veya farklı desende lastik takılması ağır kusur mu?",
+        "slug": "farkli-ebat-desen-lastik-agir-kusur-mu",
+        "answer": "Evet, aynı dingil üzerinde (yani ön iki veya arka iki lastik arasında) farklı ebatlarda, farklı hız/yük endeksinde veya farklı desenlerde lastik kullanılması TÜVTÜRK'te 'Ağır Kusur' sayılır. Frenleme dengesini ve sürüş güvenliğini bozduğu için yasaktır. Ancak ön aks ile arka aks arasında (fabrika çıkışı spor araçlar hariç olmak üzere genel kurallar çerçevesinde uygunsa) farklılıklar duruma göre değerlendirilir; yine de en sağlıklısı 4 lastiğin aynı olmasıdır.",
+        "category": "Lastik ve Jant",
+        "tags": ["farklı lastik", "lastik ebatı", "ağır kusur"]
+    },
+    {
+        "id": 12,
+        "question": "LPG tankının kullanım süresi kaç yıldır? Süre dolarsa ne olur?",
+        "slug": "lpg-tankinin-kullanim-suresi-kac-yildir",
+        "answer": "LPG ve CNG tanklarının yasal kullanım ömrü, tankın üzerindeki üretim tarihinden itibaren **10 yıldır**. 10 yılını doldurmuş bir LPG tankı ile muayeneye girdiğinizde aracınız doğrudan 'Ağır Kusur' alır ve muayeneden kalır. Tankın, şamandıra sistemiyle birlikte yetkili bir otogaz servisinde değiştirilmesi ve yeni projenin/faturanın ibraz edilmesi gerekmektedir.",
+        "category": "LPG/CNG",
+        "tags": ["lpg tankı", "10 yıl", "ağır kusur"]
+    },
+    {
+        "id": 13,
+        "question": "Sonradan takılan Merceksiz Zenon (Xenon) veya LED far geçer mi?",
+        "slug": "merceksiz-zenon-led-far-muayeneden-gecer-mi",
+        "answer": "Hayır. Fabrika çıkışı halojen farlı olan bir araca, sonradan merceksiz olarak takılan Xenon veya LED ampuller 'Ağır Kusur' sebebidir. Işığı odaklayamayıp karşıdan gelen sürücünün gözünü aldığı için trafik güvenliğini tehlikeye atarlar. Ancak far mercekliyse ve otomatik far yükseklik ayarı ile far yıkama sistemi (Xenon için) varsa geçerli olabilir. En güvenlisi muayeneye giderken standart halojen ampulleri takmaktır.",
+        "category": "Aydınlatma",
+        "tags": ["zenon far", "led far", "ağır kusur"]
+    },
+    {
+        "id": 14,
+        "question": "Spor yay (Coilover) veya kesik yay ağır kusur mu?",
+        "slug": "spor-yay-coilover-kesik-yay-agir-kusur-mu",
+        "answer": "Helezon yaylarının preslenmesi (ısıtılıp basılması), kesilmesi veya uygunsuz şekilde kelepçelenmesi kesinlikle 'Ağır Kusur'dur ve araç muayeneden kalır. Ancak, aracın üzerine TUV onaylı, araca özel üretilmiş spor yaylar veya coilover sistemi takılmışsa ve bu sistem aracın altının sürtmesine, lastiklerin çamurluğa değmesine sebep olmuyorsa muayeneden geçebilmektedir. İlgili parçaların onaysız (el yapımı vb.) olması durumunda geçiş izni verilmez.",
+        "category": "Yürüyen Aksam",
+        "tags": ["spor yay", "kesik yay", "modifiye", "ağır kusur"]
+    },
+    {
+        "id": 15,
+        "question": "Geri vites lambasının yanmaması ağır kusur mu?",
+        "slug": "geri-vites-lambasi-yanmamasi-agir-kusur-mu",
+        "answer": "Eğer aracınızda tek geri vites lambası varsa ve yanmıyorsa bu 'Ağır Kusur'dur. Ancak aracınızda sağ ve solda olmak üzere iki adet geri vites lambası varsa; bunlardan birinin yanıp diğerinin yanmaması durumu 'Hafif Kusur' olarak değerlendirilir. Hiç yanmıyorsa veya lamba beyaz harici (örneğin kırmızı) renkte yanıyorsa doğrudan ağır kusur yazılır.",
+        "category": "Aydınlatma",
+        "tags": ["geri vites lambası", "ağır kusur", "hafif kusur"]
+    },
+    {
+        "id": 16,
+        "question": "El freni zayıf tutuyorsa araç muayeneden geçer mi?",
+        "slug": "el-freni-zayif-tutuyorsa-muayeneden-gecer-mi",
+        "answer": "El freninin testi fren silindirlerinde yapılır. Eğer el freni hiç tutmuyorsa, tek tekerleği kilitliyor diğerini tutmuyorsa (sapma varsa) veya fren kuvveti yasal minimum sınırın altında (zayıf) kalıyorsa 'Ağır Kusur' olarak değerlendirilir. El freninin yeterli performansta tutması zorunludur.",
+        "category": "Fren Sistemi",
+        "tags": ["el freni", "fren testi", "ağır kusur"]
+    },
+    {
+        "id": 17,
+        "question": "Trafik veya MTV borcu olan araç muayeneye alınır mı?",
+        "slug": "trafik-mtv-borcu-olan-arac-muayeneye-alinir-mi",
+        "answer": "Hayır alınmaz. Sistem altyapısı Maliye Bakanlığı ve Emniyet ile entegre çalıştığından; Motorlu Taşıtlar Vergisi (MTV) borcu, trafik cezası veya köprü/otoyol geçiş (OGS/HGS) ihlali cezası bulunan araçlar için TÜVTÜRK sistemi üzerinden randevu dahi alınamamaktadır. İstisnai durumlarda randevu alınsa bile istasyon kabul gişesinde sistem işleme onay vermeyecektir. Borçların muayene öncesinde tamamen ödenmiş olması şarttır.",
+        "category": "Randevu ve Süreç",
+        "tags": ["mtv borcu", "trafik cezası", "muayene onayı"]
+    },
+    {
+        "id": 18,
+        "question": "Abartı egzoz (Vanalı Egzoz) veya katalizör iptali muayeneden geçer mi?",
+        "slug": "abarti-egzoz-katalizor-iptali-muayeneden-gecer-mi",
+        "answer": "Kesinlikle geçmez. Araca sonradan takılan ve gürültü kirliliği yaratan abartı (vanalı vb.) egzoz sistemleri, ayrıca fabrika çıkışında var olan Katalitik Konvertör veya DPF'nin (Dizel Partikül Filtresi) sökülmesi / iptal edilmesi doğrudan 'Ağır Kusur' sebebidir. Orijinal egzoz sistemi olmadan veya katalizör boşaltılmışsa araç muayeneden ve egzoz emisyon testinden kalır.",
+        "category": "Egzoz ve Motor",
+        "tags": ["abartı egzoz", "katalizör iptali", "ağır kusur", "modifiye"]
+    },
+    {
+        "id": 19,
+        "question": "Plakanın delik, vidalı veya okunaksız olması muayenede sorun yaratır mı?",
+        "slug": "plakanin-delik-vidali-olmasi-muayenede-sorun-mu",
+        "answer": "Plaka üzerindeki harf ve rakamların okunurluğunu bozan, harflerin arasına atılmış veya rakamları farklı gösteren vida delikleri 'Ağır Kusur' sayılır. Ayrıca standart dışı APP plakalar (kalın harfli, mühürsüz plakalar) da ağır kusurdur. Eğer vidalar çok kenardaysa ve okunurluğu hiçbir şekilde etkilemiyorsa hafif kusurla geçebilir ancak yasal mühürlü karekodlu plaka standartlarına uymayan tüm araçlar muayeneden bırakılmaktadır.",
+        "category": "Belgeler ve Plaka",
+        "tags": ["plaka", "vida deliği", "app plaka", "ağır kusur"]
+    },
+    {
+        "id": 20,
+        "question": "TÜVTÜRK muayenesinde kredi kartı geçerli mi? Taksit yapılıyor mu?",
+        "slug": "tuvturk-kredi-karti-gecerli-mi-taksit-var-mi",
+        "answer": "TÜVTÜRK istasyonlarında muayene ücretini Nakit veya Kredi Kartı / Banka Kartı ile ödeyebilirsiniz. Ancak, kredi kartı veya banka kartı ile yapılan ödemelerde tahsilatçı aracı kurum tarafından belirli bir 'Hizmet Bedeli' (komisyon) alınmaktadır. Ayrıca TÜVTÜRK işlemlerinde taksitlendirme yapılmamaktadır; ödeme tek çekim olarak tahsil edilir.",
+        "category": "Randevu ve Süreç",
+        "tags": ["kredi kartı", "ödeme yöntemi", "komisyon"]
+    },
+    {
+        "id": 21,
+        "question": "Sileceklerin çalışmaması veya su fışkırtmaması ağır kusur mu?",
+        "slug": "sileceklerin-calismamasi-su-atmmasi-agir-kusur-mu",
+        "answer": "Silecek motorunun tamamen bozuk olması (sileceklerin hiç çalışmaması) veya silecek kollarının eksik olması görüşü tehlikeye attığı için 'Ağır Kusur'dur. Ancak cam suyu fıskiyesinin zayıf çalışması, tıkanık olması veya silecek süpürgelerinin (lastiklerinin) yıpranmış olup suyu tam silmemesi 'Hafif Kusur' olarak değerlendirilir.",
+        "category": "Görüş ve Camlar",
+        "tags": ["silecek", "cam suyu", "görüş"]
+    },
+    {
+        "id": 22,
+        "question": "Muayeneden kalan araca ceza kesilir mi? Kaç gün süresi var?",
+        "slug": "muayeneden-kalan-araca-ceza-kesilir-mi-suresi-kac-gun",
+        "answer": "TÜVTÜRK istasyonunda 'Ağır Kusur' veya 'Emniyetsiz' raporu alıp muayeneden kalan araca TÜVTÜRK tarafından herhangi bir para cezası kesilmez. Size eksiklerinizi gidermeniz için **30 gün (1 ay)** süre tanınır. Bu 30 gün içinde aynı veya farklı bir istasyondan 'Muayene Tekrarı' randevusu alarak ücretsiz ikinci muayeneye girebilirsiniz. Ancak bu 30 günlük süreçte trafiğe çıkarsanız ve polis çevirmesinde muayenesiz olduğunuz tespit edilirse trafik cezası uygulanabilir.",
+        "category": "Randevu ve Süreç",
+        "tags": ["muayene tekrarı", "30 gün", "ceza"]
+    },
+    {
+        "id": 23,
+        "question": "Çeki demiri muayeneden geçer mi? Ruhsata işlenmesi şart mı?",
+        "slug": "ceki-demiri-ruhsata-isli-degilse-gecer-mi",
+        "answer": "Aracınıza sonradan taktırdığınız çeki demiri, ruhsata işli (Tescil belgeli) değilse araç 'Ağır Kusur' alarak muayeneden kalır. Çeki demirinin standartlara uygun olarak monte edildiğini gösteren uygunluk belgesi ve TSE onayı ile notere gidilerek ruhsata işlenmesi, ardından muayeneye girilmesi zorunludur.",
+        "category": "Gövde ve Karoser",
+        "tags": ["çeki demiri", "ruhsat", "ağır kusur"]
+    },
+    {
+        "id": 24,
+        "question": "Emniyet kemeri takılmıyorsa muayeneden geçer mi?",
+        "slug": "emniyet-kemeri-takilmiyorsa-muayeneden-gecer-mi",
+        "answer": "Hayır. Sürücü ve yolcu koltuklarındaki (arka koltuklar dahil) tüm emniyet kemerlerinin mevcut olması, yırtık/kesik olmaması, makara sisteminin (çek-bırak mekanizması) çalışması ve tokaya sorunsuz şekilde kilitlenmesi zorunludur. Aksi takdirde araç can güvenliğini tehlikeye attığı gerekçesiyle doğrudan 'Ağır Kusur' alır.",
+        "category": "Güvenlik",
+        "tags": ["emniyet kemeri", "ağır kusur", "güvenlik"]
+    },
+    {
+        "id": 25,
+        "question": "Araçta yağ kaçağı varsa muayeneden geçer mi?",
+        "slug": "aracta-yag-kacagi-varsa-muayeneden-gecer-mi",
+        "answer": "Bu durum kaçağın boyutuna bağlıdır. Motor, şanzıman veya diferansiyelde sadece dış yüzeyde terleme şeklinde olan yağlanmalar 'Hafif Kusur' sayılır ve araç muayeneden geçer. Ancak, aracın altına damla damla düşecek kadar şiddetli, çevre kirliliği yaratan veya yürüyen aksam/fren sistemine damlayıp tehlike oluşturan büyük yağ kaçakları 'Ağır Kusur' olarak değerlendirilir.",
+        "category": "Motor ve Alt Takım",
+        "tags": ["yağ kaçağı", "motor terlemesi", "ağır kusur", "hafif kusur"]
+    }
+]

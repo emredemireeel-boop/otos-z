@@ -13,8 +13,9 @@ import {
 } from "@/lib/forumService";
 import { startConversation } from "@/lib/messageService";
 import { rateUser } from "@/lib/userService";
-import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star } from "lucide-react";
+import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { sampleListings, formatListingPrice } from "@/data/listings";
+import AutoLinkText from "@/components/AutoLinkText";
 
 const parseComparisonContent = (text: string) => {
     if (!text.includes("Karsilastirilan Araclar:")) return { description: text, vehicles: [] };
@@ -58,6 +59,8 @@ export default function ForumThreadPage() {
     const [hoverScore, setHoverScore] = useState(0);
     const [ratingSending, setRatingSending] = useState(false);
     const [activeUserMenu, setActiveUserMenu] = useState<string | null>(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const ENTRIES_PER_PAGE = 13;
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const viewCounted = useRef(false);
 
@@ -236,7 +239,7 @@ export default function ForumThreadPage() {
         const c = cat.toLowerCase();
         if (c.includes('uzman')) {
             return {
-                gradient: 'linear-gradient(135deg, #064e3b, #0f766e)', // Dark Emerald
+                gradient: 'linear-gradient(135deg, #006C4C, #00C9B8)', // Plutos Green
                 badgeBg: 'rgba(52, 211, 153, 0.2)',
                 badgeColor: '#6EE7B7'
             };
@@ -272,8 +275,53 @@ export default function ForumThreadPage() {
 
     const catStyle = getCategoryStyle(thread.category);
 
+    const structuredData = [
+        {
+            "@context": "https://schema.org",
+            "@type": "DiscussionForumPosting",
+            "headline": thread.title,
+            "author": {
+                "@type": "Person",
+                "name": thread.authorUsername
+            },
+            "interactionStatistic": {
+                "@type": "InteractionCounter",
+                "interactionType": "https://schema.org/CommentAction",
+                "userInteractionCount": entries.length
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Ana Sayfa",
+                    "item": "https://www.otosoz.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Forum",
+                    "item": "https://www.otosoz.com/forum"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": thread.title,
+                    "item": `https://www.otosoz.com/forum/${slugParam}`
+                }
+            ]
+        }
+    ];
+
     return (
         <div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+            />
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
@@ -359,7 +407,12 @@ export default function ForumThreadPage() {
                             </div>
                         ) : (
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                                {entries.map((entry, index) => {
+                                {(() => {
+                                    const totalPages = Math.ceil(entries.length / ENTRIES_PER_PAGE);
+                                    const startIdx = (currentPage - 1) * ENTRIES_PER_PAGE;
+                                    const paginatedEntries = entries.slice(startIdx, startIdx + ENTRIES_PER_PAGE);
+                                    return paginatedEntries.map((entry, idx) => {
+                                    const index = startIdx + idx;
                                     const isLiked = user ? entry.likedBy.includes(user.id as string) : false;
                                     const isFirstEntry = index === 0;
                                     const isKarsilastirma = thread.category === "Karsilastirma";
@@ -453,9 +506,8 @@ export default function ForumThreadPage() {
                                                 <div style={{
                                                     fontSize: '15px', lineHeight: '1.7',
                                                     color: 'var(--foreground)', marginBottom: vehicles.length > 0 ? '24px' : '16px',
-                                                    whiteSpace: 'pre-wrap',
                                                 }}>
-                                                    {description}
+                                                    <AutoLinkText text={description} style={{ whiteSpace: 'pre-wrap' }} />
                                                 </div>
                                             )}
 
@@ -510,7 +562,40 @@ export default function ForumThreadPage() {
                                         </div>
                                     </div>
                                 );
-                            })}
+                            });
+                            })()}
+                            </div>
+                    )}
+
+                    {/* Pagination */}
+                    {entries.length > ENTRIES_PER_PAGE && (
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginTop: '24px', flexWrap: 'wrap' }}>
+                            <button
+                                onClick={() => { setCurrentPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 400, behavior: 'smooth' }); }}
+                                disabled={currentPage === 1}
+                                style={{ padding: '8px 14px', background: currentPage === 1 ? 'var(--secondary)' : 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', color: currentPage === 1 ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === 1 ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px', fontWeight: '600', opacity: currentPage === 1 ? 0.5 : 1, transition: 'all 0.2s' }}
+                            >
+                                <ChevronLeft size={16} /> Önceki
+                            </button>
+                            {Array.from({ length: Math.ceil(entries.length / ENTRIES_PER_PAGE) }, (_, i) => i + 1).map(page => (
+                                <button
+                                    key={page}
+                                    onClick={() => { setCurrentPage(page); window.scrollTo({ top: 400, behavior: 'smooth' }); }}
+                                    style={{ width: '40px', height: '40px', borderRadius: '10px', border: currentPage === page ? '1px solid var(--primary)' : '1px solid var(--card-border)', background: currentPage === page ? 'var(--primary)' : 'var(--card-bg)', color: currentPage === page ? 'white' : 'var(--foreground)', fontSize: '14px', fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                                >
+                                    {page}
+                                </button>
+                            ))}
+                            <button
+                                onClick={() => { setCurrentPage(p => Math.min(Math.ceil(entries.length / ENTRIES_PER_PAGE), p + 1)); window.scrollTo({ top: 400, behavior: 'smooth' }); }}
+                                disabled={currentPage === Math.ceil(entries.length / ENTRIES_PER_PAGE)}
+                                style={{ padding: '8px 14px', background: currentPage === Math.ceil(entries.length / ENTRIES_PER_PAGE) ? 'var(--secondary)' : 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', color: currentPage === Math.ceil(entries.length / ENTRIES_PER_PAGE) ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === Math.ceil(entries.length / ENTRIES_PER_PAGE) ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px', fontWeight: '600', opacity: currentPage === Math.ceil(entries.length / ENTRIES_PER_PAGE) ? 0.5 : 1, transition: 'all 0.2s' }}
+                            >
+                                Sonraki <ChevronRight size={16} />
+                            </button>
+                            <div style={{ width: '100%', textAlign: 'center', fontSize: '12px', color: 'var(--text-muted)', marginTop: '8px' }}>
+                                Sayfa {currentPage} / {Math.ceil(entries.length / ENTRIES_PER_PAGE)} • Toplam {entries.length} entry
+                            </div>
                         </div>
                     )}
 

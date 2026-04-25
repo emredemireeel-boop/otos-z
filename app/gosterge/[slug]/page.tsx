@@ -21,6 +21,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
         if (!light) return { title: 'Gösterge Bulunamadı | OtoSöz' };
 
+        const ogUrl = `/api/og?title=${encodeURIComponent(light.title + ' İkaz Lambası')}&desc=${encodeURIComponent(light.meaning.slice(0, 160))}`;
+
         return {
             title: `${light.title} İkaz Lambası Anlamı | OtoSöz`,
             description: light.meaning,
@@ -30,6 +32,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 description: light.meaning,
                 type: 'article',
                 url: `https://www.otosoz.com/gosterge/${slug}`,
+                images: [
+                    {
+                        url: ogUrl,
+                        width: 1200,
+                        height: 630,
+                        alt: `${light.title} İkaz Lambası`,
+                    }
+                ],
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title: `${light.title} İkaz Lambası`,
+                description: light.meaning,
+                images: [ogUrl],
             },
             alternates: {
                 canonical: `https://www.otosoz.com/gosterge/${slug}`,
@@ -72,11 +88,36 @@ export default async function GostergePage({ params }: PageProps) {
         }
     };
 
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Sayfa",
+                "item": "https://www.otosoz.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Gösterge Işıkları",
+                "item": "https://www.otosoz.com/kutuphane?kategori=gosterge-isiklari"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": light.title,
+                "item": `https://www.otosoz.com/gosterge/${slug}`
+            }
+        ]
+    };
+
     return (
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]) }}
             />
             <GostergeDetailClient light={light} />
         </>

@@ -1,11 +1,39 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, BookOpen, Clock, Tag, Share2, ChevronRight, CheckCircle2, AlertTriangle, ShieldAlert } from "lucide-react";
+import { ArrowLeft, BookOpen, Clock, Tag, Share2, ChevronRight, CheckCircle2, AlertTriangle, ShieldAlert, List } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AutoLinkText from "@/components/AutoLinkText";
+import RelatedContent from "@/components/RelatedContent";
+import FloatingActionBar from "@/components/FloatingActionBar";
 
 export default function MakaleDetailClient({ article }: { article: any }) {
+    const [activeSection, setActiveSection] = useState<string>("");
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { rootMargin: "-20% 0px -60% 0px" }
+        );
+
+        const headings = document.querySelectorAll("h2[id]");
+        headings.forEach((h) => observer.observe(h));
+
+        return () => observer.disconnect();
+    }, [article]);
+
+    const generateId = (text: string) => {
+        return text.toLowerCase().replace(/[^a-z0-9ğüşöçı]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+    };
+
     const handleShare = () => {
         if (navigator.share) {
             navigator.share({ title: `${article.title} - OtoSöz`, url: window.location.href });
@@ -77,9 +105,10 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                             {article.title}
                         </h1>
 
-                        <p style={{ fontSize: '16px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '24px' }}>
-                            {article.description}
-                        </p>
+                        <AutoLinkText 
+                            text={article.description} 
+                            style={{ fontSize: '16px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '24px' }} 
+                        />
 
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -110,22 +139,72 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                     </div>
                 </div>
 
-                {/* Main Content */}
-                <div style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 24px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                    {article.sections?.map((section: any, idx: number) => (
+                {/* Main Content Layout */}
+                <div className="makale-layout" style={{ maxWidth: '1100px', margin: '0 auto', padding: '40px 24px', display: 'flex', gap: '40px', alignItems: 'flex-start' }}>
+                    
+                    {/* Table of Contents (Sticky Sidebar) */}
+                    {article.sections && article.sections.length > 0 && (
+                        <aside className="toc-sidebar" style={{
+                            width: '280px',
+                            position: 'sticky',
+                            top: '100px',
+                            background: 'var(--card-bg)',
+                            border: '1px solid var(--card-border)',
+                            borderRadius: '16px',
+                            padding: '24px',
+                            flexShrink: 0,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '12px'
+                        }}>
+                            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: '800', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px' }}>
+                                <List size={16} /> İçindekiler
+                            </h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                {article.sections.map((section: any, idx: number) => {
+                                    if (!section.title) return null;
+                                    const sectionId = generateId(section.title);
+                                    const isActive = activeSection === sectionId;
+                                    
+                                    return (
+                                        <a key={idx} href={`#${sectionId}`} style={{
+                                            fontSize: '14px',
+                                            color: isActive ? 'var(--primary)' : 'var(--foreground)',
+                                            fontWeight: isActive ? '700' : '500',
+                                            textDecoration: 'none',
+                                            paddingLeft: isActive ? '12px' : '8px',
+                                            borderLeft: isActive ? '3px solid var(--primary)' : '3px solid transparent',
+                                            transition: 'all 0.2s ease',
+                                            lineHeight: '1.4'
+                                        }} onClick={(e) => {
+                                            e.preventDefault();
+                                            document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+                                        }}>
+                                            {section.title}
+                                        </a>
+                                    );
+                                })}
+                            </div>
+                        </aside>
+                    )}
+
+                    {/* Article Sections */}
+                    <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                        {article.sections?.map((section: any, idx: number) => (
                         <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                             {/* Section Title */}
                             {section.title && (
-                                <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)', borderBottom: '1px solid var(--card-border)', paddingBottom: '12px' }}>
+                                <h2 id={generateId(section.title)} style={{ scrollMarginTop: '100px', fontSize: '24px', fontWeight: '800', color: 'var(--foreground)', borderBottom: '1px solid var(--card-border)', paddingBottom: '12px' }}>
                                     {section.title}
                                 </h2>
                             )}
 
                             {/* Section Content */}
                             {section.content && (
-                                <p style={{ fontSize: '17px', color: 'var(--foreground)', lineHeight: '1.8' }}>
-                                    {section.content}
-                                </p>
+                                <AutoLinkText 
+                                    text={section.content} 
+                                    style={{ fontSize: '17px', color: 'var(--foreground)' }} 
+                                />
                             )}
 
                             {/* Subsections */}
@@ -137,9 +216,10 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                                 {sub.subtitle}
                                             </h3>
                                             {sub.text && (
-                                                <p style={{ fontSize: '16px', color: 'var(--foreground)', lineHeight: '1.7', marginBottom: sub.points ? '16px' : '0' }}>
-                                                    {sub.text}
-                                                </p>
+                                                <AutoLinkText 
+                                                    text={sub.text} 
+                                                    style={{ fontSize: '16px', color: 'var(--foreground)', marginBottom: sub.points ? '16px' : '0' }} 
+                                                />
                                             )}
                                             {sub.points && sub.points.length > 0 && (
                                                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none', padding: 0, margin: 0 }}>
@@ -162,7 +242,10 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                     <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '16px', fontWeight: '700', color: '#3b82f6', marginBottom: '8px' }}>
                                         {section.tip.title || '💡 İpucu'}
                                     </h4>
-                                    <p style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: '1.6' }}>{section.tip.text}</p>
+                                    <AutoLinkText 
+                                        text={section.tip.text} 
+                                        style={{ fontSize: '15px', color: 'var(--foreground)' }} 
+                                    />
                                 </div>
                             )}
                             {section.warning && (
@@ -170,7 +253,10 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                     <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '16px', fontWeight: '700', color: '#ef4444', marginBottom: '8px' }}>
                                         <AlertTriangle size={18} /> {section.warning.title || '⚠️ Uyarı'}
                                     </h4>
-                                    <p style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: '1.6' }}>{section.warning.text}</p>
+                                    <AutoLinkText 
+                                        text={section.warning.text} 
+                                        style={{ fontSize: '15px', color: 'var(--foreground)' }} 
+                                    />
                                 </div>
                             )}
 
@@ -212,9 +298,32 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                             </div>
                         </Link>
                     </div>
+
+                    {/* Related Content / Recommendations */}
+                    <div style={{ paddingBottom: '20px' }}>
+                        <RelatedContent currentId={article.id} tags={article.tags || []} titleKeywords={article.title.split(' ')} />
+                    </div>
                 </div>
             </main>
+            
+            <FloatingActionBar 
+                title={article.title} 
+                url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/makale/${article.id}`} 
+                onCommentClick={() => document.getElementById('comments-section')?.scrollIntoView({ behavior: 'smooth' })} 
+            />
             <Footer />
+            <style jsx>{`
+                @media (max-width: 900px) {
+                    .makale-layout {
+                        flex-direction: column !important;
+                    }
+                    .toc-sidebar {
+                        width: 100% !important;
+                        position: static !important;
+                        margin-bottom: 24px;
+                    }
+                }
+            `}</style>
         </>
     );
 }

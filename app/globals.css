@@ -570,4 +570,118 @@ a {
 .dark .page-subheader-title {
   color: #ffffff;
 }
+
+/* ===== GLOBAL MOBILE RESPONSIVENESS ===== */
+
+/* Sozluk Detail: 2-column grid -> single column */
+.sozluk-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 28px;
+}
+
+/* BakimRehberi Detail: 2-column grid -> single column */
+.bakim-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* OBD Detail: side-by-side sections */
+.obd-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Kutuphane sections */
+.obd-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  gap: 24px;
+}
+.gosterge-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+}
+
+/* Kutuphane Tab Navigation: scrollable on mobile */
+.kutuphane-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  /* Sozluk: stack columns */
+  .sozluk-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* BakimRehberi: stack columns */
+  .bakim-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* OBD: stack symptom/cause columns */
+  .obd-two-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Kutuphane sections */
+  .obd-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .gosterge-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .grid-2col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Kutuphane tabs: horizontal scroll */
+  .kutuphane-tabs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+  }
+  .kutuphane-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .kutuphane-tabs > * {
+    flex-shrink: 0 !important;
+  }
+
+  /* Makale layout: stack TOC + content */
+  .makale-layout {
+    flex-direction: column !important;
+  }
+  .toc-sidebar {
+    width: 100% !important;
+    position: static !important;
+  }
+
+  /* Forum layout: stack main + sidebar */
+  .forum-layout {
+    flex-direction: column !important;
+  }
+  .forum-sidebar {
+    max-width: 100% !important;
+  }
+
+  /* Generic: prevent any horizontal overflow */
+  main {
+    overflow-x: hidden;
+  }
+
+  /* Fix wide hero sections */
+  .hero-stats {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+}
 

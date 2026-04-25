@@ -44,7 +44,7 @@ export default function UzmanaSorPage() {
                     });
                     if (allTips.length > 0) setRandomFact(allTips[Math.floor(Math.random() * allTips.length)]);
                 }
-            }).catch(() => {});
+            }).catch(() => { });
     }, []);
 
     const filteredThreads = selectedCategory === "Tumu"
@@ -78,7 +78,7 @@ export default function UzmanaSorPage() {
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
                 {/* Header */}
                 <div style={{
-                    background: 'linear-gradient(135deg, #0a3d2e, #1a6b5a)',
+                    background: 'linear-gradient(135deg, #006C4C, #00C9B8)',
                     borderBottom: '1px solid var(--card-border)', padding: '48px 24px'
                 }}>
                     <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
@@ -159,8 +159,8 @@ export default function UzmanaSorPage() {
                                                             <div style={{ position: 'absolute', top: 0, right: 0, background: '#fbbf24', color: 'black', fontSize: '10px', fontWeight: '800', padding: '2px 8px', borderBottomLeftRadius: '8px' }}>VİTRİN</div>
                                                             <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px', paddingRight: '40px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{thread.title}</h3>
                                                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '12px', color: 'var(--text-muted)' }}>
-                                                                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Users size={12}/>{thread.authorUsername}</span>
-                                                                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={12}/>{thread.entryCount} Yanıt</span>
+                                                                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Users size={12} />{thread.authorUsername}</span>
+                                                                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={12} />{thread.entryCount} Yanıt</span>
                                                             </div>
                                                         </div>
                                                     </Link>
@@ -248,8 +248,8 @@ export default function UzmanaSorPage() {
                                         height: '220px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                                         color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '20px', textAlign: 'center'
                                     }}
-                                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
-                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
+                                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
+                                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
                                         <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
                                             <Sparkles size={20} color="currentColor" />
                                         </div>
@@ -354,3 +354,5 @@ export default function UzmanaSorPage() {
         </div>
     );
 }
+
+// force refresh

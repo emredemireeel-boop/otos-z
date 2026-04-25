@@ -71,11 +71,36 @@ export default async function BakimRehberiPage({ params }: PageProps) {
         }
     };
 
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Sayfa",
+                "item": "https://www.otosoz.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Bakım Zamanları",
+                "item": "https://www.otosoz.com/kutuphane?kategori=bakim-zamanlari"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": bakimItem.title,
+                "item": `https://www.otosoz.com/bakim-rehberi/${slug}`
+            }
+        ]
+    };
+
     return (
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]) }}
             />
             <BakimRehberiDetailClient bakimItem={bakimItem} />
         </>

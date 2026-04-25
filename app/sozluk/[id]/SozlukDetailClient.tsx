@@ -5,6 +5,7 @@ import { ArrowLeft, BookMarked, TrendingUp, ChevronRight, Share2, Tag, Lightbulb
 import { DictionaryTerm, categoryColors } from "@/data/dictionary";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AutoLinkText from "@/components/AutoLinkText";
 
 export default function SozlukDetailClient({ term, relatedTerms, sameLetterTerms }: {
     term: DictionaryTerm;
@@ -111,7 +112,7 @@ export default function SozlukDetailClient({ term, relatedTerms, sameLetterTerms
             </div>
 
             {/* Main Content */}
-            <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '32px 24px', display: 'grid', gridTemplateColumns: '1fr 300px', gap: '28px' }}>
+            <div className="sozluk-layout" style={{ maxWidth: '1100px', margin: '0 auto', padding: '32px 24px' }}>
                 {/* Left: Article */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                     {/* Description */}
@@ -130,9 +131,10 @@ export default function SozlukDetailClient({ term, relatedTerms, sameLetterTerms
                             </div>
                             <h2 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>Tanım</h2>
                         </div>
-                        <p style={{ fontSize: '17px', color: 'var(--foreground)', lineHeight: '1.9', fontWeight: '400' }}>
-                            {term.description}
-                        </p>
+                        <AutoLinkText 
+                            text={term.description} 
+                            style={{ fontSize: '17px', color: 'var(--foreground)', fontWeight: 400 }} 
+                        />
                     </section>
 
                     {/* Why Important */}
@@ -158,9 +160,10 @@ export default function SozlukDetailClient({ term, relatedTerms, sameLetterTerms
                             borderRadius: '14px',
                             borderLeft: '4px solid #f59e0b',
                         }}>
-                            <p style={{ fontSize: '16px', color: 'var(--foreground)', lineHeight: '1.8' }}>
-                                {term.why}
-                            </p>
+                            <AutoLinkText 
+                                text={term.why} 
+                                style={{ fontSize: '16px', color: 'var(--foreground)' }} 
+                            />
                         </div>
                     </section>
 

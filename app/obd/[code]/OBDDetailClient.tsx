@@ -4,6 +4,9 @@ import Link from "next/link";
 import { ArrowLeft, AlertTriangle, Activity, Wrench, CheckCircle2, ChevronRight, Share2, ExternalLink, Cpu, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AutoLinkText from "@/components/AutoLinkText";
+import RelatedContent from "@/components/RelatedContent";
+import FloatingActionBar from "@/components/FloatingActionBar";
 
 interface ObdCode {
     code: string;
@@ -200,13 +203,14 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel }: {
                             </div>
                             <h2 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>Teknik Açıklama</h2>
                         </div>
-                        <p style={{ fontSize: '16px', color: 'var(--foreground)', lineHeight: '1.8', fontWeight: '400' }}>
-                            {codeData.description}
-                        </p>
+                        <AutoLinkText 
+                            text={codeData.description} 
+                            style={{ fontSize: '16px', color: 'var(--foreground)', fontWeight: 400 }} 
+                        />
                     </section>
 
                     {/* Symptoms + Causes Side by Side */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div className="obd-two-col">
                         {/* Symptoms */}
                         <section style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', padding: '24px', position: 'relative', overflow: 'hidden' }}>
                             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #ef4444, transparent)' }} />
@@ -376,7 +380,17 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel }: {
                     </Link>
                 </aside>
             </div>
+            
+            {/* Related Content / Recommendations */}
+            <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px 60px' }}>
+                <RelatedContent currentId={codeData.code} tags={codeData.symptoms.concat(codeData.systems)} titleKeywords={[codeData.code, ...codeData.title.split(' ')]} />
+            </div>
         </main>
+        
+        <FloatingActionBar 
+            title={`${codeData.code} - ${codeData.title}`} 
+            url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/obd/${codeData.code.toLowerCase()}`} 
+        />
         <Footer />
         </>
     );

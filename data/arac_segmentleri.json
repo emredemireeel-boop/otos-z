@@ -1,0 +1,147 @@
+{
+    "segments": [
+        {
+            "id": "A",
+            "title": "A Segmenti (Mini Sınıf)",
+            "icon": "car-small",
+            "description": "Şehir içi kullanım için tasarlanmış, boyutları en küçük ve manevra kabiliyeti en yüksek araç sınıfıdır. Dar sokaklarda kolayca park edilebilirler. Yakıt tüketimleri genellikle düşüktür.",
+            "characteristics": ["Ortalama Uzunluk: 3.5 - 3.7 metre", "Bagaj Hacmi: 150 - 250 Litre", "Kullanım Amacı: Şehir içi, kısa mesafe"],
+            "examples": ["Fiat 500", "Hyundai i10", "Kia Picanto", "Toyota Aygo"]
+        },
+        {
+            "id": "B",
+            "title": "B Segmenti (Küçük Sınıf)",
+            "icon": "car",
+            "description": "Türkiye'de ve Avrupa'da en çok satılan araç sınıflarından biridir. A segmentinden daha geniş, C segmentinden daha kompakttır. Hem şehir içi hem de şehirler arası kullanım için ideal bir denge sunar.",
+            "characteristics": ["Ortalama Uzunluk: 3.8 - 4.1 metre", "Bagaj Hacmi: 280 - 350 Litre", "Kullanım Amacı: Şehir içi, küçük aileler"],
+            "examples": ["Renault Clio", "Volkswagen Polo", "Peugeot 208", "Ford Fiesta", "Hyundai i20"]
+        },
+        {
+            "id": "C",
+            "title": "C Segmenti (Kompakt Sınıf / Alt Orta)",
+            "icon": "car-medium",
+            "description": "Dünyada en çok tercih edilen 'Standart Aile Otomobili' sınıfıdır. Yeterli iç hacim, konfor, performans ve güvenlik donanımlarını bir arada sunar. Hem hatchback hem sedan kasa tipleri çok popülerdir.",
+            "characteristics": ["Ortalama Uzunluk: 4.2 - 4.6 metre", "Bagaj Hacmi: 380 - 550 Litre", "Kullanım Amacı: 4 kişilik aileler, şirket araçları, uzun yol"],
+            "examples": ["Volkswagen Golf", "Toyota Corolla", "Renault Megane", "Honda Civic", "Fiat Egea"]
+        },
+        {
+            "id": "D",
+            "title": "D Segmenti (Üst Orta Sınıf)",
+            "icon": "car-large",
+            "description": "Prestij, yüksek konfor ve geniş iç hacim arayanların tercih ettiği, halk arasında 'Makam Aracı'na giriş olarak da bilinen sınıftır. Malzeme kalitesi, yalıtım ve teknolojik donanımlar üst düzeydedir.",
+            "characteristics": ["Ortalama Uzunluk: 4.6 - 4.9 metre", "Bagaj Hacmi: 450 - 600 Litre", "Kullanım Amacı: Konforlu uzun yol, yönetici aracı, geniş aileler"],
+            "examples": ["Volkswagen Passat", "Skoda Superb", "BMW 3 Serisi", "Mercedes C Serisi", "Audi A4"]
+        },
+        {
+            "id": "E",
+            "title": "E Segmenti (Üst Sınıf / Lüks)",
+            "icon": "crown",
+            "description": "Gerçek makam araçları bu sınıftadır. Yüksek motor hacimleri, kusursuz yalıtım, arka koltuk konforu ve en yeni otomotiv teknolojileri bu araçlarda standarttır.",
+            "characteristics": ["Ortalama Uzunluk: 4.9 - 5.1 metre", "Bagaj Hacmi: Geniş ve değişken", "Kullanım Amacı: Üst düzey yöneticiler, VIP taşıma, lüks yaşam"],
+            "examples": ["Mercedes E Serisi", "BMW 5 Serisi", "Audi A6", "Volvo S90"]
+        },
+        {
+            "id": "F",
+            "title": "F Segmenti (Lüks Sınıf / Süper Lüks)",
+            "icon": "gem",
+            "description": "Otomobil dünyasının zirvesidir. Üreticilerin amiral gemisi modelleri bu segmentte yer alır. Özel siparişle, kişiselleştirilmiş donanımlarla üretilirler.",
+            "characteristics": ["Ortalama Uzunluk: 5.1+ metre", "Malzeme: El işçiliği deri ve ahşap", "Kullanım Amacı: Devlet başkanları, CEO'lar, VIP"],
+            "examples": ["Mercedes S Serisi", "BMW 7 Serisi", "Audi A8", "Porsche Panamera"]
+        }
+    ],
+    "bodyTypes": [
+        {
+            "id": "sedan",
+            "title": "Sedan",
+            "imageIcon": "Car",
+            "description": "Motor, yolcu kabini ve bagaj bölümlerinin birbirinden tamamen ayrı üç kutu şeklinde tasarlandığı, Türkiye'nin en sevilen geleneksel kasa tipidir.",
+            "pros": ["Geniş ve derin bagaj hacmi", "Arka yolcular için daha iyi ses yalıtımı", "Prestijli ve klasik görünüm"],
+            "cons": ["Bagaj kapağı dar olduğu için büyük eşya yüklemesi zordur", "Hatchback'lere göre manevrası/park etmesi daha zordur"]
+        },
+        {
+            "id": "hatchback",
+            "title": "Hatchback (HB)",
+            "imageIcon": "Hatchback",
+            "description": "Bagaj kapağının arka cam ile birlikte açıldığı, bagaj ile yolcu kabininin birleşik olduğu 3 veya 5 kapılı araçlardır. Gençlerin ve şehir içi kullanıcılarının favorisidir.",
+            "pros": ["Kolay park edebilme ve yüksek manevra", "Bagaj kapağı geniş açıldığı için büyük eşya yükleme kolaylığı", "Koltuklar yatırıldığında yüksek yükleme hacmi"],
+            "cons": ["Sedanlara göre standart bagaj hacmi daha küçüktür", "Arka tekerleklerden gelen yol sesi kabine daha çok girer"]
+        },
+        {
+            "id": "suv",
+            "title": "SUV (Sport Utility Vehicle)",
+            "imageIcon": "Mountain",
+            "description": "Spor Amaçlı Taşıt anlamına gelir. Yerden yüksek yapıları, kaslı görünümleri ve genellikle 4x4 (veya önden çekişli 4x2) özellikleriyle hem asfalt hem hafif arazi koşullarına uygun popüler gövde tipidir.",
+            "pros": ["Yüksek sürüş pozisyonu ile yola hakimiyet", "Geniş iç hacim ve yüksek tavan", "Güvenlik hissi ve prestijli görünüm"],
+            "cons": ["Yüksek ağırlık ve aerodinamik yapı nedeniyle daha fazla yakıt tüketimi", "Yüksek ağırlık merkezi nedeniyle virajlarda yatma eğilimi"]
+        },
+        {
+            "id": "crossover",
+            "title": "Crossover (CUV)",
+            "imageIcon": "GitMerge",
+            "description": "Binek otomobil (genellikle hatchback) platformları üzerine inşa edilmiş, SUV görünümüne sahip ancak safkan arazi aracı olmayan şehir içi yüksek araçlardır. (Örn: Peugeot 2008, Nissan Qashqai)",
+            "pros": ["SUV görünümü ile binek araç ekonomisi", "Hatchback'e göre daha kolay inip binme", "Yumuşak ve konforlu sürüş"],
+            "cons": ["Gerçek arazi (Off-road) yetenekleri zayıftır veya yoktur", "İç hacimleri dışarıdan göründüğü kadar büyük olmayabilir"]
+        },
+        {
+            "id": "station-wagon",
+            "title": "Station Wagon (SW)",
+            "imageIcon": "Box",
+            "description": "Sedan veya Hatchback bir aracın tavanının arka bagaj hizasına kadar uzatıldığı gövde tipidir. Avrupa'nın en çok tercih ettiği aile aracı tipidir.",
+            "pros": ["SUV'lara göre daha iyi yol tutuş (Alçak ağırlık merkezi)", "Devasa ve çok pratik bagaj hacmi", "Aerodinamik avantaj nedeniyle SUV'dan az yakıt tüketimi"],
+            "cons": ["Türkiye'de ikinci el pazarı sedanlara göre daha zayıftır", "Uzun yapısı şehir içi park zorluğu yaratabilir"]
+        },
+        {
+            "id": "coupe",
+            "title": "Coupe",
+            "imageIcon": "Wind",
+            "description": "Genellikle 2 veya 4 kapılı, tavan çizgisi arkaya doğru eğimli bir şekilde alçalan, sportif tasarımı ön planda tutan araçlardır.",
+            "pros": ["Dikkat çekici, sportif ve agresif tasarım", "Üstün aerodinamik ve performans", "Mükemmel yol tutuş (Genellikle alçak yapıları sayesinde)"],
+            "cons": ["Arka koltuk diz ve baş mesafesi kısıtlıdır", "Günlük kullanımdan ziyade keyif odaklıdır"]
+        },
+        {
+            "id": "pickup",
+            "title": "Pick-up",
+            "imageIcon": "Truck",
+            "description": "Önde yolcu kabini, arkasında ise tamamen açık bir yük taşıma kasası bulunan, genellikle arazi şasisi üzerine inşa edilmiş araçlardır.",
+            "pros": ["Ağır yük taşıma ve römork çekme kapasitesi", "Gerçek ve üstün off-road (4x4) yeteneği", "Dayanıklı ve sağlam yapı"],
+            "cons": ["Arka süspansiyonları yük taşımak için serttir, konforsuz olabilir", "Şehir içinde park etmek ve manevra yapmak zordur"]
+        }
+    ],
+    "comparisonTable": [
+        {
+            "feature": "İdeal Kullanım",
+            "sedan": "Aileler, Şirketler, Uzun Yol",
+            "hatchback": "Şehir içi, Gençler, Küçük Aileler",
+            "suv": "Arazi, Aileler, Güvenlik Arayanlar",
+            "stationWagon": "Geniş Aileler, Bol Eşyalı Seyahat"
+        },
+        {
+            "feature": "Bagaj Kullanışlılığı",
+            "sedan": "Derin ama dar ağızlı",
+            "hatchback": "Kısa ama geniş ağızlı (Dik yüklenebilir)",
+            "suv": "Geniş ve yüksek (Ağır yüklemesi zor)",
+            "stationWagon": "En geniş ve en pratik (Düz zemin)"
+        },
+        {
+            "feature": "Sürüş Dinamikleri (Yol Tutuş)",
+            "sedan": "İyi / Yüksek stabilite",
+            "hatchback": "Çok iyi / Çevik",
+            "suv": "Zayıf / Yüksek ağırlık merkezi",
+            "stationWagon": "Çok iyi / Sedan ile benzer"
+        },
+        {
+            "feature": "Yakıt Tüketimi (Aynı Motorla)",
+            "sedan": "Ekonomik",
+            "hatchback": "En Ekonomik",
+            "suv": "Yüksek (Rüzgar direnci + Ağırlık)",
+            "stationWagon": "Ekonomik"
+        },
+        {
+            "feature": "Prestij ve Gösteriş",
+            "sedan": "Yüksek (Makam hissi)",
+            "hatchback": "Sportif / Dinamik",
+            "suv": "Çok Yüksek (Kaslı ve büyük)",
+            "stationWagon": "Pratik / Mütevazı"
+        }
+    ]
+}

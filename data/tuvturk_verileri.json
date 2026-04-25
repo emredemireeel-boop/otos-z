@@ -1,0 +1,198 @@
+{
+    "steps": [
+        {
+            "id": 1,
+            "title": "Muayene Öncesi Resmi Kontroller ve Borç Sorgulama",
+            "icon": "ClipboardCheck",
+            "description": "Araç muayenesi öncesinde aracınızın resmi olarak muayeneye girmeye uygun olup olmadığını kontrol etmeniz şarttır. Herhangi bir borç durumunda TÜVTÜRK sistemi randevu vermeyecek veya istasyonda işlem başlatmayacaktır.",
+            "points": [
+                "Motorlu Taşıtlar Vergisi (MTV) borcu bulunmamalıdır (Gecikmiş taksitler dahil).",
+                "Trafik cezası borcu bulunmamalıdır (Plakaya veya T.C. kimliğe yazılmış ödenmemiş cezalar).",
+                "OGS/HGS gibi otoyol ve köprü kaçak geçiş borcu bulunmamalıdır.",
+                "Geçerli bir Zorunlu Trafik Sigortası poliçesi olmalıdır (Sigortası olmayan araç ağır kusurlu sayılır veya işleme alınmaz).",
+                "Egzoz Gazı Emisyon Ölçümü geçerlilik süresi dolmamış olmalıdır (Ölçüm TÜVTÜRK istasyonlarında da yaptırılabilir)."
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Ücretsiz Randevu Alma İşlemi",
+            "icon": "CalendarDays",
+            "description": "TÜVTÜRK resmi web sitesi, e-Devlet veya çağrı merkezi üzerinden ücretsiz randevu alın. Muayene süresi bitmeden önce randevu almanız gecikme cezası (aylık %5) ödememenizi sağlar.",
+            "points": [
+                "Randevular tuvturk.com.tr adresinden ücretsiz alınır.",
+                "Plaka, ruhsat seri numarası ve şehir bilgisiyle size en uygun istasyon, gün ve saat seçilir.",
+                "Araç muayene süresi dolduysa, muayene ücretine ek olarak her ay için %5 oranında gecikme cezası yansıtılır.",
+                "Bir takvim ayı içerisinde aynı kişi kendi adına olmayan (farklı ruhsat sahibi) en fazla 1 aracı vekaletsiz muayeneye götürebilir."
+            ],
+            "actionLink": "https://www.tuvturk.com.tr/hizmetlerimiz/hizli-islemler/arac-muayene-randevusu-alma",
+            "actionText": "Hemen Ücretsiz Randevu Al"
+        },
+        {
+            "id": 3,
+            "title": "İstasyona Geliş, Kiosk ve Kayıt İşlemleri",
+            "icon": "Clock",
+            "description": "Randevu saatinizden 15 dakika önce istasyonda bulunmanız yeterlidir. Randevu saatiniz, muayenenin başlayacağı saati değil, bilet alma ve kayıt işlemlerinizin başlayacağı saati temsil eder.",
+            "points": [
+                "İstasyon girişindeki Kiosk (sıra numarası makinesi) cihazından randevu onayı yapılarak sıra bileti alınır.",
+                "Sıranızın ekranda yanmasıyla birlikte Müşteri Kabul Gişesi'ne gidilir.",
+                "Gişede Ruhsat (Motorlu Araç Trafik Belgesi), T.C. Kimlik Kartı ve muayene ücreti (Nakit veya Kredi Kartı/Banka Kartı) teslim edilir.",
+                "Ödeme sonrası size muayene kabul belgesi verilir ve aracınızı peron sırasına çekmeniz istenir."
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Peron İşlemleri ve 100+ Nokta Kontrolü",
+            "icon": "SearchCheck",
+            "description": "Muayene teknisyeni aracınızı teslim alır ve peron içindeki test istasyonlarına sokar. Bu aşamada uluslararası standartlara göre detaylı bir güvenlik ve donanım kontrolü yapılır.",
+            "points": [
+                "Teknisyen aracı perona alırken siz güvenlik gereği yolcu bekleme alanına geçersiniz.",
+                "Önce fren test cihazına girilir: Ön, arka ve el freni sapma oranları ile fren kuvvetleri makineyle ölçülür.",
+                "Süspansiyon test cihazıyla amortisörlerin sönümleme kapasitesi ölçülür.",
+                "Far ayar cihazıyla kısa/uzun farların ufuk çizgisi ve ışık şiddeti kontrol edilir.",
+                "Araç life (kaldıraca) alınarak; rotil, salıncak, aks, şasi, egzoz boruları, yakıt hatları ve lastiklerin iç yüzeyleri incelenir.",
+                "Araç içi donanımlar: Emniyet kemerleri, cam krikoları, kornalar ve gösterge paneli uyarı ışıkları (ABS, Airbag vb.) kontrol edilir."
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Rapor Teslimi ve Sonuçların Değerlendirilmesi",
+            "icon": "FileSignature",
+            "description": "Muayene bitiminde teknisyen aracınızı teslim alanına getirir. Araçta tespit edilen eksiklikler rapor halinde size sunulur ve aracınızın muayene durumu belirlenir.",
+            "points": [
+                "Kusursuz veya Hafif Kusurlu araçlar muayeneden geçer. Ön plakanıza muayene pulu yapıştırılır ve rapor verilir.",
+                "Ağır Kusurlu veya Emniyetsiz araçlar muayeneden GEÇEMEZ. Trafiğe çıkmaları yasal olarak sakıncalıdır.",
+                "Kalan araçlar için 1 ay (30 gün) içinde eksiklerin giderilip 'Muayene Tekrarı' için ücretsiz randevu alınması zorunludur.",
+                "Aynı arızalar giderilmeden 2. muayeneye gelinirse, yeni bir kusur tespit edilirse veya 1 aylık süre aşılırsa muayene hakkı yanar; muayene ücretinin tamamı yeniden ödenir."
+            ]
+        }
+    ],
+    "heavyDefects": [
+        {
+            "category": "Fren Sistemi (En Kritik Bölüm)",
+            "issues": [
+                "Fren hortumlarında ve borularında çatlak, sızıntı, balon (şişme), ezik veya aşırı korozyon.",
+                "Fren disklerinde veya kampanalarında aşırı incelme, yapısal çatlak veya kırık.",
+                "Ön veya arka fren sapma oranının (sağ/sol tekerlek arası frenleme dengesizliği) %30'dan fazla olması.",
+                "El freninin tutmaması, zayıf tutması (kitlenmemesi) veya el freni telinin kopuk/aşırı gevşek olması.",
+                "Fren pedal boşluğunun aşırı olması, pedalda süngerleşme hissi veya fren pedalının takılı kalması.",
+                "ABS sisteminin çalışmaması, ABS arıza lambasının sürekli yanması veya sistemin iptal edilmiş olması.",
+                "Fren merkez pompasında (ana merkez) veya tekerlek fren kaliperlerinde/silindirlerinde fren hidroliği sızıntısı.",
+                "Fren balatalarının tamamen bitmiş olması veya metale sürtme sesi yapması."
+            ]
+        },
+        {
+            "category": "Direksiyon ve Yürüyen Aksam",
+            "issues": [
+                "Direksiyon kutusunda aşırı mekanik boşluk, direksiyonda takılma veya ağır hidrolik kaçağı.",
+                "Direksiyon simidinin sabitlenmemiş olması, airbag boşluğu veya orijinal dışı uygunsuz direksiyon takılması.",
+                "Rot başı, rot kolu, rotil, askı rotu (Z rot) veya salıncak burçlarında aşırı aşınma, kopma ve tehlikeli boşluklar.",
+                "Amortisörlerin tamamen patlak olması, yağ sızdırması veya sönümleme görevini hiç yapmaması.",
+                "Araç helezon yaylarının kesik, presslenmiş, ısıtılıp kısaltılmış olması (Sadece TÜV onaylı coilover/spor yay kabul edilir).",
+                "Aks körüklerinin tamamen yırtık olması, aks kafasının hasar görmesi ve tehlikeli ses/boşluk yapması.",
+                "Tekerlek bilyalarında (porya rulmanı) aşırı boşluk, tekerleğin sallanması veya kilitlenme riski."
+            ]
+        },
+        {
+            "category": "Aydınlatma, Elektrik ve Görüş",
+            "issues": [
+                "Kısa veya uzun farların hiç yanmaması, far renginin hatalı veya yönetmeliğe aykırı olması (kırmızı/mavi/yeşil far).",
+                "Fren (stop) lambalarının hiç yanmaması, gecikmeli yanması veya pedala basılmadan sürekli yanması.",
+                "Sinyal (sinyalizasyon) lambalarının çalışmaması, dörtlü flaşörün bozuk olması veya yanlış renkte yanması.",
+                "Geri vites lambasının yanmaması veya beyaz harici bir renkte yanması.",
+                "Far aynalarının/merceklerinin tamamen kararmış olması, aydınlatma şiddetinin yetersizliği.",
+                "Sonradan eklenen ve yönetmeliğe aykırı merceksiz zenon (xenon) / LED far uygulamaları (Göz alıcı dağınık ışık).",
+                "Ön camda sürücünün görüş alanını (sileceğin taradığı alanı) kapatan derin çatlak, kırık veya yıldız şeklinde hasarlar.",
+                "Ön camda zindan (çok koyu) veya dışarıdan içeriyi göstermeyen aynalı cam filmi uygulaması.",
+                "Dikiz aynalarının (iç veya dış) eksik, kırık veya sabit durmuyor/ayarlanamıyor olması.",
+                "Akü sabitlemesinin gevşek olması, yerinden oynaması veya akü kutup başlarında şaseye değme riski taşıyan açık kablolama."
+            ]
+        },
+        {
+            "category": "Lastik ve Jantlar",
+            "issues": [
+                "Lastik diş derinliğinin binek araçlar için yasal sınır olan 1.6 mm'nin altında olması (Kabak lastik).",
+                "Aynı aksta (ön iki veya arka iki) farklı ebatta, farklı hız endeksinde veya asimetrik desende lastik kullanılması.",
+                "Lastik yanaklarında balon (şişkinlik), derin kesik veya kord bezlerinin/tellerinin dışarı çıkmış olması.",
+                "Lastiğin çamurluğa sürtmesi veya aracın lastik ebatlarının üretici sınırları dışında olması.",
+                "Jantlarda çatlak, kaynaklı tamir (güvensiz onarım), kırık veya jant göbeğinde hasar.",
+                "Araca uygun olmayan, eksik takılmış bijonlar veya güvensiz flanş (spacer) kullanımı.",
+                "Yönlü (oklu) lastiklerin dönüş yönünün ters (yanlış) takılmış olması."
+            ]
+        },
+        {
+            "category": "LPG/CNG Sistemleri (Otogaz)",
+            "issues": [
+                "LPG/CNG yakıt tankının üretim tarihi üzerinden 10 yıllık kullanım ömrünün dolmuş olması.",
+                "Yakıt tankının sabitlenmemiş olması, bağlantı kayışlarının kopuk/gevşek olması.",
+                "Gaz sızdırmazlığı olmaması (Sistemde gaz kaçağı tespit edilmesi).",
+                "LPG dolum ağzının tehlikeli bir noktada veya egzoza çok yakın monte edilmiş olması.",
+                "LPG borularının şasi altında korumasız, sarkık veya egzoza temas edecek şekilde çekilmesi."
+            ]
+        },
+        {
+            "category": "Şasi, Karoser, Motor ve Güvenlik",
+            "issues": [
+                "Şasi (Motor/VIN) numarası okunamıyor, kazınmış, değiştirilmiş veya ruhsatla uyuşmuyor olması.",
+                "Emniyet kemerlerinin hiç olmaması, mekanizmasının çalışmaması, tokaya oturmaması veya kilitlenmemesi.",
+                "Hava yastığı (Airbag) arıza lambasının yanması, direnç atılarak kandırılmış olduğunun tespit edilmesi veya airbag kapağının açık/patlak olması.",
+                "Araç tabanında, şasi kollarında, kulelerde veya taşıyıcı direklerde aracın bütünlüğünü zayıflatan, çökme riski taşıyan derin korozyon/çürük.",
+                "Yakıt deposunda sızıntı, yakıt borularında kaçak veya deponun güvensiz konumlandırması (Yangın riski).",
+                "Egzoz sisteminde büyük kaçaklar, katalitik konvertörün iptal edilmiş olması veya araca uygun olmayan abartı (vanalı) egzoz kullanımı.",
+                "Kapıların içeriden veya dışarıdan açılamaması, menteşelerde aşırı boşluk, sürüş esnasında kapıların açılma riski."
+            ]
+        }
+    ],
+    "lightDefects": [
+        {
+            "category": "Aydınlatma ve Elektrik",
+            "issues": [
+                "Far ayarlarının bozuk olması (Kısa veya uzun far ufuk çizgisi hatası, sağ/sol veya aşağı/yukarı kayma).",
+                "Ön sis farlarından birinin veya ikisinin yanmaması, ayarsız olması.",
+                "Arka plaka aydınlatma lambalarından birinin veya tamamının yanmaması.",
+                "Geri vites lambasının birinin yanıp diğerinin yanmaması (İki adet geri vites lambası olan araçlarda).",
+                "Akü bağlantılarında hafif gevşeklik veya yüzeysel oksitlenme.",
+                "Araç içi aydınlatmaların, torpido veya bagaj ışıklarının çalışmaması."
+            ]
+        },
+        {
+            "category": "Motor, Alt Takım ve Egzoz",
+            "issues": [
+                "Motorda, şanzımanda, diferansiyelde veya karterde damlatma yapmayan, sadece hafif terleme şeklindeki yağ kaçakları.",
+                "Egzoz susturucusunda veya borularda ufak ezilmeler, yüzeysel paslanmalar (Sızıntı ve aşırı ses yapmıyorsa).",
+                "Amortisör takozlarında hafif çatlaklar, amortisör toz körüklerinin yırtık olması.",
+                "Direksiyon hidrolik seviyesinin minimum sınırın hizasında veya çok az altında olması.",
+                "Motor soğutma sıvısında (antifriz/su) eksiklik."
+            ]
+        },
+        {
+            "category": "Görüş, Camlar ve Silecek",
+            "issues": [
+                "Silecek süpürgelerinin yıpranmış, lastiklerinin sertleşmiş olması (Suyu tam silmemesi).",
+                "Cam suyu (silecek suyu) motorunun çalışmaması veya fıskiyelerin tıkalı/zayıf/farklı yöne çalışması.",
+                "Ön camda sileceğin taramadığı köşelerde kalan veya görüşü engellemeyen kılcal cam çatlakları/taş izleri.",
+                "Arka camlarda, arka yan camlarda veya ön yan camlarda görüşü %70'in altına düşürmeyen (standartlara uygun) cam filmi uygulamaları.",
+                "Arka cam rezistansının (buz çözücü) çalışmaması."
+            ]
+        },
+        {
+            "category": "Gövde, Karoser ve Donanım",
+            "issues": [
+                "Kaportada yüzeysel çizikler, ufak ezikler, göçükler veya paslanmalar (Şasiye veya taşıyıcı iskelete işlememiş).",
+                "Araç içi döşemelerde, koltuk kumaşlarında yırtıklar, yanıklar veya kozmetik eksiklikler.",
+                "Güneşliklerin eksik veya menteşelerinin bozuk/sarkık olması.",
+                "Torpido kapağının kapanmaması, iç plastik aksamlardaki kırıklar, kalorifer ızgaralarının kırık olması.",
+                "Reflektör (2 adet), yangın söndürme tüpü (1 kg) veya ilk yardım çantasının araçta bulunmaması, eksik olması veya tarihinin geçmiş olması (Geçmişte ağır kusurdu, şu an hafif kusur olarak geçmektedir).",
+                "Stepnenin (yedek lastik) inik olması veya araçta stepne bulunmaması (Run-flat lastikli araçlar hariç)."
+            ]
+        },
+        {
+            "category": "Plaka ve Ruhsat",
+            "issues": [
+                "Plakanın köşelerinde hafif hasar, ezilme veya solukluk olması (Harf ve rakamlar okunabiliyorsa).",
+                "Plaka üzerinde okunurluğu bozmayan ufak vida delikleri (Plaka mühürlü olmak şartıyla).",
+                "Ruhsatta araç renginin ufak farklılıklarla belirtilmiş olması (Örn: Araç 'Buzul Gri', ruhsatta 'Gümüş Gri' yazması).",
+                "Ruhsatta aracın koltuk sayısının (binek araçlar için) ufak farklılıklar göstermesi (Minibüs/Otobüs gibi ticari dönüşümler hariç)."
+            ]
+        }
+    ]
+}

@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Wrench, AlertTriangle, CheckCircle, Info, CalendarClock, TurkishLira, Activity, Settings2 } from "lucide-react";
 import Link from "next/link";
+import AutoLinkText from "@/components/AutoLinkText";
+import RelatedContent from "@/components/RelatedContent";
+import FloatingActionBar from "@/components/FloatingActionBar";
 
 interface BakimRehberiDetailClientProps {
     bakimItem: any;
@@ -125,7 +128,7 @@ export default function BakimRehberiDetailClient({ bakimItem }: BakimRehberiDeta
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '24px', alignItems: 'start' }}>
+                    <div className="bakim-layout">
                         {/* Sol Kolon: Detaylar */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                             
@@ -140,9 +143,10 @@ export default function BakimRehberiDetailClient({ bakimItem }: BakimRehberiDeta
                                     <CheckCircle style={{ color: '#10B981' }} />
                                     Neden Önemli ve Ne İşe Yarar?
                                 </h2>
-                                <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.8' }}>
-                                    {bakimItem.nedenOnemli}
-                                </p>
+                                <AutoLinkText 
+                                    text={bakimItem.nedenOnemli} 
+                                    style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.8' }} 
+                                />
                             </div>
 
                             {/* İhmal Edilirse Ne Olur? */}
@@ -162,10 +166,11 @@ export default function BakimRehberiDetailClient({ bakimItem }: BakimRehberiDeta
                                     padding: '16px',
                                     borderRadius: '0 8px 8px 0',
                                     color: 'var(--foreground)',
-                                    fontSize: '15px',
-                                    lineHeight: '1.7'
                                 }}>
-                                    {bakimItem.degismezseNeOlur}
+                                    <AutoLinkText 
+                                        text={bakimItem.degismezseNeOlur} 
+                                        style={{ fontSize: '15px', lineHeight: '1.7' }} 
+                                    />
                                 </div>
                             </div>
                             
@@ -223,9 +228,18 @@ export default function BakimRehberiDetailClient({ bakimItem }: BakimRehberiDeta
                             </div>
                         </div>
                     </div>
+                    
+                    {/* Related Content / Recommendations */}
+                    <div style={{ paddingBottom: '20px' }}>
+                        <RelatedContent currentId={bakimItem.id} tags={bakimItem.tags} titleKeywords={bakimItem.title.split(' ')} />
+                    </div>
                 </div>
             </main>
 
+            <FloatingActionBar 
+                title={bakimItem.title} 
+                url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/bakim-rehberi/${bakimItem.id}`} 
+            />
             <Footer />
         </div>
     );

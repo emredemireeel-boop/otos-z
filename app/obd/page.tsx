@@ -65,8 +65,26 @@ export default function ObdPage() {
         }
     };
 
+    const getOBDSchema = () => {
+        if (displayedCodes.length === 0) return null;
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": displayedCodes.slice(0, 20).map((code: any) => ({
+                "@type": "Question",
+                "name": `${code.code} Arıza Kodu Nedir?`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": `${code.title}. ${code.description}`
+                }
+            }))
+        };
+        return JSON.stringify(schema);
+    };
+
     return (
         <div>
+            {getOBDSchema() && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getOBDSchema()! }} />}
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
