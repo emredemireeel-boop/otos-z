@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Fuel, Battery, Settings, Zap, ShieldCheck, PenTool } from "lucide-react";
+import Link from "next/link";
 
 export default function BakimZamanlariSection() {
     const [activeFuelType, setActiveFuelType] = useState<string>("Benzin");
@@ -18,30 +19,30 @@ export default function BakimZamanlariSection() {
                     km: "10.000 - 15.000 km",
                     time: "1 Yıl (Hangisi önce dolarsa)",
                     items: [
-                        "Motor Yağı Değişimi",
-                        "Yağ Filtresi Değişimi",
-                        "Hava Filtresi Değişimi",
-                        "Polen Filtresi Değişimi",
-                        "Alt Takım ve Fren Balatası Kontrolü"
+                        { text: "Motor Yağı Değişimi", slug: "motor-yagi-degisimi" },
+                        { text: "Yağ Filtresi Değişimi", slug: "yag-filtresi-degisimi" },
+                        { text: "Hava Filtresi Değişimi", slug: "hava-filtresi-degisimi" },
+                        { text: "Polen Filtresi Değişimi", slug: "polen-filtresi-degisimi" },
+                        { text: "Alt Takım ve Fren Balatası Kontrolü", slug: "fren-balatasi-kontrolu" }
                     ]
                 },
                 {
                     km: "30.000 - 40.000 km",
                     time: "2 - 3 Yıl",
                     items: [
-                        "Buji Değişimi (İridyum bujilerde 60-90 bin km olabilir)",
-                        "Fren Hidroliği Değişimi (Neme bağlı kaynama noktasını korumak için)",
-                        "Yakıt Filtresi Kontrolü/Değişimi"
+                        { text: "Buji Değişimi (İridyum bujilerde 60-90 bin km olabilir)", slug: "buji-degisimi" },
+                        { text: "Fren Hidroliği Değişimi (Neme bağlı kaynama noktasını korumak için)", slug: "fren-hidroligi-degisimi" },
+                        { text: "Yakıt Filtresi Kontrolü/Değişimi", slug: "yakit-filtresi-degisimi" }
                     ]
                 },
                 {
                     km: "60.000 - 90.000 km",
                     time: "4 - 5 Yıl",
                     items: [
-                        "Triger Kayışı ve Rulman Seti Değişimi (Zincir ise sadece kontrol)",
-                        "V Kayışı Değişimi",
-                        "Şanzıman Yağı Değişimi (Özellikle otomatik şanzımanlarda)",
-                        "Motor Soğutma Sıvısı (Antifriz) Değişimi"
+                        { text: "Triger Kayışı ve Rulman Seti Değişimi (Zincir ise sadece kontrol)", slug: "triger-kayisi-degisimi" },
+                        { text: "V Kayışı Değişimi", slug: "v-kayisi-degisimi" },
+                        { text: "Şanzıman Yağı Değişimi (Özellikle otomatik şanzımanlarda)", slug: "sanziman-yagi-degisimi" },
+                        { text: "Motor Soğutma Sıvısı (Antifriz) Değişimi", slug: "motor-sogutma-sivisi-antifriz-degisimi" }
                     ]
                 }
             ]
@@ -57,28 +58,28 @@ export default function BakimZamanlariSection() {
                     km: "10.000 - 15.000 km",
                     time: "1 Yıl (Hangisi önce dolarsa)",
                     items: [
-                        "Motor Yağı Değişimi (DPF uyumlu partiküllü yağ olmalı)",
-                        "Yağ Filtresi Değişimi",
-                        "Hava Filtresi Değişimi (Dizeller havaya çok hassastır)",
-                        "Polen Filtresi Değişimi"
+                        { text: "Motor Yağı Değişimi (DPF uyumlu partiküllü yağ olmalı)", slug: "motor-yagi-degisimi" },
+                        { text: "Yağ Filtresi Değişimi", slug: "yag-filtresi-degisimi" },
+                        { text: "Hava Filtresi Değişimi (Dizeller havaya çok hassastır)", slug: "hava-filtresi-degisimi" },
+                        { text: "Polen Filtresi Değişimi", slug: "polen-filtresi-degisimi" }
                     ]
                 },
                 {
                     km: "20.000 - 30.000 km",
                     time: "2 Yıl",
                     items: [
-                        "Yakıt (Mazot) Filtresi Değişimi (Kötü yakıt enjektörleri bozabilir)",
-                        "Fren Hidroliği Değişimi"
+                        { text: "Yakıt (Mazot) Filtresi Değişimi (Kötü yakıt enjektörleri bozabilir)", slug: "yakit-filtresi-degisimi" },
+                        { text: "Fren Hidroliği Değişimi", slug: "fren-hidroligi-degisimi" }
                     ]
                 },
                 {
                     km: "80.000 - 120.000 km",
                     time: "4 - 5 Yıl",
                     items: [
-                        "Triger Kayışı ve Devirdaim (Su Pompası) Değişimi",
-                        "Kızdırma (Isıtma) Bujileri Kontrolü ve Değişimi",
-                        "DPF (Dizel Partikül Filtresi) Doluluk Kontrolü ve Rejenerasyonu",
-                        "EGR Valfi Temizliği"
+                        { text: "Triger Kayışı ve Devirdaim (Su Pompası) Değişimi", slug: "triger-kayisi-degisimi" },
+                        { text: "Kızdırma (Isıtma) Bujileri Kontrolü ve Değişimi", slug: "kizdirma-bujisi-kontrolu" },
+                        { text: "DPF (Dizel Partikül Filtresi) Doluluk Kontrolü ve Rejenerasyonu", slug: "dpf-doluluk-kontrolu" },
+                        { text: "EGR Valfi Temizliği", slug: null }
                     ]
                 }
             ]
@@ -94,26 +95,26 @@ export default function BakimZamanlariSection() {
                     km: "10.000 km",
                     time: "1 Yıl (Hangisi önce dolarsa)",
                     items: [
-                        "LPG Gaz ve Sıvı Faz Filtreleri Değişimi",
-                        "LPG Sistemi Sızdırmazlık Kontrolü",
-                        "Motor Yağı ve Klasik Filtrelerin Değişimi (Benzin periyodu ile aynı)"
+                        { text: "LPG Gaz ve Sıvı Faz Filtreleri Değişimi", slug: "lpg-filtreleri-degisimi" },
+                        { text: "LPG Sistemi Sızdırmazlık Kontrolü", slug: null },
+                        { text: "Motor Yağı ve Klasik Filtrelerin Değişimi (Benzin periyodu ile aynı)", slug: "motor-yagi-degisimi" }
                     ]
                 },
                 {
                     km: "20.000 - 30.000 km",
                     time: "2 Yıl",
                     items: [
-                        "Buji Değişimi (LPG yüksek ısıda yandığı için bujiler normalden hızlı erir)",
-                        "LPG Enjektörleri ve Regülatör (Beyin) Basınç Kontrolü",
-                        "AFR (Hava/Yakıt Karışımı) Ayarı Kontrolü"
+                        { text: "Buji Değişimi (LPG yüksek ısıda yandığı için bujiler normalden hızlı erir)", slug: "buji-degisimi" },
+                        { text: "LPG Enjektörleri ve Regülatör (Beyin) Basınç Kontrolü", slug: null },
+                        { text: "AFR (Hava/Yakıt Karışımı) Ayarı Kontrolü", slug: null }
                     ]
                 },
                 {
                     km: "100.000 km",
                     time: "10 Yıl",
                     items: [
-                        "LPG Tankı Değişimi (Yasal zorunluluktur, ömrü 10 yıldır)",
-                        "Muayene öncesi sızdırmazlık raporu alınması (Tadilat varsa)"
+                        { text: "LPG Tankı Değişimi (Yasal zorunluluktur, ömrü 10 yıldır)", slug: null },
+                        { text: "Muayene öncesi sızdırmazlık raporu alınması (Tadilat varsa)", slug: null }
                     ]
                 }
             ]
@@ -129,25 +130,25 @@ export default function BakimZamanlariSection() {
                     km: "15.000 km",
                     time: "1 Yıl (Hangisi önce dolarsa)",
                     items: [
-                        "İçten Yanmalı Motor Yağı ve Filtresi Değişimi",
-                        "Hava ve Polen Filtresi Değişimi",
-                        "Hibrit Batarya Fan Filtresi Temizliği (Batarya soğutması için çok önemlidir)"
+                        { text: "İçten Yanmalı Motor Yağı ve Filtresi Değişimi", slug: "motor-yagi-degisimi" },
+                        { text: "Hava ve Polen Filtresi Değişimi", slug: "hava-filtresi-degisimi" },
+                        { text: "Hibrit Batarya Fan Filtresi Temizliği (Batarya soğutması için çok önemlidir)", slug: null }
                     ]
                 },
                 {
                     km: "30.000 - 60.000 km",
                     time: "2 - 4 Yıl",
                     items: [
-                        "Fren Hidroliği Değişimi",
-                        "Fren Balatası Kontrolü (Rejeneratif frenleme sayesinde balatalar 100.000 km'den fazla dayanabilir)"
+                        { text: "Fren Hidroliği Değişimi", slug: "fren-hidroligi-degisimi" },
+                        { text: "Fren Balatası Kontrolü (Rejeneratif frenleme sayesinde balatalar 100.000 km'den fazla dayanabilir)", slug: "fren-balatasi-kontrolu" }
                     ]
                 },
                 {
                     km: "90.000 - 150.000 km",
                     time: "5 - 10 Yıl",
                     items: [
-                        "İnvertör Soğutma Sıvısı Değişimi",
-                        "Hibrit Batarya Sağlık (SOH) Kontrolü (Genellikle 10 yıl / 160.000 km garantilidir)"
+                        { text: "İnvertör Soğutma Sıvısı Değişimi", slug: "motor-sogutma-sivisi-antifriz-degisimi" },
+                        { text: "Hibrit Batarya Sağlık (SOH) Kontrolü (Genellikle 10 yıl / 160.000 km garantilidir)", slug: null }
                     ]
                 }
             ]
@@ -163,26 +164,26 @@ export default function BakimZamanlariSection() {
                     km: "15.000 - 30.000 km",
                     time: "1 - 2 Yıl (Markaya göre değişir)",
                     items: [
-                        "Polen Filtresi (Kabin Filtresi) Değişimi",
-                        "Silecek Süpürgeleri Değişimi ve Cam Suyu Eklenmesi",
-                        "Yazılım Güncellemeleri ve Arıza Tespit Taraması",
-                        "Yüksek Voltaj Kablolarının Fiziksel Kontrolü"
+                        { text: "Polen Filtresi (Kabin Filtresi) Değişimi", slug: "polen-filtresi-degisimi" },
+                        { text: "Silecek Süpürgeleri Değişimi ve Cam Suyu Eklenmesi", slug: null },
+                        { text: "Yazılım Güncellemeleri ve Arıza Tespit Taraması", slug: null },
+                        { text: "Yüksek Voltaj Kablolarının Fiziksel Kontrolü", slug: null }
                     ]
                 },
                 {
                     km: "60.000 - 80.000 km",
                     time: "3 - 4 Yıl",
                     items: [
-                        "Fren Hidroliği Değişimi",
-                        "Batarya Termal Yönetim Soğutma Sıvısı Kontrolü/Değişimi"
+                        { text: "Fren Hidroliği Değişimi", slug: "fren-hidroligi-degisimi" },
+                        { text: "Batarya Termal Yönetim Soğutma Sıvısı Kontrolü/Değişimi", slug: "motor-sogutma-sivisi-antifriz-degisimi" }
                     ]
                 },
                 {
                     km: "Uzun Vadeli",
                     time: "Kullanıma Bağlı",
                     items: [
-                        "Fren Balatası Değişimi (150.000+ km gidebilir, tek pedal sürüş sayesinde)",
-                        "Batarya Sağlık Durumu (SOH) Raporlanması"
+                        { text: "Fren Balatası Değişimi (150.000+ km gidebilir, tek pedal sürüş sayesinde)", slug: "fren-balatasi-kontrolu" },
+                        { text: "Batarya Sağlık Durumu (SOH) Raporlanması", slug: null }
                     ]
                 }
             ]
@@ -293,7 +294,13 @@ export default function BakimZamanlariSection() {
                                     {interval.items.map((item, itemIdx) => (
                                         <li key={itemIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                                             <PenTool size={14} color={activeData.color} style={{ marginTop: '3px', flexShrink: 0 }} />
-                                            <span style={{ fontSize: '14px', color: 'var(--foreground)' }}>{item}</span>
+                                            {item.slug ? (
+                                                <Link href={`/bakim-rehberi/${item.slug}`} style={{ fontSize: '14px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }} onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'} onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}>
+                                                    {item.text}
+                                                </Link>
+                                            ) : (
+                                                <span style={{ fontSize: '14px', color: 'var(--foreground)' }}>{item.text}</span>
+                                            )}
                                         </li>
                                     ))}
                                 </ul>

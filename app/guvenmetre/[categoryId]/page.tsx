@@ -70,7 +70,7 @@ export default function CategoryDetailPage() {
                                 >
                                     <ArrowLeft style={{ width: '20px', height: '20px' }} />
                                 </button>
-                                <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'white' }}>{category.title}</h1>
+                                <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>{category.title}</h1>
                                 {/* Şehir Rozeti */}
                                 {isCityRequired && selectedCity && (
                                     <span style={{

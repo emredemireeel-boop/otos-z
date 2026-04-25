@@ -1,0 +1,188 @@
+[
+    {
+        "id": "15-temmuz-sehitler-koprusu",
+        "group": "KÖPRÜLER",
+        "name": "15 Temmuz Şehitler Köprüsü",
+        "seoTitle": "15 Temmuz Şehitler Köprüsü Geçiş Ücreti 2026 - Tüm Araçlar",
+        "seoDescription": "2026 yılı 15 Temmuz Şehitler (Boğaziçi) Köprüsü güncel geçiş ücretleri, otomobil, motosiklet, kamyonet ve diğer araç tarifeleri ile geçiş kuralları detayları.",
+        "desc": "Tek yön ücretlendirilir.",
+        "prices": { "1": 59.00, "2": 25.00, "3": 168.00, "4": 333.00, "5": 440.00, "6": 20.00 },
+        "content": "İstanbul'un iki yakasını birbirine bağlayan 15 Temmuz Şehitler Köprüsü (eski adıyla Boğaziçi Köprüsü), Avrupa'dan Anadolu'ya geçişlerde ücretlendirilirken, Anadolu'dan Avrupa'ya geçişlerde ücretsizdir (tek yön ücret).",
+        "rules": [
+            "Avrupa'dan Asya'ya geçişlerde ücret alınır.",
+            "Ağır ticari araçların (kamyon, tır vb.) bu köprüyü kullanması belirli saatler dışında veya tamamen yasaktır.",
+            "İhlalli (kaçak) geçiş durumunda geçiş ücretinin 4 katı idari para cezası kesilmektedir."
+        ]
+    },
+    {
+        "id": "fatih-sultan-mehmet-koprusu",
+        "group": "KÖPRÜLER",
+        "name": "Fatih Sultan Mehmet Köprüsü",
+        "seoTitle": "Fatih Sultan Mehmet Köprüsü Geçiş Ücreti 2026",
+        "seoDescription": "2026 yılı Fatih Sultan Mehmet (FSM) Köprüsü otomobil, kamyonet, motosiklet geçiş ücretleri, HGS cezaları ve ağır vasıta geçiş kısıtlamaları.",
+        "desc": "Tek yön ücretlendirilir.",
+        "prices": { "1": 47.00, "2": 60.00, "3": 134.00, "4": 265.00, "5": 351.00, "6": 20.00 },
+        "content": "Fatih Sultan Mehmet (FSM) Köprüsü, TEM otoyolu üzerinden İstanbul Boğazı'nı geçer. Köprüden geçişler tek yönlü olarak (Avrupa'dan Anadolu'ya) ücretlendirilmektedir.",
+        "rules": [
+            "Avrupa'dan Asya'ya geçişlerde ücret alınır.",
+            "Ağır ticari araçlar ve tehlikeli madde taşıyan araçlar için Yavuz Sultan Selim Köprüsü zorunludur.",
+            "HGS bakiyenizin yetersiz olduğu durumlarda 15 gün içinde ödeme yaparsanız ceza iptal olur."
+        ]
+    },
+    {
+        "id": "yavuz-sultan-selim-koprusu",
+        "group": "KÖPRÜLER",
+        "name": "Yavuz Sultan Selim Köprüsü",
+        "seoTitle": "Yavuz Sultan Selim Köprüsü Geçiş Ücreti 2026",
+        "seoDescription": "2026 yılı Yavuz Sultan Selim (3. Köprü) güncel geçiş ücretleri. Kamyon, tır, otobüs ve otomobil geçiş fiyatları detaylı tablosu.",
+        "desc": "Çift yön ücretlendirilir.",
+        "prices": { "1": 95.00, "2": 125.00, "3": 235.00, "4": 595.00, "5": 740.00, "6": 65.00 },
+        "content": "Kuzey Marmara Otoyolu güzergahında bulunan Yavuz Sultan Selim Köprüsü, her iki yönde (Avrupa'dan Asya'ya ve Asya'dan Avrupa'ya) geçişlerde ücretlendirilir. Ağır ticari araçların Boğaz geçişi için zorunlu rotasıdır.",
+        "rules": [
+            "Çift yönlü ücretlendirme uygulanır.",
+            "Kamyon, tır, çekici ve diğer ağır ticari araçların kullanımı için zorunludur.",
+            "Özel işletme (Yap-İşlet-Devret) olduğundan KGM köprülerine göre farklı bir tahsilat sistemi işleyebilir."
+        ]
+    },
+    {
+        "id": "osmangazi-koprusu",
+        "group": "KÖPRÜLER",
+        "name": "Osmangazi Köprüsü",
+        "seoTitle": "Osmangazi Köprüsü Geçiş Ücreti 2026 (Güncel Liste)",
+        "seoDescription": "2026 yılı Osmangazi Köprüsü otomobil, minibüs, motosiklet, tır ve kamyon geçiş ücretleri. Gebze-Orhangazi otoyolu fiyatları.",
+        "desc": "Gebze - Orhangazi güzergahı.",
+        "prices": { "1": 995.00, "2": 1590.00, "3": 1890.00, "4": 2505.00, "5": 3165.00, "6": 695.00 },
+        "content": "İzmit Körfezi'ni geçmek için kullanılan Osmangazi Köprüsü, İstanbul ile İzmir arasındaki yolculuk süresini büyük oranda kısaltır. Türkiye'nin en pahalı geçiş ücretine sahip köprülerinden biridir.",
+        "rules": [
+            "Geçiş ücreti her iki yönde de alınır.",
+            "HGS dışında nakit veya kredi kartı ile gişelerden ödeme yapılabilir.",
+            "Köprüye bağlanan İzmir Otoyolu kullanımı ayrıca kilometre bazlı ücretlendirilir."
+        ]
+    },
+    {
+        "id": "1915-canakkale-koprusu",
+        "group": "KÖPRÜLER",
+        "name": "1915 Çanakkale Köprüsü",
+        "seoTitle": "1915 Çanakkale Köprüsü Geçiş Ücreti 2026",
+        "seoDescription": "2026 yılı 1915 Çanakkale Köprüsü güncel otomobil, tır, kamyon ve motosiklet geçiş ücretleri. Malkara-Çanakkale güzergahı.",
+        "desc": "Malkara - Çanakkale güzergahı.",
+        "prices": { "1": 995.00, "2": 1245.00, "3": 2240.00, "4": 2490.00, "5": 3755.00, "6": 250.00 },
+        "content": "Çanakkale Boğazı'nı birbirine bağlayan 1915 Çanakkale Köprüsü, feribot bekleme süresini ortadan kaldırmaktadır. Avrupa ve Asya arasındaki en uzun asma köprüdür.",
+        "rules": [
+            "Her iki yönde de geçiş ücreti tahsil edilir.",
+            "Nakit, kredi kartı ve HGS/OGS ile ödeme imkanı bulunmaktadır.",
+            "Malkara-Çanakkale otoyolunu kullanmanız durumunda toplam ücret artış gösterebilir."
+        ]
+    },
+    {
+        "id": "avrasya-tuneli-gunduz",
+        "group": "TÜNELLER",
+        "name": "Avrasya Tüneli (Gündüz)",
+        "seoTitle": "Avrasya Tüneli Geçiş Ücreti 2026 (Gündüz Tarifesi)",
+        "seoDescription": "2026 yılı Avrasya Tüneli Gündüz (05:00 - 23:59) geçiş ücretleri. Otomobil ve minibüs detaylı fiyat tablosu.",
+        "desc": "05:00 - 23:59 arası geçerlidir.",
+        "prices": { "1": 210.00, "2": 315.00, "3": null, "4": null, "5": null, "6": 85.00 },
+        "content": "Asya ile Avrupa'yı deniz altından bağlayan Avrasya Tüneli, gündüz saatlerinde (05:00 - 23:59) normal tarife üzerinden ücretlendirilir.",
+        "rules": [
+            "Sadece 1., 2. ve 6. sınıf (motosiklet) araçlar geçiş yapabilir.",
+            "3., 4. ve 5. sınıf ağır ticari araçların, otobüslerin ve tehlikeli madde taşıyan araçların geçişi yasaktır.",
+            "Hız sınırı tünel içerisinde 70 km/s'dir."
+        ]
+    },
+    {
+        "id": "avrasya-tuneli-gece",
+        "group": "TÜNELLER",
+        "name": "Avrasya Tüneli (Gece)",
+        "seoTitle": "Avrasya Tüneli Gece Geçiş Ücreti 2026 (%50 İndirimli)",
+        "seoDescription": "2026 yılı Avrasya Tüneli Gece (00:00 - 04:59) geçiş ücretleri. İndirimli otomobil, minibüs ve motosiklet tarifesi.",
+        "desc": "00:00 - 04:59 arası %50 indirimli.",
+        "prices": { "1": 105.00, "2": 157.00, "3": null, "4": null, "5": null, "6": 42.00 },
+        "content": "Avrasya Tüneli'ni gece 00:00 ile sabah 04:59 saatleri arasında kullanan araçlar, %50 indirimli tarifeden faydalanmaktadır.",
+        "rules": [
+            "Sadece 1., 2. ve 6. sınıf araçlar kullanabilir.",
+            "Gece tarifesi başlangıç ve bitiş saatleri giriş gişelerindeki okuma zamanına göre hesaplanır."
+        ]
+    },
+    {
+        "id": "anadolu-otoyolu",
+        "group": "OTOYOLLAR (KGM)",
+        "name": "Anadolu Otoyolu (Çamlıca İstasyonu - Akıncı)",
+        "seoTitle": "Anadolu Otoyolu Geçiş Ücreti 2026 (İstanbul-Ankara)",
+        "seoDescription": "2026 yılı Anadolu Otoyolu İstanbul (Çamlıca) - Ankara (Akıncı) arası gişe ücretleri ve araç sınıflarına göre fiyatlar.",
+        "desc": "İstanbul - Ankara tam güzergahı.",
+        "prices": { "1": 190.00, "2": 220.00, "3": 250.00, "4": 300.00, "5": 350.00, "6": 80.00 },
+        "content": "KGM tarafından işletilen Anadolu Otoyolu, İstanbul Çamlıca gişelerinden Ankara Akıncı gişelerine kadar olan tam mesafe kullanıldığında bu ücretleri gerektirir.",
+        "rules": [
+            "Giriş ve çıkış yapılan gişeler arasındaki kilometre mesafesine göre hesaplanır.",
+            "HGS bakiyenizden otomatik çekilir. Kaçak geçişte 15 gün içinde cezasız ödeme hakkı vardır."
+        ]
+    },
+    {
+        "id": "izmir-aydin-otoyolu",
+        "group": "OTOYOLLAR (KGM)",
+        "name": "İzmir - Aydın Otoyolu",
+        "seoTitle": "İzmir - Aydın Otoyolu Geçiş Ücretleri 2026",
+        "seoDescription": "2026 yılı İzmir - Aydın Otoyolu tam güzergah geçiş ücretleri tablosu.",
+        "desc": "Tam güzergah.",
+        "prices": { "1": 60.00, "2": 75.00, "3": 90.00, "4": 110.00, "5": 130.00, "6": 25.00 },
+        "content": "İzmir'den Aydın'a kesintisiz ulaşım sağlayan KGM'ye bağlı otoyolun tam güzergah ücretlendirmesidir.",
+        "rules": [
+            "Gidilen mesafeye göre ücret alınır.",
+            "KGM gişesi olduğundan HGS sistemi geçerlidir."
+        ]
+    },
+    {
+        "id": "cukurova-otoyollari",
+        "group": "OTOYOLLAR (KGM)",
+        "name": "Çukurova Otoyolları (Adana - Şanlıurfa)",
+        "seoTitle": "Adana - Şanlıurfa Otoyol Geçiş Ücretleri 2026",
+        "seoDescription": "2026 Çukurova otoyolları Adana - Şanlıurfa arası güncel HGS geçiş ücretleri.",
+        "desc": "Tam güzergah.",
+        "prices": { "1": 120.00, "2": 135.00, "3": 160.00, "4": 200.00, "5": 240.00, "6": 55.00 },
+        "content": "Adana ile Şanlıurfa arasında uzanan otoyolun tam kullanımı için belirlenen 2026 tarifesidir.",
+        "rules": [
+            "Mesafe bazlı ücretlendirme vardır.",
+            "KGM tarafından işletilmektedir."
+        ]
+    },
+    {
+        "id": "istanbul-izmir-otoyolu",
+        "group": "YAP-İŞLET-DEVRET OTOYOLLARI",
+        "name": "İstanbul - İzmir Otoyolu (Osmangazi Köprüsü DAHİL)",
+        "seoTitle": "İstanbul - İzmir Otoyolu Toplam Geçiş Ücreti 2026",
+        "seoDescription": "2026 yılı Osmangazi Köprüsü dahil İstanbul - İzmir tam güzergah otoyol ücreti ne kadar? Araç sınıfı bazında detaylı liste.",
+        "desc": "Tam güzergah toplamı.",
+        "prices": { "1": 1850.00, "2": 2950.00, "3": 3200.00, "4": 4100.00, "5": 5000.00, "6": 1250.00 },
+        "content": "İstanbul çıkışlı bir aracın, Osmangazi Köprüsü'nü kullanarak kesintisiz olarak İzmir gişelerine (tam güzergah) ulaşması durumunda ödeyeceği toplam tutardır.",
+        "rules": [
+            "Özel işletme otoyoludur, KGM ihlalli geçiş sistemi dışında kendi icra takiplerini yapabilirler.",
+            "Gişelerde nakit ve kredi kartı geçerlidir."
+        ]
+    },
+    {
+        "id": "kuzey-marmara-avrupa",
+        "group": "YAP-İŞLET-DEVRET OTOYOLLARI",
+        "name": "Kuzey Marmara Otoyolu (Avrupa Yakası)",
+        "seoTitle": "Kuzey Marmara Otoyolu Geçiş Ücreti 2026 (Avrupa Yakası)",
+        "seoDescription": "2026 yılı Kuzey Marmara Otoyolu (Kınalı - Odayeri) Avrupa yakası geçiş tarifesi.",
+        "desc": "Kınalı - Odayeri güzergahı.",
+        "prices": { "1": 250.00, "2": 400.00, "3": 450.00, "4": 600.00, "5": 750.00, "6": 175.00 },
+        "content": "Kuzey Marmara Otoyolu'nun Avrupa yakasındaki uzantısı olan Kınalı - Odayeri kısmının tam güzergah bedelidir.",
+        "rules": [
+            "Giriş ve çıkış noktalarına göre esnek ücretlendirme vardır."
+        ]
+    },
+    {
+        "id": "kuzey-marmara-anadolu",
+        "group": "YAP-İŞLET-DEVRET OTOYOLLARI",
+        "name": "Kuzey Marmara Otoyolu (Anadolu Yakası)",
+        "seoTitle": "Kuzey Marmara Otoyolu Geçiş Ücreti 2026 (Anadolu Yakası)",
+        "seoDescription": "2026 yılı Kuzey Marmara Otoyolu (Kurtköy - Akyazı) Anadolu yakası geçiş tarifesi.",
+        "desc": "Kurtköy - Akyazı güzergahı.",
+        "prices": { "1": 380.00, "2": 600.00, "3": 650.00, "4": 850.00, "5": 1050.00, "6": 270.00 },
+        "content": "Kuzey Marmara Otoyolu'nun Anadolu yakasında bulunan Kurtköy ile Akyazı arasındaki kesintisiz geçiş bedelidir.",
+        "rules": [
+            "Giriş ve çıkış noktalarına göre hesaplanır."
+        ]
+    }
+]

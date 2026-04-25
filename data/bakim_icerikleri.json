@@ -1,0 +1,169 @@
+{
+  "bakim_icerikleri": [
+    {
+      "id": "motor_yagi",
+      "slug": "motor-yagi-degisimi",
+      "title": "Motor Yağı Değişimi",
+      "description": "Motor yağı ne zaman değişir? Araç motor yağının periyodik olarak değiştirilmesi motor ömrünü uzatır ve sürtünmeyi önler. Detaylı rehber.",
+      "nedenOnemli": "Motor yağı, motor içindeki hareketli metal parçaların birbirine sürtünerek aşınmasını engeller. Aynı zamanda motorun ısısını dengeler, sızdırmazlık sağlar ve yanma sonucu oluşan kurumları temizler.",
+      "degismezseNeOlur": "Zamanla viskozitesi (akışkanlığı) bozulan yağ, yağlama görevini yerine getiremez. Bu durum motorun aşırı ısınmasına, piston ve yatak sarmasına (motor yeme) yol açabilir. Çok ağır ve pahalı motor rektifiye masrafları çıkarır.",
+      "degisimPeriyodu": "Genellikle 10.000 - 15.000 km veya 1 yıl (Hangisi önce dolarsa)",
+      "ortalamaMaliyet": "₺2.500 - ₺6.000 (Yağ kalitesi ve litre hacmine göre değişir)",
+      "tags": ["motor yağı", "periyodik bakım", "yağ değişimi", "viskozite"]
+    },
+    {
+      "id": "yag_filtresi",
+      "slug": "yag-filtresi-degisimi",
+      "title": "Yağ Filtresi Değişimi",
+      "description": "Yağ filtresi ne işe yarar? Motor yağındaki kir ve tortuları temizleyen yağ filtresinin her bakımda değişmesi şarttır.",
+      "nedenOnemli": "Motor çalışırken oluşan metal talaşları, kurum ve tozları süzerek motor yağının temiz kalmasını sağlar. Yağ değişimlerinde mutlaka yağ ile birlikte değiştirilmelidir.",
+      "degismezseNeOlur": "Tıkanan bir yağ filtresi yağı süzemez ve kirli yağ doğrudan motora pompalanır. Bu da yağ kanallarının tıkanmasına ve motor parçalarının aşınmasına sebep olur.",
+      "degisimPeriyodu": "Her motor yağı değişiminde (10.000 - 15.000 km)",
+      "ortalamaMaliyet": "₺350 - ₺800",
+      "tags": ["yağ filtresi", "bakım", "motor filtresi"]
+    },
+    {
+      "id": "hava_filtresi",
+      "slug": "hava-filtresi-degisimi",
+      "title": "Hava Filtresi Değişimi",
+      "description": "Araç hava filtresi neden değişir? Motorun rahat nefes almasını sağlayan hava filtresi yakıt tüketimini ve performansı doğrudan etkiler.",
+      "nedenOnemli": "Motorun içine giren havayı toz, kum ve diğer partiküllerden arındırır. İdeal yanma odası karışımı için motorun temiz havaya ihtiyacı vardır.",
+      "degismezseNeOlur": "Tıkanmış bir hava filtresi, motorun yeterli hava alamamasına yol açar. Yanma kalitesi düşer, araç çekişten düşer (performans kaybı) ve yakıt tüketimi ciddi oranda artar. Dizel araçlarda daha kritik sonuçlar doğurur.",
+      "degisimPeriyodu": "10.000 - 15.000 km veya 1 yıl",
+      "ortalamaMaliyet": "₺400 - ₺900",
+      "tags": ["hava filtresi", "yakıt tüketimi", "motor performansı"]
+    },
+    {
+      "id": "polen_filtresi",
+      "slug": "polen-filtresi-degisimi",
+      "title": "Polen Filtresi Değişimi",
+      "description": "Klima polen filtresi değişimi ve önemi. Araç içi havanın kalitesini belirleyen polen filtresi sağlık için neden sık değiştirilmeli?",
+      "nedenOnemli": "Dışarıdan kabin içine giren havadaki egzoz gazı, toz ve alerjenleri (polenleri) süzer. Klimanın verimli çalışmasını ve içerideki havanın temiz kalmasını sağlar.",
+      "degismezseNeOlur": "Klimadan kötü kokular gelmeye başlar. Araç camları çok çabuk buğulanır ve klima/kaloriferin üfleme gücü zayıflar. Ayrıca bakteri ve mantar üremesine uygun zemin hazırlar.",
+      "degisimPeriyodu": "10.000 - 15.000 km veya 1 yıl (Bahar aylarında değiştirilmesi tavsiye edilir)",
+      "ortalamaMaliyet": "₺350 - ₺1.200",
+      "tags": ["polen filtresi", "klima bakımı", "kabin filtresi", "kötü koku"]
+    },
+    {
+      "id": "buji",
+      "slug": "buji-degisimi",
+      "title": "Buji Değişimi",
+      "description": "Buji nedir, ne zaman değişir? Benzinli ve LPG'li araçlarda ateşleme sisteminin kalbi olan bujilerin bakım periyodu ve arıza belirtileri.",
+      "nedenOnemli": "Benzin ve LPG'li motorlarda yanma odasındaki yakıt-hava karışımını kıvılcım çakarak ateşleyen parçadır. Doğru ateşleme, motorun sağlıklı çalışması için esastır.",
+      "degismezseNeOlur": "Tırnakları eriyen veya kirlenen bujiler tekleme, rölantide dalgalanma, geç çalışma ve yüksek yakıt tüketimine yol açar. Uzun vadede ateşleme bobinini bozabilir ve katalitik konvertöre zarar verir.",
+      "degisimPeriyodu": "Nikel bujiler 30.000 - 40.000 km / İridyum-Platin bujiler 80.000 - 100.000 km",
+      "ortalamaMaliyet": "₺1.500 - ₺6.000 (Set fiyatı ve buji tipine göre değişir)",
+      "tags": ["buji", "ateşleme", "iridyum buji", "tekleme", "LPG bujisi"]
+    },
+    {
+      "id": "fren_balatasi",
+      "slug": "fren-balatasi-kontrolu",
+      "title": "Fren Balatası Kontrolü ve Değişimi",
+      "description": "Fren balatası ömrü ne kadardır? Güvenliğiniz için en kritik parçalardan olan fren balatası bitme belirtileri ve değişim rehberi.",
+      "nedenOnemli": "Aracın yavaşlamasını ve durmasını sağlayan sürtünme materyalidir. Can güvenliğiniz doğrudan fren sisteminin sağlığına bağlıdır.",
+      "degismezseNeOlur": "Balata tamamen bittiğinde fren diski ile metal metale sürtünmeye başlar. Korkunç bir sürtme sesi gelir, fren mesafesi uzar (duramazsınız) ve pahalı fren diskleri geri dönülemez şekilde çizilip bozulur.",
+      "degisimPeriyodu": "Kullanıma bağlı olarak 30.000 - 60.000 km arası (Her bakımda kontrol edilmelidir)",
+      "ortalamaMaliyet": "₺2.500 - ₺7.500 (Ön/Arka ve marka/modele göre)",
+      "tags": ["fren balatası", "fren diski", "fren sistemi", "güvenlik"]
+    },
+    {
+      "id": "fren_hidroligi",
+      "slug": "fren-hidroligi-degisimi",
+      "title": "Fren Hidroliği Değişimi",
+      "description": "Fren hidrolik yağı ne zaman değişir? Çoğu sürücünün unuttuğu ama hayati önem taşıyan fren hidrolik sıvısının değişimi hakkında her şey.",
+      "nedenOnemli": "Fren pedalına bastığınızdaki gücü tekerleklere hidrolik basınçla iletir. Fren hidrolik yağı havadan nem (su) çeken bir yapıya sahiptir.",
+      "degismezseNeOlur": "İçinde biriken su nedeniyle fren hidroliğinin kaynama noktası düşer. Sürekli fren yapılan durumlarda (yokuş aşağı) hidrolik kaynar, fren pedalı boşa çıkar ve fren tutmaz. Bu durum ölümlü kazalara sebep olabilir.",
+      "degisimPeriyodu": "2 Yılda bir veya 40.000 km",
+      "ortalamaMaliyet": "₺1.200 - ₺3.000 (İşçilik ve sıvı dahil)",
+      "tags": ["fren hidroliği", "DOT 4", "fren boşalması"]
+    },
+    {
+      "id": "yakit_filtresi",
+      "slug": "yakit-filtresi-degisimi",
+      "title": "Yakıt (Mazot/Benzin) Filtresi Değişimi",
+      "description": "Yakıt filtresi değişmezse ne olur? Özellikle dizel araçlarda enjektörleri koruyan yakıt/mazot filtresinin değişim zamanı.",
+      "nedenOnemli": "Yakıt deposundan motora giden yakıtın içindeki tortu, pas ve en önemlisi suyu (dizellerde) süzerek hassas enjeksiyon sistemini korur.",
+      "degismezseNeOlur": "Özellikle dizel araçlarda kirli/sulu yakıt pompalanması on binlerce liralık yüksek basınç pompası ve enjektör arızalarına neden olur. Araç çalışmayabilir veya yolda kalabilir.",
+      "degisimPeriyodu": "Dizellerde 20.000 - 30.000 km / Benzinlilerde 40.000 - 60.000 km",
+      "ortalamaMaliyet": "₺1.000 - ₺4.000 (Özellikle dizel filtreler daha pahalıdır)",
+      "tags": ["yakıt filtresi", "mazot filtresi", "enjektör", "dizel"]
+    },
+    {
+      "id": "triger",
+      "slug": "triger-kayisi-degisimi",
+      "title": "Triger Kayışı / Zinciri Değişimi",
+      "description": "Triger kayışı koparsa ne olur? Motorun en kritik hareket aktarıcısı olan triger kayışı periyodik bakımının önemi ve maliyetleri.",
+      "nedenOnemli": "Krank mili ile eksantrik mili arasındaki senkronizasyonu sağlar. Pistonlar ile supapların uyum içinde çalışıp çarpışmamasını yöneten çok hayati bir kayıştır.",
+      "degismezseNeOlur": "Triger kayışı koptuğunda veya sente atladığında pistonlar açık kalan supaplara çok şiddetli bir şekilde çarpar. Supaplar eğilir, motor kapağı hasar görür. Kısacası komple motor indirilmesi gereken devasa bir masraf çıkar.",
+      "degisimPeriyodu": "Kayışlı sistemlerde 4-5 yıl veya 60.000-90.000 km / Zincirli sistemlerde 150.000+ km",
+      "ortalamaMaliyet": "₺8.000 - ₺25.000 (Rulman, gergi ve devirdaim pompası ile set olarak değiştiğinde)",
+      "tags": ["triger kayışı", "eksantrik", "motor rektifiye", "ağır bakım"]
+    },
+    {
+      "id": "v_kayisi",
+      "slug": "v-kayisi-degisimi",
+      "title": "V Kayışı Değişimi",
+      "description": "V kayışı nedir ve ne işe yarar? Alternatör, klima ve direksiyon pompasını çeviren V kayışı ne zaman değiştirilir?",
+      "nedenOnemli": "Krank milinden aldığı gücü şarj dinamosu (alternatör), klima kompresörü ve (varsa) hidrolik direksiyon pompası ve devirdaim pompasına ileten dış tahrik kayışıdır.",
+      "degismezseNeOlur": "Kayış eskiyip çatladığında kopar. Koptuğu an direksiyon sertleşir, klima çalışmaz ve araç aküyü şarj edemediği için kısa süre sonra yolda kalarak stop eder. Ayrıca devirdaim durursa hararet yapar.",
+      "degisimPeriyodu": "4-5 Yıl veya 60.000 - 90.000 km",
+      "ortalamaMaliyet": "₺1.500 - ₺4.500",
+      "tags": ["v kayışı", "alternatör kayışı", "hararet"]
+    },
+    {
+      "id": "sanziman_yagi",
+      "slug": "sanziman-yagi-degisimi",
+      "title": "Şanzıman Yağı Değişimi",
+      "description": "Otomatik ve manuel şanzıman yağı (ATF) değiştirilmeli mi? Şanzımanın ömrünü belirleyen şanzıman yağı değişim kilometreleri.",
+      "nedenOnemli": "Vites dişlilerini yağlayarak aşınmayı önler ve sıcaklığı dağıtır. Özellikle otomatik şanzımanlarda tork konvertörü ve hidrolik valf gövdelerinin kusursuz çalışmasını sağlar.",
+      "degismezseNeOlur": "Vites geçişlerinde vuruntu (sarsıntı) başlar. Şanzıman içi tortular (çapaklar) mekatronik beyin kanallarını tıkar. En nihayetinde şanzıman arızaya düşer ve yüz binlerce liralık masraf açar.",
+      "degisimPeriyodu": "Otomatik şanzımanlarda 60.000 - 80.000 km / Manuel şanzımanlarda 90.000+ km",
+      "ortalamaMaliyet": "₺6.000 - ₺18.000 (Makine ile flushing işlemi yapılırsa artar)",
+      "tags": ["şanzıman yağı", "otomatik vites", "DSG", "ATF", "vuruntu"]
+    },
+    {
+      "id": "antifriz",
+      "slug": "motor-sogutma-sivisi-antifriz-degisimi",
+      "title": "Motor Soğutma Sıvısı (Antifriz) Değişimi",
+      "description": "Antifriz yazın kullanılır mı? Motoru donmaya, hararete ve korozyona karşı koruyan motor soğutma sıvısının değişimi.",
+      "nedenOnemli": "Sadece kışın donmayı engellemekle kalmaz, yazın motorun kaynamasını (hararet yapmasını) önler. İçindeki kimyasallar radyatör ve motor bloklarının paslanmasını (korozyon) engeller.",
+      "degismezseNeOlur": "Ömrü biten antifriz asidik bir yapıya dönüşür ve paslanmaya neden olur. Bu pas, devirdaim pompasını çürütür, hortumları patlatır veya radyatörü tıkayarak aracı hararete maruz bırakır. Conta yakmaya kadar gider.",
+      "degisimPeriyodu": "3-5 Yılda bir (Rengi bozulduğunda hemen değiştirilmelidir)",
+      "ortalamaMaliyet": "₺1.500 - ₺3.500",
+      "tags": ["antifriz", "hararet", "radyatör", "korozyon"]
+    },
+    {
+      "id": "kizdirma_bujisi",
+      "slug": "kizdirma-bujisi-kontrolu",
+      "title": "Kızdırma (Isıtma) Bujileri Kontrolü",
+      "description": "Dizel araçlarda kızdırma bujisi arızası nasıl anlaşılır? Soğuk havalarda dizel motorun çalışmasını sağlayan parça.",
+      "nedenOnemli": "Dizel motorlarda kıvılcım (ateşleme) yoktur; sıkıştırma ile yanma sağlanır. Motor soğukken silindir içini yüksek dereceye ısıtarak yakıtın kolay alev almasını sağlar.",
+      "degismezseNeOlur": "Özellikle kış aylarında aracınız zor çalışır veya hiç çalışmaz. Çalıştığında ise ilk dakikalarda sarsıntılı ve vuruntulu çalışır, aşırı beyaz-mavi duman atar.",
+      "degisimPeriyodu": "80.000 - 100.000 km (Kızdırma uyarı lambası yandığında)",
+      "ortalamaMaliyet": "₺2.500 - ₺6.000 (Sıkışıp kırılma riski işçiliği artırabilir)",
+      "tags": ["dizel", "kızdırma bujisi", "ısıtma bujisi", "soğuk çalıştırma"]
+    },
+    {
+      "id": "dpf",
+      "slug": "dpf-doluluk-kontrolu",
+      "title": "DPF (Dizel Partikül Filtresi) Kontrolü",
+      "description": "Dizel partikül filtresi (DPF) tıkanırsa ne olur? DPF rejenerasyonu ve doluluk oranının araç sağlığına etkileri.",
+      "nedenOnemli": "Dizel araçların egzozundan çıkan zararlı kurumları (is) süzen çevreci bir filtredir. Belli aralıklarla yüksek ısıya ulaşıp içindeki kurumu kendi kendine yakar (Rejenerasyon).",
+      "degismezseNeOlur": "Sürekli şehir içi düşük devir kullanımında filtre tıkanır. Araç 'Motor Arıza' lambası yakar ve kendini koruma moduna alarak çekişten düşer (2000 deviri geçmez). Filtre değişimi çok pahalıdır.",
+      "degisimPeriyodu": "Her bakımda cihazla doluluk oranı (%) kontrol edilir. Tam tıkanırsa değişir.",
+      "ortalamaMaliyet": "₺5.000 - ₺12.000 (Makine ile yıkama/temizlik) / ₺40.000+ (Değişim)",
+      "tags": ["DPF", "partikül filtresi", "rejenerasyon", "dizel", "kurum"]
+    },
+    {
+      "id": "lpg_filtre",
+      "slug": "lpg-filtreleri-degisimi",
+      "title": "LPG Gaz ve Sıvı Faz Filtreleri Değişimi",
+      "description": "LPG filtreleri ne zaman değişmeli? Otogaz sisteminin sağlığı ve çekiş performansı için filtre değişim periyodu.",
+      "nedenOnemli": "Otogaz içindeki katkı maddelerini, kirleri ve yağları süzerek LPG enjektörlerini ve regülatörü (beyin) korur.",
+      "degismezseNeOlur": "LPG enjektörleri tıkanır ve bozulur. Araç gaza geçmez, silkeleme yapar veya tekleme sorunu yaşatır.",
+      "degisimPeriyodu": "10.000 km'de bir (veya 1 Yıl)",
+      "ortalamaMaliyet": "₺500 - ₺1.200",
+      "tags": ["LPG", "otogaz", "LPG filtresi", "tekleme"]
+    }
+  ]
+}

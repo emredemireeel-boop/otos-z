@@ -6,7 +6,7 @@ import path from "path";
 import { Lightbulb, ShieldAlert, Zap, CheckCircle, XCircle, ArrowLeft, ExternalLink } from "lucide-react";
 
 interface PageProps {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }
 
 function getDataFromSlug(slug: string) {
@@ -37,7 +37,8 @@ function getDataFromSlug(slug: string) {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const item = getDataFromSlug(params.slug);
+    const { slug } = await params;
+    const item = getDataFromSlug(slug);
     if (!item) {
         return { title: "Bulunamadı | OtoSöz" };
     }
@@ -51,13 +52,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         openGraph: {
             title: `${title} | OtoSöz`,
             description: description.slice(0, 160),
-            url: `https://otosoz.com/kutuphane/ilginc/${params.slug}`,
+            url: `https://otosoz.com/kutuphane/ilginc/${slug}`,
             siteName: "OtoSöz",
             locale: "tr_TR",
             type: "article",
         },
         alternates: {
-            canonical: `/kutuphane/ilginc/${params.slug}`,
+            canonical: `/kutuphane/ilginc/${slug}`,
         },
         other: {
             "article:section": "İlginç Otomotiv Bilgileri",
@@ -65,8 +66,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
 }
 
-export default function IlgincDetayPage({ params }: PageProps) {
-    const item = getDataFromSlug(params.slug);
+export default async function IlgincDetayPage({ params }: PageProps) {
+    const { slug } = await params;
+    const item = getDataFromSlug(slug);
 
     if (!item) {
         notFound();
@@ -111,15 +113,15 @@ export default function IlgincDetayPage({ params }: PageProps) {
                                 <h1 style={{ fontSize: "26px", fontWeight: "800", color: "var(--foreground)", margin: 0 }}>Yaygın Yanış Bilgi</h1>
                             </div>
                         </div>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
-                            <div style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: "16px", padding: "24px" }}>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+                            <div style={{ flex: "1 1 300px", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: "16px", padding: "24px" }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
                                     <XCircle size={20} color="#EF4444" />
                                     <h2 style={{ fontSize: "16px", fontWeight: "800", color: "#EF4444", margin: 0, textTransform: "uppercase" }}>Yanlış İnanış</h2>
                                 </div>
                                 <p style={{ fontSize: "16px", color: "var(--foreground)", lineHeight: "1.7", fontWeight: "600" }}>{item.myth}</p>
                             </div>
-                            <div style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: "16px", padding: "24px" }}>
+                            <div style={{ flex: "1 1 300px", background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: "16px", padding: "24px" }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
                                     <CheckCircle size={20} color="#10B981" />
                                     <h2 style={{ fontSize: "16px", fontWeight: "800", color: "#10B981", margin: 0, textTransform: "uppercase" }}>Gerçek</h2>
@@ -192,8 +194,8 @@ export default function IlgincDetayPage({ params }: PageProps) {
                         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
                             <h1 style={{ fontSize: "28px", fontWeight: "800", color: "var(--foreground)", margin: 0 }}>{item.title}</h1>
                         </div>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
-                            <div style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: "16px", padding: "24px" }}>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+                            <div style={{ flex: "1 1 300px", background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: "16px", padding: "24px" }}>
                                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#10B981", marginBottom: "16px" }}>✓ Yap</h2>
                                 <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
                                     {(item.do?.points || []).map((p: string, i: number) => (
@@ -203,7 +205,7 @@ export default function IlgincDetayPage({ params }: PageProps) {
                                     ))}
                                 </ul>
                             </div>
-                            <div style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: "16px", padding: "24px" }}>
+                            <div style={{ flex: "1 1 300px", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: "16px", padding: "24px" }}>
                                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#EF4444", marginBottom: "16px" }}>✗ Yapma</h2>
                                 <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
                                     {(item.dont?.points || []).map((p: string, i: number) => (

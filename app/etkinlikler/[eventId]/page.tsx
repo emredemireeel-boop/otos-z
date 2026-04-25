@@ -98,7 +98,7 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                     <ArrowLeft style={{ width: '20px', height: '20px' }} />
                                 </button>
                                 <div>
-                                    <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'white' }}>{event.title}</h1>
+                                    <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>{event.title}</h1>
                                     <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
                                         <span style={{
                                             padding: '4px 10px',

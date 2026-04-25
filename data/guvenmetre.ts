@@ -150,15 +150,7 @@ export const getBrandsForCategory = (categoryId: string): BrandRating[] => {
         case "private_service": return [];
 
         /* ── Yetkili Bayi ve Servis ── */
-        case "authorized_service": return [
-            z("tofa_srv",  "Tofaş Yetkili",   "T", "https://logo.clearbit.com/tofas.com.tr", "#00519E"),
-            z("renault",   "Renault Yetkili",  "R", "https://logo.clearbit.com/renault.com.tr", "#F4D03F"),
-            z("toyota_srv","Toyota Yetkili",   "T", "https://logo.clearbit.com/toyota.com.tr", "#EB0A1E"),
-            z("hyundai_srv","Hyundai Yetkili", "H", "https://logo.clearbit.com/hyundai.com.tr", "#002C5F"),
-            z("ford_srv",  "Ford Yetkili",     "F", "https://logo.clearbit.com/ford.com.tr", "#003478"),
-            z("fiat_srv",  "Fiat Yetkili",     "F", "https://logo.clearbit.com/fiat.com.tr", "#900C3F"),
-            z("vw_srv",    "VW Yetkili",       "V", "https://logo.clearbit.com/vw.com.tr", "#001E50"),
-        ];
+        case "authorized_service": return [];
 
         /* ── Galericiler ── */
         case "dealers": return [

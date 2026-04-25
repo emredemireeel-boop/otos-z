@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { ClipboardCheck, CheckCircle, RotateCcw, AlertTriangle, ShieldAlert, Check, X, AlertCircle } from "lucide-react";
+import Link from "next/link";
 
 interface CheckItem {
   id: string;
+  slug?: string;
   text: string;
   aciklama: string;
   oncelik: "kritik" | "onemli" | "rutin";
@@ -25,8 +27,8 @@ const CATEGORIES: CheckCategory[] = [
     emoji: "🔍",
     color: "#3B82F6",
     items: [
-      { id: "d1", text: "Kaporta boyası & çizikler", aciklama: "Orijinal boyadan farklı tonlar boya yapıldığına işaret eder.", oncelik: "onemli", hataDetayi: "Araç daha önce hasar almış ve onarılmış olabilir. Lokal boya sorun olmayabilir ancak tavan ve direklerdeki boya büyük bir kazanın işaretidir.", maliyet: "Orta / Yüksek Değer Kaybı" },
-      { id: "d2", text: "Panel birleşim aralıkları", aciklama: "Eşit aralıklar araçta kaza şüphesi olup olmadığını gösterir.", oncelik: "kritik", hataDetayi: "Kaput, kapılar veya çamurluklar arasındaki boşluklar eşit değilse, şasede kayma veya düzgün onarılmamış büyük bir kaza mevcuttur.", maliyet: "Çok Yüksek Risk" },
+      { id: "d1", slug: "kaporta-boyasi-ve-cizikler", text: "Kaporta boyası & çizikler", aciklama: "Orijinal boyadan farklı tonlar boya yapıldığına işaret eder.", oncelik: "onemli", hataDetayi: "Araç daha önce hasar almış ve onarılmış olabilir. Lokal boya sorun olmayabilir ancak tavan ve direklerdeki boya büyük bir kazanın işaretidir.", maliyet: "Orta / Yüksek Değer Kaybı" },
+      { id: "d2", slug: "panel-birlesim-araliklari", text: "Panel birleşim aralıkları", aciklama: "Eşit aralıklar araçta kaza şüphesi olup olmadığını gösterir.", oncelik: "kritik", hataDetayi: "Kaput, kapılar veya çamurluklar arasındaki boşluklar eşit değilse, şasede kayma veya düzgün onarılmamış büyük bir kaza mevcuttur.", maliyet: "Çok Yüksek Risk" },
       { id: "d3", text: "Çamurluklar & eşikler", aciklama: "Pas başlangıcı veya kalın boya gizlenmiş hasar işareti olabilir.", oncelik: "onemli", hataDetayi: "Paslanma yapısal zayıflığa yol açar. Macun tabakası altındaki pas zamanla yüzeye çıkar ve onarımı çok zordur.", maliyet: "Yüksek" },
       { id: "d4", text: "Cam ve aynalar", aciklama: "Çatlak, taşlanmış ya da yenilenmiş cam var mı kontrol edin.", oncelik: "rutin", hataDetayi: "Görüşü engelleyen çatlaklar muayeneden geçmez. Orijinal olmayan logolu camlar kaza sonrası değişime işaret edebilir.", maliyet: "Düşük / Orta" },
       { id: "d5", text: "Lastikler (diş & hasar)", aciklama: "4 lastik aynı kalıp mı? Diş derinlikleri eşit mi?", oncelik: "onemli", hataDetayi: "Farklı marka/desen lastikler yol tutuşunu tehlikeye atar. Düzensiz aşınma varsa rot/balans veya süspansiyon arızası vardır.", maliyet: "Orta" },
@@ -39,12 +41,12 @@ const CATEGORIES: CheckCategory[] = [
     emoji: "⚙️",
     color: "#EF4444",
     items: [
-      { id: "m1", text: "Motor yağı rengi ve seviyesi", aciklama: "Süt rengi veya köpük var mı?", oncelik: "kritik", hataDetayi: "Eğer yağ kapağında veya çubuğunda tahin/süt köpüğü rengi kıvam varsa silindir kapak contası yanıktır. Motora su karışıyordur.", maliyet: "Çok Yüksek (Motor Revizyonu)" },
-      { id: "m2", text: "Soğutma suyu rengi", aciklama: "Berrak yeşil/kırmızı/mavi olmalı.", oncelik: "kritik", hataDetayi: "Suda yağ tabakası varsa veya kahverengi çamur şeklindeyse motor içi aşırı paslanmıştır ya da motor bloğu çatlamıştır.", maliyet: "Çok Yüksek" },
+      { id: "m1", slug: "motor-yaginda-su-veya-kopuk-olmasi", text: "Motor yağı rengi ve seviyesi", aciklama: "Süt rengi veya köpük var mı?", oncelik: "kritik", hataDetayi: "Eğer yağ kapağında veya çubuğunda tahin/süt köpüğü rengi kıvam varsa silindir kapak contası yanıktır. Motora su karışıyordur.", maliyet: "Çok Yüksek (Motor Revizyonu)" },
+      { id: "m2", slug: "sogutma-suyu-antifriz-pas", text: "Soğutma suyu rengi", aciklama: "Berrak yeşil/kırmızı/mavi olmalı.", oncelik: "kritik", hataDetayi: "Suda yağ tabakası varsa veya kahverengi çamur şeklindeyse motor içi aşırı paslanmıştır ya da motor bloğu çatlamıştır.", maliyet: "Çok Yüksek" },
       { id: "m3", text: "Valf kapağı altı yağ sızıntısı", aciklama: "Motor etrafında ıslak yağ var mı?", oncelik: "onemli", hataDetayi: "Motorda yağ sızıntıları hem yağ eksiltmesine hem de sıcak egzoz parçalarına damlayıp yangın riskine veya pis kokuya sebep olur.", maliyet: "Orta" },
       { id: "m4", text: "Akü terminalleri ve yaşı", aciklama: "Korozyon veya üretim tarihi eskiliği.", oncelik: "onemli", hataDetayi: "Oksitlenmiş terminaller şarjı engeller. 4-5 yıldan eski akülerin değişimi yakındır.", maliyet: "Düşük" },
       { id: "m5", text: "Hortumlar ve kayışlar", aciklama: "Çatlak, sertleşme var mı?", oncelik: "onemli", hataDetayi: "V kayışındaki çatlaklar yolda kalmanıza, su hortumlarındaki sertleşmeler motorun suyu boşaltıp hararet yapmasına sebep olur.", maliyet: "Orta" },
-      { id: "m6", text: "Şase & taşıyıcı profil kaynakları", aciklama: "Yeniden kaynaklama (işlem) var mı?", oncelik: "kritik", hataDetayi: "Şase uçlarındaki bükülmeler, çekiç izleri veya sonradan atılmış kaynaklar, aracın ölümcül bir kaza atlatıp düzeltildiğini kanıtlar.", maliyet: "Araç Alınmaz" },
+      { id: "m6", slug: "sasede-islem-ve-kaynak-izleri", text: "Şase & taşıyıcı profil kaynakları", aciklama: "Yeniden kaynaklama (işlem) var mı?", oncelik: "kritik", hataDetayi: "Şase uçlarındaki bükülmeler, çekiç izleri veya sonradan atılmış kaynaklar, aracın ölümcül bir kaza atlatıp düzeltildiğini kanıtlar.", maliyet: "Araç Alınmaz" },
     ],
   },
   {
@@ -52,10 +54,10 @@ const CATEGORIES: CheckCategory[] = [
     emoji: "🪑",
     color: "#8B5CF6",
     items: [
-      { id: "i1", text: "Kontrol paneli uyarı lambalar", aciklama: "Kontağı açınca yanıp, motor çalışınca sönmeli.", oncelik: "kritik", hataDetayi: "Motor çalıştıktan sonra sönmeyen Check Engine, Airbag veya ABS ışıkları gizli ve pahalı elektronik/mekanik sorunları işaret eder. Işığın sökülmüş olma ihtimaline karşı kontağı ilk açtığınızda yanıyor mu teyit edin.", maliyet: "Yüksek / Çok Yüksek" },
+      { id: "i1", slug: "kontrol-paneli-uyari-lambalari", text: "Kontrol paneli uyarı lambalar", aciklama: "Kontağı açınca yanıp, motor çalışınca sönmeli.", oncelik: "kritik", hataDetayi: "Motor çalıştıktan sonra sönmeyen Check Engine, Airbag veya ABS ışıkları gizli ve pahalı elektronik/mekanik sorunları işaret eder. Işığın sökülmüş olma ihtimaline karşı kontağı ilk açtığınızda yanıyor mu teyit edin.", maliyet: "Yüksek / Çok Yüksek" },
       { id: "i2", text: "Klima soğutma & ısıtma", aciklama: "Soğuk/sıcak ayarını tam güçte test edin.", oncelik: "onemli", hataDetayi: "Klima soğutmuyorsa 'Sadece gazı eksik' lafına inanmayın. Genellikle kompresör arızası veya petek kaçağı vardır.", maliyet: "Orta / Yüksek" },
       { id: "i3", text: "Silecekler ve cam rezistansı", aciklama: "Arka cam ısıtması ve silecekler.", oncelik: "rutin", hataDetayi: "Kış aylarında arka cam rezistansının çalışmaması büyük görüş engeli yaratır. Silecek motoru arızası görüşü kısıtlar.", maliyet: "Düşük" },
-      { id: "i4", text: "Koltuk, kemer ve düzenekler", aciklama: "Emniyet kemerlerini sertçe çekip test edin.", oncelik: "rutin", hataDetayi: "Direnç gösteren veya hızlı çekince kilitlenmeyen emniyet kemerleri, daha önce kaza anında patlamış ve direnç atılarak kandırılmış olabilir.", maliyet: "Yüksek Risk" },
+      { id: "i4", slug: "patlak-emniyet-kemeri-direnc-atma", text: "Koltuk, kemer ve düzenekler", aciklama: "Emniyet kemerlerini sertçe çekip test edin.", oncelik: "rutin", hataDetayi: "Direnç gösteren veya hızlı çekince kilitlenmeyen emniyet kemerleri, daha önce kaza anında patlamış ve direnç atılarak kandırılmış olabilir.", maliyet: "Yüksek Risk" },
       { id: "i5", text: "Ses sistemi & Multimedya", aciklama: "Hoparlörler ve Bluetooth.", oncelik: "rutin", hataDetayi: "Patlak hoparlörler veya dokunmatiği bozuk multimedya ünitelerinin onarımı zahmetlidir.", maliyet: "Düşük / Orta" },
       { id: "i6", text: "Cam krikoları", aciklama: "Tüm camları tek tek açıp kapatın.", oncelik: "rutin", hataDetayi: "Tekleyen veya yavaş inip kalkan camlarda krikonun telleri kopmak üzeredir, kapı döşemesi sökülmelidir.", maliyet: "Orta" },
     ],
@@ -66,7 +68,7 @@ const CATEGORIES: CheckCategory[] = [
     color: "#10B981",
     items: [
       { id: "t1", text: "Motor soğukken çalışması", aciklama: "Marş süresi ve titreşim.", oncelik: "kritik", hataDetayi: "Geç çalışma, rölantide dalgalanma veya stop etme; enjektör, mazot pompası (dizel) veya rölanti valfi arızalarına işarettir.", maliyet: "Yüksek" },
-      { id: "t2", text: "Vites geçişleri", aciklama: "Vuruntu, kaçırma, silkeleme.", oncelik: "kritik", hataDetayi: "Otomatik viteslerdeki vuruntu veya yokuşta kaçırma hissi, şanzıman beyni (mekatronik) veya kavrama setinin bittiğini gösterir. Otomobillerdeki en masraflı onarımdır.", maliyet: "Çok Yüksek" },
+      { id: "t2", slug: "vites-gecisleri-ve-sanziman-vuruntusu", text: "Vites geçişleri", aciklama: "Vuruntu, kaçırma, silkeleme.", oncelik: "kritik", hataDetayi: "Otomatik viteslerdeki vuruntu veya yokuşta kaçırma hissi, şanzıman beyni (mekatronik) veya kavrama setinin bittiğini gösterir. Otomobillerdeki en masraflı onarımdır.", maliyet: "Çok Yüksek" },
       { id: "t3", text: "Fren performansı", aciklama: "Titreme ve sağa/sola sapma.", oncelik: "kritik", hataDetayi: "Frene basınca direksiyon titriyorsa diskler yamulmuştur. Araç sağa veya sola asılıyorsa kaliper kilitlenmiş veya fren hortumları tıkanmıştır.", maliyet: "Orta / Yüksek" },
       { id: "t4", text: "Direksiyon ve Ön Düzen", aciklama: "Sallanma ve merkezleme boşluğu.", oncelik: "onemli", hataDetayi: "Düz yolda direksiyonu bıraktığınızda araç sapıyorsa; rot ayarı bozuktur veya araç kaza sonrası şase geometrisini kaybetmiştir.", maliyet: "Orta / Yüksek" },
       { id: "t5", text: "Süspansiyon tıkırtıları", aciklama: "Bozuk yoldaki sesler.", oncelik: "onemli", hataDetayi: "Lok-lok sesleri Z rotları veya amortisör takozlarının bozukluğunu, aracın beşik gibi sallanması ise amortisörlerin patlak olduğunu gösterir.", maliyet: "Orta" },
@@ -78,10 +80,10 @@ const CATEGORIES: CheckCategory[] = [
     emoji: "📋",
     color: "#F59E0B",
     items: [
-      { id: "b1", text: "Ruhsat & tescil eşleşmesi", aciklama: "Motor ve şase numarası kontrolü.", oncelik: "kritik", hataDetayi: "Şase no ruhsatla uyuşmuyorsa araç çalıntı olabilir veya yasa dışı işlem görmüştür. Noterde alım-satım kesinlikle yapılamaz.", maliyet: "Araç Alınmaz" },
+      { id: "b1", slug: "ruhsat-sase-no-eslesmesi", text: "Ruhsat & tescil eşleşmesi", aciklama: "Motor ve şase numarası kontrolü.", oncelik: "kritik", hataDetayi: "Şase no ruhsatla uyuşmuyorsa araç çalıntı olabilir veya yasa dışı işlem görmüştür. Noterde alım-satım kesinlikle yapılamaz.", maliyet: "Araç Alınmaz" },
       { id: "b2", text: "Şase no orijinalliği", aciklama: "Numara üzerinde kazıma, boyama.", oncelik: "kritik", hataDetayi: "Oynanmış veya yeniden kaynaklanmış şase no, genellikle ağır hasarlı bir aracın kimliğinin ('change' işlemi) çalıntı veya hurda bir araca geçirilmesi durumudur.", maliyet: "Araç Alınmaz (Yasadışı)" },
       { id: "b3", text: "Bakım geçmişi", aciklama: "Kayıtlar, faturalar, km kontrolü.", oncelik: "onemli", hataDetayi: "Belgesi olmayan araçların kilometresi düşürülmüş olabilir veya periyodik bakımları (triger vb.) zamanında yapılmamış olabilir. Risk barındırır.", maliyet: "Belirsiz / Yüksek Risk" },
-      { id: "b4", text: "Hasar (TRAMER) kaydı", aciklama: "Plaka veya şase no ile SMS sorgusu.", oncelik: "kritik", hataDetayi: "'Ağır Hasar Kayıtlı' (Pert) araçlar şase, direk ve airbag işlemi görmüştür. Yapısal güvenliği düşüktür ve kasko firmaları kasko yapmayı reddedebilir.", maliyet: "Aşırı Değer Kaybı" },
+      { id: "b4", slug: "hasar-tramer-kaydi-sorgulama", text: "Hasar (TRAMER) kaydı", aciklama: "Plaka veya şase no ile SMS sorgusu.", oncelik: "kritik", hataDetayi: "'Ağır Hasar Kayıtlı' (Pert) araçlar şase, direk ve airbag işlemi görmüştür. Yapısal güvenliği düşüktür ve kasko firmaları kasko yapmayı reddedebilir.", maliyet: "Aşırı Değer Kaybı" },
       { id: "b5", text: "Rehin / Haciz / Borç", aciklama: "e-Devlet sorgusu.", oncelik: "onemli", hataDetayi: "Aracın üzerinde banka rehni veya hak mahrumiyeti varsa noter devri yapılamaz. MTV borcu alıcıya geçmez ama satışı engeller.", maliyet: "Borç Miktarı Kadar" },
     ],
   },
@@ -247,9 +249,15 @@ export default function IkinciElSection() {
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "flex-start", justifyContent: "space-between" }}>
                       <div style={{ flex: 1, minWidth: "250px" }}>
                         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "4px" }}>
-                          <span style={{ fontSize: "15px", fontWeight: "700", color: "var(--foreground)" }}>
-                            {item.text}
-                          </span>
+                          {item.slug ? (
+                            <Link href={`/ikinci-el-rehberi/${item.slug}`} style={{ fontSize: "15px", fontWeight: "700", color: "var(--primary)", textDecoration: "none" }} onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'} onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}>
+                              {item.text} 🔗
+                            </Link>
+                          ) : (
+                            <span style={{ fontSize: "15px", fontWeight: "700", color: "var(--foreground)" }}>
+                              {item.text}
+                            </span>
+                          )}
                           <span style={{ padding: "2px 6px", borderRadius: "6px", fontSize: "10px", fontWeight: "800", color: cfg.color, background: cfg.bg }}>
                             {cfg.label}
                           </span>

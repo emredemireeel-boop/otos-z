@@ -16,6 +16,7 @@ import MevsimselBakimSection from "./mevsimsel-bakim-section";
 import SigortaRehberiSection from "./sigorta-rehberi-section";
 import OtoyolUcretleriSection from "./otoyol-ucretleri-section";
 import BakimZamanlariSection from "./bakim-zamanlari-section";
+import trafikCezalariData from "@/data/trafik_cezalari.json";
 
 // Types for Library Guides
 interface GuideDetail {
@@ -671,91 +672,67 @@ export default function LibraryPage() {
 
                             {/* Checklists */}
                             {filteredInteresting.checklists.length > 0 && <SectionCarousel title="Kontrol Listeleri" icon={<CheckCircle color="#43E97B" />}>
-                                {filteredInteresting.checklists.map((checklist: any) => {
-                                    const isExpanded = expandedChecklists.has(checklist.id);
-                                    return (
-                                        <div key={checklist.id} style={{
-                                            minWidth: '350px', flex: '0 0 auto', scrollSnapAlign: 'start',
+                                {filteredInteresting.checklists.map((checklist: any) => (
+                                    <Link key={checklist.id} href={`/kutuphane/ilginc/${createSlug(checklist.title)}--${checklist.id}`} style={{ textDecoration: 'none', minWidth: '350px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                        <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
                                             borderRadius: '14px',
-                                            overflow: 'hidden'
-                                        }}>
-                                                <button
-                                                    onClick={() => toggleChecklist(checklist.id)}
-                                                    style={{
-                                                        width: '100%',
-                                                        padding: '20px 24px',
-                                                        background: 'transparent',
-                                                        border: 'none',
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        justifyContent: 'space-between',
-                                                        cursor: 'pointer',
-                                                        color: 'var(--foreground)'
-                                                    }}
-                                                >
-                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                                        <div style={{
-                                                            width: '40px',
-                                                            height: '40px',
-                                                            borderRadius: '10px',
-                                                            background: `linear-gradient(135deg, ${checklist.gradient[0]}, ${checklist.gradient[1]})`,
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center'
-                                                        }}>
-                                                            <CheckCircle size={20} color="white" />
-                                                        </div>
-                                                        <div style={{ textAlign: 'left' }}>
-                                                            <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '4px' }}>{checklist.title}</h4>
-                                                            <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{checklist.items.length} madde</p>
-                                                        </div>
-                                                    </div>
-                                                    {isExpanded ? <ChevronUp style={{ width: '20px', height: '20px' }} /> : <ChevronDown style={{ width: '20px', height: '20px' }} />}
-                                                </button>
-                                                {isExpanded && (
-                                                    <div style={{ padding: '0 24px 24px 24px' }}>
-                                                        <div style={{ height: '1px', background: 'var(--card-border)', marginBottom: '16px' }} />
-                                                        <div style={{ display: 'grid', gap: '8px' }}>
-                                                            {checklist.items.map((item: any, idx: number) => (
-                                                                <div key={idx} style={{ display: 'flex', alignItems: 'start', gap: '10px' }}>
-                                                                    <CheckCircle style={{ width: '16px', height: '16px', color: '#43E97B', flexShrink: 0, marginTop: '2px' }} />
-                                                                    <span style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5' }}>{item}</span>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                )}
+                                            padding: '20px',
+                                            height: '100%',
+                                            transition: 'border-color 0.2s',
+                                        }}
+                                            onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'var(--primary)'}
+                                            onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'var(--card-border)'}
+                                        >
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                                                <div style={{
+                                                    width: '40px',
+                                                    height: '40px',
+                                                    borderRadius: '10px',
+                                                    background: `linear-gradient(135deg, ${checklist.gradient[0]}, ${checklist.gradient[1]})`,
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center'
+                                                }}>
+                                                    <CheckCircle size={20} color="white" />
+                                                </div>
+                                                <div style={{ textAlign: 'left' }}>
+                                                    <h4 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>{checklist.title}</h4>
+                                                    <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px' }}>{checklist.items.length} kontrol maddesi</p>
+                                                </div>
                                             </div>
-                                        );
-                                    })}
+                                            <div style={{ fontSize: '11px', color: 'var(--primary)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}><ExternalLink size={11} /> Listeyi İncele</div>
+                                        </div>
+                                    </Link>
+                                ))}
                             </SectionCarousel>}
 
                             {/* Do & Don't */}
                             {filteredInteresting.doAndDont.length > 0 && <SectionCarousel title="Yap & Yapma" icon={<ThumbsUp color="#3B82F6" />}>
                                 {filteredInteresting.doAndDont.map((item: DoAndDontData) => (
-                                        <div key={item.id} style={{
-                                            minWidth: '400px', flex: '0 0 auto', scrollSnapAlign: 'start',
+                                    <Link key={item.id} href={`/kutuphane/ilginc/${createSlug(item.title)}--${item.id}`} style={{ textDecoration: 'none', minWidth: '400px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                        <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
                                             borderRadius: '14px',
-                                            padding: '24px'
-                                        }}>
+                                            padding: '24px',
+                                            height: '100%',
+                                            transition: 'border-color 0.2s',
+                                        }}
+                                            onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'var(--primary)'}
+                                            onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'var(--card-border)'}
+                                        >
                                             <h4 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '20px' }}>{item.title}</h4>
-                                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
                                                 <div>
                                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                                                         <ThumbsUp style={{ width: '16px', height: '16px', color: '#43E97B' }} />
                                                         <span style={{ fontSize: '14px', fontWeight: '700', color: '#43E97B' }}>Yap</span>
                                                     </div>
-                                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                                        {item.do.points.map((point, idx) => (
-                                                            <div key={idx} style={{ display: 'flex', gap: '8px' }}>
-                                                                <span style={{ color: '#43E97B' }}>✓</span>
-                                                                <span style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>{point}</span>
-                                                            </div>
-                                                        ))}
+                                                    <div style={{ display: 'flex', gap: '8px' }}>
+                                                        <span style={{ color: '#43E97B' }}>✓</span>
+                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>{item.do.points[0]}</span>
                                                     </div>
                                                 </div>
                                                 <div>
@@ -763,19 +740,17 @@ export default function LibraryPage() {
                                                         <ThumbsDown style={{ width: '16px', height: '16px', color: '#EF4444' }} />
                                                         <span style={{ fontSize: '14px', fontWeight: '700', color: '#EF4444' }}>Yapma</span>
                                                     </div>
-                                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                                        {item.dont.points.map((point, idx) => (
-                                                            <div key={idx} style={{ display: 'flex', gap: '8px' }}>
-                                                                <span style={{ color: '#EF4444' }}>✗</span>
-                                                                <span style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>{point}</span>
-                                                            </div>
-                                                        ))}
+                                                    <div style={{ display: 'flex', gap: '8px' }}>
+                                                        <span style={{ color: '#EF4444' }}>✗</span>
+                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>{item.dont.points[0]}</span>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div style={{ fontSize: '11px', color: 'var(--primary)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}><ExternalLink size={11} /> Detaylı İncele</div>
                                         </div>
-                                    ))}
-                                </SectionCarousel>}
+                                    </Link>
+                                ))}
+                            </SectionCarousel>}
 
                             {/* Quick Facts */}
                             {filteredInteresting.quickFacts.length > 0 && <SectionCarousel title="Hızlı Bilgiler" icon={<Zap color="#F59E0B" />}>
@@ -1009,50 +984,7 @@ export default function LibraryPage() {
                                     </span>
                                 </div>
                             </div>
-                            {[
-                                { id: 'hiz', kategori: 'HIZ (Şehir İçi)', rows: [
-                                    { ihlal: '6 - 45 km/s arası aşım (Kademeli)', ceza: '2.000 - 15.000 TL', ehliyet: '10 - 20 Ceza Puanı', arac: 'Yok' },
-                                    { ihlal: '46 - 55 km/s arası aşım', ceza: '20.000 TL', ehliyet: '30 Gün El Koyma', arac: 'Yok' },
-                                    { ihlal: '56 - 65 km/s arası aşım', ceza: '25.000 TL', ehliyet: '60 Gün El Koyma', arac: 'Yok' },
-                                    { ihlal: '66 km/s ve üzeri aşım', ceza: '30.000 TL', ehliyet: '90 Gün El Koyma', arac: 'Yok' },
-                                ]},
-                                { id: 'alkol', kategori: 'ALKOL & MADDE', rows: [
-                                    { ihlal: 'Alkol Testini Reddetme', ceza: '150.000 TL', ehliyet: '5 Yıl El Koyma', arac: 'Men Edilir' },
-                                    { ihlal: 'Alkollü Araç (1. Kez / 0.50 Promil Üstü)', ceza: '25.000 TL', ehliyet: '6 Ay El Koyma', arac: 'Men (Yedek şoför yok)' },
-                                    { ihlal: 'Alkollü Araç (3. Kez ve Sonrası)', ceza: '150.000 TL', ehliyet: '5 Yıl El Koyma', arac: 'Kesin Men' },
-                                    { ihlal: 'Uyuşturucu Etkisinde Araç', ceza: '150.000 TL', ehliyet: 'Ehliyet İptali', arac: 'Kesin Men' },
-                                ]},
-                                { id: 'zorbalik', kategori: 'TRAFİK ZORBALIĞI', rows: [
-                                    { ihlal: 'Saldırgan Sürüş / Israrlı Takip', ceza: '180.000 TL', ehliyet: '60 Gün El Koyma', arac: '30-60 Gün Men' },
-                                    { ihlal: 'Drift Yapmak', ceza: '140.000 TL', ehliyet: '60 Gün El Koyma', arac: '60 Gün Men' },
-                                    { ihlal: 'Makas Atmak', ceza: '90.000 TL', ehliyet: '60 Gün El Koyma', arac: 'Yok' },
-                                    { ihlal: '"Dur" İhtarına Uymayıp Kaçma', ceza: '200.000 TL', ehliyet: '60 Gün El Koyma', arac: '60 Gün Men' },
-                                ]},
-                                { id: 'plaka', kategori: 'PLAKA & BELGE', rows: [
-                                    { ihlal: 'Sahte Plaka Kullanma', ceza: '140.000 TL', ehliyet: 'Adli Soruşturma', arac: '30 Gün Men' },
-                                    { ihlal: 'Plakasını Okunmaz Hale Getirme', ceza: '140.000 TL', ehliyet: 'Tekerde 280.000 TL', arac: '30 Gün Men' },
-                                    { ihlal: 'Ehliyetsiz Araç Kullanma', ceza: '40.000 TL', ehliyet: '-', arac: 'Araçtan Men' },
-                                    { ihlal: 'Ehliyeti Alınmışken Araç', ceza: '200.000 TL', ehliyet: '+40.000 TL (İşletene)', arac: 'Kesin Men' },
-                                ]},
-                                { id: 'guvenlik', kategori: 'GÜVENLİK', rows: [
-                                    { ihlal: 'Kırmızı Işık (6. Tekrar)', ceza: '80.000 TL', ehliyet: 'Ehliyet İptali', arac: 'Yok' },
-                                    { ihlal: 'Cep Telefonu (3. Tekrar+)', ceza: '20.000 TL', ehliyet: '30 Gün El Koyma', arac: 'Yok' },
-                                    { ihlal: 'Emniyet Şeridi İhlali', ceza: '11.631 TL', ehliyet: '20 Ceza Puanı', arac: 'Yok' },
-                                    { ihlal: 'Ters Yönde Araç (Otoyol)', ceza: '90.000 TL', ehliyet: '60 Gün El Koyma', arac: 'Men Edilir' },
-                                    { ihlal: 'Yayaya Yol Vermemek', ceza: '5.661 TL', ehliyet: '20 Ceza Puanı', arac: 'Yok' },
-                                    { ihlal: 'Çocuk Koltuğu Kullanmamak', ceza: '5.000 TL', ehliyet: '10 Ceza Puanı', arac: 'Yok' },
-                                ]},
-                                { id: 'park', kategori: 'PARK & SİGORTA', rows: [
-                                    { ihlal: 'Trafik Sigortasız Gezmek', ceza: '1.246 TL', ehliyet: '-', arac: 'Anında Men' },
-                                    { ihlal: 'Muayenesiz Araçla Trafiğe Çıkma', ceza: '2.719 TL', ehliyet: '10 Ceza Puanı', arac: 'İzin Belgesi' },
-                                    { ihlal: 'Engelli Park Yerini İşgal', ceza: '2.492 TL', ehliyet: '15 Ceza Puanı', arac: 'Anında Çekilir' },
-                                    { ihlal: 'Hatalı Park Etmek', ceza: '1.246 TL', ehliyet: '10 Ceza Puanı', arac: 'Engelse Çekilir' },
-                                ]},
-                                { id: 'ticari', kategori: 'TİCARİ', rows: [
-                                    { ihlal: 'Takograf Veri Müdahalesi', ceza: '185.000 TL', ehliyet: '30-90 Gün El Koyma', arac: 'Yok' },
-                                    { ihlal: 'Taksimetre Bulundurmamak', ceza: '46.000 TL', ehliyet: '-', arac: 'Men Edilir' },
-                                ]},
-                            ].map((section, sIdx) => (
+                            {trafikCezalariData.categories.map((section, sIdx) => (
                                 <div key={section.id} style={{ marginBottom: '12px', position: 'relative', zIndex: 1, borderRadius: '12px', border: '1px solid var(--card-border)', overflow: 'hidden', background: 'var(--card-bg)' }}>
                                     <div style={{ padding: '9px 16px', background: 'var(--secondary)', borderBottom: '1px solid var(--card-border)' }}>
                                         <span style={{ fontSize: '11px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>{section.kategori}</span>
@@ -1075,7 +1007,18 @@ export default function LibraryPage() {
                                                         onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
                                                         onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
                                                     >
-                                                        <td style={{ padding: '11px 16px', fontSize: '13px', color: 'var(--foreground)', fontWeight: '400', lineHeight: '1.4', width: '40%' }}>{row.ihlal}</td>
+                                                        <td style={{ padding: '11px 16px', fontSize: '13px', color: 'var(--foreground)', fontWeight: '400', lineHeight: '1.4', width: '40%' }}>
+                                                            <Link href={`/trafik-cezasi/${row.slug}`} style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+                                                                {row.madde && (
+                                                                    <span style={{ padding: '2px 6px', background: 'rgba(59, 130, 246, 0.1)', color: '#3B82F6', border: '1px solid rgba(59, 130, 246, 0.2)', borderRadius: '6px', fontSize: '11px', fontWeight: '700', whiteSpace: 'nowrap' }}>
+                                                                        {row.madde}
+                                                                    </span>
+                                                                )}
+                                                                <span style={{ color: 'var(--primary)', fontWeight: '600' }}>
+                                                                    {row.ihlal}
+                                                                </span>
+                                                            </Link>
+                                                        </td>
                                                         <td style={{ padding: '11px 16px', fontSize: '13px', color: 'var(--foreground)', fontWeight: '600', whiteSpace: 'nowrap', width: '20%' }}>{row.ceza}</td>
                                                         <td style={{ padding: '11px 16px', fontSize: '12px', color: 'var(--text-muted)', whiteSpace: 'nowrap', width: '25%' }}>{row.ehliyet}</td>
                                                         <td style={{ padding: '11px 16px', width: '15%' }}>

@@ -137,10 +137,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
 
     // ═══════════════════════════════════════════════════════════════
-    // 9. GÖSTERGELER & MAKALELER — Dinamik İçerik
+    // 9. GÖSTERGELER, MAKALELER & OTOYOL ÜCRETLERİ — Dinamik İçerik
     // ═══════════════════════════════════════════════════════════════
     let gostergePages: any[] = [];
     let makalePages: any[] = [];
+    let otoyolPages: any[] = [];
     try {
         const faultLightsPath = path.join(process.cwd(), 'data', 'fault_lights.json');
         const faultLightsData = JSON.parse(fs.readFileSync(faultLightsPath, 'utf8'));
@@ -159,6 +160,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'monthly' as const,
             priority: 0.7,
         }));
+
+        const otoyolPath = path.join(process.cwd(), 'public', 'data', 'otoyol_ucretleri.json');
+        if (fs.existsSync(otoyolPath)) {
+            const otoyolData = JSON.parse(fs.readFileSync(otoyolPath, 'utf8'));
+            otoyolPages = otoyolData.map((item: any) => ({
+                url: `${baseUrl}/kutuphane/otoyol-ucretleri/${item.id}`,
+                lastModified: now,
+                changeFrequency: 'weekly' as const,
+                priority: 0.8,
+            }));
+        }
     } catch (e) {
         console.error("Error generating sitemap for dynamic pages", e);
     }
@@ -186,6 +198,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...sozlukPages,
         ...gostergePages,
         ...makalePages,
+        ...otoyolPages,
         ...infoPages,
     ];
 }

@@ -1,0 +1,382 @@
+{
+  "categories": [
+    {
+      "id": "hiz",
+      "kategori": "HIZ (Şehir İçi)",
+      "rows": [
+        {
+          "id": 1,
+          "madde": "51/2-a",
+          "ihlal": "6 - 45 km/s arası aşım (Kademeli)",
+          "ceza": "2.000 - 15.000 TL",
+          "ehliyet": "10 - 20 Ceza Puanı",
+          "arac": "Yok",
+          "slug": "hiz-sinirini-asmak-51-2-a",
+          "description": "Hız sınırlarını %10'dan %30'a kadar aşmak trafik güvenliğini tehlikeye attığı için cezai işleme tabidir. Kademeli olarak artan ceza sistemiyle, hız limitini aşma oranınıza göre para ve ehliyet ceza puanı uygulanır.",
+          "tags": ["hız", "radar", "hız sınırı", "ceza puanı", "51/2-a"],
+          "neYapilmali": "Hız sınırlarına uymaya özen gösterin. Radar veya hız koridorlarında hızınızı yasal sınırlara düşürün."
+        },
+        {
+          "id": 2,
+          "madde": "51/2-b",
+          "ihlal": "46 - 55 km/s arası aşım",
+          "ceza": "20.000 TL",
+          "ehliyet": "30 Gün El Koyma",
+          "arac": "Yok",
+          "slug": "hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+          "description": "Hız sınırlarını %30'dan %50'ye kadar aşmak ciddi bir trafik ihlalidir. Sadece yüksek para cezası değil, aynı zamanda sürücü belgesine el konulması gibi yaptırımları bulunur.",
+          "tags": ["hız", "radar", "ehliyet el koyma", "51/2-b"],
+          "neYapilmali": "Hız limitini ciddi şekilde aşmak kazalara davetiye çıkarır. Trafik kurallarına uymak hayati önem taşır."
+        },
+        {
+          "id": 3,
+          "madde": "51/2-c",
+          "ihlal": "56 - 65 km/s arası aşım",
+          "ceza": "25.000 TL",
+          "ehliyet": "60 Gün El Koyma",
+          "arac": "Yok",
+          "slug": "hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+          "description": "Hız sınırlarını çok yüksek oranlarda aşmak (örn. %50'den fazla), ehliyetin 60 gün süreyle geçici olarak iptal edilmesine yol açar.",
+          "tags": ["aşırı hız", "radar", "60 gün ehliyet iptali", "51/2-c"],
+          "neYapilmali": "Trafikte hız kurallarına uymak sadece cezalardan kaçınmak için değil, hem sizin hem de başkalarının can güvenliği için elzemdir."
+        },
+        {
+          "id": 4,
+          "madde": "51/2-d",
+          "ihlal": "66 km/s ve üzeri aşım",
+          "ceza": "30.000 TL",
+          "ehliyet": "90 Gün El Koyma",
+          "arac": "Yok",
+          "slug": "hiz-siniri-agir-ihlal-51-2-d",
+          "description": "Hız sınırlarının extrem derecede aşılması durumunda uygulanan en ağır hız cezasıdır. Para cezasının yanında 90 gün boyunca araç kullanamazsınız.",
+          "tags": ["aşırı hız", "ağır kusur", "90 gün el koyma", "51/2-d"],
+          "neYapilmali": "Aşırı hız, ölümlü kazaların bir numaralı sebebidir. Kesinlikle uzak durulmalıdır."
+        }
+      ]
+    },
+    {
+      "id": "alkol",
+      "kategori": "ALKOL & MADDE",
+      "rows": [
+        {
+          "id": 5,
+          "madde": "48/9",
+          "ihlal": "Alkol Testini Reddetme",
+          "ceza": "150.000 TL",
+          "ehliyet": "5 Yıl El Koyma",
+          "arac": "Men Edilir",
+          "slug": "alkol-testini-reddetme-48-9",
+          "description": "Trafik çevirmesinde promil ölçüm cihazına üflemeyi reddetmek veya tahlil vermemek, yasal olarak en üst sınırdan alkollü kabul edilmenize neden olur ve çok ağır yaptırımları vardır.",
+          "tags": ["alkol testi", "promil reddi", "5 yıl el koyma", "araç men", "48/9"],
+          "neYapilmali": "Polis veya jandarma kontrol noktalarında kolluk kuvvetlerine yardımcı olun, testten kaçınmak cezayı ağırlaştırır."
+        },
+        {
+          "id": 6,
+          "madde": "48/5",
+          "ihlal": "Alkollü Araç (1. Kez / 0.50 Promil Üstü)",
+          "ceza": "25.000 TL",
+          "ehliyet": "6 Ay El Koyma",
+          "arac": "Men (Yedek şoför yok)",
+          "slug": "alkollu-arac-kullanmak-1-kez-48-5",
+          "description": "Yasal sınır olan 0.50 promilin üzerinde alkollü olarak araç kullanmanın ilk seferindeki cezasıdır. Araç, alkolsüz bir sürücü bulunmadığı takdirde trafikten men edilir.",
+          "tags": ["alkollü araç", "0.50 promil", "ehliyete el koyma", "48/5"],
+          "neYapilmali": "Alkollü iken kesinlikle direksiyon başına geçmeyin. Taksi veya alternatif ulaşım yöntemlerini kullanın."
+        },
+        {
+          "id": 7,
+          "madde": "48/5-c",
+          "ihlal": "Alkollü Araç (3. Kez ve Sonrası)",
+          "ceza": "150.000 TL",
+          "ehliyet": "5 Yıl El Koyma",
+          "arac": "Kesin Men",
+          "slug": "alkollu-arac-kullanmak-3-kez-48-5-c",
+          "description": "Alkollü araç kullanma suçunun mükerrer (3 veya daha fazla) işlenmesi durumunda uygulanan yaptırımdır. Ayrıca psikoteknik değerlendirmeye girme zorunluluğu bulunur.",
+          "tags": ["alkol", "mükerrer suç", "5 yıl el koyma", "psikoteknik", "48/5-c"],
+          "neYapilmali": "Alkollü araç kullanmak hem suçtur hem de cinayete teşebbüstür."
+        },
+        {
+          "id": 8,
+          "madde": "48/8",
+          "ihlal": "Uyuşturucu Etkisinde Araç",
+          "ceza": "150.000 TL",
+          "ehliyet": "Ehliyet İptali",
+          "arac": "Kesin Men",
+          "slug": "uyusturucu-etkisinde-arac-kullanmak-48-8",
+          "description": "Uyuşturucu veya uyarıcı madde alarak araç kullanmak, ehliyetin tamamen iptali ile sonuçlanan ve çok ağır para/hapis cezası olan bir trafik suçudur.",
+          "tags": ["uyuşturucu", "ehliyet iptali", "araç men", "48/8"],
+          "neYapilmali": "Hukuki ve hayati riskleri çok büyüktür. Hiçbir koşulda trafiğe çıkılmamalıdır."
+        }
+      ]
+    },
+    {
+      "id": "zorbalik",
+      "kategori": "TRAFİK ZORBALIĞI",
+      "rows": [
+        {
+          "id": 9,
+          "madde": "73/a",
+          "ihlal": "Saldırgan Sürüş / Israrlı Takip",
+          "ceza": "180.000 TL",
+          "ehliyet": "60 Gün El Koyma",
+          "arac": "30-60 Gün Men",
+          "slug": "saldirgan-surus-israrli-takip-73-a",
+          "description": "Trafikte diğer sürücüleri taciz etmek, sıkıştırmak, ısrarlı korna çalmak veya takip etmek trafik zorbalığı olarak değerlendirilir. Para ve araç men cezası vardır.",
+          "tags": ["saygısız sürüş", "trafik zorbalığı", "taciz", "73/a"],
+          "neYapilmali": "Trafikte sakin kalmak ve öfke kontrolü sağlamak hayati önem taşır."
+        },
+        {
+          "id": 10,
+          "madde": "67/1-d",
+          "ihlal": "Drift Yapmak",
+          "ceza": "140.000 TL",
+          "ehliyet": "60 Gün El Koyma",
+          "arac": "60 Gün Men",
+          "slug": "drift-yapmak-67-1-d",
+          "description": "Herhangi bir zorunluluk olmaksızın aracın yönünü ani olarak değiştirmek veya kendi etrafında döndürmek (drift yapmak) son derece tehlikeli bir trafik ihlalidir.",
+          "tags": ["drift", "yanlama", "araç men", "67/1-d"],
+          "neYapilmali": "Drift gösterileri sadece trafiğe kapalı özel alanlarda yapılmalıdır."
+        },
+        {
+          "id": 11,
+          "madde": "46/2-g",
+          "ihlal": "Makas Atmak",
+          "ceza": "90.000 TL",
+          "ehliyet": "60 Gün El Koyma",
+          "arac": "Yok",
+          "slug": "makas-atmak-46-2-g",
+          "description": "Aksine bir işaret bulunmadıkça, trafiği aksatacak veya tehlikeye düşürecek şekilde şerit değiştirmek (makas atmak) büyük risk oluşturur ve cezası ağırdır.",
+          "tags": ["makas atmak", "şerit ihlali", "tehlikeli sürüş", "46/2-g"],
+          "neYapilmali": "Şerit değiştirirken mutlaka sinyal verin ve ayna kontrolü yapın, trafiği tehlikeye atmayın."
+        },
+        {
+          "id": 12,
+          "madde": "47/1-a",
+          "ihlal": "\"Dur\" İhtarına Uymayıp Kaçma",
+          "ceza": "200.000 TL",
+          "ehliyet": "60 Gün El Koyma",
+          "arac": "60 Gün Men",
+          "slug": "dur-ihtarina-uymamak-47-1-a",
+          "description": "Polis veya jandarma trafik ekiplerinin 'Dur' ihtarına uymayarak kaçmak, yasal bir suçtur ve çok ciddi sonuçları vardır.",
+          "tags": ["dur ihtarı", "kaçmak", "çevirmeden kaçmak", "47/1-a"],
+          "neYapilmali": "Trafik çevirmelerinde görevlilerin talimatlarına harfiyen uyulmalıdır."
+        }
+      ]
+    },
+    {
+      "id": "plaka",
+      "kategori": "PLAKA & BELGE",
+      "rows": [
+        {
+          "id": 13,
+          "madde": "23/5-b",
+          "ihlal": "Sahte Plaka Kullanma",
+          "ceza": "140.000 TL",
+          "ehliyet": "Adli Soruşturma",
+          "arac": "30 Gün Men",
+          "slug": "sahte-plaka-kullanma-23-5-b",
+          "description": "Tescilli araca sahte plaka takmak veya kullanmak resmi belgede sahtecilik suçunu da doğurur. Ağır para cezasının yanında adli soruşturma açılır.",
+          "tags": ["sahte plaka", "resmi belgede sahtecilik", "app plaka", "23/5-b"],
+          "neYapilmali": "Sadece Şoförler Odası tarafından basılan mühürlü standart plakalar kullanılmalıdır."
+        },
+        {
+          "id": 14,
+          "madde": "23/3-a",
+          "ihlal": "Plakasını Okunmaz Hale Getirme",
+          "ceza": "140.000 TL",
+          "ehliyet": "Tekerde 280.000 TL",
+          "arac": "30 Gün Men",
+          "slug": "plakayi-okunmaz-hale-getirmek-23-3-a",
+          "description": "Flaş, yansıtıcı boya, harf silinmesi veya elektronik kapatıcılar ile plakanın okunmasını engellemek radar ve mobese cezalarından kaçmak maksadıyla yapıldığından ağır cezaya tabidir.",
+          "tags": ["okunmayan plaka", "plaka gizleme", "gizli plaka", "23/3-a"],
+          "neYapilmali": "Plakanızın görünürlüğünü engelleyecek hiçbir aksesuar (örn. kalın çerçeve) kullanmayın."
+        },
+        {
+          "id": 15,
+          "madde": "36/3-a",
+          "ihlal": "Ehliyetsiz Araç Kullanma",
+          "ceza": "40.000 TL",
+          "ehliyet": "-",
+          "arac": "Araçtan Men",
+          "slug": "ehliyetsiz-arac-kullanma-36-3-a",
+          "description": "Sürücü belgesi olmadan araç kullanmak trafik kanunlarına aykırıdır. Aracın ruhsat sahibi farklı biriyse ona da aynı oranda ceza kesilir.",
+          "tags": ["ehliyetsiz sürücü", "sürücü belgesiz", "36/3-a"],
+          "neYapilmali": "Gerekli sınıf sürücü belgesini almadan trafiğe çıkmak hem size hem ruhsat sahibine ciddi zarar verir."
+        },
+        {
+          "id": 16,
+          "madde": "36/3-b",
+          "ihlal": "Ehliyeti Alınmışken Araç",
+          "ceza": "200.000 TL",
+          "ehliyet": "+40.000 TL (İşletene)",
+          "arac": "Kesin Men",
+          "slug": "ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+          "description": "Ehliyetine geçici olarak el konulan bir sürücünün araç kullanırken yakalanması durumunda mevcut ceza katlanarak artar.",
+          "tags": ["ehliyete el konulması", "men edilmiş sürücü", "36/3-b"],
+          "neYapilmali": "El koyma süresi dolmadan ve belgenizi emniyetten geri almadan kesinlikle trafiğe çıkmayın."
+        }
+      ]
+    },
+    {
+      "id": "guvenlik",
+      "kategori": "GÜVENLİK",
+      "rows": [
+        {
+          "id": 17,
+          "madde": "47/1-b",
+          "ihlal": "Kırmızı Işık (6. Tekrar)",
+          "ceza": "80.000 TL",
+          "ehliyet": "Ehliyet İptali",
+          "arac": "Yok",
+          "slug": "kirmizi-isik-ihlali-47-1-b",
+          "description": "Kırmızı ışık kural ihlalini bir yıl içinde çok kez tekrarlamak sadece yüksek ceza tutarı değil, sürücü belgesinin de iptaline neden olur.",
+          "tags": ["kırmızı ışık", "ışık ihlali", "ehliyet iptali", "47/1-b"],
+          "neYapilmali": "Kavşaklara yaklaşırken hızınızı azaltın ve sarı ışık yandığında geçmeye çalışmak yerine durmaya hazırlanın."
+        },
+        {
+          "id": 18,
+          "madde": "73/c",
+          "ihlal": "Cep Telefonu (3. Tekrar+)",
+          "ceza": "20.000 TL",
+          "ehliyet": "30 Gün El Koyma",
+          "arac": "Yok",
+          "slug": "seyir-halinde-cep-telefonu-73-c",
+          "description": "Araç kullanırken cep telefonu ile konuşmak veya mesajlaşmak dikkati dağıtır. Mükerrer ihlallerde ehliyete el koyma cezası uygulanır.",
+          "tags": ["cep telefonu", "telefonla konuşmak", "dikkatsiz sürüş", "73/c"],
+          "neYapilmali": "Seyir halindeyken telefonunuzu uzak tutun veya mutlaka bluetooth kulaklık/araç kiti kullanın."
+        },
+        {
+          "id": 19,
+          "madde": "46/2-f",
+          "ihlal": "Emniyet Şeridi İhlali",
+          "ceza": "11.631 TL",
+          "ehliyet": "20 Ceza Puanı",
+          "arac": "Yok",
+          "slug": "emniyet-seridi-ihlali-46-2-f",
+          "description": "Acil durumlar haricinde emniyet şeridini kullanmak ambulans ve itfaiyenin geçişini engellediği için ağır para ve ceza puanıyla cezalandırılır.",
+          "tags": ["emniyet şeridi", "acil şerit", "EDS", "46/2-f"],
+          "neYapilmali": "Emniyet şeritleri hayat kurtarmak içindir, sadece aracınız arıza yaptığında sağa çekmek için kullanın."
+        },
+        {
+          "id": 20,
+          "madde": "46/2-h",
+          "ihlal": "Ters Yönde Araç (Otoyol)",
+          "ceza": "90.000 TL",
+          "ehliyet": "60 Gün El Koyma",
+          "arac": "Men Edilir",
+          "slug": "ters-yonde-arac-kullanmak-46-2-h",
+          "description": "Trafik akışına ters yönde araç kullanmak, özellikle otoyol ve bölünmüş yollarda ölümcül kazalara yol açtığından çok katı yaptırımları vardır.",
+          "tags": ["ters yön", "tek yön", "otoyol ihlali", "46/2-h"],
+          "neYapilmali": "Trafik işaretlerine her zaman dikkat edin. Yanlış yola girseniz bile geri geri veya ters yöne gitmeyin, ileriden dönüş yapın."
+        },
+        {
+          "id": 21,
+          "madde": "74/b",
+          "ihlal": "Yayaya Yol Vermemek",
+          "ceza": "5.661 TL",
+          "ehliyet": "20 Ceza Puanı",
+          "arac": "Yok",
+          "slug": "yayaya-yol-vermemek-74-b",
+          "description": "Yaya geçitlerinde ilk geçiş hakkı yayalarındır. Işıksız yaya veya okul geçitlerine yaklaşırken hız yavaşlatılmalı ve yayalara öncelik tanınmalıdır.",
+          "tags": ["yaya geçidi", "yaya önceliği", "okul geçidi", "74/b"],
+          "neYapilmali": "Yaya geçitlerine yaklaşırken hızınızı mutlaka düşürün ve yayaların geçmesini bekleyin."
+        },
+        {
+          "id": 22,
+          "madde": "78/1-a",
+          "ihlal": "Çocuk Koltuğu Kullanmamak",
+          "ceza": "5.000 TL",
+          "ehliyet": "10 Ceza Puanı",
+          "arac": "Yok",
+          "slug": "cocuk-koltugu-kullanmamak-78-1-a",
+          "description": "Belirli yaş ve kilo sınırının altındaki çocukları çocuk koruma sistemleri (oto koltuğu) olmadan seyahat ettirmek yasaktır.",
+          "tags": ["çocuk koltuğu", "bebek koltuğu", "emniyet", "78/1-a"],
+          "neYapilmali": "Çocuklarınızın güvenliği için boy ve kilosuna uygun çocuk oto koltuğu kullanmayı ihmal etmeyin."
+        }
+      ]
+    },
+    {
+      "id": "park",
+      "kategori": "PARK & SİGORTA",
+      "rows": [
+        {
+          "id": 23,
+          "madde": "85/1",
+          "ihlal": "Trafik Sigortasız Gezmek",
+          "ceza": "1.246 TL",
+          "ehliyet": "-",
+          "arac": "Anında Men",
+          "slug": "trafik-sigortasiz-arac-kullanmak-85-1",
+          "description": "Zorunlu Mali Sorumluluk Sigortası (Trafik Sigortası) olmadan trafiğe çıkmak yasaktır. Sigortası olmayan araçlar trafikten men edilerek otoparka çekilir.",
+          "tags": ["trafik sigortası", "sigortasız araç", "yediemin", "85/1"],
+          "neYapilmali": "Sigorta poliçenizin bitiş tarihini takip edin ve bitmeden yeniletin."
+        },
+        {
+          "id": 24,
+          "madde": "34/a",
+          "ihlal": "Muayenesiz Araçla Trafiğe Çıkma",
+          "ceza": "2.719 TL",
+          "ehliyet": "10 Ceza Puanı",
+          "arac": "İzin Belgesi",
+          "slug": "muayenesiz-arac-kullanmak-34-a",
+          "description": "Araç muayene süresini geçirmek cezai işleme tabidir. Yakalandığınızda muayene yaptırmanız için geçici bir süre izin verilir (Ek-33 belgesi).",
+          "tags": ["TÜVTÜRK", "araç muayenesi", "muayene cezası", "34/a"],
+          "neYapilmali": "Muayene geçerlilik süresini ruhsatınızdan veya e-Devlet üzerinden kontrol edip zamanında randevu alın."
+        },
+        {
+          "id": 25,
+          "madde": "61/1-o",
+          "ihlal": "Engelli Park Yerini İşgal",
+          "ceza": "2.492 TL",
+          "ehliyet": "15 Ceza Puanı",
+          "arac": "Anında Çekilir",
+          "slug": "engelli-park-yeri-ihlali-61-1-o",
+          "description": "Engelliler için ayrılmış özel park alanlarına park etmek, normal park cezalarına göre 2 kat daha fazla para cezasına tabidir.",
+          "tags": ["engelli park yeri", "park cezası", "hatalı park", "61/1-o"],
+          "neYapilmali": "Engelli vatandaşlarımızın haklarına saygı gösterin ve onlar için ayrılan alanlara kesinlikle park etmeyin."
+        },
+        {
+          "id": 26,
+          "madde": "61/1-a",
+          "ihlal": "Hatalı Park Etmek",
+          "ceza": "1.246 TL",
+          "ehliyet": "10 Ceza Puanı",
+          "arac": "Engelse Çekilir",
+          "slug": "hatali-park-etmek-61-1-a",
+          "description": "Duraklamanın ve park etmenin yasak olduğu yerlere (yaya geçidi, kavşak, otobüs durağı) park etmek hem ceza hem de aracın çekilmesine sebep olur.",
+          "tags": ["park yasağı", "hatalı park", "çekici cezası", "61/1-a"],
+          "neYapilmali": "Aracınızı sadece izin verilen park alanlarına, trafiği engellemeyecek şekilde park edin."
+        }
+      ]
+    },
+    {
+      "id": "ticari",
+      "kategori": "TİCARİ",
+      "rows": [
+        {
+          "id": 27,
+          "madde": "31/1-b",
+          "ihlal": "Takograf Veri Müdahalesi",
+          "ceza": "185.000 TL",
+          "ehliyet": "30-90 Gün El Koyma",
+          "arac": "Yok",
+          "slug": "takograf-veri-mudahalesi-31-1-b",
+          "description": "Ticari araçlarda bulunan takograf cihazına müdahale etmek, hız ve dinlenme sürelerini manipüle ettiği için çok ağır idari ve adli cezalar barındırır.",
+          "tags": ["takograf", "kamyon", "tır", "ticari araç", "31/1-b"],
+          "neYapilmali": "Takograf kuralları ticari sürücülerin dinlenmesi ve kaza riskinin azaltılması için vardır, uyulması elzemdir."
+        },
+        {
+          "id": 28,
+          "madde": "31/1-c",
+          "ihlal": "Taksimetre Bulundurmamak",
+          "ceza": "46.000 TL",
+          "ehliyet": "-",
+          "arac": "Men Edilir",
+          "slug": "taksimetre-bulundurmamak-kullanmamak-31-1-c",
+          "description": "Taksi ve benzeri yolcu taşıyan araçlarda taksimetre bulundurmamak veya bozuk taksimetre kullanmak ağır para cezası ve men cezası gerektirir.",
+          "tags": ["taksimetre", "taksi", "ticari ceza", "31/1-c"],
+          "neYapilmali": "Taksimetre her yolculuk başlangıcında usulüne uygun şekilde çalıştırılmalıdır."
+        }
+      ]
+    }
+  ]
+}
