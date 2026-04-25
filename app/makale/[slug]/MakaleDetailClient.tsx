@@ -304,6 +304,7 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                         <RelatedContent currentId={article.id} tags={article.tags || []} titleKeywords={article.title.split(' ')} />
                     </div>
                 </div>
+                </div>
             </main>
             
             <FloatingActionBar 
