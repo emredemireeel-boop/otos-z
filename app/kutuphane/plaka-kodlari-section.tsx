@@ -11,11 +11,11 @@ export default function PlakaKodlariSection() {
 
     const filteredIller = useMemo(() => {
         if (!searchQuery) return plakaData.iller;
-        const query = searchQuery.toLowerCase('tr');
+        const query = searchQuery.toLocaleLowerCase('tr');
         return plakaData.iller.filter(il => 
-            il.il.toLowerCase('tr').includes(query) || 
+            il.il.toLocaleLowerCase('tr').includes(query) || 
             il.kod.includes(query) ||
-            il.bolge.toLowerCase('tr').includes(query)
+            il.bolge.toLocaleLowerCase('tr').includes(query)
         );
     }, [searchQuery]);
 
@@ -98,7 +98,7 @@ export default function PlakaKodlariSection() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
                     {filteredIller.map((il, idx) => {
-                        const slug = `${il.kod}-${il.il.toLowerCase('tr').replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ğ/g, 'g').replace(/ç/g, 'c')}-plaka-kodu`;
+                        const slug = `${il.kod}-${il.il.toLocaleLowerCase('tr').replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ğ/g, 'g').replace(/ç/g, 'c')}-plaka-kodu`;
                         return (
                             <Link href={`/kutuphane/plaka/${slug}`} key={idx} style={{ textDecoration: 'none' }}>
                                 <div style={{

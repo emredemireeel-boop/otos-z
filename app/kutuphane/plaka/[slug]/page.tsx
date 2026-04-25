@@ -15,7 +15,7 @@ interface PlakaPageProps {
 // Generate static params for all 81 cities and special plates
 export function generateStaticParams() {
     const cityParams = plakaData.iller.map((il) => ({
-        slug: `${il.kod}-${il.il.toLowerCase('tr').replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ğ/g, 'g').replace(/ç/g, 'c')}-plaka-kodu`,
+        slug: `${il.kod}-${il.il.toLocaleLowerCase('tr').replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ğ/g, 'g').replace(/ç/g, 'c')}-plaka-kodu`,
     }));
 
     const specialParams = plakaData.ozelPlakalar.map((p) => ({
