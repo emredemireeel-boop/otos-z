@@ -63,7 +63,7 @@ export default function PlakaDetailPage({ params }: PlakaPageProps) {
     let cityData = null;
     let title = "";
     let description = "";
-    let faqs = [];
+    let faqs: { question: string; answer: string }[] = [];
     
     if (specialPlate) {
         title = specialPlate.isim;
