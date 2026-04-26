@@ -38,7 +38,7 @@ export default function IletisimPage() {
                                 </div>
                                 <div>
                                     <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px' }}>E-Posta</h3>
-                                    <p style={{ color: 'var(--text-muted)', fontSize: '15px' }}>otosoz.destek@gmail.com</p>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '15px' }}>iletisim@otosoz.com</p>
                                 </div>
                             </div>
 
@@ -76,7 +76,7 @@ export default function IletisimPage() {
                             </h2>
                             <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }} onSubmit={(e) => {
                                 e.preventDefault();
-                                window.location.href = "mailto:otosoz.destek@gmail.com?subject=Destek Talebi";
+                                window.location.href = "mailto:iletisim@otosoz.com?subject=Destek Talebi";
                             }}>
                                 <div>
                                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Ad Soyad</label>

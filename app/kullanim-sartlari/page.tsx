@@ -453,7 +453,7 @@ export default function KullanimSartlariPage() {
                             </h2>
                             <h3 className="legal-h3">10.1 Kullanıcı Tarafından Fesih</h3>
                             <p className="legal-p">
-                                Kullanıcı, dilediği zaman hesap ayarları üzerinden veya otosoz.destek@gmail.com adresine yazılı başvuruda bulunarak üyeliğini sonlandırabilir. Hesap kapanması ile birlikte kullanıcı verileri KVKK m.7 uyarınca makul sürede silinir veya anonim hale getirilir.
+                                Kullanıcı, dilediği zaman hesap ayarları üzerinden veya iletisim@otosoz.com adresine yazılı başvuruda bulunarak üyeliğini sonlandırabilir. Hesap kapanması ile birlikte kullanıcı verileri KVKK m.7 uyarınca makul sürede silinir veya anonim hale getirilir.
                             </p>
                             <h3 className="legal-h3">10.2 Platform Tarafından Fesih</h3>
                             <p className="legal-p">

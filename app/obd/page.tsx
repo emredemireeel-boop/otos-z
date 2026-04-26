@@ -377,7 +377,7 @@ export default function ObdPage() {
                                     marginBottom: '16px',
                                 }}>
                                     <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px' }}>
-                                        📊 İstatistikler
+                                        İstatistikler
                                     </h3>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                         {[
@@ -397,13 +397,13 @@ export default function ObdPage() {
 
                                 {/* Bilgi Kutusu */}
                                 <div style={{
-                                    background: 'linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(0, 212, 255, 0.1))',
-                                    border: '1px solid var(--primary)',
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '16px',
                                     padding: '16px',
                                 }}>
                                     <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>
-                                        💡 Nasıl Kullanılır?
+                                        Nasıl Kullanılır?
                                     </h3>
                                     <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5' }}>
                                         Aracınızdaki arıza kodunu arama kutusuna yazın veya kategorilerden birini seçerek ilgili kodları görüntüleyin.

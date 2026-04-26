@@ -10,9 +10,7 @@ import {
     MarketModelRow,
     getFlagUrl,
     formatPrice,
-    formatNumber,
-    getRankColor,
-    getDemandColor
+    formatNumber
 } from "@/data/markets";
 import { Search, Trophy, BarChart3, Car, Target, TrendingUp, Sparkles, Zap } from "lucide-react";
 import Link from "next/link";
@@ -51,14 +49,14 @@ export default function PiyasalarPage() {
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
                 {/* Hero Section */}
                 <div style={{
-                    background: 'linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(16,185,129,0.08) 50%, rgba(245,158,11,0.06) 100%)',
+                    background: 'var(--background)',
                     borderBottom: '1px solid var(--card-border)',
                     padding: '48px 24px 0',
                 }}>
                     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                            <span style={{ padding: '6px 14px', background: 'rgba(99,102,241,0.15)', color: '#6366F1', fontSize: '12px', fontWeight: '700', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                <Sparkles style={{ width: '14px', height: '14px' }} /> 2025 Verileri Güncellendi
+                            <span style={{ padding: '4px 12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', color: 'var(--foreground)', fontSize: '12px', fontWeight: '700', borderRadius: '20px' }}>
+                                2025 Verileri Güncellendi
                             </span>
                         </div>
                         <h1 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '8px', lineHeight: '1.2' }}>
@@ -71,21 +69,18 @@ export default function PiyasalarPage() {
                         {/* Quick Stats */}
                         <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', flexWrap: 'wrap' }}>
                             {[
-                                { label: 'Toplam Satış (2025)', value: formatNumber(totalSales), icon: '📊', color: '#6366F1' },
-                                { label: 'Pazar Lideri', value: 'Renault', icon: '🏆', color: '#D4A017' },
-                                { label: 'En Çok Satan Model', value: `${topModel.brand} ${topModel.model}`, icon: '🚗', color: '#10B981' },
-                                { label: 'Elektrikli Araç Artışı', value: '+%90', icon: '⚡', color: '#F59E0B' },
+                                { label: 'Toplam Satış (2025)', value: formatNumber(totalSales) },
+                                { label: 'Pazar Lideri', value: 'Renault' },
+                                { label: 'En Çok Satan Model', value: `${topModel.brand} ${topModel.model}` },
+                                { label: 'Elektrikli Araç Artışı', value: '+%90' },
                             ].map((stat) => (
                                 <div key={stat.label} style={{
-                                    display: 'flex', alignItems: 'center', gap: '10px',
-                                    padding: '10px 16px', background: 'var(--card-bg)',
-                                    border: '1px solid var(--card-border)', borderRadius: '12px',
+                                    display: 'flex', flexDirection: 'column',
+                                    padding: '16px', background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)', borderRadius: '12px', flex: 1, minWidth: '150px'
                                 }}>
-                                    <span style={{ fontSize: '20px' }}>{stat.icon}</span>
-                                    <div>
-                                        <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: '600' }}>{stat.label}</div>
-                                        <div style={{ fontSize: '14px', fontWeight: '800', color: stat.color }}>{stat.value}</div>
-                                    </div>
+                                    <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: '600', marginBottom: '8px' }}>{stat.label}</div>
+                                    <div style={{ fontSize: '16px', fontWeight: '800', color: 'var(--foreground)' }}>{stat.value}</div>
                                 </div>
                             ))}
                         </div>
@@ -94,22 +89,20 @@ export default function PiyasalarPage() {
                         <div style={{ display: 'flex', gap: '0' }}>
                             <button onClick={() => setSelectedTab("brands")} style={{
                                 padding: '16px 24px', background: 'transparent', border: 'none',
-                                borderBottom: selectedTab === "brands" ? '2px solid #6366F1' : '2px solid transparent',
+                                borderBottom: selectedTab === "brands" ? '2px solid var(--foreground)' : '2px solid transparent',
                                 color: selectedTab === "brands" ? 'var(--foreground)' : 'var(--text-muted)',
                                 fontSize: '15px', fontWeight: selectedTab === "brands" ? '700' : '500',
                                 cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.2s',
                             }}>
-                                <Target style={{ width: '18px', height: '18px' }} />
                                 Markalar Başarı Endeksi
                             </button>
                             <button onClick={() => setSelectedTab("models")} style={{
                                 padding: '16px 24px', background: 'transparent', border: 'none',
-                                borderBottom: selectedTab === "models" ? '2px solid #6366F1' : '2px solid transparent',
+                                borderBottom: selectedTab === "models" ? '2px solid var(--foreground)' : '2px solid transparent',
                                 color: selectedTab === "models" ? 'var(--foreground)' : 'var(--text-muted)',
                                 fontSize: '15px', fontWeight: selectedTab === "models" ? '700' : '500',
                                 cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.2s',
                             }}>
-                                <Car style={{ width: '18px', height: '18px' }} />
                                 Model Satış Endeksi
                             </button>
                         </div>
@@ -166,7 +159,6 @@ export default function PiyasalarPage() {
                                             fontSize: '15px', fontWeight: '700', color: 'var(--foreground)',
                                             marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px'
                                         }}>
-                                            <Trophy style={{ width: '16px', height: '16px', color: '#FFD700' }} />
                                             Pazar Liderleri
                                         </h3>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -174,7 +166,7 @@ export default function PiyasalarPage() {
                                                 <div key={brand.brand} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                                     <span style={{
                                                         fontSize: '14px', fontWeight: '800',
-                                                        color: idx === 0 ? '#FFD700' : idx === 1 ? '#C0C0C0' : idx === 2 ? '#CD7F32' : 'var(--foreground)',
+                                                        color: 'var(--foreground)',
                                                         width: '20px', textAlign: 'center'
                                                     }}>{idx + 1}</span>
                                                     <div style={{ flex: 1 }}>
@@ -186,7 +178,7 @@ export default function PiyasalarPage() {
                                                             <div style={{
                                                                 width: `${(brand.marketSharePercent / turkeyBrandMarkets[0].marketSharePercent) * 100}%`,
                                                                 height: '100%',
-                                                                background: idx === 0 ? '#FFD700' : idx === 1 ? '#C0C0C0' : idx === 2 ? '#CD7F32' : '#6366F1',
+                                                                background: 'var(--foreground)',
                                                             }} />
                                                         </div>
                                                     </div>
@@ -197,11 +189,10 @@ export default function PiyasalarPage() {
 
                                     {/* Elektrikli Araç Yükselişi */}
                                     <div style={{
-                                        marginTop: '16px', background: 'linear-gradient(135deg, rgba(245,158,11,0.1), rgba(16,185,129,0.1))',
-                                        border: '1px solid rgba(245,158,11,0.3)', borderRadius: '20px', padding: '24px',
+                                        marginTop: '16px', background: 'var(--card-bg)',
+                                        border: '1px solid var(--card-border)', borderRadius: '20px', padding: '24px',
                                     }}>
                                         <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                            <Zap style={{ width: '16px', height: '16px', color: '#F59E0B' }} />
                                             Elektrikli Araç Yükselişi
                                         </h3>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -209,9 +200,9 @@ export default function PiyasalarPage() {
                                                 <div key={m.rank} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <div>
                                                         <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>{m.brand} {m.model}</span>
-                                                        <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block' }}>⚡ Elektrikli</span>
+                                                        <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block' }}>Elektrikli</span>
                                                     </div>
-                                                    <span style={{ fontSize: '13px', fontWeight: '800', color: '#F59E0B' }}>{formatNumber(m.totalSales2025)}</span>
+                                                    <span style={{ fontSize: '13px', fontWeight: '800', color: 'var(--foreground)' }}>{formatNumber(m.totalSales2025)}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -238,7 +229,6 @@ export default function PiyasalarPage() {
                                             fontSize: '15px', fontWeight: '700', color: 'var(--foreground)',
                                             marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px'
                                         }}>
-                                            <TrendingUp style={{ width: '16px', height: '16px', color: '#10B981' }} />
                                             En Çok Talep Görenler
                                         </h3>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -251,7 +241,7 @@ export default function PiyasalarPage() {
                                                         <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)', display: 'block' }}>{model.brand} {model.model}</span>
                                                         <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{formatNumber(model.totalSales2025)} adet</span>
                                                     </div>
-                                                    <span style={{ fontSize: '13px', fontWeight: '700', color: '#10B981' }}>
+                                                    <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>
                                                         {model.demandIndex}/100
                                                     </span>
                                                 </div>
@@ -286,7 +276,7 @@ function MarketBrandCard({ row }: { row: MarketBrandRow }) {
                 e.currentTarget.style.borderColor = 'var(--card-border)';
             }}
         >
-            <span style={{ fontSize: '16px', fontWeight: '800', color: getRankColor(row.rank), opacity: 0.9 }}>#{row.rank}</span>
+            <span style={{ fontSize: '16px', fontWeight: '800', color: 'var(--foreground)', opacity: 0.9 }}>#{row.rank}</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <img src={getFlagUrl(row.country)} alt={row.country} style={{ width: '20px', height: '15px', borderRadius: '3px', objectFit: 'cover' }} />
                 <span style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)' }}>{row.brand}</span>
@@ -294,13 +284,13 @@ function MarketBrandCard({ row }: { row: MarketBrandRow }) {
             <div style={{ textAlign: 'right' }}>
                 <span style={{ fontSize: '15px', fontWeight: '600', color: 'var(--foreground)' }}>{formatNumber(row.totalSales)}</span>
                 {row.yoyChange !== undefined && (
-                    <span style={{ fontSize: '11px', fontWeight: '600', color: row.yoyChange > 0 ? '#22c55e' : '#ef4444', display: 'block' }}>
-                        {row.yoyChange > 0 ? '▲' : '▼'} {Math.abs(row.yoyChange)}%
+                    <span style={{ fontSize: '11px', fontWeight: '600', color: 'var(--foreground)', display: 'block' }}>
+                        {row.yoyChange > 0 ? '+' : ''}{row.yoyChange}%
                     </span>
                 )}
             </div>
             <div style={{ textAlign: 'right' }}>
-                <span style={{ fontSize: '15px', fontWeight: '700', color: '#6366F1' }}>%{row.marketSharePercent}</span>
+                <span style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)' }}>%{row.marketSharePercent}</span>
             </div>
             <div style={{ textAlign: 'right' }}>
                 <span style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)' }}>{formatPrice(row.basePriceTl)}</span>
@@ -329,7 +319,8 @@ function MarketModelCard({ row }: { row: MarketModelRow }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <span style={{
                         padding: '4px 8px', borderRadius: '8px',
-                        background: `${getRankColor(row.rank)}20`, color: getRankColor(row.rank),
+                        background: `var(--card-bg)`, color: 'var(--foreground)',
+                        border: '1px solid var(--card-border)',
                         fontSize: '14px', fontWeight: '800',
                     }}>#{row.rank}</span>
                     <div>
@@ -337,7 +328,7 @@ function MarketModelCard({ row }: { row: MarketModelRow }) {
                             <span style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>{row.brand} {row.model}</span>
                             <img src={getFlagUrl(row.country)} alt={row.country} style={{ width: '16px', height: '12px', borderRadius: '2px', objectFit: 'cover' }} />
                             {row.isElectric && (
-                                <span style={{ fontSize: '11px', padding: '2px 8px', background: 'rgba(245,158,11,0.15)', color: '#F59E0B', borderRadius: '6px', fontWeight: '700' }}>⚡ EV</span>
+                                <span style={{ fontSize: '11px', padding: '2px 8px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', color: 'var(--foreground)', borderRadius: '6px', fontWeight: '700' }}>Elektrikli</span>
                             )}
                         </div>
                         <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{row.segment} • {row.bodyType} • {row.yearRange}</span>
@@ -347,9 +338,9 @@ function MarketModelCard({ row }: { row: MarketModelRow }) {
                 <div style={{ textAlign: 'right' }}>
                     {row.isDiscontinued ? (
                         <span style={{
-                            fontSize: '13px', fontWeight: '700', color: '#EF4444',
-                            background: 'rgba(239, 68, 68, 0.1)', padding: '6px 12px',
-                            borderRadius: '8px', border: '1px solid rgba(239, 68, 68, 0.2)'
+                            fontSize: '13px', fontWeight: '700', color: 'var(--foreground)',
+                            background: 'var(--card-bg)', padding: '6px 12px',
+                            borderRadius: '8px', border: '1px solid var(--card-border)'
                         }}>Üretimden Kalktı</span>
                     ) : (
                         <span style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)' }}>
@@ -362,13 +353,13 @@ function MarketModelCard({ row }: { row: MarketModelRow }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--card-border)', paddingTop: '12px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>2025 Satış:</span>
-                    <span style={{ fontSize: '13px', fontWeight: '700', color: '#6366F1' }}>
+                    <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>
                         {formatNumber(row.totalSales2025)} adet
                     </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Talep Endeksi:</span>
-                    <span style={{ fontSize: '13px', fontWeight: '700', color: getDemandColor(row.demandIndex) }}>
+                    <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>
                         {row.demandIndex}/100
                     </span>
                 </div>

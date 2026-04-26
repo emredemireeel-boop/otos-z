@@ -8,6 +8,15 @@ import { db } from "./firebase";
 import { sanitizeText, validateThreadTitle, validateEntryContent, validateTags } from "./validation";
 
 /* ── Types ── */
+export interface ChronicIssue {
+    id: string;
+    text: string;
+    author: string;
+    authorId: string;
+    votes: number;
+    votedBy: string[];
+}
+
 export interface ForumEntry {
     id: string;
     authorId: string;
@@ -31,7 +40,12 @@ export interface ForumThread {
     entryCount: number;
     lastEntryAt: Timestamp | null;
     vehicleVotes?: Record<string, string[]>;
+    chronicIssues?: ChronicIssue[];
     urlId?: number;
+    carBrand?: string;
+    carModel?: string;
+    carYear?: string;
+    carKm?: string;
 }
 
 /* ── Helpers ── */
@@ -80,7 +94,12 @@ function mapThread(docSnap: DocumentData, id: string): ForumThread {
         entryCount: d.entryCount || 0,
         lastEntryAt: d.lastEntryAt || d.createdAt || null,
         vehicleVotes: d.vehicleVotes || {},
+        chronicIssues: d.chronicIssues || [],
         urlId: d.urlId || undefined,
+        carBrand: d.carBrand || undefined,
+        carModel: d.carModel || undefined,
+        carYear: d.carYear || undefined,
+        carKm: d.carKm || undefined,
     };
 }
 
@@ -172,6 +191,10 @@ export async function createThread(data: {
     tags: string[];
     authorId: string;
     authorUsername: string;
+    carBrand?: string;
+    carModel?: string;
+    carYear?: string;
+    carKm?: string;
 }): Promise<string> {
     // Input dogrulama
     const titleCheck = validateThreadTitle(data.title);
@@ -201,6 +224,10 @@ export async function createThread(data: {
         entryCount: 1,
         lastEntryAt: now,
         urlId,
+        carBrand: data.carBrand || null,
+        carModel: data.carModel || null,
+        carYear: data.carYear || null,
+        carKm: data.carKm || null,
     });
 
     // Ilk entry olustur
@@ -377,4 +404,54 @@ export function formatTimestamp(ts: Timestamp | null): string {
     if (days < 7) return `${days} gun once`;
     if (days < 30) return `${Math.floor(days / 7)} hafta once`;
     return ts.toDate().toLocaleDateString("tr-TR");
+}
+
+/* ── Kronik Sorun Sistemi ── */
+
+/** Yeni kronik sorun ekle */
+export async function addChronicIssue(threadId: string, data: {
+    text: string;
+    authorId: string;
+    username: string;
+}): Promise<void> {
+    const threadRef = doc(db, "threads", threadId);
+    const snap = await getDoc(threadRef);
+    if (!snap.exists()) return;
+
+    const issues: ChronicIssue[] = snap.data().chronicIssues || [];
+    const newIssue: ChronicIssue = {
+        id: `ci_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+        text: sanitizeText(data.text).slice(0, 200),
+        author: sanitizeText(data.username).slice(0, 30),
+        authorId: data.authorId,
+        votes: 1,
+        votedBy: [data.authorId],
+    };
+
+    await updateDoc(threadRef, {
+        chronicIssues: [...issues, newIssue],
+    });
+}
+
+/** Kronik soruna "Ben de yasadim" oyu ver/geri al */
+export async function toggleChronicVote(threadId: string, issueId: string, userId: string): Promise<boolean> {
+    const threadRef = doc(db, "threads", threadId);
+    const snap = await getDoc(threadRef);
+    if (!snap.exists()) return false;
+
+    const issues: ChronicIssue[] = snap.data().chronicIssues || [];
+    let toggled = false;
+    const updated = issues.map(issue => {
+        if (issue.id !== issueId) return issue;
+        const hasVoted = issue.votedBy.includes(userId);
+        toggled = !hasVoted;
+        return {
+            ...issue,
+            votedBy: hasVoted ? issue.votedBy.filter(id => id !== userId) : [...issue.votedBy, userId],
+            votes: hasVoted ? issue.votes - 1 : issue.votes + 1,
+        };
+    });
+
+    await updateDoc(threadRef, { chronicIssues: updated });
+    return toggled;
 }

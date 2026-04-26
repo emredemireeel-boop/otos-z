@@ -106,16 +106,50 @@ export default function PazarPage() {
         setShowNewListingModal(false);
     };
 
-    // Reset model when brand changes
     const handleBrandChange = (brand: string) => {
         setSelectedBrand(brand);
         setSelectedModel("Tümü");
     };
 
+    // JSON-LD Schema for Vehicles
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": paginatedListings.map((listing, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "Vehicle",
+                "name": `${listing.brand} ${listing.model} ${listing.year}`,
+                "brand": {
+                    "@type": "Brand",
+                    "name": listing.brand
+                },
+                "model": listing.model,
+                "vehicleModelDate": listing.year,
+                "mileageFromOdometer": {
+                    "@type": "QuantitativeValue",
+                    "value": listing.km,
+                    "unitCode": "KMT"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": listing.price,
+                    "priceCurrency": "TRY",
+                    "url": listing.externalLink || `https://www.otosoz.com/pazar?arac=${listing.id}`,
+                    "availability": "https://schema.org/InStock"
+                }
+            }
+        }))
+    };
+
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
             <Navbar />
-
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <main>
                 {/* Header */}
                 <div style={{
@@ -708,7 +742,7 @@ function ListingCard({ listing }: { listing: CarListing }) {
                     <a
                         href={listing.externalLink}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer nofollow"
                         style={{
                             display: 'flex',
                             alignItems: 'center',

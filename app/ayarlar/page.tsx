@@ -567,7 +567,7 @@ export default function SettingsPage() {
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid var(--card-border)' }}>
                                             <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>E-posta</span>
-                                            <span style={{ color: 'var(--foreground)', fontWeight: '500', fontSize: '14px' }}>otosoz.destek@gmail.com</span>
+                                            <span style={{ color: 'var(--foreground)', fontWeight: '500', fontSize: '14px' }}>iletisim@otosoz.com</span>
                                         </div>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid var(--card-border)' }}>
                                             <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Genel Merkez</span>

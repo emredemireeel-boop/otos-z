@@ -51,7 +51,7 @@ export default function AracDNALayout({
 
     const tabs = [
         { name: "Genel Bakış", path: basePath, icon: <FileText size={16} />, exact: true },
-        { name: "Artıları & Eksileri", path: `${basePath}/artilari-eksileri`, icon: <ThumbsUp size={16} />, exact: false },
+        { name: "Artıları & Eksileri", path: `${basePath}/neden-alinir`, icon: <ThumbsUp size={16} />, exact: false },
         { name: "Kronik Sorunlar", path: `${basePath}/kronik-sorunlar`, icon: <Wrench size={16} />, exact: false },
         { name: "Kullanıcı Deneyimleri", path: `${basePath}/kullanici-deneyimleri`, icon: <MessageCircle size={16} />, exact: false },
     ];

@@ -34,7 +34,9 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+    compress: true, // Gzip/Brotli sıkıştırmasını aktifleştirir
     images: {
+        formats: ['image/avif', 'image/webp'], // Daha modern ve küçük resim formatları kullan
         remotePatterns: [
             {
                 protocol: 'https',
@@ -56,6 +58,25 @@ const nextConfig: NextConfig = {
             {
                 source: '/(.*)',
                 headers: securityHeaders,
+            },
+            {
+                // public klasöründeki statik görseller için önbellek (Cache-Control)
+                source: '/:path*\\.(svg|jpg|png|webp|avif)',
+                headers: [
+                    {
+                        key: 'Cache-Control',
+                        value: 'public, max-age=31536000, immutable',
+                    },
+                ],
+            },
+        ];
+    },
+    async redirects() {
+        return [
+            {
+                source: '/arac-dna/:brand/:model/artilari-eksileri',
+                destination: '/arac-dna/:brand/:model/neden-alinir',
+                permanent: true, // 301 Redirect for SEO
             },
         ];
     },

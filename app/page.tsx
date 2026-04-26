@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { BookOpen, ArrowRight, MessageSquare, TrendingUp, Users, BarChart3, Star, Clock, Eye, ThumbsUp, Award, Crown, Flame, ChevronRight, Zap, Sparkles } from "lucide-react";
+import { BookOpen, ArrowRight, MessageSquare, TrendingUp, Users, BarChart3, Star, Clock, Eye, ThumbsUp, Award, Crown, Flame, ChevronRight, Zap, Sparkles, Plus, Car } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
@@ -14,6 +14,7 @@ import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, getThreadById, type ForumThread as FirestoreThread } from "@/lib/forumService";
 import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import carModelsData from "@/data/carmodels.json";
 
 // Yazar seviye renkleri
 const levelColors: Record<string, { bg: string; text: string }> = {
@@ -27,7 +28,7 @@ const levelColors: Record<string, { bg: string; text: string }> = {
 
 
 // Kategoriler (statik)
-const FORUM_CATS = ["Genel", "Teknik", "Deneyim", "Karşılaştırma", "Marka", "Alim-Satim"];
+const FORUM_CATS = ["Genel", "Teknik", "Deneyim", "Marka", "Alim-Satim"];
 const categories = [
     { name: "Tümü", count: 0, type: "topic" },
     ...FORUM_CATS.map(cat => ({ name: cat, count: 0, type: "topic" })),
@@ -42,9 +43,15 @@ export default function Home() {
     const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [sortBy, setSortBy] = useState<"popular" | "new">("popular");
     const [showNewTopicModal, setShowNewTopicModal] = useState(false);
-    const [newTopicData, setNewTopicData] = useState({ title: "", content: "", category: "", type: "topic" });
+    const [newTopicData, setNewTopicData] = useState({ title: "", content: "", category: "", type: "topic", carBrand: "", carModel: "", carYear: "", carKm: "" });
+    const [newSurveyOptions, setNewSurveyOptions] = useState(["Evet", "Hayır"]);
     const [searchQuery, setSearchQuery] = useState("");
     const [randomGuide, setRandomGuide] = useState<any>(null);
+
+    const availableBrands = Object.keys(carModelsData).sort();
+    const availableModels = newTopicData.carBrand && (carModelsData as Record<string, string[]>)[newTopicData.carBrand] 
+        ? (carModelsData as Record<string, string[]>)[newTopicData.carBrand].sort() 
+        : [];
 
 
     const [liveThreads, setLiveThreads] = useState<FirestoreThread[]>([]);
@@ -183,7 +190,18 @@ export default function Home() {
         slugUrl: getThreadSlugUrl(thread),
     }));
 
-    const currentCat = categories.find(c => c.name === selectedCategory);
+    const dynamicCategories = [
+        { name: "Tümü", count: liveThreads.length, type: "topic" },
+        ...FORUM_CATS.map(cat => ({ 
+            name: cat, 
+            count: liveThreads.filter(t => t.category === cat).length, 
+            type: "topic" 
+        })),
+        { name: "Anket", count: homeSurveys.length || 0, type: "survey", special: true },
+        { name: "Uzmana Sor", count: liveThreads.filter(t => t.category === "Uzmana Sor").length, type: "expert", special: true },
+    ];
+
+    const currentCat = dynamicCategories.find(c => c.name === selectedCategory);
     const isSpecialCategory = currentCat?.special;
 
     const filteredTopics = selectedCategory === "Tümü"
@@ -523,11 +541,11 @@ export default function Home() {
                                 borderRadius: '16px',
                                 padding: '16px',
                             }}>
-                                <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px' }}>
+                                <h2 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px' }}>
                                     Kategoriler
-                                </h3>
+                                </h2>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                                    {categories.map((cat) => (
+                                    {dynamicCategories.map((cat) => (
                                         <li key={cat.name} style={{ marginBottom: '4px' }}>
                                             <button
                                                 onClick={() => setSelectedCategory(cat.name)}
@@ -835,13 +853,13 @@ export default function Home() {
 
                                 {/* İstatistikler */}
                                 <div style={{
-                                    background: 'linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(0, 212, 255, 0.1))',
-                                    border: '1px solid var(--primary)',
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '16px',
                                     padding: '16px',
                                 }}>
-                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                        <BarChart3 size={14} /> İstatistikler
+                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px' }}>
+                                        İstatistikler
                                     </h3>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                         {[
@@ -966,131 +984,7 @@ export default function Home() {
                 </div>
             </main >
 
-            {/* ===== İSTATİSTİKLER ===== */}
-            <section style={{
 
-                padding: '60px 24px',
-                background: isDark ? 'rgba(255,255,255,0.01)' : 'rgba(0,0,0,0.015)',
-                borderTop: '1px solid var(--card-border)',
-            }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-                        <h2 className="forum-section-title" style={{ justifyContent: 'center' }}>
-                            <div style={{
-                                width: '40px', height: '40px', borderRadius: '12px',
-                                background: isDark ? 'rgba(34,197,94,0.1)' : 'rgba(34,197,94,0.06)',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                color: '#22c55e',
-                            }}>
-                                <BarChart3 size={20} />
-                            </div>
-                            Forum İstatistikleri
-                        </h2>
-                        <p style={{ fontSize: '15px', color: 'var(--text-muted)', marginTop: '8px' }}>
-                            Topluluğumuzun gücünü rakamlarla keşfedin
-                        </p>
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
-                        {[
-                            {
-                                label: 'Toplam Üye',
-                                value: platformStats.totalUsers.toLocaleString('tr-TR'),
-                                icon: <Users size={22} />,
-                                change: 'Kayitli uye',
-                                color: isDark ? '#ff6b00' : '#005ae2',
-                                bg: isDark ? 'rgba(255,107,0,0.06)' : 'rgba(0,90,226,0.04)',
-                            },
-                            {
-                                label: 'Forum Konusu',
-                                value: liveThreads.length.toLocaleString('tr-TR'),
-                                suffix: '+',
-                                icon: <MessageSquare size={22} />,
-                                change: 'Bu hafta',
-                                color: '#3b82f6',
-                                bg: 'rgba(59,130,246,0.06)',
-                            },
-                            {
-                                label: 'Toplam Entry',
-                                value: liveThreads.reduce((sum, t) => sum + (t.entryCount || 0), 0).toLocaleString('tr-TR'),
-                                suffix: '+',
-                                icon: <MessageSquare size={22} />,
-                                change: '+127 bu hafta',
-                                color: '#22c55e',
-                                bg: 'rgba(34,197,94,0.06)',
-                            },
-                            {
-                                label: 'Sayfa Goruntuleme',
-                                value: liveThreads.reduce((sum, t) => sum + (t.views || 0), 0).toLocaleString('tr-TR'),
-                                icon: <Eye size={22} />,
-                                change: 'Toplam',
-                                color: '#a855f7',
-                                bg: 'rgba(168,85,247,0.06)',
-                            },
-                        ].map((stat, i) => (
-                            <div key={i} className="stat-card">
-                                <div style={{
-                                    width: '48px', height: '48px', borderRadius: '14px',
-                                    background: stat.bg, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    color: stat.color, margin: '0 auto 16px',
-                                }}>
-                                    {stat.icon}
-                                </div>
-                                <div style={{
-                                    fontSize: '32px', fontWeight: '900', color: 'var(--foreground)',
-                                    lineHeight: 1, marginBottom: '6px', letterSpacing: '-1px',
-                                }}>
-                                    {stat.value}{stat.suffix || ''}
-                                </div>
-                                <div style={{ fontSize: '14px', color: 'var(--text-muted)', fontWeight: '600', marginBottom: '8px' }}>
-                                    {stat.label}
-                                </div>
-                                <div style={{
-                                    fontSize: '12px', fontWeight: '700', color: stat.color,
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px',
-                                }}>
-                                    <TrendingUp size={12} /> {stat.change}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Online Users Bar */}
-                    <div style={{
-                        marginTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        gap: '20px', padding: '18px 28px', borderRadius: '14px',
-                        background: 'var(--card-bg)', border: '1px solid var(--card-border)',
-                    }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <div style={{
-                                width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e',
-                                boxShadow: '0 0 8px rgba(34,197,94,0.5)',
-                                animation: 'pulse-glow 2s infinite',
-                            }} />
-                            <span style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>{platformStats.totalUsers}</span>
-                            <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>kayitli uye</span>
-                        </div>
-                        <span style={{ width: '1px', height: '20px', background: 'var(--card-border)' }} />
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <Zap size={14} style={{ color: '#f59e0b' }} />
-                            <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                                Toplam <strong style={{ color: 'var(--foreground)' }}>{platformStats.totalEntries}</strong> entry
-                            </span>
-                        </div>
-                        {topUsers.length > 0 && (
-                            <>
-                                <span style={{ width: '1px', height: '20px', background: 'var(--card-border)' }} />
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <Star size={14} style={{ color: 'var(--primary)' }} />
-                                    <span style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                                        En aktif: <strong style={{ color: 'var(--foreground)' }}>@{topUsers[0].username}</strong>
-                                    </span>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </div>
-            </section>
 
             {/* ===== 5. CTA BANNER ===== */}
             <section style={{
@@ -1263,7 +1157,66 @@ export default function Home() {
                                 )}
                             </div>
 
-                            {/* Başlık */}
+                            {/* Araç Detayları (Opsiyonel) */}
+                            <div style={{ marginBottom: '20px', padding: '16px', background: 'rgba(59, 130, 246, 0.05)', border: '1px solid rgba(59, 130, 246, 0.1)', borderRadius: '12px' }}>
+                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <Car size={16} /> Araç Detayları (Opsiyonel)
+                                </label>
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
+                                    <select
+                                        value={newTopicData.carBrand}
+                                        onChange={(e) => setNewTopicData({ ...newTopicData, carBrand: e.target.value, carModel: "" })}
+                                        style={{
+                                            width: '100%', padding: '12px 16px', background: 'var(--secondary)',
+                                            border: '1px solid var(--card-border)', borderRadius: '10px',
+                                            color: 'var(--foreground)', fontSize: '14px', outline: 'none'
+                                        }}
+                                    >
+                                        <option value="">Marka Seçin</option>
+                                        {availableBrands.map(b => <option key={b} value={b}>{b}</option>)}
+                                    </select>
+                                    <select
+                                        value={newTopicData.carModel}
+                                        onChange={(e) => setNewTopicData({ ...newTopicData, carModel: e.target.value })}
+                                        disabled={!newTopicData.carBrand}
+                                        style={{
+                                            width: '100%', padding: '12px 16px', background: 'var(--secondary)',
+                                            border: '1px solid var(--card-border)', borderRadius: '10px',
+                                            color: 'var(--foreground)', fontSize: '14px', outline: 'none',
+                                            opacity: newTopicData.carBrand ? 1 : 0.5
+                                        }}
+                                    >
+                                        <option value="">Model Seçin</option>
+                                        {availableModels.map((m: string) => <option key={m} value={m}>{m}</option>)}
+                                    </select>
+                                </div>
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                                    <input
+                                        type="number"
+                                        placeholder="Yıl (Örn: 2018)"
+                                        value={newTopicData.carYear}
+                                        onChange={(e) => setNewTopicData({ ...newTopicData, carYear: e.target.value })}
+                                        style={{
+                                            width: '100%', padding: '12px 16px', background: 'var(--secondary)',
+                                            border: '1px solid var(--card-border)', borderRadius: '10px',
+                                            color: 'var(--foreground)', fontSize: '14px', outline: 'none'
+                                        }}
+                                    />
+                                    <input
+                                        type="number"
+                                        placeholder="KM (Örn: 120000)"
+                                        value={newTopicData.carKm}
+                                        onChange={(e) => setNewTopicData({ ...newTopicData, carKm: e.target.value })}
+                                        style={{
+                                            width: '100%', padding: '12px 16px', background: 'var(--secondary)',
+                                            border: '1px solid var(--card-border)', borderRadius: '10px',
+                                            color: 'var(--foreground)', fontSize: '14px', outline: 'none'
+                                        }}
+                                    />
+                                </div>
+                            </div>
+
+                            {/* İçerik Başlığı */}
                             <div style={{ marginBottom: '20px' }}>
                                 <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>
                                     Başlık <span style={{ color: '#ff4444' }}>*</span>
@@ -1287,7 +1240,7 @@ export default function Home() {
                             </div>
 
                             {/* İçerik */}
-                            <div style={{ marginBottom: '24px' }}>
+                            <div style={{ marginBottom: newTopicData.type === 'survey' ? '16px' : '24px' }}>
                                 <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>
                                     İçerik
                                 </label>
@@ -1299,7 +1252,7 @@ export default function Home() {
                                             newTopicData.type === 'expert' ? "Sorununuzu detaylı açıklayın..." :
                                                 "İlk entry'nizi yazın..."
                                     }
-                                    rows={4}
+                                    rows={newTopicData.type === 'survey' ? 2 : 4}
                                     style={{
                                         width: '100%',
                                         padding: '12px 16px',
@@ -1313,6 +1266,52 @@ export default function Home() {
                                     }}
                                 />
                             </div>
+
+                            {/* Anket Seçenekleri */}
+                            {newTopicData.type === 'survey' && (
+                                <div style={{ marginBottom: '24px' }}>
+                                    <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>
+                                        Seçenekler (en az 2) <span style={{ color: '#ff4444' }}>*</span>
+                                    </label>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                                        {newSurveyOptions.map((opt, i) => (
+                                            <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                                                <input
+                                                    type="text"
+                                                    value={opt}
+                                                    onChange={(e) => {
+                                                        const newOpts = [...newSurveyOptions];
+                                                        newOpts[i] = e.target.value;
+                                                        setNewSurveyOptions(newOpts);
+                                                    }}
+                                                    placeholder={`${i + 1}. Seçenek`}
+                                                    style={{
+                                                        flex: 1, padding: '10px 14px', background: 'var(--background)',
+                                                        border: '1px solid var(--card-border)', borderRadius: '8px',
+                                                        color: 'var(--foreground)', fontSize: '14px', outline: 'none'
+                                                    }}
+                                                />
+                                                {newSurveyOptions.length > 2 && (
+                                                    <button onClick={() => setNewSurveyOptions(newSurveyOptions.filter((_, idx) => idx !== i))}
+                                                        style={{ background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer', padding: '8px' }}>
+                                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                                                    </button>
+                                                )}
+                                            </div>
+                                        ))}
+                                        {newSurveyOptions.length < 8 && (
+                                            <button onClick={() => setNewSurveyOptions([...newSurveyOptions, ""])}
+                                                style={{
+                                                    alignSelf: 'flex-start', padding: '8px 16px', background: 'var(--secondary)',
+                                                    border: '1px solid var(--card-border)', borderRadius: '8px', color: 'var(--foreground)',
+                                                    fontSize: '13px', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px'
+                                                }}>
+                                                <Plus size={14} /> Seçenek Ekle
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
 
                             {/* Buttons */}
                             <div style={{ display: 'flex', gap: '12px' }}>
@@ -1335,45 +1334,67 @@ export default function Home() {
                                 <button
                                     onClick={async () => {
                                         if (newTopicData.type === 'survey') {
-                                            const newSurvey = {
-                                                id: Date.now().toString(),
-                                                title: newTopicData.title,
-                                                description: newTopicData.content,
-                                                // Schema fields
-                                                image: "default_survey.jpg",
-                                                color: "from-blue-600 to-blue-400",
-                                                icon: "help-circle",
-                                                nominees: [
-                                                    { id: 1, name: "Evet", votes: 0, color: "#10b981" },
-                                                    { id: 2, name: "Hayır", votes: 0, color: "#ef4444" }
-                                                ],
-                                                // UI fields
-                                                status: 'active',
-                                                totalVotes: 0,
-                                                endDate: '7 gün kaldı'
-                                            };
-                                            setHomeSurveys([newSurvey, ...homeSurveys]);
-                                            setSelectedCategory("Anket");
-                                            alert(`Anket başarıyla oluşturuldu!`);
-                                            setShowNewTopicModal(false);
-                                            setNewTopicData({ title: "", content: "", category: "", type: "topic" });
+                                            const validOptions = newSurveyOptions.filter(o => o.trim() !== "");
+                                            if (validOptions.length < 2) {
+                                                alert("Anket için en az 2 geçerli seçenek girmelisiniz.");
+                                                return;
+                                            }
+                                            
+                                            // Normal anket Firestore kaydı (Anket sayfasına gidecek)
+                                            if (!user) {
+                                                alert("Anket oluşturmak için giriş yapmalısınız.");
+                                                return;
+                                            }
+                                            try {
+                                                const { addDoc, serverTimestamp, collection } = require("firebase/firestore");
+                                                const nominees = validOptions.map((name, i) => ({ id: i + 1, name, votes: 0 }));
+                                                const docRef = await addDoc(collection(db, "surveys"), {
+                                                    title: newTopicData.title.trim(),
+                                                    description: newTopicData.content.trim(),
+                                                    category: "Genel",
+                                                    iconName: "none",
+                                                    status: "active",
+                                                    totalVotes: 0,
+                                                    nominees,
+                                                    voters: {},
+                                                    createdBy: user.username,
+                                                    createdAt: serverTimestamp(),
+                                                });
+                                                
+                                                alert(`Anket başarıyla oluşturuldu!`);
+                                                setShowNewTopicModal(false);
+                                                setNewTopicData({ title: "", content: "", category: "", type: "topic", carBrand: "", carModel: "", carYear: "", carKm: "" });
+                                                setNewSurveyOptions(["Evet", "Hayır"]);
+                                                window.location.href = '/anket';
+                                            } catch (e: any) {
+                                                alert("Hata: " + e.message);
+                                            }
                                         } else {
                                             if (!user) {
                                                 alert("İçerik oluşturmak için giriş yapmalısınız.");
                                                 return;
                                             }
                                             try {
-                                                const threadId = await createThread({
+                                                const threadData: any = {
                                                     title: newTopicData.title.trim(),
                                                     category: newTopicData.category,
                                                     content: newTopicData.content.trim(),
                                                     tags: [],
                                                     authorId: user.id as string,
                                                     authorUsername: user.username,
-                                                });
+                                                };
+                                                
+                                                if (newTopicData.carBrand) threadData.carBrand = newTopicData.carBrand;
+                                                if (newTopicData.carModel) threadData.carModel = newTopicData.carModel;
+                                                if (newTopicData.carYear) threadData.carYear = newTopicData.carYear;
+                                                if (newTopicData.carKm) threadData.carKm = newTopicData.carKm;
+                                                if (newTopicData.carBrand) threadData.tags.push(newTopicData.carBrand);
+                                                if (newTopicData.carModel) threadData.tags.push(newTopicData.carModel);
+
+                                                const threadId = await createThread(threadData);
                                                 
                                                 setShowNewTopicModal(false);
-                                                setNewTopicData({ title: "", content: "", category: "", type: "topic" });
+                                                setNewTopicData({ title: "", content: "", category: "", type: "topic", carBrand: "", carModel: "", carYear: "", carKm: "" });
                                                 
                                                 const newThread = await getThreadById(threadId);
                                                 if (newThread) {
@@ -1386,17 +1407,17 @@ export default function Home() {
                                             }
                                         }
                                     }}
-                                    disabled={!newTopicData.title.trim() || !newTopicData.category}
+                                    disabled={!newTopicData.title.trim() || (!newTopicData.category && newTopicData.type !== 'survey')}
                                     style={{
                                         flex: 1,
                                         padding: '14px',
-                                        background: (!newTopicData.title.trim() || !newTopicData.category) ? 'var(--secondary)' : 'var(--primary)',
+                                        background: (!newTopicData.title.trim() || (!newTopicData.category && newTopicData.type !== 'survey')) ? 'var(--secondary)' : 'var(--primary)',
                                         border: 'none',
                                         borderRadius: '10px',
                                         color: 'white',
                                         fontWeight: '600',
-                                        cursor: (!newTopicData.title.trim() || !newTopicData.category) ? 'not-allowed' : 'pointer',
-                                        opacity: (!newTopicData.title.trim() || !newTopicData.category) ? 0.5 : 1,
+                                        cursor: (!newTopicData.title.trim() || (!newTopicData.category && newTopicData.type !== 'survey')) ? 'not-allowed' : 'pointer',
+                                        opacity: (!newTopicData.title.trim() || (!newTopicData.category && newTopicData.type !== 'survey')) ? 0.5 : 1,
                                         fontSize: '14px',
                                     }}
                                 >

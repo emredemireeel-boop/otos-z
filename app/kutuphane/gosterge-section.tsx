@@ -413,13 +413,13 @@ export default function GostergeSection() {
 
                         {/* Stats */}
                         <div style={{
-                            background: 'linear-gradient(135deg, rgba(255, 81, 47, 0.1), rgba(221, 36, 118, 0.1))',
-                            border: '1px solid rgba(255, 81, 47, 0.3)',
+                            background: 'var(--card-bg)',
+                            border: '1px solid var(--card-border)',
                             borderRadius: '16px',
                             padding: '20px',
                         }}>
                             <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px' }}>
-                                📊 İstatistikler
+                                İstatistikler
                             </h3>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                 {[

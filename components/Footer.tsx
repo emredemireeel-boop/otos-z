@@ -69,7 +69,7 @@ export default function Footer() {
 
                     {/* Links - Forum */}
                     <div>
-                        <h4 style={{
+                        <h2 style={{
                             color: 'var(--foreground)',
                             fontSize: '14px',
                             fontWeight: '600',
@@ -78,7 +78,7 @@ export default function Footer() {
                             letterSpacing: '1px',
                         }}>
                             Forum
-                        </h4>
+                        </h2>
                         <div style={{
                             display: 'flex',
                             flexDirection: 'column',
@@ -101,7 +101,7 @@ export default function Footer() {
 
                     {/* Links - Kurumsal */}
                     <div>
-                        <h4 style={{
+                        <h2 style={{
                             color: 'var(--foreground)',
                             fontSize: '14px',
                             fontWeight: '600',
@@ -110,7 +110,7 @@ export default function Footer() {
                             letterSpacing: '1px',
                         }}>
                             Kurumsal
-                        </h4>
+                        </h2>
                         <div style={{
                             display: 'flex',
                             flexDirection: 'column',

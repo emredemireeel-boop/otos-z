@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Bell, Settings, User, LogOut, MessageCircle } from "lucide-react";
+import { Bell, Settings, User, LogOut, MessageCircle, Wrench, Briefcase, Crown } from "lucide-react";
 
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
@@ -171,6 +171,7 @@ export default function Navbar() {
         { name: 'KARŞILAŞTIRMA', href: '/karsilastirma' },
         { name: 'ARAÇ DNA', href: '/arac-dna' },
         { name: 'KÜTÜPHANE', href: '/kutuphane' },
+        { name: 'HABERLER', href: '/haberler' },
         { name: 'YAKIT', href: '/yakit-hesaplama' },
         { name: 'PAZAR', href: '/pazar' },
         { name: 'ETKİNLİKLER', href: '/etkinlikler' },
@@ -211,6 +212,7 @@ export default function Navbar() {
                             fill
                             style={{ objectFit: 'contain' }}
                             priority
+                            fetchPriority="high"
                         />
                     </div>
                     <span style={{
@@ -277,23 +279,6 @@ export default function Navbar() {
                     {/* Logged In - Show Messages, Notifications, Settings, Profile */}
                     {isLoggedIn ? (
                         <>
-                            <Link href="/premium" style={{
-                                padding: '6px 12px',
-                                background: 'linear-gradient(135deg, #1D4ED8 0%, #60A5FA 100%)',
-                                color: 'white',
-                                fontSize: '11px',
-                                fontWeight: '700',
-                                borderRadius: '6px',
-                                border: 'none',
-                                boxShadow: '0 2px 8px rgba(139, 92, 246, 0.25)',
-                                whiteSpace: 'nowrap',
-                                display: 'flex',
-                                alignItems: 'center',
-                                textDecoration: 'none'
-                            }}>
-                                PREMİUM
-                            </Link>
-                            <CarThemeToggle />
                             {/* Messages Dropdown */}
                             <div style={{ position: 'relative' }}>
                                 <button
@@ -725,6 +710,48 @@ export default function Navbar() {
                                             <Settings style={{ width: '16px', height: '16px' }} />
                                             Ayarlar
                                         </Link>
+                                        <Link href="/usta-ol" style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '10px',
+                                            padding: '10px',
+                                            borderRadius: '8px',
+                                            color: 'var(--foreground)',
+                                            fontSize: '13px',
+                                        }}>
+                                            <Wrench style={{ width: '16px', height: '16px' }} />
+                                            Usta Ol
+                                        </Link>
+                                        <Link href="/uzman-ol" style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '10px',
+                                            padding: '10px',
+                                            borderRadius: '8px',
+                                            color: 'var(--foreground)',
+                                            fontSize: '13px',
+                                        }}>
+                                            <Briefcase style={{ width: '16px', height: '16px' }} />
+                                            Uzman Ol
+                                        </Link>
+                                        <Link href="/premium" style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '10px',
+                                            padding: '10px',
+                                            borderRadius: '8px',
+                                            color: '#3b82f6',
+                                            fontWeight: '700',
+                                            fontSize: '13px',
+                                            textDecoration: 'none'
+                                        }}>
+                                            <Crown style={{ width: '16px', height: '16px' }} />
+                                            Premium'a Geç
+                                        </Link>
+                                        <div style={{ height: '1px', background: 'var(--card-border)', margin: '4px 0' }} />
+                                        <div style={{ padding: '8px 10px', display: 'flex', justifyContent: 'center' }}>
+                                            <CarThemeToggle />
+                                        </div>
                                         <div style={{ height: '1px', background: 'var(--card-border)', margin: '4px 0' }} />
                                         <button
                                             onClick={() => logout()}

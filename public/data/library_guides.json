@@ -1,6 +1,164 @@
 {
   "guides": [
     {
+      "id": "guide_deger_kaybi",
+      "title": "Araç Değer Kaybı Nedir, Nasıl Hesaplanır ve Sigortadan Kesintisiz Nasıl Alınır? (2026 Kapsamlı Rehber)",
+      "description": "Trafik kazası sonrası aracınızda oluşan değer kaybını sigorta şirketlerinden eksiksiz geri almanın hukuki ve pratik yolları. 2026 güncel hesaplama tablosu ve e-devlet başvuru adımları.",
+      "minutes": 12,
+      "difficulty": "Kritik",
+      "tags": [
+        "Araç Değer Kaybı",
+        "Sigorta",
+        "Kaza",
+        "Hukuk",
+        "Rehber"
+      ],
+      "author": "OtoSöz Hukuk Danışmanlığı",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "Araç Değer Kaybı Nedir? (Gizli Zararınız)",
+          "content": "Trafik kazası geçirdiniz, aracınız tamir edildi ve eskisinden farksız görünüyor... Peki gerçekten öyle mi? Maalesef hayır. Aracınızın hasar geçmişi (Tramer kaydı) sisteme işlendiği an, ikinci el piyasasındaki satış değeri anında düşer. İşte aracınızın kazadan bir saniye önceki piyasa değeri ile kazadan ve tamirattan sonraki satış değeri arasındaki bu kaçınılmaz farka **'Araç Değer Kaybı'** denir.\\n\\nBirçok sürücü, karşı tarafın trafik sigortasının sadece tamir masraflarını karşıladığını sanır. Oysa kanunlar çok nettir: Tamamen kusursuz veya daha az kusurlu olduğunuz bir kazada, aracınızda oluşan değer kaybını karşı tarafın sigorta şirketinden **Nakit olarak** tahsil etme hakkınız vardır."
+        },
+        {
+          "type": "section",
+          "title": "1. Değer Kaybı Almanın Altın Kuralları (Kimler Alabilir?)",
+          "content": "Her kazadan sonra değer kaybı alınamaz. Sigorta şirketinden para talep edebilmeniz için aşağıdaki 4 kritik şarta uymanız gerekir:",
+          "subsections": [
+            {
+              "subtitle": "A. Kusur Oranı Sizde Olmamalı",
+              "text": "Değer kaybını kendi sigortanızdan değil, size çarpan aracın Trafik Sigortası'ndan alırsınız. Bu nedenle kazada **%100 veya %75 kusursuz** taraf olmanız gerekir. (Örneğin arkanızdan çarpılmışsanız haklısınızdır). Eğer kazada %50-%50 kusur çıkarsa, değer kaybınızın sadece yarısını alabilirsiniz."
+            },
+            {
+              "subtitle": "B. Parçanın Daha Önce Hasar Görmemiş Olması",
+              "text": "Sigorta şirketleri çok kurnazdır. Örneğin size sağ arka kapıdan çarptılar. Eğer o kapı daha önce başka bir kazada değişmiş veya ağır işlem görmüşse, sigorta şirketi 'Bu parça zaten onarımlıydı' diyerek değer kaybı ödemez. Vurulan parçanın orijinal (boyasız/değişensiz) olması ödeme almayı garantiler."
+            },
+            {
+              "subtitle": "C. Araç Çöp (Pert) Olmamalı",
+              "text": "Araç 'Tam Hasarlı' (Pert) durumuna ayrılmışsa değer kaybı talep edilemez. Çünkü sigorta şirketi aracı tamir etmez, size zaten aracın kaza öncesi rayiç bedelini (piyasa değerini) öder. Ortada satılacak tamir edilmiş bir araç kalmadığı için değer kaybı kavramı ortadan kalkar."
+            },
+            {
+              "subtitle": "D. Zaman Aşımı Süresini Kaçırmayın",
+              "text": "Değer kaybı davası açmak veya tahkim komisyonuna başvurmak için yasal süreniz **kazanın olduğu günden itibaren 2 yıldır**. Bu süreyi 1 gün bile geçirirseniz tüm haklarınızı kaybedersiniz."
+            }
+          ],
+          "warning": {
+            "title": "🚨 Asla Yapmamanız Gereken Hata",
+            "text": "Kazadan hemen sonra sizi arayan 'Değer kaybınızı biz alalım' diyen hasar danışmanlık şirketlerine (çantacılara) ASLA vekalet vermeyin. Çoğu yasal olmayan yollarla yüksek komisyonlar (%30-40) alarak mağduriyet yaratmaktadır."
+          }
+        },
+        {
+          "type": "section",
+          "title": "2. 2026 Değer Kaybı Nasıl Hesaplanır? (Yeni Formül)",
+          "content": "2026 Yargıtay kararları ve Sigorta Tahkim Komisyonu içtihatlarına göre, değer kaybı hesaplamasında 'Serbest Piyasa Koşulları' dikkate alınmaktadır. Eski karmaşık formüller yerine artık 'Gerçek Zarar' baz alınır.",
+          "subsections": [
+            {
+              "subtitle": "Hesaplamada Dikkat Edilen Faktörler:",
+              "text": "Eksperler değer kaybını hesaplarken şu dinamiklere bakar:",
+              "points": [
+                "Aracın Üretim Yılı ve Markası (Yeni ve lüks araçlar daha çok değer kaybeder)",
+                "Aracın Kilometresi (Düşük kilometreli araçların değer kaybı çok yüksektir)",
+                "Hasarın Büyüklüğü ve Niteliği (Şasi, direk, podye işlemleri plastik tampon değişimine göre 10 kat daha fazla değer kaybı yaratır)",
+                "İkinci El Piyasa Durumu"
+              ]
+            },
+            {
+              "subtitle": "Örnek Hesaplama Senaryosu:",
+              "text": "2024 model, 15.000 km'de, kaza öncesi piyasa değeri 1.500.000 TL olan bir SUV araca arkadan çarptılar.",
+              "points": [
+                "Bagaj kapağı değişti, arka panel düzeltildi.",
+                "Tamir masrafı: 80.000 TL",
+                "Kaza sonrası aracın piyasadaki ederi (Tramerli hali): 1.350.000 TL",
+                "Fark: 1.500.000 - 1.350.000 = **150.000 TL Değer Kaybı Alacağınızdır.**"
+              ]
+            }
+          ],
+          "tip": {
+            "title": "💡 Plastik Parça İstisnası",
+            "text": "Sadece plastik tamponların değişmesi veya onarılması, Yargıtay kararlarına göre 'aracın değerini düşüren bir unsur' olarak kabul edilmediğinden değer kaybı yaratmaz."
+          }
+        },
+        {
+          "type": "section",
+          "title": "3. Sigorta Şirketinden Değer Kaybı Nasıl Talep Edilir? (Adım Adım E-Devlet)",
+          "content": "Avukata yüz binlerce lira komisyon ödemeden süreci kendi başınıza da yönetebilirsiniz. İşte yapmanız gerekenler:",
+          "subsections": [
+            {
+              "subtitle": "Adım 1: Hasarın Tamamen Onarılmasını Bekleyin",
+              "text": "Araç onarımda iken değer kaybı başvurusu yapılamaz. Aracınızı servisten teslim alın ve faturanın/tramerin sisteme işlenmesini bekleyin."
+            },
+            {
+              "subtitle": "Adım 2: Karşı Sigortaya Resmi Yazılı Başvuru",
+              "text": "Öncelikle karşı tarafın trafik sigortasına bir dilekçe (ihtarname) ile başvurmak YASAL ZORUNLULUKTUR. \n- Kaza tespit tutanağı\n- Araç ruhsatı\n- Ekspertiz/onarım faturaları\n- Kaza yeri ve hasar fotoğrafları\nile birlikte şirketin genel müdürlük e-posta adresine (veya KEP adresine) değer kaybı talebinizi iletin."
+            },
+            {
+              "subtitle": "Adım 3: Sigortanın Eksik Ödemesi",
+              "text": "Sigorta şirketleri 15 gün içinde size dönmek zorundadır. Genelde hakkınız 150.000 TL ise, sigorta size sadece 20.000 TL teklif edip hesaba yatırır ve dosyayı kapatmaya çalışır. Bu tuzağa düşmeyin! Yatan parayı 'kısmi ödeme' olarak kabul edin."
+            },
+            {
+              "subtitle": "Adım 4: Sigorta Tahkim Komisyonuna Başvuru",
+              "text": "Asıl parayı alacağınız yer burasıdır. E-Devlet üzerinden (veya posta yoluyla) 'Sigorta Tahkim Komisyonu'na başvurun. \n- Başvuru ücreti çok düşüktür (2026 yılı için ortalama 1500-3000 TL arası, kazanılınca bu parayı da sigorta geri öder).\n- Tarafsız bir sigorta hakemi atanır.\n- Hakem dosyayı bağımsız bir ekspere gönderir, gerçek değer kaybı (150.000 TL) hesaplanır.\n- İlk yatan 20.000 TL düşülerek, kalan 130.000 TL artı yasal faiziyle beraber hesabınıza zorla yatırtılır."
+            }
+          ]
+        },
+        {
+          "type": "conclusion",
+          "title": "Sonuç: Hakkınızı Yedirmeyin",
+          "content": "Ülkemizde her yıl milyarlarca liralık değer kaybı, vatandaşlar haklarını bilmediği veya uğraşmak istemediği için sigorta şirketlerinin kasasında kalıyor. Kaza sizin suçunuz değildi, bu yüzden aracınızın düşen piyasa değerini telafi etmek yasal ve en doğal hakkınızdır. Süreci ister e-Devlet üzerinden Sigorta Tahkim Komisyonu ile kendiniz yönetin, isterseniz güvendiğiniz bir trafik/sigorta avukatına cüzi bir vekalet ücreti ile devredin. Ama hakkınızı asla bırakmayın.",
+          "finalChecklist": [
+            "Kusursuz olduğum Kaza Tespit Tutanağı elimde",
+            "Hasar gören parçaların kaza öncesi orijinal olduğundan eminim",
+            "Araç tamir edildi ve ekspertiz/fatura raporları hazır",
+            "Kazanın üzerinden 2 yıl geçmedi",
+            "Karşı tarafın Trafik Sigortasına yazılı başvuru yaptım"
+          ]
+        }
+      ],
+      "urlId": 10004
+    },
+    {
+      "id": "guide_kis_lastigi",
+      "title": "Kış Lastiği Ne Zaman Takılır? 2026 Zorunluluk ve Ceza Rehberi",
+      "description": "Ticari araçlar için kış lastiği takma zorunluluğu ne zaman başlıyor? Hususi (binek) araçlar kış lastiği takmak zorunda mı? 2026 kış lastiği cezası hakkında her şey.",
+      "minutes": 4,
+      "difficulty": "Kolay",
+      "tags": [
+        "Kış Lastiği",
+        "Güvenlik",
+        "Ceza",
+        "Bakım"
+      ],
+      "author": "OtoSöz Güvenlik",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "Giriş",
+          "content": "Havaların soğumasıyla birlikte sürücülerin gündemine giren en önemli konulardan biri kış lastiği uygulaması. Güvenli sürüş için hayati önem taşıyan kış lastiğinin, sadece kar yağdığında değil, hava sıcaklığının +7 derecenin altına düştüğü her durumda kullanılması uzmanlar tarafından şiddetle tavsiye ediliyor."
+        },
+        {
+          "type": "section",
+          "title": "1. Yasal Zorunluluk Ne Zaman Başlıyor?",
+          "content": "Ulaştırma ve Altyapı Bakanlığı tarafından belirlenen kurallara göre, Türkiye genelinde kış lastiği zorunluluğu her yıl 1 Aralık ile 1 Nisan tarihleri arasında uygulanmaktadır. Bu kural, valiliklerin hava şartlarına göre alacağı kararlarla il bazında 1 ay erkene alınabilir veya 1 ay uzatılabilir."
+        },
+        {
+          "type": "section",
+          "title": "2. Hangi Araçlar Zorunlu? Binek Araçlara Ceza Var Mı?",
+          "content": "Şehirler arası yük ve yolcu taşıyan tüm ticari araçlar için kış lastiği takmak yasal bir zorunluluktur. Kamyon, çekici, tanker, otobüs, minibüs ve kamyonetler bu kapsama girer.\\n\\nHususi kullanıma kayıtlı binek otomobiller için ise yasal bir zorunluluk (ve ceza) bulunmamaktadır. Ancak, trafik kazalarını önlemek, can ve mal güvenliğini sağlamak amacıyla binek araç sahiplerinin de kış lastiği kullanması hayati bir gerekliliktir."
+        },
+        {
+          "type": "section",
+          "title": "3. 2026 Kış Lastiği Takmama Cezası",
+          "content": "Ticari araç sahiplerinin kış lastiği kuralına uymamaları durumunda 2026 yılı için belirlenen idari para cezası tahmini olarak 6.000 TL bandını aşması beklenmektedir. Ayrıca kurala uymayan araçların, yola devam etmelerine izin verilmez ve güvenli bir alana çekilmeleri sağlanır."
+        },
+        {
+          "type": "section",
+          "title": "4. Neden Kış Lastiği Kullanmalıyız?",
+          "content": "Kış lastiklerinin kauçuk yapısı, soğuk havalarda sertleşmez ve yola daha iyi tutunur. Sırt desenleri sayesinde kar ve suyu hızla tahliye ederek kızaklamayı (aquaplaning) önler. Fren mesafesini standart yaz lastiklerine göre ıslak ve karlı zeminde ciddi oranda kısaltır."
+        }
+      ],
+      "urlId": 10003
+    },
+    {
       "id": "guide_001",
       "title": "İkinci El Araç Alırken Kapsamlı Kontrol Rehberi",
       "description": "İkinci el araç alırken dikkat edilmesi gereken tüm teknik detaylar ve püf noktaları",

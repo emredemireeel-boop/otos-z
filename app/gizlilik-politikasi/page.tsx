@@ -628,7 +628,7 @@ export default function GizlilikPolitikasiPage() {
                             }}>
                                 <div style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: '12px', fontSize: '14px' }}>
                                     <strong style={{ color: 'var(--foreground)' }}>📦 KVKK Başvuru:</strong> <span style={{ color: 'var(--text-muted)' }}>kvkk@Otosöz.com</span>
-                                    <strong style={{ color: 'var(--foreground)' }}>📦 Genel İletişim:</strong> <span style={{ color: 'var(--text-muted)' }}>otosoz.destek@gmail.com</span>
+                                    <strong style={{ color: 'var(--foreground)' }}>📦 Genel İletişim:</strong> <span style={{ color: 'var(--text-muted)' }}>iletisim@otosoz.com</span>
                                     <strong style={{ color: 'var(--foreground)' }}>🌍 Web:</strong> <span style={{ color: 'var(--text-muted)' }}>www.Otosöz.com/iletisim</span>
                                 </div>
                             </div>

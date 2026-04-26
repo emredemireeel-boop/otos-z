@@ -260,11 +260,11 @@ export default function CarThemeToggle() {
                     checked={isDark}
                     onChange={toggleTheme}
                 />
-                <div className="car-toggle__container">
-                    <div className="car-toggle__circle-container">
-                        <div className="car-toggle__car-container">
+                <span className="car-toggle__container">
+                    <span className="car-toggle__circle-container">
+                        <span className="car-toggle__car-container">
                             {/* Yellow Car (Light Mode) */}
-                            <div className="car-toggle__yellow-car">
+                            <span className="car-toggle__yellow-car">
                                 <svg
                                     viewBox="0 0 40 28"
                                     width="1.6em"
@@ -315,10 +315,10 @@ export default function CarThemeToggle() {
                                     {/* Door handle */}
                                     <rect x="18" y="13" width="3" height="0.6" rx="0.3" fill="#B8941A" />
                                 </svg>
-                            </div>
+                            </span>
 
                             {/* Gray Car (Dark Mode) */}
-                            <div className="car-toggle__gray-car">
+                            <span className="car-toggle__gray-car">
                                 <svg
                                     viewBox="0 0 40 28"
                                     width="1.6em"
@@ -373,12 +373,12 @@ export default function CarThemeToggle() {
                                     {/* Moon reflection on windshield */}
                                     <ellipse cx="19" cy="7" rx="1" ry="0.5" fill="rgba(255,255,255,0.15)" />
                                 </svg>
-                            </div>
-                        </div>
-                    </div>
+                            </span>
+                        </span>
+                    </span>
 
                     {/* Clouds (visible in light mode) */}
-                    <div className="car-toggle__clouds" />
+                    <span className="car-toggle__clouds" />
 
                     {/* Stars (visible in dark mode) */}
                     <svg
@@ -413,7 +413,7 @@ export default function CarThemeToggle() {
                             <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite" />
                         </circle>
                     </svg>
-                </div>
+                </span>
             </label>
         </>
     );

@@ -27,36 +27,6 @@ export default function BrandRankingCard({
                     <span className="text-xl font-bold">#{rank}</span>
                 </div>
 
-                {/* Logo */}
-                <div 
-                    className="relative w-12 h-12 flex items-center justify-center shrink-0 rounded-2xl overflow-hidden shadow-sm border border-white/5 group-hover:shadow-md transition-all duration-300"
-                    style={{ 
-                        background: `linear-gradient(135deg, ${brand.brandColor || 'var(--primary)'}, #0f172a)`
-                    }}
-                >
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/20"></div>
-                    
-                    {brand.logoUrl && (
-                        <img 
-                            src={brand.logoUrl} 
-                            alt={`${brand.name} logo`} 
-                            className="relative z-10 w-full h-full object-contain p-1.5 bg-white"
-                            onError={(e) => {
-                                e.currentTarget.style.display = 'none';
-                                if (e.currentTarget.nextElementSibling) {
-                                    e.currentTarget.nextElementSibling.classList.remove('hidden');
-                                }
-                            }}
-                        />
-                    )}
-                    
-                    <span 
-                        className={`relative z-10 text-[24px] font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/60 drop-shadow-md ${brand.logoUrl ? 'hidden' : ''}`}
-                    >
-                        {brand.name.substring(0, 2).toUpperCase()}
-                    </span>
-                </div>
-
                 {/* Info */}
                 <div className="flex-1 min-w-0">
                     <h3 className="text-lg font-bold text-[var(--foreground)] truncate group-hover:text-[var(--primary)] transition-colors">

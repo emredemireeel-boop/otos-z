@@ -592,8 +592,8 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
 
                                 {/* Info Box */}
                                 <div style={{
-                                    background: 'linear-gradient(135deg, rgba(255, 107, 0, 0.1), rgba(0, 212, 255, 0.1))',
-                                    border: '1px solid var(--primary)',
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
                                     borderRadius: '16px',
                                     padding: '16px',
                                 }}>

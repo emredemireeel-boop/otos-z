@@ -144,10 +144,28 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
         }
     };
 
+    const jsonLd = guide ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": guide.sections.filter(s => s.title).map(section => ({
+            "@type": "Question",
+            "name": section.title,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": section.content || (section.subsections ? section.subsections.map(s => s.text).join(" ") : guide.description)
+            }
+        }))
+    } : null;
+
     return (
         <div>
             <Navbar />
-
+            {jsonLd && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            )}
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
                 {/* Hero Section */}
                 <div style={{
