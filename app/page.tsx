@@ -986,60 +986,7 @@ export default function Home() {
 
 
 
-            {/* ===== 5. CTA BANNER ===== */}
-            <section style={{
-                padding: '80px 24px',
-                background: isDark
-                    ? 'linear-gradient(135deg, rgba(255,107,0,0.04), rgba(0,212,255,0.02))'
-                    : 'linear-gradient(135deg, rgba(0,90,226,0.03), rgba(34,197,94,0.02))',
-                borderTop: '1px solid var(--card-border)',
-                textAlign: 'center',
-            }}>
-                <div style={{ maxWidth: '640px', margin: '0 auto' }}>
-                    <div style={{
-                        width: '56px', height: '56px', borderRadius: '16px',
-                        background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        margin: '0 auto 24px', color: 'white',
-                        boxShadow: '0 8px 25px var(--primary-glow)',
-                    }}>
-                        <MessageSquare size={24} />
-                    </div>
-                    <h2 style={{
-                        fontSize: '32px', fontWeight: '900', color: 'var(--foreground)',
-                        marginBottom: '12px', letterSpacing: '-0.5px',
-                    }}>
-                        Tartışmaya Katılın
-                    </h2>
-                    <p style={{
-                        fontSize: '16px', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '32px',
-                    }}>
-                        12.000'den fazla otomobil tutkununun bulunduğu topluluğumuza katılın,
-                        deneyimlerinizi paylaşın ve uzman görüşlerinden yararlanın.
-                    </p>
-                    <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
-                        <Link href="/kayit" style={{
-                            padding: '14px 32px', borderRadius: '12px',
-                            background: 'var(--primary)', color: 'white',
-                            fontWeight: '700', fontSize: '15px', textDecoration: 'none',
-                            display: 'flex', alignItems: 'center', gap: '8px',
-                            transition: 'all 0.3s',
-                            boxShadow: '0 4px 15px var(--primary-glow)',
-                        }}>
-                            Ücretsiz Kayıt Ol <ArrowRight size={16} />
-                        </Link>
-                        <Link href="/forum" style={{
-                            padding: '14px 32px', borderRadius: '12px',
-                            background: 'var(--card-bg)', color: 'var(--foreground)',
-                            fontWeight: '700', fontSize: '15px', textDecoration: 'none',
-                            display: 'flex', alignItems: 'center', gap: '8px',
-                            border: '1px solid var(--card-border)',
-                            transition: 'all 0.3s',
-                        }}>
-                            Forumu Keşfet
-                        </Link>
-                    </div>
-                </div>
-            </section>
+
 
             {/* Yeni Başlık Modal */}
             {

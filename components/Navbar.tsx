@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Bell, Settings, User, LogOut, MessageCircle, Wrench, Briefcase, Crown } from "lucide-react";
+import { Bell, Settings, User, LogOut, MessageCircle, Wrench, Briefcase, Crown, Sun, Moon } from "lucide-react";
 
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
@@ -83,7 +83,7 @@ export default function Navbar() {
     const prevMsgCount = useRef(0);
 
     const { user, logout } = useAuth();
-    const { theme } = useTheme();
+    const { theme, toggleTheme } = useTheme();
     const pathname = usePathname();
     const isLoggedIn = !!user;
 
@@ -749,8 +749,24 @@ export default function Navbar() {
                                             Premium'a Geç
                                         </Link>
                                         <div style={{ height: '1px', background: 'var(--card-border)', margin: '4px 0' }} />
-                                        <div style={{ padding: '8px 10px', display: 'flex', justifyContent: 'center' }}>
-                                            <CarThemeToggle />
+                                        <div style={{ padding: '4px 10px' }}>
+                                            <button onClick={() => toggleTheme()} style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '10px',
+                                                padding: '6px',
+                                                borderRadius: '8px',
+                                                color: 'var(--foreground)',
+                                                fontSize: '13px',
+                                                background: 'transparent',
+                                                border: 'none',
+                                                cursor: 'pointer',
+                                                width: '100%',
+                                                textAlign: 'left'
+                                            }}>
+                                                {theme === 'dark' ? <Sun style={{ width: '16px', height: '16px' }} /> : <Moon style={{ width: '16px', height: '16px' }} />}
+                                                {theme === 'dark' ? 'Aydınlık Mod' : 'Karanlık Mod'}
+                                            </button>
                                         </div>
                                         <div style={{ height: '1px', background: 'var(--card-border)', margin: '4px 0' }} />
                                         <button
@@ -780,24 +796,6 @@ export default function Navbar() {
                     ) : (
                         <>
                             {/* Not Logged In - Show Auth Buttons */}
-                            <Link href="/premium" style={{
-                                padding: '6px 12px',
-                                background: 'linear-gradient(135deg, #1D4ED8 0%, #60A5FA 100%)',
-                                color: 'white',
-                                fontSize: '11px',
-                                fontWeight: '700',
-                                borderRadius: '6px',
-                                border: 'none',
-                                boxShadow: '0 2px 8px rgba(139, 92, 246, 0.25)',
-                                whiteSpace: 'nowrap',
-                                display: 'flex',
-                                alignItems: 'center',
-                                textDecoration: 'none'
-                            }}>
-                                PREMİUM
-                            </Link>
-                            <CarThemeToggle />
-
                             <Link href="/giris" style={{
                                 padding: '6px 12px',
                                 color: 'var(--foreground)',
