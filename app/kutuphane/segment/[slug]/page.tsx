@@ -7,9 +7,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 interface SegmentPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export function generateStaticParams() {
@@ -19,7 +19,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: SegmentPageProps): Promise<Metadata> {
-    const slug = params.slug;
+    const { slug } = await params;
     const segmentIdMatch = slug.match(/^([a-z])-segmenti$/);
     
     if (segmentIdMatch) {
@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: SegmentPageProps): Promise<Me
     return { title: 'Araç Segmentleri | OtoSöz' };
 }
 
-export default function SegmentDetailPage({ params }: SegmentPageProps) {
-    const slug = params.slug;
+export default async function SegmentDetailPage({ params }: SegmentPageProps) {
+    const { slug } = await params;
     const segmentIdMatch = slug.match(/^([a-z])-segmenti$/);
     
     if (!segmentIdMatch) {

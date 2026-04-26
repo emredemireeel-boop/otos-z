@@ -7,9 +7,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 interface PlakaPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 // Generate static params for all 81 cities and special plates
@@ -26,7 +26,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PlakaPageProps): Promise<Metadata> {
-    const slug = params.slug;
+    const { slug } = await params;
     
     // Check if it's a special plate
     const specialPlate = plakaData.ozelPlakalar.find(p => p.id === slug);
@@ -53,8 +53,8 @@ export async function generateMetadata({ params }: PlakaPageProps): Promise<Meta
     return { title: 'Plaka Kodları | OtoSöz' };
 }
 
-export default function PlakaDetailPage({ params }: PlakaPageProps) {
-    const slug = params.slug;
+export default async function PlakaDetailPage({ params }: PlakaPageProps) {
+    const { slug } = await params;
 
     // Determine type and data
     const specialPlate = plakaData.ozelPlakalar.find(p => p.id === slug);

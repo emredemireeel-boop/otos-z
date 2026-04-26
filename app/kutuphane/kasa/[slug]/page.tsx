@@ -7,9 +7,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 interface KasaPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export function generateStaticParams() {
@@ -19,7 +19,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: KasaPageProps): Promise<Metadata> {
-    const slug = params.slug;
+    const { slug } = await params;
     const type = segmentData.bodyTypes.find(t => t.id === slug);
     
     if (type) {
@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: KasaPageProps): Promise<Metad
     return { title: 'Araç Kasa Tipleri | OtoSöz' };
 }
 
-export default function KasaDetailPage({ params }: KasaPageProps) {
-    const slug = params.slug;
+export default async function KasaDetailPage({ params }: KasaPageProps) {
+    const { slug } = await params;
     const type = segmentData.bodyTypes.find(t => t.id === slug);
     
     if (!type) {

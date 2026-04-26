@@ -4,9 +4,9 @@ import tuvturkFaq from '@/data/tuvturk_faq.json';
 import TuvturkFaqDetailClient from './TuvturkFaqDetailClient';
 
 interface Props {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export async function generateStaticParams() {
@@ -16,7 +16,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const slugParts = params.slug.split('--');
+    const { slug } = await params;
+    const slugParts = slug.split('--');
     const id = parseInt(slugParts[slugParts.length - 1]);
     const faq = tuvturkFaq.find(f => f.id === id);
 
@@ -32,19 +33,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: faq.answer.substring(0, 150) + '...',
         keywords: [...faq.tags, "tüvtürk", "araç muayene", "ağır kusur", "hafif kusur"],
         alternates: {
-            canonical: `/kutuphane/tuvturk/${params.slug}`,
+            canonical: `/kutuphane/tuvturk/${slug}`,
         },
         openGraph: {
             title: faq.question,
             description: faq.answer.substring(0, 150) + '...',
-            url: `https://otosoz.com/kutuphane/tuvturk/${params.slug}`,
+            url: `https://otosoz.com/kutuphane/tuvturk/${slug}`,
             type: 'article',
         }
     };
 }
 
-export default function TuvturkFaqPage({ params }: Props) {
-    const slugParts = params.slug.split('--');
+export default async function TuvturkFaqPage({ params }: Props) {
+    const { slug } = await params;
+    const slugParts = slug.split('--');
     const id = parseInt(slugParts[slugParts.length - 1]);
     const faq = tuvturkFaq.find(f => f.id === id);
 

@@ -7,9 +7,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 interface EhliyetSinifPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export function generateStaticParams() {
@@ -19,7 +19,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: EhliyetSinifPageProps): Promise<Metadata> {
-    const slug = params.slug;
+    const { slug } = await params;
     const match = slug.match(/^([a-z0-9]+)-sinifi-ehliyet$/);
     
     if (match) {
@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: EhliyetSinifPageProps): Promi
     return { title: 'Ehliyet Sınıfları | OtoSöz' };
 }
 
-export default function EhliyetSinifDetailPage({ params }: EhliyetSinifPageProps) {
-    const slug = params.slug;
+export default async function EhliyetSinifDetailPage({ params }: EhliyetSinifPageProps) {
+    const { slug } = await params;
     const match = slug.match(/^([a-z0-9]+)-sinifi-ehliyet$/);
     
     if (!match) {
