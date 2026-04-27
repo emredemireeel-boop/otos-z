@@ -377,7 +377,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                                     </thead>
                                                     <tbody>
                                                         {section.table.rows.map((row, i) => (
-                                                            <tr key={i} style={{ borderBottom: i === section.table.rows.length - 1 ? 'none' : '1px solid var(--card-border)', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
+                                                            <tr key={i} style={{ borderBottom: i === section.table!.rows.length - 1 ? 'none' : '1px solid var(--card-border)', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
                                                                 {row.map((td, j) => (
                                                                     <td key={j} style={{ padding: '14px 16px', color: 'var(--text-muted)' }}>{td}</td>
                                                                 ))}
