@@ -49,6 +49,20 @@ export default function MessagesPage() {
         if (!user?.id) return;
         const unsub = subscribeToConversations(user.id as string, (convs) => {
             setConversations(convs);
+            
+            // Auto-select conversation from URL if present
+            if (typeof window !== "undefined") {
+                const params = new URLSearchParams(window.location.search);
+                const convId = params.get("conv");
+                if (convId) {
+                    const conv = convs.find(c => c.id === convId);
+                    if (conv) {
+                        setSelectedConv(conv);
+                        // Clean up URL so it doesn't get stuck
+                        window.history.replaceState({}, '', '/mesajlar');
+                    }
+                }
+            }
         });
         return () => unsub();
     }, [user?.id]);

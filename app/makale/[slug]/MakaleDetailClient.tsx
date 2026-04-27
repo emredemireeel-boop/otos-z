@@ -236,6 +236,30 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                 </div>
                             )}
 
+                            {/* Table Render */}
+                            {section.table && (
+                                <div style={{ overflowX: 'auto', marginTop: '24px', borderRadius: '12px', border: '1px solid var(--card-border)' }}>
+                                    <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '14px' }}>
+                                        <thead style={{ background: 'var(--secondary)' }}>
+                                            <tr>
+                                                {section.table.headers.map((th: string, i: number) => (
+                                                    <th key={i} style={{ padding: '14px 16px', fontWeight: '700', color: 'var(--foreground)', borderBottom: '1px solid var(--card-border)' }}>{th}</th>
+                                                ))}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {section.table.rows.map((row: string[], i: number) => (
+                                                <tr key={i} style={{ borderBottom: i === section.table.rows.length - 1 ? 'none' : '1px solid var(--card-border)', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
+                                                    {row.map((td: string, j: number) => (
+                                                        <td key={j} style={{ padding: '14px 16px', color: 'var(--text-muted)' }}>{td}</td>
+                                                    ))}
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
+
                             {/* Info Boxes */}
                             {section.tip && (
                                 <div style={{ background: 'rgba(59,130,246,0.05)', border: '1px solid rgba(59,130,246,0.2)', borderLeft: '4px solid #3b82f6', borderRadius: '12px', padding: '20px' }}>
@@ -260,7 +284,7 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                 </div>
                             )}
 
-                            {/* Final Checklist */}
+                            {/* Section Final Checklist */}
                             {section.finalChecklist && section.finalChecklist.length > 0 && (
                                 <div style={{ background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '28px', marginTop: '20px' }}>
                                     <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -278,6 +302,39 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                             )}
                         </div>
                     ))}
+
+                    {/* Root Final Checklist */}
+                    {article.finalChecklist && article.finalChecklist.length > 0 && (
+                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '24px', marginTop: '16px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                                <div style={{
+                                    width: '40px',
+                                    height: '40px',
+                                    borderRadius: '10px',
+                                    background: 'rgba(67, 233, 123, 0.15)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <CheckCircle2 style={{ width: '24px', height: '24px', color: '#43E97B' }} />
+                                </div>
+                                <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                    Özet Kontrol Listesi
+                                </h3>
+                            </div>
+                            <div style={{ height: '1px', background: 'var(--card-border)', marginBottom: '20px' }} />
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                {article.finalChecklist.map((item: string, idx: number) => (
+                                    <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
+                                        <CheckCircle2 style={{ width: '18px', height: '18px', color: '#43E97B', flexShrink: 0, marginTop: '2px' }} />
+                                        <span style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                                            {item}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     <div style={{ marginTop: '20px', borderTop: '1px solid var(--card-border)', paddingTop: '32px', display: 'flex', justifyContent: 'center' }}>
                         <Link href="/kutuphane?kategori=makaleler" style={{ textDecoration: 'none' }}>

@@ -53,6 +53,11 @@ service cloud.firestore {
       }
     }
 
+    // ── CollectionGroup sorgulari icin (Profil gecmis entryler) ──
+    match /{path=**}/entries/{entryId} {
+      allow read: if true;
+    }
+
     // ── Anketler ──
     match /surveys/{surveyId} {
       allow read: if true;
@@ -97,15 +102,9 @@ service cloud.firestore {
 
     // ── Mesajlaşma ──
     match /conversations/{convId} {
-      allow read: if isAuth() && (
-        resource.data.participant1 == request.auth.uid ||
-        resource.data.participant2 == request.auth.uid
-      );
+      allow read: if isAuth() && (request.auth.uid in resource.data.participants);
       allow create: if isAuth();
-      allow update: if isAuth() && (
-        resource.data.participant1 == request.auth.uid ||
-        resource.data.participant2 == request.auth.uid
-      );
+      allow update: if isAuth() && (request.auth.uid in resource.data.participants);
       allow delete: if isAdmin();
 
       match /messages/{msgId} {

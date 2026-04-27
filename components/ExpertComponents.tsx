@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import { ArrowRight, Info, CheckCircle, Circle, ChevronRight } from "lucide-react";
@@ -41,6 +41,7 @@ export function LuxuryTopBar({
                 src="/white_logo.svg"
                 alt="Otosöz Logo"
                 fill
+                sizes="32px"
                 className="object-contain object-left"
                 priority
               />

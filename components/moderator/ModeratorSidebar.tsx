@@ -49,7 +49,7 @@ export default function ModeratorSidebar() {
             <div style={{ padding: "18px 20px", borderBottom: "1px solid var(--card-border)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     <div style={{ position: "relative", width: "30px", height: "30px" }}>
-                        <Image src={theme === "light" ? "/whitemode_logo.svg" : "/dark_logo.svg"} alt="Otosoz" fill style={{ objectFit: "contain" }} priority />
+                        <Image src={theme === "light" ? "/whitemode_logo.svg" : "/dark_logo.svg"} alt="Otosoz" fill sizes="30px" style={{ objectFit: "contain" }} priority />
                     </div>
                     <div>
                         <span style={{ fontSize: "13px", fontWeight: "800", color: "var(--logo-text)", display: "block", lineHeight: 1.1 }}>OTO SOZ</span>

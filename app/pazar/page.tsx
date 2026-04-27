@@ -158,7 +158,7 @@ export default function PazarPage() {
                     padding: '20px 24px',
                 }}>
                     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+                        <div className="pazar-header-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
                             <div>
                                 <h1 style={{ fontSize: '28px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '8px' }}>
                                     Araç Pazarı
@@ -189,7 +189,7 @@ export default function PazarPage() {
                         </div>
 
                         {/* Filters */}
-                        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                        <div className="pazar-filters" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                             <div style={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -376,11 +376,7 @@ export default function PazarPage() {
             )}
 
             <style jsx global>{`
-                @media (max-width: 768px) {
-                    div[style*="gridTemplateColumns: repeat(auto-fill"] {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
+                /* Pazar responsive handled by globals.css */
             `}</style>
         </div>
     );
@@ -395,7 +391,7 @@ function ListingCard({ listing }: { listing: CarListing }) {
     const colorLabel = getColorLabel(listing.color);
 
     return (
-        <div style={{
+        <div className="listing-card-horizontal" style={{
             position: 'relative',
             background: 'var(--card-bg)',
             border: '1px solid var(--card-border)',
@@ -404,7 +400,7 @@ function ListingCard({ listing }: { listing: CarListing }) {
             transition: 'all 0.3s ease',
             boxShadow: 'var(--card-shadow)',
             display: 'flex',
-            flexDirection: 'row', // Horizontal layout
+            flexDirection: 'row',
             minHeight: '220px',
         }}
             onMouseEnter={(e) => {
@@ -438,7 +434,7 @@ function ListingCard({ listing }: { listing: CarListing }) {
                 </div>
             )}
             {/* COLUMN 1: Basic Info (40%) */}
-            <div style={{
+            <div className="listing-col-info" style={{
                 flex: '0 0 40%',
                 padding: '24px',
                 borderRight: '1px solid var(--card-border)',
@@ -630,7 +626,7 @@ function ListingCard({ listing }: { listing: CarListing }) {
             </div>
 
             {/* COLUMN 2: Paint Status (35%) */}
-            <div style={{
+            <div className="listing-col-paint" style={{
                 flex: '0 0 35%',
                 padding: '24px',
                 borderRight: '1px solid var(--card-border)',
@@ -702,7 +698,7 @@ function ListingCard({ listing }: { listing: CarListing }) {
             </div>
 
             {/* COLUMN 3: Price & Action (25%) */}
-            <div style={{
+            <div className="listing-col-price" style={{
                 flex: '1',
                 padding: '24px',
                 background: 'var(--secondary)',
@@ -767,39 +763,7 @@ function ListingCard({ listing }: { listing: CarListing }) {
                 </div>
             </div>
 
-            {/* Mobile Stack Fix */}
-            <style jsx>{`
-                @media (max-width: 1024px) {
-                    div[style*="flexDirection: 'row'"] {
-                        flex-direction: column !important;
-                        min-height: auto !important;
-                    }
-                    div[style*="flex: '0 0 40%'"], div[style*="flex: '0 0 35%'"], div[style*="flex: '1'"] {
-                        flex: auto !important;
-                        width: 100% !important;
-                        border-right: none !important;
-                        border-bottom: 1px solid var(--card-border) !important;
-                        text-align: left !important;
-                        align-items: flex-start !important;
-                    }
-                    div[style*="justifyContent: 'center'"] {
-                        justify-content: flex-start !important;
-                    }
-                    div[style*="alignItems: 'flex-end'"] {
-                        align-items: flex-start !important;
-                    }
-                    div[style*="textAlign: 'right'"] {
-                        text-align: left !important;
-                    }
-                    /* Fix badge position relative to column */
-                    div[style*="left: '-32px'"] {
-                       left: auto !important;
-                       right: -35px !important;
-                       top: 25px !important;
-                       transform: rotate(45deg) !important;
-                    }
-                }
-            `}</style>
+            {/* Mobile responsive handled by CSS classes in globals.css */}
         </div>
     );
 }
@@ -1240,8 +1204,8 @@ function NewListingModal({
                             alignItems: 'start',
                             gap: '10px',
                             padding: '12px',
-                            background: 'rgba(255, 215, 0, 0.1)',
-                            border: '1px solid rgba(255, 215, 0, 0.3)',
+                            background: 'rgba(234, 179, 8, 0.1)',
+                            border: '1px solid rgba(234, 179, 8, 0.3)',
                             borderRadius: '10px'
                         }}>
                             <input
@@ -1254,14 +1218,14 @@ function NewListingModal({
                                     height: '18px',
                                     cursor: 'pointer',
                                     marginTop: '2px',
-                                    accentColor: '#FFD700'
+                                    accentColor: '#eab308'
                                 }}
                             />
                             <label
                                 htmlFor="phone-confirm"
                                 style={{
-                                    fontSize: '12px',
-                                    color: '#FFD700',
+                                    fontSize: '13px',
+                                    color: 'var(--foreground)',
                                     cursor: 'pointer',
                                     lineHeight: '1.5'
                                 }}

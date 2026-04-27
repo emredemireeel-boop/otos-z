@@ -63,7 +63,7 @@ export default function AdminSidebar() {
             <div style={{ padding: '20px', borderBottom: '1px solid var(--card-border)' }}>
                 <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
                     <div style={{ position: 'relative', width: '32px', height: '32px' }}>
-                        <Image src={theme === 'light' ? "/whitemode_logo.svg" : "/dark_logo.svg"} alt="Otosoz Admin" fill style={{ objectFit: 'contain' }} priority />
+                        <Image src={theme === 'light' ? "/whitemode_logo.svg" : "/dark_logo.svg"} alt="Otosoz Admin" fill sizes="32px" style={{ objectFit: 'contain' }} priority />
                     </div>
                     <div>
                         <span style={{ fontSize: '15px', fontWeight: '800', color: 'var(--logo-text)', display: 'block', lineHeight: 1.1 }}>OTO SOZ</span>

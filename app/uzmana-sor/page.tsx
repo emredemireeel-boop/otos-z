@@ -80,7 +80,7 @@ export default function UzmanaSorPage() {
                                 <Plus size={16} /> Soru Sor
                             </button>
                         </div>
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
+                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {CATEGORIES.map(cat => (
                                 <button key={cat} onClick={() => setSelectedCategory(cat)} style={{
                                     padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '500',
@@ -95,9 +95,9 @@ export default function UzmanaSorPage() {
 
                 {/* 3-Column Layout */}
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
                         {/* Left Sidebar */}
-                        <aside>
+                        <aside className="home-left-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '16px', marginBottom: '16px' }}>
                                     <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px' }}>Nasıl Çalışır?</h3>
@@ -202,7 +202,7 @@ export default function UzmanaSorPage() {
                         </div>
 
                         {/* Right Sidebar */}
-                        <aside>
+                        <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 {threads.length > 0 && (
                                     <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px', marginBottom: '16px' }}>

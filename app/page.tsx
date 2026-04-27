@@ -70,23 +70,36 @@ export default function Home() {
         { name: "Kalorifer Yakıtı",   price: "...", trend: "stable" },
         { name: "Fuel Oil",           price: "...", trend: "stable" },
     ]);
-    const [tickerCity, setTickerCity] = useState("istanbul");
+    const [tickerCity, setTickerCity] = useState("İstanbul");
 
     // ── Yakıt Fiyatları Fetch ─────────────────────────────────────────────────
+    // Türkçe şehir adını API slug'ına çeviren normalize fonksiyonu
+    const normalizeCitySlug = (s: string) =>
+        s.replace(/İ/g, 'i').replace(/I/g, 'i')
+         .toLowerCase()
+         .replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s')
+         .replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c')
+         .replace(/â/g,'a').replace(/î/g,'i').replace(/û/g,'u')
+         .replace(/\s+/g,'');
+
     useEffect(() => {
-        // Kullanıcının şehrini belirle: (1) user.city, (2) localStorage, (3) İstanbul
-        const normalize = (s: string) =>
-            s.replace(/İ/g, 'i').replace(/I/g, 'i')
-             .toLowerCase()
-             .replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s')
-             .replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c')
-             .replace(/â/g,'a').replace(/î/g,'i').replace(/û/g,'u')
-             .replace(/\s+/g,'');
+        // Kullanıcının şehrini belirle:
+        // (1) Giriş yapmış kullanıcının Firestore'daki city bilgisi (birincil kaynak)
+        // (2) localStorage'daki son bilinen şehir (oturumlar arası cache)
+        // (3) Varsayılan: İstanbul
+
+        // Kullanıcı giriş yapmışsa ama city henüz yüklenmediyse, bekle
+        // (user objesi var ama city undefined → Firestore'dan henüz gelmemiş olabilir)
 
         const localCity = typeof window !== 'undefined' ? localStorage.getItem('oto_user_city') : null;
         const rawCity = user?.city || localCity || 'İstanbul';
-        const citySlug = normalize(rawCity);
+        const citySlug = normalizeCitySlug(rawCity);
         setTickerCity(rawCity);
+
+        // Kullanıcının şehrini localStorage'a kaydet (sonraki ziyaretlerde hızlı erişim)
+        if (user?.city && typeof window !== 'undefined') {
+            localStorage.setItem('oto_user_city', user.city);
+        }
 
         // Kendi iç Next.js API'mize istek atıyoruz
         fetch(`/api/fiyatlar/${citySlug}`)
@@ -108,7 +121,8 @@ export default function Home() {
                 // API erişilemez – fallback: boş göster
                 console.warn('Yakıt fiyatları API\'ye ulaşılamadı.');
             });
-    }, [user]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user?.city]);
 
     // ── Rehber & İlan ─────────────────────────────────────────────────────────
     useEffect(() => {
@@ -403,7 +417,7 @@ export default function Home() {
                             </div>
 
                             {/* Entry count */}
-                            <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                            <div className="topic-entry-count" style={{ textAlign: 'right', flexShrink: 0 }}>
                                 <div style={{ fontSize: '28px', fontWeight: '700', color: 'var(--primary)' }}>{topic.entryCount}</div>
                                 <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Entry</div>
                             </div>
@@ -426,13 +440,13 @@ export default function Home() {
                     padding: '16px 24px',
                 }}>
                     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+                        <div className="subheader-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>Topluluk</h1>
                             </div>
 
                             {/* Horizontal Fuel Ticker */}
-                            <div style={{
+                            <div className="fuel-ticker-wrapper" style={{
                                 flex: 1,
                                 margin: '0 32px',
                                 overflow: 'hidden',
@@ -485,6 +499,7 @@ export default function Home() {
                                 </div>
                             </div>
                             <button
+                                className="new-topic-btn"
                                 onClick={() => setShowNewTopicModal(true)}
                                 style={{
                                     padding: '10px 20px',
@@ -495,7 +510,10 @@ export default function Home() {
                                     border: 'none',
                                     cursor: 'pointer',
                                     fontSize: '14px',
-                                    whiteSpace: 'nowrap'
+                                    whiteSpace: 'nowrap',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
                                 }}
                             >
                                 + Yeni Başlık
@@ -505,7 +523,7 @@ export default function Home() {
 
 
                         {/* Category Pills */}
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
+                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {categories.map((cat) => (
                                 <button
                                     key={cat.name}
@@ -530,9 +548,9 @@ export default function Home() {
                 </div>
 
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
                         {/* Left Sidebar - Kategoriler */}
-                        <aside>
+                        <aside className="home-left-sidebar">
                             <div style={{
                                 position: 'sticky',
                                 top: '100px',
@@ -661,7 +679,7 @@ export default function Home() {
                                 borderRadius: '12px',
                             }}>
                                 {/* Search Bar */}
-                                <div style={{ position: 'relative', width: '300px' }}>
+                                <div className="sort-bar-search" style={{ position: 'relative', width: '300px' }}>
                                     <input
                                         type="text"
                                         placeholder="Başlık ara..."
@@ -781,7 +799,7 @@ export default function Home() {
                         </div>
 
                         {/* Right Sidebar */}
-                        <aside>
+                        <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 {/* Bugün Gündemde */}
                                 <div style={{
@@ -1109,7 +1127,7 @@ export default function Home() {
                                 <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     <Car size={16} /> Araç Detayları (Opsiyonel)
                                 </label>
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
+                                <div className="car-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
                                     <select
                                         value={newTopicData.carBrand}
                                         onChange={(e) => setNewTopicData({ ...newTopicData, carBrand: e.target.value, carModel: "" })}
@@ -1137,7 +1155,7 @@ export default function Home() {
                                         {availableModels.map((m: string) => <option key={m} value={m}>{m}</option>)}
                                     </select>
                                 </div>
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                                <div className="car-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                                     <input
                                         type="number"
                                         placeholder="Yıl (Örn: 2018)"

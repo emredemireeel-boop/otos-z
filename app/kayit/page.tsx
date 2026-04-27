@@ -57,6 +57,10 @@ export default function KayitPage() {
         const result = await register(formData.email, formData.password, formData.username, formData.city);
 
         if (result) {
+            // Şehri localStorage'a kaydet (yakıt fiyatları ticker'ı için)
+            if (typeof window !== 'undefined') {
+                localStorage.setItem('oto_user_city', formData.city);
+            }
             setIsLoading(false);
             setSuccess(true);
         } else {

@@ -9,13 +9,13 @@ import { subscribeToThreads, formatTimestamp, type ForumThread } from "@/lib/for
 import { ArrowLeftRight, Plus, Users, Clock, MessageSquare, Eye, Award, Sparkles, TrendingUp, BarChart3 } from "lucide-react";
 import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 
-const VEHICLE_COUNTS = ["Tumu", "2 Arac", "3 Arac", "4 Arac", "5 Arac"];
+const VEHICLE_COUNTS = ["Tümü", "2 Araç", "3 Araç", "4 Araç", "5 Araç"];
 
 export default function ComparisonPage() {
     const { user } = useAuth();
     const [threads, setThreads] = useState<ForumThread[]>([]);
     const [loading, setLoading] = useState(true);
-    const [selectedCategory, setSelectedCategory] = useState<string>("Tumu");
+    const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [sortBy, setSortBy] = useState<"popular" | "new">("popular");
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function ComparisonPage() {
         return () => unsub();
     }, []);
 
-    const filteredThreads = selectedCategory === "Tumu"
+    const filteredThreads = selectedCategory === "Tümü"
         ? threads
         : threads.filter(t => {
             const tagCount = t.tags.filter(tag => tag.startsWith("arac:")).length;
@@ -61,7 +61,7 @@ export default function ComparisonPage() {
                                 <Plus size={16} /> Yeni Karşılaştırma
                             </Link>
                         </div>
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
+                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {VEHICLE_COUNTS.map(cat => (
                                 <button key={cat} onClick={() => setSelectedCategory(cat)} style={{
                                     padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '500',
@@ -76,9 +76,9 @@ export default function ComparisonPage() {
 
                 {/* 3-Column Layout */}
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
                         {/* Left Sidebar */}
-                        <aside>
+                        <aside className="home-left-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '16px', marginBottom: '16px' }}>
                                     <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px' }}>Sıralama</h3>
@@ -125,7 +125,9 @@ export default function ComparisonPage() {
 
 
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                                        <div style={{ background: 'rgba(255, 107, 53, 0.1)', padding: '8px', borderRadius: '10px' }}><ArrowLeftRight size={20} color="#FF6B35" /></div>
+                                        <div style={{ background: 'var(--secondary)', border: '1px solid var(--card-border)', padding: '8px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                            <ArrowLeftRight size={20} color="var(--text-muted)" />
+                                        </div>
                                         <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>Tüm Karşılaştırmalar</h2>
                                     </div>
 
@@ -179,7 +181,7 @@ export default function ComparisonPage() {
                         </div>
 
                         {/* Right Sidebar */}
-                        <aside>
+                        <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 {sortedThreads.length > 0 && (
                                     <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px', marginBottom: '16px' }}>

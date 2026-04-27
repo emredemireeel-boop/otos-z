@@ -142,11 +142,13 @@ export default function EtkinliklerPage() {
                                 <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>Etkinlikler</h1>
                                 <span style={{
                                     padding: '4px 10px',
-                                    background: 'rgba(34, 197, 94, 0.2)',
-                                    color: '#22c55e',
+                                    background: 'var(--secondary)',
+                                    color: 'var(--foreground)',
+                                    border: '1px solid var(--card-border)',
                                     fontSize: '11px',
                                     borderRadius: '9999px',
-                                    fontWeight: '600',
+                                    fontWeight: '700',
+                                    letterSpacing: '0.5px'
                                 }}>
                                     {filteredEvents.length} ETKİNLİK
                                 </span>
@@ -169,7 +171,7 @@ export default function EtkinliklerPage() {
                         </div>
 
                         {/* Category Pills */}
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px', marginBottom: '8px' }}>
+                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px', marginBottom: '8px' }}>
                             {categoryTypes.map((cat) => (
                                 <button
                                     key={cat}
@@ -192,7 +194,7 @@ export default function EtkinliklerPage() {
                         </div>
 
                         {/* City Pills */}
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
+                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {cities.map((city) => (
                                 <button
                                     key={city}
@@ -217,9 +219,9 @@ export default function EtkinliklerPage() {
                 </div>
 
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
                         {/* Left Sidebar */}
-                        <aside>
+                        <aside className="home-left-sidebar">
                             <div style={{
                                 position: 'sticky',
                                 top: '100px',
@@ -308,7 +310,7 @@ export default function EtkinliklerPage() {
                         </div>
 
                         {/* Right Sidebar */}
-                        <aside>
+                        <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 {/* Popüler Etkinlikler */}
                                 <div style={{

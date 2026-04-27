@@ -41,6 +41,7 @@ export default function Footer() {
                                     src="/white_logo.svg"
                                     alt="Otosöz Logo"
                                     fill
+                                    sizes="40px"
                                     style={{ objectFit: 'contain', filter: 'var(--logo-filter)' }}
                                 />
                             </div>

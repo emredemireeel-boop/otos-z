@@ -28,7 +28,12 @@ export default function GuvenmetrePage() {
     const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [cityModal, setCityModal] = useState<{ categoryId: string; title: string } | null>(null);
     const [citySearch, setCitySearch] = useState("");
+    const [randomListings, setRandomListings] = useState<any[]>([]);
     const router = useRouter();
+
+    useEffect(() => {
+        setRandomListings([...sampleListings].sort(() => 0.5 - Math.random()).slice(0, 3));
+    }, []);
 
     const categoryTypes = ["Tümü", "Hizmet", "Ürün", "Servis", "Alışveriş"];
 
@@ -70,11 +75,13 @@ export default function GuvenmetrePage() {
                                 <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>GüvenMetre</h1>
                                 <span style={{
                                     padding: '4px 10px',
-                                    background: 'rgba(34, 197, 94, 0.2)',
-                                    color: '#22c55e',
+                                    background: 'var(--secondary)',
+                                    color: 'var(--foreground)',
+                                    border: '1px solid var(--card-border)',
                                     fontSize: '11px',
                                     borderRadius: '9999px',
-                                    fontWeight: '600',
+                                    fontWeight: '700',
+                                    letterSpacing: '0.5px'
                                 }}>
                                     GÜNCEL
                                 </span>
@@ -91,7 +98,7 @@ export default function GuvenmetrePage() {
                         </div>
 
                         {/* Category Pills */}
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
+                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {categoryTypes.map((cat) => (
                                 <button
                                     key={cat}
@@ -117,9 +124,9 @@ export default function GuvenmetrePage() {
 
                 {/* 3-Column Layout */}
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
                         {/* Left Sidebar */}
-                        <aside>
+                        <aside className="home-left-sidebar">
                             <div style={{
                                 position: 'sticky', top: '100px',
                                 background: 'var(--card-bg)', border: '1px solid var(--card-border)',
@@ -235,30 +242,50 @@ export default function GuvenmetrePage() {
                         </div>
 
                         {/* Right Sidebar */}
-                        <aside>
+                        <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
-                                {/* Vitrin */}
-                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px', marginBottom: '16px' }}>
-                                    <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '16px' }}>Günün Vitrini</h3>
+                                {/* Pazar Vitrini */}
+                                <div style={{
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '16px',
+                                    padding: '16px',
+                                    marginBottom: '16px',
+                                    overflow: 'hidden'
+                                }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                            Pazar Vitrini
+                                        </h3>
+                                        <Link href="/pazar" style={{ fontSize: '12px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }}>
+                                            Tümü
+                                        </Link>
+                                    </div>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                        {[
-                                            { id: '1', title: 'Bosch Car Service', type: 'Yetkili Servis', rate: '4.8' },
-                                            { id: '2', title: 'Oto Rapor', type: 'Ekspertiz', rate: '4.9' },
-                                        ].map(item => (
-                                            <div key={item.id} style={{
-                                                background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', padding: '12px',
-                                                position: 'relative', transition: 'all 0.2s', cursor: 'pointer'
-                                            }}
-                                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
-                                            >
-                                                <div style={{ position: 'absolute', top: 0, right: 0, background: 'var(--card-bg)', border: '1px solid var(--card-border)', color: 'var(--foreground)', fontSize: '9px', fontWeight: '800', padding: '2px 6px', borderBottomLeftRadius: '6px' }}>VİTRİN</div>
-                                                <h3 style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px', paddingRight: '30px' }}>{item.title}</h3>
-                                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', color: 'var(--text-muted)' }}>
-                                                    <span>{item.type}</span>
-                                                    <span>{item.rate}</span>
+                                        {(randomListings.length > 0 ? randomListings : sampleListings.slice(0, 3)).map((listing, index) => (
+                                            <Link key={listing.id || index} href="/pazar" style={{ textDecoration: 'none' }}>
+                                                <div style={{
+                                                    background: 'var(--secondary)',
+                                                    border: '1px solid var(--card-border)',
+                                                    borderRadius: '12px',
+                                                    padding: '12px',
+                                                    transition: 'all 0.2s',
+                                                    cursor: 'pointer',
+                                                    position: 'relative'
+                                                }}
+                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
+                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
+                                                >
+                                                    <div style={{ position: 'absolute', top: 0, right: 0, background: 'var(--card-bg)', border: '1px solid var(--card-border)', color: 'var(--foreground)', fontSize: '9px', fontWeight: '800', padding: '2px 6px', borderBottomLeftRadius: '6px' }}>VİTRİN</div>
+                                                    <div style={{ fontSize: '13px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px', paddingRight: '40px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                                        {listing.brand} {listing.model}
+                                                    </div>
+                                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {formatKm(listing.km)}</span>
+                                                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e', whiteSpace: 'nowrap' }}>{formatListingPrice(listing.price)}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
@@ -323,49 +350,6 @@ export default function GuvenmetrePage() {
                                     </div>
                                 </Link>
 
-                                {/* Pazar Vitrini */}
-                                <div style={{
-                                    marginTop: '16px',
-                                    background: 'var(--card-bg)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '16px',
-                                    padding: '16px',
-                                    overflow: 'hidden'
-                                }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                            Pazar Vitrini
-                                        </h3>
-                                        <Link href="/pazar" style={{ fontSize: '12px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }}>
-                                            Tümü
-                                        </Link>
-                                    </div>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                        {sampleListings.slice(0, 2).map((listing, index) => (
-                                            <Link key={listing.id || index} href="/pazar" style={{ textDecoration: 'none' }}>
-                                                <div style={{
-                                                    background: 'var(--secondary)',
-                                                    border: '1px solid var(--card-border)',
-                                                    borderRadius: '12px',
-                                                    padding: '12px',
-                                                    transition: 'all 0.2s',
-                                                    cursor: 'pointer'
-                                                }}
-                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
-                                                >
-                                                    <div style={{ fontSize: '13px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                                        {listing.brand} {listing.model}
-                                                    </div>
-                                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {formatKm(listing.km)}</span>
-                                                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e', whiteSpace: 'nowrap' }}>{formatListingPrice(listing.price)}</span>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
                             </div>
                         </aside>
                     </div>

@@ -18,6 +18,11 @@ interface GuideSubSection {
     points?: string[];
 }
 
+interface GuideTable {
+    headers: string[];
+    rows: string[][];
+}
+
 interface GuideSection {
     type: string;
     title: string;
@@ -25,6 +30,7 @@ interface GuideSection {
     subsections?: GuideSubSection[];
     warning?: TipWarning;
     tip?: TipWarning;
+    table?: GuideTable;
 }
 
 interface GuideDetail {
@@ -357,6 +363,30 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                                 )}
                                             </div>
                                         ))}
+
+                                        {/* Table Render */}
+                                        {section.table && (
+                                            <div style={{ overflowX: 'auto', marginTop: '24px', borderRadius: '12px', border: '1px solid var(--card-border)' }}>
+                                                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '14px' }}>
+                                                    <thead style={{ background: 'var(--secondary)' }}>
+                                                        <tr>
+                                                            {section.table.headers.map((th, i) => (
+                                                                <th key={i} style={{ padding: '14px 16px', fontWeight: '700', color: 'var(--foreground)', borderBottom: '1px solid var(--card-border)' }}>{th}</th>
+                                                            ))}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {section.table.rows.map((row, i) => (
+                                                            <tr key={i} style={{ borderBottom: i === section.table.rows.length - 1 ? 'none' : '1px solid var(--card-border)', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
+                                                                {row.map((td, j) => (
+                                                                    <td key={j} style={{ padding: '14px 16px', color: 'var(--text-muted)' }}>{td}</td>
+                                                                ))}
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Warning */}

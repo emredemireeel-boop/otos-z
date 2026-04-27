@@ -136,7 +136,7 @@ export default function NewComparisonPage() {
                                     </div>
                                     <div>
                                         <h1 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--foreground)', margin: 0, marginBottom: '4px' }}>Yeni Karşılaştırma</h1>
-                                        <p style={{ fontSize: '16px', color: 'var(--text-muted)', margin: 0 }}>Araclari karsilastirin ve paylasin</p>
+                                        <p style={{ fontSize: '16px', color: 'var(--text-muted)', margin: 0 }}>Araçları karşılaştırın ve paylaşın</p>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@ export default function NewComparisonPage() {
                         <div style={{ marginBottom: '16px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                                 <Car style={{ width: '20px', height: '20px', color: 'var(--primary)' }} />
-                                <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', margin: 0 }}>Arac Sayisi</h3>
+                                <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', margin: 0 }}>Araç Sayısı</h3>
                             </div>
                         </div>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
@@ -191,10 +191,10 @@ export default function NewComparisonPage() {
                             }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                                     <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', fontWeight: '700', color: 'white' }}>{index + 1}</div>
-                                    <h4 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--foreground)', margin: 0 }}>Arac {index + 1}</h4>
+                                    <h4 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--foreground)', margin: 0 }}>Araç {index + 1}</h4>
                                 </div>
                                 <div style={{ marginBottom: '16px' }}>
-                                    <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Arac Adi *</label>
+                                    <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Araç Adı *</label>
                                     <input type="text" value={item.name} onChange={(e) => updateItem(index, 'name', e.target.value)} placeholder={`Orn: Toyota Corolla ${new Date().getFullYear()}`}
                                         style={{ width: '100%', padding: '12px 16px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '8px', color: 'var(--foreground)', fontSize: '14px', outline: 'none' }} />
                                 </div>

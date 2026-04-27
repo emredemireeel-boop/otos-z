@@ -223,7 +223,7 @@ export default function AnketPage() {
                         </div>
 
                         {/* Category Pills */}
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
+                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {categories.map((cat) => (
                                 <button key={cat} onClick={() => setSelectedCategory(cat)} style={{
                                     padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '500',
@@ -240,9 +240,9 @@ export default function AnketPage() {
                 </div>
 
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
                         {/* Sol Sidebar */}
-                        <aside>
+                        <aside className="home-left-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px', marginBottom: '16px' }}>
                                     <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -451,7 +451,7 @@ export default function AnketPage() {
                         </div>
 
                         {/* Sağ Sidebar */}
-                        <aside>
+                        <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 {/* Reklam Alanı */}
                                 <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block', marginBottom: '16px' }}>

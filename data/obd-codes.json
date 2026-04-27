@@ -20181,5 +20181,1371 @@
       "Arızalı modül veya sensörün değişimi ve gerekli kodlamaların/adaptasyonların (direksiyon açısı sıfırlama vb.) yapılması",
       "Diagnostik cihazı ile tüm ağ modüllerinin taranıp arıza kayıtlarının temizlenmesi"
     ]
+  },
+  {
+    "code": "B1002",
+    "title": "Sol Arka Kapı Mekanik Sıkışma",
+    "description": "Sol Arka Kapı modülünde mekanik sıkışma tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1003",
+    "title": "Sağ Arka Kapı Kısa Devre",
+    "description": "Sağ Arka Kapı modülünde kısa devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1004",
+    "title": "Geri Görüş Kamerası Açık Devre",
+    "description": "Geri Görüş Kamerası modülünde açık devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1005",
+    "title": "Yağmur Sensörü Düşük Voltaj",
+    "description": "Yağmur Sensörü modülünde düşük voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1006",
+    "title": "Koltuk Isıtma Yüksek Voltaj",
+    "description": "Koltuk Isıtma modülünde yüksek voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1007",
+    "title": "Bagaj Kapağı Sinyal Yok",
+    "description": "Bagaj Kapağı modülünde sinyal yok tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1008",
+    "title": "Sunroof Yüksek Voltaj",
+    "description": "Sunroof modülünde yüksek voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1009",
+    "title": "Yağmur Sensörü Kısa Devre",
+    "description": "Yağmur Sensörü modülünde kısa devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1010",
+    "title": "Far Sensörü Kısa Devre",
+    "description": "Far Sensörü modülünde kısa devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1011",
+    "title": "Geri Görüş Kamerası Kısa Devre",
+    "description": "Geri Görüş Kamerası modülünde kısa devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1012",
+    "title": "Geri Görüş Kamerası İletişim Hatası",
+    "description": "Geri Görüş Kamerası modülünde i̇letişim hatası tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1013",
+    "title": "Klima Motoru Kısa Devre",
+    "description": "Klima Motoru modülünde kısa devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1014",
+    "title": "Klima Motoru Yüksek Voltaj",
+    "description": "Klima Motoru modülünde yüksek voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1015",
+    "title": "Sol Arka Kapı Yüksek Voltaj",
+    "description": "Sol Arka Kapı modülünde yüksek voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1016",
+    "title": "Ayna Katlama Yüksek Voltaj",
+    "description": "Ayna Katlama modülünde yüksek voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1017",
+    "title": "Bagaj Kapağı Kısa Devre",
+    "description": "Bagaj Kapağı modülünde kısa devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1018",
+    "title": "Park Sensörü Yüksek Voltaj",
+    "description": "Park Sensörü modülünde yüksek voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1019",
+    "title": "Geri Görüş Kamerası Mekanik Sıkışma",
+    "description": "Geri Görüş Kamerası modülünde mekanik sıkışma tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1020",
+    "title": "Silecek Motoru Mekanik Sıkışma",
+    "description": "Silecek Motoru modülünde mekanik sıkışma tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1021",
+    "title": "Silecek Motoru Düşük Voltaj",
+    "description": "Silecek Motoru modülünde düşük voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1022",
+    "title": "Yağmur Sensörü Sinyal Yok",
+    "description": "Yağmur Sensörü modülünde sinyal yok tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1023",
+    "title": "Sol Ön Kapı Sinyal Yok",
+    "description": "Sol Ön Kapı modülünde sinyal yok tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1024",
+    "title": "Koltuk Isıtma Yüksek Voltaj",
+    "description": "Koltuk Isıtma modülünde yüksek voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1025",
+    "title": "Klima Motoru İletişim Hatası",
+    "description": "Klima Motoru modülünde i̇letişim hatası tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1026",
+    "title": "Park Sensörü Kısa Devre",
+    "description": "Park Sensörü modülünde kısa devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1027",
+    "title": "Sağ Ön Kapı Açık Devre",
+    "description": "Sağ Ön Kapı modülünde açık devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1028",
+    "title": "Sunroof Yüksek Voltaj",
+    "description": "Sunroof modülünde yüksek voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1029",
+    "title": "Geri Görüş Kamerası Sinyal Yok",
+    "description": "Geri Görüş Kamerası modülünde sinyal yok tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1030",
+    "title": "İç Aydınlatma Açık Devre",
+    "description": "İç Aydınlatma modülünde açık devre tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "B1031",
+    "title": "Park Sensörü Düşük Voltaj",
+    "description": "Park Sensörü modülünde düşük voltaj tespit edildi.",
+    "type": "B",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Gövde Sistemi"
+    ],
+    "symptoms": [
+      "İlgili donanımın çalışmaması",
+      "Araç içi uyarı mesajı"
+    ],
+    "causes": [
+      "Tesisat kopukluğu veya kısa devre",
+      "Modül arızası",
+      "Sigorta atması"
+    ],
+    "fixes": [
+      "Tesisat kontrolü",
+      "Modül değişimi",
+      "Hata kodunun silinmesi"
+    ]
+  },
+  {
+    "code": "P0C29",
+    "title": "İnvertör Soğutma Sistemi Performansı",
+    "description": "Elektrik motoru invertörünün soğutma sisteminde yetersiz akış veya aşırı ısınma.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarma (Powertrain)"
+    ],
+    "symptoms": [
+      "Hibrit sistem aşırı ısınma uyarısı",
+      "Aracın kendini korumaya alması (Limp Mode)"
+    ],
+    "causes": [
+      "İnvertör su pompasının bozulması",
+      "Soğutma sıvısı eksikliği",
+      "Hava yapmış soğutma sistemi"
+    ],
+    "fixes": [
+      "İnvertör su pompasının değişimi",
+      "Soğutma sıvısı değişimi ve havasının alınması"
+    ]
+  },
+  {
+    "code": "P207F",
+    "title": "Redüktör (AdBlue) Kalite Performansı",
+    "description": "Sisteme enjekte edilen AdBlue sıvısının yoğunluğu veya kalitesi yetersiz.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Değişken",
+    "systems": [
+      "Güç Aktarma (Powertrain)"
+    ],
+    "symptoms": [
+      "Üre kalitesi düşük uyarısı",
+      "Motor arıza lambası"
+    ],
+    "causes": [
+      "Su katılmış veya bozulmuş AdBlue",
+      "AdBlue kalite sensörü arızası"
+    ],
+    "fixes": [
+      "Sistemin yıkanması ve yeni standart AdBlue eklenmesi",
+      "Kalite sensörünün kalibrasyonu"
+    ]
+  },
+  {
+    "code": "P1A15",
+    "title": "Hibrit Aktarma Organı Kontrol Modülü - Sistem Devre Dışı",
+    "description": "Hibrit kontrol beyni ciddi bir güvenlik tehdidi veya donanım arızası nedeniyle yüksek voltaj sistemini kapattı.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain)"
+    ],
+    "symptoms": [
+      "Aracın hiçbir şekilde çalışmaması (Ready konuma geçmemesi)"
+    ],
+    "causes": [
+      "Yüksek voltaj kaçağı",
+      "Kaza sonrası çarpışma sensörü tetiklemesi",
+      "İnvertör arızası"
+    ],
+    "fixes": [
+      "Sistem izolasyon testi",
+      "Yüksek voltaj devrelerinin resetlenmesi ve onarımı"
+    ]
+  },
+  {
+    "code": "P0B24",
+    "title": "Hibrit/EV Batarya Voltaj Sensörü A Devresi Düşük",
+    "description": "Hibrit/EV Batarya Voltaj Sensörü A Devresi Düşük tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P1E00",
+    "title": "Hibrit Güç Aktarma Sistemi İzolasyon Hatası",
+    "description": "Hibrit Güç Aktarma Sistemi İzolasyon Hatası tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0AFA",
+    "title": "Hibrit/EV Batarya Sistemi Kritik Voltaj Düşüklüğü",
+    "description": "Hibrit/EV Batarya Sistemi Kritik Voltaj Düşüklüğü tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0C2A",
+    "title": "Elektrik Motoru B Sıcaklık Sensörü Devresi Yüksek",
+    "description": "Elektrik Motoru B Sıcaklık Sensörü Devresi Yüksek tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0B16",
+    "title": "Hibrit/EV Batarya Paketi Voltaj Dengesizliği",
+    "description": "Hibrit/EV Batarya Paketi Voltaj Dengesizliği tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P1AF0",
+    "title": "Sürüş Motoru B İnvertör Performans Hatası",
+    "description": "Sürüş Motoru B İnvertör Performans Hatası tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0C73",
+    "title": "Motor Elektroniği Soğutma Pompası A Performansı",
+    "description": "Motor Elektroniği Soğutma Pompası A Performansı tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P1B00",
+    "title": "Batarya Enerji Kontrol Modülü Voltaj Algılama Hatası",
+    "description": "Batarya Enerji Kontrol Modülü Voltaj Algılama Hatası tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0B0D",
+    "title": "Motor Kontrol Modülü B Dahili Donanım Arızası",
+    "description": "Motor Kontrol Modülü B Dahili Donanım Arızası tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0C17",
+    "title": "Sürüş Motoru A Konum Sensörü Kalibre Edilmedi",
+    "description": "Sürüş Motoru A Konum Sensörü Kalibre Edilmedi tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P1A16",
+    "title": "Yüksek Voltaj Sistemi Şasi Kaçağı (İzolasyon)",
+    "description": "Yüksek Voltaj Sistemi Şasi Kaçağı (İzolasyon) tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0A00",
+    "title": "Motor Elektroniği Soğutma Sıvısı Sıcaklık Sensörü Devresi",
+    "description": "Motor Elektroniği Soğutma Sıvısı Sıcaklık Sensörü Devresi tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0A7E",
+    "title": "Hibrit Batarya Modülünde Aşırı Sıcaklık",
+    "description": "Hibrit Batarya Modülünde Aşırı Sıcaklık tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0A9C",
+    "title": "Hibrit Batarya Sıcaklık Sensörü Devresi Kısa Devre",
+    "description": "Hibrit Batarya Sıcaklık Sensörü Devresi Kısa Devre tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0A1E",
+    "title": "Jeneratör Kontrol Modülü Senkronizasyon Hatası",
+    "description": "Jeneratör Kontrol Modülü Senkronizasyon Hatası tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0C00",
+    "title": "Tahrik Motoru A Akım Sensörü Devresi Yüksek",
+    "description": "Tahrik Motoru A Akım Sensörü Devresi Yüksek tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0A8E",
+    "title": "Hibrit/EV Batarya Şarj Kontrol Modülü Hatası",
+    "description": "Hibrit/EV Batarya Şarj Kontrol Modülü Hatası tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P1AE2",
+    "title": "İnvertör / Dönüştürücü Rölesi A Kısa Devre",
+    "description": "İnvertör / Dönüştürücü Rölesi A Kısa Devre tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0AA0",
+    "title": "Pozitif Kontaktör Rölesi Yapışık Kaldı",
+    "description": "Pozitif Kontaktör Rölesi Yapışık Kaldı tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0A9D",
+    "title": "Hibrit Batarya Sıcaklık Sensörü Devresi Açık",
+    "description": "Hibrit Batarya Sıcaklık Sensörü Devresi Açık tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
+  },
+  {
+    "code": "P0B4B",
+    "title": "Hibrit Batarya Gerilimi Çok Yüksek (Aşırı Şarj)",
+    "description": "Hibrit Batarya Gerilimi Çok Yüksek (Aşırı Şarj) tespit edildi. Yüksek voltaj veya aktarma sisteminde ciddi bir uyarıdır.",
+    "type": "P",
+    "isGeneric": true,
+    "severity": "Yüksek",
+    "systems": [
+      "Güç Aktarma (Powertrain) - Hibrit/EV"
+    ],
+    "symptoms": [
+      "READY konumuna geçmeme",
+      "Motor arıza ve yüksek voltaj uyarı lambaları",
+      "Sürüş kısıtlaması (Limp Mode)"
+    ],
+    "causes": [
+      "Yüksek voltaj devrelerinde izolasyon kaybı",
+      "Modül arızası",
+      "Aşırı ısınma"
+    ],
+    "fixes": [
+      "İzolasyon testi ve onarımı",
+      "Arızalı modülün değişimi",
+      "Güvenlik prosedürleri eşliğinde tesisat kontrolü"
+    ]
   }
 ]

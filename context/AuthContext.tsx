@@ -129,6 +129,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 setUser(appUser);
                 localStorage.setItem("Otosoz_user", JSON.stringify(appUser));
 
+                // Kullanıcının şehrini localStorage'a kaydet (yakıt fiyatları için)
+                if (appUser.city) {
+                    localStorage.setItem('oto_user_city', appUser.city);
+                }
+
                 // Firebase ID Token ile guvenli cookie set et
                 try {
                     const idToken = await fbUser.getIdToken();
@@ -290,6 +295,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setFirebaseUser(null);
         setNeedsProfileCompletion(false);
         localStorage.removeItem("Otosoz_user");
+        localStorage.removeItem("oto_user_city");
         document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
         document.cookie = "user_role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
         router.push("/");

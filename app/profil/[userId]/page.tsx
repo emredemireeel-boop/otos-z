@@ -76,6 +76,7 @@ export default function ProfilPage() {
     const [profileLoaded, setProfileLoaded] = useState(false);
     const [otherUserData, setOtherUserData] = useState<{id:string; role:string; entryCount:number; createdAt?:any} | null>(null);
     const [userThreads, setUserThreads] = useState<{id:string;title:string;views:number;entryCount:number}[]>([]);
+    const [userEntries, setUserEntries] = useState<any[]>([]);
     const [userRating, setUserRating] = useState({ average: 0, count: 0 });
 
     // Load profile from Firestore (own or other user)
@@ -115,6 +116,11 @@ export default function ProfilPage() {
                     id: d.id, title: d.data().title || "", views: d.data().views || 0, entryCount: d.data().entryCount || 0,
                 }));
                 setUserThreads(threads);
+                
+                // Load user's entries
+                const { getUserEntries } = await import("@/lib/forumService");
+                const entries = await getUserEntries(userId);
+                setUserEntries(entries);
             } catch (e) {
                 console.warn("Profil yuklenemedi:", e);
             }
@@ -348,7 +354,7 @@ export default function ProfilPage() {
                         <div style={{ display: 'flex', gap: '32px', justifyContent: 'center', flexWrap: 'wrap' }}>
                             {[
                                 { label: 'Baslik', value: userThreads.length, icon: MessageSquare },
-                                { label: 'Entry', value: otherUserData?.entryCount || 0, icon: MessageSquare },
+                                { label: 'Entry', value: Math.max(otherUserData?.entryCount || 0, userEntries.length), icon: MessageSquare },
                                 { label: 'Goruntuleme', value: userThreads.reduce((s,t) => s + t.views, 0), icon: Eye },
                             ].map((stat, i) => (
                                 <div key={i} style={{ textAlign: 'center' }}>
@@ -370,24 +376,54 @@ export default function ProfilPage() {
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '24px' }}>
                         {/* Left - Activity */}
                         <div>
-                            {/* Thread List */}
-                            <h3 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '16px' }}>Acilan Basliklar</h3>
+                            {/* Tabs */}
+                            <div style={{ display: 'flex', gap: '16px', marginBottom: '20px', borderBottom: '1px solid var(--card-border)' }}>
+                                <button onClick={() => setActiveTab('posts')} style={{ padding: '10px 4px', background: 'transparent', border: 'none', borderBottom: activeTab === 'posts' ? '2px solid var(--primary)' : '2px solid transparent', color: activeTab === 'posts' ? 'var(--foreground)' : 'var(--text-muted)', fontSize: '15px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}>
+                                    Başlıklar ({userThreads.length})
+                                </button>
+                                <button onClick={() => setActiveTab('comments')} style={{ padding: '10px 4px', background: 'transparent', border: 'none', borderBottom: activeTab === 'comments' ? '2px solid var(--primary)' : '2px solid transparent', color: activeTab === 'comments' ? 'var(--foreground)' : 'var(--text-muted)', fontSize: '15px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}>
+                                    Entryler ({userEntries.length})
+                                </button>
+                            </div>
+
+                            {/* Thread/Entry List */}
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                {userThreads.length === 0 ? (
-                                    <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '32px', textAlign: 'center' }}>
-                                        <MessageSquare size={32} style={{ color: 'var(--text-muted)', margin: '0 auto 12px', display: 'block' }} />
-                                        <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Henuz baslik acilmamis</p>
-                                    </div>
-                                ) : (
-                                    userThreads.map((thread) => (
-                                        <div key={thread.id} onClick={() => router.push(`/forum/konu/${thread.id}`)} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '16px', cursor: 'pointer', transition: 'border-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--card-border)'}>
-                                            <h3 style={{ fontSize: '15px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>{thread.title}</h3>
-                                            <div style={{ display: 'flex', gap: '16px', fontSize: '12px', color: 'var(--text-muted)' }}>
-                                                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Eye size={12} /> {thread.views}</span>
-                                                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={12} /> {thread.entryCount} entry</span>
-                                            </div>
+                                {activeTab === 'posts' ? (
+                                    userThreads.length === 0 ? (
+                                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '32px', textAlign: 'center' }}>
+                                            <MessageSquare size={32} style={{ color: 'var(--text-muted)', margin: '0 auto 12px', display: 'block' }} />
+                                            <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Henuz baslik acilmamis</p>
                                         </div>
-                                    ))
+                                    ) : (
+                                        userThreads.map((thread) => (
+                                            <div key={thread.id} onClick={() => router.push(`/forum/konu/${thread.id}`)} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '16px', cursor: 'pointer', transition: 'border-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--card-border)'}>
+                                                <h3 style={{ fontSize: '15px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>{thread.title}</h3>
+                                                <div style={{ display: 'flex', gap: '16px', fontSize: '12px', color: 'var(--text-muted)' }}>
+                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Eye size={12} /> {thread.views}</span>
+                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={12} /> {thread.entryCount} entry</span>
+                                                </div>
+                                            </div>
+                                        ))
+                                    )
+                                ) : (
+                                    userEntries.length === 0 ? (
+                                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '32px', textAlign: 'center' }}>
+                                            <MessageSquare size={32} style={{ color: 'var(--text-muted)', margin: '0 auto 12px', display: 'block' }} />
+                                            <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Henuz entry girilmemis</p>
+                                        </div>
+                                    ) : (
+                                        userEntries.map((entry) => (
+                                            <div key={entry.id} onClick={() => router.push(`/forum/konu/${entry.threadId}`)} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '16px', cursor: 'pointer', transition: 'border-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--card-border)'}>
+                                                <p style={{ fontSize: '14px', color: 'var(--foreground)', marginBottom: '12px', lineHeight: '1.5' }}>
+                                                    {entry.content.length > 150 ? entry.content.substring(0, 150) + '...' : entry.content}
+                                                </p>
+                                                <div style={{ display: 'flex', gap: '16px', fontSize: '12px', color: 'var(--text-muted)' }}>
+                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><ThumbsUp size={12} /> {entry.likes || 0} beğeni</span>
+                                                    <span>{new Date(entry.createdAt?.toDate ? entry.createdAt.toDate() : entry.createdAt).toLocaleDateString('tr-TR')}</span>
+                                                </div>
+                                            </div>
+                                        ))
+                                    )
                                 )}
                             </div>
                         </div>

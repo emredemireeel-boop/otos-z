@@ -103,7 +103,7 @@ export default function ObdPage() {
                         </div>
 
                         {/* Category Pills */}
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
+                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {CATEGORIES.map((cat) => (
                                 <button
                                     key={cat.id}
@@ -128,9 +128,9 @@ export default function ObdPage() {
                 </div>
 
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
                         {/* Left Sidebar */}
-                        <aside>
+                        <aside className="home-left-sidebar">
                             <div style={{
                                 position: 'sticky',
                                 top: '100px',
@@ -366,7 +366,7 @@ export default function ObdPage() {
                         </div>
 
                         {/* Right Sidebar */}
-                        <aside>
+                        <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 {/* İstatistikler */}
                                 <div style={{

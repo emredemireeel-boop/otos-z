@@ -45,6 +45,8 @@ export default function RootLayout({
     return (
         <html lang="tr">
             <head>
+                {/* Mobile viewport */}
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
                 {/* LCP optimizasyonu: Logoları en yüksek öncelikle önyükle */}
                 <link rel="preload" href="/dark_logo.svg" as="image" type="image/svg+xml" fetchPriority="high" />
                 <link rel="preload" href="/whitemode_logo.svg" as="image" type="image/svg+xml" fetchPriority="high" />

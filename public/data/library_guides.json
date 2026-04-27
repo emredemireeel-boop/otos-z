@@ -2315,8 +2315,8 @@
     {
       "id": "guide_013",
       "title": "TÜVTÜRK Muayene Hazırlık Rehberi: Tek Seferde Geçmenin Yolları",
-      "description": "Araç muayenesi kabusunuz olmasın. En sık yapılan 'Ağır Kusur' hataları, zorunlu ekipmanlar ve muayene öncesi yapmanız gereken 15 dakikalık kritik kontrol listesi.",
-      "minutes": 11,
+      "description": "TÜVTÜRK istasyonlarından tek seferde 'Kusursuz' veya 'Hafif Kusurlu' geçmek için bilmeniz gereken gizli detaylar, ağır kusur listeleri ve altın değerinde ipuçları.",
+      "minutes": 15,
       "difficulty": "Kritik",
       "tags": [
         "Muayene",
@@ -2329,171 +2329,154 @@
       "sections": [
         {
           "type": "intro",
-          "title": "Giriş: Stres Yok, Hazırlık Var",
-          "content": "Araç muayenesi, hem güvenliğiniz hem de yasal zorunluluk için 2 yılda bir (ticarilerde her yıl) yapılır. 'Acaba geçer mi?' stresi yaşamak yerine, bu rehberdeki adımları takip ederek aracınızı muayeneye 100% hazır hale getirebilirsiniz. Unutmayın, basit bir lamba patlağı bile 'Ağır Kusur' sayılıp sizi geri gönderebilir."
+          "title": "TÜVTÜRK Muayenesi Bir Kabus Olmak Zorunda Değil",
+          "content": "Her iki yılda bir (ticari araçlar için her yıl) tekrarlanan TÜVTÜRK muayenesi, birçok sürücü için stresli bir süreçtir. Aracınızın 'Ağır Kusurlu' bulunarak muayeneden kalması, sadece vaktinizi değil, aynı zamanda yeniden randevu alma ve onarım maliyetleriyle bütçenizi de zorlar. Ancak kuralları bilirseniz, tek seferde geçmek çocuk oyuncağıdır. 2026'nın en güncel TÜVTÜRK denetim prosedürlerini sizin için deşifre ettik."
+        },
+        {
+          "type": "warning",
+          "title": "Randevu Almadan Önceki Kırmızı Çizgi",
+          "content": "Aracınızın Motorlu Taşıtlar Vergisi (MTV) borcu, ödenmemiş trafik cezası veya OGS/HGS geçiş ihlali borcu varsa sistem size randevu VERMEZ. Ayrıca, aracınızın Zorunlu Trafik Sigortası muayene günü bitmişse veya hiç yoksa muayeneye alınmazsınız. İstasyona gitmeden önce e-Devlet üzerinden tüm borçlarınızı sıfırlayın."
         },
         {
           "type": "section",
-          "title": "1. Ruhsat ve Yasal Kontroller (Evden Çıkmadan Önce)",
-          "content": "İstasyona gitmeden önce bürokratik engelleri aşmanız gerekir.",
+          "title": "1. En Çok Kalınan Yer: Aydınlatma ve Elektrik Aksamı",
+          "content": "İstatistiklere göre araçların muayeneden kalma sebebinin %40'ı basit ampul patlamaları veya hatalı aydınlatmalardır.",
           "subsections": [
             {
-              "subtitle": "Borç Sorgulama",
-              "text": "Aracınızın borcu varsa randevu bile alamazsınız:",
-              "points": [
-                "MTV (Motorlu Taşıtlar Vergisi) borcu olmamalı.",
-                "Ödenmemiş trafik cezası veya OGS/HGS geçiş ihlali borcu olmamalı.",
-                "Trafik Sigortası (Zorunlu Sigorta) geçerlilik süresi devam etmeli."
-              ]
+              "subtitle": "Farlar ve Sinyaller",
+              "text": "Sağ-sol kısa ve uzun farların sorunsuz yanması şarttır. Eğer farlarınızın biri farklı, diğeri farklı renkte yanıyorsa veya merceksiz fara sonradan takma LED/Xenon ampul taktıysanız bu doğrudan AĞIR KUSUR sebebidir. Farlarınızın aydınlatma çizgisi odaklanamıyorsa yine geçemezsiniz."
             },
             {
-              "subtitle": "LPG'li Araçlar İçin",
-              "text": "LPG tankı ve sistemi kritik öneme sahiptir:",
-              "points": [
-                "LPG tankının ömrü 10 yıldır. Tarihi geçmişse (üzerindeki etikete bakın) değişmesi şarttır.",
-                "LPG sızdırmazlık raporu artık hafif kusur sayılsa da, sistemde kaçak olmamalıdır.",
-                "Ruhsata işli değilse muayeneden geçemezsiniz."
-              ]
-            }
-          ],
-          "warning": {
-            "title": "⚠️ Egzoz Pulu",
-            "text": "Egzoz Emisyon Ölçümü'nü muayene istasyonunda yaptırmak risklidir (kalabalık ve stresli). Dışarıdaki yetkili özel servislerde yaptırıp gitmek size zaman kazandırır."
-          }
-        },
-        {
-          "type": "section",
-          "title": "2. Aydınlatma Sistemi: En Sık Yapılan Hata",
-          "content": "Muayeneden kalan araçların %30'u basit bir ampul yüzünden kalır.",
-          "subsections": [
-            {
-              "subtitle": "Hangi Işıklar Kontrol Edilmeli?",
-              "text": "Bir arkadaşınızdan yardım isteyin ve tek tek kontrol edin:",
-              "points": [
-                "Kısa ve Uzun Farlar (Far ayarı bozuksa hafif kusurdur, ama yanmıyorsa AĞIR kusurdur).",
-                "Park lambaları (Ön ve arka).",
-                "Sinyaller (Sağ, sol ve dörtlüler).",
-                "Fren lambaları (En önemlisi! Üçüncü stop lambası dahil).",
-                "Geri vites lambası.",
-                "Plaka aydınlatması (Genelde unutulur, yanmıyorsa AĞIR kusurdur!)."
-              ]
-            },
-            {
-              "subtitle": "Far Plastikleri",
-              "text": "Farlarınız çok matlaşmışsa ve ışık hüzmesi yolu göstermiyorsa kusur sayılabilir. Diş macunu veya pasta ile temizleyip gidin."
-            }
-          ]
-        },
-        {
-          "type": "section",
-          "title": "3. Lastikler ve Yürüyen Aksam",
-          "content": "Lastikleriniz yasal sınırların üzerindeyse bile hata yapabilirsiniz.",
-          "subsections": [
-            {
-              "subtitle": "Diş Derinliği ve Hasar",
-              "text": "Standartlar nettir:",
-              "points": [
-                "Diş derinliği en az 1.6 mm olmalı (Kış lastiği zorunluluğu illere göre değişir).",
-                "Lastik yanaklarında balon (yumru) veya derin yarık varsa AĞIR kusurdur.",
-                "Aynı aks üzerinde farklı ebat lastik varsa (Örn: Sağda 15, solda 16 jant) AĞIR kusurdur."
-              ]
-            },
-            {
-              "subtitle": "Kişiselleştirme Kurbanı Olmayın",
-              "text": "Aracı basmak (helezon kesmek) veya aşırı ofsetli jant takıp lastiğin çamurluğa sürtmesi AĞIR kusurdur.",
-              "points": [
-                "Araç lifte kaldırıldığında tekerlekler rahatça dönmeli, bir yere sürtmemelidir."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "section",
-          "title": "4. Zorunlu Araç Ekipmanları",
-          "content": "Bagajınızda bulunması gerekenler eksikse muayene yanabilir.",
-          "subsections": [
-            {
-              "subtitle": "Yangın Tüpü",
-              "text": "Tarihi geçmiş tüpler kabul edilmez:",
-              "points": [
-                "Otomobillerde en az 1 adet 1kg'lık tüp.",
-                "Tüpün üzerindeki manometre (basınç göstergesi) 'Yeşil' alanda olmalı.",
-                "Erişilebilir bir yerde olmalı (Bagajın en altında, stepnenin yanında değil!)."
-              ]
-            },
-            {
-              "subtitle": "İlk Yardım Çantası ve Üçgen Reflektör",
-              "text": "İçeriği tam bir çanta ve 2 adet reflektör zorunludur.",
-              "points": [
-                "Traktörler ve motosikletler hariç her araçta şarttır."
-              ]
+              "subtitle": "Fren ve Üçüncü Stop Lambası",
+              "text": "Sürücülerin en çok unuttuğu detay arka camdaki 'Üçüncü Fren (Stop) Lambası'dır. Yanmaması veya içindeki LED'lerin yarısının sönük olması ağır kusurdur. Geri vites lambanızın ve plaka aydınlatmanızın çalıştığından mutlaka emin olun."
             }
           ],
           "tip": {
-            "title": "💡 Stepne Zorunlu Mu?",
-            "text": "Hayır, stepne (yedek lastik) bulundurmak kusur sebebi değildir. Ancak lastik tamir kiti veya run-flat lastik yoksa, yolda kalmamak için bulundurmanız önerilir."
+            "title": "Arkadaşınızdan Yardım İsteyin",
+            "text": "Muayeneye gitmeden 1 gün önce bir arkadaşınızı direksiyona geçirin. O frene basarken, sinyal verirken ve geri vitese takarken siz aracın arkasından her şeyin eksiksiz yandığını teyit edin."
           }
         },
         {
           "type": "section",
-          "title": "5. Fren ve Emniyet Kemerleri",
-          "content": "Güvenlikten taviz verilmez.",
+          "title": "2. Fren Sistemi: Hayati Önem Taşıyan Kriter",
+          "content": "Fren test cihazına çıkan aracınızın sapma oranları milimetrik olarak ölçülür.",
           "subsections": [
             {
-              "subtitle": "Fren Testi",
-              "text": "Bireysel olarak test etmesi zordur ama:",
-              "points": [
-                "El freni aracı dik yokuşta tutabilmeli.",
-                "Fren hortumlarında çatlak veya sızıntı AĞIR kusurdur.",
-                "Sağ ve sol tekerlek frenleme değerleri arasında %30'dan fazla fark varsa (araç fren yapınca sağa/sola çekiyorsa) kalırsınız."
-              ]
+              "subtitle": "Sapma Oranları (Fren Dengesi)",
+              "text": "Fren pedalına basıldığında sağ ve sol tekerleklerin tutuş gücü arasındaki fark (sapma oranı) %30'dan fazla ise aracınız fren testinden ağır kusurla kalır. Aracınız frene bastığınızda sağa veya sola çekiyorsa muayeneye gitmeden önce mutlaka bir frenciye (balata/disk/kaliper kontrolü) gösterin."
             },
             {
-              "subtitle": "Emniyet Kemerleri",
-              "text": "Sadece önler değil, ARKA kemerler de takılıp denenir:",
-              "points": [
-                "Tüm kemer tokaları çalışmalı (kilitlenmeli).",
-                "Kemer kumaşında yırtık veya sökük olmamalı.",
-                "Kemer çekince gelmeli, bırakınca geri sarmalıdır."
-              ]
+              "subtitle": "El Freni Performansı",
+              "text": "El frenini çektiğinizde tekerlekler eşit oranda kilitlenmelidir. El freni teli kopuk, çok gevşek veya tekerleklerden sadece birini tutuyorsa muayeneden geçemezsiniz."
             }
           ]
         },
         {
           "type": "section",
-          "title": "6. Camlar ve Görüş",
-          "content": "Görüşünüzü engelleyen her şey potansiyel kusurdur.",
+          "title": "3. Camlar, Filmler ve Aynalar",
+          "content": "Görüş açınızı engelleyen her türlü fiziki engel doğrudan reddedilir.",
           "subsections": [
             {
-              "subtitle": "Cam Filmleri",
-              "text": "Yasal düzenleme karmaşıktır ama genel kural:",
-              "points": [
-                "Ön camda film kesinlikle YASAKTIR (Ağır Kusur olabilir).",
-                "Yan camlarda çok koyu (içerisi görünmeyen) filmler Hafif Kusur olarak geçer."
-              ]
+              "subtitle": "Cam Çatlakları",
+              "text": "Ön camda sürücünün tam görüş alanında (sileceklerin süpürdüğü bölge) derin ve büyük bir çatlak varsa araç muayeneden kalır. Ancak yolcu tarafındaki küçük taş izleri veya kılcal çatlaklar genellikle 'Hafif Kusur' ile geçer."
             },
             {
-              "subtitle": "Silecekler ve Su",
-              "text": "Silecekler camı temizlemiyorsa veya silecek suyu atmıyorsa kusurdur. Hazneyi doldurun."
+              "subtitle": "Cam Filmleri",
+              "text": "Yan ve arka camlardaki normal cam filmleri yasal olarak 'Hafif Kusur' sayılır ve geçmenize engel değildir. Ancak ön (ön yüz) camda kesinlikle film olmamalıdır."
             }
           ]
         },
         {
-          "type": "conclusion",
-          "title": "Sonuç: Randevu Günü Taktikleri",
-          "content": "Randevu saatinizden 30 dakika önce gidin. Aracı istasyona sokmadan önce motorun sıcak olduğundan emin olun (Emisyon ve rölanti testi için). Sakin olun, memurlarla tartışmayın. Hazırlığınızı yaptıysanız korkacak bir şey yok.",
-          "finalChecklist": [
-            "Tüm lambaları (plaka dahil) kontrol ettim",
-            "Yangın tüpü basıncı yeşil alanda",
-            "2 adet reflektör bagajda",
-            "Emniyet kemerleri (arka dahil) çalışıyor",
-            "Lastik dişleri ve balon kontrolü yapıldı",
-            "Vergi/Ceza borcu ödendi",
-            "Egzoz emisyon ölçümü yapıldı"
+          "type": "section",
+          "title": "Ağır Kusur ve Hafif Kusur Kıyaslaması",
+          "content": "Sürücülerin en çok karıştırdığı hataları sizin için bir tabloda özetledik.",
+          "table": {
+            "headers": [
+              "Donanım / Parça",
+              "Kusur Durumu",
+              "Açıklama"
+            ],
+            "rows": [
+              [
+                "Patlak Fren Lambası (Stoplar)",
+                "AĞIR KUSUR",
+                "Trafik güvenliğini doğrudan tehdit eder, tamiri şarttır."
+              ],
+              [
+                "Yanmayan Plaka Lambası",
+                "AĞIR KUSUR",
+                "Plaka okunamayacağı için ağır kusur yazılır."
+              ],
+              [
+                "Hafif Yağ Kaçağı (Terleme)",
+                "HAFİF KUSUR",
+                "Motor altındaki hafif terlemeler geçmenize engel değildir."
+              ],
+              [
+                "Kornanın Çalışmaması",
+                "AĞIR KUSUR",
+                "Sesli uyarı sisteminin çalışmaması güvenlik ihlalidir."
+              ],
+              [
+                "Cam Silecek Suyu Olmaması",
+                "AĞIR KUSUR",
+                "Camı temizleme fonksiyonu çalışmadığı için geçemez."
+              ],
+              [
+                "Arka Yan Cam Filmleri",
+                "HAFİF KUSUR",
+                "Görüşü sıfıra indiren zift gibi filmler hariç, normal filmler geçer."
+              ]
+            ]
+          }
+        },
+        {
+          "type": "section",
+          "title": "4. LPG'li Araç Sahiplerinin Dikkatine",
+          "content": "Geçmiş yıllardaki bazı kurallar değişti, ancak LPG sistemi hala çok sıkı denetleniyor.",
+          "subsections": [
+            {
+              "subtitle": "Sızdırmazlık Raporu Şart Mı?",
+              "text": "Hayır. Artık Makine Mühendisleri Odasından 'LPG Sızdırmazlık Raporu' almanıza gerek yok. Bu kontrolü TÜVTÜRK uzmanları cihazlarla muayene sırasında yapıyor."
+            },
+            {
+              "subtitle": "Tank Ömrü",
+              "text": "LPG tanklarının kullanım ömrü üretim tarihinden itibaren tam 10 yıldır. Tankınızın süresi 1 gün bile geçmişse araç ağır kusurlu sayılır ve geçemez."
+            }
           ]
+        },
+        {
+          "type": "section",
+          "title": "5. Araç İçi Zorunlu Ekipmanlar",
+          "content": "Bagajınızda bulunması gerekenler tam olmazsa muayeneden geri çevrilirsiniz.",
+          "subsections": [
+            {
+              "subtitle": "Yangın Tüpü ve Reflektör",
+              "text": "Binek araçlarda en az 1 KG'lık, tarihi geçmemiş bir yangın tüpü SÜRÜCÜNÜN ULAŞABİLECEĞİ bir yerde (genelde ön koltuk altı) olmalıdır. 2 adet standart (üçgen ve ayaklı) reflektör ile standartlara uygun bir ilk yardım çantası mutlaka bagajınızda bulunmalıdır."
+            }
+          ],
+          "warning": {
+            "title": "Emniyet Kemerlerini Gevşetmeyin",
+            "text": "Muayene istasyonuna gitmeden önce tüm koltuklardaki emniyet kemerlerinin (arka koltuklar dahil) tokalarını koltuk aralarından çıkarın ve takılabilir durumda bırakın. Kemerlerin çalışmaması AĞIR KUSUR'dur."
+          }
+        },
+        {
+          "type": "conclusion",
+          "title": "Son Söz: Emisyon Ölçümünü Unutmayın",
+          "content": "Muayene istasyonuna girmeden önce aracınızın 'Egzoz Gazı Emisyon Ölçümü' geçerliliğinin devam ettiğinden emin olun. Eğer süresi dolmuşsa, randevunuza yarım saat erken giderek ölçümü TÜVTÜRK'te yaptırabilirsiniz. Emisyon ölçümünden geçemeyen araç (katalizör iptali vb. durumlar) muayene peronuna dahi alınmaz."
         }
       ],
-      "urlId": 10012
+      "urlId": 10012,
+      "finalChecklist": [
+        "Tüm aydınlatma grubu (Sinyal, Far, Fren, Geri Vites, Plaka) kontrol edildi.",
+        "Emniyet kemerleri tokalara takılıp test edildi.",
+        "Silecek suyu dolu ve fıskiyeler çalışıyor.",
+        "Yangın tüpünün tarihi geçmemiş ve ulaşılabilecek bir yerde.",
+        "Lastik diş derinlikleri 1.6 mm'nin üzerinde.",
+        "Ön camda derin çatlak ve yan aynalarda kırık yok.",
+        "Egzoz emisyon ölçümü yapıldı ve geçerli.",
+        "Motor Şasi numarası okunabilir durumda ve temiz."
+      ]
     },
     {
       "id": "guide_014",
@@ -4446,6 +4429,430 @@
         }
       ],
       "urlId": 10027
+    },
+    {
+      "id": "guide_seo_012",
+      "title": "Benzin mi Dizel mi LPG mi Elektrikli mi? (2026 Karşılaştırma Rehberi)",
+      "description": "Hangi yakıt türü daha ekonomik? Bakım maliyetleri, ikinci el değerleri ve kullanım alışkanlığınıza en uygun araç türünü seçme rehberi.",
+      "minutes": 8,
+      "difficulty": "Orta",
+      "tags": [
+        "Yakıt",
+        "Satın Alma",
+        "Karşılaştırma",
+        "Elektrikli Araç"
+      ],
+      "author": "OtoSöz Uzmanları",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "2026 Yılında Hangi Motor Tipini Seçmeli?",
+          "content": "Otomotiv dünyası devasa bir dönüşümün tam ortasında. Bir yanda giderek yaygınlaşan elektrikli araçlar (EV), diğer yanda menzil ve yakıt maliyeti kaygılarıyla tercih edilen dizel/LPG sistemleri ve geleneksel benzinli motorlar... Akaryakıt fiyatlarındaki dalgalanmalar, batarya maliyetleri ve şarj altyapısının gelişimi göz önüne alındığında, 2026 yılında araç alırken 'Hangi yakıt türü?' sorusu her zamankinden daha kritik. İhtiyaçlarınıza, bütçenize ve kullanım alışkanlıklarınıza en uygun motoru seçebilmeniz için tüm seçenekleri artı ve eksileriyle derinlemesine analiz ettik."
+        },
+        {
+          "type": "section",
+          "title": "1. Benzinli Araçlar: Klasik, Sorunsuz ama Maliyetli",
+          "content": "Benzinli motorlar, içten yanmalı teknolojinin en olgun ve sorunsuz halidir. Özellikle hibrit (Mild-Hybrid) teknolojisiyle desteklendiğinde şehir içi verimlilikleri artmıştır.",
+          "subsections": [
+            {
+              "subtitle": "Avantajları",
+              "text": "İlk satın alma maliyetleri genellikle en düşüktür. Motor parçaları ucuz, bakım aralıkları uzun ve arıza potansiyelleri dizel motorlara kıyasla çok daha azdır. Kış aylarında anında ısınır ve DPF (Dizel Partikül Filtresi) tıkanması gibi dertleri yoktur. Sessiz ve titreşimsiz çalışırlar."
+            },
+            {
+              "subtitle": "Dezavantajları",
+              "text": "Kilometre başına yakıt maliyeti en yüksek seçenektir. Özellikle yoğun trafikli şehir içi kullanımlarında yakıt tüketimleri ciddi şekilde artar. İkinci elde değer kayıpları dizellere göre biraz daha fazladır (LPG uyumu olmayan modellerde)."
+            },
+            {
+              "subtitle": "Kime Uygun?",
+              "text": "Yılda 10.000 - 15.000 km'den az yol yapan, genellikle şehir içi kısa mesafeli sürüşler gerçekleştiren ve motor arızalarıyla uğraşmak istemeyen kullanıcılar için idealdir."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "2. Dizel Araçlar (Motorin): Uzun Yolun Kralı",
+          "content": "Avrupa'da üretimleri hızla dursa da, Türkiye pazarında ikinci elde hala çok güçlü olan dizel motorlar, tork ve yakıt ekonomisiyle öne çıkar.",
+          "subsections": [
+            {
+              "subtitle": "Avantajları",
+              "text": "Bir depo ile çok uzun menzillere ulaşabilirler (1000+ km). Yüksek tork değerleri sayesinde yüklü araç kullanımında veya yokuşlarda bayılmazlar. Otoban sürüşlerinde mükemmel yakıt ekonomisi sağlarlar ve Türkiye pazarında ikinci elleri her zaman çok hızlı satılır."
+            },
+            {
+              "subtitle": "Dezavantajları",
+              "text": "Eğer sürekli şehir içinde, kısa mesafede kullanılırlarsa Partikül Filtresi (DPF) ve EGR valfi tıkanmaları kaçınılmazdır. Turbo, enjektör ve yakıt pompası arızaları benzinli araçlara göre çok daha maliyetlidir. Ayrıca motor sesi ve titreşimi fazladır."
+            },
+            {
+              "subtitle": "Kime Uygun?",
+              "text": "Yılda en az 20.000 km ve üzeri yol yapan, sürüşlerinin büyük çoğunluğu otoyolda veya şehir dışı uzun yollarda geçen, ağır yük taşıyan kullanıcılar için hala rakipsizdir."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "3. LPG'li Araçlar: Türkiye'nin Ekonomi Gerçeği",
+          "content": "Sıralı otogaz sistemleri (LPG), artan yakıt fiyatlarına karşı Türkiye'deki en popüler çözümlerden biridir.",
+          "subsections": [
+            {
+              "subtitle": "Avantajları",
+              "text": "Benzine kıyasla kilometre başına maliyeti %35 ila %45 oranında düşürür. Otogaz istasyonu bulmak Türkiye'de çok kolaydır. Fabrikasyon LPG'li araçlar (örneğin bazı Japon ve Kore markaları) hem garanti kapsamında kalır hem de sorunsuz bir deneyim sunar."
+            },
+            {
+              "subtitle": "Dezavantajları",
+              "text": "Kapalı otoparklara giriş yasakları (bazı AVM'lerde esnetilse de hala sorun) büyük bir dezavantajdır. Bagaj hacminden feragat etmek gerekir. Sonradan takılan kalitesiz LPG kitleri; subap erimesi, tekleme ve motor arıza lambasının sürekli yanmasına sebep olabilir. Ayrıca 10 yılda bir tank değişim zorunluluğu vardır."
+            },
+            {
+              "subtitle": "Kime Uygun?",
+              "text": "Benzinli aracın sessizliğini ve sorunsuzluğunu isteyen ancak yıllık 15.000 - 25.000 km bandında yol yapıp yakıt faturasını düşürmeyi hedefleyen, kapalı otopark sorunu olmayan kullanıcılar."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "4. Elektrikli Araçlar (EV): Geleceğin Teknolojisi",
+          "content": "2026 itibarıyla Togg, Tesla ve çeşitli Çin menşeli markaların dominasyonuyla pazar payı hızla artan %100 Elektrikli (BEV) araçlar.",
+          "subsections": [
+            {
+              "subtitle": "Avantajları",
+              "text": "Evde veya işyerinde şarj imkanınız varsa (AC Şarj), kilometre maliyeti benzine göre 8-10 kat, dizele göre 5-6 kat daha ucuzdur. Motor yağı, triger kayışı, buji, yakıt filtresi gibi periyodik bakım masrafları yoktur; bakımlar inanılmaz ucuzdur. Anında ve kesintisiz tork sayesinde spor arabaları aratmayan ivmelenme sunarlar. Tamamen sessizdirler."
+            },
+            {
+              "subtitle": "Dezavantajları",
+              "text": "Hızlı şarj (DC) istasyonlarındaki elektrik fiyatları neredeyse dizel yakıt fiyatına denktir, bu da uzun yolda maliyet avantajını yok eder. Uzun yolda şarj sırası beklemek ve planlama yapmak zorunludur. İkinci el değer kayıpları şu an için belirsizliğini korumakta, batarya sağlığı endişe yaratmaktadır."
+            },
+            {
+              "subtitle": "Kime Uygun?",
+              "text": "Evinde veya iş yerinde aracı şarja takma imkanı olan, gününün çoğunu şehir içi ve çevresinde geçiren, teknolojiye ve sessiz sürüşe meraklı yenilikçi kullanıcılar için kusursuzdur."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Karşılaştırma Tablosu: Hangi Motor Kime Göre?",
+          "content": "Aşağıdaki özet tabloda yakıt türlerinin temel dinamiklerini karşılaştırabilirsiniz:",
+          "table": {
+            "headers": [
+              "Motor Tipi",
+              "İlk Alım Maliyeti",
+              "Yakıt Ekonomisi",
+              "Bakım Gideri",
+              "Kullanım Alanı"
+            ],
+            "rows": [
+              [
+                "Benzinli",
+                "Düşük / Orta",
+                "Orta",
+                "Düşük",
+                "Az KM Yapan, Şehir İçi"
+              ],
+              [
+                "Dizel",
+                "Orta / Yüksek",
+                "Çok İyi",
+                "Yüksek",
+                "Çok KM Yapan, Uzun Yol"
+              ],
+              [
+                "LPG",
+                "Orta",
+                "İyi",
+                "Orta",
+                "Karma Kullanım, Kapalı Otopark Derdi Olmayan"
+              ],
+              [
+                "Elektrikli (EV)",
+                "Yüksek",
+                "Mükemmel (Evden Şarj)",
+                "Çok Düşük",
+                "Evden/İşten Şarj İmkanı Olan, Teknoloji Odaklı"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "conclusion",
+          "title": "Sonuç: En Doğru Tercih Hangisi?",
+          "content": "Bu sorunun tek bir cevabı yoktur. Tercihinizi doğrudan yıllık kilometreniz ve şarj altyapısına erişiminiz belirlemelidir. Evden şarj imkanı olanlar için Elektrikli; az yol yapanlar için Benzinli; çok uzun yol yapanlar için Dizel; hem ekonomik olsun hem de içten yanmalı olsun diyenler için ise LPG doğru bir seçim olacaktır."
+        }
+      ],
+      "urlId": 10028
+    },
+    {
+      "id": "guide_seo_013",
+      "title": "Araç Muayeneden Nasıl Geçer? (TÜVTÜRK Sırları)",
+      "description": "TÜVTÜRK istasyonlarından tek seferde 'Kusursuz' veya 'Hafif Kusurlu' geçmek için bilmeniz gereken gizli detaylar, ağır kusur listeleri ve altın değerinde ipuçları.",
+      "minutes": 15,
+      "difficulty": "Kritik",
+      "tags": [
+        "Muayene",
+        "TÜVTÜRK",
+        "Bakım",
+        "Kontrol Listesi"
+      ],
+      "author": "OtoSöz Teknik Ekibi",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "TÜVTÜRK Muayenesi Bir Kabus Olmak Zorunda Değil",
+          "content": "Her iki yılda bir (ticari araçlar için her yıl) tekrarlanan TÜVTÜRK muayenesi, birçok sürücü için stresli bir süreçtir. Aracınızın 'Ağır Kusurlu' bulunarak muayeneden kalması, sadece vaktinizi değil, aynı zamanda yeniden randevu alma ve onarım maliyetleriyle bütçenizi de zorlar. Ancak kuralları bilirseniz, tek seferde geçmek çocuk oyuncağıdır. 2026'nın en güncel TÜVTÜRK denetim prosedürlerini sizin için deşifre ettik."
+        },
+        {
+          "type": "warning",
+          "title": "Randevu Almadan Önceki Kırmızı Çizgi",
+          "content": "Aracınızın Motorlu Taşıtlar Vergisi (MTV) borcu, ödenmemiş trafik cezası veya OGS/HGS geçiş ihlali borcu varsa sistem size randevu VERMEZ. Ayrıca, aracınızın Zorunlu Trafik Sigortası muayene günü bitmişse veya hiç yoksa muayeneye alınmazsınız. İstasyona gitmeden önce e-Devlet üzerinden tüm borçlarınızı sıfırlayın."
+        },
+        {
+          "type": "section",
+          "title": "1. En Çok Kalınan Yer: Aydınlatma ve Elektrik Aksamı",
+          "content": "İstatistiklere göre araçların muayeneden kalma sebebinin %40'ı basit ampul patlamaları veya hatalı aydınlatmalardır.",
+          "subsections": [
+            {
+              "subtitle": "Farlar ve Sinyaller",
+              "text": "Sağ-sol kısa ve uzun farların sorunsuz yanması şarttır. Eğer farlarınızın biri farklı, diğeri farklı renkte yanıyorsa veya merceksiz fara sonradan takma LED/Xenon ampul taktıysanız bu doğrudan AĞIR KUSUR sebebidir. Farlarınızın aydınlatma çizgisi odaklanamıyorsa yine geçemezsiniz."
+            },
+            {
+              "subtitle": "Fren ve Üçüncü Stop Lambası",
+              "text": "Sürücülerin en çok unuttuğu detay arka camdaki 'Üçüncü Fren (Stop) Lambası'dır. Yanmaması veya içindeki LED'lerin yarısının sönük olması ağır kusurdur. Geri vites lambanızın ve plaka aydınlatmanızın çalıştığından mutlaka emin olun."
+            }
+          ],
+          "tip": {
+            "title": "Arkadaşınızdan Yardım İsteyin",
+            "text": "Muayeneye gitmeden 1 gün önce bir arkadaşınızı direksiyona geçirin. O frene basarken, sinyal verirken ve geri vitese takarken siz aracın arkasından her şeyin eksiksiz yandığını teyit edin."
+          }
+        },
+        {
+          "type": "section",
+          "title": "2. Fren Sistemi: Hayati Önem Taşıyan Kriter",
+          "content": "Fren test cihazına çıkan aracınızın sapma oranları milimetrik olarak ölçülür.",
+          "subsections": [
+            {
+              "subtitle": "Sapma Oranları (Fren Dengesi)",
+              "text": "Fren pedalına basıldığında sağ ve sol tekerleklerin tutuş gücü arasındaki fark (sapma oranı) %30'dan fazla ise aracınız fren testinden ağır kusurla kalır. Aracınız frene bastığınızda sağa veya sola çekiyorsa muayeneye gitmeden önce mutlaka bir frenciye (balata/disk/kaliper kontrolü) gösterin."
+            },
+            {
+              "subtitle": "El Freni Performansı",
+              "text": "El frenini çektiğinizde tekerlekler eşit oranda kilitlenmelidir. El freni teli kopuk, çok gevşek veya tekerleklerden sadece birini tutuyorsa muayeneden geçemezsiniz."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "3. Camlar, Filmler ve Aynalar",
+          "content": "Görüş açınızı engelleyen her türlü fiziki engel doğrudan reddedilir.",
+          "subsections": [
+            {
+              "subtitle": "Cam Çatlakları",
+              "text": "Ön camda sürücünün tam görüş alanında (sileceklerin süpürdüğü bölge) derin ve büyük bir çatlak varsa araç muayeneden kalır. Ancak yolcu tarafındaki küçük taş izleri veya kılcal çatlaklar genellikle 'Hafif Kusur' ile geçer."
+            },
+            {
+              "subtitle": "Cam Filmleri",
+              "text": "Yan ve arka camlardaki normal cam filmleri yasal olarak 'Hafif Kusur' sayılır ve geçmenize engel değildir. Ancak ön (ön yüz) camda kesinlikle film olmamalıdır."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Ağır Kusur ve Hafif Kusur Kıyaslaması",
+          "content": "Sürücülerin en çok karıştırdığı hataları sizin için bir tabloda özetledik.",
+          "table": {
+            "headers": [
+              "Donanım / Parça",
+              "Kusur Durumu",
+              "Açıklama"
+            ],
+            "rows": [
+              [
+                "Patlak Fren Lambası (Stoplar)",
+                "AĞIR KUSUR",
+                "Trafik güvenliğini doğrudan tehdit eder, tamiri şarttır."
+              ],
+              [
+                "Yanmayan Plaka Lambası",
+                "AĞIR KUSUR",
+                "Plaka okunamayacağı için ağır kusur yazılır."
+              ],
+              [
+                "Hafif Yağ Kaçağı (Terleme)",
+                "HAFİF KUSUR",
+                "Motor altındaki hafif terlemeler geçmenize engel değildir."
+              ],
+              [
+                "Kornanın Çalışmaması",
+                "AĞIR KUSUR",
+                "Sesli uyarı sisteminin çalışmaması güvenlik ihlalidir."
+              ],
+              [
+                "Cam Silecek Suyu Olmaması",
+                "AĞIR KUSUR",
+                "Camı temizleme fonksiyonu çalışmadığı için geçemez."
+              ],
+              [
+                "Arka Yan Cam Filmleri",
+                "HAFİF KUSUR",
+                "Görüşü sıfıra indiren zift gibi filmler hariç, normal filmler geçer."
+              ]
+            ]
+          }
+        },
+        {
+          "type": "section",
+          "title": "4. LPG'li Araç Sahiplerinin Dikkatine",
+          "content": "Geçmiş yıllardaki bazı kurallar değişti, ancak LPG sistemi hala çok sıkı denetleniyor.",
+          "subsections": [
+            {
+              "subtitle": "Sızdırmazlık Raporu Şart Mı?",
+              "text": "Hayır. Artık Makine Mühendisleri Odasından 'LPG Sızdırmazlık Raporu' almanıza gerek yok. Bu kontrolü TÜVTÜRK uzmanları cihazlarla muayene sırasında yapıyor."
+            },
+            {
+              "subtitle": "Tank Ömrü",
+              "text": "LPG tanklarının kullanım ömrü üretim tarihinden itibaren tam 10 yıldır. Tankınızın süresi 1 gün bile geçmişse araç ağır kusurlu sayılır ve geçemez."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "5. Araç İçi Zorunlu Ekipmanlar",
+          "content": "Bagajınızda bulunması gerekenler tam olmazsa muayeneden geri çevrilirsiniz.",
+          "subsections": [
+            {
+              "subtitle": "Yangın Tüpü ve Reflektör",
+              "text": "Binek araçlarda en az 1 KG'lık, tarihi geçmemiş bir yangın tüpü SÜRÜCÜNÜN ULAŞABİLECEĞİ bir yerde (genelde ön koltuk altı) olmalıdır. 2 adet standart (üçgen ve ayaklı) reflektör ile standartlara uygun bir ilk yardım çantası mutlaka bagajınızda bulunmalıdır."
+            }
+          ],
+          "warning": {
+            "title": "Emniyet Kemerlerini Gevşetmeyin",
+            "text": "Muayene istasyonuna gitmeden önce tüm koltuklardaki emniyet kemerlerinin (arka koltuklar dahil) tokalarını koltuk aralarından çıkarın ve takılabilir durumda bırakın. Kemerlerin çalışmaması AĞIR KUSUR'dur."
+          }
+        },
+        {
+          "type": "conclusion",
+          "title": "Son Söz: Emisyon Ölçümünü Unutmayın",
+          "content": "Muayene istasyonuna girmeden önce aracınızın 'Egzoz Gazı Emisyon Ölçümü' geçerliliğinin devam ettiğinden emin olun. Eğer süresi dolmuşsa, randevunuza yarım saat erken giderek ölçümü TÜVTÜRK'te yaptırabilirsiniz. Emisyon ölçümünden geçemeyen araç (katalizör iptali vb. durumlar) muayene peronuna dahi alınmaz."
+        }
+      ],
+      "urlId": 10029,
+      "finalChecklist": [
+        "Tüm aydınlatma grubu (Sinyal, Far, Fren, Geri Vites, Plaka) kontrol edildi.",
+        "Emniyet kemerleri tokalara takılıp test edildi.",
+        "Silecek suyu dolu ve fıskiyeler çalışıyor.",
+        "Yangın tüpünün tarihi geçmemiş ve ulaşılabilecek bir yerde.",
+        "Lastik diş derinlikleri 1.6 mm'nin üzerinde.",
+        "Ön camda derin çatlak ve yan aynalarda kırık yok.",
+        "Egzoz emisyon ölçümü yapıldı ve geçerli.",
+        "Motor Şasi numarası okunabilir durumda ve temiz."
+      ]
+    },
+    {
+      "id": "guide_seo_014",
+      "title": "Sıfır Araç Alırken Bayide Kurulan 7 Tuzak",
+      "description": "Sıfır kilometre araç alırken bayilerin ekstra aksesuar dayatması, kredi oyunları ve seramik kaplama tuzaklarına düşmeyin.",
+      "minutes": 10,
+      "difficulty": "Kritik",
+      "tags": [
+        "Satın Alma",
+        "Dolandırıcılık",
+        "Finans"
+      ],
+      "author": "OtoSöz Güvenlik",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "Bayi Her Zaman Sizin Tarafınızda Değildir",
+          "content": "Sıfır kilometre bir araç alma fikri oldukça heyecan vericidir. Ancak showroom'a adım attığınız andan itibaren, profesyonel bir satış stratejisiyle karşı karşıya olduğunuzu unutmamalısınız. Müşteri temsilcilerinin sıcak kahveleri ve güler yüzlerinin ardında, bayi kârlılığını maksimize etme hedefleri yatar. Peki, heyecanınızın kurbanı olmadan, cüzdanınızı nasıl koruyabilirsiniz? İşte Türkiye şartlarında bayilerin en sık başvurduğu 7 psikolojik ve finansal tuzak."
+        },
+        {
+          "type": "warning",
+          "title": "Altın Kural",
+          "content": "Hiçbir bayinin size piyasa değerinin altında bir iyilik yapmayacağını kabul edin. İmza atmadan önce her sözleşmeyi, her paketi ve her faiz oranını mutlaka yazılı olarak talep edin ve inceleyin."
+        },
+        {
+          "type": "section",
+          "title": "1. 'Zorunlu' Aksesuar Paketi Dayatması",
+          "content": "Özellikle çip krizi ve stok sıkıntısı dönemlerinde türeyen ve günümüzde de devam eden en büyük tuzak.",
+          "subsections": [
+            {
+              "subtitle": "Seramik Kaplama ve Cam Filmi Yalanı",
+              "text": "Dışarıda kaliteli bir merkezde 10.000 TL'ye yaptırabileceğiniz seramik kaplama, PPF (Şeffaf film) ve cam filmi paketleri, bayide size 50.000 TL gibi fahiş rakamlarla satılmak istenir. 'Bu paketi almazsanız aracı size veremeyiz' veya 'Sırada bekleyen başka müşteri var' söylemleri tamamen yasadışıdır. Bu dayatmayı Ticaret Bakanlığı'na şikayet edeceğinizi kibarca ama kararlı bir şekilde belirtirseniz geri adım atacaklardır."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "2. Kredi ve '0 Faiz' Oyunları",
+          "content": "Reklamlarda gördüğünüz 'Sıfır Faiz' kampanyalarının her zaman görünmeyen bir bedeli vardır.",
+          "subsections": [
+            {
+              "subtitle": "Peşin İndirimini Yakma Tuzağı",
+              "text": "Bayi size 300.000 TL için 12 ay %0 faiz sunabilir. Ancak bu krediyi kullandığınızda, aracın nakit alımdaki (örneğin) 150.000 TL'lik liste indirimi iptal olur. Oysa o 150.000 TL'lik indirimi alıp, parayı bankadan kredi çekseniz cebinizden daha az para çıkacaktır. Mutlaka hesap makinesiyle kredi maliyeti vs. nakit indirimi karşılaştırması yapın."
+            },
+            {
+              "subtitle": "Fahiş Hayat Sigortası",
+              "text": "Bayi üzerinden kredi kullandığınızda, size bankanın sunduğundan çok daha pahalı bir 'Kredi Koruma Sigortası' veya 'Hayat Sigortası' dayatılabilir. Yasal olarak hayat sigortasını dilediğiniz şirketten yaptırıp poliçeyi bankaya sunma hakkınız vardır."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "3. Takas (Trade-in) Tuzağı",
+          "content": "Eski aracınızı verip yenisini almak çok pratik görünse de, bayi bu rahatlığın bedelini size ağır ödetir.",
+          "subsections": [
+            {
+              "subtitle": "Aracınızın Değerini Öldürme",
+              "text": "Bayi, ikinci el aracınıza piyasa değerinin en az %15-20 altında bir fiyat biçecektir. Üstelik sıfır araç için size liste fiyatı üzerinden hiçbir indirim yapmayabilir. 'Takas desteğimiz var' derler ancak o destek, aslında sizin eski aracınızdan kırdıkları fiyatın sadece bir kısmıdır. Aracınızı sarı sitede veya açık artırma platformlarında satmak her zaman daha kârlıdır."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "4. 'Stokta Son 1 Araç' Psikolojik Baskısı",
+          "content": "FOMO (Fırsatı Kaçırma Korkusu) satış temsilcilerinin en güçlü silahıdır.",
+          "subsections": [
+            {
+              "subtitle": "Hemen Kapora Verin!",
+              "text": "Satış temsilcisi, sistemde o araca bakan 'başka bayideki başka bir müşteri' olduğunu ve hemen kapora vermezseniz aracı kaçıracağınızı söyler. Bu senaryo %90 oranında uydurmadır. Sizi düşünmekten ve diğer markaları gezmekten alıkoymak için yapılır."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "5. Uzatılmış Garanti ve Kasko Şartı",
+          "content": "Araç satışı sırasında size sunulan ek hizmetlerin çoğu bayi için çok yüksek kâr marjlı ürünlerdir.",
+          "subsections": [
+            {
+              "subtitle": "Gereksiz Uzatılmış Garanti",
+              "text": "Mevcut 3 yıllık garantiye ek olarak 2 yıl uzatılmış garanti satmaya çalışırlar. Ancak uzatılmış garanti sözleşmelerinin ince puntolarını okuduğunuzda (örneğin baskı balata, amortisör gibi aşınan parçaların dahil olmaması) aslında çok kısıtlı bir koruma satın aldığınızı görürsünüz. Kaskoyu bayiden yaptırma zorunluluğu ise tamamen asılsızdır."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "6. Fiyat Sabitleme Yalanı",
+          "content": "Araç yokken sipariş verdiğinizde karşılaştığınız en büyük risk.",
+          "subsections": [
+            {
+              "subtitle": "Kapora Yanılgısı",
+              "text": "Aracın gelmesi 2 ay sürecekse ve siz kapora verdiyseniz, aracın fiyatını sabitlediğinizi düşünebilirsiniz. Hayır! Gümrükten çekildiği günkü kur ve liste fiyatı geçerli olacaktır. Bayi size 'Zam gelmeden bağladık' diyorsa, bunu mutlaka yazılı ve kaşeli sözleşmeye dökmelerini isteyin. Çoğu bunu yapmayı reddedecektir."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "7. Tescil ve Dosya Masrafı Şişirmeleri",
+          "content": "Anahtar teslim fiyatına dahil olan veya olmayan ücretlerdeki karmaşa.",
+          "subsections": [
+            {
+              "subtitle": "Şişirilmiş Ruhsat ve Plaka Masrafları",
+              "text": "Satış temsilcisi size 'Trafik tescil, ruhsat, MTV ve dosya masrafları için ekstra 15.000 TL' der. Oysa o yılın MTV'si, ruhsat yaprağı ve noter masrafı kalem kalem toplandığında bu rakamın çok altında çıkabilir. Sizden alınan ekstra tutar 'Hizmet Bedeli' veya 'Takipçi Ücreti' adı altında bayinin cebine gider. Faturalandırılmayan hiçbir ekstra ücreti ödemeyin."
+            }
+          ]
+        },
+        {
+          "type": "conclusion",
+          "title": "Özetle Nasıl Korunursunuz?",
+          "content": "Sıfır araç alırken en az 3 farklı bayiden yazılı teklif alın. İnternet forumlarında o bayinin şikayetlerini okuyun. 'Zorunlu' denilen hiçbir şeyin kanuni dayanağı olmadığını bilin ve en önemlisi; pazarlık masasından kalkabilme cesaretini gösterin. Çoğu zaman masadan kalkan müşteri, ertesi gün çok daha iyi bir teklifle aranır."
+        }
+      ],
+      "urlId": 10030
     }
   ]
 }

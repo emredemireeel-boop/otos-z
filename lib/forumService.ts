@@ -182,6 +182,44 @@ export async function getEntries(threadId: string): Promise<ForumEntry[]> {
     return snap.docs.map(d => mapEntry(d.data(), d.id));
 }
 
+/** Bir kullanicinin tum entry'lerini getir (Profil icin) */
+export async function getUserEntries(username: string): Promise<(ForumEntry & { threadId: string })[]> {
+    const { collectionGroup } = await import("firebase/firestore");
+    try {
+        const q = query(
+            collectionGroup(db, "entries"),
+            where("username", "==", username),
+            orderBy("createdAt", "desc"),
+            limit(50)
+        );
+        const snap = await getDocs(q);
+        return snap.docs.map(d => {
+            const data = d.data();
+            const threadId = d.ref.parent.parent?.id || "";
+            return { ...mapEntry(data, d.id), threadId };
+        });
+    } catch (error) {
+        console.warn("collectionGroup sorgusu basarisiz, fallback kullaniliyor:", error);
+        // Fallback: Sadece kullanicinin actigi basliklardaki kendi entry'lerini getir
+        const threadsSnap = await getDocs(query(collection(db, "threads"), where("authorUsername", "==", username)));
+        const allEntries: (ForumEntry & { threadId: string })[] = [];
+        
+        for (const tDoc of threadsSnap.docs) {
+            const entriesSnap = await getDocs(query(collection(db, "threads", tDoc.id, "entries"), where("username", "==", username)));
+            entriesSnap.forEach(eDoc => {
+                allEntries.push({ ...mapEntry(eDoc.data(), eDoc.id), threadId: tDoc.id });
+            });
+        }
+        
+        // Tarihe gore sirala (en yeni en uste)
+        return allEntries.sort((a, b) => {
+            const tA = a.createdAt?.toMillis?.() || 0;
+            const tB = b.createdAt?.toMillis?.() || 0;
+            return tB - tA;
+        });
+    }
+}
+
 /** Yeni konu olustur (ilk entry ile birlikte) */
 export async function createThread(data: {
     title: string;

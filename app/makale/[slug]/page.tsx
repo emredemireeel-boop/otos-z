@@ -4,6 +4,8 @@ import MakaleDetailClient from "./MakaleDetailClient";
 import path from "path";
 import fs from "fs";
 
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
     params: Promise<{ slug: string }>;
 }

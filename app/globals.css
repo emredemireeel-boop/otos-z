@@ -614,23 +614,48 @@ a {
   flex-wrap: wrap;
 }
 
+/* ===== NAVBAR RESPONSIVE ===== */
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-menu-btn {
+  display: none !important;
+}
+
+/* ===== RESPONSIVE: TABLET (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
+  /* Hide desktop nav links on tablet */
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  /* Show hamburger menu button */
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+}
+
+/* ===== RESPONSIVE: MOBILE (max-width: 768px) ===== */
 @media (max-width: 768px) {
-  /* Sozluk: stack columns */
+  /* ── Navbar ── */
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  /* ── Layout Grids: collapse to 1 column ── */
   .sozluk-layout {
     grid-template-columns: 1fr !important;
   }
-
-  /* BakimRehberi: stack columns */
   .bakim-layout {
     grid-template-columns: 1fr !important;
   }
-
-  /* OBD: stack symptom/cause columns */
   .obd-two-col {
     grid-template-columns: 1fr !important;
   }
-
-  /* Kutuphane sections */
   .obd-layout {
     grid-template-columns: 1fr !important;
   }
@@ -641,7 +666,53 @@ a {
     grid-template-columns: 1fr !important;
   }
 
-  /* Kutuphane tabs: horizontal scroll */
+  /* ── Homepage 3-column grid ── */
+  .home-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .home-left-sidebar {
+    display: none !important;
+  }
+  .home-right-sidebar {
+    display: none !important;
+  }
+
+  /* ── Sub Header: fuel ticker ── */
+  .fuel-ticker-wrapper {
+    display: none !important;
+  }
+  
+  /* ── Sub Header layout ── */
+  .subheader-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+  .subheader-row h1 {
+    font-size: 20px !important;
+  }
+  .new-topic-btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* ── Category pills: horizontal scroll ── */
+  .category-pills {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .category-pills::-webkit-scrollbar {
+    display: none;
+  }
+  .category-pills > * {
+    flex-shrink: 0 !important;
+  }
+
+  /* ── Kutuphane tabs: horizontal scroll ── */
   .kutuphane-tabs {
     flex-wrap: nowrap !important;
     overflow-x: auto;
@@ -656,7 +727,12 @@ a {
     flex-shrink: 0 !important;
   }
 
-  /* Makale layout: stack TOC + content */
+  /* ── Sort bar search input ── */
+  .sort-bar-search {
+    width: 100% !important;
+  }
+
+  /* ── Makale layout: stack TOC + content ── */
   .makale-layout {
     flex-direction: column !important;
   }
@@ -665,7 +741,7 @@ a {
     position: static !important;
   }
 
-  /* Forum layout: stack main + sidebar */
+  /* ── Forum layout: stack main + sidebar ── */
   .forum-layout {
     flex-direction: column !important;
   }
@@ -673,15 +749,108 @@ a {
     max-width: 100% !important;
   }
 
-  /* Generic: prevent any horizontal overflow */
+  /* ── Pazar page: filters stacking ── */
+  .pazar-filters {
+    flex-direction: column !important;
+  }
+  .pazar-filters > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  .pazar-header-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+
+  /* ── Pazar listing card: vertical stack ── */
+  .listing-card-horizontal {
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
+  .listing-col-info,
+  .listing-col-paint,
+  .listing-col-price {
+    flex: none !important;
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--card-border) !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+  .listing-col-price {
+    border-bottom: none !important;
+  }
+
+  /* ── Generic overflow prevention ── */
   main {
     overflow-x: hidden;
   }
 
-  /* Fix wide hero sections */
+  /* ── Fix wide hero sections ── */
   .hero-stats {
     flex-direction: column !important;
     gap: 12px !important;
+  }
+
+  /* ── Footer responsive ── */
+  .footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+
+  /* ── Modal full-width on mobile ── */
+  .modal-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 16px !important;
+  }
+
+  /* ── Topic card: hide entry count on small screens ── */
+  .topic-entry-count {
+    display: none !important;
+  }
+
+  /* ── Forum section grids ── */
+  .featured-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .author-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* ── Page subheader padding ── */
+  .page-subheader {
+    padding: 12px 16px;
+  }
+
+  /* ── Dropdown panels: full-width on mobile ── */
+  .nav-dropdown-panel {
+    position: fixed !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    max-height: 70vh !important;
+  }
+
+  /* ── New Topic Modal car details grid ── */
+  .car-details-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===== RESPONSIVE: VERY SMALL (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  .author-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .stat-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 

@@ -51,7 +51,7 @@ export default function ForumThreadPage() {
     const [likingEntry, setLikingEntry] = useState<string | null>(null);
     const [randomListings, setRandomListings] = useState<any[]>([]);
     const [sidebarAd, setSidebarAd] = useState<any>(null);
-    const [reportModal, setReportModal] = useState<{ entry: ForumEntry; threadTitle: string } | null>(null);
+    const [reportModal, setReportModal] = useState<{ entry?: ForumEntry; threadTitle: string; reportType: 'entry' | 'thread' } | null>(null);
     const [reportCategory, setReportCategory] = useState('hakaret');
     const [reportNote, setReportNote] = useState('');
     const [reportSending, setReportSending] = useState(false);
@@ -221,18 +221,19 @@ export default function ForumThreadPage() {
         if (!user || !reportModal || reportSending) return;
         setReportSending(true);
         try {
+            const isThreadReport = reportModal.reportType === 'thread';
             await fetch('/api/admin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     action: 'submit_report',
-                    target: reportModal.entry.id,
+                    target: isThreadReport ? thread!.id : reportModal.entry!.id,
                     detail: JSON.stringify({
-                        type: 'entry',
-                        targetId: reportModal.entry.id,
+                        type: isThreadReport ? 'thread' : 'entry',
+                        targetId: isThreadReport ? thread!.id : reportModal.entry!.id,
                         targetTitle: reportModal.threadTitle,
-                        targetAuthor: reportModal.entry.username,
-                        targetContent: reportModal.entry.content.slice(0, 300),
+                        targetAuthor: isThreadReport ? thread!.authorUsername : reportModal.entry!.username,
+                        targetContent: isThreadReport ? thread!.title : reportModal.entry!.content.slice(0, 300),
                         reportedBy: user.username,
                         reportedById: user.id,
                         reason: reportCategory,
@@ -246,7 +247,7 @@ export default function ForumThreadPage() {
             setReportModal(null);
             setReportNote('');
             setReportCategory('hakaret');
-            setReportToast('Şikayet gönderildi. Admin inceleyecek.');
+            setReportToast(isThreadReport ? 'Başlık şikâyeti gönderildi. Admin inceleyecek.' : 'Entry şikâyeti gönderildi. Admin inceleyecek.');
             setTimeout(() => setReportToast(null), 3500);
         } catch (e) {
             console.error('Şikayet gonderilemedi:', e);
@@ -587,7 +588,6 @@ export default function ForumThreadPage() {
                                             transition: 'border-color 0.2s',
                                             boxShadow: isExpert ? '0 4px 20px rgba(234,179,8,0.08)' : (isBestAnswer ? '0 4px 20px rgba(34,197,94,0.08)' : ((isFirstEntry && isKarsilastirma) ? '0 8px 30px rgba(0,0,0,0.04)' : 'none')),
                                             display: 'flex',
-                                            overflow: 'hidden',
                                         }}>
                                             {/* Reddit tarzı sol upvote bar */}
                                             <div style={{
@@ -598,6 +598,7 @@ export default function ForumThreadPage() {
                                                 minWidth: isFirstEntry ? '0px' : '52px',
                                                 width: isFirstEntry ? '0px' : '52px',
                                                 flexShrink: 0,
+                                                borderRadius: isFirstEntry ? '0' : '16px 0 0 16px',
                                             }}>
                                                 {!isFirstEntry && (
                                                     <>
@@ -710,8 +711,11 @@ export default function ForumThreadPage() {
                                                         {user && user.id !== entry.authorId && (
                                                             <>
                                                                 <div style={{ height: '1px', background: 'var(--card-border)', margin: '4px 0' }} />
-                                                                <button onClick={() => { setReportModal({ entry, threadTitle: thread.title }); setActiveUserMenu(null); }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: '#ef4444', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='rgba(239,68,68,0.1)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
-                                                                    <Flag size={14} /> Şikayet Et
+                                                                <button onClick={() => { setReportModal({ entry, threadTitle: thread.title, reportType: 'entry' }); setActiveUserMenu(null); }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: '#ef4444', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='rgba(239,68,68,0.1)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                                    <Flag size={14} /> Entry&apos;yi Şikâyet Et
+                                                                </button>
+                                                                <button onClick={() => { setReportModal({ threadTitle: thread.title, reportType: 'thread' }); setActiveUserMenu(null); }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: '#ef4444', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='rgba(239,68,68,0.1)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                                    <AlertTriangle size={14} /> Başlığı Şikâyet Et
                                                                 </button>
                                                             </>
                                                         )}
@@ -997,8 +1001,15 @@ export default function ForumThreadPage() {
                                 <Flag size={22} color="#EF4444" />
                             </div>
                             <div>
-                                <h3 style={{ margin: 0, fontSize: '17px', fontWeight: '800', color: 'var(--foreground)' }}>İçeriği Şikayet Et</h3>
-                                <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-muted)' }}>@{reportModal.entry.username} kullanıcısının girdisi</p>
+                                <h3 style={{ margin: 0, fontSize: '17px', fontWeight: '800', color: 'var(--foreground)' }}>
+                                    {reportModal.reportType === 'thread' ? 'Başlığı Şikâyet Et' : 'Entry\'yi Şikâyet Et'}
+                                </h3>
+                                <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-muted)' }}>
+                                    {reportModal.reportType === 'thread' 
+                                        ? `"${reportModal.threadTitle}" başlığı`
+                                        : `@${reportModal.entry?.username} kullanıcısının girdisi`
+                                    }
+                                </p>
                             </div>
                         </div>
                         <label style={{ display: 'block', fontSize: '11px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px' }}>Şikayet Nedeni</label>

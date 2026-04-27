@@ -210,6 +210,7 @@ export default function Navbar() {
                             src={theme === 'light' ? "/whitemode_logo.svg" : "/dark_logo.svg"}
                             alt="Otosöz"
                             fill
+                            sizes="32px"
                             style={{ objectFit: 'contain' }}
                             priority
                             fetchPriority="high"
@@ -828,12 +829,12 @@ export default function Navbar() {
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         style={{
-                            display: 'none',
                             background: 'transparent',
                             border: 'none',
                             fontSize: '20px',
                             cursor: 'pointer',
                             padding: '6px',
+                            color: 'var(--foreground)',
                         }}
                         className="mobile-menu-btn"
                     >
@@ -844,32 +845,81 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div style={{
-                    position: 'absolute',
-                    top: '60px',
-                    left: 0,
-                    right: 0,
-                    background: 'var(--navbar-bg)',
-                    borderBottom: '1px solid var(--card-border)',
-                    padding: '16px',
-                }}>
-                    {navLinks.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
+                <>
+                    {/* Backdrop */}
+                    <div
+                        style={{
+                            position: 'fixed',
+                            inset: 0,
+                            top: '60px',
+                            background: 'rgba(0,0,0,0.3)',
+                            zIndex: 998,
+                        }}
+                        onClick={() => setIsMenuOpen(false)}
+                    />
+                    <div style={{
+                        position: 'absolute',
+                        top: '60px',
+                        left: 0,
+                        right: 0,
+                        background: 'var(--navbar-bg)',
+                        backdropFilter: 'blur(20px)',
+                        borderBottom: '1px solid var(--card-border)',
+                        padding: '8px 16px 16px',
+                        maxHeight: 'calc(100vh - 60px)',
+                        overflowY: 'auto',
+                        zIndex: 999,
+                        boxShadow: '0 10px 40px rgba(0,0,0,0.15)',
+                    }}>
+                        {navLinks.map((item) => {
+                            const isActive = pathname === item.href;
+                            return (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    style={{
+                                        display: 'block',
+                                        padding: '12px 16px',
+                                        color: isActive ? 'var(--primary)' : 'var(--foreground)',
+                                        fontSize: '14px',
+                                        fontWeight: isActive ? '700' : '500',
+                                        borderRadius: '10px',
+                                        background: isActive ? 'var(--hover-primary)' : 'transparent',
+                                        marginBottom: '2px',
+                                        transition: 'all 0.15s ease',
+                                    }}
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    {item.name}
+                                </Link>
+                            );
+                        })}
+                        
+                        {/* Theme toggle in mobile menu */}
+                        <div style={{ height: '1px', background: 'var(--card-border)', margin: '8px 0' }} />
+                        <button
+                            onClick={() => { toggleTheme(); setIsMenuOpen(false); }}
                             style={{
-                                display: 'block',
-                                padding: '12px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px',
+                                padding: '12px 16px',
+                                borderRadius: '10px',
                                 color: 'var(--foreground)',
                                 fontSize: '14px',
-                                borderRadius: '8px',
+                                fontWeight: '500',
+                                background: 'transparent',
+                                border: 'none',
+                                cursor: 'pointer',
+                                width: '100%',
+                                textAlign: 'left',
                             }}
-                            onClick={() => setIsMenuOpen(false)}
                         >
-                            {item.name}
-                        </Link>
-                    ))}
-                </div>
+                            {theme === 'dark' ? <Sun style={{ width: '16px', height: '16px' }} /> : <Moon style={{ width: '16px', height: '16px' }} />}
+                            {theme === 'dark' ? 'Aydınlık Mod' : 'Karanlık Mod'}
+                        </button>
+                    </div>
+                </>
             )}
 
             {/* Click outside to close dropdowns */}

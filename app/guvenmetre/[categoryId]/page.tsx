@@ -9,6 +9,7 @@ import BrandRankingCard from "@/components/guvenmetre/BrandRankingCard";
 import { categories, getBrandsForCategory, BrandRating } from "@/data/guvenmetre";
 import { ArrowLeft, Star, Users, TrendingUp, Info, MapPin, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 
 export default function CategoryDetailPage() {
     const params = useParams();
@@ -16,6 +17,7 @@ export default function CategoryDetailPage() {
     const searchParams = useSearchParams();
     const [filter, setFilter] = useState<'rating' | 'reviews' | 'trending'>('rating');
     const [brands, setBrands] = useState<BrandRating[]>([]);
+    const [randomListings, setRandomListings] = useState<typeof sampleListings>([]);
 
     const categoryId = Array.isArray(params.categoryId) ? params.categoryId[0] : params.categoryId;
     const category = categories.find(c => c.id === categoryId);
@@ -26,6 +28,7 @@ export default function CategoryDetailPage() {
         if (!categoryId) return;
         const data = getBrandsForCategory(categoryId);
         setBrands(data.sort((a, b) => b.rating - a.rating));
+        setRandomListings([...sampleListings].sort(() => 0.5 - Math.random()).slice(0, 3));
     }, [categoryId]);
 
     if (!category || !categoryId) return <div>Yükleniyor...</div>;
@@ -107,7 +110,7 @@ export default function CategoryDetailPage() {
                         </div>
 
                         {/* Filter Pills */}
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px', marginTop: '12px' }}>
+                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px', marginTop: '12px' }}>
                             {filterOptions.map((f) => (
                                 <button
                                     key={f.id}
@@ -131,9 +134,9 @@ export default function CategoryDetailPage() {
 
                 {/* 3-Column Layout */}
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
+                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
                         {/* LEFT SIDEBAR — Reklam & Vitrin (same pattern as main page) */}
-                        <aside>
+                        <aside className="home-left-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 {/* Reklam Alanı — matches main page pattern */}
                                 <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block' }}>
@@ -217,7 +220,7 @@ export default function CategoryDetailPage() {
                         </div>
 
                         {/* RIGHT SIDEBAR */}
-                        <aside>
+                        <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 {/* Top 3 */}
                                 <div style={{
@@ -265,22 +268,51 @@ export default function CategoryDetailPage() {
                                     </p>
                                 </div>
 
-                                {/* Reklam Alanı — same pattern as main page */}
-                                <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block' }}>
-                                    <div style={{
-                                        background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
-                                        height: '220px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                                        color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '20px', textAlign: 'center'
-                                    }}
-                                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
-                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
-                                        <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
-                                            <Sparkles size={20} color="currentColor" />
-                                        </div>
-                                        <h3 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '8px' }}>Buraya Reklam Ver</h3>
-                                        <p style={{ fontSize: '12px', lineHeight: '1.5', margin: 0 }}>Günde 10.000+ otomotiv tutkununa markanızı ulaştırın.</p>
+                                {/* Pazar Vitrini */}
+                                <div style={{
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '16px',
+                                    padding: '16px',
+                                    marginBottom: '16px',
+                                    overflow: 'hidden'
+                                }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                            Pazar Vitrini
+                                        </h3>
+                                        <Link href="/pazar" style={{ fontSize: '12px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }}>
+                                            Tümü
+                                        </Link>
                                     </div>
-                                </Link>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                        {(randomListings.length > 0 ? randomListings : sampleListings.slice(0, 3)).map((listing, index) => (
+                                            <Link key={listing.id || index} href="/pazar" style={{ textDecoration: 'none' }}>
+                                                <div style={{
+                                                    background: 'var(--secondary)',
+                                                    border: '1px solid var(--card-border)',
+                                                    borderRadius: '12px',
+                                                    padding: '12px',
+                                                    transition: 'all 0.2s',
+                                                    cursor: 'pointer',
+                                                    position: 'relative'
+                                                }}
+                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
+                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
+                                                >
+                                                    <div style={{ position: 'absolute', top: 0, right: 0, background: 'var(--card-bg)', border: '1px solid var(--card-border)', color: 'var(--foreground)', fontSize: '9px', fontWeight: '800', padding: '2px 6px', borderBottomLeftRadius: '6px' }}>VİTRİN</div>
+                                                    <div style={{ fontSize: '13px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px', paddingRight: '40px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                                        {listing.brand} {listing.model}
+                                                    </div>
+                                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {formatKm(listing.km)}</span>
+                                                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e', whiteSpace: 'nowrap' }}>{formatListingPrice(listing.price)}</span>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </aside>
                     </div>
