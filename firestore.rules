@@ -1,123 +1,119 @@
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    // ── Yardimci fonksiyonlar ──
-    function isAuth() {
-      return request.auth != null;
-    }
-    function isOwner(userId) {
-      return isAuth() && request.auth.uid == userId;
-    }
-    function isAdmin() {
-      return isAuth() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
-    }
-    function isModerator() {
-      return isAuth() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator'];
-    }
-
-    // ── Kullanici profilleri ──
+  
+    // Kullanıcılar
     match /users/{userId} {
       allow read: if true;
-      allow create: if isOwner(userId);
-      allow update: if isOwner(userId) || isAdmin();
-      allow delete: if isAdmin();
+      // Kendi profilini tamamen yazabilir
+      allow write: if request.auth != null && request.auth.uid == userId;
+      // Başka kullanıcılar sadece rating alanlarını güncelleyebilir
+      allow update: if request.auth != null
+        && request.auth.uid != userId
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['ratingTotalScore', 'ratingCount', 'ratingAverage']);
     }
-
-    // ── Forum konulari ──
+                          
+    // Konu Başlıkları (Threads) ve Altındaki Girdiler (Entries)
     match /threads/{threadId} {
       allow read: if true;
-      allow create: if isAuth();
-      // Yazar, mod veya admin guncelleyebilir
-      allow update: if isAuth() && (
-        resource.data.authorId == request.auth.uid ||
-        isModerator()
-      );
-      // Sadece mod veya admin silebilir
-      allow delete: if isModerator();
-
-      // ── Entry'ler (alt koleksiyon) ──
+      allow create, update: if request.auth != null;
+      allow delete: if request.auth != null;
+      
       match /entries/{entryId} {
         allow read: if true;
-        allow create: if isAuth();
-        // Yazar veya mod/admin guncelleyebilir
-        allow update: if isAuth() && (
-          resource.data.authorId == request.auth.uid ||
-          isModerator()
-        );
-        // Yazar kendi entry'sini silebilir, mod/admin hepsini
-        allow delete: if isAuth() && (
-          resource.data.authorId == request.auth.uid ||
-          isModerator()
-        );
+        allow create, update: if request.auth != null;
+        allow delete: if request.auth != null;
       }
     }
 
-    // ── CollectionGroup sorgulari icin (Profil gecmis entryler) ──
-    match /{path=**}/entries/{entryId} {
-      allow read: if true;
+    // Sohbetler (Conversations) ve Mesajlar
+    match /conversations/{convId} {
+      allow read, write: if request.auth != null;
+      
+      match /messages/{msgId} {
+        allow read, write: if request.auth != null;
+      }
     }
 
-    // ── Anketler ──
+    // Bildirimler
+    match /notifications/{notifId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Anketler (Surveys)
     match /surveys/{surveyId} {
       allow read: if true;
-      allow create: if isAuth();
-      allow update: if isAuth();
-      allow delete: if isModerator();
+      allow write: if request.auth != null;
     }
 
-    // ── Admin loglari ──
+    // Karşılaştırmalar (Comparisons)
+    match /comparisons/{compId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Araç DNA Kronik Sorunlar & Oylar
+    match /vehicle_chronic_issues/{vehicleId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Kullanıcı Puanları
+    match /userRatings/{ratingId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+
+    // Raporlar / Şikayetler
+    match /reports/{reportId} {
+      allow create: if request.auth != null;
+      allow read, update: if request.auth != null;
+    }
+
+    // Admin Logları
     match /admin_logs/{logId} {
-      allow read: if isAdmin();
-      allow write: if isAdmin();
+      allow read, write: if request.auth != null;
     }
 
-    // ── Sozluk ──
+    // Sözlük
     match /dictionary/{termId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if request.auth != null;
     }
 
-    // ── Raporlar / Sikayetler ──
-    match /reports/{reportId} {
-      allow create: if isAuth();
-      allow read: if isModerator();
-      allow update: if isModerator();
-      allow delete: if isAdmin();
-    }
-
-    // ── Reklamlar ──
+    // Reklamlar
     match /advertisements/{adId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if request.auth != null;
     }
 
-    // ── Kullanici Puanları ──
-    match /userRatings/{ratingId} {
-      allow read: if isAdmin();
-      allow create: if isAuth();
-      allow update: if isAuth() && resource.data.raterId == request.auth.uid;
-      allow delete: if isAdmin();
+    // İşletme Başvuruları
+    match /businesses/{businessId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null;
     }
 
-    // ── Mesajlaşma ──
-    match /conversations/{convId} {
-      allow read: if isAuth() && (request.auth.uid in resource.data.participants);
-      allow create: if isAuth();
-      allow update: if isAuth() && (request.auth.uid in resource.data.participants);
-      allow delete: if isAdmin();
-
-      match /messages/{msgId} {
-        allow read: if isAuth();
-        allow create: if isAuth();
-        allow update: if isAuth() && resource.data.senderId == request.auth.uid;
-        allow delete: if isAdmin();
-      }
+    // Etkinlik Önerileri
+    match /pending_events/{eventId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null;
     }
 
-    // ── Varsayilan: her seyi engelle ──
-    match /{document=**} {
-      allow read, write: if false;
+    // Kullanıcı Görevleri (Quests)
+    match /userQuests/{questId} {
+      allow read: if request.auth != null && request.auth.uid == questId;
+      allow write: if request.auth != null && request.auth.uid == questId;
     }
+
+    // Kullanıcı Ayarları (Bakım Takvimi vb.)
+    match /user_settings/{settingId} {
+      allow read: if request.auth != null && request.auth.uid == settingId;
+      allow write: if request.auth != null && request.auth.uid == settingId;
+    }
+
   }
 }

@@ -12,11 +12,11 @@ import {
     type ForumThread, type ForumEntry
 } from "@/lib/forumService";
 import { startConversation } from "@/lib/messageService";
-import { rateUser } from "@/lib/userService";
+import { rateUser, getMyRatingForUser } from "@/lib/userService";
 import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star, ChevronLeft, ChevronRight, TrendingUp, ArrowUp, Flame, AlertTriangle, Plus, X, ShieldCheck } from "lucide-react";
 import { sampleListings, formatListingPrice } from "@/data/listings";
 import AutoLinkText from "@/components/AutoLinkText";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 const parseComparisonContent = (text: string) => {
@@ -51,7 +51,7 @@ export default function ForumThreadPage() {
     const [likingEntry, setLikingEntry] = useState<string | null>(null);
     const [randomListings, setRandomListings] = useState<any[]>([]);
     const [sidebarAd, setSidebarAd] = useState<any>(null);
-    const [reportModal, setReportModal] = useState<{ entry?: ForumEntry; threadTitle: string; reportType: 'entry' | 'thread' } | null>(null);
+    const [reportModal, setReportModal] = useState<{ entry: ForumEntry; threadTitle: string } | null>(null);
     const [reportCategory, setReportCategory] = useState('hakaret');
     const [reportNote, setReportNote] = useState('');
     const [reportSending, setReportSending] = useState(false);
@@ -60,6 +60,8 @@ export default function ForumThreadPage() {
     const [ratingScore, setRatingScore] = useState(0);
     const [hoverScore, setHoverScore] = useState(0);
     const [ratingSending, setRatingSending] = useState(false);
+    const [previousRating, setPreviousRating] = useState<number | null>(null);
+    const [loadingPrevRating, setLoadingPrevRating] = useState(false);
     const [activeUserMenu, setActiveUserMenu] = useState<string | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [popularThreads, setPopularThreads] = useState<ForumThread[]>([]);
@@ -216,38 +218,35 @@ export default function ForumThreadPage() {
         setLikingEntry(null);
     };
 
-    // Sikayet gonder
+    // Sikayet gonder — dogrudan Firestore'a yaz (admin API yetkisi gerektirmez)
     const handleReport = async () => {
         if (!user || !reportModal || reportSending) return;
         setReportSending(true);
         try {
-            const isThreadReport = reportModal.reportType === 'thread';
-            await fetch('/api/admin', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    action: 'submit_report',
-                    target: isThreadReport ? thread!.id : reportModal.entry!.id,
-                    detail: JSON.stringify({
-                        type: isThreadReport ? 'thread' : 'entry',
-                        targetId: isThreadReport ? thread!.id : reportModal.entry!.id,
-                        targetTitle: reportModal.threadTitle,
-                        targetAuthor: isThreadReport ? thread!.authorUsername : reportModal.entry!.username,
-                        targetContent: isThreadReport ? thread!.title : reportModal.entry!.content.slice(0, 300),
-                        reportedBy: user.username,
-                        reportedById: user.id,
-                        reason: reportCategory,
-                        category: reportCategory,
-                        note: reportNote,
-                        threadId: thread!.id,
-                    }),
-                    actor: user.username,
-                }),
-            });
+            const reportData = {
+                type: 'entry',
+                targetId: reportModal.entry.id,
+                targetTitle: reportModal.threadTitle,
+                targetAuthor: reportModal.entry.username,
+                targetContent: reportModal.entry.content.slice(0, 300),
+                reportedBy: user.username,
+                reportedById: user.id,
+                reason: reportCategory,
+                category: reportCategory,
+                note: reportNote,
+                threadId: thread!.id,
+                status: 'bekliyor',
+                priority: reportCategory === 'yasadisi' ? 'kritik' : reportCategory === 'taciz' || reportCategory === 'spam' ? 'yuksek' : 'orta',
+                notes: '',
+                adminNote: '',
+                count: 1,
+                createdAt: serverTimestamp(),
+            };
+            await addDoc(collection(db, 'reports'), reportData);
             setReportModal(null);
             setReportNote('');
             setReportCategory('hakaret');
-            setReportToast(isThreadReport ? 'Başlık şikâyeti gönderildi. Admin inceleyecek.' : 'Entry şikâyeti gönderildi. Admin inceleyecek.');
+            setReportToast('Şikayet gönderildi. Admin inceleyecek.');
             setTimeout(() => setReportToast(null), 3500);
         } catch (e) {
             console.error('Şikayet gonderilemedi:', e);
@@ -588,6 +587,7 @@ export default function ForumThreadPage() {
                                             transition: 'border-color 0.2s',
                                             boxShadow: isExpert ? '0 4px 20px rgba(234,179,8,0.08)' : (isBestAnswer ? '0 4px 20px rgba(34,197,94,0.08)' : ((isFirstEntry && isKarsilastirma) ? '0 8px 30px rgba(0,0,0,0.04)' : 'none')),
                                             display: 'flex',
+                                            overflow: 'hidden',
                                         }}>
                                             {/* Reddit tarzı sol upvote bar */}
                                             <div style={{
@@ -598,7 +598,6 @@ export default function ForumThreadPage() {
                                                 minWidth: isFirstEntry ? '0px' : '52px',
                                                 width: isFirstEntry ? '0px' : '52px',
                                                 flexShrink: 0,
-                                                borderRadius: isFirstEntry ? '0' : '16px 0 0 16px',
                                             }}>
                                                 {!isFirstEntry && (
                                                     <>
@@ -704,18 +703,25 @@ export default function ForumThreadPage() {
                                                             </button>
                                                         )}
                                                         {user && user.id !== entry.authorId && (
-                                                            <button onClick={() => { setRatingModal({ userId: entry.authorId, username: entry.username }); setActiveUserMenu(null); }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                            <button onClick={async () => { 
+                                                                setRatingModal({ userId: entry.authorId, username: entry.username }); 
+                                                                setActiveUserMenu(null); 
+                                                                setRatingScore(0);
+                                                                setPreviousRating(null);
+                                                                setLoadingPrevRating(true);
+                                                                const prev = await getMyRatingForUser(entry.authorId, user.id as string);
+                                                                setPreviousRating(prev);
+                                                                if (prev) setRatingScore(prev);
+                                                                setLoadingPrevRating(false);
+                                                            }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: 'var(--foreground)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
                                                                 <Star size={14} color="#f59e0b" /> Puan Ver
                                                             </button>
                                                         )}
                                                         {user && user.id !== entry.authorId && (
                                                             <>
                                                                 <div style={{ height: '1px', background: 'var(--card-border)', margin: '4px 0' }} />
-                                                                <button onClick={() => { setReportModal({ entry, threadTitle: thread.title, reportType: 'entry' }); setActiveUserMenu(null); }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: '#ef4444', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='rgba(239,68,68,0.1)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
-                                                                    <Flag size={14} /> Entry&apos;yi Şikâyet Et
-                                                                </button>
-                                                                <button onClick={() => { setReportModal({ threadTitle: thread.title, reportType: 'thread' }); setActiveUserMenu(null); }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: '#ef4444', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='rgba(239,68,68,0.1)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
-                                                                    <AlertTriangle size={14} /> Başlığı Şikâyet Et
+                                                                <button onClick={() => { setReportModal({ entry, threadTitle: thread.title }); setActiveUserMenu(null); }} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: 'transparent', border: 'none', color: '#ef4444', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRadius: '8px', textAlign: 'left' }} onMouseEnter={(e) => e.currentTarget.style.background='rgba(239,68,68,0.1)'} onMouseLeave={(e) => e.currentTarget.style.background='transparent'}>
+                                                                    <Flag size={14} /> Şikayet Et
                                                                 </button>
                                                             </>
                                                         )}
@@ -1001,15 +1007,8 @@ export default function ForumThreadPage() {
                                 <Flag size={22} color="#EF4444" />
                             </div>
                             <div>
-                                <h3 style={{ margin: 0, fontSize: '17px', fontWeight: '800', color: 'var(--foreground)' }}>
-                                    {reportModal.reportType === 'thread' ? 'Başlığı Şikâyet Et' : 'Entry\'yi Şikâyet Et'}
-                                </h3>
-                                <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-muted)' }}>
-                                    {reportModal.reportType === 'thread' 
-                                        ? `"${reportModal.threadTitle}" başlığı`
-                                        : `@${reportModal.entry?.username} kullanıcısının girdisi`
-                                    }
-                                </p>
+                                <h3 style={{ margin: 0, fontSize: '17px', fontWeight: '800', color: 'var(--foreground)' }}>İçeriği Şikayet Et</h3>
+                                <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-muted)' }}>@{reportModal.entry.username} kullanıcısının girdisi</p>
                             </div>
                         </div>
                         <label style={{ display: 'block', fontSize: '11px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px' }}>Şikayet Nedeni</label>
@@ -1052,8 +1051,22 @@ export default function ForumThreadPage() {
                             <Star size={24} color="#F59E0B" fill="#F59E0B" />
                         </div>
                         <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontWeight: '800', color: 'var(--foreground)' }}>Kullanıcıyı Değerlendir</h3>
-                        <p style={{ margin: '0 0 24px 0', fontSize: '13px', color: 'var(--text-muted)' }}>@{ratingModal.username} için puanınız (Anonim olarak verilecektir)</p>
+                        <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: 'var(--text-muted)' }}>@{ratingModal.username} için puanınız (Anonim olarak verilecektir)</p>
                         
+                        {/* Daha önce verilen puan bilgisi */}
+                        {loadingPrevRating ? (
+                            <div style={{ padding: '8px 0 16px', fontSize: '12px', color: 'var(--text-muted)' }}>Önceki puanınız kontrol ediliyor...</div>
+                        ) : previousRating !== null ? (
+                            <div style={{
+                                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                                padding: '8px 16px', borderRadius: '10px',
+                                background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)',
+                                marginBottom: '16px', fontSize: '13px', color: '#F59E0B', fontWeight: '700'
+                            }}>
+                                Daha önce {previousRating} ★ verdiniz
+                            </div>
+                        ) : null}
+
                         <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '24px' }}>
                             {[1, 2, 3, 4, 5].map((star) => (
                                 <button
@@ -1063,11 +1076,12 @@ export default function ForumThreadPage() {
                                     onClick={() => setRatingScore(star)}
                                     style={{
                                         background: 'none', border: 'none', cursor: 'pointer', padding: '4px',
-                                        transition: 'transform 0.1s'
+                                        transition: 'transform 0.15s',
+                                        transform: star <= (hoverScore || ratingScore) ? 'scale(1.2)' : 'scale(1)',
                                     }}
                                 >
                                     <Star 
-                                        size={32} 
+                                        size={36} 
                                         color={star <= (hoverScore || ratingScore) ? '#F59E0B' : 'var(--card-border)'} 
                                         fill={star <= (hoverScore || ratingScore) ? '#F59E0B' : 'transparent'} 
                                     />
@@ -1075,10 +1089,17 @@ export default function ForumThreadPage() {
                             ))}
                         </div>
 
+                        {/* Seçilen puan açıklaması */}
+                        {(hoverScore || ratingScore) > 0 && (
+                            <p style={{ fontSize: '14px', fontWeight: '700', marginBottom: '16px', color: 'var(--foreground)' }}>
+                                {['' , '⭐ Çok Kötü', '⭐⭐ Kötü', '⭐⭐⭐ Orta', '⭐⭐⭐⭐ İyi', '⭐⭐⭐⭐⭐ Mükemmel'][hoverScore || ratingScore]}
+                            </p>
+                        )}
+
                         <div style={{ display: 'flex', gap: '10px' }}>
                             <button onClick={() => setRatingModal(null)} style={{ flex: 1, padding: '12px', borderRadius: '10px', background: 'var(--background)', border: '1px solid var(--border-subtle)', color: 'var(--foreground)', fontSize: '14px', fontWeight: '600', cursor: 'pointer' }}>İptal</button>
                             <button onClick={handleRateUser} disabled={ratingScore === 0 || ratingSending} style={{ flex: 2, padding: '12px', borderRadius: '10px', background: '#F59E0B', border: 'none', color: 'white', fontSize: '14px', fontWeight: '700', cursor: 'pointer', opacity: (ratingScore === 0 || ratingSending) ? 0.7 : 1 }}>
-                                {ratingSending ? 'Kaydediliyor...' : 'Puan Ver'}
+                                {ratingSending ? 'Kaydediliyor...' : (previousRating !== null ? 'Puanı Güncelle' : 'Puan Ver')}
                             </button>
                         </div>
                     </div>

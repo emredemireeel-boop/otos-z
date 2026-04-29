@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { vehicleDNAData, getSeverityColor, getSeverityLabel } from "@/data/vehicle-dna";
 import { Wrench, AlertCircle, AlertTriangle, Plus, X } from "lucide-react";
 import Script from "next/script";
@@ -20,6 +20,8 @@ export default function ChronicIssuesPage() {
     const [isReportingChronic, setIsReportingChronic] = useState(false);
     const [chronicText, setChronicText] = useState("");
     const [chronicSubmitting, setChronicSubmitting] = useState(false);
+    const [showLoginPrompt, setShowLoginPrompt] = useState(false);
+    const router = useRouter();
 
     const vehicle = vehicleDNAData.find(v => {
         const vBrandSlug = v.brand.toLowerCase().replace(/\s+/g, '-');
@@ -58,7 +60,10 @@ export default function ChronicIssuesPage() {
     };
 
     const handleChronicVote = async (issueId: string) => {
-        if (!user) return;
+        if (!user) {
+            setShowLoginPrompt(true);
+            return;
+        }
         try {
             setDynamicIssues(prev => prev.map(iss => {
                 if (iss.id !== issueId) return iss;
@@ -78,7 +83,10 @@ export default function ChronicIssuesPage() {
     };
 
     const handleStaticVote = async (issueId: number) => {
-        if (!user) return;
+        if (!user) {
+            setShowLoginPrompt(true);
+            return;
+        }
         const idStr = issueId.toString();
         try {
             setStaticVotes(prev => {
@@ -134,7 +142,13 @@ export default function ChronicIssuesPage() {
                         </h2>
                     </div>
                     <button 
-                        onClick={() => setIsReportingChronic(true)}
+                        onClick={() => {
+                            if (!user) {
+                                setShowLoginPrompt(true);
+                                return;
+                            }
+                            setIsReportingChronic(true);
+                        }}
                         style={{
                             display: 'flex', alignItems: 'center', gap: '6px',
                             padding: '10px 16px', borderRadius: '8px',
@@ -201,14 +215,14 @@ export default function ChronicIssuesPage() {
                                     </div>
                                     <button
                                         onClick={() => handleStaticVote(issue.id)}
-                                        disabled={!user}
+                                        disabled={false}
                                         style={{
                                             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px',
                                             padding: '10px 16px', borderRadius: '8px', flexShrink: 0,
                                             background: hasVoted ? severityColor : `${severityColor}15`,
                                             border: `1px solid ${hasVoted ? severityColor : `${severityColor}30`}`,
                                             color: hasVoted ? 'white' : severityColor,
-                                            cursor: user ? 'pointer' : 'not-allowed', transition: 'all 0.2s',
+                                            cursor: 'pointer', transition: 'all 0.2s',
                                         }}
                                     >
                                         <span style={{ fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>
@@ -245,14 +259,14 @@ export default function ChronicIssuesPage() {
                                         </div>
                                         <button
                                             onClick={() => handleChronicVote(issue.id)}
-                                            disabled={!user}
+                                            disabled={false}
                                             style={{
                                                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px',
                                                 padding: '10px 16px', borderRadius: '8px', flexShrink: 0,
                                                 background: hasVoted ? '#ef4444' : 'rgba(239, 68, 68, 0.05)',
                                                 border: `1px solid ${hasVoted ? '#ef4444' : 'rgba(239, 68, 68, 0.2)'}`,
                                                 color: hasVoted ? 'white' : '#ef4444',
-                                                cursor: user ? 'pointer' : 'not-allowed', transition: 'all 0.2s',
+                                                cursor: 'pointer', transition: 'all 0.2s',
                                             }}
                                         >
                                             <span style={{ fontSize: '20px', fontWeight: '800' }}>{issue.votes}</span>
@@ -324,6 +338,61 @@ export default function ChronicIssuesPage() {
                         >
                             {chronicSubmitting ? 'Bildiriliyor...' : 'Sorunu Bildir'}
                         </button>
+                    </div>
+                </>
+            )}
+
+            {/* Giriş Yap Uyarı Modali */}
+            {showLoginPrompt && (
+                <>
+                    <div onClick={() => setShowLoginPrompt(false)} style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', zIndex: 999 }} />
+                    <div style={{
+                        position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+                        background: 'var(--card-bg)', border: '1px solid var(--card-border)',
+                        padding: '32px', borderRadius: '24px', zIndex: 1000,
+                        width: '90%', maxWidth: '400px', boxShadow: '0 24px 60px rgba(0,0,0,0.3)',
+                        textAlign: 'center'
+                    }}>
+                        <div style={{
+                            width: 64, height: 64, borderRadius: '50%',
+                            background: 'linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05))',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            margin: '0 auto 20px',
+                        }}>
+                            <AlertCircle size={32} color="#ef4444" />
+                        </div>
+                        <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '8px' }}>
+                            Giriş Yapmanız Gerekiyor
+                        </h3>
+                        <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '24px' }}>
+                            Oy verebilmek veya sorun bildirmek için üye girişi yapmanız gerekmektedir.
+                        </p>
+                        <div style={{ display: 'flex', gap: '12px' }}>
+                            <button
+                                onClick={() => router.push('/giris')}
+                                style={{
+                                    flex: 1, padding: '14px',
+                                    background: 'var(--primary)', color: 'white',
+                                    border: 'none', borderRadius: '12px',
+                                    fontSize: '15px', fontWeight: '700', cursor: 'pointer',
+                                    transition: 'opacity 0.2s'
+                                }}
+                            >
+                                Giriş Yap
+                            </button>
+                            <button
+                                onClick={() => router.push('/kayit')}
+                                style={{
+                                    flex: 1, padding: '14px',
+                                    background: 'var(--secondary)', color: 'var(--foreground)',
+                                    border: '1px solid var(--card-border)', borderRadius: '12px',
+                                    fontSize: '15px', fontWeight: '700', cursor: 'pointer',
+                                    transition: 'opacity 0.2s'
+                                }}
+                            >
+                                Kayıt Ol
+                            </button>
+                        </div>
                     </div>
                 </>
             )}

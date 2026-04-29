@@ -2,15 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/context/AuthContext";
-import { Eye, EyeOff, ArrowRight, CheckCircle, Shield, Sparkles, Trophy, MessageCircle, ChevronRight, Star } from "lucide-react";
+import { Eye, EyeOff, ArrowRight, CheckCircle, Shield, Sparkles, Trophy, MessageCircle, ChevronRight, Star, AlertCircle, Loader2, Info } from "lucide-react";
+import { validateUsername, sanitizeUsername, USERNAME_RULES, getUsernameRulesText } from "@/lib/usernameValidation";
 
 export default function KayitPage() {
     const { theme } = useTheme();
-    const { register, loginWithGoogle, error: authError } = useAuth();
+    const { register, loginWithGoogle, checkUsernameAvailability, error: authError } = useAuth();
     const router = useRouter();
     const isDark = theme === 'dark';
     const [mounted, setMounted] = useState(false);
@@ -49,6 +50,62 @@ export default function KayitPage() {
         setFormData(prev => ({ ...prev, [field]: value }));
     };
 
+    // Username benzersizlik kontrolü
+    const [usernameStatus, setUsernameStatus] = useState<"idle" | "checking" | "available" | "taken" | "invalid">("idle");
+    const [usernameMessage, setUsernameMessage] = useState("");
+    const [showUsernameRules, setShowUsernameRules] = useState(false);
+    const usernameCheckTimeout = useRef<NodeJS.Timeout | null>(null);
+
+    const checkUsernameDebounced = useCallback(async (value: string) => {
+        const validation = validateUsername(value);
+        if (!validation.isValid) {
+            setUsernameStatus("invalid");
+            setUsernameMessage(validation.message);
+            return;
+        }
+        setUsernameStatus("checking");
+        setUsernameMessage("Kontrol ediliyor...");
+        const isAvailable = await checkUsernameAvailability(value.trim().toLowerCase());
+        if (isAvailable) {
+            setUsernameStatus("available");
+            setUsernameMessage("✓ Bu kullanıcı adı uygun");
+        } else {
+            setUsernameStatus("taken");
+            setUsernameMessage("Bu kullanıcı adı zaten alınmış");
+        }
+    }, [checkUsernameAvailability]);
+
+    const handleUsernameChange = (value: string) => {
+        const sanitized = sanitizeUsername(value);
+        updateField("username", sanitized);
+
+        // Anlık format doğrulama
+        if (sanitized.length === 0) {
+            setUsernameStatus("idle");
+            setUsernameMessage("");
+        } else {
+            const validation = validateUsername(sanitized);
+            if (!validation.isValid) {
+                setUsernameStatus("invalid");
+                setUsernameMessage(validation.message);
+            } else {
+                setUsernameStatus("idle");
+                setUsernameMessage("");
+            }
+        }
+
+        // Debounce — 500ms sonra Firestore kontrol
+        if (usernameCheckTimeout.current) {
+            clearTimeout(usernameCheckTimeout.current);
+        }
+        const validation = validateUsername(sanitized);
+        if (validation.isValid) {
+            usernameCheckTimeout.current = setTimeout(() => {
+                checkUsernameDebounced(sanitized);
+            }, 500);
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
@@ -57,10 +114,6 @@ export default function KayitPage() {
         const result = await register(formData.email, formData.password, formData.username, formData.city);
 
         if (result) {
-            // Şehri localStorage'a kaydet (yakıt fiyatları ticker'ı için)
-            if (typeof window !== 'undefined') {
-                localStorage.setItem('oto_user_city', formData.city);
-            }
             setIsLoading(false);
             setSuccess(true);
         } else {
@@ -99,7 +152,7 @@ export default function KayitPage() {
     const passwordsMatch = formData.password && formData.confirmPassword && formData.password === formData.confirmPassword;
     const passwordsDontMatch = formData.password && formData.confirmPassword && formData.password !== formData.confirmPassword;
 
-    const canProceedStep1 = formData.username.length >= 3 && formData.email.includes('@') && formData.city.length > 0 && acceptTerms;
+    const canProceedStep1 = formData.username.length >= USERNAME_RULES.MIN_LENGTH && formData.email.includes('@') && formData.city.length > 0 && acceptTerms && usernameStatus === "available";
     const canProceedStep2 = formData.password.length >= 6 && passwordsMatch;
 
     // Success Screen
@@ -638,9 +691,19 @@ export default function KayitPage() {
                         {currentStep === 1 && (
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', animation: 'stepSlide 0.4s ease' }}>
                                 <div>
-                                    <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>
-                                        Kullanıcı Adı
-                                    </label>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                                        <label style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                            Kullanıcı Adı
+                                        </label>
+                                        <span style={{
+                                            fontSize: '11px',
+                                            color: formData.username.length > USERNAME_RULES.MAX_LENGTH ? '#EF4444' : 'var(--text-muted)',
+                                            fontWeight: '500',
+                                            fontVariantNumeric: 'tabular-nums',
+                                        }}>
+                                            {formData.username.length}/{USERNAME_RULES.MAX_LENGTH}
+                                        </span>
+                                    </div>
                                     <div style={{ position: 'relative' }}>
                                         <div style={{
                                             position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)',
@@ -652,17 +715,71 @@ export default function KayitPage() {
                                             </svg>
                                         </div>
                                         <input className="reg-input" type="text" value={formData.username}
-                                            onChange={(e) => updateField("username", e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ""))}
+                                            onChange={(e) => handleUsernameChange(e.target.value)}
                                             placeholder="kullanici_adi"
-                                            onFocus={() => setFocusedField('username')} onBlur={() => setFocusedField(null)} required
+                                            maxLength={USERNAME_RULES.MAX_LENGTH}
+                                            onFocus={() => { setFocusedField('username'); setShowUsernameRules(true); }}
+                                            onBlur={() => { setFocusedField(null); setTimeout(() => setShowUsernameRules(false), 200); }}
+                                            required
+                                            style={{
+                                                borderColor: (usernameStatus === 'taken' || usernameStatus === 'invalid') ? '#EF4444' : usernameStatus === 'available' ? '#22c55e' : undefined,
+                                            }}
                                         />
-                                        {formData.username.length >= 3 && (
+                                        {usernameStatus === 'checking' && (
+                                            <Loader2 size={16} style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', animation: 'spin 0.8s linear infinite' }} />
+                                        )}
+                                        {usernameStatus === 'available' && (
                                             <CheckCircle size={16} style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', color: '#22c55e' }} />
                                         )}
+                                        {(usernameStatus === 'taken' || usernameStatus === 'invalid') && formData.username.length > 0 && (
+                                            <AlertCircle size={16} style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', color: '#EF4444' }} />
+                                        )}
                                     </div>
-                                    <p style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '6px', marginLeft: '2px' }}>
-                                        Sadece küçük harf, rakam ve alt çizgi
-                                    </p>
+                                    {/* Mesaj alanı */}
+                                    {usernameMessage ? (
+                                        <p style={{
+                                            fontSize: '11px',
+                                            color: usernameStatus === 'available' ? '#22c55e' : '#EF4444',
+                                            marginTop: '6px', marginLeft: '2px',
+                                            fontWeight: '600',
+                                        }}>
+                                            {usernameMessage}
+                                        </p>
+                                    ) : (
+                                        <p style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '6px', marginLeft: '2px' }}>
+                                            {USERNAME_RULES.MIN_LENGTH}–{USERNAME_RULES.MAX_LENGTH} karakter, harf ile başlamalı
+                                        </p>
+                                    )}
+                                    {/* Kural listesi */}
+                                    {showUsernameRules && (
+                                        <div style={{
+                                            marginTop: '8px',
+                                            padding: '10px 14px',
+                                            background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
+                                            border: '1px solid var(--card-border)',
+                                            borderRadius: '10px',
+                                            animation: 'fadeIn 0.2s ease',
+                                        }}>
+                                            <p style={{ fontSize: '11px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                <Info size={12} /> Kullanıcı Adı Kuralları
+                                            </p>
+                                            {getUsernameRulesText().map((rule, i) => {
+                                                const validation = validateUsername(formData.username);
+                                                const isPassing = formData.username.length > 0 && !validation.errors.some(e => rule.toLowerCase().includes(e.toLowerCase().slice(0, 10)));
+                                                return (
+                                                    <div key={i} style={{
+                                                        fontSize: '11px',
+                                                        color: formData.username.length === 0 ? 'var(--text-muted)' : isPassing ? '#22c55e' : 'var(--text-muted)',
+                                                        display: 'flex', alignItems: 'center', gap: '6px',
+                                                        padding: '2px 0',
+                                                    }}>
+                                                        <span style={{ fontSize: '10px' }}>{formData.username.length === 0 ? '○' : isPassing ? '✓' : '○'}</span>
+                                                        {rule}
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div>

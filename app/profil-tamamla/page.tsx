@@ -1,28 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/context/AuthContext";
-import { User, MapPin, Sparkles, CheckCircle, ChevronDown } from "lucide-react";
+import { User, MapPin, Sparkles, CheckCircle, ChevronDown, AlertCircle, Loader2, Info } from "lucide-react";
 import Image from "next/image";
+import { validateUsername, sanitizeUsername, USERNAME_RULES, getUsernameRulesText } from "@/lib/usernameValidation";
 
 const CITIES = [
-    "Adana","Adıyaman","Afyon","Ağrı","Aksaray","Amasya","Ankara","Antalya",
-    "Ardahan","Artvin","Aydın","Balıkesir","Bartın","Batman","Bayburt","Bilecik",
-    "Bingöl","Bitlis","Bolu","Burdur","Bursa","Çanakkale","Çankırı","Çorum",
-    "Denizli","Diyarbakır","Düzce","Edirne","Elazığ","Erzincan","Erzurum","Eskişehir",
-    "Gaziantep","Giresun","Gümüşhane","Hakkari","Hatay","Iğdır","Isparta","İstanbul",
-    "İzmir","Kahramanmaraş","Karabük","Karaman","Kars","Kastamonu","Kayseri","Kilis",
-    "Kırıkkale","Kırklareli","Kırşehir","Kocaeli","Konya","Kütahya","Malatya","Manisa",
-    "Mardin","Mersin","Muğla","Muş","Nevşehir","Niğde","Ordu","Osmaniye",
-    "Rize","Sakarya","Samsun","Şanlıurfa","Siirt","Sinop","Şırnak","Sivas",
-    "Tekirdağ","Tokat","Trabzon","Tunceli","Uşak","Van","Yalova","Yozgat","Zonguldak"
+    "Adana", "Adiyaman", "Afyonkarahisar", "Agri", "Aksaray", "Amasya", "Ankara", "Antalya",
+    "Ardahan", "Artvin", "Aydin", "Balikesir", "Bartin", "Batman", "Bayburt", "Bilecik",
+    "Bingol", "Bitlis", "Bolu", "Burdur", "Bursa", "Canakkale", "Cankiri", "Corum",
+    "Denizli", "Diyarbakir", "Duzce", "Edirne", "Elazig", "Erzincan", "Erzurum", "Eskisehir",
+    "Gaziantep", "Giresun", "Gumushane", "Hakkari", "Hatay", "Igdir", "Isparta", "Istanbul",
+    "Izmir", "Kahramanmaras", "Karabuk", "Karaman", "Kars", "Kastamonu", "Kayseri", "Kilis",
+    "Kirikkale", "Kirklareli", "Kirsehir", "Kocaeli", "Konya", "Kutahya", "Malatya", "Manisa",
+    "Mardin", "Mersin", "Mugla", "Mus", "Nevsehir", "Nigde", "Ordu", "Osmaniye",
+    "Rize", "Sakarya", "Samsun", "Sanliurfa", "Siirt", "Sinop", "Sirnak", "Sivas",
+    "Tekirdag", "Tokat", "Trabzon", "Tunceli", "Usak", "Van", "Yalova", "Yozgat", "Zonguldak"
 ];
 
 export default function ProfilTamamlaPage() {
     const { theme } = useTheme();
-    const { user, completeProfile, needsProfileCompletion, isLoading: authLoading } = useAuth();
+    const { user, completeProfile, checkUsernameAvailability, needsProfileCompletion, isLoading: authLoading, error: authError } = useAuth();
     const router = useRouter();
     const isDark = theme === "dark";
     const [mounted, setMounted] = useState(false);
@@ -30,10 +31,18 @@ export default function ProfilTamamlaPage() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("");
-    const [city, setCity] = useState("İstanbul");
+    const [city, setCity] = useState("Istanbul");
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(false);
+
+    // Username benzersizlik kontrol state'leri
+    const [usernameStatus, setUsernameStatus] = useState<"idle" | "checking" | "available" | "taken" | "invalid">("idle");
+    const [usernameMessage, setUsernameMessage] = useState("");
+    const usernameCheckTimeout = useRef<NodeJS.Timeout | null>(null);
+    const usernameTouched = useRef(false);
+    const initialUsernameSet = useRef(false);
+    const [showRules, setShowRules] = useState(false);
 
     useEffect(() => { setMounted(true); }, []);
 
@@ -47,9 +56,9 @@ export default function ProfilTamamlaPage() {
         }
     }, [authLoading, user, needsProfileCompletion, router]);
 
-    // Google'dan gelen isim bilgisini otomatik doldur
+    // Google'dan gelen isim bilgisini otomatik doldur — sadece 1 kere
     useEffect(() => {
-        if (user) {
+        if (user && !initialUsernameSet.current) {
             const nameParts = (user.name || "").split(" ");
             if (nameParts.length >= 2 && !firstName && !lastName) {
                 setFirstName(nameParts[0]);
@@ -57,13 +66,69 @@ export default function ProfilTamamlaPage() {
             } else if (nameParts.length === 1 && !firstName) {
                 setFirstName(nameParts[0]);
             }
-            if (!username && user.email) {
-                setUsername(user.email.split("@")[0].replace(/[^a-z0-9_]/g, ""));
+            if (user.email) {
+                const autoUsername = sanitizeUsername(user.email.split("@")[0]);
+                setUsername(autoUsername);
+            }
+            initialUsernameSet.current = true;
+        }
+    }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Username değiştiğinde debounce ile benzersizlik kontrolü
+    const checkUsername = useCallback(async (value: string) => {
+        // Önce format doğrulaması
+        const validation = validateUsername(value);
+        if (!validation.isValid) {
+            setUsernameStatus("invalid");
+            setUsernameMessage(validation.message);
+            return;
+        }
+        // Format geçerli — Firestore'dan benzersizlik kontrol et
+        setUsernameStatus("checking");
+        setUsernameMessage("Kontrol ediliyor...");
+        const isAvailable = await checkUsernameAvailability(value.trim().toLowerCase());
+        if (isAvailable) {
+            setUsernameStatus("available");
+            setUsernameMessage("✓ Bu kullanıcı adı uygun");
+        } else {
+            setUsernameStatus("taken");
+            setUsernameMessage("Bu kullanıcı adı zaten alınmış");
+        }
+    }, [checkUsernameAvailability]);
+
+    const handleUsernameChange = (value: string) => {
+        const sanitized = sanitizeUsername(value);
+        setUsername(sanitized);
+        usernameTouched.current = true;
+
+        // Anlık format doğrulama
+        if (sanitized.length === 0) {
+            setUsernameStatus("idle");
+            setUsernameMessage("");
+        } else {
+            const validation = validateUsername(sanitized);
+            if (!validation.isValid) {
+                setUsernameStatus("invalid");
+                setUsernameMessage(validation.message);
+            } else {
+                setUsernameStatus("idle");
+                setUsernameMessage("");
             }
         }
-    }, [user, firstName, lastName, username]);
 
-    const canSubmit = firstName.trim().length >= 2 && lastName.trim().length >= 2 && username.trim().length >= 3 && city;
+        // Debounce — 500ms sonra Firestore kontrol
+        if (usernameCheckTimeout.current) {
+            clearTimeout(usernameCheckTimeout.current);
+        }
+        const validation = validateUsername(sanitized);
+        if (validation.isValid) {
+            usernameCheckTimeout.current = setTimeout(() => {
+                checkUsername(sanitized);
+            }, 500);
+        }
+    };
+
+    const canSubmit = firstName.trim().length >= 2 && lastName.trim().length >= 2 && username.trim().length >= USERNAME_RULES.MIN_LENGTH && city && usernameStatus === "available";
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -79,14 +144,10 @@ export default function ProfilTamamlaPage() {
         });
 
         if (result) {
-            // Şehri localStorage'a kaydet (yakıt fiyatları ticker'ı için)
-            if (typeof window !== 'undefined') {
-                localStorage.setItem('oto_user_city', city);
-            }
             setSuccess(true);
             setTimeout(() => router.push("/"), 2000);
         } else {
-            setError("Profil tamamlanirken bir hata olustu. Lutfen tekrar deneyin.");
+            setError(authError || "Bu kullanıcı adı zaten alınmış veya bir hata oluştu. Lütfen farklı bir kullanıcı adı deneyin.");
             setIsLoading(false);
         }
     };
@@ -236,12 +297,24 @@ export default function ProfilTamamlaPage() {
 
                     {/* Username */}
                     <div style={{ marginBottom: "20px" }}>
-                        <label style={{
-                            display: "block", fontSize: "13px", fontWeight: "600",
-                            color: "var(--foreground)", marginBottom: "8px",
-                        }}>
-                            Kullanici Adi *
-                        </label>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                            <label style={{
+                                fontSize: "13px", fontWeight: "600",
+                                color: "var(--foreground)",
+                            }}>
+                                Kullanici Adi *
+                            </label>
+                            <span style={{
+                                fontSize: "11px",
+                                color: username.length > USERNAME_RULES.MAX_LENGTH ? "#EF4444"
+                                    : username.length >= USERNAME_RULES.MIN_LENGTH ? "var(--text-muted)"
+                                    : "var(--text-muted)",
+                                fontWeight: "500",
+                                fontVariantNumeric: "tabular-nums",
+                            }}>
+                                {username.length}/{USERNAME_RULES.MAX_LENGTH}
+                            </span>
+                        </div>
                         <div style={{ position: "relative" }}>
                             <div style={{
                                 position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)",
@@ -250,22 +323,79 @@ export default function ProfilTamamlaPage() {
                             <input
                                 type="text"
                                 value={username}
-                                onChange={(e) => setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ""))}
+                                onChange={(e) => handleUsernameChange(e.target.value)}
+                                onFocus={() => setShowRules(true)}
+                                onBlur={() => setTimeout(() => setShowRules(false), 200)}
                                 placeholder="kullanici_adi"
+                                maxLength={USERNAME_RULES.MAX_LENGTH}
                                 style={{
-                                    width: "100%", padding: "12px 14px 12px 32px", borderRadius: "12px",
-                                    background: "var(--secondary)", border: "1px solid var(--card-border)",
+                                    width: "100%", padding: "12px 40px 12px 32px", borderRadius: "12px",
+                                    background: "var(--secondary)",
+                                    border: `1px solid ${(usernameStatus === "taken" || usernameStatus === "invalid") ? "#EF4444" : usernameStatus === "available" ? "#22c55e" : "var(--card-border)"}`,
                                     color: "var(--foreground)", fontSize: "14px", outline: "none",
                                     transition: "border-color 0.2s",
                                 }}
-                                onFocus={(e) => e.target.style.borderColor = "var(--primary)"}
-                                onBlur={(e) => e.target.style.borderColor = "var(--card-border)"}
                                 required
                             />
+                            {/* Status indicator */}
+                            {usernameStatus === "checking" && (
+                                <div style={{ position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)" }}>
+                                    <Loader2 size={16} color="var(--text-muted)" style={{ animation: "spin 0.8s linear infinite" }} />
+                                </div>
+                            )}
+                            {usernameStatus === "available" && (
+                                <CheckCircle size={16} style={{ position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)", color: "#22c55e" }} />
+                            )}
+                            {(usernameStatus === "taken" || usernameStatus === "invalid") && username.length > 0 && (
+                                <AlertCircle size={16} style={{ position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)", color: "#EF4444" }} />
+                            )}
                         </div>
-                        <p style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "6px" }}>
-                            Sadece kucuk harf, rakam ve alt cizgi
-                        </p>
+                        {/* Mesaj alanı */}
+                        {usernameMessage ? (
+                            <p style={{
+                                fontSize: "11px",
+                                color: usernameStatus === "available" ? "#22c55e" : "#EF4444",
+                                marginTop: "6px",
+                                fontWeight: "600",
+                            }}>
+                                {usernameMessage}
+                            </p>
+                        ) : (
+                            <p style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "6px" }}>
+                                {USERNAME_RULES.MIN_LENGTH}–{USERNAME_RULES.MAX_LENGTH} karakter, harf ile başlamalı
+                            </p>
+                        )}
+                        {/* Kural listesi — focus olduğunda göster */}
+                        {showRules && (
+                            <div style={{
+                                marginTop: "8px",
+                                padding: "10px 14px",
+                                background: isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)",
+                                border: "1px solid var(--card-border)",
+                                borderRadius: "10px",
+                                animation: "fadeIn 0.2s ease",
+                            }}>
+                                <p style={{ fontSize: "11px", fontWeight: "700", color: "var(--foreground)", marginBottom: "6px", display: "flex", alignItems: "center", gap: "4px" }}>
+                                    <Info size={12} /> Kullanıcı Adı Kuralları
+                                </p>
+                                {getUsernameRulesText().map((rule, i) => {
+                                    // Her kuralın geçip geçmediğini kontrol et
+                                    const validation = validateUsername(username);
+                                    const isPassing = username.length > 0 && !validation.errors.some(e => rule.toLowerCase().includes(e.toLowerCase().slice(0, 10)));
+                                    return (
+                                        <div key={i} style={{
+                                            fontSize: "11px",
+                                            color: username.length === 0 ? "var(--text-muted)" : isPassing ? "#22c55e" : "var(--text-muted)",
+                                            display: "flex", alignItems: "center", gap: "6px",
+                                            padding: "2px 0",
+                                        }}>
+                                            <span style={{ fontSize: "10px" }}>{username.length === 0 ? "○" : isPassing ? "✓" : "○"}</span>
+                                            {rule}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )}
                     </div>
 
                     {/* City */}
@@ -353,6 +483,7 @@ export default function ProfilTamamlaPage() {
             <style jsx>{`
                 @keyframes spin { to { transform: rotate(360deg); } }
                 @keyframes scaleIn { from { transform: scale(0); } to { transform: scale(1); } }
+                @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
             `}</style>
         </div>
     );

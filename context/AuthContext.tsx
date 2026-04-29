@@ -11,8 +11,9 @@ import {
     updateProfile,
     type User as FirebaseUser,
 } from "firebase/auth";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { auth, db, googleProvider } from "@/lib/firebase";
+import { validateUsername } from "@/lib/usernameValidation";
 
 export type UserRole = "caylak" | "usta" | "admin" | "moderator";
 
@@ -43,6 +44,7 @@ interface AuthContextType {
     loginWithGoogle: () => Promise<{ success: boolean; isNewUser: boolean }>;
     register: (email: string, password: string, username: string, city?: string) => Promise<boolean>;
     completeProfile: (data: { firstName: string; lastName: string; username: string; city: string }) => Promise<boolean>;
+    checkUsernameAvailability: (username: string) => Promise<boolean>;
     logout: () => void;
     updateRole: (role: UserRole) => void;
     getIdToken: () => Promise<string | null>;
@@ -128,11 +130,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 setFirebaseUser(fbUser);
                 setUser(appUser);
                 localStorage.setItem("Otosoz_user", JSON.stringify(appUser));
-
-                // Kullanıcının şehrini localStorage'a kaydet (yakıt fiyatları için)
-                if (appUser.city) {
-                    localStorage.setItem('oto_user_city', appUser.city);
-                }
 
                 // Firebase ID Token ile guvenli cookie set et
                 try {
@@ -228,6 +225,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setIsLoading(true);
         setError(null);
         try {
+            // Önce username format doğrulaması
+            const validation = validateUsername(data.username);
+            if (!validation.isValid) {
+                setError(validation.message);
+                setIsLoading(false);
+                return false;
+            }
+
+            // Sonra benzersizlik kontrolü
+            const isAvailable = await checkUsernameAvailability(data.username);
+            if (!isAvailable) {
+                setError("Bu kullanıcı adı zaten alınmış. Lütfen başka bir kullanıcı adı seçin.");
+                setIsLoading(false);
+                return false;
+            }
+
             const displayName = `${data.firstName} ${data.lastName}`.trim();
             await updateProfile(firebaseUser, { displayName });
 
@@ -256,11 +269,47 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
     };
 
+    /* ── Kullanıcı adı benzersizlik kontrolü ── */
+    const checkUsernameAvailability = async (username: string): Promise<boolean> => {
+        try {
+            const usernameQuery = query(
+                collection(db, "users"),
+                where("username", "==", username.trim().toLowerCase())
+            );
+            const snapshot = await getDocs(usernameQuery);
+            // Eğer mevcut kullanıcının kendi username'i ise izin ver
+            if (snapshot.size === 1 && firebaseUser) {
+                const existingDoc = snapshot.docs[0];
+                if (existingDoc.id === firebaseUser.uid) return true;
+            }
+            return snapshot.empty;
+        } catch (e) {
+            console.error("Username kontrol hatasi:", e);
+            return false;
+        }
+    };
+
     /* ── Register ── */
     const register = async (email: string, password: string, username: string, city?: string): Promise<boolean> => {
         setIsLoading(true);
         setError(null);
         try {
+            // Önce username format doğrulaması
+            const validation = validateUsername(username);
+            if (!validation.isValid) {
+                setError(validation.message);
+                setIsLoading(false);
+                return false;
+            }
+
+            // Sonra benzersizlik kontrolü
+            const isAvailable = await checkUsernameAvailability(username);
+            if (!isAvailable) {
+                setError("Bu kullanıcı adı zaten alınmış. Lütfen başka bir kullanıcı adı seçin.");
+                setIsLoading(false);
+                return false;
+            }
+
             const cred = await createUserWithEmailAndPassword(auth, email, password);
             const fbUser = cred.user;
 
@@ -295,7 +344,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setFirebaseUser(null);
         setNeedsProfileCompletion(false);
         localStorage.removeItem("Otosoz_user");
-        localStorage.removeItem("oto_user_city");
         document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
         document.cookie = "user_role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
         router.push("/");
@@ -321,7 +369,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, firebaseUser, login, loginWithGoogle, register, completeProfile, logout, updateRole, getIdToken, isLoading, error, needsProfileCompletion }}>
+        <AuthContext.Provider value={{ user, firebaseUser, login, loginWithGoogle, register, completeProfile, checkUsernameAvailability, logout, updateRole, getIdToken, isLoading, error, needsProfileCompletion }}>
             {children}
         </AuthContext.Provider>
     );
