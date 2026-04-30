@@ -4853,6 +4853,334 @@
         }
       ],
       "urlId": 10030
+    },
+    {
+      "id": "guide_dolandirici_koruma",
+      "title": "Araç Alım-Satımında Dolandırılmaktan Korunmanın 10 Altın Kuralı (Türkiye Gerçekleri)",
+      "description": "Türkiye'de araç alım-satımında en sık karşılaşılan dolandırıcılık yöntemleri, gerçek mağdur hikayeleri ve adım adım korunma rehberi. Sazan sarmalı, sahte dekont, km hilesi ve daha fazlası.",
+      "minutes": 15,
+      "difficulty": "Kritik",
+      "tags": [
+        "Dolandırıcılık",
+        "Güvenlik",
+        "Korunma",
+        "Türkiye",
+        "Rehber"
+      ],
+      "author": "OtoSöz Güvenlik Ekibi",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "Türkiye'de Araç Dolandırıcılığı: Rakamların Acı Gerçeği",
+          "content": "Türkiye'de her yıl binlerce kişi araç alım-satım sürecinde dolandırılıyor. Emniyet Genel Müdürlüğü verilerine göre araç dolandırıcılığı, siber suçlardan sonra en çok şikayet alan ikinci suç kategorisi. Ortalama mağduriyet tutarı 200.000-500.000 TL arasında değişiyor ve mağdurların büyük çoğunluğu parasını geri alamıyor. Bu rehberde, Türkiye'ye özgü dolandırıcılık yöntemlerini gerçek senaryolarla anlatacak ve her biri için somut korunma adımları vereceğiz."
+        },
+        {
+          "type": "section",
+          "title": "1. Sazan Sarmalı (Üçgen Dolandırıcılığı) — En Tehlikeli Yöntem",
+          "content": "Türkiye'de en çok para kaybettiren ve en organize şekilde yürütülen dolandırıcılık türüdür. Polis kayıtlarına göre yılda 5.000'den fazla vaka raporlanır.",
+          "subsections": [
+            {
+              "subtitle": "Adım Adım Nasıl İşliyor?",
+              "text": "Dolandırıcı (B kişisi), aynı anda hem satıcıyı (A) hem alıcıyı (C) manipüle eder:",
+              "points": [
+                "B, sahibinden.com'da gerçek bir ilanı bulur ve A'yı arar: 'Aracı alacağım ama şirketim adına devir yapılacak, müdürüm/ortağım gelecek. Fiyatı konuşmayın aramızda kalsın.'",
+                "B, aynı ilanı daha ucuza kendi numarasıyla tekrar yayınlar ve C (gerçek alıcı) bulur.",
+                "B, C'ye der ki: 'Arabayı ablam/babam verecek ama para benim hesabıma gelsin, borç meselesi var.'",
+                "Noterde A ve C buluşur. İkisi de B'nin 'tanıdığı' olduğunu düşünür, fiyat konuşmazlar.",
+                "C parayı B'nin hesabına gönderir. A parasını göremez, imzayı atmaz. B parayı çekip kaybolur.",
+                "Sonuç: C parasını kaybeder, A aracını satamaz, ikisi de mağdur."
+              ]
+            },
+            {
+              "subtitle": "Gerçek Vaka: İstanbul Kadıköy (2025)",
+              "text": "35 yaşında bir mühendis, internette 750.000 TL'ye Volkswagen Passat ilanı gördü. Araç gerçekti, sahibi Ankara'daydı. Dolandırıcı, alıcıya 'Dayım verecek' dedi, satıcıya 'Yeğenim alacak' dedi. Noterde buluştular ama alıcı parayı dolandırıcının hesabına yolladı. Sonuç: 750.000 TL buhar oldu. Dava 14 aydır devam ediyor."
+            },
+            {
+              "subtitle": "Korunma Adımları",
+              "text": "Bu tuzağa düşmemek için:",
+              "points": [
+                "ALTIN KURAL: Parayı gönderdiğiniz banka hesabı sahibi ile noterde ruhsatı imzalayan kişi AYNI TC kimlik numaralı kişi olmalıdır. İstisna YOK.",
+                "Noterde karşınızdaki kişiyle açıkça fiyatı konuşun. 'Aramızda ayıp olur' diyen varsa %100 tuzaktır.",
+                "Güvenli Ödeme Sistemi (Noter Birliği/Banka entegreli) kullanın — para havuzda tutulur, devir tamamlanınca serbest bırakılır.",
+                "Satıcıysanız: 'Parayı başkası atacak' diyen herkesi reddedin."
+              ]
+            }
+          ],
+          "warning": {
+            "title": "🚨 Kritik Uyarı",
+            "text": "Dolandırıcılar genellikle 'Noterde fiyattan bahsetme', 'Borcum var kimse duymasın' veya 'Şirket hesabına at' gibi cümleler kurar. Bu cümleleri duyan kişi derhal işlemi durdurmalıdır."
+          }
+        },
+        {
+          "type": "section",
+          "title": "2. Sahte Dekont ve EFT Dolandırıcılığı",
+          "content": "Özellikle araç SATAN kişileri hedef alan ve giderek artan bir yöntem.",
+          "subsections": [
+            {
+              "subtitle": "Photoshop Dekont Hilesi",
+              "text": "Alıcı size telefonundan 'Para gönderildi' ekranını gösterir. Bu ekran Photoshop veya sahte bankacılık uygulamasıyla oluşturulmuştur:",
+              "points": [
+                "Sahte bankacılık uygulamaları Google Play dışı sitelerden indiriliyor ve gerçeğinden ayırt edilemiyor.",
+                "Size gösterilen 'Gönderildi' ekranı, gerçek bir transfer değil — bakiyenizi kontrol ettiğinizde para yok.",
+                "Bazı dolandırıcılar gerçekten 1 TL gönderip, ekranı düzenleyerek 500.000 TL gibi gösteriyor."
+              ]
+            },
+            {
+              "subtitle": "İleri Tarihli EFT Tuzağı",
+              "text": "Daha sofistike bir yöntem:",
+              "points": [
+                "Alıcı gerçekten bankadan EFT talimatı verir ama 'ileri tarihli' (örn: 3 gün sonra) ayarlar.",
+                "Size 'Talimat verildi' SMS'i gelir, siz imzayı atarsınız.",
+                "Alıcı noterin kapısından çıkar çıkmaz bankayı arayıp talimatı iptal eder.",
+                "Para hesabınıza hiç geçmez."
+              ]
+            },
+            {
+              "subtitle": "Korunma Adımları",
+              "text": "Para konusunda tek kural var:",
+              "points": [
+                "Kendi banka uygulamanızı açın ve BAKİYENİZDE parayı görün. Alıcının telefonuna bakmayın.",
+                "EFT ise en az 1 saat bekleyin, paranın hesabınıza fiilen düştüğünü teyit edin.",
+                "En güvenlisi: Güvenli Ödeme Sistemi veya noterde yüz yüze havale/FAST transferi.",
+                "Açıklama kısmına mutlaka plaka ve 'araç satış bedeli' yazılmalı — hukuki ispat için kritik."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "3. Kapora Dolandırıcılığı — Küçük Paralarla Büyük Vurgun",
+          "content": "Tek seferde düşük tutarlar ama yüzlerce kişiyi aynı anda dolandırma yöntemi.",
+          "subsections": [
+            {
+              "subtitle": "Klasik Senaryo",
+              "text": "Piyasanın çok altında, kusursuz bir araç ilanı yayınlanır:",
+              "points": [
+                "'2024 model, 15.000 km, hasarsız, sahibinden acil' — fiyat piyasanın %25-30 altında.",
+                "Satıcı kendini inandırıcı tanıtır: asker, doktor, yurt dışına tayin çıkan memur.",
+                "'Çok arayan var, 3.000-5.000 TL kapora atarsan sana ayırırım' der.",
+                "Para gönderilir, telefon kapanır, ilan silinir. Aynı anda 50-100 kişiden kapora toplanır."
+              ]
+            },
+            {
+              "subtitle": "WhatsApp Üzerinden Kapora Tuzağı (2025 Trendi)",
+              "text": "Yeni trend: Dolandırıcı gerçek bir aracın fotoğraflarını çalar ve WhatsApp gruplarında paylaşır. Görüntülü arama yapsa bile başka birinin garajındaki arabayı gösterir. Konum paylaşımı yapmaz.",
+              "points": [
+                "Gerçek ilan fotoğrafları kullanılır — Google Görseller ile ters arama yapın.",
+                "Satıcı asla yüz yüze buluşmak istemez, hep bahane üretir.",
+                "Ruhsat fotoğrafı istediğinizde bulanık veya kırpılmış gönderir."
+              ]
+            },
+            {
+              "subtitle": "Korunma Adımları",
+              "text": "Kapora dolandırıcılığından korunmanın tek yolu:",
+              "points": [
+                "Aracı fiziksel olarak görmeden, ruhsatı elinize almadan ve satıcının kimliğini doğrulamadan 1 TL bile göndermeyin.",
+                "Piyasa fiyatının %20+ altındaki 'kusursuz' ilanlar %90 ihtimalle sahte.",
+                "İlan fotoğraflarını Google Görseller'de aratın — başka sitelerden çalınmış olabilir.",
+                "Satıcı buluşmaktan kaçınıyorsa, konum paylaşmıyorsa veya sadece 'havale/EFT' istiyorsa uzak durun."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "4. Kilometre (KM) Düşürme — Sessiz Hırsızlık",
+          "content": "Türkiye'de satılan ikinci el araçların tahminen %15-20'sinde kilometre manipülasyonu yapılmaktadır.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Yapılıyorlar?",
+              "text": "Eski analog sayaçlar kablo ile geri sarılırdı. Artık dijital çağdayız ama yöntem de evrildi:",
+              "points": [
+                "OBD portuna bağlanan özel cihazlarla dijital gösterge yazılımı sıfırlanıyor.",
+                "İstanbul Sanayi'de bu işlem 500-1.500 TL'ye yapılıyor — araç değerini 50.000-100.000 TL artırıyor.",
+                "280.000 km'deki araç 120.000 km'ye düşürülüyor — motor ömrünün yarısı çalınmış oluyor.",
+                "Bazı galeriler bunu sistematik olarak her araca uyguluyor."
+              ]
+            },
+            {
+              "subtitle": "Tespit Yöntemleri",
+              "text": "KM düşürülmüş aracı yakalamak için:",
+              "points": [
+                "TÜVTÜRK muayene geçmişini sorgulayın — her muayenede km kaydedilir, düşüş varsa manipülasyon kesin.",
+                "Yetkili servis bakım geçmişini isteyin — serviste 180.000 km yazıyorsa ilanda 90.000 olamaz.",
+                "Direksiyon, vites topuzu, pedallar ve sürücü koltuğu aşınmasına bakın — 120.000 km'lik araçta eskimiş pedal olmaz.",
+                "OBD cihazı ile ABS beyni, şanzıman beyni ve klima beyni km'lerini okuyun — gösterge sıfırlansa bile bu beyinler gerçek km'yi tutar.",
+                "HGS/OGS geçiş kayıtları ile yıllık ortalama km hesaplayın."
+              ]
+            }
+          ],
+          "tip": {
+            "title": "💡 Pro İpucu",
+            "text": "100-200 TL'lik bir OBD cihazı (Torque uygulaması ile) alın. İlk kullanımda bile kendini amorti eder. Göstergede 100 bin yazsa da ABS beyni 300 bin gösterebilir."
+          }
+        },
+        {
+          "type": "section",
+          "title": "5. Pert/Ağır Hasarlı Araç Gizleme",
+          "content": "Türkiye'de sigorta kayıtlarının manipülasyonu ve hasarlı araçların 'temiz' gibi satılması büyük bir sorun.",
+          "subsections": [
+            {
+              "subtitle": "Sigorta Şişirmesi Yalanı",
+              "text": "Satıcı 'Tramer'de ağır hasar var ama sigorta şişirmesi, aslında sadece tampon değişti' der. Gerçek:",
+              "points": [
+                "Ağır hasar kaydı olan araçların %70'inde ciddi yapısal hasar (şasi, direk, tavan) bulunur.",
+                "Sel/su basması hasarlı araçlar kurutulup satılıyor — elektrik aksamı 6 ay içinde çürümeye başlar.",
+                "İki farklı aracın ön ve arka parçaları birleştiriliyor (ekleme/takma araç) — kaza anında ikiye ayrılır.",
+                "Airbag patlamış araçlarda direnç takılarak uyarı lambası söndürülüyor — kaza anında airbag açılmaz."
+              ]
+            },
+            {
+              "subtitle": "Korunma Adımları",
+              "text": "Ağır hasarlı araç tuzağından kaçınmak için:",
+              "points": [
+                "Tramer sorgulama (e-Devlet veya SBM) zorunlu adımdır — 0 hasar bile olsa yapın.",
+                "Bağımsız ekspertiz yaptırın (satıcının önerdiği yere değil, SİZİN seçtiğiniz firmaya gidin).",
+                "Ekspertiz raporunda şasi ölçümü, boya kalınlığı ve airbag kontrolü mutlaka olmalı.",
+                "Araç altını mutlaka inceletin — kaynak izleri, farklı renk metal ve yamuk şasi ağır kazayı gösterir."
+              ]
+            }
+          ],
+          "warning": {
+            "title": "🚨 Hayati Uyarı",
+            "text": "Ekleme (takma) araçlar normal sürüşte fark edilmez ama bir kaza anında gövde ikiye ayrılabilir. Bu araçlar CAN GÜVENLİĞİ tehdididir. Şasi ölçümü yaptırmadan araç almayın."
+          }
+        },
+        {
+          "type": "section",
+          "title": "6. Galeri/Komisyoncu Dolandırıcılıkları",
+          "content": "Organize ve sistematik şekilde yapılan, tespit edilmesi zor yöntemler.",
+          "subsections": [
+            {
+              "subtitle": "Anlaşmalı Ekspertiz Tuzağı",
+              "text": "Galeri 'Bizim ekspertiz var, hemen yaptıralım' der:",
+              "points": [
+                "Anlaşmalı ekspertizci ağır kusurları (şasi işlemi, boyalı direk, airbag eksikliği) rapora yazmaz.",
+                "Size 'Temiz rapor' verilir, siz güvenerek aracı alırsınız.",
+                "3 ay sonra başka bir ekspertize götürdüğünüzde gerçek ortaya çıkar ama artık galerici 'Ben sattığımda temizdi' der.",
+                "ÇÖZÜM: Ekspertiz firmasını HER ZAMAN alıcı seçer. Satıcının önerdiği yere asla gitmeyin."
+              ]
+            },
+            {
+              "subtitle": "Parça Değiştirme (Swap)",
+              "text": "Ekspertizden sonra, satış gerçekleşene kadar:",
+              "points": [
+                "İyi lastikler sökülüp eski takılır (4 lastik = 8.000-15.000 TL).",
+                "Katalitik konvertör sökülüp boş boru takılır (parça değeri 5.000-20.000 TL).",
+                "Orijinal akü ucuz muadille değiştirilir.",
+                "ÇÖZÜM: Ekspertizden hemen sonra notere gidin. Aracı gözünüzün önünden ayırmayın. Lastik marka/ebat, akü marka/seri numarasını not edin."
+              ]
+            },
+            {
+              "subtitle": "Gizli Masraf Bindirme",
+              "text": "İlan fiyatına dahil olmayan sürpriz kalemler:",
+              "points": [
+                "'Dosya masrafı', 'Hizmet bedeli', 'Yıkama ücreti' adı altında 5.000-15.000 TL ek talep.",
+                "Bunların hiçbiri yasal zorunluluk değil — faturalandırılmayan hiçbir ek ödemeyi kabul etmeyin.",
+                "Fiyatı yazılı olarak (WhatsApp mesajı bile yeterli) teyit ettirin."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "7. İnternet İlan Dolandırıcılıkları (2025-2026 Trendleri)",
+          "content": "Dijital çağın getirdiği yeni dolandırıcılık yöntemleri.",
+          "subsections": [
+            {
+              "subtitle": "Çalıntı İlan (İlan Klonlama)",
+              "text": "Dolandırıcı gerçek bir ilanın fotoğraf ve açıklamalarını kopyalar:",
+              "points": [
+                "Aynı araç farklı platformlarda farklı fiyatlarla ve farklı numaralarla yayınlanır.",
+                "Orijinal satıcının haberi yoktur — onun ilanı hâlâ aktiftir.",
+                "Dolandırıcı ucuz fiyatla alıcı çeker, kapora ister ve kaybolur.",
+                "TESPİT: İlan fotoğraflarını Google Görseller'de aratın. Aynı fotoğraflar başka ilanlarda çıkıyorsa tuzaktır."
+              ]
+            },
+            {
+              "subtitle": "Sahte Teminat Mektubu / Banka Onayı",
+              "text": "Yeni trend: Alıcı kredi kullanacağını söyler:",
+              "points": [
+                "'Banka onayım var, şu teminat mektubunu kabul edin' der ve sahte belge gösterir.",
+                "Siz aracı teslim edersiniz, 'Kredi 2 güne çıkacak' denir ama para gelmez.",
+                "ÇÖZÜM: Banka onayını bankanın kendisinden teyit edin. Parayı görmeden araç teslim etmeyin."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "8. Araç Kiralama ve Vekalet Dolandırıcılıkları",
+          "content": "Özellikle yurt dışı bağlantılı ve organize suç örgütlerinin kullandığı yöntemler.",
+          "subsections": [
+            {
+              "subtitle": "Kiralık Araç Satışı",
+              "text": "Dolandırıcı bir araç kiralama firmasından araç kiralar ve kendi aracıymış gibi satar:",
+              "points": [
+                "Ruhsat kiralama şirketi adına olduğu için 'Şirket aracı' yalanı uydurulur.",
+                "Sahte vekalet veya düzmece şirket yetki belgesi gösterilir.",
+                "Alıcı parayı verir, araç 1 hafta sonra kiralama şirketi tarafından geri alınır.",
+                "ÇÖZÜM: Ruhsattaki isim ile satıcının kimliği bire bir eşleşmeli. Şirket adına ise ticaret sicil ve imza sirküleri isteyin."
+              ]
+            },
+            {
+              "subtitle": "Genel Vekalet Tuzağı",
+              "text": "Satıcı 'Genel vekalet vereyim, noter masrafı düşük olur' der:",
+              "points": [
+                "Genel vekalet ile araç sizin adınıza devredilmez, sadece kullanım hakkı verilir.",
+                "Satıcı aynı aracı başka birine de satabilir.",
+                "Araç haciz/icra kapsamına alınırsa veya kaza yaparsa sorumluluk ruhsat sahibinde (satıcıda) kalır, siz muhatap olamazsınız.",
+                "ÇÖZÜM: Araç alımında sadece NOTER SATIŞI kabul edin. Vekalet ile araç almayın."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "9. Dolandırıldıysanız Ne Yapmalısınız?",
+          "content": "Mağdur olduğunuzu fark ettiğinizde hızlı hareket etmeniz kritik.",
+          "subsections": [
+            {
+              "subtitle": "İlk 24 Saat",
+              "text": "Zaman sizin aleyhinize işler:",
+              "points": [
+                "Derhal en yakın polis merkezine gidin ve 'Nitelikli Dolandırıcılık' suç duyurusunda bulunun.",
+                "Bankanızı arayın — EFT/havale iptali veya hesap dondurma talep edin (ilk saatlerde şans var).",
+                "Tüm WhatsApp/SMS yazışmalarının ekran görüntüsünü alın — silmeden önce delil olarak saklayın.",
+                "Dolandırıcının telefon numarası, banka hesabı (IBAN) ve varsa kimlik bilgilerini polise verin."
+              ]
+            },
+            {
+              "subtitle": "Hukuki Süreç",
+              "text": "Suç duyurusundan sonra:",
+              "points": [
+                "Savcılık soruşturma başlatır — dolandırıcının banka hesaplarına tedbir konulabilir.",
+                "Nitelikli dolandırıcılık (TCK 158) suçu 3-10 yıl hapis cezası gerektirir.",
+                "Tazminat davası açarak zararınızı talep edebilirsiniz.",
+                "BİMER ve CİMER üzerinden de şikayette bulunun — süreci hızlandırır."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "conclusion",
+          "title": "10 Altın Kural — Dolandırılmadan Koruma Özeti",
+          "content": "Dolandırıcılar acele ettirmeyi, panik havası yaratmayı ve mantığınızı devre dışı bırakmayı hedefler. Sakin olun, bu listeyi her alım-satım öncesi gözden geçirin.",
+          "finalChecklist": [
+            "Parayı gönderdiğim kişi ile noterde imza atacak kişi AYNI TC kimlik numaralı",
+            "Aracı fiziksel olarak gördüm, ruhsatı elime aldım, satıcı kimliğini doğruladım",
+            "Kapora göndermeden önce aracı canlı inceledim",
+            "Güvenli Ödeme Sistemi (Banka/Noter entegreli) kullandım",
+            "Parayı kendi bankamda bakiyemde gördüm — alıcının telefonuna bakmadım",
+            "Tramer, TÜVTÜRK km geçmişi ve servis kayıtlarını sorguladım",
+            "Ekspertiz firmasını BEN seçtim, satıcının önerdiği yere gitmedim",
+            "Ekspertizden sonra aracı gözümün önünden ayırmadım (parça swap koruması)",
+            "Vekalet ile değil, sadece noter satışı ile araç aldım",
+            "'Acil satılık', 'piyasanın çok altı' ve 'fiyattan bahsetme' cümlelerine karşı alarm durumundayım"
+          ]
+        }
+      ],
+      "urlId": 10031
     }
   ]
 }

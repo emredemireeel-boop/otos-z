@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Award, Briefcase, Info, ArrowLeft } from "lucide-react";
+import { Award, Briefcase, Info, ArrowLeft, Map as MapIcon, Globe } from "lucide-react";
 import Link from "next/link";
 import plakaData from "@/data/plaka_kodlari.json";
 
@@ -38,6 +38,50 @@ export default function OzelPlakalarClient() {
                     <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.6', maxWidth: '700px', margin: '0 auto' }}>
                         Türkiye'de sivil plakalar dışında devlet görevlilerine, diplomatlara, emniyet güçlerine ve özel durumlara tahsis edilen çeşitli renk ve formatlarda plakalar bulunmaktadır. Bu plakaların kimlere verildiğini ve ne anlama geldiğini keşfedin.
                     </p>
+                </div>
+
+                {/* İç Menü */}
+                <div style={{ display: 'flex', gap: '12px', marginBottom: '32px', borderBottom: '1px solid var(--card-border)', paddingBottom: '16px', overflowX: 'auto' }}>
+                    <Link href="/kutuphane?kategori=plaka-kodlari" style={{ textDecoration: 'none' }}>
+                        <button
+                            style={{
+                                padding: '10px 20px', borderRadius: '10px', fontWeight: '600', fontSize: '14px',
+                                background: 'var(--card-bg)',
+                                color: 'var(--foreground)',
+                                border: '1px solid var(--card-border)',
+                                cursor: 'pointer', transition: 'all 0.2s', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap'
+                            }}
+                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#EF4444'; e.currentTarget.style.color = '#EF4444'; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--foreground)'; }}
+                        >
+                            <MapIcon size={16} /> İl Plaka Kodları (01-81)
+                        </button>
+                    </Link>
+                    <button
+                        style={{
+                            padding: '10px 20px', borderRadius: '10px', fontWeight: '600', fontSize: '14px',
+                            background: '#8B5CF6',
+                            color: 'white',
+                            border: '1px solid #8B5CF6',
+                            cursor: 'default', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap'
+                        }}>
+                        <Award size={16} /> Resmi ve Özel Plakalar
+                    </button>
+                    <Link href="/kutuphane/ulke-plakalari" style={{ textDecoration: 'none' }}>
+                        <button
+                            style={{
+                                padding: '10px 20px', borderRadius: '10px', fontWeight: '600', fontSize: '14px',
+                                background: 'var(--card-bg)',
+                                color: 'var(--foreground)',
+                                border: '1px solid var(--card-border)',
+                                cursor: 'pointer', transition: 'all 0.2s', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap'
+                            }}
+                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#00C9B8'; e.currentTarget.style.color = '#00C9B8'; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--foreground)'; }}
+                        >
+                            <Globe size={16} /> Ülke Plaka Kodları
+                        </button>
+                    </Link>
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '24px' }}>

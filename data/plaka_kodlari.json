@@ -202,6 +202,282 @@
             "kullananlar": ["Gümrük işlemi devam eden araçlar"],
             "detay": "Sınır kapılarından ülkeye giren ve henüz tescil edilmemiş araçlara 1 aya kadar süreyle verilir.",
             "ornek": "34 GMR 001"
+        },
+        {
+            "id": "cumhurbaskanligi",
+            "isim": "Cumhurbaşkanlığı Forsu (Makam Plakası)",
+            "renkKodu": "#DC2626",
+            "yaziRengi": "#FFD700",
+            "anlam": "Cumhurbaşkanının makam aracında kullanılır. Plaka üzerinde numara yerine Cumhurbaşkanlığı Forsu (Güneş ve 16 Yıldız) bulunur.",
+            "kullananlar": ["Türkiye Cumhuriyeti Cumhurbaşkanı"],
+            "detay": "Sadece Cumhurbaşkanı araç içindeyken bu plaka takılır, aksi halde normal kırmızı plaka takılır.",
+            "ornek": "(Altın Fors)"
+        },
+        {
+            "id": "tbmm-baskani",
+            "isim": "TBMM Başkanı (0001)",
+            "renkKodu": "#DC2626",
+            "yaziRengi": "#FFD700",
+            "anlam": "Türkiye Büyük Millet Meclisi Başkanının makam aracına tahsis edilen, kırmızı zemin üzerine altın sarısı harfli protokl plakasıdır.",
+            "kullananlar": ["TBMM Başkanı"],
+            "ornek": "0001"
+        },
+        {
+            "id": "anayasa-mahkemesi",
+            "isim": "Anayasa Mahkemesi Başkanı (0002)",
+            "renkKodu": "#DC2626",
+            "yaziRengi": "#FFD700",
+            "anlam": "Devlet protokolünün 3. sırasında yer alan Anayasa Mahkemesi Başkanına tahsis edilir.",
+            "kullananlar": ["Anayasa Mahkemesi Başkanı"],
+            "ornek": "0002"
+        },
+        {
+            "id": "genelkurmay",
+            "isim": "Genelkurmay Başkanı (0003)",
+            "renkKodu": "#DC2626",
+            "yaziRengi": "#FFD700",
+            "anlam": "Türk Silahlı Kuvvetleri Genelkurmay Başkanının makam aracında kullanılan numaralı protokol plakasıdır.",
+            "kullananlar": ["Genelkurmay Başkanı"],
+            "ornek": "0003"
+        },
+        {
+            "id": "vali-plakasi",
+            "isim": "Vali Makam Plakası",
+            "renkKodu": "#DC2626",
+            "yaziRengi": "#FFD700",
+            "anlam": "İl valilerinin makam araçlarında kullanılır. Plaka sadece il kodu ve 0001 rakamından oluşur.",
+            "kullananlar": ["İl Valileri"],
+            "ornek": "35 0001"
+        },
+        {
+            "id": "kaymakam",
+            "isim": "Kaymakam Makam Plakası",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#DC2626",
+            "anlam": "İlçelerdeki kaymakamların makam araçlarında kullanılan, beyaz zemin üzerine kırmızı yazılı plakalardır.",
+            "kullananlar": ["İlçe Kaymakamları"],
+            "detay": "İl kodu ve ilçe trafik tescil kodunun ilk harflerinden oluşur.",
+            "ornek": "34 K 0001"
+        },
+        {
+            "id": "emniyet-muduru",
+            "isim": "İl Emniyet Müdürü",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#DC2626",
+            "anlam": "İl Emniyet Müdürlerinin makam araçlarına verilen beyaz zemin kırmızı yazılı özel tahsisli plakalardır.",
+            "kullananlar": ["İl Emniyet Müdürleri"],
+            "ornek": "34 A 0001"
+        },
+        {
+            "id": "belediye-baskani",
+            "isim": "Büyükşehir Belediye Başkanı",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Büyükşehir belediye başkanlarının makam araçlarında kullanılan, genellikle üç sıfırlı plakalardır.",
+            "kullananlar": ["Büyükşehir Belediye Başkanları"],
+            "ornek": "34 001"
+        },
+        {
+            "id": "rektor",
+            "isim": "Üniversite Rektörü Plakası",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#DC2626",
+            "anlam": "Devlet üniversiteleri rektörlerinin makam araçlarında kullanılan beyaz zemin kırmızı yazılı plakalardır.",
+            "kullananlar": ["Devlet Üniversitesi Rektörleri"],
+            "ornek": "06 R 0001"
+        },
+        {
+            "id": "sahil-guvenlik",
+            "isim": "Sahil Güvenlik Komutanlığı",
+            "renkKodu": "#2563EB",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "İçişleri Bakanlığına bağlı Sahil Güvenlik Komutanlığının karadaki devriye ve hizmet araçlarında kullanılır.",
+            "kullananlar": ["Sahil Güvenlik Personeli"],
+            "harfGruplari": ["SGH"],
+            "ornek": "34 SGH 12"
+        },
+        {
+            "id": "jandarma-yeni",
+            "isim": "Jandarma (Yeni Tip - Mavi)",
+            "renkKodu": "#2563EB",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "Jandarma Genel Komutanlığı'nın İçişleri Bakanlığına tam bağlanmasıyla polis gibi mavi zeminli JAA seri plakaya geçiş yapılmıştır.",
+            "kullananlar": ["Jandarma Devriye Araçları", "Jandarma Asayiş"],
+            "harfGruplari": ["JAA", "JAB"],
+            "ornek": "34 JAA 123"
+        },
+        {
+            "id": "afad",
+            "isim": "AFAD Acil Müdahale",
+            "renkKodu": "#000000",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "Afet ve Acil Durum Yönetimi Başkanlığı'na ait arama kurtarma ve müdahale araçlarının siyah resmi plakalarıdır.",
+            "kullananlar": ["AFAD Ekipleri"],
+            "ornek": "06 12345"
+        },
+        {
+            "id": "kizilay",
+            "isim": "Türk Kızılayı",
+            "renkKodu": "#000000",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "Türk Kızılayı'na ait kan bağışı otobüsleri, acil yardım araçları ve nakliye tırlarının kullandığı resmi araç plakası.",
+            "kullananlar": ["Kızılay Personeli"],
+            "ornek": "06 54321"
+        },
+        {
+            "id": "itfaiye",
+            "isim": "İtfaiye Araçları",
+            "renkKodu": "#000000",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "Belediyelere bağlı itfaiye teşkilatlarının kullandığı siyah zeminli resmi hizmet araçları.",
+            "kullananlar": ["İtfaiye Erleri", "Arama Kurtarma Ekipleri"],
+            "ornek": "34 98765"
+        },
+        {
+            "id": "ambulans",
+            "isim": "Sağlık Bakanlığı Ambulansları",
+            "renkKodu": "#000000",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "112 Acil Sağlık hizmetlerinde kullanılan Sağlık Bakanlığı'na ait ambulansların resmi plakaları.",
+            "kullananlar": ["Acil Tıp Teknisyenleri", "Paramedikler"],
+            "ornek": "34 112 01"
+        },
+        {
+            "id": "yabanci-basin",
+            "isim": "Yabancı Basın Mensubu (YB)",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Türkiye'de görev yapan uluslararası haber ajansları ve yabancı basın kuruluşlarının gazetecilerine tahsis edilen plakalardır.",
+            "kullananlar": ["Yabancı Gazeteciler", "Yabancı Muhabirler"],
+            "ornek": "34 YB 123"
+        },
+        {
+            "id": "nato",
+            "isim": "NATO Personeli (NA-NZ)",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Türkiye'deki NATO üslerinde görev yapan yabancı askeri personelin ve ailelerinin şahsi araçlarına verilir.",
+            "kullananlar": ["NATO Askeri Personeli"],
+            "harfGruplari": ["NA", "NB", "NC", "NZ"],
+            "ornek": "35 NA 123"
+        },
+        {
+            "id": "bm",
+            "isim": "Birleşmiş Milletler (BM)",
+            "renkKodu": "#16A34A",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "Türkiye'de bulunan Birleşmiş Milletler temsilciliklerine ait diplomatik statülü yeşil plakalardır.",
+            "kullananlar": ["BM Diplomatları", "BM Görevlileri"],
+            "ornek": "06 BM 001"
+        },
+        {
+            "id": "traktor",
+            "isim": "Tarım Aracı / Traktör",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Tarımsal faaliyette kullanılan traktör ve biçerdöverlere verilen standart sivil plakalardır.",
+            "kullananlar": ["Çiftçiler", "Tarım İşletmeleri"],
+            "detay": "Muayene süreleri normal araçlardan farklı olarak 3 yılda birdir."
+        },
+        {
+            "id": "is-makinesi",
+            "isim": "İş Makinesi",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Ekskavatör, dozer, vinç gibi karayolunda sürekli seyretmeyen araçların tescil edildiği özel statülü plakalardır.",
+            "kullananlar": ["İnşaat Şirketleri", "Belediyeler"]
+        },
+        {
+            "id": "konsolos",
+            "isim": "Konsolosluk Görevlisi (CC)",
+            "renkKodu": "#16A34A",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "Yeşil zemin üzerine Konsolosluk (Corps Consulaire) personeline tahsis edilen diplomatik plaka türüdür.",
+            "kullananlar": ["Başkonsolos", "Konsolosluk Çalışanları"],
+            "ornek": "34 CC 1234"
+        },
+        {
+            "id": "diplomatik-kurye",
+            "isim": "Diplomatik Kurye (CD)",
+            "renkKodu": "#16A34A",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "Büyükelçiliklerin dokunulmazlığı olan ve aranamayan evrak/bagaj taşıyan kurye araçları (Corps Diplomatique).",
+            "kullananlar": ["Diplomatik Kuryeler"],
+            "ornek": "06 CD 1234"
+        },
+        {
+            "id": "servis-araci",
+            "isim": "Okul ve Personel Servisi (S-J)",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Büyükşehirlerde okul veya fabrika/şirket personeli taşıyan ticari minibüs ve otobüslere tahsis edilen plakalardır.",
+            "kullananlar": ["Servis Şoförleri"],
+            "harfGruplari": ["S (Ankara/İzmir)", "J", "C"],
+            "ornek": "35 S 1234"
+        },
+        {
+            "id": "minibus",
+            "isim": "Şehiriçi Minibüs (M)",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "İl ve ilçelerde belirli bir hat üzerinde yolcu taşımacılığı yapan mavi şapkalı ticari minibüslere aittir.",
+            "kullananlar": ["Minibüs Esnafı"],
+            "ornek": "34 M 1234"
+        },
+        {
+            "id": "ozel-halk-otobusu",
+            "isim": "Özel Halk Otobüsü (HO)",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Belediye denetiminde toplu taşıma hizmeti veren, şahıslara ait özel otobüs plakalarıdır.",
+            "kullananlar": ["Halk Otobüsü Sahipleri"],
+            "harfGruplari": ["HO"],
+            "ornek": "34 HO 123"
+        },
+        {
+            "id": "gecici-yol",
+            "isim": "Geçici Yol Belgesi",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Araç satışı veya bayi transferi sırasında fiziki plaka basılana kadar arka cama asılan kağıt (A4) geçici izin belgesidir.",
+            "kullananlar": ["Araç Satın Alanlar", "Bayiler"],
+            "detay": "15 gün süreyle geçerlidir."
+        },
+        {
+            "id": "klasik-arac",
+            "isim": "Klasik Araç Plakası",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Antika statüsüne geçmiş (genelde 30 yaş üstü), orijinal yapısını koruyan tarihi araçlara verilen standart plakalardır.",
+            "kullananlar": ["Klasik Otomobil Koleksiyonerleri"],
+            "detay": "Özel bir rengi yoktur, ancak vergi ve muayene avantajları sağlayabilir."
+        },
+        {
+            "id": "test-araci",
+            "isim": "Test ve Prototip Aracı (T)",
+            "renkKodu": "#FACC15",
+            "yaziRengi": "#000000",
+            "anlam": "Otomotiv fabrikalarının AR-GE süreçlerinde test ettikleri prototip veya henüz homologasyonu tamamlanmamış araçlara verilir.",
+            "kullananlar": ["Togg, Ford, Fiat vb. Otomotiv Üreticileri"],
+            "ornek": "34 T 1234"
+        },
+        {
+            "id": "bedelsiz-ithalat",
+            "isim": "Bedelsiz İthalat (B)",
+            "renkKodu": "#FFFFFF",
+            "yaziRengi": "#000000",
+            "anlam": "Yurtdışından Türkiye'ye kesin dönüş yapan vatandaşların yanlarında getirdikleri araçlara tahsis edilen ve B harfiyle başlayan plakalardır.",
+            "kullananlar": ["Kesin Dönüş Yapan Gurbetçiler"],
+            "ornek": "34 B 1234"
+        },
+        {
+            "id": "fahri-konsolos",
+            "isim": "Fahri Konsolosluk (FK)",
+            "renkKodu": "#16A34A",
+            "yaziRengi": "#FFFFFF",
+            "anlam": "Türkiye Cumhuriyeti vatandaşı olup yabancı bir devletin fahri konsolosluğunu yürüten kişilerin araçlarına takılan yeşil plakalardır.",
+            "kullananlar": ["Fahri Konsoloslar", "İş İnsanları"],
+            "ornek": "34 FK 123"
         }
     ]
 }

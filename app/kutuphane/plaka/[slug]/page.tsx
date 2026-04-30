@@ -31,9 +31,14 @@ export async function generateMetadata({ params }: PlakaPageProps): Promise<Meta
     // Check if it's a special plate
     const specialPlate = plakaData.ozelPlakalar.find(p => p.id === slug);
     if (specialPlate) {
+        const isNumbered = specialPlate.ornek?.includes('000');
+        const customTitle = isNumbered 
+            ? `${specialPlate.ornek || specialPlate.isim} Plakası Kime Ait? Anlamı Nedir? | OtoSöz`
+            : `${specialPlate.isim} Nedir? Kimlere Verilir? | OtoSöz`;
+
         return {
-            title: `${specialPlate.isim} Nedir? Kimlere Verilir? | OtoSöz`,
-            description: `${specialPlate.isim} anlamı nedir, kimler kullanabilir? ${specialPlate.anlam} Özel plaka detayları OtoSöz Kütüphane'de.`,
+            title: customTitle,
+            description: `${specialPlate.isim} anlamı nedir, bu plakayı kimler kullanabilir? ${specialPlate.kullananlar.join(', ')} tarafından kullanılan özel araç plakaları hakkında en detaylı ve güncel bilgiler.`,
         };
     }
 
@@ -45,12 +50,12 @@ export async function generateMetadata({ params }: PlakaPageProps): Promise<Meta
         if (il) {
             return {
                 title: `${kod} Nerenin Plakası? ${kod} Hangi Şehrin Plaka Kodu? | OtoSöz`,
-                description: `${kod} nerenin plakası? ${kod} plaka kodu ${il.il} iline aittir. ${il.il} plaka harf grupları, özellikleri ve merak edilen tüm detaylar.`,
+                description: `Trafikte gördüğünüz ${kod} nerenin plakası? ${kod} plaka kodu ${il.il} ilimize aittir. ${il.il} plaka harf grupları, ilçeleri ve merak edilen tüm trafik tescil detayları.`,
             };
         }
     }
 
-    return { title: 'Plaka Kodları | OtoSöz' };
+    return { title: 'Plaka Kodları Sorgulama | OtoSöz' };
 }
 
 export default async function PlakaDetailPage({ params }: PlakaPageProps) {
@@ -63,18 +68,32 @@ export default async function PlakaDetailPage({ params }: PlakaPageProps) {
     let cityData = null;
     let title = "";
     let description = "";
+    let articleHtml = "";
     let faqs: { question: string; answer: string }[] = [];
     
     if (specialPlate) {
-        title = specialPlate.isim;
+        const isNumbered = specialPlate.ornek && specialPlate.ornek.includes('000');
+        title = isNumbered ? `${specialPlate.ornek} Plakası Kime Ait?` : specialPlate.isim;
         description = specialPlate.anlam;
+        
+        articleHtml = `
+            <h2>${specialPlate.isim} Hakkında Detaylar</h2>
+            <p>Türkiye'deki karayolları trafik kanununa göre sivil plakalar dışında devlet görevlilerine, diplomatlara, emniyet güçlerine ve özel durumlara tahsis edilen çeşitli renk ve formatlarda plakalar bulunmaktadır. <strong>${specialPlate.isim}</strong> de bu özel tahsisli plakalardan biridir.</p>
+            <p>${specialPlate.anlam} Trafikte bu plakaya sahip bir araç gördüğünüzde, aracın sıradan bir sivil araç olmadığını, yasal bir statüye veya kamu görevine hizmet ettiğini bilmelisiniz.</p>
+            <h3>Bu Plakayı Kimler Kullanabilir?</h3>
+            <p>Mevzuata göre bu plaka türünü yalnızca belirli kişi veya kurumlar kullanabilir. Bu kişiler şunlardır:</p>
+            <ul>
+                ${specialPlate.kullananlar.map(k => `<li><strong>${k}</strong></li>`).join('')}
+            </ul>
+            ${specialPlate.detay ? `<h3>Bilinmesi Gereken Özel Şartlar</h3><p>${specialPlate.detay}</p>` : ''}
+            ${specialPlate.harfGruplari ? `<h3>Özel Harf Grupları</h3><p>Bu plaka grubunda tahsis edilen özel harf kombinasyonları şunlardır: ${specialPlate.harfGruplari.join(', ')}</p>` : ''}
+        `;
+
         faqs = [
+            { question: `${isNumbered && specialPlate.ornek ? specialPlate.ornek : specialPlate.isim} plaka kime aittir?`, answer: `Bu plaka yasal mevzuata göre ${specialPlate.kullananlar.join(', ')} makamına / kurumuna aittir.` },
             { question: `${specialPlate.isim} ne anlama gelir?`, answer: specialPlate.anlam },
-            { question: `${specialPlate.isim} kimler tarafından kullanılır?`, answer: `Bu plakalar şu kişiler/kurumlar tarafından kullanılır: ${specialPlate.kullananlar.join(', ')}.` },
+            { question: `Bu aracı trafikte gördüğümde ne yapmalıyım?`, answer: `Eğer araç kırmızı (makam), mavi (emniyet/jandarma) veya tepe lambası taşıyan resmi bir araçsa geçiş üstünlüğüne sahip olabilir. Siren veya ışıklı uyarı cihazı açıksa güvenli bir şekilde yol vermeniz gerekir.` },
         ];
-        if (specialPlate.detay) {
-            faqs.push({ question: `Bu plakalarla ilgili özel şartlar nelerdir?`, answer: specialPlate.detay });
-        }
     } else {
         const match = slug.match(/^(\d{2})-(.+)-plaka-kodu$/);
         if (match) {
@@ -84,12 +103,23 @@ export default async function PlakaDetailPage({ params }: PlakaPageProps) {
                 isCity = true;
                 title = `${kod} Nerenin Plakası?`;
                 description = `${kod} plaka kodu, ülkemizin ${cityData.bolge} Bölgesi'nde yer alan ${cityData.il} ilimize aittir. Trafikte sıkça karşılaştığımız ${kod} plakalı araçlar, ${cityData.il} ilinde tescil edilmiştir.`;
+                
+                articleHtml = `
+                    <h2>${kod} Plaka Kodu Hangi Şehre Ait?</h2>
+                    <p>Türkiye'deki araç plaka tescil sistemine göre <strong>${kod} nerenin plakası</strong> sorusunun cevabı <strong>${cityData.il}</strong> ilimizdir. Ülkemizde ilk olarak 1962 yılında alfabetik sıraya göre 1'den 67'ye kadar il plakaları belirlenmiş, daha sonra il olan ilçeler sırasıyla 68'den 81'e kadar kod almıştır. ${cityData.il} ilimizin kodu da bu sisteme göre <strong>${kod}</strong> olarak tescillenmiştir.</p>
+                    
+                    <h3>${cityData.il} İli ve ${kod} Plaka Hakkında Bilgiler</h3>
+                    <p>Coğrafi olarak <strong>${cityData.bolge} Bölgesi</strong>'nde yer alan ${cityData.il}, ülkemizin önemli şehirlerinden biridir. ${cityData.il} il sınırları içerisinde araç satın aldığınızda veya dışarıdan bir aracı bu ile tescil ettirdiğinizde aracınıza ${kod} ile başlayan bir plaka verilir.</p>
+                    
+                    <h3>${kod} Plaka Harf Grupları ve İlçeler</h3>
+                    <p>Plakaların ortasında bulunan harf grupları (Örn: ${kod} ABC 123), o aracın ${cityData.il} ilinin merkez ilçesine mi yoksa diğer ilçelerindeki vergi dairelerine mi kayıtlı olduğunu gösterir. Sigorta işlemleri, vergi ödemeleri ve noter devirlerinde bu harf grupları emniyet müdürlüklerinin tescil şubelerini temsil eder.</p>
+                `;
+
                 faqs = [
                     { question: `${kod} Nerenin Plakası?`, answer: `${kod} numaralı plaka kodu ${cityData.il} iline aittir. Trafikte ${kod} plakalı bir otomobil, kamyon veya motosiklet gördüğünüzde, bu aracın ${cityData.il} iline kayıtlı olduğunu anlayabilirsiniz.` },
-                    { question: `${kod} Plaka Kodu Hangi Şehre Ait?`, answer: `Türkiye'deki araç plaka sistemine göre ${kod} plaka kodu, ${cityData.il} şehrine aittir. Her ilin alfabetik sıraya göre (ilk 67 il için) belirlenmiş bir kodu vardır ve ${cityData.il} ilinin plaka numarası ${kod} olarak tescillenmiştir.` },
+                    { question: `${kod} Plaka Kodu Hangi Şehre Ait?`, answer: `Türkiye'deki araç plaka sistemine göre ${kod} plaka kodu, ${cityData.il} şehrine aittir. Her ilin alfabetik sıraya göre belirlenmiş bir kodu vardır ve ${cityData.il} ilinin plaka numarası ${kod} olarak tescillenmiştir.` },
                     { question: `${cityData.il} Plaka Kodu Kaçtır?`, answer: `${cityData.il} ilinin plaka kodu ${kod}'tür. Yeni bir araç aldığınızda veya ${cityData.il} ilinde araç tescil işlemi yaptırdığınızda aracınıza ${kod} ile başlayan bir plaka verilir.` },
-                    { question: `${cityData.il} Hangi Bölgede Yer Alır?`, answer: `${cityData.il} ilimiz Türkiye'nin coğrafi bölgelerinden ${cityData.bolge} Bölgesi'nde yer almaktadır. Plaka kodu ${kod} olan bu şehrimiz, bulunduğu bölgenin önemli kentlerinden biridir.` },
-                    { question: `${kod} Plaka Harf Grupları Nelerdir?`, answer: `${cityData.il} iline ait merkez ve ilçelerin özel harf grupları bulunur. Plakanın ortasındaki harfler (örneğin ${kod} ABC 123), aracın ${cityData.il} içerisindeki hangi vergi dairesine / ilçeye kayıtlı olduğunu ve tescil sırasını gösterir.` }
+                    { question: `${cityData.il} Hangi Bölgede Yer Alır?`, answer: `${cityData.il} ilimiz Türkiye'nin coğrafi bölgelerinden ${cityData.bolge} Bölgesi'nde yer almaktadır.` }
                 ];
             }
         }
@@ -169,6 +199,10 @@ export default async function PlakaDetailPage({ params }: PlakaPageProps) {
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                    
+                    {/* SEO Article Area */}
+                    <div className="prose prose-invert max-w-none" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', padding: '32px' }} dangerouslySetInnerHTML={{ __html: articleHtml }} />
+
                     <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', padding: '32px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                             <HelpCircle size={28} color="var(--primary)" />

@@ -1,11 +1,15 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
-import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight } from "lucide-react";
+import { useState, useMemo, useRef, useEffect, useCallback } from "react";
+import dynamic from "next/dynamic";
+import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useAuth } from "@/context/AuthContext";
 import citiesRaw from "@/data/cities.json";
 import districtCoordsRaw from "@/data/district-coords.json";
+
+const RouteMap = dynamic(() => import("@/components/RouteMap"), { ssr: false });
 
 /* ═══════════════════════════════════════════
    TYPES & DATA
@@ -222,6 +226,7 @@ function LocationSelector({ label, il, ilce, mahalle, onIl, onIlce, onMahalle, e
    MAIN PAGE
    ═══════════════════════════════════════════ */
 export default function YakitHesaplamaPage() {
+  const { user } = useAuth();
   const [fromIl, setFromIl] = useState("");
   const [fromIlce, setFromIlce] = useState("");
   const [fromMah, setFromMah] = useState("");
@@ -232,31 +237,66 @@ export default function YakitHesaplamaPage() {
   const [tuketim, setTuketim] = useState(7.5);
   const [gidisDon, setGidisDon] = useState(false);
   const [fuelTypes, setFuelTypes] = useState(DEFAULT_FUEL_TYPES);
+  const [fuelDataCity, setFuelDataCity] = useState("");
+  const [fuelUpdateTime, setFuelUpdateTime] = useState("");
+  const [allDistrictPrices, setAllDistrictPrices] = useState<any[]>([]);
+  const [fuelLoading, setFuelLoading] = useState(false);
 
+  const parsePrice = useCallback((p: any): number | null => {
+      if (!p) return null;
+      const parsed = parseFloat(p.toString().replace(',', '.'));
+      return isNaN(parsed) ? null : parsed;
+  }, []);
+
+  const applyPricesFromFiyatlar = useCallback((f: any) => {
+      if (!f) return;
+      setFuelTypes([
+          { key: "benzin", label: "Benzin", price: parsePrice(f.benzin_95?.fiyat) || 42.50 },
+          { key: "dizel", label: "Dizel", price: parsePrice(f.motorin?.fiyat) || 40.80 },
+          { key: "lpg", label: "LPG", price: parsePrice(f.lpg_otogaz?.fiyat) || 21.00 },
+      ]);
+  }, [parsePrice]);
+
+  // Ana sayfa cetveli ile aynı kaynaktan şehre göre fiyat çek
   useEffect(() => {
-    const citySlug = fromIl ? norm(fromIl).toLowerCase() : "istanbul";
+    // Şehir önceliği: 1) Seçilen kalkış ili, 2) Kullanıcı profili, 3) localStorage, 4) İstanbul
+    const localCity = typeof window !== 'undefined' ? localStorage.getItem('oto_user_city') : null;
+    const rawCity = fromIl || user?.city || localCity || 'İstanbul';
+    const citySlug = rawCity.replace(/İ/g, 'i').replace(/I/g, 'i')
+      .toLowerCase().replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s')
+      .replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c')
+      .replace(/â/g,'a').replace(/î/g,'i').replace(/û/g,'u').replace(/\s+/g,'');
 
+    setFuelLoading(true);
     fetch(`/api/fiyatlar/${citySlug}`)
         .then(res => res.json())
         .then(data => {
             if (!data.veriler || data.veriler.length === 0) return;
-            const f = data.veriler[0].fiyatlar;
-            const parsePrice = (p: any) => {
-                if (!p) return null;
-                const parsed = parseFloat(p.toString().replace(',', '.'));
-                return isNaN(parsed) ? null : parsed;
-            };
+            setAllDistrictPrices(data.veriler);
+            setFuelDataCity(data.sehir || rawCity);
+            setFuelUpdateTime(data.tarih || new Date().toLocaleString('tr-TR'));
 
-            if (f) {
-                setFuelTypes([
-                    { key: "benzin", label: "Benzin", price: parsePrice(f.benzin_95?.fiyat) || 42.50 },
-                    { key: "dizel", label: "Dizel", price: parsePrice(f.motorin?.fiyat) || 40.80 },
-                    { key: "lpg", label: "LPG", price: parsePrice(f.lpg_otogaz?.fiyat) || 21.00 },
-                ]);
+            // İlçe seçiliyse o ilçenin fiyatını bul, yoksa ilk ilçeyi kullan
+            let match = data.veriler[0];
+            if (fromIlce) {
+                const ilceNorm = norm(fromIlce);
+                const found = data.veriler.find((v: any) => norm(v.ilce) === ilceNorm);
+                if (found) match = found;
             }
+            applyPricesFromFiyatlar(match.fiyatlar);
         })
-        .catch(err => console.warn('Yakıt API hatası:', err));
-  }, [fromIl]);
+        .catch(err => console.warn('Yakıt API hatası:', err))
+        .finally(() => setFuelLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fromIl, user?.city]);
+
+  // İlçe değiştiğinde mevcut veri içinden doğru ilçeyi seç
+  useEffect(() => {
+    if (!fromIlce || allDistrictPrices.length === 0) return;
+    const ilceNorm = norm(fromIlce);
+    const found = allDistrictPrices.find((v: any) => norm(v.ilce) === ilceNorm);
+    if (found) applyPricesFromFiyatlar(found.fiyatlar);
+  }, [fromIlce, allDistrictPrices, applyPricesFromFiyatlar]);
 
   const handleFuel = (k: string) => { setYakit(k); setTuketim(DEF_CONS[k]); };
   const swap = () => {
@@ -265,45 +305,70 @@ export default function YakitHesaplamaPage() {
     setToIl(a); setToIlce(b); setToMah(c);
   };
 
-  const results = useMemo(() => {
-    if (!fromIl || !toIl) return null;
+  // OSRM gerçek yol mesafesi + rota geometrisi
+  const [routeDistance, setRouteDistance] = useState<number | null>(null);
+  const [routeGeometry, setRouteGeometry] = useState<[number,number][]>([]);
+  const [routeLoading, setRouteLoading] = useState(false);
+  const [routeFromCoord, setRouteFromCoord] = useState<[number,number] | null>(null);
+  const [routeToCoord, setRouteToCoord] = useState<[number,number] | null>(null);
+
+  useEffect(() => {
+    if (!fromIl || !toIl) { setRouteDistance(null); setRouteGeometry([]); return; }
     
-    let tek: number;
+    let c1: [number,number] | null = null;
+    let c2: [number,number] | null = null;
     
     if (fromIl === toIl) {
-        // Aynı il içinde: ilçe koordinatlarıyla hesapla
-        if (!fromIlce || !toIlce || fromIlce === toIlce) return null;
-        const dc1 = getDistrictCoords(fromIl, fromIlce);
-        const dc2 = getDistrictCoords(toIl, toIlce);
-        if (dc1 && dc2) {
-            tek = roadKm(dc1, dc2);
-            if (tek < 5) tek = 5; // Minimum 5km
-        } else {
-            tek = 30; // Koordinat bulunamazsa fallback
-        }
+        if (!fromIlce || !toIlce || fromIlce === toIlce) { setRouteDistance(null); setRouteGeometry([]); return; }
+        c1 = getDistrictCoords(fromIl, fromIlce);
+        c2 = getDistrictCoords(toIl, toIlce);
     } else {
-        // Farklı iller: ilçe varsa ilçe koordinatı, yoksa il koordinatı
-        let c1: [number, number] | null = null;
-        let c2: [number, number] | null = null;
-        
         if (fromIlce) c1 = getDistrictCoords(fromIl, fromIlce);
         if (!c1) c1 = getCoords(fromIl);
-        
         if (toIlce) c2 = getDistrictCoords(toIl, toIlce);
         if (!c2) c2 = getCoords(toIl);
-        
-        if (!c1 || !c2) return null;
-        tek = roadKm(c1, c2);
     }
+    
+    if (!c1 || !c2) { setRouteDistance(null); setRouteGeometry([]); return; }
+    
+    setRouteFromCoord(c1);
+    setRouteToCoord(c2);
+    setRouteLoading(true);
+    
+    // OSRM ücretsiz API — gerçek karayolu mesafesi
+    fetch(`https://router.project-osrm.org/route/v1/driving/${c1[1]},${c1[0]};${c2[1]},${c2[0]}?overview=full&geometries=geojson`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.routes && data.routes[0]) {
+                const route = data.routes[0];
+                const distKm = Math.round(route.distance / 1000);
+                setRouteDistance(distKm);
+                // GeoJSON coords [lon,lat] -> Leaflet [lat,lon]
+                const coords: [number,number][] = route.geometry.coordinates.map((c: number[]) => [c[1], c[0]]);
+                setRouteGeometry(coords);
+            } else {
+                // Fallback: Haversine
+                setRouteDistance(roadKm(c1!, c2!));
+                setRouteGeometry([]);
+            }
+        })
+        .catch(() => {
+            setRouteDistance(roadKm(c1!, c2!));
+            setRouteGeometry([]);
+        })
+        .finally(() => setRouteLoading(false));
+  }, [fromIl, toIl, fromIlce, toIlce]);
 
-    if (isNaN(tek) || tek <= 0) return null;
+  const results = useMemo(() => {
+    if (!routeDistance || routeDistance <= 0) return null;
+    const tek = routeDistance;
     const total = gidisDon ? tek * 2 : tek;
     const fuel = fuelTypes.find(f => f.key === yakit)!;
     const lt = (total * tuketim) / 100;
     const cost = lt * fuel.price;
     const perKm = (tuketim / 100) * fuel.price;
     return { tek, total, lt, cost, perKm, price: fuel.price };
-  }, [fromIl, toIl, fromIlce, toIlce, yakit, tuketim, gidisDon, fuelTypes]);
+  }, [routeDistance, yakit, tuketim, gidisDon, fuelTypes]);
 
   const curFuel = fuelTypes.find(f => f.key === yakit) || fuelTypes[0];
 
@@ -376,7 +441,22 @@ export default function YakitHesaplamaPage() {
 
           {/* ── Fuel Type ── */}
           <div style={{ ...card, marginBottom: "16px" }}>
-            <div style={secTitle}><Fuel size={13} color={AC} /> {"Yakıt Türü & Fiyat Cetveli"}</div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
+              <div style={secTitle}><Fuel size={13} color={AC} /> {"Yakıt Türü & Fiyat Cetveli"}</div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                {fuelLoading && <RefreshCw size={12} color={AC} style={{ animation: "spin 1s linear infinite" }} />}
+                {fuelDataCity && (
+                  <span style={{ fontSize: "11px", fontWeight: "700", padding: "3px 8px", borderRadius: "6px", background: AC_L, color: AC, border: `1px solid ${AC_B}` }}>
+                    📍 {fuelDataCity}
+                  </span>
+                )}
+                {fuelUpdateTime && (
+                  <span style={{ fontSize: "10px", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "4px" }}>
+                    <Clock size={10} /> {fuelUpdateTime}
+                  </span>
+                )}
+              </div>
+            </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px" }}>
               {fuelTypes.map(f => {
                 const on = yakit === f.key;
@@ -392,6 +472,7 @@ export default function YakitHesaplamaPage() {
                 );
               })}
             </div>
+            <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
           </div>
 
           {/* ── Consumption ── */}
@@ -460,11 +541,24 @@ export default function YakitHesaplamaPage() {
                 ))}
               </div>
 
+              {/* Harita */}
+              {routeFromCoord && routeToCoord && (
+                <div style={{ marginTop: "14px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px" }}>
+                    <MapIcon size={13} color={AC} />
+                    <span style={{ fontSize: "11px", fontWeight: "700", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.5px" }}>Güzergah Haritası</span>
+                  </div>
+                  <RouteMap from={routeFromCoord} to={routeToCoord} routeGeometry={routeGeometry} />
+                </div>
+              )}
+
               {/* Info */}
               <div style={{ marginTop: "12px", display: "flex", alignItems: "center", gap: "8px", padding: "10px 12px", background: "var(--card-bg)", borderRadius: "8px", border: "1px solid var(--card-border)" }}>
                 <Info size={13} color="var(--text-muted)" />
                 <span style={{ fontSize: "11px", color: "var(--text-muted)", lineHeight: 1.5 }}>
-                  <strong style={{ color: "var(--foreground)" }}>{curFuel.label}</strong> fiyatı <strong style={{ color: AC }}>{curFuel.price.toFixed(2)} TL/lt</strong> {"cetvelden alınmıştır. Mesafe tahminidir."}
+                  <strong style={{ color: "var(--foreground)" }}>{curFuel.label}</strong> fiyatı <strong style={{ color: AC }}>{curFuel.price.toFixed(2)} TL/lt</strong>
+                  {fuelDataCity ? ` (${fuelDataCity}${fromIlce ? ` / ${fmt(fromIlce)}` : ""})` : ""}
+                  {" • Karayolu mesafesi OSRM verileri ile hesaplanmıştır."}
                 </span>
               </div>
             </div>

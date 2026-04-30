@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, Map as MapIcon, Award } from "lucide-react";
+import { Search, Map as MapIcon, Award, Globe } from "lucide-react";
 import Link from "next/link";
 import plakaData from "@/data/plaka_kodlari.json";
 
@@ -72,6 +72,21 @@ export default function PlakaKodlariSection() {
                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--foreground)'; }}
                     >
                         <Award size={16} /> Resmi ve Özel Plakalar
+                    </button>
+                </Link>
+                <Link href="/kutuphane/ulke-plakalari" style={{ textDecoration: 'none' }}>
+                    <button
+                        style={{
+                            padding: '10px 20px', borderRadius: '10px', fontWeight: '600', fontSize: '14px',
+                            background: 'var(--card-bg)',
+                            color: 'var(--foreground)',
+                            border: '1px solid var(--card-border)',
+                            cursor: 'pointer', transition: 'all 0.2s', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap'
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#00C9B8'; e.currentTarget.style.color = '#00C9B8'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--foreground)'; }}
+                    >
+                        <MapIcon size={16} /> Ülke Plaka Kodları
                     </button>
                 </Link>
             </div>

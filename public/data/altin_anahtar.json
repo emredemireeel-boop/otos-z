@@ -1,0 +1,36 @@
+{
+  "masters": [
+    {
+      "id": "ozkan-oto-servis-izmir",
+      "name": "Özkan Oto Servis",
+      "goldenKeys": 2,
+      "specialty": ["Motor", "Elektrik", "Fren", "Süspansiyon", "Direksiyon", "Genel Bakım"],
+      "city": "İzmir",
+      "district": "Çiğli",
+      "area": "Ata Sanayi Sitesi",
+      "address": "Ata Sanayi Sitesi, Küçük Çiğli, 8780/34. Sk. No:27, 35620 Çiğli/İzmir",
+      "workshop": "Özkan Oto Servis",
+      "phone": "(0232) 376 81 93",
+      "experience": 15,
+      "brands": [],
+      "description": "Araç motoru arıza tespiti, direksiyon ve süspansiyon tamiri, elektrik, fren, genel onarım ve bakım konularında uzman servis.",
+      "rating": 4.8,
+      "reviewCount": 98,
+      "lat": 38.4976478,
+      "lng": 27.0463810,
+      "hours": {
+        "pazartesi": "08:30-18:30",
+        "sali": "08:30-18:30",
+        "carsamba": "08:30-18:30",
+        "persembe": "08:30-18:30",
+        "cuma": "08:30-18:30",
+        "cumartesi": "08:30-14:00",
+        "pazar": "Kapalı"
+      },
+      "googleRating": 4.8,
+      "googleReviews": 98,
+      "services": ["Araç motoru arıza tespiti", "Direksiyon tamiri", "Süspansiyon tamiri", "Elektrik", "Fren", "Genel onarım ve bakım"],
+      "createdAt": "2026-04-30"
+    }
+  ]
+}

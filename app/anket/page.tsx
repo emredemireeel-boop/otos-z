@@ -33,13 +33,13 @@ interface Survey {
 
 export default function AnketPage() {
     const { user } = useAuth();
-    const [selectedCategory, setSelectedCategory] = useState<string>("Tumu");
+    const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [surveys, setSurveys] = useState<Survey[]>([]);
     const [loading, setLoading] = useState(true);
     const [toast, setToast] = useState<{ message: string; type: 'error' | 'success' } | null>(null);
     const [showCreateModal, setShowCreateModal] = useState(false);
 
-    const categories = ["Tumu", "Motor", "Performans", "Modifiye", "Surus", "Genel"];
+    const categories = ["Tümü", "Motor", "Performans", "Modifiye", "Sürüş", "Genel"];
 
     // Icon mapper
     const getIcon = (iconName: string) => {
@@ -173,7 +173,7 @@ export default function AnketPage() {
     };
 
     const filteredSurveys = useMemo(() => {
-        if (selectedCategory === "Tumu") return surveys;
+        if (selectedCategory === "Tümü") return surveys;
         return surveys.filter(s => s.category === selectedCategory);
     }, [surveys, selectedCategory]);
 
@@ -325,7 +325,7 @@ export default function AnketPage() {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                             {filteredSurveys.length === 0 ? (
                                 <div style={{ padding: '60px', textAlign: 'center', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', color: 'var(--text-muted)' }}>
-                                    {selectedCategory === "Tumu" ? "Henuz anket olusturulmamis. Ilk anketi siz olusturun!" : "Bu kategoride henuz anket bulunmuyor."}
+                                    {selectedCategory === "Tümü" ? "Henuz anket olusturulmamis. Ilk anketi siz olusturun!" : "Bu kategoride henuz anket bulunmuyor."}
                                 </div>
                             ) : (
                                 filteredSurveys.map((survey) => {
@@ -496,7 +496,7 @@ export default function AnketPage() {
                     <CreateSurveyModal
                         onClose={() => setShowCreateModal(false)}
                         onCreate={handleCreateSurvey}
-                        categories={categories.filter(c => c !== "Tumu")}
+                        categories={categories.filter(c => c !== "Tümü")}
                     />
                 )}
             </main>

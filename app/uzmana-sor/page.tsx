@@ -8,15 +8,17 @@ import { useAuth } from "@/context/AuthContext";
 import { subscribeToThreads, createThread, formatTimestamp, type ForumThread } from "@/lib/forumService";
 import { HelpCircle, Plus, X, Sparkles, Users, Clock, MessageSquare, Eye, Lightbulb, Award, BarChart3 } from "lucide-react";
 import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
+import ExpertModal from "@/components/ExpertModal";
 
-const CATEGORIES = ["Tumu", "Motor", "Sanziman", "Lastik", "Bakim", "Elektrik", "Fren", "Suspansiyon", "Diğer"];
+const CATEGORIES = ["Tümü", "Motor", "Sanzıman", "Lastik", "Bakım", "Elektrik", "Fren", "Süspansiyon", "Diğer"];
 
 export default function UzmanaSorPage() {
     const { user } = useAuth();
     const [threads, setThreads] = useState<ForumThread[]>([]);
     const [loading, setLoading] = useState(true);
-    const [selectedCategory, setSelectedCategory] = useState<string>("Tumu");
+    const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [showModal, setShowModal] = useState(false);
+    const [showExpertModal, setShowExpertModal] = useState(false);
     const [creating, setCreating] = useState(false);
     const [newQ, setNewQ] = useState({ title: "", content: "", subCategory: "Motor", tags: "" });
 
@@ -28,7 +30,7 @@ export default function UzmanaSorPage() {
         return () => unsub();
     }, []);
 
-    const filteredThreads = selectedCategory === "Tumu"
+    const filteredThreads = selectedCategory === "Tümü"
         ? threads
         : threads.filter(t => t.tags.includes(selectedCategory));
 
@@ -71,7 +73,7 @@ export default function UzmanaSorPage() {
                                     window.location.href = '/giris';
                                     return;
                                 }
-                                setShowModal(true);
+                                setShowExpertModal(true);
                             }} style={{
                                 padding: '10px 20px', background: 'var(--primary)', color: 'white',
                                 fontWeight: '600', borderRadius: '10px', border: 'none', cursor: 'pointer',
@@ -191,7 +193,7 @@ export default function UzmanaSorPage() {
                                                     window.location.href = '/giris';
                                                     return;
                                                 }
-                                                setShowModal(true);
+                                                setShowExpertModal(true);
                                             }} style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', border: 'none', borderRadius: '10px', fontSize: '14px', fontWeight: '700', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                                                 <Plus size={16} /> Soru Sor
                                             </button>
@@ -312,48 +314,28 @@ export default function UzmanaSorPage() {
                     </div>
                 </div>
 
-                {/* New Question Modal */}
-                {showModal && (
-                    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '16px' }} onClick={() => setShowModal(false)}>
-                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', padding: '28px', width: '100%', maxWidth: '550px' }} onClick={(e) => e.stopPropagation()}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-                                <h2 style={{ fontSize: '22px', fontWeight: '700', color: 'var(--foreground)' }}>Uzmana Soru Sor</h2>
-                                <button onClick={() => setShowModal(false)} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}><X size={24} /></button>
-                            </div>
-                            <div style={{ marginBottom: '20px' }}>
-                                <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Kategori</label>
-                                <select value={newQ.subCategory} onChange={(e) => setNewQ({ ...newQ, subCategory: e.target.value })}
-                                    style={{ width: '100%', padding: '12px 16px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontSize: '14px', outline: 'none' }}>
-                                    {["Motor", "Sanziman", "Lastik", "Bakim", "Elektrik", "Fren", "Suspansiyon", "Diğer"].map(c => (<option key={c} value={c}>{c}</option>))}
-                                </select>
-                            </div>
-                            <div style={{ marginBottom: '20px' }}>
-                                <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Başlık <span style={{ color: '#ef4444' }}>*</span></label>
-                                <input type="text" value={newQ.title} onChange={(e) => setNewQ({ ...newQ, title: e.target.value })} placeholder="Sorunuzun başlığını yazın..."
-                                    style={{ width: '100%', padding: '12px 16px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontSize: '14px', outline: 'none' }} />
-                            </div>
-                            <div style={{ marginBottom: '20px' }}>
-                                <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Detaylı Açıklama <span style={{ color: '#ef4444' }}>*</span></label>
-                                <textarea value={newQ.content} onChange={(e) => setNewQ({ ...newQ, content: e.target.value })} placeholder="Sorununuzu detaylı anlatınız..." rows={4}
-                                    style={{ width: '100%', padding: '12px 16px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontSize: '14px', outline: 'none', resize: 'none' }} />
-                            </div>
-                            <div style={{ display: 'flex', gap: '12px' }}>
-                                <button onClick={() => setShowModal(false)} style={{ flex: 1, padding: '14px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontWeight: '500', cursor: 'pointer', fontSize: '14px' }}>İptal</button>
-                                <button onClick={handleCreate} disabled={!newQ.title.trim() || !newQ.content.trim() || creating}
-                                    style={{
-                                        flex: 1, padding: '14px',
-                                        background: (!newQ.title.trim() || !newQ.content.trim()) ? 'var(--secondary)' : 'var(--primary)',
-                                        border: 'none', borderRadius: '10px', color: 'white', fontWeight: '600',
-                                        cursor: (!newQ.title.trim() || !newQ.content.trim()) ? 'not-allowed' : 'pointer',
-                                        opacity: (!newQ.title.trim() || !newQ.content.trim()) ? 0.5 : 1, fontSize: '14px',
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                                    }}>
-                                    {creating ? "Gönderiliyor..." : <><Sparkles size={16} /> Soruyu Gönder</>}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                {/* Expert Modal */}
+                <ExpertModal
+                    show={showExpertModal}
+                    onClose={() => setShowExpertModal(false)}
+                    onSubmitFree={async (data: { title: string; content: string; subCategory: string }) => {
+                        if (!user || creating) return;
+                        setCreating(true);
+                        try {
+                            const tags = [data.subCategory];
+                            const threadId = await createThread({
+                                title: data.title,
+                                category: "Uzmana Sor",
+                                content: data.content,
+                                tags,
+                                authorId: user.id as string,
+                                authorUsername: user.username,
+                            });
+                            window.location.href = `/uzmana-sor/${threadId}`;
+                        } catch (e) { console.error("Soru oluşturulamadı:", e); }
+                        setCreating(false);
+                    }}
+                />
             </main>
             <Footer />
             <style jsx>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>

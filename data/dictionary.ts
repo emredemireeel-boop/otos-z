@@ -750,6 +750,86 @@ export const dictionaryTerms: DictionaryTerm[] = [
         why: 'Manueldeki debriyajın görevi görür ama balata yoktur, yağ ile çalışır. Yokuşta geri kaydırmaz.',
         category: 'Mekanik',
         letter: 'T'
+    },
+    {
+        id: 'karburator',
+        term: 'Karbüratör',
+        description: 'Eski nesil benzinli motorlarda yakıt ile havayı karıştırarak yanma odasına gönderen mekanik cihaz. Günümüzde yerini elektronik enjeksiyon sistemlerine bırakmıştır.',
+        why: 'Yakıt-hava karışım oranını ayarlayarak motorun düzenli çalışmasını sağlar. Ayarı bozuksa araç fazla yakar veya rölantide stop eder.',
+        category: 'Mekanik',
+        letter: 'K'
+    },
+    {
+        id: 'sanziman',
+        term: 'Şanzıman (Vites Kutusu)',
+        description: 'Motordan gelen gücü tekerleklere farklı tork ve hız oranlarında ileten dişli sistemi. Manuel, tam otomatik, yarı otomatik veya CVT çeşitleri vardır.',
+        why: 'Motor devrini her hızda en verimli noktada tutmayı sağlar. Şanzıman arızaları aracın hareket etmesini engeller veya vites geçişlerini bozar.',
+        category: 'Mekanik',
+        letter: 'Ş'
+    },
+    {
+        id: 'motor_kulagi',
+        term: 'Motor Kulağı (Takozu)',
+        description: 'Motoru Şasiye bağlayan ve motorun çalışmasından kaynaklanan titreşimleri emen kauçuk/metal sönümleyici parça.',
+        why: 'Kopuk veya yırtık motor kulağı, gaza veya frene basıldığında motorun sarsılmasına, "küt" sesine ve kabin içinde aşırı titreşime neden olur.',
+        category: 'Mekanik',
+        letter: 'M'
+    },
+    {
+        id: 'direksiyon_kutusu',
+        term: 'Direksiyon Kutusu',
+        description: 'Direksiyon simidinden gelen dairesel dönme hareketini doğrusal harekete çevirerek tekerlekleri sağa ve sola yönlendiren ana mekanizma.',
+        why: 'Boşluk yaparsa direksiyonda hassasiyet kaybı, yolda gezinme ve kasislerde "tıkırtı" başlar. Güvenli sürüş ve yol tutuş için kritik bir bileşendir.',
+        category: 'Mekanik',
+        letter: 'D'
+    },
+    {
+        id: 'rot_basi',
+        term: 'Rot Başı',
+        description: 'Direksiyon kutusundan çıkan kolları tekerlek poryasına bağlayan hareketli küresel mafsal.',
+        why: 'Boşluk veya arıza durumunda direksiyon hakimiyeti zayıflar, lastiklerde içten/dıştan düzensiz aşınma ve yolda gezinme hissi yaşanır.',
+        category: 'Mekanik',
+        letter: 'R'
+    },
+    {
+        id: 'sigorta_kutusu',
+        term: 'Sigorta Kutusu',
+        description: 'Aracın elektriksel donanımlarını aşırı akım veya kısa devre tehlikesine karşı koruyan eriyen telli sigortaların bulunduğu elektrik panosu.',
+        why: 'Farlar, radyo, silecek veya kornanın aniden çalışmaması durumunda ilk kontrol edilmesi gereken yerdir. Patlak bir sigorta tesisatın yanmasını önlemiştir.',
+        category: 'Elektrik',
+        letter: 'S'
+    },
+    {
+        id: 'fren_merkezi',
+        term: 'Ana Fren Merkezi',
+        description: 'Fren pedalına basıldığında ayak kuvvetini hidrolik basınca çevirerek borular üzerinden tüm tekerleklere fren sıvısını pompalayan silindirik merkez.',
+        why: 'Contaları arızalanırsa veya hidrolik kaçırırsa fren pedalı yumuşar, tabana kadar iner ve aracın durma mesafesi tehlikeli derecede uzar.',
+        category: 'Mekanik',
+        letter: 'F'
+    },
+    {
+        id: 'eksantrik_mili_sensoru',
+        term: 'Eksantrik Mili Sensörü',
+        description: 'Eksantrik milinin o anki açısal pozisyonunu motor kontrol ünitesine (ECU) saniyesinde bildiren elektronik parça.',
+        why: 'Arızasında beyin enjektörlerin zamanlamasını yapamaz; motor zor çalışır, performans düşer, yakıt artar ve motor arıza lambası yanar.',
+        category: 'Elektronik/OBD',
+        letter: 'E'
+    },
+    {
+        id: 'aks_mili',
+        term: 'Aks Mili',
+        description: 'Diferansiyelden veya Şanzımandan aldığı dönme kuvvetini doğrudan çekiş sağlayan tekerleklere aktaran güçlü çelik miller.',
+        why: 'Eğilmesi veya balansının bozulması durumunda hızlandıkça artan şiddetli titreşimlere neden olur. Kırılırsa araç güç üretebilir ama hareket edemez.',
+        category: 'Mekanik',
+        letter: 'A'
+    },
+    {
+        id: 'rolanti_motoru',
+        term: 'Rölanti Motoru',
+        description: 'Sürücü gaza basmadığında (araç boşta veya dururken) motorun stop etmemesi için gerekli minimum hava akışını sağlayan elektronik valf.',
+        why: 'Kirlendiğinde veya bozulduğunda motor rölantideyken titrer, devir saati sürekli dalgalanır veya debriyaja basıldığında motor stop eder.',
+        category: 'Elektronik/OBD',
+        letter: 'R'
     }
 ];
 

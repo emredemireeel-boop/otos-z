@@ -583,7 +583,6 @@ export default function ForumThreadPage() {
                                             background: isExpert ? 'linear-gradient(to right, rgba(234,179,8,0.03), transparent)' : 'var(--card-bg)',
                                             border: isExpert ? '1px solid rgba(234, 179, 8, 0.4)' : (isBestAnswer ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid var(--card-border)'),
                                             borderRadius: '16px',
-                                            position: 'relative',
                                             transition: 'border-color 0.2s',
                                             boxShadow: isExpert ? '0 4px 20px rgba(234,179,8,0.08)' : (isBestAnswer ? '0 4px 20px rgba(34,197,94,0.08)' : ((isFirstEntry && isKarsilastirma) ? '0 8px 30px rgba(0,0,0,0.04)' : 'none')),
                                             display: 'flex',

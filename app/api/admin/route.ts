@@ -402,6 +402,15 @@ export async function POST(request: Request) {
                 return NextResponse.json({ success: true });
             }
 
+            case 'save_altin_anahtar': {
+                const fs = await import('fs');
+                const path = await import('path');
+                const filePath = path.join(process.cwd(), 'public', 'data', 'altin_anahtar.json');
+                fs.writeFileSync(filePath, JSON.stringify(body.data, null, 2), 'utf-8');
+                await writeLog('ALTIN_ANAHTAR', 'save', `Usta verileri güncellendi (${body.data?.masters?.length || 0} kayıt)`);
+                return NextResponse.json({ success: true });
+            }
+
             default:
                 return NextResponse.json({ success: false, message: `Bilinmeyen action: ${action}` }, { status: 400 });
         }

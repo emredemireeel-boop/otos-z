@@ -28,7 +28,7 @@ const levelColors: Record<string, { bg: string; text: string }> = {
 
 
 // Kategoriler (statik)
-const FORUM_CATS = ["Genel", "Teknik", "Deneyim", "Marka", "Alim-Satim"];
+const FORUM_CATS = ["Genel", "Teknik", "Deneyim", "Marka", "Alım-Satım"];
 const categories = [
     { name: "Tümü", count: 0, type: "topic" },
     ...FORUM_CATS.map(cat => ({ name: cat, count: 0, type: "topic" })),

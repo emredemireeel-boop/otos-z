@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
-import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard } from "lucide-react";
+import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield } from "lucide-react";
 import Link from "next/link";
 import ObdSection from "./obd-section";
 import GostergeSection from "./gosterge-section";
@@ -140,6 +140,7 @@ export default function LibraryPage() {
         { slug: 'plaka-kodlari', name: 'Plaka Kodları', icon: MapPin, title: 'Türkiye Plaka Kodları ve Özel Plakalar | OtoSöz', description: '01-81 tüm il plaka kodları sorgulama ve kırmızı, yeşil, sarı renkli özel plakaların anlamları.' },
         { slug: 'noter-islemleri', name: 'Noter & Alım Satım', icon: Handshake, title: '2026 Araç Noter İşlemleri ve Devir Ücretleri | OtoSöz', description: '2026 güncel noter araç satış ve plaka devir harçları. Güvenli ödeme sistemi rehberi.' },
         { slug: 'ehliyet-siniflari', name: 'Ehliyet & Harçlar', icon: IdCard, title: '2026 Ehliyet Sınıfları ve Sınav Harçları | OtoSöz', description: 'A, B, C, D sınıfı ehliyetler neleri kullanır? 2026 ehliyet harcı ücretleri ve SRC belgesi rehberi.' },
+        { slug: 'kasko-deger', name: 'Kasko Değer', icon: Shield, title: 'Kasko Değer Listesi 2026 - Araç Kasko Bedeli Sorgulama | OtoSöz', description: 'TSB güncel kasko değer listesi 2026. Fiat Egea, Renault Clio, VW Golf ve tüm araçların kasko değerleri.' },
     ];
 
     // Determine active tab from URL
@@ -1189,6 +1190,24 @@ export default function LibraryPage() {
                     {/* Tab 18: Ehliyet Sınıfları */}
                     {activeTab === 17 && (
                         <EhliyetSiniflariSection />
+                    )}
+
+                    {/* Tab 19: Kasko Değer Listesi */}
+                    {activeTab === 18 && (
+                        <div style={{ animation: 'fadeIn 0.3s ease' }}>
+                            <div style={{ background: 'linear-gradient(135deg, #1E3A5F, #0EA5E9)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '24px', marginBottom: '32px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 30px rgba(14,165,233,0.2)' }}>
+                                <div style={{ width: '60px', height: '60px', borderRadius: '14px', background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: '1px solid rgba(255,255,255,0.3)' }}>
+                                    <Shield size={32} color="#FBBF24" />
+                                </div>
+                                <div>
+                                    <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'white', marginBottom: '8px' }}>Kasko Değer Listesi 2026</h2>
+                                    <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>TSB referans verilerine dayalı güncel araç kasko değerleri. Detaylı sorgulama için aşağıdaki butona tıklayın.</p>
+                                </div>
+                            </div>
+                            <Link href="/kutuphane/kasko-deger" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', background: 'linear-gradient(135deg, #0EA5E9, #38BDF8)', color: 'white', borderRadius: '12px', fontWeight: '700', fontSize: '16px', textDecoration: 'none', boxShadow: '0 4px 15px rgba(14,165,233,0.3)', transition: 'transform 0.2s' }}>
+                                <Shield size={20} /> Kasko Değer Sorgulama Sayfasına Git
+                            </Link>
+                        </div>
                     )}
                 </div>
             </main>
