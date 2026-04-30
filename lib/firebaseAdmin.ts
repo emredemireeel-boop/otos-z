@@ -13,6 +13,7 @@ import { getFirestore, type Firestore } from 'firebase-admin/firestore';
 let adminApp: App;
 let adminAuth: Auth;
 let adminDb: Firestore;
+let initError: string | null = null;
 
 function initAdmin() {
     if (getApps().length === 0) {
@@ -21,19 +22,48 @@ function initAdmin() {
 
         if (serviceAccountStr) {
             try {
-                const serviceAccount = JSON.parse(serviceAccountStr);
+                // Windows'ta .env dosyasindaki JSON satirlari bozulabilir, temizle
+                const cleaned = serviceAccountStr
+                    .replace(/\r?\n/g, '')  // satir sonlarini kaldir
+                    .replace(/\\n/g, '\\n'); // literal \n'leri koru
+
+                const serviceAccount = JSON.parse(cleaned);
+                
+                // private_key icindeki literal \n karakterlerini gercek newline'a cevir
+                if (serviceAccount.private_key && typeof serviceAccount.private_key === 'string') {
+                    serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
+                }
+
                 adminApp = initializeApp({
                     credential: cert(serviceAccount),
-                    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+                    projectId: serviceAccount.project_id || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
                 });
-            } catch {
-                console.warn('Firebase Admin: Service account parse hatasi, applicationDefault kullaniliyor.');
-                adminApp = initializeApp({
-                    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-                });
+            } catch (err: any) {
+                console.error('Firebase Admin: Service account hatasi:', err?.message || err);
+                initError = `Service account parse/init hatasi: ${err?.message || 'Bilinmeyen hata'}`;
+                
+                // Credential olmadan init etme — default credentials hatasi verir
+                // Bunun yerine hata kaydedip fonksiyonlarda kontrol edecegiz
+                try {
+                    adminApp = initializeApp({
+                        credential: cert({
+                            projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'placeholder',
+                            clientEmail: 'error@placeholder.iam.gserviceaccount.com',
+                            privateKey: '-----BEGIN RSA PRIVATE KEY-----\nplaceholder\n-----END RSA PRIVATE KEY-----\n',
+                        }),
+                        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+                    });
+                } catch {
+                    // Son care: basic init
+                    adminApp = initializeApp({
+                        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+                    });
+                }
             }
         } else {
-            // Service account yoksa, projectId ile basla (emulator/local dev icin)
+            console.warn('Firebase Admin: FIREBASE_SERVICE_ACCOUNT_KEY env degiskeni bulunamadi.');
+            initError = 'FIREBASE_SERVICE_ACCOUNT_KEY ortam degiskeni eksik.';
+            // Credential olmadan baslatma — hatali islemler anlasilir hata verecek
             adminApp = initializeApp({
                 projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
             });
@@ -46,6 +76,11 @@ function initAdmin() {
     adminDb = getFirestore(adminApp);
 }
 
-initAdmin();
+try {
+    initAdmin();
+} catch (err: any) {
+    console.error('Firebase Admin init tamamen basarisiz:', err?.message || err);
+    initError = `Init tamamen basarisiz: ${err?.message || err}`;
+}
 
-export { adminAuth, adminDb };
+export { adminAuth, adminDb, initError };

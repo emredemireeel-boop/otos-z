@@ -587,7 +587,9 @@ export default function ForumThreadPage() {
                                             transition: 'border-color 0.2s',
                                             boxShadow: isExpert ? '0 4px 20px rgba(234,179,8,0.08)' : (isBestAnswer ? '0 4px 20px rgba(34,197,94,0.08)' : ((isFirstEntry && isKarsilastirma) ? '0 8px 30px rgba(0,0,0,0.04)' : 'none')),
                                             display: 'flex',
-                                            overflow: 'hidden',
+                                            overflow: 'visible',
+                                            position: 'relative',
+                                            zIndex: activeUserMenu === entry.id ? 100 : 1,
                                         }}>
                                             {/* Reddit tarzı sol upvote bar */}
                                             <div style={{
@@ -598,6 +600,8 @@ export default function ForumThreadPage() {
                                                 minWidth: isFirstEntry ? '0px' : '52px',
                                                 width: isFirstEntry ? '0px' : '52px',
                                                 flexShrink: 0,
+                                                borderTopLeftRadius: '16px',
+                                                borderBottomLeftRadius: '16px',
                                             }}>
                                                 {!isFirstEntry && (
                                                     <>
@@ -684,7 +688,7 @@ export default function ForumThreadPage() {
                                                 {/* Author Dropdown Menu */}
                                                 {activeUserMenu === entry.id && (
                                                     <div style={{
-                                                        position: 'absolute', top: '45px', left: '0', zIndex: 10,
+                                                        position: 'absolute', top: '45px', left: '0', zIndex: 1000,
                                                         background: 'var(--card-bg)', border: '1px solid var(--card-border)',
                                                         borderRadius: '12px', padding: '8px', minWidth: '180px',
                                                         boxShadow: '0 10px 30px rgba(0,0,0,0.2)'

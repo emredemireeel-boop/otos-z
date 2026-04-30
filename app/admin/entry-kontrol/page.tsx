@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { MessageSquare, Trash2, Search, AlertTriangle, CheckCircle, Clock } from "lucide-react";
 import { db } from "@/lib/firebase";
-import { collection, query, orderBy, limit, getDocs } from "firebase/firestore";
+import { collection, query, orderBy, limit, getDocs, deleteDoc, doc, addDoc, serverTimestamp, increment, updateDoc } from "firebase/firestore";
 import { formatTimestamp, type ForumThread, type ForumEntry } from "@/lib/forumService";
 
 export default function AdminEntryKontrolPage() {
@@ -14,6 +14,8 @@ export default function AdminEntryKontrolPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [activeTab, setActiveTab] = useState<"threads" | "entries">("threads");
     const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
+    const [deletingThreadId, setDeletingThreadId] = useState<string | null>(null);
+    const [deletingEntryId, setDeletingEntryId] = useState<string | null>(null);
 
     const fetchThreads = async () => {
         setLoadingThreads(true);
@@ -94,39 +96,72 @@ export default function AdminEntryKontrolPage() {
 
     const handleDeleteThread = async (threadId: string, title: string) => {
         if (!confirm(`"${title}" başlıklı konuyu ve tüm entrylerini silmek istediğinize emin misiniz?`)) return;
+        setDeletingThreadId(threadId);
         try {
-            const res = await fetch('/api/admin/delete-content', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'delete_thread', threadId }),
-            });
-            const data = await res.json();
-            if (!data.success) throw new Error(data.message || 'API hatası');
+            // Önce alt koleksiyon (entries) sil
+            const entriesRef = collection(db, 'threads', threadId, 'entries');
+            const entriesSnap = await getDocs(entriesRef);
+            const deletePromises = entriesSnap.docs.map(d => deleteDoc(d.ref));
+            if (deletePromises.length > 0) await Promise.all(deletePromises);
+
+            // Thread'i sil
+            await deleteDoc(doc(db, 'threads', threadId));
+
+            // Log kaydet
+            try {
+                await addDoc(collection(db, 'admin_logs'), {
+                    action: 'DELETE_THREAD',
+                    target: threadId,
+                    detail: `Başlık ve ${entriesSnap.size} entry silindi`,
+                    admin: 'admin-panel',
+                    createdAt: serverTimestamp(),
+                });
+            } catch (_) {}
+
             setToast({ msg: 'Başlık silindi ✓', type: 'success' });
             setThreads(prev => prev.filter(t => t.id !== threadId));
             setEntries(prev => prev.filter(e => e.threadId !== threadId));
         } catch (error: any) {
             console.error('Silme hatasi:', error);
             setToast({ msg: `Hata: ${error?.message || error}`, type: 'error' });
+        } finally {
+            setDeletingThreadId(null);
         }
     };
 
     const handleDeleteEntry = async (threadId: string, entryId: string) => {
         if (!confirm("Bu entry'yi silmek istediğinize emin misiniz?")) return;
+        setDeletingEntryId(entryId);
         try {
-            const res = await fetch('/api/admin/delete-content', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'delete_entry', threadId, entryId }),
-            });
-            const data = await res.json();
-            if (!data.success) throw new Error(data.message || 'API hatası');
+            // Entry'yi sil
+            await deleteDoc(doc(db, 'threads', threadId, 'entries', entryId));
+
+            // Thread entryCount azalt
+            try {
+                await updateDoc(doc(db, 'threads', threadId), {
+                    entryCount: increment(-1),
+                });
+            } catch (_) {}
+
+            // Log kaydet
+            try {
+                await addDoc(collection(db, 'admin_logs'), {
+                    action: 'DELETE_ENTRY',
+                    target: entryId,
+                    detail: `Thread: ${threadId}`,
+                    admin: 'admin-panel',
+                    createdAt: serverTimestamp(),
+                });
+            } catch (_) {}
+
             setToast({ msg: 'Entry silindi ✓', type: 'success' });
             setEntries(prev => prev.filter(e => e.id !== entryId));
             setThreads(prev => prev.map(t => t.id === threadId ? { ...t, entryCount: Math.max(0, t.entryCount - 1) } : t));
         } catch (error: any) {
             console.error('Entry silme hatasi:', error);
             setToast({ msg: `Hata: ${error?.message || error}`, type: 'error' });
+        } finally {
+            setDeletingEntryId(null);
         }
     };
 
@@ -240,15 +275,21 @@ export default function AdminEntryKontrolPage() {
                                         </div>
                                         <button 
                                             onClick={() => handleDeleteThread(thread.id, thread.title)}
+                                            disabled={deletingThreadId === thread.id}
                                             style={{
-                                                padding: '8px 12px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)',
-                                                borderRadius: '8px', color: '#EF4444', fontWeight: '600', cursor: 'pointer', fontSize: '13px',
-                                                display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s', flexShrink: 0
+                                                padding: '8px 12px', background: deletingThreadId === thread.id ? 'rgba(239,68,68,0.2)' : 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)',
+                                                borderRadius: '8px', color: '#EF4444', fontWeight: '600', cursor: deletingThreadId === thread.id ? 'wait' : 'pointer', fontSize: '13px',
+                                                display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s', flexShrink: 0,
+                                                opacity: deletingThreadId === thread.id ? 0.7 : 1
                                             }}
-                                            onMouseEnter={e => e.currentTarget.style.background = 'rgba(239,68,68,0.15)'}
-                                            onMouseLeave={e => e.currentTarget.style.background = 'rgba(239,68,68,0.08)'}
+                                            onMouseEnter={e => { if (!deletingThreadId) e.currentTarget.style.background = 'rgba(239,68,68,0.15)'; }}
+                                            onMouseLeave={e => { if (!deletingThreadId) e.currentTarget.style.background = 'rgba(239,68,68,0.08)'; }}
                                         >
-                                            <Trash2 size={14} /> Sil
+                                            {deletingThreadId === thread.id ? (
+                                                <><div style={{ width: 14, height: 14, border: '2px solid rgba(239,68,68,0.3)', borderTop: '2px solid #EF4444', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /> Siliniyor...</>
+                                            ) : (
+                                                <><Trash2 size={14} /> Sil</>
+                                            )}
                                         </button>
                                     </div>
                                 ))}
@@ -289,15 +330,21 @@ export default function AdminEntryKontrolPage() {
                                         </div>
                                         <button 
                                             onClick={() => handleDeleteEntry(entry.threadId, entry.id)}
+                                            disabled={deletingEntryId === entry.id}
                                             style={{
-                                                padding: '8px 12px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)',
-                                                borderRadius: '8px', color: '#EF4444', fontWeight: '600', cursor: 'pointer', fontSize: '13px',
-                                                display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s', flexShrink: 0
+                                                padding: '8px 12px', background: deletingEntryId === entry.id ? 'rgba(239,68,68,0.2)' : 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)',
+                                                borderRadius: '8px', color: '#EF4444', fontWeight: '600', cursor: deletingEntryId === entry.id ? 'wait' : 'pointer', fontSize: '13px',
+                                                display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s', flexShrink: 0,
+                                                opacity: deletingEntryId === entry.id ? 0.7 : 1
                                             }}
-                                            onMouseEnter={e => e.currentTarget.style.background = 'rgba(239,68,68,0.15)'}
-                                            onMouseLeave={e => e.currentTarget.style.background = 'rgba(239,68,68,0.08)'}
+                                            onMouseEnter={e => { if (!deletingEntryId) e.currentTarget.style.background = 'rgba(239,68,68,0.15)'; }}
+                                            onMouseLeave={e => { if (!deletingEntryId) e.currentTarget.style.background = 'rgba(239,68,68,0.08)'; }}
                                         >
-                                            <Trash2 size={14} /> Sil
+                                            {deletingEntryId === entry.id ? (
+                                                <><div style={{ width: 14, height: 14, border: '2px solid rgba(239,68,68,0.3)', borderTop: '2px solid #EF4444', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /> Siliniyor...</>
+                                            ) : (
+                                                <><Trash2 size={14} /> Sil</>
+                                            )}
                                         </button>
                                     </div>
                                 ))}

@@ -1,14 +1,18 @@
 import { NextResponse } from 'next/server';
-import { adminDb } from '@/lib/firebaseAdmin';
-import { FieldValue } from 'firebase-admin/firestore';
+import { db } from '@/lib/firebase';
+import {
+    collection, doc, getDocs, deleteDoc, updateDoc, addDoc,
+    serverTimestamp, increment,
+} from 'firebase/firestore';
 
 /**
- * Admin Entry/Thread Delete API (Admin SDK - Firestore rules bypass)
+ * Admin Entry/Thread Delete API (Client SDK — Firestore rules ile yetkilendirilir)
  * POST /api/admin/delete-content
  * Body: { action: 'delete_entry'|'delete_thread', threadId, entryId? }
  * 
  * Bu endpoint admin panelinden gelecek silme isteklerini
- * Firebase Admin SDK ile isler - rules'a takilmaz.
+ * Client-side Firestore SDK ile isler.
+ * Firestore rules'da authenticated user'a delete izni verilmis oldugu icin calısır.
  */
 
 export async function POST(request: Request) {
@@ -25,29 +29,24 @@ export async function POST(request: Request) {
                 return NextResponse.json({ success: false, message: 'Geçersiz entryId.' }, { status: 400 });
             }
 
-            // Entry'yi sil (Admin SDK)
-            await adminDb
-                .collection('threads')
-                .doc(threadId)
-                .collection('entries')
-                .doc(entryId)
-                .delete();
+            // Entry'yi sil
+            await deleteDoc(doc(db, 'threads', threadId, 'entries', entryId));
 
             // Thread'in entryCount'unu azalt
             try {
-                await adminDb.collection('threads').doc(threadId).update({
-                    entryCount: FieldValue.increment(-1),
+                await updateDoc(doc(db, 'threads', threadId), {
+                    entryCount: increment(-1),
                 });
             } catch (_) {}
 
             // Log
             try {
-                await adminDb.collection('admin_logs').add({
+                await addDoc(collection(db, 'admin_logs'), {
                     action: 'DELETE_ENTRY',
                     target: entryId,
                     detail: `Thread: ${threadId}`,
                     admin: 'admin-panel',
-                    createdAt: FieldValue.serverTimestamp(),
+                    createdAt: serverTimestamp(),
                 });
             } catch (_) {}
 
@@ -56,23 +55,24 @@ export async function POST(request: Request) {
 
         if (action === 'delete_thread') {
             // Alt koleksiyon (entries) önce sil
-            const entriesRef = adminDb.collection('threads').doc(threadId).collection('entries');
-            const snap = await entriesRef.get();
-            const batch = adminDb.batch();
-            snap.docs.forEach(d => batch.delete(d.ref));
-            if (snap.docs.length > 0) await batch.commit();
+            const entriesRef = collection(db, 'threads', threadId, 'entries');
+            const snap = await getDocs(entriesRef);
+            const deletePromises = snap.docs.map(d => deleteDoc(d.ref));
+            if (deletePromises.length > 0) {
+                await Promise.all(deletePromises);
+            }
 
             // Thread'i sil
-            await adminDb.collection('threads').doc(threadId).delete();
+            await deleteDoc(doc(db, 'threads', threadId));
 
             // Log
             try {
-                await adminDb.collection('admin_logs').add({
+                await addDoc(collection(db, 'admin_logs'), {
                     action: 'DELETE_THREAD',
                     target: threadId,
                     detail: `Başlık ve ${snap.size} entry silindi`,
                     admin: 'admin-panel',
-                    createdAt: FieldValue.serverTimestamp(),
+                    createdAt: serverTimestamp(),
                 });
             } catch (_) {}
 
