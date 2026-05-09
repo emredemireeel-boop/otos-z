@@ -2,12 +2,15 @@
 
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon } from "lucide-react";
+import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon, Calculator, CreditCard, Wallet, FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
 import citiesRaw from "@/data/cities.json";
 import districtCoordsRaw from "@/data/district-coords.json";
+import KrediKartiAracSection from "@/app/kutuphane/kredi-karti-arac-section";
+import AracAlimHesapSection from "@/app/kutuphane/arac-alim-hesap-section";
+import DijitalSenetHesapSection from "@/app/kutuphane/dijital-senet-hesap-section";
 
 const RouteMap = dynamic(() => import("@/components/RouteMap"), { ssr: false });
 
@@ -241,6 +244,7 @@ export default function YakitHesaplamaPage() {
   const [fuelUpdateTime, setFuelUpdateTime] = useState("");
   const [allDistrictPrices, setAllDistrictPrices] = useState<any[]>([]);
   const [fuelLoading, setFuelLoading] = useState(false);
+  const [activeSubTab, setActiveSubTab] = useState<'yakit' | 'kredi-karti' | 'butce' | 'senet'>('yakit');
 
   const parsePrice = useCallback((p: any): number | null => {
       if (!p) return null;
@@ -383,22 +387,69 @@ export default function YakitHesaplamaPage() {
       <Navbar />
       <main style={{ minHeight: "100vh", background: "var(--background)" }}>
         {/* Hero */}
-        <div style={{ background: AC, padding: "40px 24px 36px", textAlign: "center" }}>
+        <div style={{ background: 'linear-gradient(135deg, #2563EB, #7C3AED)', padding: "40px 24px 36px", textAlign: "center" }}>
           <div style={{ maxWidth: "700px", margin: "0 auto" }}>
             <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "56px", height: "56px", borderRadius: "16px", background: "rgba(255,255,255,0.15)", marginBottom: "16px" }}>
-              <Fuel size={28} color="white" />
+              <Calculator size={28} color="white" />
             </div>
             <h1 style={{ fontSize: "28px", fontWeight: "900", color: "white", margin: "0 0 8px 0" }}>
-              {"Yakıt Hesaplama"}
+              OtoHesap
             </h1>
             <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", margin: 0 }}>
-              {"Şehirler arası yakıt maliyetinizi hesaplayın \u2022 Güncel fiyatlar \u2022 Tüm iller"}
+              Yakıt maliyeti hesaplama • Kredi kartı komisyon hesaplayıcı
             </p>
           </div>
         </div>
 
+        {/* Sub-tabs */}
+        <div style={{ maxWidth: "720px", margin: "-18px auto 0", padding: "0 20px", position: "relative", zIndex: 2 }}>
+          <div style={{ display: 'flex', gap: '6px', background: 'var(--card-bg)', padding: '5px', borderRadius: '14px', border: '1px solid var(--card-border)', boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}>
+            <button onClick={() => setActiveSubTab('yakit')} style={{
+              flex: 1, padding: '12px 16px', borderRadius: '10px', border: 'none',
+              background: activeSubTab === 'yakit' ? AC : 'transparent',
+              color: activeSubTab === 'yakit' ? 'white' : 'var(--text-muted)',
+              fontWeight: '700', fontSize: '14px', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+              transition: 'all 0.2s',
+            }}>
+              <Fuel size={18} /> Yakıt Hesaplama
+            </button>
+            <button onClick={() => setActiveSubTab('kredi-karti')} style={{
+              flex: 1, padding: '12px 16px', borderRadius: '10px', border: 'none',
+              background: activeSubTab === 'kredi-karti' ? '#7C3AED' : 'transparent',
+              color: activeSubTab === 'kredi-karti' ? 'white' : 'var(--text-muted)',
+              fontWeight: '700', fontSize: '14px', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+              transition: 'all 0.2s',
+            }}>
+              <CreditCard size={18} /> Kredi Kartı ile Araç
+            </button>
+            <button onClick={() => setActiveSubTab('butce')} style={{
+              flex: 1, padding: '12px 16px', borderRadius: '10px', border: 'none',
+              background: activeSubTab === 'butce' ? '#059669' : 'transparent',
+              color: activeSubTab === 'butce' ? 'white' : 'var(--text-muted)',
+              fontWeight: '700', fontSize: '14px', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+              transition: 'all 0.2s',
+            }}>
+              <Wallet size={18} /> Bütçe Planla
+            </button>
+            <button onClick={() => setActiveSubTab('senet')} style={{
+              flex: 1, padding: '12px 16px', borderRadius: '10px', border: 'none',
+              background: activeSubTab === 'senet' ? '#DC2626' : 'transparent',
+              color: activeSubTab === 'senet' ? 'white' : 'var(--text-muted)',
+              fontWeight: '700', fontSize: '14px', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+              transition: 'all 0.2s',
+            }}>
+              <FileText size={18} /> Dijital Senet
+            </button>
+          </div>
+        </div>
+
         {/* Content */}
-        <div style={{ maxWidth: "720px", margin: "-24px auto 0", padding: "0 20px 60px", position: "relative", zIndex: 1 }}>
+        {activeSubTab === 'yakit' && (
+        <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px", position: "relative", zIndex: 1 }}>
 
           {/* ── Route ── */}
           <div style={{ ...card, marginBottom: "16px" }}>
@@ -574,6 +625,28 @@ export default function YakitHesaplamaPage() {
             </div>
           )}
         </div>
+        )}
+
+        {/* Kredi Kartı Tab */}
+        {activeSubTab === 'kredi-karti' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <KrediKartiAracSection />
+          </div>
+        )}
+
+        {/* Bütçe Planla Tab */}
+        {activeSubTab === 'butce' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <AracAlimHesapSection />
+          </div>
+        )}
+
+        {/* Dijital Senet Tab */}
+        {activeSubTab === 'senet' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <DijitalSenetHesapSection />
+          </div>
+        )}
       </main>
       <Footer />
     </div>

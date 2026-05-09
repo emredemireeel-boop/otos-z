@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
-import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield } from "lucide-react";
+import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield, CreditCard, FileText } from "lucide-react";
 import Link from "next/link";
 import ObdSection from "./obd-section";
 import GostergeSection from "./gosterge-section";
@@ -21,6 +21,7 @@ import AracSegmentleriSection from "./arac-segmentleri-section";
 import PlakaKodlariSection from "./plaka-kodlari-section";
 import NoterIslemleriSection from "./noter-islemleri-section";
 import EhliyetSiniflariSection from "./ehliyet-siniflari-section";
+import HgsSiniflariSection from "./hgs-siniflari-section";
 import trafikCezalariData from "@/data/trafik_cezalari.json";
 import obdCodes from "@/data/obd-codes.json";
 
@@ -141,6 +142,7 @@ export default function LibraryPage() {
         { slug: 'noter-islemleri', name: 'Noter & Alım Satım', icon: Handshake, title: '2026 Araç Noter İşlemleri ve Devir Ücretleri | OtoSöz', description: '2026 güncel noter araç satış ve plaka devir harçları. Güvenli ödeme sistemi rehberi.' },
         { slug: 'ehliyet-siniflari', name: 'Ehliyet & Harçlar', icon: IdCard, title: '2026 Ehliyet Sınıfları ve Sınav Harçları | OtoSöz', description: 'A, B, C, D sınıfı ehliyetler neleri kullanır? 2026 ehliyet harcı ücretleri ve SRC belgesi rehberi.' },
         { slug: 'kasko-deger', name: 'Kasko Değer', icon: Shield, title: 'Kasko Değer Listesi 2026 - Araç Kasko Bedeli Sorgulama | OtoSöz', description: 'TSB güncel kasko değer listesi 2026. Fiat Egea, Renault Clio, VW Golf ve tüm araçların kasko değerleri.' },
+        { slug: 'hgs-siniflari', name: 'HGS Sınıfları', icon: CreditCard, title: 'HGS Araç Sınıfları Rehberi 2026 | OtoSöz', description: 'HGS araç sınıfları nedir? 1-5. sınıf araç tanımları, aks sayısı, geçiş ücretleri ve mobil bankacılık başvuru rehberi.' },
     ];
 
     // Determine active tab from URL
@@ -456,7 +458,9 @@ export default function LibraryPage() {
                                                                                             : activeTab === 14 ? 'Kasa Tipleri ve Segmentler'
                                                                                                 : activeTab === 15 ? 'Plaka Kodları'
                                                                                                     : activeTab === 16 ? 'Noter İşlemleri'
-                                                                                                        : 'Ehliyet Sınıfları ve Harçlar'}
+                                                                                                        : activeTab === 17 ? 'Ehliyet Sınıfları ve Harçlar'
+                                                                                                            : activeTab === 18 ? 'Kasko Değer Listesi'
+                                                                                                                : 'HGS Araç Sınıfları'}
                                     </span>
                                 )}
                             </div>
@@ -1208,6 +1212,11 @@ export default function LibraryPage() {
                                 <Shield size={20} /> Kasko Değer Sorgulama Sayfasına Git
                             </Link>
                         </div>
+                    )}
+
+                    {/* Tab 20: HGS Sınıfları */}
+                    {activeTab === 19 && (
+                        <HgsSiniflariSection />
                     )}
                 </div>
             </main>

@@ -172,7 +172,7 @@ export default function Navbar() {
         { name: 'ARAÇ DNA', href: '/arac-dna' },
         { name: 'KÜTÜPHANE', href: '/kutuphane' },
         { name: 'HABERLER', href: '/haberler' },
-        { name: 'YAKIT', href: '/yakit-hesaplama' },
+        { name: 'OTOHESAP', href: '/yakit-hesaplama' },
         { name: 'PAZAR', href: '/pazar' },
         { name: 'ETKİNLİKLER', href: '/etkinlikler' },
         { name: 'GÜVENMETRE', href: '/guvenmetre' },
