@@ -78,6 +78,10 @@ function buildUrls() {
         '/yakit-hesaplama',     // Yakıt hesaplama aracı
         '/etkinlikler',         // Etkinlikler hub
         '/ajanda',              // Ajanda
+        '/haberler',            // Haberler hub
+        '/altin-anahtar',       // Altın Anahtar usta rehberi
+        '/guvenmetre',          // Güvenmetre
+        '/otohesap',            // OtoHesap araçları
     ];
     contentPages.forEach(p => urls.push({ url: `${BASE_URL}${p}`, tier: '🟠 T2-İÇERİK' }));
 
@@ -145,6 +149,17 @@ function buildUrls() {
         'sigorta-rehberi',
         'ilginc-bilgiler',
         'makaleler',
+        'kasko-deger',          // Kasko değer listesi
+        'hgs-siniflari',        // HGS araç sınıfları
+        'bakim-zamanlari',      // Bakım zamanları
+        'tuvturk',              // TÜVTÜRK muayene
+        'kasa-segmentler',      // Kasa tipleri
+        'plaka-kodlari',        // Plaka kodları
+        'noter-islemleri',      // Noter işlemleri
+        'ehliyet-siniflari',    // Ehliyet sınıfları
+        'otoyol-ucretleri',     // Otoyol ücretleri
+        'dolandiricilik-rehberi', // Dolandırıcılık rehberi
+        'nereye-gitmeli',       // Nereye gitmeli rehberi
     ];
     kutuphaneSections.forEach(s => urls.push({
         url: `${BASE_URL}/kutuphane?kategori=${s}`,

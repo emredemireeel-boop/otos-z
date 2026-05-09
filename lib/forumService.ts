@@ -183,7 +183,7 @@ export async function getEntries(threadId: string): Promise<ForumEntry[]> {
 }
 
 /** Bir kullanicinin tum entry'lerini getir (Profil icin) */
-export async function getUserEntries(username: string): Promise<(ForumEntry & { threadId: string })[]> {
+export async function getUserEntries(username: string): Promise<(ForumEntry & { threadId: string; threadTitle?: string; threadUrlId?: number })[]> {
     const { collectionGroup } = await import("firebase/firestore");
     try {
         const q = query(
@@ -193,21 +193,44 @@ export async function getUserEntries(username: string): Promise<(ForumEntry & { 
             limit(50)
         );
         const snap = await getDocs(q);
-        return snap.docs.map(d => {
+        const entries = snap.docs.map(d => {
             const data = d.data();
             const threadId = d.ref.parent.parent?.id || "";
             return { ...mapEntry(data, d.id), threadId };
         });
+        // Thread bilgilerini zenginlestir (title + urlId)
+        const threadIds = [...new Set(entries.map(e => e.threadId).filter(Boolean))];
+        const threadMap: Record<string, { title: string; urlId?: number }> = {};
+        for (const tid of threadIds) {
+            try {
+                const tSnap = await getDoc(doc(db, "threads", tid));
+                if (tSnap.exists()) {
+                    const td = tSnap.data();
+                    threadMap[tid] = { title: td.title || "", urlId: td.urlId };
+                }
+            } catch {}
+        }
+        return entries.map(e => ({
+            ...e,
+            threadTitle: threadMap[e.threadId]?.title,
+            threadUrlId: threadMap[e.threadId]?.urlId,
+        }));
     } catch (error) {
         console.warn("collectionGroup sorgusu basarisiz, fallback kullaniliyor:", error);
-        // Fallback: Sadece kullanicinin actigi basliklardaki kendi entry'lerini getir
-        const threadsSnap = await getDocs(query(collection(db, "threads"), where("authorUsername", "==", username)));
-        const allEntries: (ForumEntry & { threadId: string })[] = [];
+        // Fallback: TÜM thread'lerdeki kullanıcının entry'lerini getir
+        const allThreadsSnap = await getDocs(collection(db, "threads"));
+        const allEntries: (ForumEntry & { threadId: string; threadTitle?: string; threadUrlId?: number })[] = [];
         
-        for (const tDoc of threadsSnap.docs) {
+        for (const tDoc of allThreadsSnap.docs) {
             const entriesSnap = await getDocs(query(collection(db, "threads", tDoc.id, "entries"), where("username", "==", username)));
+            const tData = tDoc.data();
             entriesSnap.forEach(eDoc => {
-                allEntries.push({ ...mapEntry(eDoc.data(), eDoc.id), threadId: tDoc.id });
+                allEntries.push({
+                    ...mapEntry(eDoc.data(), eDoc.id),
+                    threadId: tDoc.id,
+                    threadTitle: tData.title || "",
+                    threadUrlId: tData.urlId,
+                });
             });
         }
         

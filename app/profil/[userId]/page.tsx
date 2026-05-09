@@ -412,8 +412,23 @@ export default function ProfilPage() {
                                             <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Henuz entry girilmemis</p>
                                         </div>
                                     ) : (
-                                        userEntries.map((entry) => (
-                                            <div key={entry.id} onClick={() => router.push(`/forum/konu/${entry.threadId}`)} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '16px', cursor: 'pointer', transition: 'border-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--card-border)'}>
+                                        userEntries.map((entry) => {
+                                            // Build slug URL
+                                            const createSlugLocal = (text: string) => {
+                                                const trMap: { [key: string]: string } = { 'ç':'c','ğ':'g','ı':'i','ö':'o','ş':'s','ü':'u','Ç':'c','Ğ':'g','İ':'i','Ö':'o','Ş':'s','Ü':'u' };
+                                                return text.replace(/[çğıöşüÇĞİÖŞÜ]/g, m => trMap[m] || m).toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
+                                            };
+                                            const entryUrl = entry.threadUrlId && entry.threadTitle
+                                                ? `/forum/${createSlugLocal(entry.threadTitle)}--${entry.threadUrlId}`
+                                                : `/forum/konu/${entry.threadId}`;
+                                            return (
+                                            <div key={entry.id} onClick={() => router.push(entryUrl)} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '16px', cursor: 'pointer', transition: 'border-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--card-border)'}>
+                                                {entry.threadTitle && (
+                                                    <div style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                                        <MessageSquare size={12} />
+                                                        {entry.threadTitle}
+                                                    </div>
+                                                )}
                                                 <p style={{ fontSize: '14px', color: 'var(--foreground)', marginBottom: '12px', lineHeight: '1.5' }}>
                                                     {entry.content.length > 150 ? entry.content.substring(0, 150) + '...' : entry.content}
                                                 </p>
@@ -422,7 +437,8 @@ export default function ProfilPage() {
                                                     <span>{new Date(entry.createdAt?.toDate ? entry.createdAt.toDate() : entry.createdAt).toLocaleDateString('tr-TR')}</span>
                                                 </div>
                                             </div>
-                                        ))
+                                            );
+                                        })
                                     )
                                 )}
                             </div>

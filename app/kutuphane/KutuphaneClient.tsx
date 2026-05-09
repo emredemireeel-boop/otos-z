@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
-import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield, CreditCard, FileText } from "lucide-react";
+import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield, CreditCard, FileText, Fingerprint, Compass } from "lucide-react";
 import Link from "next/link";
 import ObdSection from "./obd-section";
 import GostergeSection from "./gosterge-section";
@@ -22,6 +22,8 @@ import PlakaKodlariSection from "./plaka-kodlari-section";
 import NoterIslemleriSection from "./noter-islemleri-section";
 import EhliyetSiniflariSection from "./ehliyet-siniflari-section";
 import HgsSiniflariSection from "./hgs-siniflari-section";
+import DolandiricilikRehberiSection from "./dolandiricilik-rehberi-section";
+import NereyeGitmeliSection from "./nereye-gitmeli-section";
 import trafikCezalariData from "@/data/trafik_cezalari.json";
 import obdCodes from "@/data/obd-codes.json";
 
@@ -143,6 +145,8 @@ export default function LibraryPage() {
         { slug: 'ehliyet-siniflari', name: 'Ehliyet & Harçlar', icon: IdCard, title: '2026 Ehliyet Sınıfları ve Sınav Harçları | OtoSöz', description: 'A, B, C, D sınıfı ehliyetler neleri kullanır? 2026 ehliyet harcı ücretleri ve SRC belgesi rehberi.' },
         { slug: 'kasko-deger', name: 'Kasko Değer', icon: Shield, title: 'Kasko Değer Listesi 2026 - Araç Kasko Bedeli Sorgulama | OtoSöz', description: 'TSB güncel kasko değer listesi 2026. Fiat Egea, Renault Clio, VW Golf ve tüm araçların kasko değerleri.' },
         { slug: 'hgs-siniflari', name: 'HGS Sınıfları', icon: CreditCard, title: 'HGS Araç Sınıfları Rehberi 2026 | OtoSöz', description: 'HGS araç sınıfları nedir? 1-5. sınıf araç tanımları, aks sayısı, geçiş ücretleri ve mobil bankacılık başvuru rehberi.' },
+        { slug: 'dolandiricilik-rehberi', name: 'Dolandırıcılık', icon: Fingerprint, title: 'Araç Dolandırıcılığı Rehberi - Korunma Yolları | OtoSöz', description: 'Otomotiv sektöründe en yaygın dolandırıcılık yöntemleri ve korunmak için altın kurallar. Sahte ilan, km düşürme, evrak sahteciliği.' },
+        { slug: 'nereye-gitmeli', name: 'Nereye Gitmeli?', icon: Compass, title: 'Araç Arızasında Nereye Gitmeli? | OtoSöz', description: 'Klima, motor, şanzıman, fren arızasında hangi uzmana gitmelisiniz? Doğru servis rehberi, tahmini maliyet ve süreler.' },
     ];
 
     // Determine active tab from URL
@@ -460,7 +464,9 @@ export default function LibraryPage() {
                                                                                                     : activeTab === 16 ? 'Noter İşlemleri'
                                                                                                         : activeTab === 17 ? 'Ehliyet Sınıfları ve Harçlar'
                                                                                                             : activeTab === 18 ? 'Kasko Değer Listesi'
-                                                                                                                : 'HGS Araç Sınıfları'}
+                                                                                                                : activeTab === 20 ? 'Dolandırıcılık Rehberi'
+                                                                                                                    : activeTab === 21 ? 'Nereye Gitmeli?'
+                                                                                                                        : 'HGS Araç Sınıfları'}
                                     </span>
                                 )}
                             </div>
@@ -1217,6 +1223,16 @@ export default function LibraryPage() {
                     {/* Tab 20: HGS Sınıfları */}
                     {activeTab === 19 && (
                         <HgsSiniflariSection />
+                    )}
+
+                    {/* Tab 21: Dolandırıcılık Rehberi */}
+                    {activeTab === 20 && (
+                        <DolandiricilikRehberiSection />
+                    )}
+
+                    {/* Tab 22: Nereye Gitmeli? */}
+                    {activeTab === 21 && (
+                        <NereyeGitmeliSection />
                     )}
                 </div>
             </main>

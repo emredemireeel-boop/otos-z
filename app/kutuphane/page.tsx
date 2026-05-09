@@ -24,6 +24,8 @@ const tabSlugs = [
     { slug: 'plaka-kodlari', name: 'Plaka Kodları', title: 'Türkiye Plaka Kodları ve Özel Plakalar | OtoSöz', description: '01-81 tüm il plaka kodları sorgulama ve kırmızı, yeşil, sarı renkli özel plakaların anlamları.' },
     { slug: 'noter-islemleri', name: 'Noter & Alım Satım', title: '2026 Araç Noter İşlemleri ve Devir Ücretleri | OtoSöz', description: '2026 güncel noter araç satış ve plaka devir harçları. Güvenli ödeme sistemi rehberi.' },
     { slug: 'ehliyet-siniflari', name: 'Ehliyet & Harçlar', title: '2026 Ehliyet Sınıfları ve Sınav Harçları | OtoSöz', description: 'A, B, C, D sınıfı ehliyetler neleri kullanır? 2026 ehliyet harcı ücretleri ve SRC belgesi rehberi.' },
+    { slug: 'dolandiricilik-rehberi', name: 'Dolandırıcılık', title: 'Araç Dolandırıcılığı Rehberi - Korunma Yolları | OtoSöz', description: 'Otomotiv sektöründe en yaygın dolandırıcılık yöntemleri ve korunmak için altın kurallar. Sahte ilan, km düşürme, evrak sahteciliği.' },
+    { slug: 'nereye-gitmeli', name: 'Nereye Gitmeli?', title: 'Araç Arızasında Nereye Gitmeli? | OtoSöz', description: 'Klima, motor, şanzıman, fren arızasında hangi uzmana gitmelisiniz? Doğru servis rehberi, tahmini maliyet ve süreler.' },
 ];
 
 export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {

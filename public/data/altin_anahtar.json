@@ -31,6 +31,38 @@
       "googleReviews": 98,
       "services": ["Araç motoru arıza tespiti", "Direksiyon tamiri", "Süspansiyon tamiri", "Elektrik", "Fren", "Genel onarım ve bakım"],
       "createdAt": "2026-04-30"
+    },
+    {
+      "id": "fullser-oto-tamir-izmir",
+      "name": "Fullser Oto Tamir Ve Bakım Servisi",
+      "goldenKeys": 1,
+      "specialty": ["Motor", "Elektrik", "Fren", "Genel Bakım", "Kaporta", "Boya"],
+      "city": "İzmir",
+      "district": "Karabağlar",
+      "area": "Karabağlar Sanayi Sitesi",
+      "address": "Osman Aksüner, 5900. Sk. No:32, 35110 Karabağlar/İzmir",
+      "workshop": "Fullser Oto Tamir Ve Bakım Servisi",
+      "phone": "0535 542 01 22",
+      "experience": 10,
+      "brands": [],
+      "description": "Karabağlar Sanayi Sitesi'nde bulunan, genel oto tamir ve bakım hizmetleri sunan güvenilir servis. Motor, elektrik, fren, kaporta ve boya alanlarında hizmet vermektedir.",
+      "rating": 4.9,
+      "reviewCount": 106,
+      "lat": 38.3870,
+      "lng": 27.1200,
+      "hours": {
+        "pazartesi": "08:30-18:30",
+        "sali": "08:30-18:30",
+        "carsamba": "08:30-18:30",
+        "persembe": "08:30-18:30",
+        "cuma": "08:30-18:30",
+        "cumartesi": "08:30-14:00",
+        "pazar": "Kapalı"
+      },
+      "googleRating": 4.9,
+      "googleReviews": 106,
+      "services": ["Genel oto tamir", "Motor bakım", "Elektrik tamiri", "Fren sistemi", "Kaporta", "Boya", "Periyodik bakım"],
+      "createdAt": "2026-05-09"
     }
   ]
 }
