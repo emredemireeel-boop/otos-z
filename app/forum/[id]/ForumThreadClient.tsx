@@ -65,7 +65,7 @@ export default function ForumThreadPage() {
     const [activeUserMenu, setActiveUserMenu] = useState<string | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [popularThreads, setPopularThreads] = useState<ForumThread[]>([]);
-    const [sortMode, setSortMode] = useState<'top' | 'new'>('top');
+    const [sortMode, setSortMode] = useState<'old' | 'top' | 'new'>('old');
     const [userGarageMap, setUserGarageMap] = useState<Record<string, string>>({});
     const [userRoleMap, setUserRoleMap] = useState<Record<string, string>>({});
     
@@ -165,17 +165,20 @@ export default function ForumThreadPage() {
         const op = entries[0]; // İlk entry = OP
         const rest = entries.slice(1);
         const sorted = [...rest].sort((a, b) => {
+            // Pending local entries have null createdAt, treat them as newest
+            const ta = a.createdAt?.toMillis?.() || Date.now();
+            const tb = b.createdAt?.toMillis?.() || Date.now();
+
             if (sortMode === 'top') {
                 if (b.likes !== a.likes) return b.likes - a.likes;
-                // Eşit beğenide yenisi üste
-                const ta = a.createdAt?.toMillis?.() || 0;
-                const tb = b.createdAt?.toMillis?.() || 0;
+                // Eşit beğenide eskisi üste
+                return ta - tb;
+            }
+            if (sortMode === 'new') {
                 return tb - ta;
             }
-            // 'new' mode: en yeni üstte
-            const ta = a.createdAt?.toMillis?.() || 0;
-            const tb = b.createdAt?.toMillis?.() || 0;
-            return tb - ta;
+            // 'old' mode (eskiden yeniye)
+            return ta - tb;
         });
         return [op, ...sorted];
     }, [entries, sortMode]);
@@ -542,6 +545,7 @@ export default function ForumThreadPage() {
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px' }}>
                                         <span style={{ fontSize: '13px', color: 'var(--text-muted)', marginRight: '4px' }}>Sırala:</span>
                                         {([
+                                            { key: 'old' as const, label: 'Eskiden Yeniye', icon: <Clock size={14} /> },
                                             { key: 'top' as const, label: 'En İyiler', icon: <Flame size={14} /> },
                                             { key: 'new' as const, label: 'En Yeniler', icon: <Clock size={14} /> },
                                         ]).map(tab => (
