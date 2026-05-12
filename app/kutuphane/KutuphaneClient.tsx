@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
-import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield, CreditCard, FileText, Fingerprint, Compass } from "lucide-react";
+import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield, CreditCard, FileText, Fingerprint, Compass, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import ObdSection from "./obd-section";
 import GostergeSection from "./gosterge-section";
@@ -24,6 +24,8 @@ import EhliyetSiniflariSection from "./ehliyet-siniflari-section";
 import HgsSiniflariSection from "./hgs-siniflari-section";
 import DolandiricilikRehberiSection from "./dolandiricilik-rehberi-section";
 import NereyeGitmeliSection from "./nereye-gitmeli-section";
+import HasarSorgulamaSection from "./hasar-sorgulama-section";
+import EfsaneAvcilariSection from "./efsane-avcilari-section";
 import trafikCezalariData from "@/data/trafik_cezalari.json";
 import obdCodes from "@/data/obd-codes.json";
 
@@ -147,6 +149,8 @@ export default function LibraryPage() {
         { slug: 'hgs-siniflari', name: 'HGS Sınıfları', icon: CreditCard, title: 'HGS Araç Sınıfları Rehberi 2026 | OtoSöz', description: 'HGS araç sınıfları nedir? 1-5. sınıf araç tanımları, aks sayısı, geçiş ücretleri ve mobil bankacılık başvuru rehberi.' },
         { slug: 'dolandiricilik-rehberi', name: 'Dolandırıcılık', icon: Fingerprint, title: 'Araç Dolandırıcılığı Rehberi - Korunma Yolları | OtoSöz', description: 'Otomotiv sektöründe en yaygın dolandırıcılık yöntemleri ve korunmak için altın kurallar. Sahte ilan, km düşürme, evrak sahteciliği.' },
         { slug: 'nereye-gitmeli', name: 'Nereye Gitmeli?', icon: Compass, title: 'Araç Arızasında Nereye Gitmeli? | OtoSöz', description: 'Klima, motor, şanzıman, fren arızasında hangi uzmana gitmelisiniz? Doğru servis rehberi, tahmini maliyet ve süreler.' },
+        { slug: 'hasar-sorgulama', name: 'Hasar Sorgulama', icon: MessageSquare, title: '5664 Hasar (Tramer) Sorgulama Rehberi | OtoSöz', description: 'İkinci el araç almadan önce 5664 SMS tramer sorgulama nasıl yapılır? ERP nedir ve bedelsiz hasarın tehlikeleri nelerdir?' },
+        { slug: 'efsane-avcilari', name: 'Efsane Avcıları', icon: Zap, title: 'Oto Efsane Avcıları - Doğru Bilinen Yanlışlar | OtoSöz', description: 'Otomotiv dünyasında doğru bilinen yanlışlar. Yokuş aşağı boşa atmak, motor ısıtmak, kalın yağ kullanmak gibi sanayi efsanelerinin mühendislik gerçekleri.' },
     ];
 
     // Determine active tab from URL
@@ -466,7 +470,9 @@ export default function LibraryPage() {
                                                                                                             : activeTab === 18 ? 'Kasko Değer Listesi'
                                                                                                                 : activeTab === 20 ? 'Dolandırıcılık Rehberi'
                                                                                                                     : activeTab === 21 ? 'Nereye Gitmeli?'
-                                                                                                                        : 'HGS Araç Sınıfları'}
+                                                                                                                        : activeTab === 22 ? 'Hasar (Tramer) Sorgulama'
+                                                                                                                            : activeTab === 23 ? 'Oto Efsane Avcıları'
+                                                                                                                                : 'HGS Araç Sınıfları'}
                                     </span>
                                 )}
                             </div>
@@ -1214,7 +1220,7 @@ export default function LibraryPage() {
                                 </div>
                             </div>
                             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                                <Link href="/yakit-hesaplama?tab=kasko" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', background: 'linear-gradient(135deg, #0EA5E9, #38BDF8)', color: 'white', borderRadius: '12px', fontWeight: '700', fontSize: '16px', textDecoration: 'none', boxShadow: '0 4px 15px rgba(14,165,233,0.3)', transition: 'transform 0.2s' }}>
+                                <Link href="/otohesap/kasko-deger-sorgulama" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', background: 'linear-gradient(135deg, #0EA5E9, #38BDF8)', color: 'white', borderRadius: '12px', fontWeight: '700', fontSize: '16px', textDecoration: 'none', boxShadow: '0 4px 15px rgba(14,165,233,0.3)', transition: 'transform 0.2s' }}>
                                     <Shield size={20} /> OtoHesap&apos;ta Kasko Değer Sorgula
                                 </Link>
                                 <Link href="/kutuphane/kasko-deger" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', borderRadius: '12px', fontWeight: '700', fontSize: '16px', textDecoration: 'none', transition: 'transform 0.2s' }}>
@@ -1237,6 +1243,16 @@ export default function LibraryPage() {
                     {/* Tab 22: Nereye Gitmeli? */}
                     {activeTab === 21 && (
                         <NereyeGitmeliSection />
+                    )}
+
+                    {/* Tab 23: Hasar Sorgulama */}
+                    {activeTab === 22 && (
+                        <HasarSorgulamaSection />
+                    )}
+
+                    {/* Tab 24: Efsane Avcıları */}
+                    {activeTab === 23 && (
+                        <EfsaneAvcilariSection />
                     )}
                 </div>
             </main>

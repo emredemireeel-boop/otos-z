@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { readFileSync } from "fs";
 import path from "path";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { Lightbulb, ShieldAlert, Zap, CheckCircle, XCircle, ArrowLeft, ExternalLink } from "lucide-react";
 
 interface PageProps {
@@ -241,12 +243,13 @@ export default async function IlgincDetayPage({ params }: PageProps) {
     } : null;
 
     return (
-        <div style={{ minHeight: "100vh", background: "var(--background)", paddingTop: "80px" }}>
+        <div style={{ minHeight: "100vh", background: "var(--background)" }}>
+            <Navbar />
             {jsonLd && (
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             )}
 
-            <main style={{ maxWidth: "860px", margin: "0 auto", padding: "40px 24px" }}>
+            <main style={{ maxWidth: "860px", margin: "0 auto", padding: "100px 24px 60px 24px" }}>
                 {/* Geri dön */}
                 <Link href="/kutuphane?kategori=ilginc-bilgiler" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "14px", fontWeight: "600", marginBottom: "32px", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
                     <ArrowLeft size={16} /> İlginç Bilgiler
@@ -267,6 +270,7 @@ export default async function IlgincDetayPage({ params }: PageProps) {
                     </Link>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }

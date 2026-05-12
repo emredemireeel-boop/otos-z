@@ -4,6 +4,13 @@ import { ShieldAlert, AlertTriangle, Eye, Lock, Phone, CreditCard, Car, Users, C
 
 const dolandiricilikYontemleri = [
   {
+    id: 7, baslik: "Noter / Vekaletname (Kapora) Tuzağı", icon: FileWarning, risk: "Kritik",
+    gradient: ["#E11D48","#BE123C"],
+    ozet: "Satıcı kapora istemez ancak 'Notere git, telefonu memura ver ben tarif edeyim' diyerek fark ettirmeden kendisine araç satış vekaletnamesi çıkarttırır.",
+    belirtiler: ["'Bana para atma, güvenini sarsmayayım' denmesi","Noter memuruyla telefonda bizzat konuşmak istenmesi","Sizden 'Araç Satış Vekaletnamesi' veya 'Muvafakatname' istenmesi","İşlemlerin çok aceleye getirilmesi"],
+    korunma: ["Noterde telefonu KESİNLİKLE başkasına vermeyin!","Noter memuruna ne belgesi imzaladığınızı açıkça sorun","Kapora göndermek yerine bilet alın/gönderin (Otobüs/Uçak bileti güvenlidir)","Uzaktan kimseye vekalet vermeyin"],
+  },
+  {
     id: 1, baslik: "Sahte İlan Dolandırıcılığı", icon: Globe, risk: "Çok Yüksek",
     gradient: ["#EF4444","#DC2626"],
     ozet: "Piyasa değerinin çok altında fiyatlarla sahte araç ilanları yayınlanır. Kapora veya ön ödeme alınarak mağdur edilirsiniz.",

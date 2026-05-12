@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { BookOpen, ArrowRight, MessageSquare, TrendingUp, Users, BarChart3, Star, Clock, Eye, ThumbsUp, Award, Crown, Flame, ChevronRight, Zap, Sparkles, Plus, Car } from "lucide-react";
+import { BookOpen, ArrowRight, MessageSquare, TrendingUp, Users, BarChart3, Star, Clock, Eye, ThumbsUp, Award, Crown, Flame, ChevronRight, Zap, Sparkles, Plus, Car, AlertTriangle, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
@@ -15,6 +15,7 @@ import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, ge
 import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import carModelsData from "@/data/carmodels.json";
+import { mythsData, Myth } from "@/data/efsane-avcilari-data";
 
 // Yazar seviye renkleri
 const levelColors: Record<string, { bg: string; text: string }> = {
@@ -47,6 +48,7 @@ export default function Home() {
     const [newSurveyOptions, setNewSurveyOptions] = useState(["Evet", "Hayır"]);
     const [searchQuery, setSearchQuery] = useState("");
     const [randomGuide, setRandomGuide] = useState<any>(null);
+    const [randomMyth, setRandomMyth] = useState<Myth | null>(null);
 
     const availableBrands = Object.keys(carModelsData).sort();
     const availableModels = newTopicData.carBrand && (carModelsData as Record<string, string[]>)[newTopicData.carBrand] 
@@ -136,6 +138,12 @@ export default function Home() {
                 }
             })
             .catch(err => console.error("Error loading guides:", err));
+
+        // Random Myth
+        if (mythsData && mythsData.length > 0) {
+            const randomMythIndex = Math.floor(Math.random() * mythsData.length);
+            setRandomMyth(mythsData[randomMythIndex]);
+        }
 
         // Sidebar Reklamı
         fetch('/api/admin?section=advertisements')
@@ -663,6 +671,39 @@ export default function Home() {
                                     ))}
                                 </div>
                             </div>
+
+                            {/* Efsane Avcıları Vitrini */}
+                            {randomMyth && (
+                                <div style={{
+                                    marginTop: '16px',
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '16px',
+                                    padding: '16px',
+                                }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                            Günün Efsanesi
+                                        </h3>
+                                    </div>
+                                    
+                                    <Link href={`/kutuphane/efsane-avcilari/${randomMyth.slug}--${randomMyth.id}`} style={{ textDecoration: 'none' }}>
+                                        <div style={{ cursor: 'pointer' }}
+                                             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'}
+                                             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>
+                                            <p style={{ fontSize: '13px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px', lineHeight: '1.4' }}>
+                                                &quot;{randomMyth.myth}&quot;
+                                            </p>
+                                            <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '10px', lineHeight: '1.5', borderLeft: '2px solid var(--card-border)', paddingLeft: '8px' }}>
+                                                {randomMyth.reality}
+                                            </p>
+                                            <div style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                Detaylı Oku <ArrowRight size={14} />
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            )}
                         </aside>
 
                         {/* Main Content - BAşLIKLAR LİSTESİ */}

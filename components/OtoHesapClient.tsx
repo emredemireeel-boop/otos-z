@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon, Calculator, CreditCard, Wallet, FileText, Banknote, Shield, Zap, Activity, Circle, Wrench, BadgePercent, TrendingUp, LineChart, Printer, MessageCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -21,6 +22,7 @@ import LastikEbatSection from "@/app/kutuphane/lastik-ebat-section";
 import OtvMuafiyetSection from "@/app/kutuphane/otv-muafiyet-section";
 import AlSatKarMarjiSection from "@/app/kutuphane/al-sat-karmarji-section";
 import YatirimKiyaslamaSection from "@/app/kutuphane/yatirim-kiyaslama-section";
+import AracIthalatSection from "@/app/kutuphane/arac-ithalat-section";
 
 const RouteMap = dynamic(() => import("@/components/RouteMap"), { ssr: false });
 
@@ -238,7 +240,7 @@ function LocationSelector({ label, il, ilce, mahalle, onIl, onIlce, onMahalle, e
 /* ═══════════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════════ */
-export default function YakitHesaplamaPage() {
+export default function OtoHesapClient({ activeModule }: { activeModule: string }) {
   const { user } = useAuth();
   const [fromIl, setFromIl] = useState("");
   const [fromIlce, setFromIlce] = useState("");
@@ -254,7 +256,6 @@ export default function YakitHesaplamaPage() {
   const [fuelUpdateTime, setFuelUpdateTime] = useState("");
   const [allDistrictPrices, setAllDistrictPrices] = useState<any[]>([]);
   const [fuelLoading, setFuelLoading] = useState(false);
-  const [activeSubTab, setActiveSubTab] = useState<'yakit' | 'kredi-karti' | 'butce' | 'senet' | 'mtv' | 'kasko' | 'ev' | 'deger-kaybi' | 'kredi' | 'bakim' | 'lastik' | 'otv' | 'al-sat' | 'yatirim'>('yakit');
 
   const parsePrice = useCallback((p: any): number | null => {
       if (!p) return null;
@@ -393,36 +394,27 @@ export default function YakitHesaplamaPage() {
   const secTitle: React.CSSProperties = { fontSize: "11px", fontWeight: "700", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "14px", display: "flex", alignItems: "center", gap: "8px" };
 
   const TOOLS = [
-    { key: 'yakit' as const, label: 'Yakıt Hesaplama', desc: 'Şehirler arası yakıt maliyeti', icon: Fuel, color: '#2563EB', href: '/yakit-hesaplama' },
-    { key: 'yatirim' as const, label: 'Yatırım Kıyasla', desc: 'Araç, Dolar, Altın Analizi', icon: LineChart, color: '#EAB308', href: '/yakit-hesaplama/yatirim-kiyaslama' },
-    { key: 'al-sat' as const, label: 'Al-Sat Analizi', desc: 'Galeri kâr ve yatırım hesabı', icon: TrendingUp, color: '#F97316', href: '/yakit-hesaplama/al-sat-analizi' },
-    { key: 'otv' as const, label: 'ÖTV Muafiyeti', desc: 'Engelli araç indirimi', icon: BadgePercent, color: '#8B5CF6', href: '/yakit-hesaplama/otv-muafiyeti' },
+    { key: 'yakit-hesaplama' as const, label: 'Yakıt Hesaplama', desc: 'Şehirler arası yakıt maliyeti', icon: Fuel, color: '#2563EB', href: '/yakit-hesaplama' },
+    { key: 'yatirim-kiyaslama' as const, label: 'Yatırım Kıyasla', desc: 'Araç, Dolar, Altın Analizi', icon: LineChart, color: '#EAB308', href: '/yakit-hesaplama/yatirim-kiyaslama' },
+    { key: 'al-sat-analizi' as const, label: 'Al-Sat Analizi', desc: 'Galeri kâr ve yatırım hesabı', icon: TrendingUp, color: '#F97316', href: '/yakit-hesaplama/al-sat-analizi' },
+    { key: 'otv-muafiyeti' as const, label: 'ÖTV Muafiyeti', desc: 'Engelli araç indirimi', icon: BadgePercent, color: '#8B5CF6', href: '/yakit-hesaplama/otv-muafiyeti' },
     { key: 'deger-kaybi' as const, label: 'Değer Kaybı', desc: 'Kaza sonrası değer kaybı', icon: Activity, color: '#F59E0B', href: '/yakit-hesaplama/deger-kaybi' },
-    { key: 'kredi' as const, label: 'Taşıt Kredisi', desc: 'Aylık taksit ve faiz hesabı', icon: Banknote, color: '#10B981', href: '/yakit-hesaplama/tasit-kredisi' },
-    { key: 'bakim' as const, label: 'Bakım Maliyeti', desc: 'Periyodik servis ücreti', icon: Wrench, color: '#6366F1', href: '/yakit-hesaplama/arac-bakim' },
-    { key: 'lastik' as const, label: 'Lastik Ebat', desc: 'Çap ve hız sapması hesabı', icon: Circle, color: '#EC4899', href: '/yakit-hesaplama/lastik-ebat' },
-    { key: 'kredi-karti' as const, label: 'Kredi Kartı', desc: 'Komisyon ve taksit hesaplama', icon: CreditCard, color: '#7C3AED', href: '/yakit-hesaplama/kredi-karti-hesaplama' },
-    { key: 'butce' as const, label: 'Bütçe Planla', desc: 'Nakit, kredi, ek giderler', icon: Wallet, color: '#059669', href: '/yakit-hesaplama/butce-planlama' },
-    { key: 'senet' as const, label: 'Dijital Senet', desc: 'Reel faiz ve maliyet analizi', icon: FileText, color: '#DC2626', href: '/yakit-hesaplama/dijital-senet-hesaplama' },
-    { key: 'mtv' as const, label: 'MTV Hesaplama', desc: '2026 Motorlu Taşıtlar Vergisi', icon: Banknote, color: '#7C3AED', href: '/yakit-hesaplama/mtv-hesaplama' },
-    { key: 'kasko' as const, label: 'Kasko Değer', desc: 'TSB kasko bedeli sorgulama', icon: Shield, color: '#0EA5E9', href: '/yakit-hesaplama/kasko-deger-sorgulama' },
-    { key: 'ev' as const, label: 'Elektrikli Araç', desc: 'Şarj maliyeti ve karşılaştırma', icon: Zap, color: '#10B981', href: '/yakit-hesaplama/elektrikli-arac-sarj-maliyeti' },
+    { key: 'tasit-kredisi' as const, label: 'Taşıt Kredisi', desc: 'Aylık taksit ve faiz hesabı', icon: Banknote, color: '#10B981', href: '/yakit-hesaplama/tasit-kredisi' },
+    { key: 'arac-bakim' as const, label: 'Bakım Maliyeti', desc: 'Periyodik servis ücreti', icon: Wrench, color: '#6366F1', href: '/yakit-hesaplama/arac-bakim' },
+    { key: 'lastik-ebat' as const, label: 'Lastik Ebat', desc: 'Çap ve hız sapması hesabı', icon: Circle, color: '#EC4899', href: '/yakit-hesaplama/lastik-ebat' },
+    { key: 'kredi-karti-hesaplama' as const, label: 'Kredi Kartı', desc: 'Komisyon ve taksit hesaplama', icon: CreditCard, color: '#7C3AED', href: '/yakit-hesaplama/kredi-karti-hesaplama' },
+    { key: 'butce-planlama' as const, label: 'Bütçe Planla', desc: 'Nakit, kredi, ek giderler', icon: Wallet, color: '#059669', href: '/yakit-hesaplama/butce-planlama' },
+    { key: 'dijital-senet-hesaplama' as const, label: 'Dijital Senet', desc: 'Reel faiz ve maliyet analizi', icon: FileText, color: '#DC2626', href: '/yakit-hesaplama/dijital-senet-hesaplama' },
+    { key: 'mtv-hesaplama' as const, label: 'MTV Hesaplama', desc: '2026 Motorlu Taşıtlar Vergisi', icon: Banknote, color: '#7C3AED', href: '/yakit-hesaplama/mtv-hesaplama' },
+    { key: 'kasko-deger-sorgulama' as const, label: 'Kasko Değer', desc: 'TSB kasko bedeli sorgulama', icon: Shield, color: '#0EA5E9', href: '/yakit-hesaplama/kasko-deger-sorgulama' },
+    { key: 'elektrikli-arac-sarj-maliyeti' as const, label: 'Elektrikli Araç', desc: 'Şarj maliyeti ve karşılaştırma', icon: Zap, color: '#10B981', href: '/yakit-hesaplama/elektrikli-arac-sarj-maliyeti' },
+    { key: 'arac-ithalat-vergisi' as const, label: 'Yurtdışı İthalat', desc: 'Gümrük ve ÖTV maliyeti', icon: MapIcon, color: '#0EA5E9', href: '/yakit-hesaplama/arac-ithalat-vergisi' },
   ];
 
   return (
     <div>
       <Navbar />
-      {/* JSON-LD Structured Data */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "OtoHesap - Otomotiv Hesaplama Araçları",
-        "description": "Yakıt hesaplama, MTV hesaplama, kasko değer sorgulama, elektrikli araç şarj maliyeti ve daha fazlası.",
-        "url": "https://otosoz.com/yakit-hesaplama",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" }
-      })}} />
+
       <main style={{ minHeight: "100vh", background: "var(--background)" }}>
         <style dangerouslySetInnerHTML={{__html: `
           @media print {
@@ -461,11 +453,11 @@ export default function YakitHesaplamaPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "12px", marginBottom: "20px" }}>
             {TOOLS.map(tool => {
               const Icon = tool.icon;
-              const active = activeSubTab === tool.key;
+              const active = activeModule === tool.key;
               return (
-                <button key={tool.key} onClick={() => setActiveSubTab(tool.key)}
+                <Link key={tool.key} href={`/otohesap/${tool.key}`}
                   style={{
-                    padding: "18px 16px", borderRadius: "16px", cursor: "pointer", textAlign: "left",
+                    padding: "18px 16px", borderRadius: "16px", cursor: "pointer", textAlign: "left", textDecoration: "none",
                     background: active ? "var(--card-bg)" : "var(--card-bg)",
                     border: `2px solid ${active ? tool.color : "var(--card-border)"}`,
                     boxShadow: active ? `0 4px 20px ${tool.color}25` : "0 2px 8px rgba(0,0,0,0.04)",
@@ -482,7 +474,7 @@ export default function YakitHesaplamaPage() {
                     <div style={{ fontSize: "14px", fontWeight: "700", color: active ? tool.color : "var(--foreground)", marginBottom: "2px" }}>{tool.label}</div>
                     <div style={{ fontSize: "11px", color: "var(--text-muted)", lineHeight: "1.4" }}>{tool.desc}</div>
                   </div>
-                </button>
+                </Link>
               );
             })}
           </div>
@@ -494,8 +486,8 @@ export default function YakitHesaplamaPage() {
             <Printer size={16} /> PDF / Yazdır
           </button>
           <button onClick={() => {
-            const activeTool = TOOLS.find(t => t.key === activeSubTab);
-            const text = `OtoSöz'de ücretsiz "${activeTool?.label}" aracını kullanarak kendi hesaplamamı yaptım! Sen de hemen dene: https://www.otosoz.com/yakit-hesaplama`;
+            const activeTool = TOOLS.find(t => t.key === activeModule);
+            const text = `OtoSöz'de ücretsiz "${activeTool?.label}" aracını kullanarak kendi hesaplamamı yaptım! Sen de hemen dene: https://www.otosoz.com/otohesap/${activeModule}`;
             window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
           }} style={{ padding: "10px 16px", borderRadius: "10px", background: "#25D366", border: "none", color: "white", fontSize: "13px", fontWeight: "700", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", transition: "transform 0.2s" }} onMouseOver={e => e.currentTarget.style.transform = "scale(1.05)"} onMouseOut={e => e.currentTarget.style.transform = "scale(1)"}>
             <MessageCircle size={16} /> WhatsApp'ta Paylaş
@@ -503,7 +495,7 @@ export default function YakitHesaplamaPage() {
         </div>
 
         {/* Content */}
-        {activeSubTab === 'yakit' && (
+        {activeModule === 'yakit-hesaplama' && (
         <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px", position: "relative", zIndex: 1 }}>
 
           {/* ── Route ── */}
@@ -683,93 +675,100 @@ export default function YakitHesaplamaPage() {
         )}
 
         {/* Kredi Kartı Tab */}
-        {activeSubTab === 'kredi-karti' && (
+        {activeModule === 'kredi-karti-hesaplama' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <KrediKartiAracSection />
           </div>
         )}
 
         {/* Bütçe Planla Tab */}
-        {activeSubTab === 'butce' && (
+        {activeModule === 'butce-planlama' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <AracAlimHesapSection />
           </div>
         )}
 
         {/* Dijital Senet Tab */}
-        {activeSubTab === 'senet' && (
+        {activeModule === 'dijital-senet-hesaplama' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <DijitalSenetHesapSection />
           </div>
         )}
 
         {/* MTV Hesaplama Tab */}
-        {activeSubTab === 'mtv' && (
+        {activeModule === 'mtv-hesaplama' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <MtvHesaplamaSection />
           </div>
         )}
 
         {/* Kasko Değer Tab */}
-        {activeSubTab === 'kasko' && (
+        {activeModule === 'kasko-deger-sorgulama' && (
           <div style={{ maxWidth: "900px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <KaskoDegerSection />
           </div>
         )}
 
         {/* Elektrikli Araç Tab */}
-        {activeSubTab === 'ev' && (
+        {activeModule === 'elektrikli-arac-sarj-maliyeti' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <EvMaliyetSection />
           </div>
         )}
 
         {/* Değer Kaybı Tab */}
-        {activeSubTab === 'deger-kaybi' && (
+        {activeModule === 'deger-kaybi' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <DegerKaybiSection />
           </div>
         )}
 
         {/* Taşıt Kredisi Tab */}
-        {activeSubTab === 'kredi' && (
+        {activeModule === 'tasit-kredisi' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <TasitKredisiSection />
           </div>
         )}
 
         {/* Araç Bakım Tab */}
-        {activeSubTab === 'bakim' && (
+        {activeModule === 'arac-bakim' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <AracBakimSection />
           </div>
         )}
 
         {/* Lastik Ebat Tab */}
-        {activeSubTab === 'lastik' && (
+        {activeModule === 'lastik-ebat' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <LastikEbatSection />
           </div>
         )}
 
         {/* ÖTV Muafiyet Tab */}
-        {activeSubTab === 'otv' && (
+        {activeModule === 'otv-muafiyeti' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <OtvMuafiyetSection />
           </div>
         )}
 
         {/* Al-Sat Kâr Analizi Tab */}
-        {activeSubTab === 'al-sat' && (
+        {activeModule === 'al-sat-analizi' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <AlSatKarMarjiSection />
           </div>
         )}
 
         {/* Yatırım Kıyaslama Tab */}
-        {activeSubTab === 'yatirim' && (
+        {activeModule === 'yatirim-kiyaslama' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <YatirimKiyaslamaSection />
+          </div>
+        )}
+
+        {/* Araç İthalat Vergisi Tab */}
+        {activeModule === 'arac-ithalat-vergisi' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <AracIthalatSection />
           </div>
         )}
       </main>

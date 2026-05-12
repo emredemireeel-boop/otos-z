@@ -1310,6 +1310,166 @@ export const dictionaryTerms: DictionaryTerm[] = [
         why: 'Bozulduğunda direksiyonu sağa sola çevirirken "gırç gırç" kauçuk sesi veya yay atma sesi (tık) duyulur. Kasislerde lok lok vurur.',
         category: 'Mekanik',
         letter: 'A'
+    },
+    {
+        id: 'rolanti_dalgalanmasi',
+        term: 'Rölanti Dalgalanması',
+        description: 'Araç durur halde ve boş vitesteyken motor devrinin (RPM) sabit kalmayıp sürekli inip çıkması durumudur.',
+        why: 'Genellikle kirlenmiş boğaz kelebeği, rölanti motoru arızası veya sistemdeki bir vakum kaçağından kaynaklanır. Araba ışıklarda dururken stop edecekmiş gibi titrer.',
+        category: 'Motor/Güç Aktarımı',
+        letter: 'R'
+    },
+    {
+        id: 'sekromenc',
+        term: 'Vites Senkromeçi',
+        description: 'Manuel şanzımanlarda, vites değiştirirken dönen dişlilerin hızlarını birbirine eşitleyerek vitesin "cırtlamadan" yumuşakça geçmesini sağlayan pirinç veya çelik halkadır.',
+        why: 'Eğer vites değiştirirken (özellikle hızlı atarken) "cırt" diye dişli sürtünme sesi geliyorsa senkromeçler aşınmıştır.',
+        category: 'Mekanik',
+        letter: 'V'
+    },
+    {
+        id: 'aks_lalesi',
+        term: 'Aks Lalesi (Kafası)',
+        description: 'Şanzımandan gelen dönme kuvvetini tekerleklere ileten aks milinin ucundaki, tekerleğin direksiyonla sağa sola dönmesine rağmen gücün kesintisiz aktarılmasını sağlayan oynar mafsaldır.',
+        why: 'Bozulduğunda, araçla tam tur dönerken veya U dönüşü yaparken ön tekerleklerden "tak tak tak" diye ritmik bir vurma sesi gelir.',
+        category: 'Mekanik',
+        letter: 'A'
+    },
+    {
+        id: 'mekatronik',
+        term: 'Mekatronik (Şanzıman Beyni)',
+        description: 'Özellikle DSG ve benzeri çift kavramalı otomatik şanzımanlarda, vites geçişlerini sağlayan hidrolik valfleri ve elektronik devreleri tek bir ünitede toplayan beyindir.',
+        why: 'Arızalandığında vites geçişlerinde vuruntu olur, araç sadece çift veya tek vitesleri kullanır ya da kadranda şanzıman arıza uyarısı vererek yolda bırakır.',
+        category: 'Elektronik/OBD',
+        letter: 'M'
+    },
+    {
+        id: 'bogaz_kelebegi',
+        term: 'Boğaz Kelebeği',
+        description: 'Gaz pedalına basma miktarınıza göre açılarak, motorun içine girecek temiz havanın miktarını ayarlayan kapakçıktır.',
+        why: 'Zamanla kurum bağlayarak kirlenir. Kirlendiğinde araçta rölanti dalgalanması, stop etme ve gaz yememe sorunları başlar.',
+        category: 'Motor/Güç Aktarımı',
+        letter: 'B'
+    },
+    {
+        id: 'yakit_basinc_regulatoru',
+        term: 'Yakıt Basınç Regülatörü',
+        description: 'Yakıt pompasından enjektörlere giden benzinin basıncını motorun devrine ve ihtiyacına göre sabit bir değerde tutan valftir.',
+        why: 'Arızalandığında araç ilk marşta zor çalışır (geç çalışma) veya sürüş esnasında gaz yemeyip yığılır.',
+        category: 'Motor/Güç Aktarımı',
+        letter: 'Y'
+    },
+    {
+        id: 'vuruntu_sensoru',
+        term: 'Vuruntu Sensörü (Knock Sensor)',
+        description: 'Motor bloğuna bağlı küçük bir mikrofon gibidir. Yanma odasındaki sağlıksız patlamaları (vuruntuyu/avansı) dinler ve beyne iletir.',
+        why: 'Kötü yakıt alındığında motor beyninin ateşleme zamanlamasını değiştirerek motorun piston eritmesini engeller.',
+        category: 'Elektronik/OBD',
+        letter: 'V'
+    },
+    {
+        id: 'vtec',
+        term: 'VTEC',
+        description: 'Honda\'nın geliştirdiği, motor belirli bir devri (örn: 5500 RPM) geçtiğinde eksantrik milinin profilini değiştirerek motorun aniden çok daha fazla hava almasını ve güç patlaması yaşamasını sağlayan sistem.',
+        why: 'Düşük devirde az yakıt tüketimi, yüksek devirde ise yarış arabası performansı ve o meşhur "VTEC açma" sesini sağlar.',
+        category: 'Motor/Güç Aktarımı',
+        letter: 'V'
+    },
+    {
+        id: 'vanos',
+        term: 'VANOS',
+        description: 'BMW\'nin geliştirdiği, eksantrik milinin zamanlamasını motor devrine göre kaydırarak hem düşük devirde tork hem de yüksek devirde güç üreten değişken supap zamanlama sistemidir.',
+        why: 'Arızalandığında motorda dikiş makinesi gibi şıkırtılı bir ses oluşur ve alt devirlerde çekiş ciddi şekilde düşer.',
+        category: 'Motor/Güç Aktarımı',
+        letter: 'V'
+    },
+    {
+        id: 'triptonik',
+        term: 'Triptonik (Tiptronic)',
+        description: 'Normalde tam otomatik olan bir şanzımanın, sürücüye vites kolunu ileri-geri iterek veya direksiyon arkası kulakçıklarla manuel olarak da vites değiştirme imkanı sunan yapısıdır.',
+        why: 'Özellikle yokuş aşağı inerken motor freni yapmak veya spor sürüşlerde vites kontrolünü ele almak için kullanılır.',
+        category: 'Motor/Güç Aktarımı',
+        letter: 'T'
+    },
+    {
+        id: 'porya_bilyasi',
+        term: 'Porya Bilyası (Tekerlek Rulmanı)',
+        description: 'Tekerleğin aracın taşıyıcı sistemine (porya) bağlandığı noktada, tekerleğin sürtünmesiz dönmesini sağlayan rulmandır.',
+        why: 'Zamanla bozulduğunda, araç hızlandıkça (özellikle 60-80 km/h sonrası) kabin içine uçak kalkıyormuş gibi uğultulu bir ses verir.',
+        category: 'Mekanik',
+        letter: 'P'
+    },
+    {
+        id: 'oksijen_sensoru',
+        term: 'Oksijen (Lambda) Sensörü',
+        description: 'Egzoz borusunda bulunur ve yanan gazdaki oksijen miktarını ölçer. Bu bilgiye göre motor beyni, motora gönderilen yakıt-hava karışımını zenginleştirir veya fakirleştirir.',
+        why: 'Arızalandığında araç zengin karışımla çalışır, siyah duman atar, çok fazla yakıt tüketir ve egzoz emisyon testinden geçemez.',
+        category: 'Elektronik/OBD',
+        letter: 'O'
+    },
+    {
+        id: 'rektifiye',
+        term: 'Motor Rektifiye (Revizyon)',
+        description: 'Aşınmış, yağ yakan veya yatak sarmış bir motorun tamamen sökülüp silindir içi, pistonlar, krank gibi ana parçalarının tornada orijinal ölçülerine (veya bir üst ölçüye) getirilerek yenilenmesi işlemi.',
+        why: 'Motorun ömrünü sıfırlamak (yeniden canlandırmak) için yapılır. Çok pahalı ve ciddi ustalık gerektiren bir işlemdir.',
+        category: 'Mekanik',
+        letter: 'R'
+    },
+    {
+        id: 'z_rot',
+        term: 'Z Rot',
+        description: 'Amortisör ile viraj demirini birbirine bağlayan, "Z" harfine benzeyen küçük, uçları mafsallı bağlantı çubuğudur.',
+        why: 'Çok sık bozulur. Bozulduğunda arnavut kaldırımı veya hafif çukurlu yollarda ön takımdan "tık tık tık" diye ince bir metal vurma sesi gelir.',
+        category: 'Mekanik',
+        letter: 'Z'
+    },
+    {
+        id: 'supap_ayari',
+        term: 'Supap Ayarı',
+        description: 'Yakıtın içeri girdiği ve egzozun dışarı atıldığı supapların, eksantrik mili ile arasındaki milimetrik çalışma boşluğunun sentil çakısı ile hassas şekilde ayarlanmasıdır.',
+        why: 'Bozulduğunda motor şıkırdar, performans düşer ve özellikle LPG\'li araçlarda araç sabahları geç çalışır veya rölantide titrer.',
+        category: 'Motor/Güç Aktarımı',
+        letter: 'S'
+    },
+    {
+        id: 'sekman_atmak',
+        term: 'Segman Atmak',
+        description: 'Motor rektifiye gerektirecek kadar aşınmamışsa, sadece pistonların etrafındaki sızdırmazlık halkalarının (segmanların) yenileriyle değiştirilmesi işlemidir.',
+        why: 'Yağ yakmaya başlayan motoru kurtarmak için yapılan, rektifiyeden daha ucuz bir işlemdir. Ancak silindir duvarı çizikse işe yaramaz.',
+        category: 'Mekanik',
+        letter: 'S'
+    },
+    {
+        id: 'krank_mili',
+        term: 'Krank Mili',
+        description: 'Pistonların aşağı-yukarı düz doğrusal hareketini, tekerleklere iletilebilecek olan dairesel (dönme) hareketine çeviren motorun en temel çelik milidir.',
+        why: 'Motor yağsız kalırsa "yatak sarar" ve krank mili çizilir. Aracın kalbidir, arızası komple motor yapımına sebep olur.',
+        category: 'Motor/Güç Aktarımı',
+        letter: 'K'
+    },
+    {
+        id: 'eksantrik_mili',
+        term: 'Eksantrik (Kam) Mili',
+        description: 'Krank milinden aldığı hareketle dönerek, üzerindeki yumurta şeklindeki çıkıntılar (kamlar) sayesinde motor supaplarının doğru zamanda açılıp kapanmasını sağlayan mildir.',
+        why: 'Triger kayışı koptuğunda eksantrik mili durur ancak krank dönmeye devam eder. Bu yüzden pistonlar açık kalan supaplara çarparak motoru parçalar.',
+        category: 'Motor/Güç Aktarımı',
+        letter: 'E'
+    },
+    {
+        id: 'karter_koruma',
+        term: 'Karter Koruması (Muhafazası)',
+        description: 'Motorun en alt kısmında yer alan ve motor yağının depolandığı "karter" sacını, alttan gelecek taş veya sürtmelere karşı koruyan metal veya plastik kapaktır.',
+        why: 'Özellikle çukurlu yollarda motorun altını vurduğunuzda karterin delinip motor yağının boşalmasını ve motorun kilitlenmesini önler.',
+        category: 'Dış Donanım',
+        letter: 'K'
+    },
+    {
+        id: 'saft',
+        term: 'Şaft (Kardan Mili)',
+        description: 'Motor önde, çekiş ise arkada olan (Arkadan itişli veya 4 çeker) araçlarda, şanzımandan çıkan dönme gücünü arka tekerleklerin arasındaki diferansiyele aktaran uzun çelik borudur.',
+        why: 'Balansı bozulduğunda veya istavroz mafsalları aşındığında, araç hızlandıkça aracın altından gelen ve koltukları titreten ciddi bir vibrasyon oluşturur.',
+        category: 'Mekanik',
+        letter: 'Ş'
     }
 ];
 
