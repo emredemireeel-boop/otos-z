@@ -1316,7 +1316,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'Rölanti Dalgalanması',
         description: 'Araç durur halde ve boş vitesteyken motor devrinin (RPM) sabit kalmayıp sürekli inip çıkması durumudur.',
         why: 'Genellikle kirlenmiş boğaz kelebeği, rölanti motoru arızası veya sistemdeki bir vakum kaçağından kaynaklanır. Araba ışıklarda dururken stop edecekmiş gibi titrer.',
-        category: 'Motor/Güç Aktarımı',
+        category: 'Mekanik',
         letter: 'R'
     },
     {
@@ -1348,7 +1348,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'Boğaz Kelebeği',
         description: 'Gaz pedalına basma miktarınıza göre açılarak, motorun içine girecek temiz havanın miktarını ayarlayan kapakçıktır.',
         why: 'Zamanla kurum bağlayarak kirlenir. Kirlendiğinde araçta rölanti dalgalanması, stop etme ve gaz yememe sorunları başlar.',
-        category: 'Motor/Güç Aktarımı',
+        category: 'Mekanik',
         letter: 'B'
     },
     {
@@ -1356,7 +1356,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'Yakıt Basınç Regülatörü',
         description: 'Yakıt pompasından enjektörlere giden benzinin basıncını motorun devrine ve ihtiyacına göre sabit bir değerde tutan valftir.',
         why: 'Arızalandığında araç ilk marşta zor çalışır (geç çalışma) veya sürüş esnasında gaz yemeyip yığılır.',
-        category: 'Motor/Güç Aktarımı',
+        category: 'Mekanik',
         letter: 'Y'
     },
     {
@@ -1372,7 +1372,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'VTEC',
         description: 'Honda\'nın geliştirdiği, motor belirli bir devri (örn: 5500 RPM) geçtiğinde eksantrik milinin profilini değiştirerek motorun aniden çok daha fazla hava almasını ve güç patlaması yaşamasını sağlayan sistem.',
         why: 'Düşük devirde az yakıt tüketimi, yüksek devirde ise yarış arabası performansı ve o meşhur "VTEC açma" sesini sağlar.',
-        category: 'Motor/Güç Aktarımı',
+        category: 'Mekanik',
         letter: 'V'
     },
     {
@@ -1380,7 +1380,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'VANOS',
         description: 'BMW\'nin geliştirdiği, eksantrik milinin zamanlamasını motor devrine göre kaydırarak hem düşük devirde tork hem de yüksek devirde güç üreten değişken supap zamanlama sistemidir.',
         why: 'Arızalandığında motorda dikiş makinesi gibi şıkırtılı bir ses oluşur ve alt devirlerde çekiş ciddi şekilde düşer.',
-        category: 'Motor/Güç Aktarımı',
+        category: 'Mekanik',
         letter: 'V'
     },
     {
@@ -1388,7 +1388,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'Triptonik (Tiptronic)',
         description: 'Normalde tam otomatik olan bir şanzımanın, sürücüye vites kolunu ileri-geri iterek veya direksiyon arkası kulakçıklarla manuel olarak da vites değiştirme imkanı sunan yapısıdır.',
         why: 'Özellikle yokuş aşağı inerken motor freni yapmak veya spor sürüşlerde vites kontrolünü ele almak için kullanılır.',
-        category: 'Motor/Güç Aktarımı',
+        category: 'Mekanik',
         letter: 'T'
     },
     {
@@ -1428,7 +1428,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'Supap Ayarı',
         description: 'Yakıtın içeri girdiği ve egzozun dışarı atıldığı supapların, eksantrik mili ile arasındaki milimetrik çalışma boşluğunun sentil çakısı ile hassas şekilde ayarlanmasıdır.',
         why: 'Bozulduğunda motor şıkırdar, performans düşer ve özellikle LPG\'li araçlarda araç sabahları geç çalışır veya rölantide titrer.',
-        category: 'Motor/Güç Aktarımı',
+        category: 'Mekanik',
         letter: 'S'
     },
     {
@@ -1444,7 +1444,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'Krank Mili',
         description: 'Pistonların aşağı-yukarı düz doğrusal hareketini, tekerleklere iletilebilecek olan dairesel (dönme) hareketine çeviren motorun en temel çelik milidir.',
         why: 'Motor yağsız kalırsa "yatak sarar" ve krank mili çizilir. Aracın kalbidir, arızası komple motor yapımına sebep olur.',
-        category: 'Motor/Güç Aktarımı',
+        category: 'Mekanik',
         letter: 'K'
     },
     {
@@ -1452,7 +1452,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'Eksantrik (Kam) Mili',
         description: 'Krank milinden aldığı hareketle dönerek, üzerindeki yumurta şeklindeki çıkıntılar (kamlar) sayesinde motor supaplarının doğru zamanda açılıp kapanmasını sağlayan mildir.',
         why: 'Triger kayışı koptuğunda eksantrik mili durur ancak krank dönmeye devam eder. Bu yüzden pistonlar açık kalan supaplara çarparak motoru parçalar.',
-        category: 'Motor/Güç Aktarımı',
+        category: 'Mekanik',
         letter: 'E'
     },
     {
