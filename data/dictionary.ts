@@ -1460,7 +1460,7 @@ export const dictionaryTerms: DictionaryTerm[] = [
         term: 'Karter Koruması (Muhafazası)',
         description: 'Motorun en alt kısmında yer alan ve motor yağının depolandığı "karter" sacını, alttan gelecek taş veya sürtmelere karşı koruyan metal veya plastik kapaktır.',
         why: 'Özellikle çukurlu yollarda motorun altını vurduğunuzda karterin delinip motor yağının boşalmasını ve motorun kilitlenmesini önler.',
-        category: 'Dış Donanım',
+        category: 'Mekanik',
         letter: 'K'
     },
     {
