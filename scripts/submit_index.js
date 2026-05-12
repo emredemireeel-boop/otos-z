@@ -12,7 +12,20 @@ if (!match || !match[1]) {
     process.exit(1);
 }
 
-const serviceAccount = JSON.parse(match[1]);
+let serviceAccount;
+try {
+    // Attempt to parse the key. It might be wrapped in quotes.
+    let keyString = match[1].trim();
+    if (keyString.startsWith('"') && keyString.endsWith('"')) {
+        keyString = keyString.slice(1, -1);
+    }
+    // Handle escaped quotes if any
+    keyString = keyString.replace(/\\"/g, '"');
+    serviceAccount = JSON.parse(keyString);
+} catch (e) {
+    console.error("Failed to parse FIREBASE_SERVICE_ACCOUNT_KEY:", e.message);
+    process.exit(1);
+}
 
 // Set up JWT client for Indexing API
 const jwtClient = new JWT({
@@ -30,17 +43,32 @@ function slugify(marka, model, yil) {
 }
 
 async function submitUrls() {
-    console.log("Loading kasko data...");
-    const dataPath = path.join(__dirname, '..', 'data', 'kasko_deger.json');
-    const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+    let urls = [];
 
-    // Select 200 vehicles (for example, latest year and popular brands first)
-    // We'll just sort them by year descending, then take the first 200
-    const sorted = data.araclar.sort((a, b) => b.yil - a.yil || a.marka.localeCompare(b.marka));
-    const selected = sorted.slice(0, 200);
+    // 1. Load OBD Codes (Get 100)
+    console.log("Loading OBD data...");
+    try {
+        const obdPath = path.join(__dirname, '..', 'data', 'obd-codes.json');
+        const obdData = JSON.parse(fs.readFileSync(obdPath, 'utf-8'));
+        const obdUrls = obdData.slice(0, 100).map(a => `https://www.otosoz.com/obd/${a.code.toLowerCase()}`);
+        urls = urls.concat(obdUrls);
+        console.log(`Added ${obdUrls.length} OBD URLs.`);
+    } catch (e) {
+        console.log("Could not load OBD data:", e.message);
+    }
 
-    const baseUrl = "https://www.otosoz.com/kutuphane/kasko-deger/";
-    const urls = selected.map(a => baseUrl + slugify(a.marka, a.model, a.yil));
+    // 2. Load Kasko Data (Get 100)
+    console.log("Loading Kasko data...");
+    try {
+        const kaskoPath = path.join(__dirname, '..', 'data', 'kasko_deger.json');
+        const kaskoData = JSON.parse(fs.readFileSync(kaskoPath, 'utf-8'));
+        const sortedKasko = kaskoData.araclar.sort((a, b) => b.yil - a.yil || a.marka.localeCompare(b.marka));
+        const kaskoUrls = sortedKasko.slice(0, 100).map(a => `https://www.otosoz.com/kutuphane/kasko-deger/${slugify(a.marka, a.model, a.yil)}`);
+        urls = urls.concat(kaskoUrls);
+        console.log(`Added ${kaskoUrls.length} Kasko URLs.`);
+    } catch (e) {
+        console.log("Could not load Kasko data:", e.message);
+    }
 
     console.log(`Preparing to submit ${urls.length} URLs to Google Indexing API...`);
 
@@ -60,10 +88,10 @@ async function submitUrls() {
                     type: 'URL_UPDATED',
                 },
             });
-            console.log(`[${i + 1}/200] SUCCESS: ${url}`);
+            console.log(`[${i + 1}/${urls.length}] SUCCESS: ${url}`);
             successCount++;
         } catch (error) {
-            console.error(`[${i + 1}/200] FAILED: ${url}`, error.message);
+            console.error(`[${i + 1}/${urls.length}] FAILED: ${url} - ${error.message}`);
             failCount++;
         }
         

@@ -830,6 +830,486 @@ export const dictionaryTerms: DictionaryTerm[] = [
         why: 'Kirlendiğinde veya bozulduğunda motor rölantideyken titrer, devir saati sürekli dalgalanır veya debriyaja basıldığında motor stop eder.',
         category: 'Elektronik/OBD',
         letter: 'R'
+    },
+    {
+        id: 'kamber',
+        term: 'Kamber Ayarı (Camber)',
+        description: 'Tekerleğin yere dikey eksende yaptığı içe veya dışa doğru eğim açısıdır. Spor araçlarda negatif kamber kullanılarak viraj performansı artırılır.',
+        why: 'Hatalı kamber ayarı, lastiklerin sadece iç veya dış kısımlarının hızlıca erimesine ve aracın düz yolda gezinmesine neden olur.',
+        category: 'Lastik/Jant',
+        letter: 'K'
+    },
+    {
+        id: 'kaster',
+        term: 'Kaster Ayarı (Caster)',
+        description: 'Tekerleğin direksiyon ekseninin öne veya arkaya doğru olan eğimidir. Aracın düz gidiş kararlılığını ve direksiyonun dönüşten sonra kendini toplamada hızını belirler.',
+        why: 'Doğru kaster ayarı, yüksek hızlarda aracın stabil kalmasını sağlar ve direksiyonun ağırlığını dengeler.',
+        category: 'Lastik/Jant',
+        letter: 'K'
+    },
+    {
+        id: 'pcv_valfi',
+        term: 'PCV Valfi (Karter Havalandırma)',
+        description: 'Motor karterinde biriken yanıcı gazların basıncını düşürmek için bu gazları tekrar emme manifolduna yönlendirerek yakılmasını sağlayan tek yönlü valftir.',
+        why: 'Tıkanması durumunda karterdeki basınç artar, motor contalarından yağ kaçakları başlar ve motor rölantisi düzensizleşir.',
+        category: 'Mekanik',
+        letter: 'P'
+    },
+    {
+        id: 'bogaz_kelebegi',
+        term: 'Boğaz Kelebeği (Gaz Kelebeği)',
+        description: 'Sürücünün gaz pedalına basma şiddetine göre motorun emme manifolduna giren hava miktarını ayarlayan mekanik veya elektronik kapakçıktır.',
+        why: 'Kirlendiğinde veya kurum bağladığında motor rölantisi dalgalanır, geç çalışma veya gaz yememe gibi sorunlara neden olur.',
+        category: 'Mekanik',
+        letter: 'B'
+    },
+    {
+        id: 'map_sensoru',
+        term: 'MAP Sensörü (Manifold Basınç)',
+        description: 'Emme manifoldunun içindeki basıncı ölçerek motor beynine ileten ve ne kadar yakıt püskürtüleceğinin hesaplanmasını sağlayan kritik sensördür.',
+        why: 'Arızalanması durumunda hatalı yakıt karışımı oluşur; siyah duman atma, aşırı yakıt tüketimi ve tekleme sorunları görülür.',
+        category: 'Elektronik/OBD',
+        letter: 'M'
+    },
+    {
+        id: 'eksantrik_sensoru',
+        term: 'Eksantrik Konum Sensörü',
+        description: 'Eksantrik milinin o anki açısını ve konumunu ölçerek pistonların nerede olduğunu motor beynine bildirir. Yakıt enjeksiyonu ve ateşleme zamanlaması buna göre yapılır.',
+        why: 'Bu sensör bozulursa motor hangi pistona ne zaman yakıt vereceğini bilemez, araç geç çalışır veya hiç çalışmayabilir.',
+        category: 'Elektronik/OBD',
+        letter: 'E'
+    },
+    {
+        id: 'krank_sensoru',
+        term: 'Krank Devir Sensörü',
+        description: 'Krank milinin dönüş hızını ve pozisyonunu anlık olarak okuyan sensördür. Motor devrini (RPM) doğrudan bu sensör hesaplar.',
+        why: 'Krank sensörü sinyal keserse, motor anında stop eder. Yolda giderken aniden motorun durmasına sebep olan en yaygın elektronik arızadır.',
+        category: 'Elektronik/OBD',
+        letter: 'K'
+    },
+    {
+        id: 'debriyaj_bilyasi',
+        term: 'Debriyaj Bilyası (Baskı Rulmanı)',
+        description: 'Sürücü debriyaj pedalına bastığında baskı yaylarına baskı uygulayarak motor ile şanzımanın ayrılmasını sağlayan hareketli rulmandır.',
+        why: 'Aşındığında, debriyaja basınca veya debriyajdan ayak çekildiğinde uğultu veya "vınlama" sesi yapar. Dağılırsa viteslere geçiş imkansızlaşır.',
+        category: 'Mekanik',
+        letter: 'D'
+    },
+    {
+        id: 'samandira',
+        term: 'Yakıt Şamandırası',
+        description: 'Yakıt deposunun içindeki yakıt seviyesini mekanik bir kol ve elektronik direnç sistemiyle ölçerek gösterge paneline ileten parçadır.',
+        why: 'Arızalanması durumunda yakıt göstergesi yanlış bilgi verir, depoda benzin var görünürken araç yolda kalabilir veya sürekli boş uyarısı verebilir.',
+        category: 'Elektrik',
+        letter: 'Ş'
+    },
+    {
+        id: 'subap_itici',
+        term: 'Subap Fincanı (Lifter/İtici)',
+        description: 'Eksantrik milinin hareketini subaplara ileten ve yağ basıncı ile otomatik boşluk ayarı yapan minik hidrolik veya mekanik parçalardır.',
+        why: 'Yağsızlık veya aşınma durumunda ilk çalıştırmada veya sürekli olarak motordan belirgin bir "şık şık şık" dikiş makinesi sesi gelmesine neden olur.',
+        category: 'Mekanik',
+        letter: 'S'
+    },
+    {
+        id: 'on_duzen',
+        term: 'Ön Düzen (Yürüyen Aksam)',
+        description: 'Aracın direksiyon hakimiyetini, süspansiyonunu ve tekerlek bağlantılarını içeren; rot, rotil, salıncak ve amortisörlerin tamamına verilen genel addır.',
+        why: 'Ön düzendeki herhangi bir parçanın bozulması, sürüş güvenliğini tehlikeye atar, lastiklerin dengesiz aşınmasına ve kasislerde vuruntu seslerine yol açar.',
+        category: 'Mekanik',
+        letter: 'Ö'
+    },
+    {
+        id: 'camurluk',
+        term: 'Çamurluk',
+        description: 'Aracın tekerleklerinin üzerini kapatan, yoldan sıçrayan su, çamur ve taşların etrafa veya aracın gövdesine gelmesini engelleyen kaporta parçasıdır.',
+        why: 'Küçük kazalarda en çok hasar gören parçalardandır. Plastik olanları boyansa da ekspertizde değer kaybı yaratmazken, sac olanların değişimi değer düşürür.',
+        category: 'Sigorta/Resmi',
+        letter: 'Ç'
+    },
+    {
+        id: 'a_sutunu',
+        term: 'A Sütunu (Direk)',
+        description: 'Aracın tavanını taşıyan, ön camın sağında ve solunda yer alan, aynı zamanda ön kapıların menteşelerinin bağlandığı güvenlik için kritik dikey taşıyıcılardır.',
+        why: 'Olası bir devrilme anında tavanın çökmesini engeller. İkinci el alımında A sütununda işlem/boya olması aracın çok büyük bir taklalı kaza geçirdiğinin işaretidir.',
+        category: 'Sigorta/Resmi',
+        letter: 'A'
+    },
+    {
+        id: 'vantilator_kayisi',
+        term: 'Vantilatör Kayışı',
+        description: 'Krank milinden aldığı dönüş gücü ile su pompası, alternatör ve eski araçlarda soğutma fanını çeviren dış kayış sistemidir.',
+        why: 'Eskiyip çatladığında özellikle soğuk havalarda rahatsız edici bir "cıyaklama" sesi çıkarır. Kopması durumunda hararet hızla yükselir.',
+        category: 'Mekanik',
+        letter: 'V'
+    },
+    {
+        id: 'vtec_vanos',
+        term: 'VTEC / VANOS / VVT-i',
+        description: 'Motor devrine ve yük durumuna göre subapların açılma süresini ve zamanlamasını değiştiren değişken subap zamanlama sistemlerinin markalara göre adlarıdır.',
+        why: 'Alt devirlerde yakıt ekonomisi sağlarken, üst devirlerde subapları daha uzun açık tutarak motora ekstra bir güç patlaması (performans) yaşatır.',
+        category: 'Mekanik',
+        letter: 'V'
+    },
+    {
+        id: 'aerodinamik',
+        term: 'Aerodinamik Sürtünme (Cd)',
+        description: 'Aracın havayı yararak ne kadar kolay ilerleyebildiğini gösteren değerdir. Düşük değer hava direncinin az olduğunu gösterir.',
+        why: 'Düşük hava sürtünmesi yüksek hızlarda hem rüzgar sesini azaltır hem de yakıt tüketimini ciddi oranda düşürür. Elektrikli araçlarda menzili en çok etkileyen faktördür.',
+        category: 'Sürüş',
+        letter: 'A'
+    },
+    {
+        id: 'macpherson',
+        term: 'MacPherson Süspansiyon',
+        description: 'Günümüz otomobillerinin çoğunda ön tekerleklerde kullanılan, helezon yay ile amortisörün iç içe tek bir yapı olarak tasarlandığı bağımsız süspansiyon türüdür.',
+        why: 'Hem kompakt yapısıyla az yer kaplar hem de maliyeti düşüktür. Sürüş dinamiklerini ve konforu başarılı bir şekilde dengeler.',
+        category: 'Mekanik',
+        letter: 'M'
+    },
+    {
+        id: 'aeb',
+        term: 'AEB (Acil Fren Sistemi)',
+        description: 'Öndeki araç, yaya veya engeli radar/kamera ile tespit edip sürücü tepki vermezse çarpışmayı önlemek için araca otomatik fren yaptıran sistemdir.',
+        why: 'Şehir içi dikkatsizlik kazalarını %50\'ye varan oranda engeller. Yeni nesil araçların güvenlik testinden 5 yıldız alması için zorunludur.',
+        category: 'Elektronik/OBD',
+        letter: 'A'
+    },
+    {
+        id: 'karter_muhafazasi',
+        term: 'Karter Muhafazası',
+        description: 'Aracın alt kısmında, motor karterini ve şanzımanı yoldan sıçrayan taşlardan, çukurlardan ve tümsek darbelerinden koruyan metal veya plastik zırhtır.',
+        why: 'Araç altını vurduğunuzda karterin delinip yağın boşalmasını (bunun sonucunda motorun yatak sarmasını) engelleyen ilk savunma hattıdır.',
+        category: 'Mekanik',
+        letter: 'K'
+    },
+    {
+        id: 'cekis_sistemi',
+        term: 'Çekiş Sistemi (FWD / RWD)',
+        description: 'Motorun gücünü yola aktaran tekerleklerin konumudur. FWD önden çekişli, RWD ise arkadan itişli araçları temsil eder.',
+        why: 'Önden çekerler kışın karda daha rahat ilerler ve iç hacimleri geniştir. Arkadan itişli araçlar ise sportif kalkış ve drift kabiliyeti sunar.',
+        category: 'Mekanik',
+        letter: 'Ç'
+    },
+    {
+        id: 'dpf_sensoru',
+        term: 'DPF Fark Basınç Sensörü',
+        description: 'Dizel partikül filtresinin (DPF) girişindeki ve çıkışındaki egzoz gazı basıncını ölçerek filtrenin ne kadar tıkalı olduğunu motor beynine ileten sensördür.',
+        why: 'Bu sensör bozulursa, sistem DPF\'nin tıkandığını zannederek aracı koruma moduna alır, motor gücünü keser ve göstergede motor arıza ışığı yanar.',
+        category: 'Elektronik/OBD',
+        letter: 'D'
+    },
+    {
+        id: 'downpipe',
+        term: 'Downpipe (Katalizör İptali)',
+        description: 'Turbo beslemeli araçlarda egzoz gazının turbodan çıktıktan sonra geçtiği ilk borudur. Modifiye dünyasında, performans artışı için katalizör iptal edilerek düz boru (downpipe) takılır.',
+        why: 'Egzoz gazının daha rahat çıkmasını sağlayarak turbonun daha çabuk dolmasına (spool) ve motorun rahatlamasına olanak tanır. Ancak emisyon kurallarına aykırıdır.',
+        category: 'Mekanik',
+        letter: 'D'
+    },
+    {
+        id: 'blow_off',
+        term: 'Blow-Off Valfi (BOV)',
+        description: 'Turbo araçlarda gazdan ayak çekildiğinde içeride sıkışan yüksek basınçlı havayı atmosfere "çuff" sesiyle tahliye eden mekanik valftir.',
+        why: 'Sıkışan havanın turbo pervanesine geri dönerek turboyu yavaşlatmasını veya kırmasını engeller. Modifiyeli araçlardaki o meşhur sesin kaynağıdır.',
+        category: 'Mekanik',
+        letter: 'B'
+    },
+    {
+        id: 'wastegate',
+        term: 'Wastegate',
+        description: 'Turbonun gereğinden fazla hızlanmasını ve aşırı basınç üretmesini engellemek için, fazla egzoz gazını turboya girmeden doğrudan egzoz borusuna yönlendiren tahliye kapağıdır.',
+        why: 'Aşırı turbo basıncı motor kollarını eğebilir veya piston eritebilir. Wastegate motoru bu tehlikeden koruyan kritik bir kapakçıktır.',
+        category: 'Mekanik',
+        letter: 'W'
+    },
+    {
+        id: 'turbo_lag',
+        term: 'Turbo Gecikmesi (Turbo Lag)',
+        description: 'Gaza basıldığı an ile turbonun tam kapasiteyle devreye girip beklenen gücü ürettiği an arasında geçen zaman gecikmesidir.',
+        why: 'Özellikle büyük turbolu veya eski nesil araçlarda belirgindir. Sürücü gaza basar ancak araç 1-2 saniye sonra aniden öne atılır.',
+        category: 'Sürüş',
+        letter: 'T'
+    },
+    {
+        id: 'snorkel',
+        term: 'Şnorkel',
+        description: 'Off-road (arazi) araçlarında motor hava emişini tavan seviyesine kadar yükselten, suya girildiğinde motorun su yutmasını engelleyen harici boru sistemidir.',
+        why: 'Motor hava filtresinden su çekerse "Hydrolock" denilen olay yaşanır ve motor tamamen kilitlenip pert olur. Şnorkel derin sulardan geçişi sağlar.',
+        category: 'Sigorta/Resmi',
+        letter: 'Ş'
+    },
+    {
+        id: 'diferansiyel_kilidi',
+        term: 'Diferansiyel Kilidi',
+        description: 'Virajlarda lastiklerin farklı hızda dönmesini sağlayan diferansiyel sistemini geçici olarak kitleyip, iki tekerleğin de aynı hızda ve aynı güçte dönmesini sağlayan mekanizmadır.',
+        why: 'Çamurda veya karda bir tekerlek boşa döndüğünde araç yolda kalır. Kilit devreye girince gücü yere basan tekerleğe ileterek aracı saplandığı yerden kurtarır.',
+        category: 'Mekanik',
+        letter: 'D'
+    },
+    {
+        id: 'kupa',
+        term: 'Kupa (Karoser / Kabin)',
+        description: 'Özellikle pick-up ve SUV gibi merdiven şasili araçlarda, şasinin üzerine oturtulan ve yolcuların bulunduğu dış gövde kabinidir.',
+        why: 'Bazen aracı yükseltmek (kupa yükseltme) veya ağır kazalarda şasi ile kupanın ayrılıp ayrılmadığına bakmak için bu terim sıkça kullanılır.',
+        category: 'Sigorta/Resmi',
+        letter: 'K'
+    },
+    {
+        id: 'karter_tapasi',
+        term: 'Karter Tapası',
+        description: 'Motor yağının boşaltılması için karterin en altında bulunan vidalı tapadır. Yağ bakımlarında bu tapa sökülerek kirli yağ dışarı alınır.',
+        why: 'Diş kaptırılırsa veya pulu değiştirilmezse motor alttan sürekli yağ damlatır. Basit ama çok hayati bir vidadır.',
+        category: 'Mekanik',
+        letter: 'K'
+    },
+    {
+        id: 'triger_zinciri',
+        term: 'Triger Zinciri',
+        description: 'Kauçuk triger kayışının aksine, motorun içinde yağ ile çalışan ve eksantrik mili ile krank milini senkronize eden çelik zincir sistemidir.',
+        why: 'Kayış gibi kopma riski çok düşüktür ve genellikle motor ömrü kadar dayanır. Ancak zamanla uzama yaparsa şıkırtılı çalışmaya ve sente atlamasına yol açar.',
+        category: 'Mekanik',
+        letter: 'T'
+    },
+    {
+        id: 'bilya_rulman',
+        term: 'Bilya / Rulman (Gergiler)',
+        description: 'Kayışların gergin durmasını veya porya, şarj dinamosu gibi dönen mekanizmaların sürtünmesiz dönmesini sağlayan içi bilyalı metal halkalardır.',
+        why: 'Bozulduğunda motordan ıslık, uğultu veya viyaklama şeklinde sürekli bir ses gelir. Koparsa bağlı olduğu kayışı da kopartır.',
+        category: 'Mekanik',
+        letter: 'B'
+    },
+    {
+        id: 'buji_kablosu',
+        term: 'Buji Kablosu (Ateşleme)',
+        description: 'Bobinden çıkan binlerce voltluk yüksek gerilim elektriğini bujilere taşıyan çok kalın yalıtımlı özel kablolardır.',
+        why: 'Kablolarda çatlak veya kaçak varsa araç tekleme yapar, yağmurlu havada veya motor yıkandığında araç çalışmayabilir.',
+        category: 'Elektrik',
+        letter: 'B'
+    },
+    {
+        id: 'subap_kecesi',
+        term: 'Subap Lastiği (Keçesi)',
+        description: 'Silindir kapağındaki yağın, subap saplarından sızarak yanma odasına girmesini engelleyen minik kauçuk contalardır.',
+        why: 'Eskiyip sertleştiğinde motor yağı silindirlere sızar. Araç özellikle ilk çalıştırmada veya vites küçültmelerde egzozdan mavi duman atar (yağ yakar).',
+        category: 'Mekanik',
+        letter: 'S'
+    },
+    {
+        id: 'sanziman_kulagi',
+        term: 'Şanzıman Kulağı (Takozu)',
+        description: 'Vites kutusunu (şanzımanı) şasiye bağlayan, motor kulağına benzeyen ve vites değişimlerindeki vuruntuyu emen kauçuk/metal sönümleyicidir.',
+        why: 'Koptuğunda vites geçişlerinde "küt küt" vuruntu sesi duyulur ve vites kolu gaza basıldığında ileri-geri çok fazla hareket eder.',
+        category: 'Mekanik',
+        letter: 'Ş'
+    },
+    {
+        id: 'torque_steer',
+        term: 'Torque Steer (Tork Yönlendirmesi)',
+        description: 'Yüksek güçlü önden çekişli (FWD) araçlarda, gaza aniden tam basıldığında motor torkunun direksiyonu sağa veya sola doğru şiddetle çekme eğilimidir.',
+        why: 'Sürücü direksiyonu sıkı tutmazsa araç aniden şerit değiştirebilir. Aks uzunluklarının veya tork dağılımının dengesizliğinden kaynaklanır.',
+        category: 'Sürüş',
+        letter: 'T'
+    },
+    {
+        id: 'oversteer',
+        term: 'Oversteer (Arkadan Kayma)',
+        description: 'Aracın viraj dönerken arka lastiklerinin yol tutuşunu kaybederek, aracın burnunun virajın içine doğru fazlaca dönmesi durumudur (Arkanın savrulması).',
+        why: 'Drift sporunun temelidir ancak trafikte yaşanırsa aracın kendi etrafında dönmesine (spin atmasına) neden olabilir. Özellikle arkadan itişli araçlarda sık görülür.',
+        category: 'Sürüş',
+        letter: 'O'
+    },
+    {
+        id: 'understeer',
+        term: 'Understeer (Önden Kayma)',
+        description: 'Aracın viraj dönerken direksiyon ne kadar çevrilirse çevrilsin ön lastiklerin tutunamayıp aracın virajın dışına doğru düz gitme eğilimidir.',
+        why: 'Sürücü için en çaresiz anlardan biridir, direksiyon komut dinlemez. Genellikle viraja çok hızlı girildiğinde önden çeker araçlarda görülür.',
+        category: 'Sürüş',
+        letter: 'U'
+    },
+    {
+        id: 'torsiyon_cubugu',
+        term: 'Torsiyon Çubuğu (Dingil)',
+        description: 'Özellikle hatchback ve hafif ticari araçların arka süspansiyonunda kullanılan, burularak esneyen kalın U şeklindeki metal köprüdür.',
+        why: 'Bağımsız süspansiyona göre çok daha ucuz ve bagaj hacminden tasarruf sağlar ancak yol tutuşu ve konforu belirgin şekilde düşüktür.',
+        category: 'Mekanik',
+        letter: 'T'
+    },
+    {
+        id: 'abs_beyni',
+        term: 'ABS Beyni',
+        description: 'Fren kilitlenmesini engelleyen elektronik ABS modülüdür. Tekerleklerdeki sensörlerden aldığı hızı işleyip fren valflerini milisaniyeler içinde kontrol eder.',
+        why: 'Bozulduğunda ABS lambası yanar ve frenler eski düz sisteme (kızaklayan sisteme) geri döner. Tamiri ve değişimi çok yüksek maliyetlidir.',
+        category: 'Elektronik/OBD',
+        letter: 'A'
+    },
+    {
+        id: 'sekman_atmak',
+        term: 'Sekman Atmak (Yarım Rektifiye)',
+        description: 'Motor tamamen sökülüp rektifiye edilmeden, sadece pistonların üzerindeki aşınmış sekmanların ve contaların yenilenmesi işlemidir.',
+        why: 'Motor yağ yakıyorsa ancak silindir duvarlarında büyük bir aşınma yoksa uygulanan, komple motor yaptırmaktan çok daha ucuz olan kurtarma operasyonudur.',
+        category: 'Mekanik',
+        letter: 'S'
+    },
+    {
+        id: 'hararet_musuru',
+        term: 'Hararet Müşürü (Sıcaklık Sensörü)',
+        description: 'Motor soğutma suyunun sıcaklığını ölçerek gösterge paneline ve motor beynine (ECU) bildiren elektronik parçadır.',
+        why: 'Arızalanırsa motorun hararet yaptığını göremezsiniz veya beyin yanlış bilgi alarak aracı zengin karışımda çalıştırıp yakıtı artırır.',
+        category: 'Elektronik/OBD',
+        letter: 'H'
+    },
+    {
+        id: 'fan_motoru',
+        term: 'Radyatör Fanı',
+        description: 'Motor ısındığında veya klima açıldığında devreye girerek radyatördeki suyu hava akımıyla hızla soğutan pervaneli elektrik motorudur.',
+        why: 'Fanın devreye girmemesi trafiğin durduğu anlarda motorun anında hararet yapıp conta yakmasına neden olur.',
+        category: 'Elektrik',
+        letter: 'R'
+    },
+    {
+        id: 'sente_atlamasi',
+        term: 'Sente Atlaması',
+        description: 'Triger kayışının veya zincirinin gevşeyip diş atlaması sonucu krank mili ile eksantrik milinin senkronizasyonunun bozulmasıdır.',
+        why: 'Motorun ateşleme ve nefes alma zamanlaması bozulur. Araç çekişten düşer, patlatma yapar veya supaplar pistonlara çarparak motoru kırabilir.',
+        category: 'Mekanik',
+        letter: 'S'
+    },
+    {
+        id: 'vites_halati',
+        term: 'Vites Halatı (Çubuğu)',
+        description: 'Vites kolunun hareketini şanzımana ileten kalın çelik telli halatlardır (eski araçlarda metal çubuk).',
+        why: 'Halat koparsa vites kolu tamamen boşa çıkar ve aracı viteste takılı kaldığı için hareket ettiremez veya vites değiştiremezsiniz.',
+        category: 'Mekanik',
+        letter: 'V'
+    },
+    {
+        id: 'senkromec',
+        term: 'Senkromeç',
+        description: 'Manuel şanzımanda vites değiştirirken, dönmekte olan iki dişlinin hızlarını eşitleyerek sürtünmesiz, "cırt" sesi olmadan geçmelerini sağlayan bronz bileziktir.',
+        why: 'Aşındığında vites geçişleri zorlaşır, özellikle 2. veya 3. vitese atarken metalin metale sürtünme (cırtlama) sesi gelir.',
+        category: 'Mekanik',
+        letter: 'S'
+    },
+    {
+        id: 'krank_kasnagi',
+        term: 'Krank Kasnağı (Titreşim Sönümleyici)',
+        description: 'Krank milinin ucunda bulunan, V-kayışını döndüren ve üzerinde motorun titreşimini emen kauçuk bir katman bulunduran büyük kasnaktır.',
+        why: 'İçindeki kauçuk koptuğunda rölantide çok yüksek bir şıkırtı/çarpma sesi yapar, kayışın fırlamasına sebep olabilir.',
+        category: 'Mekanik',
+        letter: 'K'
+    },
+    {
+        id: 'egr_iptali',
+        term: 'EGR İptali',
+        description: 'Sürekli kurum bağlayıp arıza veren EGR valfinin yazılımsal ve donanımsal olarak devreden çıkarılıp, motorun sadece temiz hava emmesinin sağlanmasıdır.',
+        why: 'Performansı bir miktar artırır ve motorun kurum bağlamasını önler ancak aracın doğaya saldığı zararlı azot oksit (NOx) gazlarını fırlatır.',
+        category: 'Mekanik',
+        letter: 'E'
+    },
+    {
+        id: 'aks_korugu',
+        term: 'Aks Körüğü',
+        description: 'Aks kafasını çevreleyen ve içindeki gres yağını muhafaza edip dışarıdan su, toz ve çamur girmesini engelleyen akordeon şeklindeki kauçuk kılıftır.',
+        why: 'Körük yırtıldığında gres yağı janta savrulur ve içeri dolan kum/su aks kafasını (mafsalı) kısa sürede bozar.',
+        category: 'Lastik/Jant',
+        letter: 'A'
+    },
+    {
+        id: 'direksiyon_pompasi',
+        term: 'Direksiyon Pompası',
+        description: 'Hidrolik direksiyonlu araçlarda direksiyon sıvısına (ATF) basınç uygulayarak sürücünün direksiyonu serçe parmağıyla bile çevirebilmesini sağlayan pompadır.',
+        why: 'Pompa arızalandığında direksiyon kara düzene döner ve taş gibi sertleşir. Ayrıca park manevralarında ağlama/inleme sesi yapabilir.',
+        category: 'Sürüş',
+        letter: 'D'
+    },
+    {
+        id: 'sarj_komuru',
+        term: 'Şarj Dinamosu Kömürü (Fırçası)',
+        description: 'Alternatörün içinde elektrik akımını dönen rotora ileten grafit tabanlı karbon parçalardır.',
+        why: 'Kömürler sürtünmeden dolayı bittiğinde şarj dinamosu elektrik üretemez, akü lambası yanar ve araç aküdeki elektrik bitene kadar gidebilir.',
+        category: 'Elektrik',
+        letter: 'Ş'
+    },
+    {
+        id: 'geri_vites_musuru',
+        term: 'Geri Vites Müşürü',
+        description: 'Şanzımanın üzerinde bulunan, araç geri vitese takıldığında arkadaki beyaz geri vites lambalarını yakan ve park sensörünü devreye sokan şalterdir.',
+        why: 'Bozulduğunda geri vites lambaları yanmaz, muayeneden (TÜVTÜRK) hafif değil "Ağır Kusur" olarak kalmanıza neden olur.',
+        category: 'Elektrik',
+        letter: 'G'
+    },
+    {
+        id: 'fren_limitoru',
+        term: 'Fren Limitörü (Kantar)',
+        description: 'Eski ve ABS olmayan araçlarda, aracın arka kısmındaki yüke göre arka tekerleklere giden fren basıncını ayarlayan valftir.',
+        why: 'Bagaj boşken arkaya tam fren basıncı gitmesini engelleyerek, arka tekerleklerin kilitlenip aracın kendi etrafında dönmesini önler.',
+        category: 'Mekanik',
+        letter: 'F'
+    },
+    {
+        id: 'disk_torna',
+        term: 'Disk Tornalatmak',
+        description: 'Eğilmiş veya çizilmiş fren disklerinin yüzeyinden milimetrik bir talaş alınarak diskin fabrikasyon düzlüğüne getirilmesi işlemidir.',
+        why: 'Yüksek hızda frene basınca direksiyonda yaşanan titremeyi (balans) çözer. Ancak disk çok inceldiyse torna yapılamaz, değiştirilmesi gerekir.',
+        category: 'Mekanik',
+        letter: 'D'
+    },
+    {
+        id: 'airbag_sargisi',
+        term: 'Airbag Zembereği (Sargısı)',
+        description: 'Direksiyon simidinin altında yer alan, direksiyon dönerken kornanın ve direksiyon airbag\'inin elektrik bağlantısının kopmamasını sağlayan esnek kablo sargısıdır.',
+        why: 'Koptuğunda direksiyondan sürtünme sesi gelir, airbag ışığı yanar ve korna basmaz. Kaza anında sürücü hava yastığı açılmaz.',
+        category: 'Elektronik/OBD',
+        letter: 'A'
+    },
+    {
+        id: 'torsen',
+        term: 'Torsen Diferansiyel',
+        description: 'Audi\'nin Quattro sistemlerinde sıkça kullandığı, patinaja düşen tekerleğin gücünü anında ve tamamen mekanik olarak yola tutunan tekerleğe aktaran torka duyarlı diferansiyel.',
+        why: 'Elektronik sistemlerin aksine gecikmesiz çalışır ve kaygan zeminlerde araca mükemmel bir yol tutuşu sağlar.',
+        category: 'Mekanik',
+        letter: 'T'
+    },
+    {
+        id: 'haldex',
+        term: 'Haldex Kavrama',
+        description: 'Volkswagen, Skoda, Seat (4Motion) araçlarında önden çekişli aracı ihtiyaç halinde saniyeler içinde 4 çeker (AWD) yapan hidrolik/elektronik çoklu kavrama sistemidir.',
+        why: 'Normal yolda önden çeker gibi davranıp yakıt tasarrufu sağlar, kar veya çamurda arka tekerlekleri devreye sokarak çekişi artırır.',
+        category: 'Mekanik',
+        letter: 'H'
+    },
+    {
+        id: 'airmatic',
+        term: 'Airmatic (Havalı Süspansiyon)',
+        description: 'Çelik helezon yaylar yerine, basınçlı hava ile doldurulmuş körükler kullanan üst segment (örneğin Mercedes S Serisi) süspansiyon sistemidir.',
+        why: 'Kusursuz bir "uçan halı" konforu sunar. Aracın yüksekliği ayarlanabilir. Ancak patlarsa araç yere çöker ve tamiri çok pahalıdır.',
+        category: 'Mekanik',
+        letter: 'A'
+    },
+    {
+        id: 'rodaj',
+        term: 'Rodaj (Motor Alıştırma)',
+        description: 'Sıfır alınan veya rektifiye edilen bir motorun parçalarının (piston, segman vb.) birbirine alışması için ilk 1.000-2.000 km boyunca aracı zorlamadan kullanma evresidir.',
+        why: 'İyi yapılmış bir rodaj, motorun uzun vadede daha az yağ yakmasını, daha uzun ömürlü olmasını ve daha iyi performans vermesini sağlar.',
+        category: 'Sürüş',
+        letter: 'R'
+    },
+    {
+        id: 'kesici',
+        term: 'Kesiciye Girmek (Rev Limiter)',
+        description: 'Motorun üretebileceği maksimum güvenli devri aştığınızda, motor beyninin zarar görmemesi için yakıtı veya ateşlemeyi anlık olarak kesip geri vermesi (tatatata sesi) olayıdır.',
+        why: 'Motor kollarının kopmasını veya subapların pistonu delmesini engelleyen bir güvenlik önlemidir.',
+        category: 'Sürüş',
+        letter: 'K'
+    },
+    {
+        id: 'amortisör_takozu',
+        term: 'Amortisör Takozu (Bilyası)',
+        description: 'Ön amortisörlerin şasiye bağlandığı tepe noktasında yer alan, içinde direksiyon döndükçe amortisörün de dönmesini sağlayan bilya bulunan kauçuk takoz.',
+        why: 'Bozulduğunda direksiyonu sağa sola çevirirken "gırç gırç" kauçuk sesi veya yay atma sesi (tık) duyulur. Kasislerde lok lok vurur.',
+        category: 'Mekanik',
+        letter: 'A'
     }
 ];
 

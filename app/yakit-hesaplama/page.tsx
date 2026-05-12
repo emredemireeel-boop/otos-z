@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon, Calculator, CreditCard, Wallet, FileText, Banknote, Shield, Zap } from "lucide-react";
+import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon, Calculator, CreditCard, Wallet, FileText, Banknote, Shield, Zap, Activity, Circle, Wrench, BadgePercent, TrendingUp, LineChart, Printer, MessageCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
@@ -14,6 +14,13 @@ import DijitalSenetHesapSection from "@/app/kutuphane/dijital-senet-hesap-sectio
 import MtvHesaplamaSection from "@/app/kutuphane/mtv-hesaplama-section";
 import KaskoDegerSection from "@/app/kutuphane/kasko-deger-section";
 import EvMaliyetSection from "@/app/kutuphane/ev-maliyet-section";
+import DegerKaybiSection from "@/app/kutuphane/deger-kaybi-section";
+import TasitKredisiSection from "@/app/kutuphane/tasit-kredisi-section";
+import AracBakimSection from "@/app/kutuphane/arac-bakim-section";
+import LastikEbatSection from "@/app/kutuphane/lastik-ebat-section";
+import OtvMuafiyetSection from "@/app/kutuphane/otv-muafiyet-section";
+import AlSatKarMarjiSection from "@/app/kutuphane/al-sat-karmarji-section";
+import YatirimKiyaslamaSection from "@/app/kutuphane/yatirim-kiyaslama-section";
 
 const RouteMap = dynamic(() => import("@/components/RouteMap"), { ssr: false });
 
@@ -247,7 +254,7 @@ export default function YakitHesaplamaPage() {
   const [fuelUpdateTime, setFuelUpdateTime] = useState("");
   const [allDistrictPrices, setAllDistrictPrices] = useState<any[]>([]);
   const [fuelLoading, setFuelLoading] = useState(false);
-  const [activeSubTab, setActiveSubTab] = useState<'yakit' | 'kredi-karti' | 'butce' | 'senet' | 'mtv' | 'kasko' | 'ev'>('yakit');
+  const [activeSubTab, setActiveSubTab] = useState<'yakit' | 'kredi-karti' | 'butce' | 'senet' | 'mtv' | 'kasko' | 'ev' | 'deger-kaybi' | 'kredi' | 'bakim' | 'lastik' | 'otv' | 'al-sat' | 'yatirim'>('yakit');
 
   const parsePrice = useCallback((p: any): number | null => {
       if (!p) return null;
@@ -387,6 +394,13 @@ export default function YakitHesaplamaPage() {
 
   const TOOLS = [
     { key: 'yakit' as const, label: 'Yakıt Hesaplama', desc: 'Şehirler arası yakıt maliyeti', icon: Fuel, color: '#2563EB', href: '/yakit-hesaplama' },
+    { key: 'yatirim' as const, label: 'Yatırım Kıyasla', desc: 'Araç, Dolar, Altın Analizi', icon: LineChart, color: '#EAB308', href: '/yakit-hesaplama/yatirim-kiyaslama' },
+    { key: 'al-sat' as const, label: 'Al-Sat Analizi', desc: 'Galeri kâr ve yatırım hesabı', icon: TrendingUp, color: '#F97316', href: '/yakit-hesaplama/al-sat-analizi' },
+    { key: 'otv' as const, label: 'ÖTV Muafiyeti', desc: 'Engelli araç indirimi', icon: BadgePercent, color: '#8B5CF6', href: '/yakit-hesaplama/otv-muafiyeti' },
+    { key: 'deger-kaybi' as const, label: 'Değer Kaybı', desc: 'Kaza sonrası değer kaybı', icon: Activity, color: '#F59E0B', href: '/yakit-hesaplama/deger-kaybi' },
+    { key: 'kredi' as const, label: 'Taşıt Kredisi', desc: 'Aylık taksit ve faiz hesabı', icon: Banknote, color: '#10B981', href: '/yakit-hesaplama/tasit-kredisi' },
+    { key: 'bakim' as const, label: 'Bakım Maliyeti', desc: 'Periyodik servis ücreti', icon: Wrench, color: '#6366F1', href: '/yakit-hesaplama/arac-bakim' },
+    { key: 'lastik' as const, label: 'Lastik Ebat', desc: 'Çap ve hız sapması hesabı', icon: Circle, color: '#EC4899', href: '/yakit-hesaplama/lastik-ebat' },
     { key: 'kredi-karti' as const, label: 'Kredi Kartı', desc: 'Komisyon ve taksit hesaplama', icon: CreditCard, color: '#7C3AED', href: '/yakit-hesaplama/kredi-karti-hesaplama' },
     { key: 'butce' as const, label: 'Bütçe Planla', desc: 'Nakit, kredi, ek giderler', icon: Wallet, color: '#059669', href: '/yakit-hesaplama/butce-planlama' },
     { key: 'senet' as const, label: 'Dijital Senet', desc: 'Reel faiz ve maliyet analizi', icon: FileText, color: '#DC2626', href: '/yakit-hesaplama/dijital-senet-hesaplama' },
@@ -410,8 +424,15 @@ export default function YakitHesaplamaPage() {
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" }
       })}} />
       <main style={{ minHeight: "100vh", background: "var(--background)" }}>
+        <style dangerouslySetInnerHTML={{__html: `
+          @media print {
+            .no-print, nav, footer { display: none !important; }
+            body { background: white !important; color: black !important; }
+            main { padding: 0 !important; background: white !important; }
+          }
+        `}} />
         {/* Premium Hero */}
-        <div style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #2563EB 100%)', padding: "48px 24px 44px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <div className="no-print" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #2563EB 100%)', padding: "48px 24px 44px", textAlign: "center", position: "relative", overflow: "hidden" }}>
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 70% 30%, rgba(37,99,235,0.3) 0%, transparent 60%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 20% 80%, rgba(124,58,237,0.2) 0%, transparent 50%)" }} />
           <div style={{ maxWidth: "700px", margin: "0 auto", position: "relative", zIndex: 1 }}>
@@ -436,7 +457,7 @@ export default function YakitHesaplamaPage() {
         </div>
 
         {/* Tool Cards Hub */}
-        <div style={{ maxWidth: "900px", margin: "-24px auto 0", padding: "0 20px", position: "relative", zIndex: 2 }}>
+        <div className="no-print" style={{ maxWidth: "900px", margin: "-24px auto 0", padding: "0 20px", position: "relative", zIndex: 2 }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "12px", marginBottom: "20px" }}>
             {TOOLS.map(tool => {
               const Icon = tool.icon;
@@ -465,6 +486,20 @@ export default function YakitHesaplamaPage() {
               );
             })}
           </div>
+        </div>
+
+        {/* Global Action Bar */}
+        <div className="no-print" style={{ maxWidth: "720px", margin: "20px auto 0", display: "flex", justifyContent: "flex-end", gap: "10px", padding: "0 20px" }}>
+          <button onClick={() => window.print()} style={{ padding: "10px 16px", borderRadius: "10px", background: "var(--card-bg)", border: "1px solid var(--card-border)", color: "var(--foreground)", fontSize: "13px", fontWeight: "700", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", transition: "all 0.2s" }} onMouseOver={e => e.currentTarget.style.borderColor = "var(--text-muted)"} onMouseOut={e => e.currentTarget.style.borderColor = "var(--card-border)"}>
+            <Printer size={16} /> PDF / Yazdır
+          </button>
+          <button onClick={() => {
+            const activeTool = TOOLS.find(t => t.key === activeSubTab);
+            const text = `OtoSöz'de ücretsiz "${activeTool?.label}" aracını kullanarak kendi hesaplamamı yaptım! Sen de hemen dene: https://www.otosoz.com/yakit-hesaplama`;
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+          }} style={{ padding: "10px 16px", borderRadius: "10px", background: "#25D366", border: "none", color: "white", fontSize: "13px", fontWeight: "700", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", transition: "transform 0.2s" }} onMouseOver={e => e.currentTarget.style.transform = "scale(1.05)"} onMouseOut={e => e.currentTarget.style.transform = "scale(1)"}>
+            <MessageCircle size={16} /> WhatsApp'ta Paylaş
+          </button>
         </div>
 
         {/* Content */}
@@ -686,6 +721,55 @@ export default function YakitHesaplamaPage() {
         {activeSubTab === 'ev' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <EvMaliyetSection />
+          </div>
+        )}
+
+        {/* Değer Kaybı Tab */}
+        {activeSubTab === 'deger-kaybi' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <DegerKaybiSection />
+          </div>
+        )}
+
+        {/* Taşıt Kredisi Tab */}
+        {activeSubTab === 'kredi' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <TasitKredisiSection />
+          </div>
+        )}
+
+        {/* Araç Bakım Tab */}
+        {activeSubTab === 'bakim' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <AracBakimSection />
+          </div>
+        )}
+
+        {/* Lastik Ebat Tab */}
+        {activeSubTab === 'lastik' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <LastikEbatSection />
+          </div>
+        )}
+
+        {/* ÖTV Muafiyet Tab */}
+        {activeSubTab === 'otv' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <OtvMuafiyetSection />
+          </div>
+        )}
+
+        {/* Al-Sat Kâr Analizi Tab */}
+        {activeSubTab === 'al-sat' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <AlSatKarMarjiSection />
+          </div>
+        )}
+
+        {/* Yatırım Kıyaslama Tab */}
+        {activeSubTab === 'yatirim' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <YatirimKiyaslamaSection />
           </div>
         )}
       </main>
