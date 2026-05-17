@@ -2,7 +2,6 @@ import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { categories, getBrandsForCategory } from '@/data/guvenmetre';
-import { vehicleDNAData } from '@/data/vehicle-dna';
 import { getAdminDb } from '@/lib/firebaseAdmin';
 
 // Sitemap'in en fazla saatte 1 kez yeniden oluşturulması (cache) için:
@@ -64,8 +63,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return null;
     };
 
-    // 1. Araç DNA Markaları, Modelleri ve Kronik Sorun Sayfaları (vehicleDNAData'dan dinamik)
-    const uniqueBrands = [...new Set(vehicleDNAData.map(v => v.brand))];
+    // 1. Araç DNA Markaları, Modelleri ve Kronik Sorun Sayfaları (hafif statik liste)
+    const vehicleList: { brand: string; model: string }[] = [
+        { brand: 'Renault', model: 'Clio' }, { brand: 'Renault', model: 'Megane' },
+        { brand: 'Fiat', model: 'Egea' }, { brand: 'Toyota', model: 'Corolla' },
+        { brand: 'Honda', model: 'Civic' }, { brand: 'Volkswagen', model: 'Passat' },
+        { brand: 'Volkswagen', model: 'Golf' }, { brand: 'Dacia', model: 'Duster' },
+        { brand: 'Hyundai', model: 'i20' }, { brand: 'Peugeot', model: '3008 (1. Nesil 2009-2016)' },
+        { brand: 'Peugeot', model: '3008 (2. Nesil 2016-2023)' },
+        { brand: 'Opel', model: 'Corsa' }, { brand: 'Togg', model: 'T10X' },
+        { brand: 'Chery', model: 'Tiggo 8 Pro' }, { brand: 'Ford', model: 'Focus' },
+        { brand: 'BMW', model: '320i' }, { brand: 'Mercedes-Benz', model: 'C180' },
+        { brand: 'Nissan', model: 'Qashqai' }, { brand: 'Kia', model: 'Sportage' },
+        { brand: 'Citroen', model: 'C3' }, { brand: 'Skoda', model: 'Octavia' },
+        { brand: 'Seat', model: 'Leon' }, { brand: 'Tesla', model: 'Model Y' },
+        { brand: 'Audi', model: 'A3' },
+    ];
+
+    const uniqueBrands = [...new Set(vehicleList.map(v => v.brand))];
     uniqueBrands.forEach(brand => {
         sitemapEntries.push({
             url: `${BASE_URL}/arac-dna/${createSlug(brand)}`,
@@ -75,8 +90,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     });
 
-    // Her araç modeli için detay + kronik sorun sayfası
-    vehicleDNAData.forEach(vehicle => {
+    vehicleList.forEach(vehicle => {
         const brandSlug = createSlug(vehicle.brand);
         const modelSlug = createSlug(vehicle.model);
 
@@ -88,21 +102,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.7,
         });
 
-        // Kronik sorunlar sayfası (eğer kronik sorun varsa)
-        if (vehicle.chronicIssues && vehicle.chronicIssues.length > 0) {
-            sitemapEntries.push({
-                url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/kronik-sorunlar`,
-                lastModified: new Date(),
-                changeFrequency: 'weekly',
-                priority: 0.7,
-            });
-        }
+        // Kronik sorunlar sayfası
+        sitemapEntries.push({
+            url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/kronik-sorunlar`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        });
     });
 
     // 2. OBD Arıza Kodları (Örnek En Popüler)
     const obdData = safeReadFile('obd-codes.json');
     if (obdData && Array.isArray(obdData)) {
-        obdData.slice(0, 1000).forEach((item: any) => {
+        obdData.slice(0, 500).forEach((item: any) => {
             sitemapEntries.push({
                 url: `${BASE_URL}/obd/${item.code.toLowerCase()}`,
                 lastModified: new Date(),
