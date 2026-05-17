@@ -195,10 +195,10 @@ export default function MessagesPage() {
                                     const isSelected = selectedConv?.id === conv.id;
                                     return (
                                         <button key={conv.id} onClick={() => setSelectedConv(conv)}
-                                            style={{ width: "100%", padding: "16px 20px", display: "flex", gap: "12px", background: isSelected ? "rgba(255,107,0,0.1)" : "transparent", border: "none", borderBottom: "1px solid var(--card-border)", cursor: "pointer", textAlign: "left", transition: "background 0.2s" }}
-                                            onMouseEnter={(e) => { if (!isSelected) e.currentTarget.style.background = "rgba(255,107,0,0.05)"; }}
+                                            style={{ width: "100%", padding: "16px 20px", display: "flex", gap: "12px", background: isSelected ? "var(--secondary)" : "transparent", border: "none", borderLeft: isSelected ? "3px solid var(--foreground)" : "3px solid transparent", borderBottom: "1px solid var(--card-border)", cursor: "pointer", textAlign: "left", transition: "all 0.2s" }}
+                                            onMouseEnter={(e) => { if (!isSelected) e.currentTarget.style.background = "var(--secondary)"; }}
                                             onMouseLeave={(e) => { if (!isSelected) e.currentTarget.style.background = "transparent"; }}>
-                                            <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: "700", fontSize: "18px", flexShrink: 0 }}>
+                                            <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "var(--foreground)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--background)", fontWeight: "700", fontSize: "18px", flexShrink: 0 }}>
                                                 {otherName.charAt(0).toUpperCase()}
                                             </div>
                                             <div style={{ flex: 1, minWidth: 0 }}>
@@ -222,7 +222,7 @@ export default function MessagesPage() {
                                 <>
                                     {/* Chat Header */}
                                     <div style={{ padding: "20px", borderBottom: "1px solid var(--card-border)", display: "flex", alignItems: "center", gap: "12px" }}>
-                                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: "700" }}>
+                                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--foreground)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--background)", fontWeight: "700" }}>
                                             {getOtherUsername(selectedConv).charAt(0).toUpperCase()}
                                         </div>
                                         <div>
@@ -242,7 +242,7 @@ export default function MessagesPage() {
                                             const isOwn = msg.senderId === user.id;
                                             return (
                                                 <div key={msg.id} style={{ display: "flex", justifyContent: isOwn ? "flex-end" : "flex-start" }}>
-                                                    <div style={{ maxWidth: "70%", padding: "12px 16px", background: isOwn ? "var(--primary)" : "var(--secondary)", borderRadius: isOwn ? "12px 12px 0 12px" : "12px 12px 12px 0", color: isOwn ? "white" : "var(--foreground)" }}>
+                                                    <div style={{ maxWidth: "70%", padding: "12px 16px", background: isOwn ? "var(--foreground)" : "var(--secondary)", border: isOwn ? "none" : "1px solid var(--card-border)", borderRadius: isOwn ? "12px 12px 0 12px" : "12px 12px 12px 0", color: isOwn ? "var(--background)" : "var(--foreground)" }}>
                                                         <p style={{ fontSize: "14px", margin: "0 0 4px 0", lineHeight: "1.4", wordBreak: "break-word" }}>{msg.content}</p>
                                                         <span style={{ fontSize: "11px", color: isOwn ? "rgba(255,255,255,0.7)" : "var(--text-muted)" }}>{formatMsgTime(msg.createdAt)}</span>
                                                     </div>
@@ -254,12 +254,12 @@ export default function MessagesPage() {
 
                                     {/* Input */}
                                     <div style={{ padding: "20px", borderTop: "1px solid var(--card-border)", display: "flex", gap: "12px" }}>
-                                        <input type="text" placeholder="Mesajinizi yazin..." value={newMessage} onChange={(e) => setNewMessage(e.target.value)}
+                                        <input type="text" placeholder="Mesajınızı yazın..." value={newMessage} onChange={(e) => setNewMessage(e.target.value)}
                                             onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSend(); } }}
                                             style={{ flex: 1, padding: "12px 16px", background: "var(--secondary)", border: "1px solid var(--card-border)", borderRadius: "8px", color: "var(--foreground)", fontSize: "14px", outline: "none" }} />
                                         <button onClick={handleSend} disabled={sending || !newMessage.trim()}
-                                            style={{ width: "48px", height: "48px", background: newMessage.trim() ? "var(--primary)" : "var(--secondary)", border: "none", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", cursor: newMessage.trim() ? "pointer" : "default", transition: "all 0.2s" }}>
-                                            <Send style={{ width: "20px", height: "20px", color: newMessage.trim() ? "white" : "var(--text-muted)" }} />
+                                            style={{ width: "48px", height: "48px", background: newMessage.trim() ? "var(--foreground)" : "var(--secondary)", border: "none", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", cursor: newMessage.trim() ? "pointer" : "default", transition: "all 0.2s" }}>
+                                            <Send style={{ width: "20px", height: "20px", color: newMessage.trim() ? "var(--background)" : "var(--text-muted)" }} />
                                         </button>
                                     </div>
                                 </>
@@ -297,7 +297,7 @@ export default function MessagesPage() {
                                     style={{ width: "100%", display: "flex", alignItems: "center", gap: "12px", padding: "12px", background: "transparent", border: "none", borderRadius: "8px", cursor: "pointer", textAlign: "left", transition: "background 0.15s" }}
                                     onMouseEnter={e => e.currentTarget.style.background = "var(--secondary)"}
                                     onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: "700", fontSize: "16px", flexShrink: 0 }}>
+                                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--foreground)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--background)", fontWeight: "700", fontSize: "16px", flexShrink: 0 }}>
                                         {u.username.charAt(0).toUpperCase()}
                                     </div>
                                     <div>

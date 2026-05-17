@@ -128,7 +128,7 @@ export default function LibraryPage() {
     // SEO-friendly slug mappings
     const tabSlugs = [
         { slug: 'makaleler', name: 'Makale', icon: BookOpen, title: 'Otomotiv Makaleleri | OtoSöz Kütüphane', description: 'Otomotiv dünyasına dair detaylı makaleler, bakım rehberleri ve uzman önerileri.' },
-        { slug: 'ilginc-bilgiler', name: 'İlginç', icon: Lightbulb, title: 'İlginç Otomotiv Bilgileri | OtoSöz', description: 'Otomobil dünyasından ilginç bilgiler, ipucları, mit kırıcılar ve kontrol listeleri.' },
+        { slug: 'ilginc-bilgiler', name: 'İlginç', icon: Lightbulb, title: 'İlginç Otomotiv Bilgileri | OtoSöz', description: 'Otomobil dünyasından ilginç bilgiler, ipucları, kontrol listeleri.' },
         { slug: 'otomotiv-sozluk', name: 'Sözlük', icon: BookMarked, title: 'Otomotiv Sözlüğü - Türkçe Araç Terimleri | OtoSöz', description: 'A\'dan Z\'ye tüm otomotiv terimlerinin Türkçe açıklamaları. ABS, ESP, Tramer, Ekspertiz ve daha fazlası.' },
         { slug: 'obd-ariza-kodlari', name: 'OBD', icon: Wrench, title: 'OBD Arıza Kodları Sorgulama | OtoSöz', description: 'P0, P1, P2 ve tüm OBD arıza kodlarının Türkçe açıklamaları, nedenleri ve çözüm önerileri.' },
         { slug: 'gosterge-isiklari', name: 'Göstergeler', icon: AlertTriangle, title: 'Araç Gösterge Işıkları ve Anlamları | OtoSöz', description: 'Arabadaki tüm ikaz lambalarının anlamları: motor arıza, ABS, yağ basıncı, hararet ve daha fazlası.' },
@@ -752,7 +752,7 @@ export default function LibraryPage() {
                             {/* Daily Tips */}
                             {filteredInteresting.dailyTips.length > 0 && <SectionCarousel title="Günlük İpuçları" icon={<Lightbulb color="#F59E0B" />}>
                                 {filteredInteresting.dailyTips.map((tip: DailyTip) => (
-                                    <Link key={tip.id} href={`/kutuphane/ilginc/${createSlug(tip.title)}--${tip.id}`} style={{ textDecoration: 'none', minWidth: '280px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                    <Link key={tip.id} href={`/kutuphane/ilginc/${createSlug(tip.title)}-${tip.id}`} style={{ textDecoration: 'none', minWidth: '280px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
@@ -776,7 +776,7 @@ export default function LibraryPage() {
                             {/* Checklists */}
                             {filteredInteresting.checklists.length > 0 && <SectionCarousel title="Kontrol Listeleri" icon={<CheckCircle color="#43E97B" />}>
                                 {filteredInteresting.checklists.map((checklist: any) => (
-                                    <Link key={checklist.id} href={`/kutuphane/ilginc/${createSlug(checklist.title)}--${checklist.id}`} style={{ textDecoration: 'none', minWidth: '350px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                    <Link key={checklist.id} href={`/kutuphane/ilginc/${createSlug(checklist.title)}-${checklist.id}`} style={{ textDecoration: 'none', minWidth: '350px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
@@ -814,7 +814,7 @@ export default function LibraryPage() {
                             {/* Do & Don't */}
                             {filteredInteresting.doAndDont.length > 0 && <SectionCarousel title="Yap & Yapma" icon={<ThumbsUp color="#3B82F6" />}>
                                 {filteredInteresting.doAndDont.map((item: DoAndDontData) => (
-                                    <Link key={item.id} href={`/kutuphane/ilginc/${createSlug(item.title)}--${item.id}`} style={{ textDecoration: 'none', minWidth: '400px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                    <Link key={item.id} href={`/kutuphane/ilginc/${createSlug(item.title)}-${item.id}`} style={{ textDecoration: 'none', minWidth: '400px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
@@ -858,7 +858,7 @@ export default function LibraryPage() {
                             {/* Quick Facts */}
                             {filteredInteresting.quickFacts.length > 0 && <SectionCarousel title="Hızlı Bilgiler" icon={<Zap color="#F59E0B" />}>
                                 {filteredInteresting.quickFacts.map((fact: QuickFactData) => (
-                                    <Link key={fact.id} href={`/kutuphane/ilginc/${createSlug(fact.text.slice(0, 40))}--${fact.id}`} style={{ textDecoration: 'none', minWidth: '300px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                    <Link key={fact.id} href={`/kutuphane/ilginc/${createSlug(fact.text.slice(0, 40))}-${fact.id}`} style={{ textDecoration: 'none', minWidth: '300px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
@@ -879,42 +879,6 @@ export default function LibraryPage() {
                                 ))}
                             </SectionCarousel>}
 
-                            {/* Myth Busters */}
-                            {filteredInteresting.mythBusters.length > 0 && <SectionCarousel title="Mit Kırıcılar" icon={<ShieldAlert color="#EF4444" />}>
-                                {filteredInteresting.mythBusters.map((myth: MythBuster) => (
-                                    <Link key={myth.id} href={`/kutuphane/ilginc/${createSlug(myth.myth)}--${myth.id}`} style={{ textDecoration: 'none', minWidth: '350px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
-                                        <div style={{
-                                            background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05))',
-                                            border: '1px solid rgba(239,68,68,0.4)',
-                                            borderRadius: '14px',
-                                            padding: '20px',
-                                            height: '100%',
-                                            transition: 'border-color 0.2s',
-                                        }}
-                                            onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = '#EF4444'}
-                                            onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(239,68,68,0.4)'}
-                                        >
-                                            <div style={{ display: 'flex', gap: '16px' }}>
-                                                <div style={{ flex: 1 }}>
-                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                                                        <XCircle style={{ width: '18px', height: '18px', color: '#EF4444' }} />
-                                                        <span style={{ fontSize: '12px', fontWeight: '700', color: '#EF4444', textTransform: 'uppercase' }}>Yanlış İnanış</span>
-                                                    </div>
-                                                    <p style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px' }}>{myth.myth}</p>
-                                                </div>
-                                                <div style={{ flex: 1 }}>
-                                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                                                        <CheckCircle style={{ width: '18px', height: '18px', color: '#43E97B' }} />
-                                                        <span style={{ fontSize: '12px', fontWeight: '700', color: '#43E97B', textTransform: 'uppercase' }}>Gerçek</span>
-                                                    </div>
-                                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{myth.truth}</p>
-                                                </div>
-                                            </div>
-                                            <div style={{ marginTop: '10px', fontSize: '11px', color: '#EF4444', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}><ExternalLink size={11} /> Detaylı İncele</div>
-                                        </div>
-                                    </Link>
-                                ))}
-                            </SectionCarousel>}
 
                             {/* No Results */}
                             {Object.values(filteredInteresting).every((arr: any) => arr.length === 0) && (

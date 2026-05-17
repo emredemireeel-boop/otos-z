@@ -183,6 +183,36 @@ export default function CategoryDetailPage() {
 
                         {/* CENTER — Main Content */}
                         <div>
+                            {/* Influencer Banner */}
+                            {categoryId === 'auto_influencers' && (
+                                <div style={{
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '16px',
+                                    padding: '20px',
+                                    marginBottom: '20px',
+                                    display: 'flex',
+                                    alignItems: 'flex-start',
+                                    gap: '16px'
+                                }}>
+                                    <div style={{
+                                        width: '44px', height: '44px', borderRadius: '12px',
+                                        background: 'var(--secondary)', display: 'flex',
+                                        alignItems: 'center', justifyContent: 'center', flexShrink: 0
+                                    }}>
+                                        <span style={{ fontSize: '22px' }}>🎬</span>
+                                    </div>
+                                    <div>
+                                        <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px' }}>
+                                            Türkiye&apos;nin En İyi Otomobil İçerik Üreticileri
+                                        </h3>
+                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
+                                            Bu sayfada Türkiye&apos;nin en popüler otomobil YouTube kanallarını ve içerik üreticilerini değerlendirebilirsiniz. Gerçek isimler, işletme bilgileri ve sosyal medya hesapları ile birlikte sunulmuştur.
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+
                             {filteredBrands.length >= 3 && (
                                 <div style={{ marginBottom: '20px' }}>
                                     <Podium first={filteredBrands[0]} second={filteredBrands[1]} third={filteredBrands[2]} />
@@ -194,7 +224,7 @@ export default function CategoryDetailPage() {
                                 borderRadius: '12px', marginBottom: '12px',
                             }}>
                                 <span style={{ color: 'var(--text-muted)', fontSize: '13px', fontWeight: '600' }}>
-                                    Tüm Markalar ({filteredBrands.length})
+                                    {categoryId === 'auto_influencers' ? 'Tüm İçerik Üreticileri' : 'Tüm Markalar'} ({filteredBrands.length})
                                 </span>
                             </div>
 

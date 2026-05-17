@@ -4,6 +4,7 @@ import {
     onSnapshot, query, orderBy, serverTimestamp, getDocs,
     type Unsubscribe
 } from "firebase/firestore";
+import { pingGoogle } from "./seoPing";
 
 export interface DictionaryTerm {
     id: string;
@@ -72,6 +73,10 @@ export async function addTerm(data: Omit<DictionaryTerm, "id">): Promise<string>
         ...data,
         createdAt: serverTimestamp(),
     });
+
+    // 🚀 Google'a yeni sözlük terimi bildirimi
+    pingGoogle(`/sozluk/${ref.id}`).catch(() => {});
+
     return ref.id;
 }
 

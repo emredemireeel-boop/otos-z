@@ -29,7 +29,8 @@ const navItems = [
             { name: "Entry Kontrolu", href: "/admin/entry-kontrol", icon: MessageSquareWarning, badge: null },
             { name: "Sikayet Kuyrugu", href: "/admin/raporlar", icon: Flag, badge: null, badgeRed: true },
             { name: "Pazar Kontrolu", href: "/admin/pazar", icon: ShoppingCart, badge: null },
-            { name: "Guvenmetre Onayi", href: "/admin/guvenmetre", icon: ShieldCheck, badge: null },
+            { name: "Guvenmetre", href: "/admin/guvenmetre", icon: ShieldCheck, badge: null },
+            { name: "GM Yorumları", href: "/admin/guvenmetre/yorumlar", icon: MessageSquareWarning, badge: null },
         ]
     },
     {

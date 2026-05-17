@@ -5,8 +5,9 @@ import {
     TrendingUp, Banknote, CreditCard, Star, Users, Crown,
     ArrowUpRight, ArrowDownRight, Download, Calendar,
     RefreshCw, Search, X, ChevronRight, CheckCircle,
-    Clock, AlertCircle, Zap, BarChart3, DollarSign
+    Clock, AlertCircle, Zap, BarChart3, DollarSign, Loader2
 } from "lucide-react";
+import { adminGet } from "@/lib/adminFetch";
 
 
 // â”€â”€ Tipler â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -32,14 +33,8 @@ interface PremiumUser {
     active: boolean;
 }
 
-// Dinamik veriler — Firestore'dan gelecek
-const generatePremiumUsers = (): PremiumUser[] => [];
-
-const TRANSACTIONS: Transaction[] = [];
-
-const PREMIUM_USERS = generatePremiumUsers();
-
-const monthlyRevenue = [18400, 22100, 19800, 26500, 24200, 31800, 28900, 35100, 32400, 40200, 38700, 45800];
+// Dinamik veriler artık state üzerinden gelecek
+const monthlyRevenue = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const months = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
 
 type Tab = "ozet" | "islemler" | "premium";
@@ -71,16 +66,37 @@ export default function AdminFinancePage() {
     const [search, setSearch] = useState("");
     const [premiumSearch, setPremiumSearch] = useState("");
 
-    const totalRevenue = TRANSACTIONS.filter(t => t.status === "Tamamlandı").reduce((s, t) => s + t.amount, 0);
-    const pendingRevenue = TRANSACTIONS.filter(t => t.status === "Bekliyor").reduce((s, t) => s + t.amount, 0);
-    const refundAmount = TRANSACTIONS.filter(t => t.status === "İade").reduce((s, t) => s + t.amount, 0);
-    const activePremium = PREMIUM_USERS.filter(u => u.active).length;
+    const [transactions, setTransactions] = useState<Transaction[]>([]);
+    const [premiumUsers, setPremiumUsers] = useState<PremiumUser[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    const txFiltered = TRANSACTIONS
+    const fetchData = useCallback(async () => {
+        setLoading(true);
+        try {
+            const data = await adminGet('finances');
+            if (data.success) {
+                setTransactions(data.transactions || []);
+                setPremiumUsers(data.premiumUsers || []);
+            }
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
+
+    const totalRevenue = transactions.filter(t => t.status === "Tamamlandı").reduce((s, t) => s + t.amount, 0);
+    const pendingRevenue = transactions.filter(t => t.status === "Bekliyor").reduce((s, t) => s + t.amount, 0);
+    const refundAmount = transactions.filter(t => t.status === "İade").reduce((s, t) => s + t.amount, 0);
+    const activePremium = premiumUsers.filter(u => u.active).length;
+
+    const txFiltered = transactions
         .filter(t => txFilter === "hepsi" || t.status === txFilter)
         .filter(t => !search || t.user.toLowerCase().includes(search.toLowerCase()) || t.displayName.toLowerCase().includes(search.toLowerCase()));
 
-    const premiumFiltered = PREMIUM_USERS.filter(u =>
+    const premiumFiltered = premiumUsers.filter(u =>
         !premiumSearch || u.username.toLowerCase().includes(premiumSearch.toLowerCase()) || u.displayName.toLowerCase().includes(premiumSearch.toLowerCase())
     );
 
@@ -97,7 +113,7 @@ export default function AdminFinancePage() {
         "İade": { bg: "rgba(239,68,68,0.1)", color: "#EF4444", icon: <AlertCircle size={11} /> },
     }[s] || { bg: "rgba(100,100,100,0.1)", color: "#6B7280", icon: null });
 
-    const barMax = Math.max(...monthlyRevenue);
+    const barMax = Math.max(...monthlyRevenue, 1);
 
     return (
         <div style={{ paddingBottom: "40px" }}>
@@ -109,10 +125,23 @@ export default function AdminFinancePage() {
                     </h1>
                     <p style={{ color: "var(--text-muted)", fontSize: "14px" }}>Gelir takibi · Premium üyeler · Ödeme işlemleri</p>
                 </div>
-                <button style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--card-bg)", border: "1px solid var(--card-border)", color: "var(--foreground)", padding: "10px 16px", borderRadius: "10px", cursor: "pointer", fontSize: "13px", fontWeight: "600" }}>
-                    <Download size={14} /> Rapor İndir
-                </button>
+                <div style={{ display: "flex", gap: "10px" }}>
+                    <button onClick={fetchData} disabled={loading} style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--card-bg)", border: "1px solid var(--card-border)", color: "var(--foreground)", padding: "10px 16px", borderRadius: "10px", cursor: "pointer", fontSize: "13px", fontWeight: "600" }}>
+                        <RefreshCw size={14} style={{ animation: loading ? 'spin 0.8s linear infinite' : 'none' }} /> Yenile
+                    </button>
+                    <button style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--card-bg)", border: "1px solid var(--card-border)", color: "var(--foreground)", padding: "10px 16px", borderRadius: "10px", cursor: "pointer", fontSize: "13px", fontWeight: "600" }}>
+                        <Download size={14} /> Rapor İndir
+                    </button>
+                </div>
             </div>
+
+            {loading ? (
+                <div style={{ padding: "60px 0", textAlign: "center", color: "var(--text-muted)" }}>
+                    <Loader2 size={32} style={{ animation: "spin 1s linear infinite", margin: "0 auto 16px", opacity: 0.5 }} />
+                    <p style={{ fontWeight: "600" }}>Veriler yükleniyor...</p>
+                </div>
+            ) : (
+                <>
 
             {/* Tabs */}
             <div style={{ display: "flex", gap: "6px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px", padding: "4px", marginBottom: "22px", width: "fit-content" }}>
@@ -133,10 +162,10 @@ export default function AdminFinancePage() {
                     {/* Stat Pills */}
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "14px", marginBottom: "22px" }}>
                         {[
-                            { label: "Toplam Gelir (Nisan)", value: `₺${totalRevenue.toLocaleString("tr-TR")}`, sub: "+12% geçen aya göre", icon: <TrendingUp size={20} />, color: "#10B981", trend: "up" },
-                            { label: "Bekleyen Tahsilat", value: `₺${pendingRevenue.toLocaleString("tr-TR")}`, sub: `${TRANSACTIONS.filter(t => t.status === "Bekliyor").length} işlem`, icon: <Clock size={20} />, color: "#F59E0B", trend: null },
-                            { label: "Aktif Premium Üye", value: activePremium, sub: `${PREMIUM_USERS.length} toplam`, icon: <Crown size={20} />, color: "#8B5CF6", trend: "up" },
-                            { label: "İade Edilen", value: `₺${refundAmount.toLocaleString("tr-TR")}`, sub: `${TRANSACTIONS.filter(t => t.status === "İade").length} işlem`, icon: <AlertCircle size={20} />, color: "#EF4444", trend: "down" },
+                            { label: "Toplam Gelir (Nisan)", value: `₺${totalRevenue.toLocaleString("tr-TR")}`, sub: "Bu ay", icon: <TrendingUp size={20} />, color: "#10B981", trend: "up" },
+                            { label: "Bekleyen Tahsilat", value: `₺${pendingRevenue.toLocaleString("tr-TR")}`, sub: `${transactions.filter(t => t.status === "Bekliyor").length} işlem`, icon: <Clock size={20} />, color: "#F59E0B", trend: null },
+                            { label: "Aktif Premium Üye", value: activePremium, sub: `${premiumUsers.length} toplam`, icon: <Crown size={20} />, color: "#8B5CF6", trend: "up" },
+                            { label: "İade Edilen", value: `₺${refundAmount.toLocaleString("tr-TR")}`, sub: `${transactions.filter(t => t.status === "İade").length} işlem`, icon: <AlertCircle size={20} />, color: "#EF4444", trend: "down" },
                         ].map(s => (
                             <div key={s.label} style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "14px", padding: "18px 22px" }}>
                                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
@@ -229,7 +258,7 @@ export default function AdminFinancePage() {
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px", gap: "10px", flexWrap: "wrap" }}>
                         <div style={{ display: "flex", gap: "5px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px", padding: "4px" }}>
                             {(["hepsi", "Tamamlandı", "Bekliyor", "İade"] as TxFilter[]).map(f => {
-                                const count = f === "hepsi" ? TRANSACTIONS.length : TRANSACTIONS.filter(t => t.status === f).length;
+                                const count = f === "hepsi" ? transactions.length : transactions.filter(t => t.status === f).length;
                                 return (
                                     <button key={f} onClick={() => setTxFilter(f)} style={{ padding: "6px 12px", borderRadius: "7px", border: "none", background: txFilter === f ? "var(--primary)" : "transparent", color: txFilter === f ? "white" : "var(--text-muted)", fontSize: "12px", fontWeight: "600", cursor: "pointer", display: "flex", alignItems: "center", gap: "5px" }}>
                                         {f} <span style={{ fontSize: "10px", background: txFilter === f ? "rgba(255,255,255,0.25)" : "var(--background)", padding: "1px 5px", borderRadius: "8px", fontWeight: "800" }}>{count}</span>
@@ -252,7 +281,11 @@ export default function AdminFinancePage() {
                                 <span key={h} style={{ fontSize: "11px", fontWeight: "700", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.5px" }}>{h}</span>
                             ))}
                         </div>
-                        {txFiltered.map((tx, i) => {
+                        {txFiltered.length === 0 ? (
+                            <div style={{ padding: "40px 20px", textAlign: "center", color: "var(--text-muted)" }}>
+                                Henüz işlem bulunmuyor.
+                            </div>
+                        ) : txFiltered.map((tx, i) => {
                             const ss = txStatusStyle(tx.status);
                             const tc = txTypeColor(tx.type);
                             return (
@@ -281,11 +314,11 @@ export default function AdminFinancePage() {
             {tab === "premium" && (
                 <>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                        <div style={{ display: "flex", gap: "10px" }}>
+                        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                             {[
-                                { label: "Toplam Premium", val: PREMIUM_USERS.length, color: "#8B5CF6" },
-                                { label: "Aktif", val: PREMIUM_USERS.filter(u => u.active).length, color: "#10B981" },
-                                { label: "Yıllık Plan", val: PREMIUM_USERS.filter(u => u.plan === "Yıllık").length, color: "#F59E0B" },
+                                { label: "Toplam Premium", val: premiumUsers.length, color: "#8B5CF6" },
+                                { label: "Aktif", val: premiumUsers.filter(u => u.active).length, color: "#10B981" },
+                                { label: "Yıllık Plan", val: premiumUsers.filter(u => u.plan === "Yıllık").length, color: "#F59E0B" },
                             ].map(s => (
                                 <div key={s.label} style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px", padding: "10px 16px", display: "flex", alignItems: "center", gap: "8px" }}>
                                     <span style={{ fontSize: "18px", fontWeight: "900", color: s.color }}>{s.val}</span>
@@ -301,7 +334,11 @@ export default function AdminFinancePage() {
                     </div>
 
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "12px" }}>
-                        {premiumFiltered.map(u => (
+                        {premiumFiltered.length === 0 ? (
+                            <div style={{ padding: "40px", gridColumn: "1/-1", textAlign: "center", color: "var(--text-muted)" }}>
+                                Premium üye bulunamadı.
+                            </div>
+                        ) : premiumFiltered.map(u => (
                             <div key={u.username} style={{ background: "var(--card-bg)", border: `1px solid ${u.active ? "var(--card-border)" : "rgba(107,114,128,0.3)"}`, borderRadius: "12px", padding: "16px 18px", opacity: u.active ? 1 : 0.7 }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
                                     <div style={{ width: "42px", height: "42px", borderRadius: "12px", background: u.plan === "Yıllık" ? "linear-gradient(135deg, #F59E0B, #D97706)" : "linear-gradient(135deg, #8B5CF6, #6D28D9)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
@@ -340,6 +377,11 @@ export default function AdminFinancePage() {
                     </div>
                 </>
             )}
+            </>
+            )}
+            <style>{`
+                @keyframes spin { to { transform: rotate(360deg); } }
+            `}</style>
         </div>
     );
 }

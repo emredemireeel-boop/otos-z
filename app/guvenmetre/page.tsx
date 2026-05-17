@@ -35,7 +35,7 @@ export default function GuvenmetrePage() {
         setRandomListings([...sampleListings].sort(() => 0.5 - Math.random()).slice(0, 3));
     }, []);
 
-    const categoryTypes = ["Tümü", "Hizmet", "Ürün", "Servis", "Alışveriş"];
+    const categoryTypes = ["Tümü", "Hizmet", "Ürün", "Servis", "Alışveriş", "Medya"];
 
     const filteredCategories = selectedCategory === "Tümü"
         ? categories
@@ -43,6 +43,7 @@ export default function GuvenmetrePage() {
             if (selectedCategory === "Hizmet") return ["fuel_stations", "car_wash", "expertise"].includes(c.id);
             if (selectedCategory === "Servis") return ["private_service", "authorized_service"].includes(c.id);
             if (selectedCategory === "Ürün") return ["spare_parts", "accessories"].includes(c.id);
+            if (selectedCategory === "Medya") return ["auto_influencers"].includes(c.id);
             return true;
         });
 
@@ -375,8 +376,8 @@ export default function GuvenmetrePage() {
                         <div style={{ padding: '22px 24px 16px', borderBottom: '1px solid var(--card-border)' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                    <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(255,107,0,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                        <MapPin size={18} color="var(--primary)" />
+                                    <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--secondary)', border: '1px solid var(--card-border)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <MapPin size={18} color="var(--foreground)" />
                                     </div>
                                     <div>
                                         <h2 style={{ margin: 0, fontSize: '16px', fontWeight: '800', color: 'var(--foreground)' }}>Şehir Seçin</h2>

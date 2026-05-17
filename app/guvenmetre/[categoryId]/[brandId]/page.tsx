@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReviewCard from "@/components/guvenmetre/ReviewCard";
 import RatingDialog from "@/components/guvenmetre/RatingDialog";
-import { getBrandsForCategory, getReviewsForBrand, BrandRating, UserReview } from "@/data/guvenmetre";
-import { ArrowLeft, Star, Share2, ThumbsUp, MessageSquare, TrendingUp, Users, Award, ChevronRight } from "lucide-react";
+import { getBrandsForCategory, BrandRating, UserReview } from "@/data/guvenmetre";
+import { ArrowLeft, Star, Share2, ThumbsUp, MessageSquare, TrendingUp, Users, Award, ChevronRight, Youtube, Instagram, MapPin } from "lucide-react";
 
 export default function BrandDetailPage() {
     const params = useParams();
@@ -16,9 +16,27 @@ export default function BrandDetailPage() {
     const [reviews, setReviews] = useState<UserReview[]>([]);
     const [activeTab, setActiveTab] = useState<'reviews' | 'stats'>('reviews');
     const [showDialog, setShowDialog] = useState(false);
+    const [isLoadingReviews, setIsLoadingReviews] = useState(true);
 
     const categoryId = Array.isArray(params.categoryId) ? params.categoryId[0] : params.categoryId;
     const brandId = Array.isArray(params.brandId) ? params.brandId[0] : params.brandId;
+
+    // Firestore'dan yorumları çek
+    const fetchReviews = useCallback(async () => {
+        if (!categoryId || !brandId) return;
+        setIsLoadingReviews(true);
+        try {
+            const res = await fetch(`/api/guvenmetre/reviews?categoryId=${categoryId}&brandId=${brandId}`);
+            const data = await res.json();
+            if (data.success) {
+                setReviews(data.reviews || []);
+            }
+        } catch (err) {
+            console.error('Yorumlar yüklenemedi:', err);
+        } finally {
+            setIsLoadingReviews(false);
+        }
+    }, [categoryId, brandId]);
 
     useEffect(() => {
         if (!categoryId || !brandId) return;
@@ -28,9 +46,9 @@ export default function BrandDetailPage() {
 
         if (foundBrand) {
             setBrand(foundBrand);
-            setReviews(getReviewsForBrand(brandId));
+            fetchReviews();
         }
-    }, [categoryId, brandId]);
+    }, [categoryId, brandId, fetchReviews]);
 
     if (!brand) return <div>Yükleniyor...</div>;
 
@@ -44,7 +62,7 @@ export default function BrandDetailPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[var(--background)]">
+        <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -98,7 +116,7 @@ export default function BrandDetailPage() {
                                             }}
                                         />
                                     ) : null}
-                                    <span className={brand.logoUrl ? 'hidden' : ''}>{brand.logoEmoji}</span>
+                                    <span style={{ display: brand.logoUrl ? 'none' : 'block' }}>{brand.logoEmoji}</span>
                                 </div>
                                 <div>
                                     <h1 style={{ fontSize: '32px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>{brand.name}</h1>
@@ -126,7 +144,24 @@ export default function BrandDetailPage() {
                                 </div>
                             </div>
 
-                            <div style={{ display: 'flex', gap: '12px' }}>
+                            {/* Specialties Tags */}
+                            {brand.specialties && brand.specialties.length > 0 && (
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '16px' }}>
+                                    {brand.specialties.map(tag => (
+                                        <span key={tag} style={{
+                                            fontSize: '12px', fontWeight: '600',
+                                            padding: '5px 14px', borderRadius: '20px',
+                                            background: 'var(--secondary)', color: 'var(--text-muted)',
+                                            border: '1px solid var(--card-border)'
+                                        }}>
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Social + Action Buttons */}
+                            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '14px' }}>
                                 <button style={{
                                     padding: '12px 24px',
                                     background: 'var(--secondary)',
@@ -143,6 +178,54 @@ export default function BrandDetailPage() {
                                     <Share2 style={{ width: '16px', height: '16px' }} />
                                     Paylaş
                                 </button>
+                                {brand.youtubeUrl && (
+                                    <a
+                                        href={brand.youtubeUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            padding: '12px 24px',
+                                            background: '#ff0000',
+                                            border: 'none',
+                                            borderRadius: '10px',
+                                            color: 'white',
+                                            fontWeight: '600',
+                                            cursor: 'pointer',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '8px',
+                                            fontSize: '14px',
+                                            textDecoration: 'none'
+                                        }}
+                                    >
+                                        <Youtube style={{ width: '18px', height: '18px' }} />
+                                        Kanala Git
+                                    </a>
+                                )}
+                                {brand.instagramUrl && (
+                                    <a
+                                        href={brand.instagramUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            padding: '12px 24px',
+                                            background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
+                                            border: 'none',
+                                            borderRadius: '10px',
+                                            color: 'white',
+                                            fontWeight: '600',
+                                            cursor: 'pointer',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '8px',
+                                            fontSize: '14px',
+                                            textDecoration: 'none'
+                                        }}
+                                    >
+                                        <Instagram style={{ width: '18px', height: '18px' }} />
+                                        Instagram
+                                    </a>
+                                )}
                                 <button
                                     onClick={() => setShowDialog(true)}
                                     style={{
@@ -157,7 +240,7 @@ export default function BrandDetailPage() {
                                         display: 'flex',
                                         alignItems: 'center',
                                         gap: '8px',
-                                        boxShadow: '0 4px 12px rgba(255, 107, 0, 0.3)'
+                                        boxShadow: '0 4px 12px var(--primary-glow)'
                                     }}
                                 >
                                     <Star style={{ width: '18px', height: '18px' }} />
@@ -199,6 +282,84 @@ export default function BrandDetailPage() {
                                         ))}
                                     </div>
                                 </div>
+
+                                {/* About (if bio exists) */}
+                                {brand.bio && (
+                                    <div style={{
+                                        background: 'var(--card-bg)',
+                                        border: '1px solid var(--card-border)',
+                                        borderRadius: '16px',
+                                        padding: '20px',
+                                        marginBottom: '16px'
+                                    }}>
+                                        <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px' }}>
+                                            Hakkında
+                                        </h3>
+                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '16px' }}>
+                                            {brand.bio}
+                                        </p>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', borderTop: '1px solid var(--card-border)', paddingTop: '14px' }}>
+                                            {brand.realName && (
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>👤 Gerçek İsim</span>
+                                                    <span style={{ fontSize: '13px', color: 'var(--foreground)', fontWeight: '600', textAlign: 'right', maxWidth: '60%' }}>
+                                                        {brand.realName}
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {brand.birthYear && (
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>🎂 Yaş</span>
+                                                    <span style={{ fontSize: '13px', color: 'var(--foreground)', fontWeight: '600' }}>
+                                                        {new Date().getFullYear() - brand.birthYear} yaşında ({brand.birthYear})
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {brand.location && (
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>📍 Konum</span>
+                                                    <span style={{ fontSize: '13px', color: 'var(--foreground)', fontWeight: '600' }}>
+                                                        {brand.location}
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {brand.business && (
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>🏢 İşletme</span>
+                                                    <span style={{ fontSize: '13px', color: 'var(--foreground)', fontWeight: '600', textAlign: 'right', maxWidth: '60%' }}>
+                                                        {brand.business}
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {brand.followers && (
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>📊 Takipçi</span>
+                                                    <span style={{ fontSize: '13px', color: 'var(--foreground)', fontWeight: '600' }}>
+                                                        {brand.followers} Abone
+                                                    </span>
+                                                </div>
+                                            )}
+                                            {brand.youtubeUrl && (
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>🔗 Kanal</span>
+                                                    <a href={brand.youtubeUrl} target="_blank" rel="noopener noreferrer"
+                                                        style={{ fontSize: '13px', color: 'var(--primary)', fontWeight: '600', textDecoration: 'none' }}>
+                                                        YouTube →
+                                                    </a>
+                                                </div>
+                                            )}
+                                            {brand.instagramUrl && (
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>📸 Instagram</span>
+                                                    <a href={brand.instagramUrl} target="_blank" rel="noopener noreferrer"
+                                                        style={{ fontSize: '13px', color: '#E4405F', fontWeight: '600', textDecoration: 'none' }}>
+                                                        Profil →
+                                                    </a>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
 
                                 {/* Quick Stats */}
                                 <div style={{
@@ -272,11 +433,17 @@ export default function BrandDetailPage() {
                             {/* Content */}
                             {activeTab === 'reviews' ? (
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                                    {reviews.length === 0 ? (
+                                    {isLoadingReviews ? (
+                                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '60px', textAlign: 'center' }}>
+                                            <div style={{ width: '32px', height: '32px', border: '3px solid var(--card-border)', borderTop: '3px solid var(--primary)', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 12px' }} />
+                                            <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Değerlendirmeler yükleniyor...</p>
+                                            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                                        </div>
+                                    ) : reviews.length === 0 ? (
                                         <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '60px', textAlign: 'center' }}>
                                             <span style={{ fontSize: '40px', display: 'block', marginBottom: '12px' }}>💬</span>
                                             <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>Henüz değerlendirme yok</h3>
-                                            <p style={{ color: 'var(--text-muted)', fontSize: '14px', marginBottom: '20px' }}>Bu firma için ilk yorumu siz yapabilirsiniz!</p>
+                                            <p style={{ color: 'var(--text-muted)', fontSize: '14px', marginBottom: '20px' }}>{brand.specialties ? 'Bu içerik üreticisi' : 'Bu firma'} için ilk yorumu siz yapabilirsiniz!</p>
                                             <button onClick={() => setShowDialog(true)} style={{ padding: '12px 28px', background: 'var(--primary)', border: 'none', borderRadius: '10px', color: 'white', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>⭐ Görüşünü Paylaş</button>
                                         </div>
                                     ) : (
@@ -365,7 +532,8 @@ export default function BrandDetailPage() {
 
                                 {/* Call to Action */}
                                 <div style={{
-                                    background: 'var(--primary)',
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--primary)',
                                     borderRadius: '16px',
                                     padding: '24px',
                                     textAlign: 'center'
@@ -373,7 +541,7 @@ export default function BrandDetailPage() {
                                     <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>
                                         Deneyimini Paylaş
                                     </h3>
-                                    <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', marginBottom: '16px', lineHeight: '1.4' }}>
+                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.4' }}>
                                         {brand.name} hakkındaki görüşlerini diğer kullanıcılarla paylaş!
                                     </p>
                                     <button
@@ -381,10 +549,10 @@ export default function BrandDetailPage() {
                                         style={{
                                             width: '100%',
                                             padding: '12px',
-                                            background: 'white',
+                                            background: 'var(--primary)',
                                             border: 'none',
                                             borderRadius: '8px',
-                                            color: 'var(--primary)',
+                                            color: 'white',
                                             fontWeight: '700',
                                             cursor: 'pointer',
                                             fontSize: '14px'
@@ -402,7 +570,10 @@ export default function BrandDetailPage() {
             {showDialog && (
                 <RatingDialog
                     brandName={brand.name}
+                    categoryId={categoryId!}
+                    brandId={brandId!}
                     onClose={() => setShowDialog(false)}
+                    onSuccess={fetchReviews}
                 />
             )}
 

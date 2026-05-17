@@ -6,6 +6,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./firebase";
 import { sanitizeText, validateThreadTitle, validateEntryContent, validateTags } from "./validation";
+import { pingGoogle } from "./seoPing";
 
 /* ── Types ── */
 export interface ChronicIssue {
@@ -303,6 +304,10 @@ export async function createThread(data: {
 
     // Slug URL dondur (yonlendirme icin)
     const slugUrl = `${createSlug(titleCheck.sanitized)}--${urlId}`;
+
+    // 🚀 Google'a anında indeksleme bildirimi gönder
+    pingGoogle(`/forum/${slugUrl}`).catch(() => {});
+
     return slugUrl;
 }
 
@@ -334,6 +339,17 @@ export async function addEntry(threadId: string, data: {
         entryCount: increment(1),
         lastEntryAt: now,
     });
+
+    // 🚀 Google'a güncelleme bildirimi gönder (yeni entry = sayfa güncellendi)
+    try {
+        const threadSnap = await getDoc(doc(db, "threads", threadId));
+        if (threadSnap.exists()) {
+            const td = threadSnap.data();
+            if (td.urlId) {
+                pingGoogle(`/forum/${createSlug(td.title)}--${td.urlId}`).catch(() => {});
+            }
+        }
+    } catch {}
 
     return entryRef.id;
 }

@@ -10,77 +10,117 @@ import { getFirestore, type Firestore } from 'firebase-admin/firestore';
  * Client component'lerde ASLA kullanilmamali.
  */
 
-let adminApp: App;
-let adminAuth: Auth;
-let adminDb: Firestore;
+let adminApp: App | undefined;
+let adminAuth: Auth | undefined;
+let adminDb: Firestore | undefined;
 let initError: string | null = null;
 
-function initAdmin() {
-    if (getApps().length === 0) {
-        // Service account JSON'u environment variable'dan oku
-        const serviceAccountStr = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
-
-        if (serviceAccountStr) {
-            try {
-                // Windows'ta .env dosyasindaki JSON satirlari bozulabilir, temizle
-                const cleaned = serviceAccountStr
-                    .replace(/\r?\n/g, '')  // satir sonlarini kaldir
-                    .replace(/\\n/g, '\\n'); // literal \n'leri koru
-
-                const serviceAccount = JSON.parse(cleaned);
-                
-                // private_key icindeki literal \n karakterlerini gercek newline'a cevir
-                if (serviceAccount.private_key && typeof serviceAccount.private_key === 'string') {
-                    serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
+function parseServiceAccount(): any {
+    const raw = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
+    if (!raw) {
+        // ENV yoksa dosyadan okumayı dene (build-time fallback)
+        try {
+            const fs = require('fs');
+            const path = require('path');
+            const filePath = path.join(process.cwd(), 'otosoz-admin.json');
+            if (fs.existsSync(filePath)) {
+                const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                if (parsed.private_key && typeof parsed.private_key === 'string') {
+                    parsed.private_key = parsed.private_key.replace(/\\n/g, '\n');
                 }
-
-                adminApp = initializeApp({
-                    credential: cert(serviceAccount),
-                    projectId: serviceAccount.project_id || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-                });
-            } catch (err: any) {
-                console.error('Firebase Admin: Service account hatasi:', err?.message || err);
-                initError = `Service account parse/init hatasi: ${err?.message || 'Bilinmeyen hata'}`;
-                
-                // Credential olmadan init etme — default credentials hatasi verir
-                // Bunun yerine hata kaydedip fonksiyonlarda kontrol edecegiz
-                try {
-                    adminApp = initializeApp({
-                        credential: cert({
-                            projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'placeholder',
-                            clientEmail: 'error@placeholder.iam.gserviceaccount.com',
-                            privateKey: '-----BEGIN RSA PRIVATE KEY-----\nplaceholder\n-----END RSA PRIVATE KEY-----\n',
-                        }),
-                        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-                    });
-                } catch {
-                    // Son care: basic init
-                    adminApp = initializeApp({
-                        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-                    });
-                }
+                return parsed;
             }
-        } else {
-            console.warn('Firebase Admin: FIREBASE_SERVICE_ACCOUNT_KEY env degiskeni bulunamadi.');
-            initError = 'FIREBASE_SERVICE_ACCOUNT_KEY ortam degiskeni eksik.';
-            // Credential olmadan baslatma — hatali islemler anlasilir hata verecek
-            adminApp = initializeApp({
-                projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-            });
+        } catch (fileErr: any) {
+            // Dosyadan okuma da başarısız — sessizce devam et
         }
-    } else {
-        adminApp = getApps()[0];
+        return null;
     }
 
-    adminAuth = getAuth(adminApp);
-    adminDb = getFirestore(adminApp);
+    // Windows .env dosyalarında JSON'un içindeki newline'lar bozulabilir
+    // Adım 1: Dış wrapper'daki satır sonlarını temizle
+    const stripped = raw.trim();
+
+    try {
+        const parsed = JSON.parse(stripped);
+        // private_key içindeki literal \n karakterlerini gerçek newline'a çevir
+        if (parsed.private_key && typeof parsed.private_key === 'string') {
+            parsed.private_key = parsed.private_key.replace(/\\n/g, '\n');
+        }
+        return parsed;
+    } catch (firstErr) {
+        // İkinci deneme: tek satırlık JSON'u temizle
+        try {
+            const cleaned = stripped
+                .replace(/\r?\n/g, '')  // satır sonlarını kaldır
+                .replace(/\t/g, ' ');   // tab'ları boşluğa çevir
+            const parsed = JSON.parse(cleaned);
+            if (parsed.private_key && typeof parsed.private_key === 'string') {
+                parsed.private_key = parsed.private_key.replace(/\\n/g, '\n');
+            }
+            return parsed;
+        } catch (secondErr: any) {
+            console.error('Firebase Admin: Service account JSON parse hatası:', secondErr?.message);
+            return null;
+        }
+    }
+}
+
+function initAdmin(): void {
+    if (getApps().length > 0) {
+        // Zaten başlatılmış — mevcut app'i kullan
+        adminApp = getApps()[0];
+        adminAuth = getAuth(adminApp);
+        adminDb = getFirestore(adminApp);
+        return;
+    }
+
+    const serviceAccount = parseServiceAccount();
+
+    if (serviceAccount) {
+        try {
+            adminApp = initializeApp({
+                credential: cert(serviceAccount),
+                projectId: serviceAccount.project_id || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+            });
+            adminAuth = getAuth(adminApp);
+            adminDb = getFirestore(adminApp);
+            return;
+        } catch (err: any) {
+            initError = `Firebase Admin init hatası: ${err?.message || err}`;
+            console.error('Firebase Admin: initializeApp hatası:', err?.message || err);
+        }
+    } else {
+        initError = 'FIREBASE_SERVICE_ACCOUNT_KEY ortam değişkeni eksik veya geçersiz JSON.';
+        console.warn('Firebase Admin:', initError);
+    }
+
+    // Son çare: sadece projectId ile başlat (token doğrulama çalışmaz ama crash olmaz)
+    try {
+        adminApp = initializeApp({ projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'otosoz' });
+        adminAuth = getAuth(adminApp);
+        adminDb = getFirestore(adminApp);
+    } catch (fallbackErr: any) {
+        console.error('Firebase Admin: Fallback init de başarısız:', fallbackErr?.message);
+    }
 }
 
 try {
     initAdmin();
 } catch (err: any) {
-    console.error('Firebase Admin init tamamen basarisiz:', err?.message || err);
-    initError = `Init tamamen basarisiz: ${err?.message || err}`;
+    initError = `Firebase Admin tamamen başlatılamadı: ${err?.message || err}`;
+    console.error(initError);
 }
 
+// Güvenli getter'lar — başlatılmamışsa anlamlı hata verir
+export function getAdminAuth(): Auth {
+    if (!adminAuth) throw new Error('Firebase Admin Auth başlatılmamış. initError: ' + initError);
+    return adminAuth;
+}
+
+export function getAdminDb(): Firestore {
+    if (!adminDb) throw new Error('Firebase Admin Firestore başlatılmamış. initError: ' + initError);
+    return adminDb;
+}
+
+// Backward compat — doğrudan kullanım için
 export { adminAuth, adminDb, initError };

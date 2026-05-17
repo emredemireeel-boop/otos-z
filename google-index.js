@@ -212,41 +212,77 @@ function buildUrls() {
     }
 
     // ═══════════════════════════════════════════════════════════
-    // 10. EN POPÜLER OBD KODLARI — Kalan Slotlarla
+    // 10. İLGİNÇ BİLGİLER, SÖZLÜK VE TRAFİK CEZALARI — Kalan Slotlarla
     // ═══════════════════════════════════════════════════════════
-    const topObdCodes = [
-        'P0300', 'P0301', 'P0302', 'P0303', 'P0304', 'P0305', 'P0306', 'P0307', 'P0308',
-        'P0171', 'P0172', 'P0173', 'P0174', 'P0175', 'P0170',
-        'P0420', 'P0430',
-        'P0440', 'P0441', 'P0442', 'P0443', 'P0444', 'P0445', 'P0446',
-        'P0447', 'P0448', 'P0449', 'P0450', 'P0451', 'P0452', 'P0453',
-        'P0455', 'P0456',
-        'P0130', 'P0131', 'P0132', 'P0133', 'P0134', 'P0135',
-        'P0136', 'P0137', 'P0138', 'P0139', 'P0140', 'P0141',
-        'P0150', 'P0151', 'P0152', 'P0153', 'P0154', 'P0155',
-        'P0156', 'P0157', 'P0158', 'P0159', 'P0160', 'P0161',
-        'P0100', 'P0101', 'P0102', 'P0110', 'P0115', 'P0120', 'P0220',
-        'P0200', 'P0201', 'P0202', 'P0203', 'P0204', 'P0230',
-        'P0335', 'P0336', 'P0340', 'P0341',
-        'P0128',
-        'P0400', 'P0401',
-        'P0500', 'P0505', 'P0506', 'P0507',
-    ];
+    const remainingUrls = [];
 
-    const obdCodes = require('./data/obd-codes.json');
-    const obdSet = new Set(obdCodes.map(c => c.code));
-    let obdAdded = 0;
-    const remaining = 200 - urls.length;
-
-    for (const code of topObdCodes) {
-        if (obdAdded >= remaining) break;
-        if (obdSet.has(code)) {
-            urls.push({
-                url: `${BASE_URL}/obd/${code.toLowerCase()}`,
-                tier: '🔵 T5-OBD'
+    // İlginç Bilgiler
+    try {
+        const interesting = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'data', 'interesting_information.json'), 'utf8'));
+        const facts = interesting.interestingFacts;
+        
+        const processArray = (arr, titleKey) => {
+            if (!arr) return;
+            arr.forEach(item => {
+                remainingUrls.push({
+                    url: `${BASE_URL}/kutuphane/ilginc/${createSlug(item[titleKey] || item.myth || item.text.slice(0, 40))}-${item.id}`,
+                    tier: '🔵 T5-İLGİNÇ'
+                });
             });
-            obdAdded++;
+        };
+
+        processArray(facts.dailyTips, 'title');
+        processArray(facts.checklists, 'title');
+        processArray(facts.doAndDont, 'title');
+        processArray(facts.quickFacts, 'text');
+        processArray(facts.mythBusters, 'myth');
+    } catch (e) {
+        console.error('⚠ İlginç bilgiler verisi okunamadı:', e.message);
+    }
+
+    // Trafik Cezaları
+    try {
+        const trafik = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'trafik_cezalari.json'), 'utf8'));
+        trafik.categories.forEach(cat => {
+            cat.rows.forEach(row => {
+                if (row.slug) {
+                    remainingUrls.push({
+                        url: `${BASE_URL}/trafik-cezasi/${row.slug}`,
+                        tier: '🔵 T5-CEZA'
+                    });
+                }
+            });
+        });
+    } catch (e) {
+        console.error('⚠ Trafik cezaları verisi okunamadı:', e.message);
+    }
+
+    // Sözlük
+    try {
+        const dictionaryContent = fs.readFileSync(path.join(__dirname, 'data', 'dictionary.ts'), 'utf8');
+        // Simple extraction since it's a TS file
+        const matches = dictionaryContent.match(/id:\s*["']([^"']+)["']/g);
+        if (matches) {
+            matches.forEach(match => {
+                const id = match.split(/["']/)[1];
+                remainingUrls.push({
+                    url: `${BASE_URL}/sozluk/${id}`,
+                    tier: '🔵 T5-SÖZLÜK'
+                });
+            });
         }
+    } catch (e) {
+        console.error('⚠ Sözlük verisi okunamadı:', e.message);
+    }
+
+    // Sadece kalan limit (200 - mevcut) kadar ekle
+    const limit = 200 - urls.length;
+    let added = 0;
+    
+    for (const item of remainingUrls) {
+        if (added >= limit) break;
+        urls.push(item);
+        added++;
     }
 
     return urls;

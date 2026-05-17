@@ -1,0 +1,58 @@
+{
+  "name": "OtoSöz — Türkiye'nin #1 Otomotiv Bilgi Platformu",
+  "short_name": "OtoSöz",
+  "description": "Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı ve 50.000+ otomotiv verisi.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["automotive", "education", "utilities"],
+  "icons": [
+    {
+      "src": "/dark_logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/otoasfaltlogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Kütüphane",
+      "short_name": "Kütüphane",
+      "description": "Otomotiv bilgi kütüphanesi",
+      "url": "/kutuphane",
+      "icons": [{ "src": "/dark_logo.svg", "sizes": "any" }]
+    },
+    {
+      "name": "OBD Arıza Kodları",
+      "short_name": "OBD",
+      "description": "Araç arıza kodları rehberi",
+      "url": "/obd",
+      "icons": [{ "src": "/dark_logo.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Forum",
+      "short_name": "Forum",
+      "description": "Otomotiv topluluk forumu",
+      "url": "/forum",
+      "icons": [{ "src": "/dark_logo.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Araç DNA",
+      "short_name": "DNA",
+      "description": "Araç analiz ve karşılaştırma",
+      "url": "/arac-dna",
+      "icons": [{ "src": "/dark_logo.svg", "sizes": "any" }]
+    }
+  ]
+}

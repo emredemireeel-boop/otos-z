@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useCallback } from "react";
 import {
@@ -8,6 +8,7 @@ import {
     Smartphone, LayoutTemplate, AlignLeft, ChevronRight, Edit3,
     ToggleLeft, ToggleRight, Globe, PieChart, Target
 } from "lucide-react";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 //  Tipler 
 interface Ad {
@@ -114,9 +115,11 @@ export default function AdminReklamlarPage() {
     const fetchAds = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await fetch(`/api/admin?section=advertisements${search ? `&q=${search}` : ''}`);
-            const data = await res.json();
+            const data = await adminGet('advertisements', search ? { q: search } : undefined);
             if (data.success) { setAds(data.ads); setSummary(data.summary); }
+            else if (data.message) console.warn('Reklam API:', data.message);
+        } catch (e) {
+            console.error('Reklam yüklenemedi:', e);
         } finally {
             setLoading(false);
         }
@@ -130,14 +133,11 @@ export default function AdminReklamlarPage() {
     const apiAction = async (action: string, target: string, detail?: string) => {
         setActionLoading(true);
         try {
-            const res = await fetch('/api/admin', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action, target, detail }),
-            });
-            const data = await res.json();
+            const data = await adminPost({ action, target, detail });
             if (data.success) { await fetchAds(); return true; }
-        } finally { setActionLoading(false); }
+            else { console.warn('Admin API:', data.message); }
+        } catch (e) { console.error('Admin aksiyon hatası:', e); }
+        finally { setActionLoading(false); }
         return false;
     };
 

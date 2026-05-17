@@ -674,7 +674,7 @@ export default function Navbar() {
                                         border: '1px solid var(--dropdown-border)',
                                         borderRadius: '12px',
                                         padding: '8px',
-                                        boxShadow: '0 10px 40px var(--overlay-bg)',
+                                        boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
                                     }}>
                                         <Link href="/profil" style={{
                                             display: 'flex',
@@ -688,18 +688,37 @@ export default function Navbar() {
                                             <User style={{ width: '16px', height: '16px' }} />
                                             Profilim
                                         </Link>
-                                        <Link href="/islerim" style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '10px',
-                                            padding: '10px',
-                                            borderRadius: '8px',
-                                            color: 'var(--foreground)',
-                                            fontSize: '13px',
-                                        }}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="m9 14 2 2 4-4"/></svg>
-                                            İşlerim
-                                        </Link>
+                                        {/* İşlerim - sadece uzman/admin erişebilir */}
+                                        {((user?.role as string) === 'uzman' || (user?.role as string) === 'admin' || (user?.role as string) === 'moderator') ? (
+                                            <Link href="/islerim" style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '10px',
+                                                padding: '10px',
+                                                borderRadius: '8px',
+                                                color: 'var(--foreground)',
+                                                fontSize: '13px',
+                                            }}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="m9 14 2 2 4-4"/></svg>
+                                                İşlerim
+                                            </Link>
+                                        ) : (
+                                            <div style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '10px',
+                                                padding: '10px',
+                                                borderRadius: '8px',
+                                                color: 'var(--text-muted)',
+                                                fontSize: '13px',
+                                                opacity: 0.5,
+                                                cursor: 'not-allowed',
+                                            }}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="m9 14 2 2 4-4"/></svg>
+                                                İşlerim
+                                                <span style={{ fontSize: '10px', marginLeft: 'auto' }}>🔒</span>
+                                            </div>
+                                        )}
                                         <Link href="/ajanda" style={{
                                             display: 'flex',
                                             alignItems: 'center',
@@ -723,18 +742,6 @@ export default function Navbar() {
                                         }}>
                                             <Settings style={{ width: '16px', height: '16px' }} />
                                             Ayarlar
-                                        </Link>
-                                        <Link href="/usta-ol" style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '10px',
-                                            padding: '10px',
-                                            borderRadius: '8px',
-                                            color: 'var(--foreground)',
-                                            fontSize: '13px',
-                                        }}>
-                                            <Wrench style={{ width: '16px', height: '16px' }} />
-                                            Usta Ol
                                         </Link>
                                         <Link href="/uzman-ol" style={{
                                             display: 'flex',

@@ -6,6 +6,7 @@ import {
     ExternalLink, RefreshCw, Ban, Eye, Clock, Hash, Fuel,
     Gauge, AlertCircle, ChevronRight
 } from "lucide-react";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 interface LiveListing {
     id: string;
@@ -54,8 +55,7 @@ export default function AdminPazarPage() {
     const fetchListings = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await fetch(`/api/admin?section=listings${search ? `&q=${search}` : ''}`);
-            const data = await res.json();
+            const data = await adminGet('listings', search ? { q: search } : undefined);
             if (data.success) setListings(data.listings);
         } finally {
             setLoading(false);
@@ -70,12 +70,7 @@ export default function AdminPazarPage() {
     const apiAction = async (action: string, target: string, detail?: string) => {
         setActionLoading(true);
         try {
-            const res = await fetch('/api/admin', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action, target, detail }),
-            });
-            const data = await res.json();
+            const data = await adminPost({ action, target, detail });
             if (data.success) { await fetchListings(); return true; }
             return false;
         } finally {

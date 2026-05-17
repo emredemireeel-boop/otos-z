@@ -11,6 +11,7 @@ import {
     serverTimestamp, query, orderBy, increment
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 
 interface Nominee {
     id: number;
@@ -22,7 +23,6 @@ interface Survey {
     id: string;
     title: string;
     description: string;
-    iconName: string;
     category: string;
     status: string;
     totalVotes: number;
@@ -38,22 +38,11 @@ export default function AnketPage() {
     const [loading, setLoading] = useState(true);
     const [toast, setToast] = useState<{ message: string; type: 'error' | 'success' } | null>(null);
     const [showCreateModal, setShowCreateModal] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
 
     const categories = ["Tümü", "Motor", "Performans", "Modifiye", "Sürüş", "Genel"];
 
-    // Icon mapper
-    const getIcon = (iconName: string) => {
-        const props = { size: 24, className: "text-white" };
-        switch (iconName) {
-            case "Settings": return <Settings {...props} />;
-            case "Fuel": return <Fuel {...props} />;
-            case "CarFront": return <CarFront {...props} />;
-            case "Activity": return <Activity {...props} />;
-            case "Award": return <Award {...props} />;
-            case "none": return null;
-            default: return <Award {...props} />;
-        }
-    };
+
 
     const showToast = (message: string, type: 'error' | 'success') => {
         setToast({ message, type });
@@ -136,7 +125,7 @@ export default function AnketPage() {
     };
 
     // Create new survey
-    const handleCreateSurvey = async (data: { title: string; description: string; category: string; iconName: string; options: string[] }) => {
+    const handleCreateSurvey = async (data: { title: string; description: string; category: string; options: string[] }) => {
         if (!user) return;
         try {
             const nominees = data.options.map((name, i) => ({ id: i + 1, name, votes: 0 }));
@@ -144,7 +133,6 @@ export default function AnketPage() {
                 title: data.title,
                 description: data.description,
                 category: data.category,
-                iconName: data.iconName,
                 status: "active",
                 totalVotes: 0,
                 nominees,
@@ -157,7 +145,6 @@ export default function AnketPage() {
                 title: data.title,
                 description: data.description,
                 category: data.category,
-                iconName: data.iconName,
                 status: "active",
                 totalVotes: 0,
                 nominees,
@@ -176,6 +163,10 @@ export default function AnketPage() {
         if (selectedCategory === "Tümü") return surveys;
         return surveys.filter(s => s.category === selectedCategory);
     }, [surveys, selectedCategory]);
+
+    const ITEMS_PER_PAGE = 9;
+    const totalPages = Math.ceil(filteredSurveys.length / ITEMS_PER_PAGE);
+    const paginatedSurveys = filteredSurveys.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
     return (
         <div>
@@ -225,7 +216,7 @@ export default function AnketPage() {
                         {/* Category Pills */}
                         <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {categories.map((cat) => (
-                                <button key={cat} onClick={() => setSelectedCategory(cat)} style={{
+                                <button key={cat} onClick={() => { setSelectedCategory(cat); setCurrentPage(1); }} style={{
                                     padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '500',
                                     whiteSpace: 'nowrap', border: 'none', cursor: 'pointer',
                                     background: selectedCategory === cat ? 'var(--primary)' : 'var(--secondary)',
@@ -268,6 +259,50 @@ export default function AnketPage() {
                                 <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px' }}>
                                     <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Nasıl Çalışır?</h3>
                                     <p style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>Fikrinizi belirtmek için anketlere katılın. Sonuçlar anında güncellenir. Dilerseniz kendi anketinizi de oluşturabilirsiniz.</p>
+                                </div>
+
+                                {/* Pazar Vitrini */}
+                                <div style={{
+                                    marginTop: '16px',
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '16px',
+                                    padding: '16px',
+                                    overflow: 'hidden'
+                                }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                            Pazar Vitrini
+                                        </h3>
+                                        <Link href="/pazar" style={{ fontSize: '12px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }}>
+                                            Tümü
+                                        </Link>
+                                    </div>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                        {sampleListings.slice(0, 2).map((listing, index) => (
+                                            <Link key={listing.id || index} href="/pazar" style={{ textDecoration: 'none' }}>
+                                                <div style={{
+                                                    background: 'var(--secondary)',
+                                                    border: '1px solid var(--card-border)',
+                                                    borderRadius: '12px',
+                                                    padding: '12px',
+                                                    transition: 'all 0.2s',
+                                                    cursor: 'pointer'
+                                                }}
+                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
+                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
+                                                >
+                                                    <div style={{ fontSize: '13px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                                        {listing.brand} {listing.model}
+                                                    </div>
+                                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {formatKm(listing.km)}</span>
+                                                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e', whiteSpace: 'nowrap' }}>{formatListingPrice(listing.price)}</span>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </aside>
@@ -328,7 +363,8 @@ export default function AnketPage() {
                                     {selectedCategory === "Tümü" ? "Henuz anket olusturulmamis. Ilk anketi siz olusturun!" : "Bu kategoride henuz anket bulunmuyor."}
                                 </div>
                             ) : (
-                                filteredSurveys.map((survey) => {
+                                <>
+                                {paginatedSurveys.map((survey) => {
                                     const myVote = user ? (survey.voters || {})[user.id as string] : undefined;
                                     const hasVoted = myVote !== undefined;
 
@@ -343,15 +379,6 @@ export default function AnketPage() {
                                             {/* Survey Header */}
                                             <div style={{ padding: '20px', borderBottom: '1px solid var(--card-border)' }}>
                                                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                                                    {survey.iconName !== 'none' && (
-                                                        <div style={{
-                                                            width: '48px', height: '48px', borderRadius: '12px',
-                                                            background: 'var(--primary)', display: 'flex',
-                                                            alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                                                        }}>
-                                                            {getIcon(survey.iconName)}
-                                                        </div>
-                                                    )}
                                                     <div style={{ flex: 1 }}>
                                                         <h2 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px' }}>
                                                             {survey.title}
@@ -444,7 +471,50 @@ export default function AnketPage() {
                                             )}
                                         </div>
                                     );
-                                })
+                                })}
+
+                                {/* Pagination Controls */}
+                                {totalPages > 1 && (
+                                    <div style={{
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                                        marginTop: '16px', padding: '16px 0', borderTop: '1px solid var(--card-border)'
+                                    }}>
+                                        <button 
+                                            onClick={() => setCurrentPage(1)} 
+                                            disabled={currentPage === 1}
+                                            style={{ padding: '8px 12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '8px', color: currentPage === 1 ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
+                                        >
+                                            « İlk
+                                        </button>
+                                        <button 
+                                            onClick={() => setCurrentPage(p => Math.max(1, p - 1))} 
+                                            disabled={currentPage === 1}
+                                            style={{ padding: '8px 12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '8px', color: currentPage === 1 ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
+                                        >
+                                            ‹ Önceki
+                                        </button>
+                                        
+                                        <span style={{ fontSize: '14px', fontWeight: '600', padding: '0 12px', color: 'var(--foreground)' }}>
+                                            Sayfa {currentPage} / {totalPages}
+                                        </span>
+
+                                        <button 
+                                            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} 
+                                            disabled={currentPage === totalPages}
+                                            style={{ padding: '8px 12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '8px', color: currentPage === totalPages ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}
+                                        >
+                                            Sonraki ›
+                                        </button>
+                                        <button 
+                                            onClick={() => setCurrentPage(totalPages)} 
+                                            disabled={currentPage === totalPages}
+                                            style={{ padding: '8px 12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '8px', color: currentPage === totalPages ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}
+                                        >
+                                            Son »
+                                        </button>
+                                    </div>
+                                )}
+                                </>
                             )}
                         </div>
                     )}
@@ -481,9 +551,17 @@ export default function AnketPage() {
                                             <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Toplam Anket</div>
                                         </div>
                                         <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
-                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#10b981' }}>{surveys.reduce((acc, s) => acc + s.totalVotes, 0)}</div>
+                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#10b981' }}>{surveys.reduce((acc, s) => acc + s.totalVotes, 0).toLocaleString()}</div>
                                             <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Kullanılan Oy</div>
                                         </div>
+                                        {surveys.length > 0 && (
+                                            <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
+                                                <div style={{ fontSize: '16px', fontWeight: '700', color: '#f59e0b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                                    {surveys.reduce((prev, current) => (prev.totalVotes > current.totalVotes) ? prev : current).category}
+                                                </div>
+                                                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>En Popüler Kategori</div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -513,17 +591,16 @@ function CreateSurveyModal({
     categories,
 }: {
     onClose: () => void;
-    onCreate: (data: { title: string; description: string; category: string; iconName: string; options: string[] }) => void;
+    onCreate: (data: { title: string; description: string; category: string; options: string[] }) => void;
     categories: string[];
 }) {
     const [title, setTitle] = useState("Motor Tipi Tercihi: Benzin mi, Dizel mi, Elektrik mi?");
     const [description, setDescription] = useState("Performans, yakıt ekonomisi ve gelecek vizyonu açısından en doğru seçim hangisi?");
     const [category, setCategory] = useState("Genel");
-    const [iconName, setIconName] = useState("none");
     const [options, setOptions] = useState(["Benzin", "Dizel", "Elektrik"]);
 
     const addOption = () => {
-        if (options.length < 8) setOptions([...options, ""]);
+        if (options.length < 10) setOptions([...options, ""]);
     };
 
     const removeOption = (index: number) => {
@@ -543,7 +620,6 @@ function CreateSurveyModal({
             title: title.trim(),
             description: description.trim(),
             category,
-            iconName,
             options: options.filter(o => o.trim()),
         });
     };
@@ -591,25 +667,12 @@ function CreateSurveyModal({
                         <textarea value={description} onChange={e => setDescription(e.target.value)} placeholder="Kisa bir aciklama" rows={2} style={{ ...inputStyle, resize: 'none' }} />
                     </div>
 
-                    {/* Category & Icon */}
+                    {/* Category */}
                     <div style={{ marginBottom: '16px' }}>
-                        <div>
-                            <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '6px' }}>Kategori</label>
-                            <select value={category} onChange={e => setCategory(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
-                                {categories.map(c => <option key={c} value={c}>{c}</option>)}
-                            </select>
-                        </div>
-                        <div style={{ marginTop: '12px' }}>
-                            <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '6px' }}>İkon</label>
-                            <select value={iconName} onChange={e => setIconName(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
-                                <option value="none">İkon Yok</option>
-                                <option value="Award">Ödül</option>
-                                <option value="CarFront">Araç</option>
-                                <option value="Fuel">Yakıt</option>
-                                <option value="Settings">Ayar</option>
-                                <option value="Activity">Aktivite</option>
-                            </select>
-                        </div>
+                        <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '6px' }}>Kategori</label>
+                        <select value={category} onChange={e => setCategory(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
+                            {categories.map(c => <option key={c} value={c}>{c}</option>)}
+                        </select>
                     </div>
 
                     {/* Options */}
@@ -631,7 +694,7 @@ function CreateSurveyModal({
                                 </div>
                             ))}
                         </div>
-                        {options.length < 8 && (
+                        {options.length < 10 && (
                             <button type="button" onClick={addOption} style={{
                                 marginTop: '8px', padding: '8px 16px', borderRadius: '8px',
                                 background: 'var(--secondary)', border: '1px solid var(--card-border)',

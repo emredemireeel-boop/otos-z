@@ -6,6 +6,7 @@ import {
     RefreshCw, Bell, AlertTriangle, Info, MessageSquare,
     ChevronRight, GripVertical, Eye, Hash, Clock, ArrowUp, ArrowDown
 } from "lucide-react";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 interface LiveThread {
     id: string;
@@ -59,12 +60,11 @@ export default function AdminContentPage() {
     const fetchData = useCallback(async () => {
         setLoading(true);
         try {
-            const [threadsRes, trendRes, annRes] = await Promise.all([
-                fetch(`/api/admin?section=threads${search ? `&q=${search}` : ''}`),
-                fetch('/api/admin?section=trending'),
-                fetch('/api/admin?section=announcements'),
+            const [td, tr, an] = await Promise.all([
+                adminGet('threads', search ? { q: search } : undefined),
+                adminGet('trending'),
+                adminGet('announcements'),
             ]);
-            const [td, tr, an] = await Promise.all([threadsRes.json(), trendRes.json(), annRes.json()]);
             if (td.success) setThreads(td.threads);
             if (tr.success) setTrendingThreads(tr.trendingThreads);
             if (an.success) setAnnouncements(an.announcements);
@@ -81,12 +81,7 @@ export default function AdminContentPage() {
     const apiAction = async (action: string, target: string, detail?: string) => {
         setActionLoading(true);
         try {
-            const res = await fetch('/api/admin', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action, target, detail }),
-            });
-            const data = await res.json();
+            const data = await adminPost({ action, target, detail });
             if (data.success) { await fetchData(); return true; }
             return false;
         } finally {

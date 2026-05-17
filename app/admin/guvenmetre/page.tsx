@@ -6,6 +6,7 @@ import {
     Car, User, AlertCircle, Clock, Star, Hash, ChevronRight,
     Gauge, FileText, AlertTriangle
 } from "lucide-react";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 interface GuvenRequest {
     id: string;
@@ -24,8 +25,8 @@ type FilterType = 'hepsi' | 'bekleyen' | 'onaylanan' | 'reddedilen';
 type Modal = { type: 'approve' | 'reject'; req: GuvenRequest } | null;
 
 const SCORE_BONUSES = [
-    { label: 'Araç Ruhsatı DoÃ„şrulandı', pts: 150, checked: false },
-    { label: 'Profil FotoÃ„şrafı Mevcut', pts: 50, checked: false },
+    { label: 'Araç Ruhsatı Doğrulandı', pts: 150, checked: false },
+    { label: 'Profil Fotoğrafı Mevcut', pts: 50, checked: false },
     { label: '30+ Entry Girmiş', pts: 100, checked: false },
     { label: 'Premium Üye', pts: 80, checked: false },
     { label: 'Üyelik 6+ Ay', pts: 60, checked: false },
@@ -51,9 +52,11 @@ export default function AdminGuvenmetrePage() {
     const fetchRequests = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await fetch(`/api/admin?section=guvenmetre${search ? `&q=${search}` : ''}`);
-            const data = await res.json();
+            const data = await adminGet('guvenmetre', search ? { q: search } : undefined);
             if (data.success) setRequests(data.requests);
+            else console.warn('Güvenmetre API:', data.message);
+        } catch (e) {
+            console.error('Güvenmetre yüklenemedi:', e);
         } finally {
             setLoading(false);
         }
@@ -67,13 +70,11 @@ export default function AdminGuvenmetrePage() {
     const apiAction = async (action: string, target: string, detail?: string) => {
         setActionLoading(true);
         try {
-            const res = await fetch('/api/admin', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action, target, detail }),
-            });
-            const data = await res.json();
+            const data = await adminPost({ action, target, detail });
             if (data.success) { await fetchRequests(); return true; }
+            else console.warn('Admin aksiyon:', data.message);
+        } catch (e) {
+            console.error('Admin aksiyon hatası:', e);
         } finally {
             setActionLoading(false);
         }
@@ -133,7 +134,7 @@ export default function AdminGuvenmetrePage() {
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
                 <div>
-                    <h1 style={{ fontSize: '26px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '6px' }}>Güvenmetre & Garaj Doğrulama</h1>
+                    <h1 style={{ fontSize: '26px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '6px' }}>Güvenmetre</h1>
                     <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Araç sahiplik belgelerini incele ve güvenmetre puanını güncelle</p>
                 </div>
                 <button onClick={fetchRequests} disabled={loading} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', color: 'var(--foreground)', padding: '10px 16px', borderRadius: '10px', cursor: 'pointer', fontSize: '13px', fontWeight: '600' }}>

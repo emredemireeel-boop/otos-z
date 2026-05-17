@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { adminAuth } from './firebaseAdmin';
+import { getAdminAuth } from './firebaseAdmin';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from './firebase';
 
@@ -37,7 +37,7 @@ export async function verifyAuth(request: Request): Promise<AuthResult> {
         }
 
         // Firebase Admin SDK ile token dogrula
-        const decodedToken = await adminAuth.verifyIdToken(idToken);
+        const decodedToken = await getAdminAuth().verifyIdToken(idToken);
 
         // Firestore'dan guncel rolu al (cookie'ye guvenme!)
         let role = 'caylak';

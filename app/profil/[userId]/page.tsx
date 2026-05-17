@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { User, Settings, Bell, Car, MessageSquare, Heart, Award, Calendar, MapPin, Edit2, Camera, TrendingUp, Eye, ThumbsUp, X, Flag, Send, AlertTriangle } from "lucide-react";
+import { User, Settings, Bell, Car, MessageSquare, Heart, Award, Calendar, MapPin, Edit2, Camera, TrendingUp, Eye, ThumbsUp, X, Flag, Send, AlertTriangle, ShieldCheck, CheckCircle, ExternalLink } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter, useParams } from "next/navigation";
 import { getAllCities, getDistrictsForCity } from "@/data/locations";
 import { getAllBrands, getModelsForBrand } from "@/data/listings";
 import { doc, getDoc, setDoc, collection, query, where, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db, storage } from "@/lib/firebase";
+import { ref, uploadString, getDownloadURL } from "firebase/storage";
 import { startConversation } from "@/lib/messageService";
 import { getUserRating } from "@/lib/userService";
 import { Star } from "lucide-react";
@@ -34,6 +35,7 @@ interface UserProfileData {
     firstName: string;
     lastName: string;
     birthdate: string;
+    photoURL?: string;
 }
 
 // Mask name for privacy (show first letter + asterisks)
@@ -56,6 +58,12 @@ export default function ProfilPage() {
     const [reportReason, setReportReason] = useState("");
     const [reportSent, setReportSent] = useState(false);
     const [messageSending, setMessageSending] = useState(false);
+    const [showGarageModal, setShowGarageModal] = useState(false);
+    const [garagePlate, setGaragePlate] = useState("");
+    const [garageSubmitting, setGarageSubmitting] = useState(false);
+    const [garageSuccess, setGarageSuccess] = useState(false);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+    const [uploadingAvatar, setUploadingAvatar] = useState(false);
 
     // Check if viewing own profile
     const isOwnProfile = user?.username === userId;
@@ -71,7 +79,8 @@ export default function ProfilPage() {
         displayUsername: userId || "",
         firstName: "",
         lastName: "",
-        birthdate: ""
+        birthdate: "",
+        photoURL: ""
     });
     const [profileLoaded, setProfileLoaded] = useState(false);
     const [otherUserData, setOtherUserData] = useState<{id:string; role:string; entryCount:number; createdAt?:any} | null>(null);
@@ -99,6 +108,7 @@ export default function ProfilPage() {
                         firstName: data.firstName || "",
                         lastName: data.lastName || "",
                         birthdate: data.birthdate || "",
+                        photoURL: data.photoURL || ""
                     });
                     setOtherUserData({
                         id: userDoc.id,
@@ -166,6 +176,78 @@ export default function ProfilPage() {
         }
     };
 
+    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files || e.target.files.length === 0 || !user) return;
+        const file = e.target.files[0];
+        
+        // Cihazda resmi 100x100 boyutuna küçült
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            const img = new Image();
+            img.onload = async () => {
+                const canvas = document.createElement("canvas");
+                canvas.width = 100;
+                canvas.height = 100;
+                const ctx = canvas.getContext("2d");
+                if (ctx) {
+                    // Resmi ortala ve kırp (Cover)
+                    const minDim = Math.min(img.width, img.height);
+                    const srcX = (img.width - minDim) / 2;
+                    const srcY = (img.height - minDim) / 2;
+                    ctx.drawImage(img, srcX, srcY, minDim, minDim, 0, 0, 100, 100);
+                    
+                    const dataUrl = canvas.toDataURL("image/webp", 0.8); // Düşük boyutlu WebP
+                    
+                    try {
+                        setUploadingAvatar(true);
+                        const avatarRef = ref(storage, `avatars/${user.id}.webp`);
+                        await uploadString(avatarRef, dataUrl, 'data_url');
+                        const downloadURL = await getDownloadURL(avatarRef);
+                        
+                        await setDoc(doc(db, "users", user.id as string), {
+                            photoURL: downloadURL
+                        }, { merge: true });
+                        
+                        setProfileData(prev => ({...prev, photoURL: downloadURL}));
+                        setPhotoToast(true);
+                        setTimeout(() => setPhotoToast(false), 3000);
+                    } catch (err) {
+                        console.error("Avatar yüklenirken hata:", err);
+                    } finally {
+                        setUploadingAvatar(false);
+                    }
+                }
+            };
+            img.src = event.target?.result as string;
+        };
+        reader.readAsDataURL(file);
+    };
+
+    const handleGarageVerifySubmit = async () => {
+        if (!user || !garagePlate.trim()) return;
+        setGarageSubmitting(true);
+        try {
+            await addDoc(collection(db, "guvenmetre"), {
+                userId: user.id,
+                username: user.username,
+                displayName: profileData.displayUsername,
+                carBrand: profileData.carBrand || "Belirtilmedi",
+                carModel: profileData.carModel || "Belirtilmedi",
+                plate: garagePlate.trim().toUpperCase(),
+                createdAt: serverTimestamp(),
+                status: "pending",
+                score: 0,
+                note: ""
+            });
+            setGarageSuccess(true);
+            setTimeout(() => { setShowGarageModal(false); setGarageSuccess(false); setGaragePlate(""); }, 2000);
+        } catch (e) {
+            console.error("Garaj başvurusu yapılamadı:", e);
+        } finally {
+            setGarageSubmitting(false);
+        }
+    };
+
     const handleProfileUpdate = async (newData: UserProfileData) => {
         setProfileData(newData);
         setShowEditModal(false);
@@ -219,11 +301,10 @@ export default function ProfilPage() {
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
-                {/* Photo Toast */}
                 {photoToast && (
                     <div style={{ position:'fixed', top:'80px', left:'50%', transform:'translateX(-50%)', zIndex:9999, background:'var(--card-bg)', border:'1px solid var(--card-border)', borderRadius:'12px', padding:'14px 24px', boxShadow:'0 8px 30px rgba(0,0,0,0.3)', display:'flex', alignItems:'center', gap:'10px', animation:'slideDown 0.3s ease' }}>
-                        <Camera size={18} style={{color:'var(--primary)'}} />
-                        <span style={{fontSize:'14px',color:'var(--foreground)',fontWeight:'500'}}>Profil fotografi yakinda! Sabret biraz 😄</span>
+                        <CheckCircle size={18} style={{color:'#10B981'}} />
+                        <span style={{fontSize:'14px',color:'var(--foreground)',fontWeight:'500'}}>Profil fotoğrafınız güncellendi!</span>
                     </div>
                 )}
 
@@ -237,11 +318,21 @@ export default function ProfilPage() {
                         <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
                             {/* Avatar */}
                             <div style={{ position: 'relative' }}>
+                                <input 
+                                    type="file" 
+                                    accept="image/*" 
+                                    style={{ display: 'none' }} 
+                                    ref={fileInputRef} 
+                                    onChange={handleFileChange} 
+                                />
                                 <div style={{
                                     width: '120px',
                                     height: '120px',
                                     borderRadius: '50%',
                                     background: 'var(--primary)',
+                                    backgroundImage: profileData.photoURL ? `url(${profileData.photoURL})` : 'none',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
@@ -249,17 +340,28 @@ export default function ProfilPage() {
                                     fontWeight: '700',
                                     color: 'white',
                                     border: '4px solid var(--card-border)',
+                                    overflow: 'hidden'
                                 }}>
-                                    {profileData.displayUsername.charAt(0).toUpperCase()}
+                                    {!profileData.photoURL && profileData.displayUsername.charAt(0).toUpperCase()}
                                 </div>
-                                <button onClick={() => { setPhotoToast(true); setTimeout(() => setPhotoToast(false), 3000); }} style={{
-                                    position: 'absolute', bottom: '0', right: '0',
-                                    width: '36px', height: '36px', borderRadius: '50%',
-                                    background: 'var(--primary)', border: '3px solid var(--background)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-                                }}>
-                                    <Camera style={{ width: '16px', height: '16px', color: 'white' }} />
-                                </button>
+                                {isOwnProfile && (
+                                    <button 
+                                        onClick={() => fileInputRef.current?.click()} 
+                                        disabled={uploadingAvatar}
+                                        style={{
+                                        position: 'absolute', bottom: '0', right: '0',
+                                        width: '36px', height: '36px', borderRadius: '50%',
+                                        background: 'var(--primary)', border: '3px solid var(--background)',
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+                                        opacity: uploadingAvatar ? 0.5 : 1
+                                    }}>
+                                        {uploadingAvatar ? (
+                                            <div style={{ width: '16px', height: '16px', border: '2px solid white', borderTop: '2px solid transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+                                        ) : (
+                                            <Camera style={{ width: '16px', height: '16px', color: 'white' }} />
+                                        )}
+                                    </button>
+                                )}
                             </div>
 
                             {/* User Info */}
@@ -320,15 +422,30 @@ export default function ProfilPage() {
                                             {locationString}
                                         </span>
                                     )}
+                                    {/* Sahibinden Linki */}
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                        <ExternalLink style={{ width: '14px', height: '14px' }} />
+                                        <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: '#FFD700', textDecoration: 'none', fontWeight: '600' }}>Sahibinden İlanları</a>
+                                    </span>
+                                    {/* Arabam Linki */}
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                        <ExternalLink style={{ width: '14px', height: '14px' }} />
+                                        <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: '#ef4444', textDecoration: 'none', fontWeight: '600' }}>Arabam.com</a>
+                                    </span>
                                 </div>
                             </div>
 
                             {/* Action Buttons */}
                             <div style={{ display:'flex', gap:'10px', flexWrap:'wrap' }}>
                                 {isOwnProfile ? (
-                                    <button onClick={() => setShowEditModal(true)} style={{ display:'flex', alignItems:'center', gap:'8px', padding:'10px 20px', background:'var(--secondary)', border:'1px solid var(--card-border)', borderRadius:'10px', color:'var(--foreground)', fontSize:'14px', fontWeight:'500', cursor:'pointer' }}>
-                                        <Edit2 size={16} /> Profili Duzenle
-                                    </button>
+                                    <>
+                                        <button onClick={() => setShowEditModal(true)} style={{ display:'flex', alignItems:'center', gap:'8px', padding:'10px 20px', background:'var(--secondary)', border:'1px solid var(--card-border)', borderRadius:'10px', color:'var(--foreground)', fontSize:'14px', fontWeight:'500', cursor:'pointer' }}>
+                                            <Edit2 size={16} /> Profili Duzenle
+                                        </button>
+                                        <button onClick={() => setShowGarageModal(true)} style={{ display:'flex', alignItems:'center', gap:'8px', padding:'10px 20px', background:'var(--primary)', border:'1px solid var(--primary)', borderRadius:'10px', color:'white', fontSize:'14px', fontWeight:'600', cursor:'pointer', boxShadow:'0 4px 12px rgba(255,107,0,0.3)' }}>
+                                            <ShieldCheck size={16} /> Garajı Doğrula
+                                        </button>
+                                    </>
                                 ) : (
                                     <>
                                         <button onClick={handleSendMessage} disabled={messageSending} style={{ display:'flex', alignItems:'center', gap:'8px', padding:'10px 20px', background:'var(--primary)', border:'none', borderRadius:'10px', color:'white', fontSize:'14px', fontWeight:'600', cursor:'pointer' }}>
@@ -497,6 +614,48 @@ export default function ProfilPage() {
                                     <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>
                                         <button onClick={() => setShowReportModal(false)} style={{ padding: '10px 20px', borderRadius: '10px', background: 'transparent', border: '1px solid var(--card-border)', color: 'var(--foreground)', cursor: 'pointer', fontWeight: '500' }}>Iptal</button>
                                         <button onClick={handleReport} disabled={!reportReason.trim()} style={{ padding: '10px 20px', borderRadius: '10px', background: '#ef4444', border: 'none', color: 'white', cursor: 'pointer', fontWeight: '600', opacity: reportReason.trim() ? 1 : 0.5 }}>Sikayet Gonder</button>
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {/* Garage Verification Modal */}
+                {showGarageModal && (
+                    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '20px' }}>
+                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', width: '100%', maxWidth: '420px', padding: '24px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                                <h2 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <ShieldCheck size={20} color="var(--primary)" /> Garaj Doğrulama (Güvenmetre)
+                                </h2>
+                                <button onClick={() => setShowGarageModal(false)} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}><X size={20} /></button>
+                            </div>
+                            {garageSuccess ? (
+                                <div style={{ textAlign: 'center', padding: '20px 0' }}>
+                                    <CheckCircle size={48} color="#22c55e" style={{ margin: '0 auto 16px' }} />
+                                    <h3 style={{ color: '#22c55e', fontSize: '18px', fontWeight: '700', marginBottom: '8px' }}>Başvuru Alındı!</h3>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Garaj doğrulama başvurunuz başarıyla yöneticilere iletildi. En kısa sürede incelenecektir.</p>
+                                </div>
+                            ) : (
+                                <>
+                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                                        Güvenmetre ile aracınızı doğrulatarak profilinizde <b>"Garaj Doğrulandı"</b> rozeti kazanabilir ve toplulukta güvenilirliğinizi artırabilirsiniz. Lütfen araç plakanızı girin.
+                                    </p>
+                                    <div style={{ marginBottom: '20px' }}>
+                                        <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>Araç Plakası</label>
+                                        <input 
+                                            value={garagePlate} 
+                                            onChange={(e) => setGaragePlate(e.target.value)} 
+                                            placeholder="Örn: 34 ABC 123" 
+                                            style={{ width: '100%', padding: '12px', borderRadius: '10px', background: 'var(--secondary)', border: '1px solid var(--card-border)', color: 'var(--foreground)', outline: 'none', fontSize: '15px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px' }} 
+                                        />
+                                    </div>
+                                    <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>
+                                        <button onClick={() => setShowGarageModal(false)} style={{ padding: '10px 20px', borderRadius: '10px', background: 'transparent', border: '1px solid var(--card-border)', color: 'var(--foreground)', cursor: 'pointer', fontWeight: '500' }}>İptal</button>
+                                        <button onClick={handleGarageVerifySubmit} disabled={!garagePlate.trim() || garageSubmitting} style={{ padding: '10px 20px', borderRadius: '10px', background: 'var(--primary)', border: 'none', color: 'white', cursor: 'pointer', fontWeight: '600', opacity: (!garagePlate.trim() || garageSubmitting) ? 0.5 : 1, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                            {garageSubmitting ? 'Gönderiliyor...' : 'Başvuruyu Gönder'}
+                                        </button>
                                     </div>
                                 </>
                             )}

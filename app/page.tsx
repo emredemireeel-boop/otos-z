@@ -61,6 +61,7 @@ export default function Home() {
     const [platformStats, setPlatformStats] = useState({ totalThreads: 0, totalEntries: 0, totalUsers: 0, todayThreads: 0 });
     const [homeSurveys, setHomeSurveys] = useState<any[]>([]);
     const [sidebarAd, setSidebarAd] = useState<any>(null);
+    const [globalUserMap, setGlobalUserMap] = useState<Record<string, { photoURL: string | null }>>({});
 
     // ── Yakıt Fiyatları Ticker State ──────────────────────────────────────────
     interface FuelPrice { name: string; price: string; trend: string; }
@@ -182,11 +183,19 @@ export default function Home() {
             try {
                 const usersRef = collection(db, 'users');
                 const snap = await getDocs(usersRef);
-                const allUsers = snap.docs.map(d => ({
-                    username: d.data().username || 'anonim',
-                    role: d.data().role || 'caylak',
-                    entryCount: d.data().entryCount || 0,
-                }));
+                const userMap: Record<string, { photoURL: string | null }> = {};
+                const allUsers = snap.docs.map(d => {
+                    const data = d.data();
+                    if (data.username) {
+                        userMap[data.username] = { photoURL: data.photoURL || null };
+                    }
+                    return {
+                        username: data.username || 'anonim',
+                        role: data.role || 'caylak',
+                        entryCount: data.entryCount || 0,
+                    };
+                });
+                setGlobalUserMap(userMap);
                 setPlatformStats(prev => ({ ...prev, totalUsers: allUsers.length }));
                 // En aktif yazarlari sirala
                 allUsers.sort((a, b) => (b.entryCount || 0) - (a.entryCount || 0));
@@ -415,9 +424,13 @@ export default function Home() {
                                             fontSize: '10px',
                                             fontWeight: '700',
                                             background: levelColors[topic.authorLevel]?.bg || '#333',
+                                            backgroundImage: globalUserMap[topic.lastAuthor]?.photoURL ? `url(${globalUserMap[topic.lastAuthor].photoURL})` : 'none',
+                                            backgroundSize: 'cover',
+                                            backgroundPosition: 'center',
                                             color: levelColors[topic.authorLevel]?.text || '#888',
+                                            overflow: 'hidden'
                                         }}>
-                                            {topic.lastAuthor.charAt(0).toUpperCase()}
+                                            {!globalUserMap[topic.lastAuthor]?.photoURL && topic.lastAuthor.charAt(0).toUpperCase()}
                                         </span>
                                         <span style={{ color: 'var(--primary)' }}>@{topic.lastAuthor}</span>
                                     </span>

@@ -6,7 +6,8 @@ import { useSearchParams } from "next/navigation";
 import {
     Bell, Lock, Globe, Trash2, ArrowRight, Moon, Sun, Award,
     MessageSquare, Store, BarChart3, Dna, ClipboardCheck, Shield,
-    CheckCircle, ExternalLink, Loader2, MapPin, Phone, Building2, Plus, X
+    CheckCircle, ExternalLink, Loader2, MapPin, Phone, Building2, Plus, X,
+    Briefcase, ShieldCheck, Sparkles
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
@@ -26,7 +27,8 @@ export default function SettingsPage() {
     const { user } = useAuth();
     const { theme, toggleTheme } = useTheme();
     const searchParams = useSearchParams();
-    const initialTab = searchParams.get("tab") === "usta" ? "usta" : "notifications";
+    const tabParam = searchParams.get("tab");
+    const initialTab = tabParam === "usta" ? "usta" : tabParam === "uzman" ? "uzman" : "notifications";
     const [activeTab, setActiveTab] = useState(initialTab);
     const [settings, setSettings] = useState({
         emailNotifications: true,
@@ -74,6 +76,7 @@ export default function SettingsPage() {
         { id: "notifications", name: "Bildirimler", icon: Bell },
         { id: "appearance", name: "Görünüm", icon: Moon },
         { id: "usta", name: "Usta Ol!", icon: Award },
+        { id: "uzman", name: "Uzman Ol", icon: Briefcase },
         { id: "account", name: "Hesap", icon: Lock },
         { id: "about", name: "Hakkında", icon: Globe },
     ];
@@ -396,6 +399,68 @@ export default function SettingsPage() {
                             </div>
                         )}
 
+                        {activeTab === "uzman" && (
+                            <div>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                                    <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'var(--foreground)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <Briefcase size={24} color="var(--background)" />
+                                    </div>
+                                    <div>
+                                        <h2 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--foreground)', margin: 0 }}>Uzman Ol</h2>
+                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: 0 }}>Profesyonel uzmanlığını kanıtla</p>
+                                    </div>
+                                </div>
+
+                                {/* Rol Hiyerarşisi */}
+                                <div style={{ marginBottom: '24px' }}>
+                                    <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Kullanıcı Seviyeleri</h3>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                        {[
+                                            { role: 'Çaylak', desc: 'Yeni üyeler. Forum okuma ve temel katılım.', active: !isUsta },
+                                            { role: 'Usta', desc: 'Görevleri tamamlamış deneyimli üyeler. Tüm forum özellikleri.', active: user?.role === 'usta' },
+                                            { role: 'Uzman', desc: 'Profesyonel belgelerle doğrulanmış sektör uzmanları. İş talebi alabilir.', active: (user?.role as string) === 'uzman' },
+                                        ].map((level, i) => (
+                                            <div key={i} style={{
+                                                display: 'flex', alignItems: 'center', gap: '12px',
+                                                padding: '14px 16px', borderRadius: '10px',
+                                                background: level.active ? 'var(--secondary)' : 'transparent',
+                                                border: level.active ? '1px solid var(--foreground)' : '1px solid var(--card-border)',
+                                            }}>
+                                                <div style={{
+                                                    width: '8px', height: '8px', borderRadius: '50%',
+                                                    background: level.active ? 'var(--foreground)' : 'var(--card-border)',
+                                                }} />
+                                                <div>
+                                                    <div style={{ fontSize: '13px', fontWeight: '700', color: level.active ? 'var(--foreground)' : 'var(--text-muted)' }}>
+                                                        {level.role} {level.active && '← Şu anki seviyeniz'}
+                                                    </div>
+                                                    <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{level.desc}</div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* CTA */}
+                                <Link href="/uzman-ol" style={{ textDecoration: 'none' }}>
+                                    <button style={{
+                                        width: '100%', padding: '14px', borderRadius: '12px',
+                                        background: 'var(--foreground)', color: 'var(--background)',
+                                        border: 'none', fontSize: '14px', fontWeight: '700',
+                                        cursor: 'pointer', display: 'flex', alignItems: 'center',
+                                        justifyContent: 'center', gap: '8px',
+                                    }}>
+                                        <Briefcase size={16} /> Uzman Başvurusu Yap
+                                    </button>
+                                </Link>
+
+                                <div style={{ marginTop: '16px', padding: '14px 16px', background: 'var(--secondary)', borderRadius: '10px', fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                                    <strong style={{ color: 'var(--foreground)' }}>Uzman ne kazanır?</strong><br />
+                                    Uzman rozeti, İşlerim paneli erişimi, iş talebi alabilme, toplulukta güvenilir profil ve öncelikli görünürlük.
+                                </div>
+                            </div>
+                        )}
+
                         {activeTab === "account" && (
                             <div>
                                 <h2 style={{
@@ -404,6 +469,43 @@ export default function SettingsPage() {
                                     color: 'var(--foreground)',
                                     marginBottom: '24px',
                                 }}>Hesap Ayarları</h2>
+
+                                <div style={{ marginBottom: '32px' }}>
+                                    <h3 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '16px' }}>Harici İlan Profilleri</h3>
+                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px' }}>Profilinizde gösterilecek mağaza veya ilan sayfası linklerinizi buraya ekleyebilirsiniz.</p>
+
+                                    <div style={{ marginBottom: '16px' }}>
+                                        <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>Sahibinden.com Mağaza / İlan Linki</label>
+                                        <input
+                                            type="url"
+                                            placeholder="https://ikinciel.sahibinden.com/..."
+                                            style={{
+                                                width: '100%', padding: '12px 16px', background: 'var(--secondary)',
+                                                border: '1px solid var(--card-border)', borderRadius: '8px',
+                                                color: 'var(--foreground)', fontSize: '14px',
+                                            }}
+                                        />
+                                    </div>
+                                    <div style={{ marginBottom: '16px' }}>
+                                        <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>Arabam.com Mağaza / İlan Linki</label>
+                                        <input
+                                            type="url"
+                                            placeholder="https://www.arabam.com/galeri/..."
+                                            style={{
+                                                width: '100%', padding: '12px 16px', background: 'var(--secondary)',
+                                                border: '1px solid var(--card-border)', borderRadius: '8px',
+                                                color: 'var(--foreground)', fontSize: '14px',
+                                            }}
+                                        />
+                                    </div>
+                                    <button style={{
+                                        padding: '10px 20px', background: 'var(--foreground)', border: 'none',
+                                        borderRadius: '8px', color: 'var(--background)', fontSize: '13px',
+                                        fontWeight: '600', cursor: 'pointer',
+                                    }}>
+                                        Linkleri Kaydet
+                                    </button>
+                                </div>
 
                                 <div style={{ marginBottom: '32px' }}>
                                     <h3 style={{
@@ -513,75 +615,77 @@ export default function SettingsPage() {
                         )}
 
                         {activeTab === "about" && (
-                            <div>
-                                <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                                {/* Logo & Başlık */}
+                                <div style={{ textAlign: 'center', padding: '40px 0' }}>
                                     <div style={{
-                                        width: '80px',
-                                        height: '80px',
-                                        background: 'linear-gradient(135deg, var(--primary), #FFD700)',
-                                        borderRadius: '20px',
-                                        margin: '0 auto 20px',
+                                        width: '100px',
+                                        height: '100px',
+                                        background: 'var(--foreground)',
+                                        borderRadius: '24px',
+                                        margin: '0 auto 24px',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        boxShadow: '0 10px 30px rgba(255, 107, 0, 0.3)'
+                                        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)'
                                     }}>
-                                        <Globe style={{ width: '40px', height: '40px', color: 'white' }} />
+                                        <Globe style={{ width: '50px', height: '50px', color: 'var(--background)' }} />
                                     </div>
-                                    <h2 style={{ fontSize: '32px', fontWeight: '800', marginBottom: '12px', background: 'linear-gradient(to right, var(--foreground), var(--text-muted))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                                    <h2 style={{ fontSize: '36px', fontWeight: '900', marginBottom: '16px', color: 'var(--foreground)', letterSpacing: '-1px' }}>
                                         OTOSÖZ
                                     </h2>
-                                    <p style={{ fontSize: '16px', color: 'var(--text-muted)', maxWidth: '500px', margin: '0 auto', lineHeight: '1.6' }}>
-                                        Türkiye'nin yapay zeka destekli en kapsamlı ikinci el araç pazar yeri ve analiz platformu.
+                                    <p style={{ fontSize: '16px', color: 'var(--text-muted)', maxWidth: '540px', margin: '0 auto', lineHeight: '1.6' }}>
+                                        Otomotiv sektöründe güveni ve şeffaflığı merkeze alan, Türkiye'nin yeni nesil otomobil platformu.
                                     </p>
                                 </div>
 
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '40px' }}>
-                                    {[
-                                        { title: "Veri Odaklı", desc: "Milyonlarca veri noktasıyla en doğru fiyat analizi.", icon: "📊" },
-                                        { title: "Güvenli", desc: "Doğrulanmış satıcılar ve şeffaf ekspertiz raporları.", icon: "🛠️" },
-                                        { title: "Hızlı", desc: "Saniyeler içinde ilan verin, hayalinizdeki aracı bulun.", icon: "⚡" }
-                                    ].map((item, idx) => (
-                                        <div key={idx} style={{
-                                            padding: '20px',
-                                            background: 'var(--secondary)',
-                                            borderRadius: '16px',
-                                            border: '1px solid var(--card-border)',
-                                            textAlign: 'center'
-                                        }}>
-                                            <div style={{ fontSize: '32px', marginBottom: '12px' }}>{item.icon}</div>
-                                            <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '8px', color: 'var(--foreground)' }}>{item.title}</h3>
-                                            <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5' }}>{item.desc}</p>
+                                {/* Misyon & Vizyon */}
+                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+                                    <div style={{ padding: '32px', background: 'var(--secondary)', borderRadius: '20px', border: '1px solid var(--card-border)' }}>
+                                        <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--foreground)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                                            <ShieldCheck style={{ color: 'var(--background)' }} />
                                         </div>
-                                    ))}
+                                        <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '12px' }}>Misyonumuz</h3>
+                                        <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.7' }}>
+                                            İkinci el araç pazarındaki bilgi kirliliğini ortadan kaldırarak; satıcı ile alıcıyı, ustalarla araç sahiplerini tek bir şeffaf düzlemde, güven içerisinde buluşturmak. Herkesin otomotiv dünyasına adil ve doğru bilgiyle erişimini sağlamak.
+                                        </p>
+                                    </div>
+                                    <div style={{ padding: '32px', background: 'var(--secondary)', borderRadius: '20px', border: '1px solid var(--card-border)' }}>
+                                        <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--foreground)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                                            <Sparkles style={{ color: 'var(--background)' }} />
+                                        </div>
+                                        <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '12px' }}>Vizyonumuz</h3>
+                                        <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.7' }}>
+                                            Türkiye'nin sadece en büyük değil, aynı zamanda en "güvenilir" otomotiv süper-uygulaması olmak. Yapay zeka ve topluluk gücünü birleştirerek, otomobil dendiğinde akla gelen ilk teknoloji odaklı referans noktasına dönüşmek.
+                                        </p>
+                                    </div>
                                 </div>
 
-                                <div style={{
-                                    padding: '30px',
-                                    background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
-                                    borderRadius: '16px',
-                                    border: '1px solid var(--card-border)',
-                                }}>
-                                    <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '20px', color: 'var(--foreground)' }}>İletişim & Künye</h3>
+                                {/* İletişim & Adres */}
+                                <div style={{ padding: '32px', background: 'var(--card-bg)', borderRadius: '20px', border: '1px solid var(--card-border)' }}>
+                                    <h3 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '24px', color: 'var(--foreground)' }}>İletişim & Künye</h3>
 
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid var(--card-border)' }}>
-                                            <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>E-posta</span>
-                                            <span style={{ color: 'var(--foreground)', fontWeight: '500', fontSize: '14px' }}>iletisim@otosoz.com</span>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '16px', borderBottom: '1px dashed var(--card-border)' }}>
+                                            <span style={{ color: 'var(--text-muted)', fontSize: '14px', fontWeight: '500' }}>E-posta</span>
+                                            <span style={{ color: 'var(--foreground)', fontWeight: '600', fontSize: '14px' }}>iletisim@otosoz.com</span>
                                         </div>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid var(--card-border)' }}>
-                                            <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Genel Merkez</span>
-                                            <span style={{ color: 'var(--foreground)', fontWeight: '500', fontSize: '14px', textAlign: 'right' }}>Teknopark İzmir, A1 Blok<br />Urla, İzmir</span>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingBottom: '16px', borderBottom: '1px dashed var(--card-border)' }}>
+                                            <span style={{ color: 'var(--text-muted)', fontSize: '14px', fontWeight: '500' }}>Genel Merkez</span>
+                                            <div style={{ textAlign: 'right' }}>
+                                                <span style={{ color: 'var(--foreground)', fontWeight: '700', fontSize: '15px', display: 'block', marginBottom: '4px' }}>Armada AVM</span>
+                                                <span style={{ color: 'var(--text-muted)', fontSize: '13px' }}>Söğütözü, Yenimahalle / Ankara</span>
+                                            </div>
                                         </div>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                            <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Versiyon</span>
-                                            <span style={{ color: 'var(--primary)', fontWeight: '700', fontSize: '14px' }}>v1.0.0 Alpha</span>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            <span style={{ color: 'var(--text-muted)', fontSize: '14px', fontWeight: '500' }}>Sürüm</span>
+                                            <span style={{ color: 'var(--foreground)', fontWeight: '800', fontSize: '14px', padding: '4px 10px', background: 'var(--secondary)', borderRadius: '8px' }}>v1.0.0 Alpha</span>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div style={{ marginTop: '40px', textAlign: 'center' }}>
-                                    <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>© 2025 OTOSÖZ. Tüm hakları saklıdır.</p>
+                                <div style={{ textAlign: 'center', padding: '20px 0' }}>
+                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', fontWeight: '500' }}>© 2026 OTOSÖZ. Tüm hakları saklıdır.</p>
                                 </div>
                             </div>
                         )}

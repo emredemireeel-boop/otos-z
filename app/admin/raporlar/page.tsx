@@ -7,6 +7,7 @@ import {
     User, FileText, Clock, CheckCircle, XCircle,
     ShieldAlert, Filter, SlidersHorizontal, ExternalLink
 } from "lucide-react";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 //  Tipler 
 type ReportType = "entry" | "baslik" | "kullanici" | "ilan";
@@ -30,16 +31,6 @@ interface Report {
     count: number; // aynı içerik kaç kere rapor edildi
 }
 
-const MOCK_REPORTS: Report[] = [
-    { id: "r-001", type: "entry", targetId: "e-155", targetTitle: "lpg araba almak mantıklı mı", targetAuthor: "modifiyeci", targetContent: "Bu sözlükte yazan herkes cahil, kesinlikle okumayın. Hepsi yanlış bilgi veriyor.", reportedBy: "turbosever", reason: "Hakaret & Küçümseme", category: "hakaret", date: "18.04.2026 - 11:42", status: "bekliyor", priority: "yuksek", notes: "", count: 7 },
-    { id: "r-002", type: "kullanici", targetId: "spambot99", targetTitle: "Kullanıcı: @spambot99", targetAuthor: "spambot99", targetContent: "Profil: 20 dakikada 15 aynı entry paylaşıyor, link spam.", reportedBy: "yolcanavari", reason: "Spam & Bot Aktivitesi", category: "spam", date: "18.04.2026 - 10:15", status: "bekliyor", priority: "kritik", notes: "", count: 12 },
-    { id: "r-003", type: "entry", targetId: "e-089", targetTitle: "bmw vs mercedes hangisi daha iyi", targetAuthor: "almanhayrani", targetContent: "BMW alanlar bok yiyor diyeyim de geçeyim. Sadece gösteriş meraklıları alır.", reportedBy: "sedansevdalisi", reason: "Kaba Dil & Küfür", category: "kufur", date: "17.04.2026 - 22:30", status: "bekliyor", priority: "orta", notes: "", count: 3 },
-    { id: "r-004", type: "baslik", targetId: "t-044", targetTitle: "gizli Şirket ürün iÃŒâ€¡ncelemesi aöklsjdf", targetAuthor: "reklamposter", targetContent: "Başlık: Belirli bir markaya gizli reklam niteliÃ„şinde içerik barındırıyor.", reportedBy: "lpglisurucu", reason: "Reklam / Sponsorlu İçerik", category: "reklam", date: "17.04.2026 - 18:55", status: "incelendi", priority: "orta", notes: "İnceleniyor, marka doÃ„şrulanacak.", count: 2 },
-    { id: "r-005", type: "ilan", targetId: "l-003", targetTitle: "2019 BMW 3 Series - 320i", targetAuthor: "vites_kolu_34", targetContent: "İlan: FotoÃ„şraflar başka araçtan alınmış, km bilgisi manipüle edilmiş olabilir.", reportedBy: "suvkrali", reason: "Sahte / Yanıltıcı İlan", category: "yaniltici", date: "17.04.2026 - 14:20", status: "bekliyor", priority: "yuksek", notes: "", count: 5 },
-    { id: "r-006", type: "entry", targetId: "e-201", targetTitle: "elektrikli araç gerçekten değer mi", targetAuthor: "elektriklidunya", targetContent: "Bu entry'deki bilgiler tamamen yanlış. Yazar hiç araştırmadan yazmış, yanlış bilgi yayıyor.", reportedBy: "manuelci", reason: "Yanlış / Yanıltıcı Bilgi", category: "yaniltici", date: "16.04.2026 - 09:10", status: "islendi", priority: "dusuk", notes: "Entry düzenlendi, yazar uyarıldı.", count: 1 },
-    { id: "r-007", type: "kullanici", targetId: "troll_hesap", targetTitle: "Kullanıcı: @troll_hesap", targetAuthor: "troll_hesap", targetContent: "Her entryde başkalarına aşaÃ„şılayıcı yorumlar. Birden fazla kullanıcı tarafından raporlanmış.", reportedBy: "japonguvenlir", reason: "Trollük & Taciz", category: "taciz", date: "15.04.2026 - 16:45", status: "islendi", priority: "yuksek", notes: "Hesap 7 günlüÃ„şüne askıya alındı.", count: 9 },
-    { id: "r-008", type: "entry", targetId: "e-315", targetTitle: "sigorta dolandırıcılıÃ„şı nasıl", targetAuthor: "anonim_yazar", targetContent: "Entry sigorta dolandırıcılıÃ„şı hakkında nasıl yapılacaÃ„şına dair adım adım bilgi içeriyor.", reportedBy: "turbosever", reason: "Yasadışı İçerik", category: "yasadisi", date: "15.04.2026 - 08:30", status: "reddedildi", priority: "kritik", notes: "Entry kaldırılmadı, yanlış rapor.", count: 1 },
-];
 
 const CATEGORIES = [
     { key: "hepsi", label: "Tümü" },
@@ -97,17 +88,18 @@ export default function AdminRaporlarPage() {
     const fetchReports = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await fetch('/api/admin?section=reports');
-            const data = await res.json();
+            const data = await adminGet('reports', statusFilter !== 'hepsi' ? { status: statusFilter } : undefined);
             if (data.success) {
                 setReports(data.reports);
+            } else {
+                console.warn('Raporlar API:', data.message);
             }
         } catch (e) {
-            console.error("Raporlar yuklenirken hata:", e);
+            console.error('Raporlar yüklenirken hata:', e);
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [statusFilter]);
 
     useEffect(() => {
         fetchReports();
@@ -139,22 +131,17 @@ export default function AdminRaporlarPage() {
             apiDetail.note = note || "Kullanıcı uyarıldı.";
         } else if (type === "ban") {
             apiDetail.note = note || "Kullanıcı banlandı.";
-            // Also call ban_user via API
-            await fetch('/api/admin', { method: 'POST', body: JSON.stringify({ action: 'ban_user', target: report.targetAuthor }) });
+            // Kullanıcıyı da banla
+            await adminPost({ action: 'ban_user', target: report.targetAuthor, detail: apiDetail.note });
         } else if (type === "delete") {
             apiDetail.note = note || "İçerik silindi.";
-            // If it's a thread or entry, we could call delete API. For now, just mark resolved.
         }
 
         try {
-            await fetch('/api/admin', {
-                method: 'POST',
-                body: JSON.stringify({
-                    action: apiAction,
-                    target: report.id,
-                    detail: JSON.stringify(apiDetail),
-                    actor: "Admin"
-                })
+            await adminPost({
+                action: apiAction,
+                target: report.id,
+                detail: JSON.stringify(apiDetail),
             });
 
             // Optimistic update
@@ -178,12 +165,11 @@ export default function AdminRaporlarPage() {
 
     const markAsIncelendi = async (id: string) => {
         try {
-            await fetch('/api/admin', {
-                method: 'POST',
-                body: JSON.stringify({ action: 'update_report_status', target: id, detail: 'incelendi' })
-            });
-            updateReport(id, { status: "incelendi" });
-            showToast("İnceleme başlatıldı.");
+            const data = await adminPost({ action: 'update_report_status', target: id, detail: 'incelendi' });
+            if (data.success) {
+                updateReport(id, { status: 'incelendi' });
+                showToast('İnceleme başlatıldı.');
+            }
         } catch (e) {
             console.error(e);
         }

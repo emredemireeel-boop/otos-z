@@ -1,0 +1,15 @@
+# Satır sonlarını otomatik olarak LF (Unix stili) yap
+# Bu sayede Windows'ta "LF will be replaced by CRLF" uyarılarını görmezsiniz.
+* text=auto eol=lf
+
+# Resim ve medya dosyalarını metin gibi işlememesini sağla
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.svg binary
+*.ico binary
+*.pdf binary
+*.mp3 binary
+*.wav binary

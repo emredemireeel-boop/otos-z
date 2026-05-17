@@ -6,6 +6,7 @@ import {
     Pin, PinOff, Lock, Unlock, Trash2, CheckCircle, XCircle,
     Clock, Search, X, Activity
 } from "lucide-react";
+import { adminGet } from "@/lib/adminFetch";
 
 interface LogEntry {
     action: string;
@@ -38,9 +39,11 @@ export default function AdminLogsPage() {
     const fetchLogs = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await fetch('/api/admin?section=logs');
-            const data = await res.json();
+            const data = await adminGet('logs');
             if (data.success) setLogs(data.logs);
+            else console.warn('Loglar API:', data.message);
+        } catch (e) {
+            console.error('Loglar yüklenemedi:', e);
         } finally {
             setLoading(false);
         }

@@ -42,12 +42,12 @@ export default function EfsaneAvcilariSection() {
 
     const getCategoryDetails = (catId: string) => {
         switch (catId) {
-            case 'fuel': return { color: '#F59E0B', label: 'Yakıt Tüketimi', icon: Flame };
-            case 'engine': return { color: '#3B82F6', label: 'Motor & Bakım', icon: Droplet };
-            case 'safety': return { color: '#EF4444', label: 'Güvenlik', icon: ShieldAlert };
-            case 'tire': return { color: '#10B981', label: 'Lastik', icon: Disc };
-            case 'electric': return { color: '#8B5CF6', label: 'Elektrik', icon: Zap };
-            default: return { color: '#6B7280', label: 'Genel', icon: Info };
+            case 'fuel': return { color: 'var(--foreground)', label: 'Yakıt Tüketimi', icon: Flame };
+            case 'engine': return { color: 'var(--foreground)', label: 'Motor & Bakım', icon: Droplet };
+            case 'safety': return { color: 'var(--foreground)', label: 'Güvenlik', icon: ShieldAlert };
+            case 'tire': return { color: 'var(--foreground)', label: 'Lastik', icon: Disc };
+            case 'electric': return { color: 'var(--foreground)', label: 'Elektrik', icon: Zap };
+            default: return { color: 'var(--text-muted)', label: 'Genel', icon: Info };
         }
     };
 
@@ -55,12 +55,12 @@ export default function EfsaneAvcilariSection() {
         <div style={{ animation: 'fadeIn 0.5s ease' }}>
             {/* Header Section */}
             <div style={{
-                background: 'linear-gradient(135deg, #1f2937, #111827)',
+                background: 'var(--card-bg)',
                 borderRadius: '20px',
                 padding: '40px',
                 marginBottom: '32px',
                 border: '1px solid var(--card-border)',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
                 position: 'relative',
                 overflow: 'hidden'
             }}>
@@ -68,21 +68,21 @@ export default function EfsaneAvcilariSection() {
                     position: 'absolute',
                     top: '-20px',
                     right: '-20px',
-                    opacity: 0.05,
+                    opacity: 0.03,
                     transform: 'scale(1.5)'
                 }}>
-                    <Beaker size={200} color="white" />
+                    <Beaker size={200} color="var(--foreground)" />
                 </div>
 
                 <div style={{ position: 'relative', zIndex: 1 }}>
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(239,68,68,0.2)', padding: '6px 12px', borderRadius: '99px', marginBottom: '16px', border: '1px solid rgba(239,68,68,0.3)' }}>
-                        <Beaker size={16} color="#F87171" />
-                        <span style={{ fontSize: '12px', fontWeight: '700', color: '#F87171', letterSpacing: '0.5px' }}>OTO EFSANE AVCILARI</span>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'var(--secondary)', padding: '6px 12px', borderRadius: '99px', marginBottom: '16px', border: '1px solid var(--card-border)' }}>
+                        <Beaker size={16} color="var(--foreground)" />
+                        <span style={{ fontSize: '12px', fontWeight: '700', color: 'var(--foreground)', letterSpacing: '0.5px' }}>OTO EFSANE AVCILARI</span>
                     </div>
-                    <h2 style={{ fontSize: '32px', fontWeight: '800', color: 'white', marginBottom: '16px', lineHeight: '1.2' }}>
-                        Doğru Bilinen <span style={{ color: '#F87171' }}>Yanlışlar</span>
+                    <h2 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '16px', lineHeight: '1.2' }}>
+                        Doğru Bilinen Yanlışlar
                     </h2>
-                    <p style={{ fontSize: '16px', color: '#9CA3AF', lineHeight: '1.6', maxWidth: '700px', marginBottom: '32px' }}>
+                    <p style={{ fontSize: '16px', color: 'var(--text-muted)', lineHeight: '1.6', maxWidth: '700px', marginBottom: '32px' }}>
                         Sanayi ustalarından nesilden nesile aktarılan, hepimizin inandığı ancak mühendislik ve fizik kurallarıyla taban tabana zıt olan otomobil efsanelerini çürütüyoruz. Aracınızın ömrünü uzatacak ve cebinizi koruyacak {mythsData.length} efsane gerçeğiyle yüzleşin.
                     </p>
 
@@ -98,10 +98,10 @@ export default function EfsaneAvcilariSection() {
                                         onClick={() => setActiveCategory(cat.id)}
                                         style={{
                                             padding: '8px 16px',
-                                            background: isActive ? '#374151' : 'transparent',
-                                            border: `1px solid ${isActive ? '#6B7280' : '#374151'}`,
+                                            background: isActive ? 'var(--foreground)' : 'var(--secondary)',
+                                            border: `1px solid ${isActive ? 'var(--foreground)' : 'var(--card-border)'}`,
                                             borderRadius: '12px',
-                                            color: isActive ? 'white' : '#9CA3AF',
+                                            color: isActive ? 'var(--background)' : 'var(--text-muted)',
                                             fontSize: '14px',
                                             fontWeight: '600',
                                             display: 'flex',
@@ -118,7 +118,7 @@ export default function EfsaneAvcilariSection() {
                             })}
                         </div>
                         <div style={{ position: 'relative' }}>
-                            <Search style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#9CA3AF' }} size={20} />
+                            <Search style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} size={20} />
                             <input
                                 type="text"
                                 placeholder="Efsane ara... (Örn: vitesi boşa almak, abs, kalın yağ, akü)"
@@ -126,17 +126,17 @@ export default function EfsaneAvcilariSection() {
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    background: 'rgba(0,0,0,0.2)',
-                                    border: '1px solid #374151',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
                                     padding: '16px 16px 16px 48px',
                                     borderRadius: '12px',
-                                    color: 'white',
+                                    color: 'var(--foreground)',
                                     fontSize: '15px',
                                     outline: 'none',
                                     transition: 'border-color 0.2s'
                                 }}
-                                onFocus={(e) => e.target.style.borderColor = '#6B7280'}
-                                onBlur={(e) => e.target.style.borderColor = '#374151'}
+                                onFocus={(e) => e.target.style.borderColor = 'var(--foreground)'}
+                                onBlur={(e) => e.target.style.borderColor = 'var(--card-border)'}
                             />
                             {searchQuery && (
                                 <button
@@ -178,9 +178,9 @@ export default function EfsaneAvcilariSection() {
                                     position: 'relative',
                                 }}
                                     onMouseEnter={(e) => {
-                                        e.currentTarget.style.borderColor = catDetails.color;
+                                        e.currentTarget.style.borderColor = 'var(--foreground)';
                                         e.currentTarget.style.transform = 'translateY(-4px)';
-                                        e.currentTarget.style.boxShadow = `0 12px 24px ${catDetails.color}15`;
+                                        e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.05)';
                                     }}
                                     onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--card-border)';
@@ -198,14 +198,14 @@ export default function EfsaneAvcilariSection() {
                                     {/* Myth Title */}
                                     <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', flex: 1 }}>
                                         <div style={{ flexShrink: 0, marginTop: '2px' }}>
-                                            <AlertTriangle size={20} color="#EF4444" />
+                                            <AlertTriangle size={20} color="var(--foreground)" />
                                         </div>
                                         <div>
                                             <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', lineHeight: '1.4', marginBottom: '12px' }}>
                                                 "{myth.myth}"
                                             </h3>
                                             <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.5', marginBottom: '16px' }}>
-                                                <span style={{ color: '#10B981', fontWeight: '700', marginRight: '6px' }}>Gerçek:</span>
+                                                <span style={{ color: 'var(--foreground)', fontWeight: '700', marginRight: '6px' }}>Gerçek:</span>
                                                 {myth.reality}
                                             </p>
                                         </div>

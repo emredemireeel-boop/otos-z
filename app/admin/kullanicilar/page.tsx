@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { db } from "@/lib/firebase";
 import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
+import { adminPost } from "@/lib/adminFetch";
 
 type Role = string;
 type FilterType = "hepsi" | "usta" | "caylak" | "silik";
@@ -109,16 +110,19 @@ export default function AdminUsersPage() {
     const apiAction = async (action: string, target: string, detail?: string, duration?: string) => {
         setActionLoading(true);
         try {
+            // Firestore'a direkt yaz (hızlı güncelleme)
             if (action === 'ban_user') {
-                await updateDoc(doc(db, 'users', target), { banned: true, role: 'banned' });
+                await updateDoc(doc(db, 'users', target), { banned: true, role: 'banned', bannedAt: new Date() });
             } else if (action === 'unban_user') {
-                await updateDoc(doc(db, 'users', target), { banned: false, role: 'standard', warnings: 0 });
+                await updateDoc(doc(db, 'users', target), { banned: false, role: 'standard', warnings: 0, bannedAt: null });
             } else if (action === 'warn_user') {
                 const u = users.find(x => x.id === target);
                 await updateDoc(doc(db, 'users', target), { warnings: (u?.warnings || 0) + 1 });
             } else if (action === 'set_role') {
                 await updateDoc(doc(db, 'users', target), { role: detail });
             }
+            // Admin API'ye bildir (log kaydı oluştur)
+            adminPost({ action, target, detail: detail || duration || '' }).catch(() => {});
             await fetchUsers();
             return true;
         } catch (e) {

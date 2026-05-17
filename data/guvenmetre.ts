@@ -15,7 +15,16 @@ export interface BrandRating {
     logoEmoji: string;
     logoUrl?: string;
     brandColor?: string;
+    youtubeUrl?: string;
     trend: "up" | "stable" | "down";
+    bio?: string;
+    birthYear?: number;
+    followers?: string;
+    realName?: string;
+    location?: string;
+    business?: string;
+    instagramUrl?: string;
+    specialties?: string[];
 }
 
 export interface UserReview {
@@ -102,12 +111,23 @@ export const categories: TrustCategory[] = [
         icon: "Car",
         colors: ["#E65100", "#EF6C00", "#F57C00"],
         stats: "75+ marka"
+    },
+    {
+        id: "auto_influencers",
+        title: "Oto Ünlüler & Kanallar",
+        description: "Otomobil odaklı en iyi içerik üreticileri ve kanallar.",
+        icon: "Youtube",
+        colors: ["#B71C1C", "#C62828", "#D32F2F"],
+        stats: "10+ kanal"
     }
 ];
 
 export const getBrandsForCategory = (categoryId: string): BrandRating[] => {
-    const z = (id: string, name: string, emoji: string, logoUrl?: string, brandColor?: string): BrandRating =>
-        ({ id, name, rating: 0, totalReviews: 0, logoEmoji: emoji, logoUrl, brandColor, trend: "stable" });
+    const z = (
+        id: string, name: string, emoji: string, logoUrl?: string, brandColor?: string, 
+        youtubeUrl?: string, bio?: string, birthYear?: number, followers?: string
+    ): BrandRating =>
+        ({ id, name, rating: 0, totalReviews: 0, logoEmoji: emoji, logoUrl, brandColor, youtubeUrl, trend: "stable", bio, birthYear, followers });
 
     switch (categoryId) {
         /* ── Yakıt İstasyonları ── */
@@ -196,6 +216,68 @@ export const getBrandsForCategory = (categoryId: string): BrandRating[] => {
             z("togg",        "Togg",          "T", "https://logo.clearbit.com/togg.com.tr", "#000000"),
             z("dacia",       "Dacia",         "D", "https://logo.clearbit.com/dacia.com", "#52605E"),
             z("tesla",       "Tesla",         "T", "https://logo.clearbit.com/tesla.com", "#E31937"),
+        ];
+        /* ── Oto Ünlüler & İçerik Üreticileri ── */
+        case "auto_influencers": return [
+            { ...z("2crserhat", "Serhat İnci (2CR)", "🏎️", undefined, "#D32F2F", "https://www.youtube.com/@2crserhatinci",
+                "Ankara merkezli 2CR Garage'ın kurucusu. Chip tuning, ECU yazılım ve yüksek performans modifikasyonları konusunda Türkiye'nin en bilinen isimlerinden. YouTube'da sahibinden.com ilanlarını canlı yayında yorumlayarak büyük kitle topladı. Aynı zamanda ikinci el piyasa analizleri ve modifiye süreçlerini detaylıca anlatıyor.",
+                undefined, "340K"),
+                realName: "Serhat İnci", location: "Ankara", business: "2CR Garage (Chip Tuning & ECU Yazılım)",
+                instagramUrl: "https://www.instagram.com/2crserhatinci", specialties: ["Chip Tuning", "ECU Yazılım", "Modifiye", "Canlı Yayın"] },
+
+            { ...z("pufidufi", "Pufidufi", "💨", undefined, "#FBC02D", "https://www.youtube.com/@Pufiduf",
+                "Ankara merkezli otomobil içerik üreticisi. Samimi ve esprili üslubuyla araç incelemeleri, oto pazar turları ve ikinci el piyasa yorumları yapıyor. Yakın zamanda Ankara Otokent'in en üst katında kendi oto galerisini açarak içerik üreticiliğinin yanı sıra sektöre fiilen adım attı.",
+                undefined, "550K"),
+                realName: "Pufidufi", location: "Ankara", business: "Oto Galeri (Ankara Otokent, En Üst Kat)",
+                instagramUrl: "https://www.instagram.com/pufiduf", specialties: ["Araç İnceleme", "Oto Pazar Turu", "Galeri", "İkinci El"] },
+
+            { ...z("kucukburjuvazi", "Küçük Burjuvazi", "🎩", undefined, "#1976D2", "https://www.youtube.com/@K%C3%BC%C3%A7%C3%BCkBurjuvazi",
+                "Kanalı Emirhan Şentürk (@emrhnsenturk) ve arkadaşı Ali (@alikty) birlikte yürütüyor. Premium ve lüks segment araçların detaylı incelemelerini, karşılaştırma testlerini ve yaşam tarzı içeriklerini yüksek prodüksiyon kalitesiyle sunuyorlar.",
+                undefined, "420K"),
+                realName: "Emirhan Şentürk & Ali", location: "İstanbul",
+                instagramUrl: "https://www.instagram.com/emrhnsenturk", specialties: ["Lüks Araçlar", "Yaşam Tarzı", "Karşılaştırma", "Premium"] },
+
+            { ...z("parababasasi", "Said Yalım (Para Babası)", "💸", undefined, "#388E3C", "https://www.youtube.com/@saidyalim",
+                "Isparta'da yaşıyor ve otomobil alım-satımı ile uğraşıyor. Lüks ve spor araçların piyasa değerlerini, kazançlı alım-satım taktiklerini ve ikinci el pazarının bilinmeyenlerini cesur ve dobra üslubuyla paylaşıyor. Galeri dünyasının içinden gelen samimi bir bakış açısı sunuyor.",
+                undefined, "438K"),
+                realName: "Said Yalım", location: "Isparta", business: "Otomobil Alım-Satım",
+                specialties: ["Alım-Satım", "Piyasa Analizi", "Lüks Araçlar", "Galeri"] },
+
+            { ...z("dogankabak", "Doğan Kabak", "🚘", undefined, "#FF9800", "https://www.youtube.com/@dogankabak",
+                "23 Nisan 1980 doğumlu. Eski ralli pilotu ve Türkiye'nin en tanınmış otomotiv gazetecilerinden biri. Araçları hem pistte hem günlük hayatta sınırlarına kadar zorlayarak esprili ve enerjik anlatımıyla milyonlara ulaşıyor. Geniş araç yelpazesiyle her bütçeye ve zevke hitap eden Türkiye'nin en çok abone olunan otomobil kanallarından.",
+                1980, "2.79M"),
+                realName: "Doğan Kabak", location: "İstanbul",
+                instagramUrl: "https://www.instagram.com/dogankabak", specialties: ["Araç İnceleme", "Ralli", "Sürüş Testi", "Eğlence"] },
+
+            { ...z("otoparkcom", "Sinan Koç (OTOPARK.com)", "🅿️", undefined, "#E53935", "https://www.youtube.com/@OTOPARKCOM",
+                "4 Aralık doğumlu. Türkiye'nin en köklü bağımsız otomobil inceleme platformu OTOPARK.com'un kurucularından. Profesyonel sürüş testleri, viraj performans analizleri ve detaylı POV sürüş videoları ile sektörde objektif ve güvenilir bir referans noktası. Uzun yıllardır otomobil medyasında aktif.",
+                undefined, "660K"),
+                realName: "Sinan Koç", location: "İstanbul", business: "OTOPARK.com (Otomobil İnceleme Platformu)",
+                instagramUrl: "https://www.instagram.com/sinankoc", specialties: ["POV Sürüş", "Viraj Testi", "Profesyonel İnceleme", "Platform"] },
+
+            { ...z("benzintv", "Burak Ertem (Benzin TV)", "⛽", undefined, "#8E24AA", "https://www.youtube.com/@benzin-tv",
+                "20 yılı aşkın otomotiv dergisi editörlüğü deneyimine sahip, sektörün en tecrübeli isimlerinden. Motor sporları, F1 dünyası, otomobil kültürü ve teknik mühendislik detayları üzerine vizyoner ve entelektüel içerikler üretiyor. Gerçek bir otomobil gazetecisi.",
+                undefined, "383K"),
+                realName: "Burak Ertem", location: "İstanbul", business: "Benzin TV (Otomobil Medya)",
+                specialties: ["F1", "Motor Sporları", "Otomobil Kültürü", "Gazetecilik"] },
+
+            { ...z("sekizsilindir", "Etem Güçlü Sayın (Sekizsilindir)", "8️⃣", undefined, "#455A64", "https://www.youtube.com/@sekizsilindir",
+                "Makine yüksek mühendisi. V kayışından turboşarja, motor bloklarından diferansiyel kilitlerine kadar otomobil mekaniğini animasyonlar, şemalar ve gerçek parça görselleriyle en anlaşılır biçimde anlatan Türkiye'nin en değerli eğitici otomobil kanalı. sekizsilindir.com'un da kurucusu.",
+                undefined, "829K"),
+                realName: "Etem Güçlü Sayın", location: "İstanbul", business: "sekizsilindir.com (Eğitici Otomobil Platformu)",
+                specialties: ["Teknik Eğitim", "Motor Mekaniği", "Mühendislik", "Animasyon"] },
+
+            { ...z("tarcanlar", "Sami Tarcan (Tarcanlar Ekspertiz)", "🛡️", undefined, "#C2185B", "https://www.youtube.com/@tarcanlartuningekspertizkocael",
+                "Babası Rıfat Tarcan'ın 1990'da kurduğu işletmeyi kardeşleri Oktay ve Serdar Tarcan ile birlikte sürdürüyor. Türkiye'de airbag ve plastik parça testlerini yapan öncü firmalardan. İkinci el araçlardaki gizli hasarları, boya ve şase hilelerini ifşa eden videoları milyonlarca izleniyor.",
+                undefined, "418K"),
+                realName: "Sami Tarcan", location: "Kocaeli / Başiskele", business: "Tarcanlar Oto Ekspertiz & Tuning (1990'dan beri)",
+                instagramUrl: "https://www.instagram.com/tarcanlarekspertiz", specialties: ["Ekspertiz", "Boya Tespiti", "Şase Kontrolü", "İfşa"] },
+
+            { ...z("anlatanadamlar", "Doğacan Kara & Tuğberk Keçecioğlu (Anlatan Adamlar)", "🎙️", undefined, "#0288D1", "https://www.youtube.com/@AnlatanAdamlar",
+                "ODTÜ mezunu makine yüksek mühendisleri. Otomobil dünyasındaki güncel gelişmeleri, teknik yenilikleri ve piyasa analizlerini mühendislik bilgisi ve eğlenceli sohbet formatında sunuyorlar. anlatanadamlar.com web sitesi de aktif.",
+                undefined, "712K"),
+                realName: "Doğacan Kara & Tuğberk Keçecioğlu", location: "Ankara", business: "anlatanadamlar.com",
+                instagramUrl: "https://www.instagram.com/anlatanadamlar", specialties: ["Teknik Analiz", "Piyasa Yorumu", "Mühendislik", "Sohbet"] },
         ];
 
         default: return [];

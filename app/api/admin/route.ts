@@ -160,6 +160,34 @@ export async function GET(request: Request) {
             return NextResponse.json({ success: true, terms });
         }
 
+        if (section === 'guvenmetre_reviews') {
+            const search = searchParams.get('q') || '';
+            const reviewsDocs = await getDocs(query(collection(db, 'guvenmetre_reviews'), orderBy('createdAt', 'desc'), limit(100)));
+            const reviews = reviewsDocs.docs.map(d => {
+                const data = d.data();
+                return {
+                    id: d.id,
+                    userName: data.userName || 'Anonim',
+                    userEmail: data.userEmail || '',
+                    userId: data.userId || '',
+                    categoryId: data.categoryId || '',
+                    brandId: data.brandId || '',
+                    rating: data.rating || 0,
+                    comment: data.comment || '',
+                    status: data.status || 'approved',
+                    createdAt: tsToStr(data.createdAt),
+                };
+            }).filter(r => !search || r.userName.toLowerCase().includes(search.toLowerCase()) || r.brandId.toLowerCase().includes(search.toLowerCase()) || r.comment.toLowerCase().includes(search.toLowerCase()));
+
+            const stats = {
+                total: reviewsDocs.size,
+                approved: reviewsDocs.docs.filter(d => d.data().status === 'approved').length,
+                pending: reviewsDocs.docs.filter(d => d.data().status === 'pending').length,
+            };
+
+            return NextResponse.json({ success: true, reviews, stats });
+        }
+
         if (section === 'advertisements') {
             const search = searchParams.get('q') || '';
             const adsDocs = await getDocs(query(collection(db, 'advertisements'), orderBy('createdAt', 'desc')));
@@ -199,6 +227,60 @@ export async function GET(request: Request) {
                 reddedildi: reports.filter((r: any) => r.status === 'reddedildi').length,
             };
             return NextResponse.json({ success: true, reports, counts });
+        }
+
+        if (section === 'listings') {
+            const search = searchParams.get('q') || '';
+            const listingsDocs = await getDocs(query(collection(db, 'listings'), orderBy('createdAt', 'desc')));
+            const listings = listingsDocs.docs.map(d => ({ id: d.id, ...d.data(), createdAt: tsToStr(d.data().createdAt) }))
+                .filter((l: any) => !search || l.brand?.toLowerCase().includes(search.toLowerCase()) || l.model?.toLowerCase().includes(search.toLowerCase()) || l.userName?.toLowerCase().includes(search.toLowerCase()));
+            return NextResponse.json({ success: true, listings });
+        }
+
+        if (section === 'guvenmetre') {
+            const search = searchParams.get('q') || '';
+            const docs = await getDocs(query(collection(db, 'guvenmetre'), orderBy('createdAt', 'desc')));
+            const requests = docs.docs.map(d => ({ id: d.id, ...d.data(), createdAt: tsToStr(d.data().createdAt) }))
+                .filter((r: any) => !search || r.userName?.toLowerCase().includes(search.toLowerCase()) || r.plateNumber?.toLowerCase().includes(search.toLowerCase()));
+            return NextResponse.json({ success: true, requests });
+        }
+
+        if (section === 'trending') {
+            const docs = await getDocs(query(collection(db, 'threads'), where('trending', '==', true)));
+            const trendingThreads = docs.docs.map(d => ({ id: d.id, ...d.data() }));
+            return NextResponse.json({ success: true, trendingThreads });
+        }
+
+        if (section === 'announcements') {
+            const docs = await getDocs(query(collection(db, 'announcements'), orderBy('createdAt', 'desc')));
+            const announcements = docs.docs.map(d => ({ id: d.id, ...d.data(), createdAt: tsToStr(d.data().createdAt) }));
+            return NextResponse.json({ success: true, announcements });
+        }
+
+        if (section === 'finances') {
+            const search = searchParams.get('q') || '';
+            // 1. İşlemler
+            const txDocs = await getDocs(query(collection(db, 'transactions'), orderBy('createdAt', 'desc')));
+            const transactions = txDocs.docs.map(d => ({ id: d.id, ...d.data(), date: tsToStr(d.data().createdAt) }))
+                .filter((t: any) => !search || t.user?.toLowerCase().includes(search.toLowerCase()) || t.displayName?.toLowerCase().includes(search.toLowerCase()));
+
+            // 2. Premium Üyeler (role === 'premium' veya isPremium === true)
+            const usersDocs = await getDocs(query(collection(db, 'users')));
+            const premiumUsers = usersDocs.docs.map(d => {
+                const u = d.data();
+                return {
+                    username: u.username || d.id,
+                    displayName: u.displayName || 'İsimsiz Üye',
+                    city: u.city || 'Belirtilmemiş',
+                    carBrand: u.carBrand || 'Belirtilmemiş',
+                    plan: u.plan || 'Aylık',
+                    renewDate: tsToStr(u.renewDate || u.createdAt),
+                    amount: u.premiumAmount || 299,
+                    active: u.role === 'premium' || u.isPremium || false,
+                };
+            }).filter((u: any) => u.active);
+
+            return NextResponse.json({ success: true, transactions, premiumUsers });
         }
 
         return NextResponse.json({ success: false, message: 'Gecersiz section.' }, { status: 400 });
@@ -312,6 +394,22 @@ export async function POST(request: Request) {
                 await writeLog('ROLE', target, `Rol -> ${detail}`);
                 return NextResponse.json({ success: true });
 
+            // GüvenMetre yorum islemleri
+            case 'delete_review':
+                await deleteDoc(doc(db, 'guvenmetre_reviews', target));
+                await writeLog('DELETE_REVIEW', target, 'GüvenMetre yorumu silindi');
+                return NextResponse.json({ success: true });
+
+            case 'approve_review':
+                await updateDoc(doc(db, 'guvenmetre_reviews', target), { status: 'approved' });
+                await writeLog('APPROVE_REVIEW', target, 'GüvenMetre yorumu onaylandı');
+                return NextResponse.json({ success: true });
+
+            case 'reject_review':
+                await updateDoc(doc(db, 'guvenmetre_reviews', target), { status: 'rejected' });
+                await writeLog('REJECT_REVIEW', target, 'GüvenMetre yorumu reddedildi');
+                return NextResponse.json({ success: true });
+
             // Sozluk islemleri
             case 'add_term': {
                 const termData = JSON.parse(detail);
@@ -408,6 +506,62 @@ export async function POST(request: Request) {
                 const filePath = path.join(process.cwd(), 'public', 'data', 'altin_anahtar.json');
                 fs.writeFileSync(filePath, JSON.stringify(body.data, null, 2), 'utf-8');
                 await writeLog('ALTIN_ANAHTAR', 'save', `Usta verileri güncellendi (${body.data?.masters?.length || 0} kayıt)`);
+                return NextResponse.json({ success: true });
+            }
+
+            // Pazar Ilan
+            case 'approve_listing':
+                await updateDoc(doc(db, 'listings', target), { status: 'approved' });
+                await writeLog('APPROVE_LISTING', target, 'Ilan onaylandi');
+                return NextResponse.json({ success: true });
+            
+            case 'reject_listing':
+                await updateDoc(doc(db, 'listings', target), { status: 'rejected', rejectReason: detail });
+                await writeLog('REJECT_LISTING', target, `Ilan reddedildi: ${detail}`);
+                return NextResponse.json({ success: true });
+
+            // Guvenmetre
+            case 'approve_guvenmetre':
+                await updateDoc(doc(db, 'guvenmetre', target), { status: 'approved' });
+                await writeLog('GUVENMETRE_APPROVE', target, 'Guvenmetre istegi onaylandi');
+                return NextResponse.json({ success: true });
+
+            case 'reject_guvenmetre':
+                await updateDoc(doc(db, 'guvenmetre', target), { status: 'rejected', rejectReason: detail });
+                await writeLog('GUVENMETRE_REJECT', target, 'Guvenmetre istegi reddedildi');
+                return NextResponse.json({ success: true });
+
+            // Trending & Icerik
+            case 'set_trending':
+                await updateDoc(doc(db, 'threads', target), { trending: true });
+                await writeLog('TRENDING_ADD', target, 'Trendlere eklendi');
+                return NextResponse.json({ success: true });
+
+            case 'remove_trending':
+                await updateDoc(doc(db, 'threads', target), { trending: false });
+                await writeLog('TRENDING_REMOVE', target, 'Trendlerden kaldirildi');
+                return NextResponse.json({ success: true });
+
+            case 'add_announcement': {
+                const annData = JSON.parse(detail);
+                await addDoc(collection(db, 'announcements'), {
+                    ...annData, author: logActor, createdAt: serverTimestamp(),
+                });
+                await writeLog('ANNOUNCE', annData.title, 'Duyuru eklendi');
+                return NextResponse.json({ success: true });
+            }
+
+            case 'delete_announcement':
+                await deleteDoc(doc(db, 'announcements', target));
+                await writeLog('ANNOUNCE', target, 'Duyuru silindi');
+                return NextResponse.json({ success: true });
+            
+            case 'toggle_announcement_pin': {
+                const annRef = doc(db, 'announcements', target);
+                const annSnap = (await getDocs(query(collection(db, 'announcements')))).docs.find(d => d.id === target);
+                if (annSnap) {
+                    await updateDoc(annRef, { pinned: !annSnap.data().pinned });
+                }
                 return NextResponse.json({ success: true });
             }
 

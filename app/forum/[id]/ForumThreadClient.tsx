@@ -68,6 +68,7 @@ export default function ForumThreadPage() {
     const [sortMode, setSortMode] = useState<'old' | 'top' | 'new'>('old');
     const [userGarageMap, setUserGarageMap] = useState<Record<string, string>>({});
     const [userRoleMap, setUserRoleMap] = useState<Record<string, string>>({});
+    const [userPhotoMap, setUserPhotoMap] = useState<Record<string, string>>({});
     
     const ENTRIES_PER_PAGE = 13;
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -133,8 +134,9 @@ export default function ForumThreadPage() {
         const fetchUserData = async () => {
             const newGarageMap: Record<string, string> = {};
             const newRoleMap: Record<string, string> = {};
+            const newPhotoMap: Record<string, string> = {};
             for (const uid of uniqueAuthorIds) {
-                if (userGarageMap[uid] && userRoleMap[uid]) continue;
+                if (userGarageMap[uid] && userRoleMap[uid] && userPhotoMap[uid] !== undefined) continue;
                 try {
                     const snap = await getDoc(doc(db, "users", uid));
                     if (snap.exists()) {
@@ -146,6 +148,9 @@ export default function ForumThreadPage() {
                         if (d.role && !userRoleMap[uid]) {
                             newRoleMap[uid] = d.role;
                         }
+                        if (d.photoURL && !userPhotoMap[uid]) {
+                            newPhotoMap[uid] = d.photoURL;
+                        }
                     }
                 } catch {}
             }
@@ -154,6 +159,9 @@ export default function ForumThreadPage() {
             }
             if (Object.keys(newRoleMap).length > 0) {
                 setUserRoleMap(prev => ({ ...prev, ...newRoleMap }));
+            }
+            if (Object.keys(newPhotoMap).length > 0) {
+                setUserPhotoMap(prev => ({ ...prev, ...newPhotoMap }));
             }
         };
         fetchUserData();
@@ -654,12 +662,15 @@ export default function ForumThreadPage() {
                                                     <div style={{
                                                         width: '40px', height: '40px', borderRadius: '50%',
                                                         background: (isFirstEntry && isKarsilastirma) ? 'linear-gradient(135deg, #3b82f6, #2563eb)' : 'linear-gradient(135deg, var(--primary), #3b82f6)',
+                                                        backgroundImage: userPhotoMap[entry.authorId] ? `url(${userPhotoMap[entry.authorId]})` : 'none',
+                                                        backgroundSize: 'cover', backgroundPosition: 'center',
                                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                                                         fontSize: '16px', fontWeight: '700', color: 'white',
                                                         flexShrink: 0,
-                                                        boxShadow: (isFirstEntry && isKarsilastirma) ? '0 4px 10px rgba(0,0,0,0.1)' : 'none'
+                                                        boxShadow: (isFirstEntry && isKarsilastirma) ? '0 4px 10px rgba(0,0,0,0.1)' : 'none',
+                                                        overflow: 'hidden'
                                                     }}>
-                                                        {entry.username.charAt(0).toUpperCase()}
+                                                        {!userPhotoMap[entry.authorId] && entry.username.charAt(0).toUpperCase()}
                                                     </div>
                                                     <div>
                                                         <div style={{ fontSize: '15px', fontWeight: '700', color: isExpert ? '#eab308' : 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -850,11 +861,15 @@ export default function ForumThreadPage() {
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                                     <div style={{
                                         width: '32px', height: '32px', borderRadius: '50%',
-                                        background: 'var(--primary)', display: 'flex',
+                                        background: 'var(--primary)', 
+                                        backgroundImage: user.avatar ? `url(${user.avatar})` : 'none',
+                                        backgroundSize: 'cover', backgroundPosition: 'center',
+                                        display: 'flex',
                                         alignItems: 'center', justifyContent: 'center',
                                         color: 'white', fontSize: '14px', fontWeight: '700',
+                                        overflow: 'hidden'
                                     }}>
-                                        {user.username.charAt(0).toUpperCase()}
+                                        {!user.avatar && user.username.charAt(0).toUpperCase()}
                                     </div>
                                     <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>
                                         Yanit Yaz

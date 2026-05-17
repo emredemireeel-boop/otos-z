@@ -7,7 +7,7 @@ interface PageProps {
 
 const tabSlugs = [
     { slug: 'makaleler', name: 'Makale', title: 'Otomotiv Makaleleri | OtoSöz Kütüphane', description: 'Otomotiv dünyasına dair detaylı makaleler, bakım rehberleri ve uzman önerileri.' },
-    { slug: 'ilginc-bilgiler', name: 'İlginç', title: 'İlginç Otomotiv Bilgileri | OtoSöz', description: 'Otomobil dünyasından ilginç bilgiler, ipucları, mit kırıcılar ve kontrol listeleri.' },
+    { slug: 'ilginc-bilgiler', name: 'İlginç', title: 'İlginç Otomotiv Bilgileri | OtoSöz', description: 'Otomobil dünyasından ilginç bilgiler, ipucları, kontrol listeleri.' },
     { slug: 'otomotiv-sozluk', name: 'Sözlük', title: 'Otomotiv Sözlüğü - Türkçe Araç Terimleri | OtoSöz', description: 'A\'dan Z\'ye tüm otomotiv terimlerinin Türkçe açıklamaları. ABS, ESP, Tramer, Ekspertiz ve daha fazlası.' },
     { slug: 'obd-ariza-kodlari', name: 'OBD', title: 'OBD Arıza Kodları Sorgulama | OtoSöz', description: 'P0, P1, P2 ve tüm OBD arıza kodlarının Türkçe açıklamaları, nedenleri ve çözüm önerileri.' },
     { slug: 'gosterge-isiklari', name: 'Göstergeler', title: 'Araç Gösterge Işıkları ve Anlamları | OtoSöz', description: 'Arabadaki tüm ikaz lambalarının anlamları: motor arıza, ABS, yağ basıncı, hararet ve daha fazlası.' },

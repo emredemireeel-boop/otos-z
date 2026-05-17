@@ -1,7 +1,7 @@
 "use client";
 
 import { BrandRating } from "@/data/guvenmetre";
-import { Star } from "lucide-react";
+import { Star, Trophy } from "lucide-react";
 
 export default function Podium({
     first,
@@ -19,41 +19,33 @@ export default function Podium({
     return (
         <div style={{
             width: '100%',
-            background: 'linear-gradient(to bottom, rgba(255, 215, 0, 0.1), transparent)',
-            borderRadius: '16px',
-            padding: '20px',
-            paddingBottom: '8px',
-            border: '1px solid rgba(255, 215, 0, 0.2)',
-            marginBottom: '24px'
+            background: 'var(--card-bg)',
+            borderRadius: '20px',
+            padding: '28px 24px 16px',
+            border: '1px solid var(--card-border)',
         }}>
+            {/* Header */}
             <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                justifyContent: 'center',
-                background: 'rgba(255, 215, 0, 0.15)',
-                width: 'fit-content',
-                margin: '0 auto 24px auto',
-                padding: '8px 20px',
-                borderRadius: '9999px',
-                border: '1px solid rgba(255, 215, 0, 0.3)'
+                display: 'flex', alignItems: 'center', gap: '10px',
+                justifyContent: 'center', marginBottom: '28px',
             }}>
-                <Star style={{ width: '20px', height: '20px', color: '#EAB308', fill: '#EAB308' }} />
-                <span style={{ fontSize: '18px', fontWeight: '700', color: '#EAB308' }}>Lider Markalar</span>
+                <Trophy style={{ width: '20px', height: '20px', color: 'var(--foreground)' }} />
+                <span style={{
+                    fontSize: '16px', fontWeight: '800',
+                    color: 'var(--foreground)', letterSpacing: '-0.3px',
+                }}>
+                    Lider Tablosu
+                </span>
             </div>
 
+            {/* Podium */}
             <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'flex-end',
-                gap: '12px',
-                maxWidth: '600px',
-                margin: '0 auto',
-                height: '320px'
+                display: 'flex', justifyContent: 'center', alignItems: 'flex-end',
+                gap: '12px', maxWidth: '560px', margin: '0 auto', height: '280px',
             }}>
-                <PodiumItem brand={second} position={2} height="130px" color="silver" />
-                <PodiumItem brand={first} position={1} height="170px" color="gold" />
-                <PodiumItem brand={third} position={3} height="110px" color="bronze" />
+                <PodiumItem brand={second} position={2} height="120px" color="silver" />
+                <PodiumItem brand={first} position={1} height="160px" color="gold" />
+                <PodiumItem brand={third} position={3} height="100px" color="bronze" />
             </div>
         </div>
     );
@@ -72,22 +64,25 @@ function PodiumItem({
 }) {
     const colors = {
         gold: {
-            bg: 'linear-gradient(to top, #CA8A04, #EAB308)',
-            border: '#EAB308',
-            text: '#EAB308',
-            rankBg: '#EAB308'
+            gradient: 'linear-gradient(180deg, #FFD700 0%, #B8860B 100%)',
+            pillar: 'linear-gradient(180deg, rgba(255, 215, 0, 0.25) 0%, rgba(255, 215, 0, 0.08) 100%)',
+            border: 'rgba(255, 215, 0, 0.35)',
+            text: '#D4A017',
+            glow: '0 0 20px rgba(255, 215, 0, 0.15)',
         },
         silver: {
-            bg: 'linear-gradient(to top, #64748B, #94A3B8)',
-            border: '#CBD5E1',
-            text: '#CBD5E1',
-            rankBg: '#94A3B8'
+            gradient: 'linear-gradient(180deg, #C0C0C0 0%, #808080 100%)',
+            pillar: 'linear-gradient(180deg, rgba(192, 192, 192, 0.2) 0%, rgba(192, 192, 192, 0.05) 100%)',
+            border: 'rgba(192, 192, 192, 0.3)',
+            text: '#A0A0A0',
+            glow: '0 0 16px rgba(192, 192, 192, 0.1)',
         },
         bronze: {
-            bg: 'linear-gradient(to top, #C2410C, #F97316)',
-            border: '#FB923C',
-            text: '#FB923C',
-            rankBg: '#F97316'
+            gradient: 'linear-gradient(180deg, #CD7F32 0%, #8B4513 100%)',
+            pillar: 'linear-gradient(180deg, rgba(205, 127, 50, 0.2) 0%, rgba(205, 127, 50, 0.05) 100%)',
+            border: 'rgba(205, 127, 50, 0.3)',
+            text: '#B8733A',
+            glow: '0 0 16px rgba(205, 127, 50, 0.1)',
         }
     };
 
@@ -95,93 +90,65 @@ function PodiumItem({
 
     return (
         <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            width: '110px',
-            flex: '0 0 110px'
+            display: 'flex', flexDirection: 'column',
+            alignItems: 'center', width: '120px', flex: '0 0 120px',
         }}>
-            {/* Rank Circle */}
+            {/* Rank Badge */}
             <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                border: `3px solid ${c.border}`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: '#171717',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
-                marginBottom: '10px',
-                position: 'relative',
-                zIndex: 10
+                width: '36px', height: '36px', borderRadius: '50%',
+                background: c.gradient,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: c.glow, marginBottom: '10px', zIndex: 10,
             }}>
-                <span style={{ fontSize: '20px', fontWeight: '900', color: 'white' }}>{position}</span>
+                <span style={{ fontSize: '16px', fontWeight: '900', color: position === 1 ? '#000' : '#fff' }}>
+                    {position}
+                </span>
             </div>
 
-            {/* Avatar */}
+            {/* Avatar Circle */}
             <div style={{
-                width: '44px',
-                height: '44px',
-                borderRadius: '50%',
-                background: `linear-gradient(135deg, ${brand.brandColor || '#3b82f6'}, #0f172a)`,
+                width: '48px', height: '48px', borderRadius: '50%',
+                background: 'var(--secondary)',
                 border: `2px solid ${c.border}`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '8px',
-                overflow: 'hidden',
-                position: 'relative',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: '8px', overflow: 'hidden',
+                boxShadow: c.glow,
             }}>
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top right, rgba(0,0,0,0.4), transparent, rgba(255,255,255,0.2))' }}></div>
-                {brand.logoUrl && (
-                    <img 
-                        src={brand.logoUrl} 
-                        alt={brand.name} 
-                        style={{ position: 'relative', zIndex: 10, width: '100%', height: '100%', objectFit: 'contain', background: 'white', padding: '4px' }}
-                        onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                            if (e.currentTarget.nextElementSibling) {
-                                e.currentTarget.nextElementSibling.classList.remove('hidden');
-                            }
+                {brand.logoUrl ? (
+                    <img
+                        src={brand.logoUrl}
+                        alt={brand.name}
+                        style={{
+                            width: '100%', height: '100%',
+                            objectFit: 'contain', padding: '6px',
                         }}
                     />
+                ) : (
+                    <span style={{
+                        fontSize: '16px', fontWeight: '800',
+                        color: 'var(--foreground)',
+                        letterSpacing: '-0.5px',
+                    }}>
+                        {brand.name.substring(0, 2).toUpperCase()}
+                    </span>
                 )}
-                <span 
-                    className={brand.logoUrl ? 'hidden' : ''} 
-                    style={{ 
-                        position: 'relative', 
-                        zIndex: 10, 
-                        fontSize: '18px', 
-                        fontWeight: '900', 
-                        color: 'transparent',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        backgroundImage: 'linear-gradient(to bottom right, #ffffff, rgba(255,255,255,0.6))',
-                        filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))',
-                        letterSpacing: '-0.5px'
-                    }}
-                >
-                    {brand.name.substring(0, 2).toUpperCase()}
-                </span>
             </div>
 
             {/* Brand Info */}
             <div style={{ textAlign: 'center', marginBottom: '8px', width: '100%', overflow: 'hidden' }}>
                 <p style={{
-                    fontWeight: '700',
-                    color: 'white',
-                    fontSize: '13px',
-                    marginBottom: '4px',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap',
-                    padding: '0 4px'
-                }}>{brand.name}</p>
+                    fontWeight: '700', color: 'var(--foreground)',
+                    fontSize: '13px', marginBottom: '4px',
+                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                    padding: '0 4px',
+                }}>
+                    {brand.name}
+                </p>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
                     <Star style={{ width: '12px', height: '12px', color: c.text, fill: c.text }} />
-                    <span style={{ fontWeight: '700', fontSize: '12px', color: c.text }}>{brand.rating === 0 ? '—' : brand.rating.toFixed(1)}</span>
+                    <span style={{ fontWeight: '700', fontSize: '12px', color: c.text }}>
+                        {brand.rating === 0 ? '—' : brand.rating.toFixed(1)}
+                    </span>
                 </div>
             </div>
 
@@ -190,21 +157,18 @@ function PodiumItem({
                 width: '100%',
                 borderTopLeftRadius: '12px',
                 borderTopRightRadius: '12px',
-                background: c.bg,
-                opacity: 0.3,
-                position: 'relative',
-                height: height
+                background: c.pillar,
+                border: `1px solid ${c.border}`,
+                borderBottom: 'none',
+                height: height,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
-                <div style={{
-                    position: 'absolute',
-                    bottom: '16px',
-                    left: 0,
-                    right: 0,
-                    textAlign: 'center',
-                    opacity: 0.5
+                <span style={{
+                    fontSize: '28px', fontWeight: '900',
+                    color: c.text, opacity: 0.3,
                 }}>
-                    <span style={{ fontSize: '32px', fontWeight: '900', color: c.text }}>#{position}</span>
-                </div>
+                    #{position}
+                </span>
             </div>
         </div>
     );
