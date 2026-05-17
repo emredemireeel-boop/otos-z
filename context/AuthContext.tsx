@@ -75,7 +75,7 @@ async function mapFirebaseUser(fbUser: FirebaseUser): Promise<User> {
         displayName: (profile.displayName as string) || fbUser.displayName || undefined,
         username: (profile.username as string) || fbUser.email?.split("@")[0] || "user",
         email: fbUser.email || "",
-        avatar: fbUser.photoURL || null,
+        avatar: (profile.photoURL as string) || fbUser.photoURL || null,
         level: (profile.level as string) || "Yeni Uye",
         notifications: 0,
         role: (profile.role as UserRole) || "caylak",
