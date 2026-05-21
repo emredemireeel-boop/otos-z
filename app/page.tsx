@@ -160,6 +160,13 @@ export default function Home() {
             .catch(err => console.error("Error loading ads:", err));
     }, []);
 
+    // ── Global New Topic Modal Listener ──────────────────────────────────────
+    useEffect(() => {
+        const handleOpenModal = () => setShowNewTopicModal(true);
+        window.addEventListener('open_new_topic_modal', handleOpenModal);
+        return () => window.removeEventListener('open_new_topic_modal', handleOpenModal);
+    }, []);
+
     // ── Firestore Forum Threads ──────────────────────────────────────────────
     useEffect(() => {
         const unsub = subscribeToThreads((threads) => {
@@ -408,12 +415,12 @@ export default function Home() {
                                 )}
 
                                 {/* Footer */}
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '13px', color: 'var(--text-muted)' }}>
-                                    <span>💬 {topic.entryCount} Entry</span>
-                                    <span>•</span>
-                                    <span>{topic.lastActivity}</span>
-                                    <span>•</span>
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
+                                    <span style={{ whiteSpace: 'nowrap' }}>💬 {topic.entryCount} Entry</span>
+                                    <span style={{ opacity: 0.5 }}>•</span>
+                                    <span style={{ whiteSpace: 'nowrap' }}>{topic.lastActivity}</span>
+                                    <span style={{ opacity: 0.5 }}>•</span>
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap' }}>
                                         <span style={{
                                             width: '20px',
                                             height: '20px',
@@ -448,9 +455,23 @@ export default function Home() {
             </div>
         );
     };
+    const itemListSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        'name': 'Gündemdeki Başlıklar',
+        'itemListElement': sortedTopics.slice(0, 10).map((topic, index) => ({
+            '@type': 'ListItem',
+            'position': index + 1,
+            'url': `https://www.otosoz.com${topic.slugUrl}`
+        }))
+    };
 
     return (
         <div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+            />
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -466,23 +487,26 @@ export default function Home() {
                                 <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>Topluluk</h1>
                             </div>
 
-                            {/* Horizontal Fuel Ticker */}
-                            <div className="fuel-ticker-wrapper" style={{
+                            {/* Fuel Widget */}
+                            <div className="fuel-ticker-wrapper glass" style={{
                                 flex: 1,
                                 margin: '0 32px',
                                 overflow: 'hidden',
-                                background: 'var(--ticker-bg)',
-                                border: '1px solid var(--ticker-border)',
-                                borderRadius: '8px',
-                                height: '36px',
+                                borderRadius: '12px',
+                                height: '44px',
                                 display: 'flex',
                                 alignItems: 'center',
-                                position: 'relative'
+                                position: 'relative',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
                             }}>
                                 <style jsx>{`
                                     @keyframes ticker {
                                         0% { transform: translateX(0); }
                                         100% { transform: translateX(-50%); }
+                                    }
+                                    @keyframes bounce-sm {
+                                        0%, 100% { transform: translateY(0); }
+                                        50% { transform: translateY(-2px); }
                                     }
                                     .ticker-track {
                                         display: flex;
@@ -495,23 +519,34 @@ export default function Home() {
                                     .ticker-track:hover {
                                         animation-play-state: paused;
                                     }
+                                    .trend-up {
+                                        color: var(--success);
+                                        animation: bounce-sm 2s infinite;
+                                        display: inline-block;
+                                    }
+                                    .trend-down {
+                                        color: var(--danger);
+                                        animation: bounce-sm 2s infinite;
+                                        animation-direction: reverse;
+                                        display: inline-block;
+                                    }
                                 `}</style>
                                 <div className="ticker-track">
                                     {/* Şehir etiketi */}
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
-                                        <span style={{ fontSize: '11px', color: 'var(--primary)', fontWeight: '700', fontFamily: 'monospace' }}>
+                                        <span style={{ fontSize: '11px', color: 'var(--primary)', fontWeight: '700', fontFamily: 'monospace', padding: '4px 8px', background: 'var(--hover-primary)', borderRadius: '6px' }}>
                                             📍 {tickerCity.toUpperCase()}
                                         </span>
-                                        <span style={{ width: '1px', height: '14px', background: 'var(--card-border)', display: 'inline-block' }} />
+                                        <span style={{ width: '1px', height: '18px', background: 'var(--card-border)', display: 'inline-block', margin: '0 8px' }} />
                                     </div>
                                     {/* Fiyat listesi – 2x tekrar seamless scroll için */}
                                     {[...fuelPrices, ...fuelPrices].map((fuel, i) => (
                                         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                             <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: '600' }}>{fuel.name}</span>
                                             <span style={{ fontSize: '13px', color: 'var(--foreground)', fontWeight: '700', fontFamily: 'monospace' }}>{fuel.price}</span>
-                                            <span style={{
-                                                fontSize: '10px',
-                                                color: fuel.trend === 'up' ? '#22c55e' : fuel.trend === 'down' ? '#ef4444' : 'var(--text-muted)'
+                                            <span className={fuel.trend === 'up' ? 'trend-up' : fuel.trend === 'down' ? 'trend-down' : ''} style={{
+                                                fontSize: '11px',
+                                                color: fuel.trend === 'stable' ? 'var(--text-muted)' : undefined
                                             }}>
                                                 {fuel.trend === 'up' ? '▲' : fuel.trend === 'down' ? '▼' : '▬'}
                                             </span>
@@ -520,14 +555,14 @@ export default function Home() {
                                 </div>
                             </div>
                             <button
-                                className="new-topic-btn"
+                                className="new-topic-btn hover-lift"
                                 onClick={() => setShowNewTopicModal(true)}
                                 style={{
-                                    padding: '10px 20px',
+                                    padding: '12px 24px',
                                     background: 'var(--primary)',
                                     color: 'white',
-                                    fontWeight: '600',
-                                    borderRadius: '10px',
+                                    fontWeight: '700',
+                                    borderRadius: '12px',
                                     border: 'none',
                                     cursor: 'pointer',
                                     fontSize: '14px',
@@ -535,9 +570,10 @@ export default function Home() {
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
+                                    gap: '8px',
                                 }}
                             >
-                                + Yeni Başlık
+                                <Plus size={16} strokeWidth={3} /> Yeni Başlık
                             </button>
                         </div>
 
@@ -1070,10 +1106,11 @@ export default function Home() {
                             background: 'var(--overlay-bg)',
                             backdropFilter: 'blur(8px)',
                             display: 'flex',
-                            alignItems: 'center',
+                            alignItems: 'flex-start',
                             justifyContent: 'center',
                             zIndex: 1000,
                             padding: '16px',
+                            overflowY: 'auto',
                         }}
                         onClick={() => setShowNewTopicModal(false)}
                     >
@@ -1085,9 +1122,34 @@ export default function Home() {
                                 padding: '28px',
                                 width: '100%',
                                 maxWidth: '550px',
+                                marginTop: '40px',
+                                marginBottom: '40px',
+                                position: 'relative',
                             }}
                             onClick={(e) => e.stopPropagation()}
                         >
+                            <button
+                                onClick={() => setShowNewTopicModal(false)}
+                                style={{
+                                    position: 'absolute',
+                                    top: '16px',
+                                    right: '16px',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '50%',
+                                    width: '32px',
+                                    height: '32px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    cursor: 'pointer',
+                                    color: 'var(--text-muted)',
+                                    fontSize: '18px',
+                                    zIndex: 1,
+                                }}
+                            >
+                                ✕
+                            </button>
                             <h2 style={{ fontSize: '22px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '24px' }}>
                                 Yeni İçerik Oluştur
                             </h2>

@@ -1,4 +1,18 @@
 
+export function createSlug(text: string): string {
+    if (!text) return '';
+    const trMap: Record<string, string> = {
+        'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
+        'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u',
+    };
+    return text.replace(/[çğıöşüÇĞİÖŞÜ]/g, m => trMap[m] || m)
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim();
+}
+
 export interface ChronicIssue {
     id: number;
     title: string;
@@ -38,7 +52,7 @@ export const vehicleDNAData: VehicleDNA[] = [
     {
         id: 1,
         brand: "Renault",
-        model: "Clio",
+        model: "Clio 5. Nesil (2020-2025)",
         year: "2020-2025",
         ncapStars: 5,
         ncapYear: "2019",
@@ -63,38 +77,38 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "1.0 TCe & X-Tronic Silkeleme",
                 severity: "medium",
-                reportCount: 450,
+                reportCount: 21,
                 description: "Özellikle sıkışık trafikte ve düşük hızlarda (10-20 km/s) gazdan ayak çekildiğinde araçta belirgin bir yığılma ve tekrar gaza basıldığında silkeleme/vuruntu hissediliyor. Yazılım güncellemesi kısmen çözüyor."
             },
             {
                 id: 2,
                 title: "Enjeksiyon & 'Motor Hasar Riski' Uyarısı",
                 severity: "high",
-                reportCount: 320,
+                reportCount: 20,
                 description: "1.0 TCe motorlarda sebepsiz yere 'Enjeksiyonu Kontrol Ettirin' veya 'Motor Hasar Riski' uyarısı çıkabiliyor. Genellikle sensör kaynaklı veya yazılımsal olsa da kullanıcıyı tedirgin ediyor. Bazı vakalarda bobin değişimi gerekiyor."
             },
             {
                 id: 3,
                 title: "Trim Sesleri (B Sütunu & Kemer)",
                 severity: "low",
-                reportCount: 580,
+                reportCount: 24,
                 description: "Kullanıcıların %80'i emniyet kemeri mekanizmasından (B sütunu) gelen tıkırtı sesinden Şikayetçi. Servislerde izolasyon bandı uygulaması yapılıyor."
             },
             {
                 id: 4,
                 title: "Akü Zayıflığı ve Start-Stop Hatası",
                 severity: "medium",
-                reportCount: 410,
+                reportCount: 23,
                 description: "Fabrikasyon akülerin (EFB) ömrü kısa olabiliyor. Akü voltajı düştüğünde araç 'Start-Stop Arızası' veya 'Akü Şarj oluyor' uyarısı verip sistemi devre dışı bırakıyor."
             }
         ],
         userExperiences: [],
-        totalReports: 2100
+        totalReports: 45
     },
     {
         id: 2,
         brand: "Fiat",
-        model: "Egea",
+        model: "Egea 1. Nesil (2015-2025)",
         year: "2015-2025",
         ncapStars: 4, // Safety Pack ile
         ncapYear: "2016",
@@ -119,38 +133,38 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "1.4 Fire Motor Yağ Eksiltme",
                 severity: "medium",
-                reportCount: 1250,
+                reportCount: 38,
                 description: "Kronik bir durumdur; 1.4 Fire motorlar 5.000-8.000 km'de ortalama 1 litre yağ eksiltebilir. Kullanıcının bagajında 1L yağ taşıması ve sık sık çubuğu kontrol etmesi önerilir."
             },
             {
                 id: 2,
                 title: "Amortisör Takozu ve Z-Rot Sesi",
                 severity: "low",
-                reportCount: 890,
+                reportCount: 44,
                 description: "Ön takımdan, özellikle direksiyonu kırarken veya tümseklerde 'lok lok' veya 'gıcırtı' Şeklinde sesler gelir. Amortisör takozları ve bilyaları çabuk deforme olur."
             },
             {
                 id: 3,
                 title: "Partikül Filtresi (DPF) Tıkanıklığı",
                 severity: "high",
-                reportCount: 640,
+                reportCount: 40,
                 description: "Dizel (1.3/1.6 MJT) modelleri sürekli Şehir içi kullanıldığında DPF tıkanır. Araç 'Motoru Kontrol Ettirin' uyarısı verir. Yüksek devirli kullanımda (otoban) temizlenmesi gerekir."
             },
             {
                 id: 4,
                 title: "Krom Parça Soyulmaları",
                 severity: "low",
-                reportCount: 320,
+                reportCount: 33,
                 description: "Dış kapı kollarındaki ve ön panjurda bulunan krom kaplamalar zamanla kabarabilir veya soyulabilir."
             }
         ],
         userExperiences: [],
-        totalReports: 3200
+        totalReports: 42
     },
     {
         id: 3,
         brand: "Toyota",
-        model: "Corolla",
+        model: "Corolla 12. Nesil (2019-2025)",
         year: "2019-2025",
         ncapStars: 5,
         ncapYear: "2019",
@@ -175,38 +189,38 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Boya Atması (Beyaz Renk)",
                 severity: "medium",
-                reportCount: 520,
+                reportCount: 42,
                 description: "Özellikle inci beyazı renkli modellerde, basınçlı yıkama sonrası tampon köşelerinde ve tavan rayı kenarlarında boya kalkması sorunu yaşanabiliyor. Servisler lokal boya ile onarım öneriyor."
             },
             {
                 id: 2,
                 title: "Rüzgar Sesi (A Sütunu)",
                 severity: "low",
-                reportCount: 950,
+                reportCount: 47,
                 description: "Araç 100-110 km/s hızı geçince kapı fitillerinden ve aynalardan rüzgar sesi almaya başlıyor. Yalıtım zayıflığı kullanıcıların en sık Şikayet ettiği konu."
             },
             {
                 id: 3,
                 title: "Balata ve Fren Islık Sesi",
                 severity: "low",
-                reportCount: 340,
+                reportCount: 42,
                 description: "Geri manevrada veya düşük hızda fren yaparken balatalardan gelen tiz ıslık sesi. Serviste temizlik veya değişim yapılmasına rağmen tekrarlayabiliyor."
             },
             {
                 id: 4,
                 title: "Multimedya Sorunları",
                 severity: "low",
-                reportCount: 180,
+                reportCount: 44,
                 description: "Ekranın güneşte parlaması, dokunmatiğin geç algılaması ve Apple CarPlay bağlantısının bazen kopması gibi teknolojik sorunlar."
             }
         ],
         userExperiences: [],
-        totalReports: 1250
+        totalReports: 35
     },
     {
         id: 4,
         brand: "Renault",
-        model: "Megane",
+        model: "Megane 4. Nesil (2016-2025)",
         year: "2016-2025",
         ncapStars: 5,
         ncapYear: "2015", // Test 2015 sonunda yapıldı, araç 2016 çıkışlı
@@ -231,38 +245,38 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "AdBlue Depo/Enjektör Arızası",
                 severity: "high",
-                reportCount: 380,
+                reportCount: 36,
                 description: "1.5 BluedCi motorlarda AdBlue deposunun deforme olması veya enjektörün tıkanması sonucu 'Egzoz Emisyon Kontrol Ettirin' uyarısı ve yüksek onarım maliyeti."
             },
             {
                 id: 2,
                 title: "EDC Şanzıman 'Vites Kutusunu Kontrol Ettirin'",
                 severity: "medium",
-                reportCount: 420,
+                reportCount: 27,
                 description: "Özellikle 2016-2018 modellerde Şanzıman beyni veya kavrama sorunları nedeniyle uyarı verip vites geçişlerini devre dışı bırakabiliyor."
             },
             {
                 id: 3,
                 title: "Trim ve Amortisör Sesi",
                 severity: "low",
-                reportCount: 550,
+                reportCount: 35,
                 description: "Soğuk havalarda ön amortisörlerden gelen gıcırtı ve bozuk yollarda B sütunu/panoramik tavan fitillerinden gelen tıkırtı sesleri."
             },
             {
                 id: 4,
                 title: "R-Link Ekran Kararması",
                 severity: "low",
-                reportCount: 210,
+                reportCount: 27,
                 description: "Multimedya ekranının kendi kendine kapanıp açılması veya donması. Genellikle servis güncellemesi ile çözülüyor."
             }
         ],
         userExperiences: [],
-        totalReports: 1100
+        totalReports: 20
     },
     {
         id: 5,
         brand: "Honda",
-        model: "Civic",
+        model: "Civic 11. Nesil FE1 (2021-2025)",
         year: "2021-2025",
         ncapStars: 5,
         ncapYear: "2022",
@@ -287,38 +301,38 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yapışkan Direksiyon (Sticky Steering)",
                 severity: "medium",
-                reportCount: 450,
+                reportCount: 30,
                 description: "Özellikle uzun yolda direksiyonda takılma/yapışma hissi oluşuyor. Honda bazı serilerde direksiyon kutusu değişimi veya yazılım güncellemesi ile çözüm sunuyor."
             },
             {
                 id: 2,
                 title: "Trim Sesleri (Emniyet Kemeri/A Sütunu)",
                 severity: "low",
-                reportCount: 380,
+                reportCount: 49,
                 description: "B sütunundan ve emniyet kemeri mekanizmasından tıkırtı sesleri gelmesi yaygın."
             },
             {
                 id: 3,
                 title: "İnce Kaporta Boyası",
                 severity: "medium",
-                reportCount: 520,
+                reportCount: 49,
                 description: "Özellikle kaput ve tamponda taş izleri çok çabuk oluşuyor. Kullanıcılar seramik kaplama veya PPF öneriyor."
             },
             {
                 id: 4,
                 title: "Yakıt Pompası Arızası",
                 severity: "high",
-                reportCount: 150,
+                reportCount: 31,
                 description: "Bazı modellerde yakıt pompası kaynaklı yolda kalma riski nedeniyle geri çağırma bültenleri yayınlandı."
             }
         ],
         userExperiences: [],
-        totalReports: 1850
+        totalReports: 43
     },
     {
         id: 6,
         brand: "Volkswagen",
-        model: "Passat",
+        model: "Passat B8 (2015-2023)",
         year: "2015-2023",
         ncapStars: 5,
         ncapYear: "2014",
@@ -343,38 +357,38 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DSG Mekatronik ve Volant",
                 severity: "high",
-                reportCount: 850,
+                reportCount: 31,
                 description: "DSG Şanzımanın 'kral' ama 'nazlı' olduğu bilinir. Mekatronik kart arızası ve çift kütleli volanttan gelen 'takırtı' sesi en büyük korkulu rüyadır. Onarımı maliyetlidir."
             },
             {
                 id: 2,
                 title: "Devirdaim (Su Pompası) Kaçağı",
                 severity: "medium",
-                reportCount: 620,
+                reportCount: 38,
                 description: "Özellikle 1.4 TSI ve 1.6 TDI motorlarda devirdaim pompasından su kaçırma kroniktir. Triger seti değişirken mutlaka kontrol edilmeli ve değişmelidir."
             },
             {
                 id: 3,
                 title: "Cam Tavan Gıcırtısı",
                 severity: "low",
-                reportCount: 480,
+                reportCount: 24,
                 description: "Panoramik cam tavan kasislerde ve esnemelerde gıcırtı yapabilir. Serviste özel yağlama ile geçici çözüm sağlanır ama tekrarlayabilir."
             },
             {
                 id: 4,
                 title: "Kapı Kilit Mekanizması",
                 severity: "low",
-                reportCount: 250,
+                reportCount: 47,
                 description: "Soğuk havalarda kapıların kilitlenmemesi veya dışarıdan açılmaması sorunu yaşanabilir."
             }
         ],
         userExperiences: [],
-        totalReports: 2100
+        totalReports: 31
     },
     {
         id: 7,
         brand: "Dacia",
-        model: "Duster",
+        model: "Duster 2. Nesil (2018-2024)",
         year: "2018-2025",
         ncapStars: 3,
         ncapYear: "2024", // Temmuz 2024 Testi (3. Nesil de 3 yıldız aldı)
@@ -399,38 +413,38 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Kutusu Sesi",
                 severity: "medium",
-                reportCount: 380,
+                reportCount: 26,
                 description: "Manevralarda veya bozuk yolda direksiyondan gelen 'takırtı' veya inleme sesi. Genellikle direksiyon kutusu veya milindeki boşluktan kaynaklanıyor."
             },
             {
                 id: 2,
                 title: "Toz ve Su Alma Sorunu",
                 severity: "low",
-                reportCount: 450,
+                reportCount: 28,
                 description: "Bazı modellerde kapı fitillerinin yetersizliği nedeniyle araç içine, özellikle kapı eşiklerine toz ve yoğun yağmurda su girmesi Şikayetleri mevcut."
             },
             {
                 id: 3,
                 title: "AdBlue Sistemi Arızası",
                 severity: "high",
-                reportCount: 310,
+                reportCount: 47,
                 description: "Blue dCi motorlarda AdBlue pompası veya enjektör tıkanıklığı nedeniyle 'Egzoz Emisyon' uyarısı ve servis ihtiyacı."
             },
             {
                 id: 4,
                 title: "Yakıt Göstergesi Tutarsızlığı",
                 severity: "low",
-                reportCount: 220,
+                reportCount: 46,
                 description: "LPG'li modellerde benzin/LPG göstergesinin yanlış seviye göstermesi veya takılı kalması."
             }
         ],
         userExperiences: [],
-        totalReports: 1400
+        totalReports: 29
     },
     {
         id: 8,
         brand: "Hyundai",
-        model: "i20",
+        model: "i20 3. Nesil BC3 (2020-2025)",
         year: "2020-2025",
         ncapStars: 4,
         ncapYear: "2020",
@@ -455,40 +469,40 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Debriyaj Aktüatör Sesi (Gıcırtı)",
                 severity: "low",
-                reportCount: 500,
+                reportCount: 22,
                 description: "Pedaldan ayağı çekerken gelen 'guuuuğğkkk' veya gıcırtı sesi. Debriyaj müşürü veya aktüatör kaynaklı, sürüşe engel değil ama can sıkıcı."
             },
             {
                 id: 2,
                 title: "Vernik/Boya Atması",
                 severity: "medium",
-                reportCount: 280,
+                reportCount: 20,
                 description: "Özellikle kaput ve tavan bölgesinde erken vernik atması veya boya dökülmesi Şikayetleri (beyaz renklerde daha sık)."
             },
             {
                 id: 3,
                 title: "Rölanti Dalgalanması",
                 severity: "low",
-                reportCount: 350,
+                reportCount: 40,
                 description: "Rölantide devir saatinin kendi kendine inip kalkması. Genellikle LPG'li araçlarda veya debriyaj müşürü kaynaklı."
             },
             {
                 id: 4,
                 title: "Direksiyon Derisi Soyulması",
                 severity: "medium",
-                reportCount: 350,
+                reportCount: 29,
                 description: "Erken kilometrelerde direksiyon simidinde soyulma. Garanti kapsamında değişim yapılıyor."
             },
             {
                 id: 5,
                 title: "Benzin Pompası Sesi",
                 severity: "low",
-                reportCount: 200,
+                reportCount: 29,
                 description: "Arka koltuk altından gelen 'vınlama' veya 'vızzz' sesi. Depo azken artabilir."
             }
         ],
         userExperiences: [],
-        totalReports: 1100
+        totalReports: 37
     },
     {
         id: 901,
@@ -513,26 +527,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "1.6 THP Triger Zinciri Uzaması",
                 severity: "high",
-                reportCount: 350,
+                reportCount: 28,
                 description: "Erken dönem 1.6 THP benzinli motorlarda triger zincirinin erken uzaması ve sente atlaması sonucu motor arıza lambası yakması kroniktir."
             },
             {
                 id: 2,
                 title: "Auto6R Şanzıman Kavrama/Volan Arızası",
                 severity: "high",
-                reportCount: 520,
+                reportCount: 37,
                 description: "Yarı otomatik Auto6R şanzımanda kavrama (baskı balata) ve volan dişlisinin erken ömrünü tamamlaması, dur-kalklarda silkeleme yapması yaygındır."
             },
             {
                 id: 3,
                 title: "Amortisör Takozu Sesleri",
                 severity: "low",
-                reportCount: 410,
+                reportCount: 27,
                 description: "Ön süspansiyonlardan, özellikle kasis geçişlerinde lokurtu/gıcırtı sesleri gelmesi sık rastlanan bir montaj/parça zayıflığıdır."
             }
         ],
         userExperiences: [],
-        totalReports: 1200
+        totalReports: 47
     },
     {
         id: 902,
@@ -558,38 +572,38 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "1.5 BlueHDi AdBlue Sistemi Arızası",
                 severity: "high",
-                reportCount: 1250,
+                reportCount: 48,
                 description: "PSA grubunun kronik sorunudur. AdBlue deposu, pompası veya enjektörünün tıkanması sonucu 'Motor Arızası - Aracı Durdurun' veya 'Emisyon Hatası' vererek sistemin komple değişmesini gerektirebilir."
             },
             {
                 id: 2,
                 title: "1.2 PureTech Triger Kayışı Soyulması",
                 severity: "high",
-                reportCount: 890,
+                reportCount: 42,
                 description: "Yağ içinde çalışan triger kayışının erken yıpranarak (soyularak) partiküllerinin yağ süzgecini tıkaması ve motor yağ basıncı arızası vermesi durumudur. Erken bakım şarttır."
             },
             {
                 id: 3,
                 title: "EAT6/EAT8 Şanzıman Düşük Hız Vuruntusu",
                 severity: "medium",
-                reportCount: 560,
+                reportCount: 39,
                 description: "Özellikle 2. vitesten 1. vitese düşerken veya durmaya yakın hızlarda şanzımandan hafif bir vuruntu veya sarsıntı hissedilebilir. Yazılım güncellemesi ile büyük ölçüde çözülür."
             },
             {
                 id: 4,
                 title: "Multimedya (SMEG/NAC) Ekran Donması",
                 severity: "low",
-                reportCount: 730,
+                reportCount: 41,
                 description: "Orta ekranın kendi kendine kapanması, geri görüş kamerasının siyah ekranda kalması veya Bluetooth bağlantısının kopması sorunları yazılımsal olarak yaşanmaktadır."
             }
         ],
         userExperiences: [],
-        totalReports: 3400
+        totalReports: 45
     },
     {
         id: 10,
         brand: "Opel",
-        model: "Corsa",
+        model: "Corsa F (2020-2025)",
         year: "2020-2025",
         ncapStars: 4,
         ncapYear: "2019",
@@ -613,31 +627,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Triger Kayışı Soyulması (1.2 PureTech)",
                 severity: "high",
-                reportCount: 450,
+                reportCount: 27,
                 description: "Peugeot grubu motorlarda olduğu gibi, kayışın parçalanıp yağ süzgecini tıkaması riski. 'Yağ Basıncı Düşük' uyarısı alırsanız hemen durun."
             },
             {
                 id: 2,
                 title: "Multimedya Ekran Kararması",
                 severity: "low",
-                reportCount: 220,
+                reportCount: 42,
                 description: "Ekranın siyah olması veya dokunmatiğin tepki vermemesi. Genellikle akü kutup başı sök-tak veya güncelleme ile düzelir."
             },
             {
                 id: 3,
                 title: "Direksiyon Kutusu Sesi",
                 severity: "medium",
-                reportCount: 180,
+                reportCount: 25,
                 description: "Kasislerde direksiyondan gelen tıkırtı sesi."
             }
         ],
         userExperiences: [],
-        totalReports: 950
+        totalReports: 20
     },
     {
         id: 11,
         brand: "Togg",
-        model: "T10X",
+        model: "T10X 1. Nesil (2023-2025)",
         year: "2023-2025",
         ncapStars: 4, // Tahmini
         ncapYear: "2024",
@@ -662,31 +676,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Ekran Donması ve Resetleme",
                 severity: "medium",
-                reportCount: 600,
+                reportCount: 23,
                 description: "Ana ekranın veya göstergelerin sürüş esnasında donması, kararması. Reset atılarak (iki tuşa basılı tutarak) çözülüyor ancak can sıkıcı."
             },
             {
                 id: 2,
                 title: "Şarj Başlatma Hatası",
                 severity: "high",
-                reportCount: 350,
+                reportCount: 43,
                 description: "Bazı DC istasyonlarda 'Şarj Başlatılamadı' hatası veya Şarjın yarıda kesilmesi. OBC (On-Board Charger) güncellemesi gerekebiliyor."
             },
             {
                 id: 3,
                 title: "SOS / eCall Hatası",
                 severity: "low",
-                reportCount: 420,
+                reportCount: 34,
                 description: "Tavandaki SOS modülünün yazılımsal olarak hata vermesi ve ekranda sürekli uyarı çıkması."
             }
         ],
         userExperiences: [],
-        totalReports: 2200
+        totalReports: 39
     },
     {
         id: 12,
         brand: "Chery",
-        model: "Tiggo 8 Pro",
+        model: "Tiggo 8 Pro 1. Nesil (2023-2025)",
         year: "2023-2025",
         ncapStars: 5, // C-NCAP
         ncapYear: "2023",
@@ -710,31 +724,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yüksek Yakıt Tüketimi",
                 severity: "medium",
-                reportCount: 850,
+                reportCount: 32,
                 description: "Kullanıcıların en büyük Şikayeti. Fabrika verisinin çok üzerinde (11-12L) yakması. 'Tüp takılmaz mı?' sorusu çok yaygın."
             },
             {
                 id: 2,
                 title: "Şanzıman Kararsızlığı/Vuruntu",
                 severity: "low",
-                reportCount: 300,
+                reportCount: 30,
                 description: "Düşük hızlarda veya dur-kalk trafikte Şanzımanın vites geçişlerinde kararsız kalması veya hafif vuruntu yapması."
             },
             {
                 id: 3,
                 title: "Multimedya/Klima Ekran Donması",
                 severity: "low",
-                reportCount: 250,
+                reportCount: 33,
                 description: "Klima panelinin veya ana ekranın tepki vermemesi. Yazılım güncellemesi ile düzeliyor."
             }
         ],
         userExperiences: [],
-        totalReports: 1200
+        totalReports: 44
     },
     {
         id: 13,
         brand: "Volkswagen",
-        model: "Golf",
+        model: "Golf 8. Nesil (2020-2025)",
         year: "2020-2025",
         ncapStars: 5,
         ncapYear: "2019",
@@ -758,31 +772,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yazılım ve Ekran Hataları",
                 severity: "medium",
-                reportCount: 550,
+                reportCount: 29,
                 description: "Golf 8'in en büyük baş belası. Ekranın donması, siyah ekran, asistan sistemlerin 'Şu an kullanılamıyor' uyarısı vermesi. Güncellemelerle çözülmeye çalışılıyor."
             },
             {
                 id: 2,
                 title: "SOS Acil Çağrı Hatası",
                 severity: "low",
-                reportCount: 320,
+                reportCount: 31,
                 description: "Tavandaki SOS modülünün arıza verip göstergede sürekli uyarı yakması. Parça değişimi gerekebiliyor."
             },
             {
                 id: 3,
                 title: "DSG Titreme ve Kararsızlık",
                 severity: "medium",
-                reportCount: 400,
+                reportCount: 35,
                 description: "Özellikle 1. vitesen 2'ye geçerken kararsızlık veya titreme yapması. Kavrama ömrünün habercisi olabilir."
             }
         ],
         userExperiences: [],
-        totalReports: 1200
+        totalReports: 47
     },
     {
         id: 14,
         brand: "Ford",
-        model: "Focus",
+        model: "Focus 4. Nesil Mk4 (2018-2025)",
         year: "2018-2025",
         ncapStars: 5,
         ncapYear: "2018",
@@ -806,31 +820,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "8 İleri Şanzıman Titremesi",
                 severity: "medium",
-                reportCount: 380,
+                reportCount: 26,
                 description: "Düşük hızlarda veya dur-kalk trafikte Şanzımanın titreme (silkeleme) yapması. Yazılım güncellemesi veya valf gövdesi değişimi gerekebiliyor."
             },
             {
                 id: 2,
                 title: "Multimedya Ekran Donması",
                 severity: "low",
-                reportCount: 200,
+                reportCount: 38,
                 description: "Sync ekranının tepki vermemesi veya geri görüş kamerasının geç gelmesi."
             },
             {
                 id: 3,
                 title: "B Sütunu Trim Sesi",
                 severity: "low",
-                reportCount: 310,
+                reportCount: 45,
                 description: "Emniyet kemeri çıkışından gelen tıkırtı sesi, özellikle bozuk yolda belirginleşiyor."
             }
         ],
         userExperiences: [],
-        totalReports: 850
+        totalReports: 39
     },
     {
         id: 15,
         brand: "BMW",
-        model: "320i",
+        model: "320i F30 (2012-2019)",
         year: "2019-2025",
         ncapStars: 5,
         ncapYear: "2019",
@@ -854,31 +868,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Su Eksiltme / Soğutma Sızıntısı",
                 severity: "medium",
-                reportCount: 250,
+                reportCount: 31,
                 description: "Genleşme kabı, devirdaim veya hortumlardan soğutma sıvısı kaçağı. 'Soğutma suyu seviyesi düşük' uyarısı dikkate alınmalı."
             },
             {
                 id: 2,
                 title: "Direksiyon Trim Sesi",
                 severity: "low",
-                reportCount: 300,
+                reportCount: 47,
                 description: "Direksiyon simidinden veya airbag sargısından gelen sürtünme/gıcırtı sesi."
             },
             {
                 id: 3,
                 title: "Klima Izgarası Kırılması",
                 severity: "low",
-                reportCount: 150,
+                reportCount: 28,
                 description: "Ön konsol havalandırma yönlendirme ızgaralarının hassas olması ve çabuk kırılması."
             }
         ],
         userExperiences: [],
-        totalReports: 700
+        totalReports: 29
     },
     {
         id: 16,
         brand: "Mercedes-Benz",
-        model: "C180",
+        model: "C180 W205 (2014-2021)",
         year: "2021-2025",
         ncapStars: 5,
         ncapYear: "2022",
@@ -902,31 +916,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "48V Akü Sistemi Arızası",
                 severity: "high",
-                reportCount: 450,
+                reportCount: 24,
                 description: "Aracın çalışmamasına neden olan kronik bir sorun. '48V sistemi arızası' uyarısı verip yolda bırakabiliyor. Yazılım veya parça değişimi gerektirir."
             },
             {
                 id: 2,
                 title: "Fren Sesi ve Titreme",
                 severity: "low",
-                reportCount: 320,
+                reportCount: 35,
                 description: "Düşük hızlarda frenlerden gelen sürtünme sesi ve disklerin çabuk eğilmesi sonucu titreme."
             },
             {
                 id: 3,
                 title: "Trim Sesleri (Konsol)",
                 severity: "low",
-                reportCount: 280,
+                reportCount: 47,
                 description: "Özellikle orta konsol ve ekran çevresinden gelen gıcırtı sesleri (piyano siyahı parçalar)."
             }
         ],
         userExperiences: [],
-        totalReports: 650
+        totalReports: 44
     },
     {
         id: 17,
         brand: "Chery",
-        model: "Omoda 5",
+        model: "Omoda 5 1. Nesil (2023-2025)",
         year: "2023-2025",
         ncapStars: 5,
         ncapYear: "2022",
@@ -950,31 +964,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Fren Sesi ve Disk Eğriliği",
                 severity: "medium",
-                reportCount: 350,
+                reportCount: 22,
                 description: "Frenleme esnasında metalik sürtünme sesi ve disklerde erken eğilme sonucu titreme. Servislerde değişim yapılıyor."
             },
             {
                 id: 2,
                 title: "Yüksek Yakıt Tüketimi",
                 severity: "medium",
-                reportCount: 500,
+                reportCount: 47,
                 description: "Fabrika verisinin çok üzerinde, agresif kullanımda 12-13 litreleri görebilen tüketim."
             },
             {
                 id: 3,
                 title: "Ayna Titremesi",
                 severity: "low",
-                reportCount: 180,
+                reportCount: 33,
                 description: "Yüksek hızlarda yan aynaların rüzgar etkisiyle titremesi."
             }
         ],
         userExperiences: [],
-        totalReports: 1100
+        totalReports: 44
     },
     {
         id: 18,
         brand: "Nissan",
-        model: "Qashqai",
+        model: "Qashqai J11 (2014-2021)",
         year: "2021-2025",
         ncapStars: 5,
         ncapYear: "2021",
@@ -998,31 +1012,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "e-Power Sistem Hatası",
                 severity: "high",
-                reportCount: 420,
+                reportCount: 31,
                 description: "Aracın 'Sistem Hatası' verip çalışmaması veya yolda kalması. Genellikle jeneratör ünitesi veya inverter kaynaklı ciddi bir arıza."
             },
             {
                 id: 2,
                 title: "Ekran Donması ve Kararma",
                 severity: "medium",
-                reportCount: 310,
+                reportCount: 27,
                 description: "Multimedya ekranının tepki vermemesi, donması veya tamamen kararması. Yazılım güncellemesi ile bazen çözülüyor."
             },
             {
                 id: 3,
                 title: "Akü Zayıflığı",
                 severity: "low",
-                reportCount: 220,
+                reportCount: 42,
                 description: "12V akünün çabuk bitmesi sonucu aracın sistemlerinin devreye girmemesi."
             }
         ],
         userExperiences: [],
-        totalReports: 1300
+        totalReports: 43
     },
     {
         id: 19,
         brand: "Hyundai",
-        model: "Tucson",
+        model: "Tucson NX4 4. Nesil (2020-2025)",
         year: "2021-2025",
         ncapStars: 5,
         ncapYear: "2021",
@@ -1046,31 +1060,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "GPF Tıkanıklığı Uyarısı",
                 severity: "medium",
-                reportCount: 450,
+                reportCount: 26,
                 description: "Egzoz sistemi uyarısı olarak çıkar. Özellikle sürekli kısa mesafe kullanımlarda partikül filtresi tıkanabilir. Uzun yolda yüksek devir çevirmek gerekebilir."
             },
             {
                 id: 2,
                 title: "Kalkışta Titreme",
                 severity: "low",
-                reportCount: 320,
+                reportCount: 22,
                 description: "DCT Şanzımanın kavraması kaynaklı, özellikle yokuş kalkışlarında veya 1-2 vites geçişlerinde titreme."
             },
             {
                 id: 3,
                 title: "Multimedya Reset",
                 severity: "low",
-                reportCount: 150,
+                reportCount: 27,
                 description: "Ekranın nadiren donması ve resetleme gerektirmesi."
             }
         ],
         userExperiences: [],
-        totalReports: 1250
+        totalReports: 36
     },
     {
         id: 20,
         brand: "Kia",
-        model: "Sportage",
+        model: "Sportage NQ5 5. Nesil (2021-2025)",
         year: "2022-2025",
         ncapStars: 5,
         ncapYear: "2022",
@@ -1094,31 +1108,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DCT Şanzıman Isınması",
                 severity: "medium",
-                reportCount: 280,
+                reportCount: 29,
                 description: "Yoğun dur-kalk trafikte Şanzıman sıcaklık uyarısı verip kenara çekmenizi isteyebilir. Kuru kavrama handikapı."
             },
             {
                 id: 2,
                 title: "Sunroof Sesi",
                 severity: "low",
-                reportCount: 190,
+                reportCount: 34,
                 description: "Cam tavan mekanizmasından veya fitillerinden gelen tıkırtı/gıcırtı sesleri."
             },
             {
                 id: 3,
                 title: "PPF (Partikül Filtresi) Sorunu",
                 severity: "medium",
-                reportCount: 250,
+                reportCount: 43,
                 description: "Benzinli modellerde partikül filtresi tıkanıklığı uyarısı (Tucson ile ortak sorun)."
             }
         ],
         userExperiences: [],
-        totalReports: 980
+        totalReports: 33
     },
     {
         id: 21,
         brand: "Peugeot",
-        model: "2008",
+        model: "2008 2. Nesil P24 (2019-2025)",
         year: "2020-2025",
         ncapStars: 4,
         ncapYear: "2019",
@@ -1142,31 +1156,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Triger Kayışı Soyulması (1.2 PureTech)",
                 severity: "high",
-                reportCount: 550,
+                reportCount: 48,
                 description: "Kayışın parçalanıp yağ kanalını tıkaması sonucu 'Yağ Basıncı Arızası'. Motor yatak sarmasına kadar gidebilir. Periyodik kontrol Şart."
             },
             {
                 id: 2,
                 title: "Yağ Eksiltme",
                 severity: "medium",
-                reportCount: 380,
+                reportCount: 48,
                 description: "1.2 Turbo benzinli motorlarda yağ yakma/eksiltme sorunu."
             },
             {
                 id: 3,
                 title: "AdBlue Depo Sorunu (Dizel)",
                 severity: "high",
-                reportCount: 220,
+                reportCount: 26,
                 description: "Dizel versiyonlarda AdBlue deposu/pompası arızası."
             }
         ],
         userExperiences: [],
-        totalReports: 1400
+        totalReports: 29
     },
     {
         id: 22,
         brand: "Opel",
-        model: "Astra",
+        model: "Astra K (2015-2021)",
         year: "2022-2025",
         ncapStars: 4,
         ncapYear: "2022",
@@ -1174,15 +1188,15 @@ export const vehicleDNAData: VehicleDNA[] = [
         strengths: ["Keskin tasarım (Vizor)", "Alman ergonomisi", "Yol tutuş"],
         weaknesses: ["Multimedya hızı", "Sert koltuklar", "Vasat arka görüş"],
         chronicIssues: [
-            { id: 1, title: "Ekran Kararması", severity: "low", reportCount: 150, description: "Pure Panel ekran sorunları." }
+            { id: 1, title: "Ekran Kararması", severity: "low", reportCount: 48, description: "Pure Panel ekran sorunları." }
         ],
         userExperiences: [],
-        totalReports: 800
+        totalReports: 25
     },
     {
         id: 23,
         brand: "Honda",
-        model: "City",
+        model: "City 7. Nesil GN (2021-2025)",
         year: "2021-2025",
         ncapStars: 4, // ASEAN NCAP 5 stars
         ncapYear: "2020",
@@ -1190,15 +1204,15 @@ export const vehicleDNAData: VehicleDNA[] = [
         strengths: ["Geniş iç hacim", "Ekonomik motor", "Sorunsuzluk"],
         weaknesses: ["Yalıtım zayıf", "Dar lastikler", "Bazı donanımlar eksik"],
         chronicIssues: [
-            { id: 1, title: "Boya Kalitesi", severity: "medium", reportCount: 110, description: "İnce boya katmanı." }
+            { id: 1, title: "Boya Kalitesi", severity: "medium", reportCount: 48, description: "İnce boya katmanı." }
         ],
         userExperiences: [],
-        totalReports: 600
+        totalReports: 37
     },
     {
         id: 24,
         brand: "Volkswagen",
-        model: "Polo",
+        model: "Polo AW 6. Nesil (2017-2025)",
         year: "2018-2025",
         ncapStars: 5,
         ncapYear: "2017",
@@ -1222,31 +1236,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DSG Kavrama Titremesi",
                 severity: "medium",
-                reportCount: 350,
+                reportCount: 35,
                 description: "Özellikle 2. vites geçişlerinde kararsızlık ve titreme. Yoğun trafikte manüel modda kullanılması önerilir."
             },
             {
                 id: 2,
                 title: "Klima Kompresör Sesi",
                 severity: "low",
-                reportCount: 180,
+                reportCount: 25,
                 description: "Klima açıldığında motordan gelen uğultu veya vınlama sesi."
             },
             {
                 id: 3,
                 title: "Trim Sesleri",
                 severity: "low",
-                reportCount: 220,
+                reportCount: 33,
                 description: "Sert süspansiyon nedeniyle bozuk yollarda B sütunu ve konsoldan gelen tıkırtılar."
             }
         ],
         userExperiences: [],
-        totalReports: 1150
+        totalReports: 47
     },
     {
         id: 25,
         brand: "Citroen",
-        model: "C4 X",
+        model: "C4 X 1. Nesil (2022-2025)",
         year: "2023-2025",
         ncapStars: 4,
         ncapYear: "2021",
@@ -1270,31 +1284,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Tablet Ekran Kararması",
                 severity: "medium",
-                reportCount: 350,
+                reportCount: 42,
                 description: "Multimedya ekranının sürüş esnasında siyah olması, donması veya 'Hello Citroen' asistanının çalışmaması. Yazılım güncellemesi ile düzeliyor."
             },
             {
                 id: 2,
                 title: "Süspansiyon Sesi (Lokurtu)",
                 severity: "low",
-                reportCount: 420,
+                reportCount: 38,
                 description: "Özellikle tümsek geçişlerinde arka süspansiyondan gelen tok 'lok lok' sesi. Amortisör yapısı kaynaklı karakteristik bir durum."
             },
             {
                 id: 3,
                 title: "AdBlue Uyarısı",
                 severity: "medium",
-                reportCount: 180,
+                reportCount: 44,
                 description: "Dizel versiyonlarda AdBlue sistemi arızası veya yanlış seviye uyarısı."
             }
         ],
         userExperiences: [],
-        totalReports: 500
+        totalReports: 45
     },
     {
         id: 26,
         brand: "Skoda",
-        model: "Octavia",
+        model: "Octavia NX 4. Nesil (2020-2025)",
         year: "2020-2025",
         ncapStars: 5,
         ncapYear: "2019",
@@ -1318,31 +1332,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yazılım Hataları ve SOS Arızası",
                 severity: "medium",
-                reportCount: 550,
+                reportCount: 40,
                 description: "Golf 8 ile benzer platformu paylaştığı için yazılım hataları (ekran donması, asistan hataları) ve 'SOS arızası' uyarısı yaygındır."
             },
             {
                 id: 2,
                 title: "Vites Seçici (Shift-by-wire) Hatası",
                 severity: "low",
-                reportCount: 220,
+                reportCount: 42,
                 description: "Küçük vites mandalının bazen tepki vermemesi veya 'Aracı P konumuna alın' uyarısı."
             },
             {
                 id: 3,
                 title: "Trim Sesleri",
                 severity: "low",
-                reportCount: 300,
+                reportCount: 36,
                 description: "Özellikle kapı tutamaklarından ve B sütunundan gelen gıcırtı sesleri."
             }
         ],
         userExperiences: [],
-        totalReports: 1600
+        totalReports: 21
     },
     {
         id: 27,
         brand: "Skoda",
-        model: "Superb",
+        model: "Superb B8 3. Nesil (2015-2023)",
         year: "2015-2025",
         ncapStars: 5,
         ncapYear: "2015",
@@ -1366,31 +1380,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Krom Çıta Solması",
                 severity: "low",
-                reportCount: 420,
+                reportCount: 43,
                 description: "Cam çevresindeki krom çıtaların zamanla matlaşması ve lekelenmesi. Garantiden değişim zor olabiliyor."
             },
             {
                 id: 2,
                 title: "DSG Mekatronik Arızası",
                 severity: "high",
-                reportCount: 350,
+                reportCount: 26,
                 description: "Volkswagen grubunun klasik sorunu. Vites geçişlerinde vuruntu veya 'Şanzıman Hatası' uyarısı. Maliyetli olabilir."
             },
             {
                 id: 3,
                 title: "Amortisör Takoz Sesi",
                 severity: "low",
-                reportCount: 280,
+                reportCount: 47,
                 description: "Kasis geçişlerinde ön takımdan gelen gıcırtı sesi."
             }
         ],
         userExperiences: [],
-        totalReports: 1800
+        totalReports: 21
     },
     {
         id: 28,
         brand: "Chery",
-        model: "Tiggo 7 Pro",
+        model: "Tiggo 7 Pro 1. Nesil (2023-2025)",
         year: "2023-2025",
         ncapStars: 5,
         ncapYear: "2023",
@@ -1414,31 +1428,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yüksek Yakıt Tüketimi",
                 severity: "medium",
-                reportCount: 450,
+                reportCount: 33,
                 description: "Kullanıcıların en büyük Şikayeti. Fabrika verisinin üzerinde, agresif kullanımda 12 litreleri görebiliyor."
             },
             {
                 id: 2,
                 title: "Şanzıman Isınması/Vuruntu",
                 severity: "low",
-                reportCount: 280,
+                reportCount: 47,
                 description: "Yoğun trafikte Şanzıman ısınma uyarısı veya vites geçişlerinde (özellikle 1-2) sarsıntı."
             },
             {
                 id: 3,
                 title: "Multimedya Donması",
                 severity: "low",
-                reportCount: 200,
+                reportCount: 25,
                 description: "Apple CarPlay bağlantı kopması veya ekranın tamamen donması."
             }
         ],
         userExperiences: [],
-        totalReports: 900
+        totalReports: 39
     },
     {
         id: 29,
         brand: "Seat",
-        model: "Leon",
+        model: "Leon KL 4. Nesil (2020-2025)",
         year: "2020-2025",
         ncapStars: 5,
         ncapYear: "2020",
@@ -1462,31 +1476,31 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "SOS Acil Çağrı Hatası",
                 severity: "high",
-                reportCount: 420,
+                reportCount: 30,
                 description: "Gösterge panelinde sürekli yanan 'SOS Arızası' uyarısı. Golf 8 ile ortak kronik sorun. Yazılım veya modül değişimi gerekiyor."
             },
             {
                 id: 2,
                 title: "Multimedya Resetleme",
                 severity: "medium",
-                reportCount: 310,
+                reportCount: 46,
                 description: "Ekranın kendi kendine kapanıp açılması, donması. Yazılım güncellemesi ile düzelme ihtimali var."
             },
             {
                 id: 3,
                 title: "Arka Stop Çatlaması",
                 severity: "low",
-                reportCount: 150,
+                reportCount: 43,
                 description: "Boydan boya uzanan arka led stop lambasında kılcal çatlamalar oluşması."
             }
         ],
         userExperiences: [],
-        totalReports: 1300
+        totalReports: 27
     },
     {
         id: 30,
         brand: "Tesla",
-        model: "Model Y",
+        model: "Model Y 1. Nesil (2020-2025)",
         year: "2022-2025",
         ncapStars: 5,
         ncapYear: "2022",
@@ -1511,39 +1525,39 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Phantom Braking (Hayalet Fren)",
                 severity: "high",
-                reportCount: 650,
+                reportCount: 47,
                 description: "Otopilot veya hız sabitleyici açıkken, araç gölgeyi veya tünel girişini engel sanıp aniden sert fren yapabiliyor. Arkadan gelen araç için risk oluşturabilir."
             },
             {
                 id: 2,
                 title: "Montaj ve Panel Açıklıkları",
                 severity: "low",
-                reportCount: 520,
+                reportCount: 27,
                 description: "Kapı, bagaj veya kaput aralıklarının eşit olmaması (Panel Gaps). Berlin üretimi araçlarda azalsa da hala görülebiliyor."
             },
             {
                 id: 3,
                 title: "Trim Sesleri",
                 severity: "low",
-                reportCount: 480,
+                reportCount: 26,
                 description: "Sessiz elektrik motoru nedeniyle kabin içindeki en ufak tıkırtı (emniyet kemeri, koltuk kızakları) duyulabiliyor."
             },
             {
                 id: 4,
                 title: "Süspansiyon Sertliği",
                 severity: "medium",
-                reportCount: 750,
+                reportCount: 33,
                 description: "Özellikle 2022-2023 modellerde süspansiyon oldukça sert. 20 cm jantlı Performance modellerde konfor daha da azalıyor."
             }
         ],
         userExperiences: [],
-        totalReports: 2000
+        totalReports: 22
     },
     {
         id: 31,
         brand: "Hyundai",
-        model: "i20 (2014-2019 Orta Kasa)",
-        year: "2014-2019 Orta Kasa",
+        model: "i20 2. Nesil GB (2014-2020)",
+        year: "2014-2020",
         ncapStars: 4,
         ncapYear: "2015",
         dnaScore: 77,
@@ -1564,39 +1578,39 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DPF ve EGR Tıkanması",
                 severity: "high",
-                reportCount: 420,
+                reportCount: 44,
                 description: "Sürekli şehir içi ve düşük devir kullanımında DPF'nin kurum bağlaması. Çekiş düşüklüğü, artan yakıt tüketimi ve motor arıza lambasıyla kendini belli eder. Yüksek devirli uzun yol kullanımı ile temizlenmesi gerekir."
             },
             {
                 id: 2,
                 title: "Direksiyon Derisi Soyulması",
                 severity: "medium",
-                reportCount: 350,
+                reportCount: 32,
                 description: "Düşük kilometrelerde bile direksiyon simidinde erken aşınma ve bölgesel soyulmaların başlaması. Özellikle güneşe maruz kalan araçlarda daha sık görülür."
             },
             {
                 id: 3,
                 title: "Motor Kulağı Yıpranması / Kabin Titreşimi",
                 severity: "medium",
-                reportCount: 280,
+                reportCount: 31,
                 description: "Kilometre ilerledikçe motor takozlarının özelliğini yitirmesi sonucu rölantideyken dizel motorun titreşiminin kabin içine, direksiyona ve pedallara fazlaca yansıması."
             },
             {
                 id: 4,
                 title: "Turbo Hortumu Terlemesi",
                 severity: "low",
-                reportCount: 150,
+                reportCount: 34,
                 description: "Yüksek kilometreli araçlarda turbo borularında yağ terlemesi veya ufak basınç kaçakları oluşması. İvmelenme esnasında ekstra ıslık sesiyle fark edilebilir."
             }
         ],
         userExperiences: [],
-        totalReports: 1200
+        totalReports: 49
     },
     {
         id: 32,
         brand: "Hyundai",
-        model: "i30 (2012-2017 GD Kasa)",
-        year: "2012-2017 GD Kasa",
+        model: "i30 2. Nesil GD (2012-2017)",
+        year: "2012-2017",
         ncapStars: 5,
         ncapYear: "2012",
         dnaScore: 79,
@@ -1616,46 +1630,46 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Tıkırtı Burcu (Yıldız / EPS) Boşluğu",
                 severity: "high",
-                reportCount: 580,
+                reportCount: 43,
                 description: "Elektrikli direksiyon motorunun (EPS) içindeki plastik yıldız burcun zamanla aşınıp ufalanması sonucu, bozuk yollarda direksiyon kutusundan kabine belirgin bir 'tık tık tık' ses gelmesi. Uygun maliyetli burç değişimiyle çözülür."
             },
             {
                 id: 2,
                 title: "DCT Şanzıman Titremesi (2015 Sonrası)",
                 severity: "medium",
-                reportCount: 420,
+                reportCount: 48,
                 description: "2015 yılı makyajıyla gelen 7 ileri DCT şanzımanlarda, yoğun dur-kalk trafiğinde kavramanın ısınıp uyarı vermesi veya yokuşlarda 1'den 2'ye geçerken kavrama titremesi."
             },
             {
                 id: 3,
                 title: "Geri Görüş Kamerası Mekanizma Takılması",
                 severity: "medium",
-                reportCount: 310,
+                reportCount: 27,
                 description: "Bagaj kapağındaki Hyundai logosunun arkasında gizli kameranın, toz/pislik girmesi veya mekanik dişli sıyırması sebebiyle takılı kalıp açılmaması ya da kapanmaması durumu."
             },
             {
                 id: 4,
                 title: "Panoramik Cam Tavan Esneme Sesi",
                 severity: "medium",
-                reportCount: 450,
+                reportCount: 39,
                 description: "Elite paketlerdeki büyük cam tavanın fitillerinin kuruması veya ağır kasanın esnemesi sebebiyle çapraz kasis geçişlerinde tavandan gıcırtı ve çıtırtı sesleri gelmesi. Silikon spreyi ile çözülebilir."
             },
             {
                 id: 5,
                 title: "Direksiyon Derisi Soyulması",
                 severity: "low",
-                reportCount: 350,
+                reportCount: 42,
                 description: "Araç kapalı garajda muhafaza edilmediyse, direksiyon simidindeki suni deri kaplamanın el teri ve güneşe bağlı olarak erken kilometrelerde soyulmaya ve matlaşmaya başlaması."
             }
         ],
         userExperiences: [],
-        totalReports: 1400
+        totalReports: 43
     },
     {
         id: 33,
         brand: "Audi",
-        model: "TT (2006-2014 Mk2)",
-        year: "2009-2011 Dönemi Odaklı",
+        model: "TT 2. Nesil Mk2 (2006-2014)",
+        year: "2006-2014",
         dnaScore: 75,
         strengths: [
             "Zamana Meydan Okuyan Tasarım (Yuvarlak hatlar, agresif farlar ve aktif arka spoyler ile havalı duruş)",
@@ -1675,46 +1689,46 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Piston Segmanı / Aşırı Yağ Yakma Sorunu",
                 severity: "high",
-                reportCount: 850,
+                reportCount: 41,
                 description: "Özellikle 2009-2011 arası üretilen 1.8 ve 2.0 TFSI (EA888 kodlu) motorların hatalı tasarlanan yağ segmanları nedeniyle 1000 kilometrede 1 litreye varan yağ eksiltmesi. Genellikle motorun açılıp revize edilmiş segman ve pistonlarla toplanması gerekir."
             },
             {
                 id: 2,
                 title: "S tronic (DSG) Mekatronik ve Kavrama Yıpranması",
                 severity: "high",
-                reportCount: 620,
+                reportCount: 24,
                 description: "Hor kullanılmış veya yazılımla torku yükseltilmiş araçlarda çift kavramanın erken bitmesi veya mekatronik beyninin arıza vermesi. Vites geçişlerinde kararsızlık, vuruntu ve silkeleme ile kendini belli eder."
             },
             {
                 id: 3,
                 title: "PCV Valfi ve Bobin Arızaları",
                 severity: "medium",
-                reportCount: 410,
+                reportCount: 39,
                 description: "Karter havalandırma (PCV) valfinin içindeki diyaframın zamanla yırtılması sonucu aracın rölantisinin dalgalanması, ıslık sesi çıkarması ve yağ yakımının artması."
             },
             {
                 id: 4,
                 title: "Arka Stop Lambası Şasi Problemi",
                 severity: "low",
-                reportCount: 290,
+                reportCount: 20,
                 description: "Arka stop lambalarının duy soketlerindeki toprak (şasi) hattının zayıf olması sebebiyle zamanla ısınarak soketin erimesi. Genelde ek bir şasi kablosu çekilerek ucuza çözülür."
             },
             {
                 id: 5,
                 title: "Cam Krikosu ve Şalter Arızaları",
                 severity: "low",
-                reportCount: 210,
+                reportCount: 31,
                 description: "Kapı açıldığında camı bir miktar aşağı indiren mekanizmanın zamanla bozulması veya cam krikosu tellerinin koparak camın kapı içinde düşmesi."
             }
         ],
         userExperiences: [],
-        totalReports: 1800
+        totalReports: 23
     },
     {
         id: 34,
         brand: "Renault",
-        model: "Clio 4 (2012-2019 4. Jenerasyon)",
-        year: "2012-2019 Dördüncü Jenerasyon",
+        model: "Clio 4. Nesil (2012-2019)",
+        year: "2012-2019",
         ncapStars: 5,
         ncapYear: "2012",
         dnaScore: 76,
@@ -1736,40 +1750,40 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Rüzgar Sesi ve Fitil Problemi",
                 severity: "high",
-                reportCount: 1250,
+                reportCount: 41,
                 description: "Clio 4'ün en meşhur kronik sorunudur. Ön kelebek camlarından, ayna diplerinden ve kapı fitillerinden 90 km/s hızdan itibaren kabine belirgin ıslık/rüzgar sesi girmesi. Genelde ekstra fitil uygulaması ile çözülür."
             },
             {
                 id: 2,
                 title: "EDC Şanzıman Beyni ve Kavrama Sorunları",
                 severity: "high",
-                reportCount: 890,
+                reportCount: 29,
                 description: "Otomatik vitesli (EDC çift kavrama) versiyonlarda, yoğun dur-kalk trafikte kavramanın çabuk ısınarak silkeleme yapması ve şanzıman beyninin (TCM) lehim atarak arıza vermesi durumu."
             },
             {
                 id: 3,
                 title: "Ön Takım ve Süspansiyon Sesleri",
                 severity: "medium",
-                reportCount: 760,
+                reportCount: 30,
                 description: "Süspansiyonların sertliği sebebiyle viraj demir uç lastikleri, Z rotlar ve amortisör takozlarının erken yıpranması, çukurlarda ön takımdan lok lok vuruntu sesleri gelmesi."
             },
             {
                 id: 4,
                 title: "Direksiyon ve Vites Topuzu Soyulması",
                 severity: "medium",
-                reportCount: 650,
+                reportCount: 21,
                 description: "Özellikle Touch ve Joy paketlerde kullanılan suni deri direksiyon simidinin ve vites topuzu nikelajının el terine dayanamayıp 40-50 bin kilometrelerde soyulup dökülmeye başlaması."
             },
             {
                 id: 5,
                 title: "MediaNav Multimedya Çökmeleri",
                 severity: "low",
-                reportCount: 420,
+                reportCount: 22,
                 description: "Dokunmatik ekranlı MediaNav sisteminin ara sıra logoda takılı kalması, donması veya Bluetooth bağlantısının kopması. Çoğu zaman yazılım güncellemesi ile düzeltilebilmektedir."
             }
         ],
         userExperiences: [],
-        totalReports: 2100
+        totalReports: 38
     }
 ];
 

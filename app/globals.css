@@ -31,13 +31,13 @@
   --top-bar-bg: #ffffff;
 
   /* Shadows for light mode */
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --card-shadow-hover: 0 4px 12px rgba(0, 90, 226, 0.1), 0 2px 4px rgba(0, 0, 0, 0.04);
-  --navbar-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --glass-bg: rgba(255, 255, 255, 0.85);
+  --card-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.04), 0 2px 8px -2px rgba(0, 0, 0, 0.02);
+  --card-shadow-hover: 0 16px 32px -4px rgba(0, 90, 226, 0.15), 0 8px 16px -4px rgba(0, 90, 226, 0.08);
+  --navbar-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  --glass-bg: rgba(255, 255, 255, 0.65);
   --ticker-bg: rgba(0, 0, 0, 0.04);
   --ticker-border: rgba(0, 0, 0, 0.08);
-  --modal-bg: rgba(255, 255, 255, 0.98);
+  --modal-bg: rgba(255, 255, 255, 0.75);
 
   /* Expert Theme Colors */
   --expert-deep-space: #f0f2f5;
@@ -96,13 +96,13 @@
   --top-bar-bg: #000000;
 
   /* Shadows for dark mode */
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --card-shadow-hover: 0 0 20px rgba(255, 107, 0, 0.15);
-  --navbar-shadow: none;
-  --glass-bg: rgba(17, 17, 17, 0.8);
+  --card-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.4), 0 2px 8px -2px rgba(0, 0, 0, 0.2);
+  --card-shadow-hover: 0 16px 32px -4px rgba(59, 130, 246, 0.3), 0 8px 16px -4px rgba(59, 130, 246, 0.15);
+  --navbar-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(10, 10, 10, 0.65);
   --ticker-bg: rgba(0, 0, 0, 0.4);
   --ticker-border: rgba(255, 255, 255, 0.1);
-  --modal-bg: rgba(17, 17, 17, 0.98);
+  --modal-bg: rgba(10, 10, 10, 0.75);
 
   /* Expert Theme Colors */
   --expert-deep-space: #0A0D1C;
@@ -147,6 +147,16 @@ body {
   color: var(--foreground);
   background: var(--background);
   min-height: 100vh;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+p, span, div, li {
+  font-weight: 400;
 }
 
 /* Light theme gradient */
@@ -270,8 +280,13 @@ a {
 /* Glass effect */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--card-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--card-shadow);
+}
+.dark .glass {
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Hover effects */
@@ -638,6 +653,9 @@ a {
 
 /* ===== RESPONSIVE: MOBILE (max-width: 768px) ===== */
 @media (max-width: 768px) {
+  body {
+    padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+  }
   /* ── Navbar ── */
   .desktop-nav {
     display: none !important;
@@ -841,6 +859,27 @@ a {
   /* ── New Topic Modal car details grid ── */
   .car-details-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  /* ── Sozluk detail sections: reduce padding on mobile ── */
+  .sozluk-layout section {
+    padding: 20px !important;
+  }
+
+  /* ── Nav dropdown panels: ensure full-width on mobile ── */
+  .nav-dropdown-panel {
+    position: fixed !important;
+    left: 8px !important;
+    right: 8px !important;
+    top: 68px !important;
+    width: auto !important;
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+  }
+
+  /* ── Navbar: hide streak on very small screens ── */
+  .hover-lift {
+    transform: none !important;
   }
 }
 

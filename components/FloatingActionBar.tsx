@@ -83,7 +83,7 @@ export default function FloatingActionBar({ title, url, onCommentClick }: Floati
                 alignItems: 'center',
                 boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
                 transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
-                zIndex: 9999,
+                zIndex: 998,
             }} className="floating-action-bar">
                 
                 {/* Like Button */}
@@ -135,6 +135,7 @@ export default function FloatingActionBar({ title, url, onCommentClick }: Floati
                 @media (max-width: 768px) {
                     .floating-action-bar {
                         display: flex !important;
+                        bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
                     }
                     .mobile-only-spacer {
                         display: block !important;

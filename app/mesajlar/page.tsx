@@ -162,10 +162,10 @@ export default function MessagesPage() {
             <Navbar />
             <div style={{ minHeight: "100vh", background: "var(--background)", paddingTop: "60px" }}>
                 <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "20px" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "350px 1fr", gap: "20px", height: "calc(100vh - 100px)" }}>
+                    <div className="messages-grid" style={{ display: "grid", gridTemplateColumns: "350px 1fr", gap: "20px", height: "calc(100vh - 100px)" }}>
 
                         {/* Conversations List */}
-                        <div style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "12px", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+                        <div className="messages-sidebar" style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "12px", overflow: "hidden", display: "flex", flexDirection: "column" }}>
                             {/* Header */}
                             <div style={{ padding: "20px", borderBottom: "1px solid var(--card-border)" }}>
                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
@@ -217,11 +217,14 @@ export default function MessagesPage() {
                         </div>
 
                         {/* Chat Area */}
-                        <div style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "12px", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+                        <div className="messages-chat" style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "12px", overflow: "hidden", display: "flex", flexDirection: "column" }}>
                             {selectedConv ? (
                                 <>
                                     {/* Chat Header */}
                                     <div style={{ padding: "20px", borderBottom: "1px solid var(--card-border)", display: "flex", alignItems: "center", gap: "12px" }}>
+                                        <button className="mobile-chat-back" onClick={() => setSelectedConv(null)} style={{ background: 'none', border: 'none', color: 'var(--foreground)', cursor: 'pointer', padding: '8px', display: 'none', alignItems: 'center', justifyContent: 'center', marginLeft: '-8px' }}>
+                                            <ArrowLeft size={20} />
+                                        </button>
                                         <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--foreground)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--background)", fontWeight: "700" }}>
                                             {getOtherUsername(selectedConv).charAt(0).toUpperCase()}
                                         </div>
@@ -313,6 +316,24 @@ export default function MessagesPage() {
                     </div>
                 </div>
             )}
+            <style>{`
+                @media (max-width: 768px) {
+                    .messages-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 0 !important;
+                        height: calc(100vh - 60px - 90px - env(safe-area-inset-bottom, 0px)) !important;
+                    }
+                    .messages-sidebar {
+                        display: ${selectedConv ? 'none' : 'flex'} !important;
+                    }
+                    .messages-chat {
+                        display: ${selectedConv ? 'flex' : 'none'} !important;
+                    }
+                    .mobile-chat-back {
+                        display: flex !important;
+                    }
+                }
+            `}</style>
             <Footer />
         </div>
     );

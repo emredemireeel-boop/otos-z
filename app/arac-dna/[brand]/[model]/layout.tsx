@@ -4,8 +4,9 @@ import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel } from "@/data/vehicle-dna";
-import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle } from "lucide-react";
+import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug } from "@/data/vehicle-dna";
+import { engineDNAData } from "@/data/engine-dna";
+import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle, Package, Zap } from "lucide-react";
 
 export default function AracDNALayout({
     children,
@@ -19,8 +20,8 @@ export default function AracDNALayout({
     const modelSlug = (params?.model as string)?.toLowerCase() || "";
 
     const vehicle = vehicleDNAData.find(v => {
-        const vBrandSlug = v.brand.toLowerCase().replace(/\s+/g, '-');
-        const vModelSlug = v.model.toLowerCase().replace(/\s+/g, '-');
+        const vBrandSlug = createSlug(v.brand);
+        const vModelSlug = createSlug(v.model);
         return vBrandSlug === brandSlug && vModelSlug === modelSlug;
     });
 
@@ -44,17 +45,25 @@ export default function AracDNALayout({
         );
     }
 
-    const scoreColor = getDNAScoreColor(vehicle.dnaScore);
-    const scoreLabel = getDNAScoreLabel(vehicle.dnaScore);
+    const engineSlug = (params?.engine as string)?.toLowerCase() || "";
+    const specificEngine = engineSlug ? engineDNAData.find(e => e.vehicleId === vehicle.id)?.engines.find(e => e.slug === engineSlug) : null;
 
-    const basePath = `/arac-dna/${brandSlug}/${modelSlug}`;
+    // Determine the active score and title
+    const activeScore = specificEngine ? specificEngine.score : vehicle.dnaScore;
+    const scoreColor = getDNAScoreColor(activeScore);
+    const scoreLabel = getDNAScoreLabel(activeScore);
 
-    const tabs = [
-        { name: "Genel Bakış", path: basePath, icon: <FileText size={16} />, exact: true },
-        { name: "Artıları & Eksileri", path: `${basePath}/neden-alinir`, icon: <ThumbsUp size={16} />, exact: false },
-        { name: "Kronik Sorunlar", path: `${basePath}/kronik-sorunlar`, icon: <Wrench size={16} />, exact: false },
-        { name: "Kullanıcı Deneyimleri", path: `${basePath}/kullanici-deneyimleri`, icon: <MessageCircle size={16} />, exact: false },
-    ];
+    const basePath = specificEngine 
+        ? `/arac-dna/${brandSlug}/${modelSlug}/${engineSlug}`
+        : `/arac-dna/${brandSlug}/${modelSlug}`;
+
+    const tabs = specificEngine ? [
+        { name: "Genel Bakış", path: `${basePath}#genel-bakis`, hash: "#genel-bakis", icon: <FileText size={16} /> },
+        { name: "Artıları & Eksileri", path: `${basePath}#artilar`, hash: "#artilar", icon: <ThumbsUp size={16} /> },
+        { name: "Kronik Sorunlar", path: `${basePath}#kronik`, hash: "#kronik", icon: <Wrench size={16} /> },
+        { name: "Araç Paketleri", path: `${basePath}#donanim`, hash: "#donanim", icon: <Package size={16} /> },
+        { name: "Kullanıcı Deneyimleri", path: `${basePath}#deneyimler`, hash: "#deneyimler", icon: <MessageCircle size={16} /> },
+    ] : [];
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -89,37 +98,75 @@ export default function AracDNALayout({
                                 <Dna size={32} color="white" />
                             </div>
                             <div>
-                                <h1 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--foreground)', margin: 0, marginBottom: '4px' }}>
-                                    {vehicle.brand} {vehicle.model}
-                                </h1>
-                                <p style={{ fontSize: '16px', color: 'var(--text-muted)', margin: 0 }}>
-                                    {vehicle.year} Model
-                                </p>
+                                {(() => {
+                                    const generationMatch = vehicle.model.match(/\(([^)]+)\)/);
+                                    const generationInfo = generationMatch ? generationMatch[1] : null;
+                                    const mainModelName = vehicle.model.replace(/\s*\([^)]+\)/, "").trim();
+                                    return (
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                            <h1 style={{ fontSize: '30px', fontWeight: '800', color: 'var(--foreground)', margin: 0, lineHeight: '1.2' }}>
+                                                {vehicle.brand} {mainModelName}
+                                                {specificEngine ? ` ${specificEngine.name} (${specificEngine.fuelType} - ${specificEngine.transmission})` : ''}
+                                            </h1>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                                                {generationInfo && (
+                                                    <span style={{
+                                                        padding: '4px 12px',
+                                                        background: 'linear-gradient(135deg, #eab308 0%, #ca8a04 100%)',
+                                                        color: 'white',
+                                                        fontSize: '12px',
+                                                        borderRadius: '20px',
+                                                        fontWeight: '700',
+                                                        boxShadow: '0 4px 10px rgba(234, 179, 8, 0.25)',
+                                                        display: 'inline-flex',
+                                                        alignItems: 'center',
+                                                        gap: '6px'
+                                                    }}>
+                                                        🛡️ Jenerasyon: {generationInfo}
+                                                    </span>
+                                                )}
+                                                <span style={{
+                                                    padding: '4px 12px',
+                                                    background: 'var(--secondary)',
+                                                    border: '1px solid var(--card-border)',
+                                                    color: 'var(--text-muted)',
+                                                    fontSize: '12px',
+                                                    borderRadius: '20px',
+                                                    fontWeight: '600'
+                                                }}>
+                                                    📅 {vehicle.year}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    );
+                                })()}
                             </div>
                         </div>
 
-                        {/* Tab Navigation */}
-                        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px', borderTop: '1px solid var(--card-border)', paddingTop: '24px' }} className="hide-scrollbar">
-                            {tabs.map((tab) => {
-                                const isActive = tab.exact ? pathname === tab.path : pathname.startsWith(tab.path);
-                                return (
-                                    <Link key={tab.path} href={tab.path} style={{ textDecoration: 'none' }}>
-                                        <div style={{
-                                            display: 'flex', alignItems: 'center', gap: '8px',
-                                            padding: '12px 20px', borderRadius: '12px',
-                                            background: isActive ? 'var(--primary)' : 'var(--secondary)',
-                                            color: isActive ? 'white' : 'var(--foreground)',
-                                            fontWeight: isActive ? '600' : '500',
-                                            fontSize: '15px', whiteSpace: 'nowrap',
-                                            transition: 'all 0.2s', border: `1px solid ${isActive ? 'var(--primary)' : 'transparent'}`
-                                        }}>
-                                            {tab.icon}
-                                            {tab.name}
-                                        </div>
-                                    </Link>
-                                );
-                            })}
-                        </div>
+                        {/* Tab Navigation (Only show if specific engine is selected) */}
+                        {tabs.length > 0 && (
+                            <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px', borderTop: '1px solid var(--card-border)', paddingTop: '24px' }} className="hide-scrollbar">
+                                {tabs.map((tab) => {
+                                    const isActive = false;
+                                    return (
+                                        <Link key={tab.path} href={tab.path} style={{ textDecoration: 'none' }}>
+                                            <div style={{
+                                                display: 'flex', alignItems: 'center', gap: '8px',
+                                                padding: '12px 20px', borderRadius: '12px',
+                                                background: isActive ? 'var(--primary)' : 'var(--secondary)',
+                                                color: isActive ? 'white' : 'var(--foreground)',
+                                                fontWeight: isActive ? '600' : '500',
+                                                fontSize: '15px', whiteSpace: 'nowrap',
+                                                transition: 'all 0.2s', border: `1px solid ${isActive ? 'var(--primary)' : 'transparent'}`
+                                            }}>
+                                                {tab.icon}
+                                                {tab.name}
+                                            </div>
+                                        </Link>
+                                    );
+                                })}
+                            </div>
+                        )}
                     </div>
 
                     {/* Page Content */}

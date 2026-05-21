@@ -589,11 +589,16 @@ export default function ForumThreadPage() {
                                     const { description, vehicles } = (isFirstEntry && isKarsilastirma) ? parseComparisonContent(entry.content) : { description: entry.content, vehicles: [] };
                                     const garageText = userGarageMap[entry.authorId];
                                     const isExpert = userRoleMap[entry.authorId] === 'usta';
+                                    const isOp = entry.authorUsername === thread.authorUsername;
+                                    
+                                    const entryBg = isExpert ? 'linear-gradient(to right, rgba(234,179,8,0.03), transparent)' : (isOp && !isFirstEntry ? 'var(--hover-primary)' : 'var(--card-bg)');
+                                    const entryBorderLeft = !isFirstEntry ? (isOp ? '3px solid var(--primary)' : '3px solid var(--card-border)') : undefined;
 
                                     return (
                                         <div key={entry.id} style={{
-                                            background: isExpert ? 'linear-gradient(to right, rgba(234,179,8,0.03), transparent)' : 'var(--card-bg)',
+                                            background: entryBg,
                                             border: isExpert ? '1px solid rgba(234, 179, 8, 0.4)' : (isBestAnswer ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid var(--card-border)'),
+                                            borderLeft: entryBorderLeft || (isExpert ? '1px solid rgba(234, 179, 8, 0.4)' : (isBestAnswer ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid var(--card-border)')),
                                             borderRadius: '16px',
                                             transition: 'border-color 0.2s',
                                             boxShadow: isExpert ? '0 4px 20px rgba(234,179,8,0.08)' : (isBestAnswer ? '0 4px 20px rgba(34,197,94,0.08)' : ((isFirstEntry && isKarsilastirma) ? '0 8px 30px rgba(0,0,0,0.04)' : 'none')),
@@ -606,13 +611,11 @@ export default function ForumThreadPage() {
                                             <div style={{
                                                 display: 'flex', flexDirection: 'column', alignItems: 'center',
                                                 padding: '16px 10px', gap: '4px',
-                                                background: isFirstEntry ? 'transparent' : 'var(--secondary)',
+                                                background: 'transparent',
                                                 borderRight: isFirstEntry ? 'none' : '1px solid var(--card-border)',
                                                 minWidth: isFirstEntry ? '0px' : '52px',
                                                 width: isFirstEntry ? '0px' : '52px',
                                                 flexShrink: 0,
-                                                borderTopLeftRadius: '16px',
-                                                borderBottomLeftRadius: '16px',
                                             }}>
                                                 {!isFirstEntry && (
                                                     <>
@@ -626,6 +629,10 @@ export default function ForumThreadPage() {
                                                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                                             }}
                                                             title="Upvote"
+                                                            onMouseEnter={(e) => { if(user) e.currentTarget.style.transform = 'scale(1.1)'; }}
+                                                            onMouseLeave={(e) => { if(user) e.currentTarget.style.transform = 'scale(1)'; }}
+                                                            onMouseDown={(e) => { if(user) e.currentTarget.style.transform = 'scale(0.9)'; }}
+                                                            onMouseUp={(e) => { if(user) e.currentTarget.style.transform = 'scale(1.1)'; }}
                                                         >
                                                             <ArrowUp size={20} strokeWidth={isLiked ? 3 : 2} />
                                                         </button>
@@ -661,8 +668,7 @@ export default function ForumThreadPage() {
                                                 >
                                                     <div style={{
                                                         width: '40px', height: '40px', borderRadius: '50%',
-                                                        background: (isFirstEntry && isKarsilastirma) ? 'linear-gradient(135deg, #3b82f6, #2563eb)' : 'linear-gradient(135deg, var(--primary), #3b82f6)',
-                                                        backgroundImage: userPhotoMap[entry.authorId] ? `url(${userPhotoMap[entry.authorId]})` : 'none',
+                                                        backgroundImage: userPhotoMap[entry.authorId] ? `url(${userPhotoMap[entry.authorId]})` : ((isFirstEntry && isKarsilastirma) ? 'linear-gradient(135deg, #3b82f6, #2563eb)' : 'linear-gradient(135deg, var(--primary), #3b82f6)'),
                                                         backgroundSize: 'cover', backgroundPosition: 'center',
                                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                                                         fontSize: '16px', fontWeight: '700', color: 'white',

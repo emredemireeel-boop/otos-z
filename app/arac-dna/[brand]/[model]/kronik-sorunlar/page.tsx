@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { vehicleDNAData, getSeverityColor, getSeverityLabel } from "@/data/vehicle-dna";
+import { vehicleDNAData, getSeverityColor, getSeverityLabel, createSlug } from "@/data/vehicle-dna";
 import { Wrench, AlertCircle, AlertTriangle, Plus, X } from "lucide-react";
 import Script from "next/script";
 import { useState, useEffect } from "react";
@@ -24,8 +24,8 @@ export default function ChronicIssuesPage() {
     const router = useRouter();
 
     const vehicle = vehicleDNAData.find(v => {
-        const vBrandSlug = v.brand.toLowerCase().replace(/\s+/g, '-');
-        const vModelSlug = v.model.toLowerCase().replace(/\s+/g, '-');
+        const vBrandSlug = createSlug(v.brand);
+        const vModelSlug = createSlug(v.model);
         return vBrandSlug === brandSlug && vModelSlug === modelSlug;
     });
 
@@ -104,16 +104,20 @@ export default function ChronicIssuesPage() {
 
     if (!vehicle) return null;
 
-    // Generate FAQ Schema for SEO
+    // Generate FAQ Schema for SEO (Generation-Aware)
+    const generationMatch = vehicle.model.match(/\(([^)]+)\)/);
+    const mainModelName = vehicle.model.replace(/\s*\([^)]+\)/, "").trim();
+    const genName = generationMatch ? ` ${generationMatch[1]}` : "";
+
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": vehicle.chronicIssues.map(issue => ({
             "@type": "Question",
-            "name": `${vehicle.brand} ${vehicle.model} modelinde ${issue.title} sorunu var mı?`,
+            "name": `${vehicle.brand} ${mainModelName}${genName} modelinde ${issue.title} sorunu var mı?`,
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": `${issue.description} Bu sorun Otosöz veritabanında ${issue.reportCount} kullanıcı tarafından raporlanmış olup, ${getSeverityLabel(issue.severity).toLowerCase()} düzeyde bir sorundur.`
+                "text": `${issue.description} Bu sorun Otosöz veritabanında ${issue.reportCount + (staticVotes[issue.id.toString()]?.length || 0)} kullanıcı tarafından raporlanmış olup, ${getSeverityLabel(issue.severity).toLowerCase()} düzeyde bir sorundur.`
             }
         }))
     };
@@ -138,7 +142,7 @@ export default function ChronicIssuesPage() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <Wrench size={28} color="var(--primary)" />
                         <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)', margin: 0 }}>
-                            {vehicle.brand} {vehicle.model} Kronik Sorunları
+                            {vehicle.brand} {mainModelName} Kronik Sorunları
                         </h2>
                     </div>
                     <button 
@@ -309,7 +313,7 @@ export default function ChronicIssuesPage() {
                             </button>
                         </div>
                         <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                            Lütfen <strong>{vehicle.brand} {vehicle.model}</strong> aracında yaşadığınız yaygın teknik sorunu kısaca açıklayın.
+                            Lütfen <strong>{vehicle.brand} {mainModelName} {generationMatch ? `(${generationMatch[1]})` : ''}</strong> aracında yaşadığınız yaygın teknik sorunu kısaca açıklayın.
                         </p>
                         <textarea
                             value={chronicText}

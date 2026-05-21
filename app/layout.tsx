@@ -73,6 +73,7 @@ export const metadata: Metadata = {
 
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
+import GlobalEngagement from "@/components/GlobalEngagement";
 
 // ── JSON-LD Yapılandırılmış Veri (Structured Data) ──
 // Google'ın siteyi bir "Kuruluş" ve "Web Sitesi" olarak tanımasını sağlar.
@@ -214,6 +215,7 @@ export default function RootLayout({
                 <ThemeProvider>
                     <AuthProvider>
                         {children}
+                        <GlobalEngagement />
                     </AuthProvider>
                 </ThemeProvider>
             </body>

@@ -3,12 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Bell, Settings, User, LogOut, MessageCircle, Wrench, Briefcase, Crown, Sun, Moon } from "lucide-react";
+import { Bell, Settings, User, LogOut, MessageCircle, Wrench, Briefcase, Crown, Sun, Moon, Flame } from "lucide-react";
 
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
 import { usePathname } from "next/navigation";
 import CarThemeToggle from "@/components/CarThemeToggle";
+import DailyStreakModal from "@/components/DailyStreakModal";
 import { subscribeToNotifications, markNotificationRead, markAllRead, type Notification as FBNotification } from "@/lib/notificationService";
 import { subscribeToConversations, type Conversation as FBConversation } from "@/lib/messageService";
 import { playNotificationSound, preloadNotificationSound } from "@/lib/notificationSound";
@@ -77,6 +78,7 @@ export default function Navbar() {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
     const [showNotifications, setShowNotifications] = useState(false);
     const [showMessages, setShowMessages] = useState(false);
+    const [showStreakModal, setShowStreakModal] = useState(false);
     const [notifications, setNotifications] = useState<NavNotification[]>([]);
     const [messages, setMessages] = useState<NavMessage[]>([]);
     const prevNotifCount = useRef(0);
@@ -281,6 +283,27 @@ export default function Navbar() {
                     {/* Logged In - Show Messages, Notifications, Settings, Profile */}
                     {isLoggedIn ? (
                         <>
+                            {/* Streak Indicator */}
+                            <button
+                                onClick={() => setShowStreakModal(true)}
+                                className="hover-lift"
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '6px',
+                                    padding: '6px 12px',
+                                    background: 'var(--secondary)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '20px',
+                                    cursor: 'pointer',
+                                    color: 'var(--foreground)',
+                                    fontWeight: '700',
+                                    fontSize: '14px',
+                                }}>
+                                <span style={{ fontSize: '16px' }}>🔥</span>
+                                {user?.streak || 3}
+                            </button>
+
                             {/* Messages Dropdown */}
                             <div style={{ position: 'relative' }}>
                                 <button
@@ -319,7 +342,7 @@ export default function Navbar() {
 
                                 {/* Messages Panel */}
                                 {showMessages && (
-                                    <div style={{
+                                    <div className="nav-dropdown-panel" style={{
                                         position: 'absolute',
                                         top: '100%',
                                         right: 0,
@@ -494,7 +517,7 @@ export default function Navbar() {
 
                                 {/* Notifications Panel */}
                                 {showNotifications && (
-                                    <div style={{
+                                    <div className="nav-dropdown-panel" style={{
                                         position: 'absolute',
                                         top: '100%',
                                         right: 0,
@@ -647,7 +670,10 @@ export default function Navbar() {
                                         width: '28px',
                                         height: '28px',
                                         borderRadius: '50%',
-                                        background: 'var(--primary)',
+                                        backgroundColor: 'var(--primary)',
+                                        backgroundImage: user?.avatar ? `url(${user.avatar})` : 'none',
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
@@ -655,7 +681,7 @@ export default function Navbar() {
                                         fontWeight: '700',
                                         color: 'white',
                                     }}>
-                                        {user?.name.charAt(0)}
+                                        {!user?.avatar && user?.name.charAt(0)}
                                     </div>
                                     <span style={{ fontSize: '12px', fontWeight: '600', color: 'var(--foreground)' }}>
                                         {user?.name}
@@ -755,20 +781,11 @@ export default function Navbar() {
                                             <Briefcase style={{ width: '16px', height: '16px' }} />
                                             Uzman Ol
                                         </Link>
-                                        <Link href="/premium" style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '10px',
-                                            padding: '10px',
-                                            borderRadius: '8px',
-                                            color: '#3b82f6',
-                                            fontWeight: '700',
-                                            fontSize: '13px',
-                                            textDecoration: 'none'
-                                        }}>
-                                            <Crown style={{ width: '16px', height: '16px' }} />
+                                        {/* Premium removed for Growth Phase 
+                                        <Link href="/premium">
                                             Premium'a Geç
                                         </Link>
+                                        */}
                                         <div style={{ height: '1px', background: 'var(--card-border)', margin: '4px 0' }} />
                                         <div style={{ padding: '4px 10px' }}>
                                             <button onClick={() => toggleTheme()} style={{
@@ -815,34 +832,32 @@ export default function Navbar() {
                             </div>
                         </>
                     ) : (
-                        <>
-                            {/* Not Logged In - Show Auth Buttons */}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <Link href="/giris" style={{
-                                padding: '6px 12px',
                                 color: 'var(--foreground)',
-                                fontSize: '11px',
+                                fontSize: '13px',
                                 fontWeight: '600',
-                                borderRadius: '6px',
-                                border: '1px solid var(--card-border)',
-                                whiteSpace: 'nowrap',
-                            }}
-                                onClick={() => { }}
-                            >
-                                GİRİŞ
+                                padding: '8px 16px',
+                                textDecoration: 'none',
+                                borderRadius: '8px',
+                                transition: 'background 0.2s ease',
+                            }} onMouseEnter={(e) => e.currentTarget.style.background = 'var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
+                                Giriş Yap
                             </Link>
-
                             <Link href="/kayit" style={{
-                                padding: '6px 12px',
                                 background: 'var(--primary)',
                                 color: 'white',
-                                fontSize: '11px',
+                                fontSize: '13px',
                                 fontWeight: '600',
-                                borderRadius: '6px',
-                                whiteSpace: 'nowrap',
-                            }}>
-                                KAYIT
+                                padding: '8px 16px',
+                                textDecoration: 'none',
+                                borderRadius: '8px',
+                                boxShadow: '0 4px 15px var(--primary-glow)',
+                                transition: 'all 0.2s ease',
+                            }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 6px 20px var(--primary-glow)'; }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 15px var(--primary-glow)'; }}>
+                                Kayıt Ol
                             </Link>
-                        </>
+                        </div>
                     )}
 
                     {/* Mobile Menu Button */}
@@ -953,6 +968,14 @@ export default function Navbar() {
                     onClick={closeAllDropdowns}
                 />
             )}
+
+            {/* Streak Modal */}
+            <DailyStreakModal
+                streak={user?.streak || 3}
+                xpGained={20}
+                isVisible={showStreakModal}
+                onClose={() => setShowStreakModal(false)}
+            />
         </nav>
     );
 }

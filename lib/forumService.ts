@@ -7,6 +7,7 @@ import {
 import { db } from "./firebase";
 import { sanitizeText, validateThreadTitle, validateEntryContent, validateTags } from "./validation";
 import { pingGoogle } from "./seoPing";
+import { awardXP, updateDailyContentStreak } from "./xpService";
 
 /* ── Types ── */
 export interface ChronicIssue {
@@ -305,6 +306,17 @@ export async function createThread(data: {
     // Slug URL dondur (yonlendirme icin)
     const slugUrl = `${createSlug(titleCheck.sanitized)}--${urlId}`;
 
+    // XP ve Streak kazanımı
+    try {
+        await awardXP(data.authorId, 'CREATE_THREAD');
+        const streakRes = await updateDailyContentStreak(data.authorId);
+        if (streakRes?.isNewDay && streakRes.xpGained > 0 && typeof window !== 'undefined') {
+            window.dispatchEvent(new CustomEvent('daily_login_reward', { 
+                detail: { xpGained: streakRes.xpGained, streak: streakRes.currentStreak } 
+            }));
+        }
+    } catch (e) { console.warn("Gamification error on create thread:", e); }
+
     // 🚀 Google'a anında indeksleme bildirimi gönder
     pingGoogle(`/forum/${slugUrl}`).catch(() => {});
 
@@ -339,6 +351,17 @@ export async function addEntry(threadId: string, data: {
         entryCount: increment(1),
         lastEntryAt: now,
     });
+
+    // XP ve Streak kazanımı
+    try {
+        await awardXP(data.authorId, 'WRITE_ENTRY');
+        const streakRes = await updateDailyContentStreak(data.authorId);
+        if (streakRes?.isNewDay && streakRes.xpGained > 0 && typeof window !== 'undefined') {
+            window.dispatchEvent(new CustomEvent('daily_login_reward', { 
+                detail: { xpGained: streakRes.xpGained, streak: streakRes.currentStreak } 
+            }));
+        }
+    } catch (e) { console.warn("Gamification error on add entry:", e); }
 
     // 🚀 Google'a güncelleme bildirimi gönder (yeni entry = sayfa güncellendi)
     try {

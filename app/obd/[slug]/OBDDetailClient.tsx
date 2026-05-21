@@ -40,10 +40,11 @@ function getSeverityConfig(severity: string) {
     return { color: '#6b7280', bg: 'rgba(107,114,128,0.1)', label: '⚪ Değişken' };
 }
 
-export default function OBDDetailClient({ codeData, relatedCodes, typeLabel }: {
+export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, brandName }: {
     codeData: ObdCode;
     relatedCodes: ObdCode[];
     typeLabel: string;
+    brandName?: string;
 }) {
     const colors = getTypeColor(codeData.type);
     const severity = getSeverityConfig(codeData.severity);
@@ -81,7 +82,13 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel }: {
                     <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', fontSize: '13px', color: 'var(--text-muted)' }}>
                         <Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Ana Sayfa</Link>
                         <ChevronRight size={14} />
-                        <Link href="/kutuphane?kategori=obd-ariza-kodlari" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>OBD Arıza Kodları</Link>
+                        <Link href="/obd" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>OBD Arıza Kodları</Link>
+                        {brandName && (
+                            <>
+                                <ChevronRight size={14} />
+                                <Link href={`/obd/${brandName.toLowerCase()}`} style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{brandName}</Link>
+                            </>
+                        )}
                         <ChevronRight size={14} />
                         <span style={{ color: colors.text, fontWeight: '600' }}>{codeData.code}</span>
                     </nav>
@@ -137,7 +144,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel }: {
                                 lineHeight: '1.3',
                                 marginBottom: '12px',
                             }}>
-                                {codeData.title}
+                                {brandName ? `${brandName} ` : ''}{codeData.title}
                             </h1>
 
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
@@ -357,8 +364,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel }: {
                         </p>
                     </div>
 
-                    {/* Back to OBD */}
-                    <Link href="/kutuphane?kategori=obd-ariza-kodlari" style={{ textDecoration: 'none' }}>
+                    <Link href={brandName ? `/obd/${brandName.toLowerCase()}` : "/obd"} style={{ textDecoration: 'none' }}>
                         <div style={{
                             display: 'flex', alignItems: 'center', gap: '10px',
                             padding: '16px',
@@ -373,7 +379,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel }: {
                         >
                             <ArrowLeft size={18} style={{ color: 'var(--primary)' }} />
                             <div>
-                                <div style={{ fontSize: '13px', fontWeight: '600', color: 'var(--foreground)' }}>Tüm OBD Kodları</div>
+                                <div style={{ fontSize: '13px', fontWeight: '600', color: 'var(--foreground)' }}>{brandName ? `${brandName} Kodları` : 'Tüm OBD Kodları'}</div>
                                 <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>OBD veritabanına dön</div>
                             </div>
                         </div>
@@ -388,8 +394,8 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel }: {
         </main>
         
         <FloatingActionBar 
-            title={`${codeData.code} - ${codeData.title}`} 
-            url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/obd/${codeData.code.toLowerCase()}`} 
+            title={`${codeData.code} - ${brandName ? brandName + ' ' : ''}${codeData.title}`} 
+            url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/obd/${brandName ? brandName.toLowerCase() + '/' : ''}${codeData.code.toLowerCase()}`} 
         />
         <Footer />
         </>

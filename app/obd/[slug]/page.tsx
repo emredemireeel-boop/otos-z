@@ -2,9 +2,11 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
 import obdCodes from "@/data/obd-codes.json";
+import carModelsData from "@/data/carmodels.json";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OBDDetailClient from "./OBDDetailClient";
+import BrandHubClient from "./BrandHubClient";
 
 interface ObdCode {
     code: string;
@@ -20,7 +22,7 @@ interface ObdCode {
 }
 
 interface PageProps {
-    params: Promise<{ code: string }>;
+    params: Promise<{ slug: string }>;
 }
 
 function getTypeLabel(type: string) {
@@ -34,9 +36,22 @@ function getTypeLabel(type: string) {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { code } = await params;
-    const upperCode = code.toUpperCase();
-    const codeData = (obdCodes as ObdCode[]).find(c => c.code.toLowerCase() === code.toLowerCase());
+    const { slug } = await params;
+    
+    // Check if it's a brand
+    const brandName = Object.keys(carModelsData).find(k => k.toLowerCase() === slug.toLowerCase());
+    if (brandName) {
+        return {
+            title: `${brandName} Arıza Kodları ve Çözümleri | OtoSöz`,
+            description: `${brandName} marka aracınızda karşılaştığınız tüm OBD-II arıza kodlarının anlamları, belirtileri ve çözüm yolları.`,
+            alternates: {
+                canonical: `https://www.otosoz.com/obd/${slug.toLowerCase()}`,
+            },
+        };
+    }
+
+    const upperCode = slug.toUpperCase();
+    const codeData = (obdCodes as ObdCode[]).find(c => c.code.toLowerCase() === slug.toLowerCase());
 
     if (!codeData) {
         return {
@@ -56,7 +71,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             title: `${upperCode} - ${codeData.title} | OtoSöz`,
             description: description.slice(0, 160),
             type: 'article',
-            url: `https://www.otosoz.com/obd/${code.toLowerCase()}`,
+            url: `https://www.otosoz.com/obd/${slug.toLowerCase()}`,
             images: [
                 {
                     url: ogUrl,
@@ -73,14 +88,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             images: [ogUrl],
         },
         alternates: {
-            canonical: `https://www.otosoz.com/obd/${code.toLowerCase()}`,
+            canonical: `https://www.otosoz.com/obd/${slug.toLowerCase()}`,
         },
     };
 }
 
-export default async function OBDCodePage({ params }: PageProps) {
-    const { code } = await params;
-    const codeData = (obdCodes as ObdCode[]).find(c => c.code.toLowerCase() === code.toLowerCase());
+export default async function OBDSlugPage({ params }: PageProps) {
+    const { slug } = await params;
+    
+    // 1. Check if slug is a Brand
+    const brandName = Object.keys(carModelsData).find(k => k.toLowerCase() === slug.toLowerCase());
+    if (brandName) {
+        return <BrandHubClient brandName={brandName} obdCodes={obdCodes as ObdCode[]} />;
+    }
+
+    // 2. Check if slug is a Code
+    const codeData = (obdCodes as ObdCode[]).find(c => c.code.toLowerCase() === slug.toLowerCase());
 
     if (!codeData) {
         notFound();
@@ -153,7 +176,7 @@ export default async function OBDCodePage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "OBD Arıza Kodları",
-                "item": "https://www.otosoz.com/kutuphane?kategori=obd-kodlari"
+                "item": "https://www.otosoz.com/obd"
             },
             {
                 "@type": "ListItem",

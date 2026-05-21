@@ -4,19 +4,26 @@ import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel } from "@/data/vehicle-dna";
+import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug } from "@/data/vehicle-dna";
+import { engineDNAData, EngineOption } from "@/data/engine-dna";
 import { getAllBrands, getModelsForBrand } from "@/data/listings";
 
-import { Dna, Search, TrendingUp, Car, Calendar, AlertCircle, Send, CheckCircle2 } from "lucide-react";
+interface EngineVariantDisplay {
+    vehicle: typeof vehicleDNAData[0];
+    engine: EngineOption;
+}
+
+import { Dna, Search, TrendingUp, Car, Calendar, AlertCircle, Send, CheckCircle2, Zap } from "lucide-react";
 
 export default function AracDNAPage() {
     const [brandInput, setBrandInput] = useState("");
     const [modelInput, setModelInput] = useState("");
-    const [yearStart, setYearStart] = useState("");
-    const [yearEnd, setYearEnd] = useState("");
+    const [vehicleYear, setVehicleYear] = useState("");
+    const [fuelType, setFuelType] = useState("");
+    const [transmissionType, setTransmissionType] = useState("");
     const [searchAttempted, setSearchAttempted] = useState(false);
     const [showContributeForm, setShowContributeForm] = useState(false);
-    const [searchResults, setSearchResults] = useState<typeof vehicleDNAData | null>(null);
+    const [searchResults, setSearchResults] = useState<EngineVariantDisplay[] | null>(null);
 
     // Contribution form states
     const [strengths, setStrengths] = useState("");
@@ -24,25 +31,70 @@ export default function AracDNAPage() {
     const [chronicIssues, setChronicIssues] = useState("");
     const [submitted, setSubmitted] = useState(false);
 
-    // Get popular vehicles (top 6 by DNA score)
-    const popularVehicles = vehicleDNAData.slice(0, 50);
+    // Flatten all engine variants
+    const allEngineVariants: EngineVariantDisplay[] = [];
+    vehicleDNAData.forEach(vehicle => {
+        const engineData = engineDNAData.find(e => e.vehicleId === vehicle.id);
+        if (engineData && engineData.engines.length > 0) {
+            engineData.engines.forEach(engine => {
+                allEngineVariants.push({ vehicle, engine });
+            });
+        } else {
+            allEngineVariants.push({ 
+                vehicle, 
+                engine: { slug: 'standart', name: 'Standart Motor', fuelType: 'Benzin', transmission: 'Manuel', score: vehicle.dnaScore, issues: [] } as any
+            });
+        }
+    });
+
+    // Get popular vehicles (top 50)
+    const popularVehicles = allEngineVariants.slice(0, 50);
 
     const handleSearch = () => {
         setSearchAttempted(true);
         setShowContributeForm(false);
         setSubmitted(false);
 
-        // Find all matching vehicles
-        const matches = vehicleDNAData.filter(v =>
-            v.brand.toLowerCase() === brandInput.toLowerCase() &&
-            v.model.toLowerCase().includes(modelInput.toLowerCase())
-        );
+        // Find all matching engines
+        const matches = allEngineVariants.filter(item => {
+            const v = item.vehicle;
+            const e = item.engine;
+            
+            const matchesBrand = v.brand.toLowerCase() === brandInput.toLowerCase();
+            const matchesModel = v.model.toLowerCase().includes(modelInput.toLowerCase());
+            
+            // Year matching logic
+            let matchesYear = true;
+            if (vehicleYear) {
+                const yearNum = parseInt(vehicleYear);
+                const yearMatch = v.year.match(/(\d{4})-(\d{4})/);
+                if (yearMatch) {
+                    const start = parseInt(yearMatch[1]);
+                    const end = parseInt(yearMatch[2]);
+                    matchesYear = yearNum >= start && yearNum <= end;
+                } else {
+                    matchesYear = v.year.includes(vehicleYear);
+                }
+            }
+
+            // Engine matching logic
+            const matchesFuel = fuelType ? e.fuelType === fuelType : true;
+            let matchesTrans = true;
+            if (transmissionType) {
+                if (transmissionType === "Manuel") {
+                    matchesTrans = e.transmission.toLowerCase().includes("manuel");
+                } else if (transmissionType === "Otomatik") {
+                    matchesTrans = !e.transmission.toLowerCase().includes("manuel") || e.transmission.toLowerCase().includes("otomatik") || e.transmission.toLowerCase().includes("dsg") || e.transmission.toLowerCase().includes("edc") || e.transmission.toLowerCase().includes("cvt");
+                }
+            }
+
+            return matchesBrand && matchesModel && matchesYear && matchesFuel && matchesTrans;
+        });
 
         if (matches.length > 0) {
             setSearchResults(matches);
         } else {
             setSearchResults([]);
-            // Show contribute form after a short delay
             setTimeout(() => setShowContributeForm(true), 500);
         }
     };
@@ -54,7 +106,9 @@ export default function AracDNAPage() {
         console.log({
             brand: brandInput,
             model: modelInput,
-            yearRange: `${yearStart}-${yearEnd}`,
+            year: vehicleYear,
+            fuelType: fuelType,
+            transmissionType: transmissionType,
             strengths,
             weaknesses,
             chronicIssues
@@ -66,8 +120,9 @@ export default function AracDNAPage() {
             setSearchAttempted(false);
             setBrandInput("");
             setModelInput("");
-            setYearStart("");
-            setYearEnd("");
+            setVehicleYear("");
+            setFuelType("");
+            setTransmissionType("");
             setStrengths("");
             setWeaknesses("");
             setChronicIssues("");
@@ -205,52 +260,15 @@ export default function AracDNAPage() {
                                 </select>
                             </div>
 
-                            {/* Year Start */}
+                            {/* Vehicle Year */}
                             <div>
                                 <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                                     <Calendar size={14} />
-                                    Başlangıç Yılı
+                                    Araç Yılı
                                 </label>
                                 <select
-                                    value={yearStart}
-                                    onChange={(e) => setYearStart(e.target.value)}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        background: 'var(--input-bg)',
-                                        border: '2px solid var(--input-border)',
-                                        borderRadius: '12px',
-                                        color: 'var(--foreground)',
-                                        fontSize: '15px',
-                                        outline: 'none',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.2s',
-                                        appearance: 'none', // Remove default arrow for custom styling if needed, but keeping simple for now
-                                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                                        backgroundPosition: 'right 0.5rem center',
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundSize: '1.5em 1.5em',
-                                        paddingRight: '2.5rem'
-                                    }}
-                                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--primary)'}
-                                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
-                                >
-                                    <option value="" style={{ color: 'black' }}>Seçiniz</option>
-                                    {years.map(year => (
-                                        <option key={year} value={year} style={{ color: 'black' }}>{year}</option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            {/* Year End */}
-                            <div>
-                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <Calendar size={14} />
-                                    Bitiş Yılı
-                                </label>
-                                <select
-                                    value={yearEnd}
-                                    onChange={(e) => setYearEnd(e.target.value)}
+                                    value={vehicleYear}
+                                    onChange={(e) => setVehicleYear(e.target.value)}
                                     style={{
                                         width: '100%',
                                         padding: '12px 16px',
@@ -276,6 +294,80 @@ export default function AracDNAPage() {
                                     {years.map(year => (
                                         <option key={year} value={year} style={{ color: 'black' }}>{year}</option>
                                     ))}
+                                </select>
+                            </div>
+
+                            {/* Fuel Type */}
+                            <div>
+                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                    <Zap size={14} />
+                                    Yakıt Tipi
+                                </label>
+                                <select
+                                    value={fuelType}
+                                    onChange={(e) => setFuelType(e.target.value)}
+                                    style={{
+                                        width: '100%',
+                                        padding: '12px 16px',
+                                        background: 'var(--input-bg)',
+                                        border: '2px solid var(--input-border)',
+                                        borderRadius: '12px',
+                                        color: 'var(--foreground)',
+                                        fontSize: '15px',
+                                        outline: 'none',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.2s',
+                                        appearance: 'none',
+                                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                                        backgroundPosition: 'right 0.5rem center',
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundSize: '1.5em 1.5em',
+                                        paddingRight: '2.5rem'
+                                    }}
+                                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--primary)'}
+                                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
+                                >
+                                    <option value="" style={{ color: 'black' }}>Tümü</option>
+                                    <option value="Benzin" style={{ color: 'black' }}>Benzin</option>
+                                    <option value="Dizel" style={{ color: 'black' }}>Dizel</option>
+                                    <option value="Elektrik" style={{ color: 'black' }}>Elektrik</option>
+                                    <option value="Hibrit" style={{ color: 'black' }}>Hibrit</option>
+                                </select>
+                            </div>
+
+                            {/* Transmission Type */}
+                            <div>
+                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                                    Vites Tipi
+                                </label>
+                                <select
+                                    value={transmissionType}
+                                    onChange={(e) => setTransmissionType(e.target.value)}
+                                    style={{
+                                        width: '100%',
+                                        padding: '12px 16px',
+                                        background: 'var(--input-bg)',
+                                        border: '2px solid var(--input-border)',
+                                        borderRadius: '12px',
+                                        color: 'var(--foreground)',
+                                        fontSize: '15px',
+                                        outline: 'none',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.2s',
+                                        appearance: 'none',
+                                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                                        backgroundPosition: 'right 0.5rem center',
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundSize: '1.5em 1.5em',
+                                        paddingRight: '2.5rem'
+                                    }}
+                                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--primary)'}
+                                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
+                                >
+                                    <option value="" style={{ color: 'black' }}>Tümü</option>
+                                    <option value="Manuel" style={{ color: 'black' }}>Manuel</option>
+                                    <option value="Otomatik" style={{ color: 'black' }}>Otomatik</option>
                                 </select>
                             </div>
                         </div>
@@ -333,8 +425,8 @@ export default function AracDNAPage() {
                                         Veri Bulunamadı
                                     </h3>
                                     <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '16px' }}>
-                                        <strong>{brandInput} {modelInput}</strong> {yearStart && yearEnd && `(${yearStart}-${yearEnd})`} için henüz DNA analizi verisi bulunmuyor.
-                                        TopluluÃ„şa katkıda bulunarak bu aracın ilk DNA profilini oluşturabilirsiniz!
+                                        <strong>{brandInput} {modelInput}</strong> {vehicleYear && `(${vehicleYear})`} için henüz DNA analizi verisi bulunmuyor.
+                                        Topluluğa katkıda bulunarak bu aracın ilk DNA profilini oluşturabilirsiniz!
                                     </p>
                                 </div>
                             </div>
@@ -503,14 +595,15 @@ export default function AracDNAPage() {
                             gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
                             gap: '16px'
                         }}>
-                            {displayedVehicles.map((vehicle) => {
-                                const scoreColor = getDNAScoreColor(vehicle.dnaScore);
-                                const scoreLabel = getDNAScoreLabel(vehicle.dnaScore);
-                                const slug = `${vehicle.brand.toLowerCase().replace(/\s+/g, '-')}/${vehicle.model.toLowerCase().replace(/\s+/g, '-')}`;
+                            {displayedVehicles.map((item, index) => {
+                                const { vehicle, engine } = item;
+                                const scoreColor = getDNAScoreColor(engine.score);
+                                const scoreLabel = getDNAScoreLabel(engine.score);
+                                const slug = `${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}/${engine.slug}`;
 
                                 return (
                                     <Link
-                                        key={vehicle.id}
+                                        key={`${vehicle.id}-${engine.slug}-${index}`}
                                         href={`/arac-dna/${slug}`}
                                         style={{ textDecoration: 'none', display: 'block', height: '100%' }}
                                     >
@@ -538,56 +631,46 @@ export default function AracDNAPage() {
                                         >
                                             <div style={{ marginBottom: '16px', flex: 1 }}>
                                                 <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px', lineHeight: '1.3' }}>
-                                                    {vehicle.brand} {vehicle.model}
+                                                    {vehicle.brand} {vehicle.model.replace(/\s*\([^)]+\)/, "").trim()}
                                                 </h3>
-                                                <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-                                                    {vehicle.year}
-                                                </p>
-                                            </div>
-
-                                            <div style={{ marginBottom: '12px' }}>
-                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                                                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>DNA Skoru</span>
-                                                    <span style={{ fontSize: '24px', fontWeight: '700', color: scoreColor }}>
-                                                        {vehicle.dnaScore}
-                                                    </span>
+                                                <div style={{ fontSize: '14px', color: 'var(--text-muted)', fontWeight: '600', marginBottom: '8px' }}>
+                                                    {engine.name} ({engine.fuelType} - {engine.transmission})
                                                 </div>
-                                                <div style={{
-                                                    width: '100%',
-                                                    height: '8px',
-                                                    background: 'var(--background)',
-                                                    borderRadius: '4px',
-                                                    overflow: 'hidden'
-                                                }}>
-                                                    <div style={{
-                                                        width: `${vehicle.dnaScore}%`,
-                                                        height: '100%',
-                                                        background: scoreColor,
-                                                        transition: 'width 0.3s ease'
-                                                    }} />
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '13px', color: 'var(--text-muted)' }}>
+                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                        <Calendar size={14} /> {vehicle.year}
+                                                    </span>
+                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                        <AlertCircle size={14} /> {vehicle.chronicIssues.length + engine.issues.length} Sorun
+                                                    </span>
                                                 </div>
                                             </div>
 
                                             <div style={{
                                                 display: 'flex',
-                                                justifyContent: 'space-between',
                                                 alignItems: 'center',
-                                                paddingTop: '12px',
-                                                borderTop: '1px solid var(--card-border)'
+                                                justifyContent: 'space-between',
+                                                borderTop: '1px solid var(--card-border)',
+                                                paddingTop: '16px',
+                                                marginTop: 'auto'
                                             }}>
-                                                <span style={{
-                                                    fontSize: '12px',
-                                                    padding: '4px 10px',
-                                                    background: `${scoreColor}20`,
-                                                    color: scoreColor,
-                                                    borderRadius: '6px',
-                                                    fontWeight: '600'
+                                                <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)' }}>
+                                                    DNA Skoru
+                                                </span>
+                                                <div style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '8px',
+                                                    background: `linear-gradient(135deg, ${scoreColor}15, ${scoreColor}05)`,
+                                                    padding: '6px 12px',
+                                                    borderRadius: '8px',
+                                                    border: `1px solid ${scoreColor}30`
                                                 }}>
-                                                    {scoreLabel}
-                                                </span>
-                                                <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-                                                    {vehicle.totalReports} rapor
-                                                </span>
+                                                    <Dna size={16} color={scoreColor} />
+                                                    <span style={{ fontSize: '16px', fontWeight: '800', color: scoreColor }}>
+                                                        {engine.score}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </Link>

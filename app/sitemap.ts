@@ -111,15 +111,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     });
 
-    // 2. OBD Arıza Kodları (Örnek En Popüler)
-    const obdData = safeReadFile('obd-codes.json');
-    if (obdData && Array.isArray(obdData)) {
-        obdData.slice(0, 500).forEach((item: any) => {
+    // 2. OBD Arıza Kodları - Marka Hub'ları (Silo Mimarisi)
+    // Binlerce tekil arıza kodunu sitemap'e koyup şişirmek yerine,
+    // Googlebot'u marka hub'larına yönlendirerek organik tarama (crawl) sağlıyoruz.
+    const carModelsData = safeReadFile('carmodels.json');
+    if (carModelsData) {
+        Object.keys(carModelsData).forEach(brand => {
             sitemapEntries.push({
-                url: `${BASE_URL}/obd/${item.code.toLowerCase()}`,
+                url: `${BASE_URL}/obd/${createSlug(brand)}`,
                 lastModified: new Date(),
-                changeFrequency: 'monthly',
-                priority: 0.6,
+                changeFrequency: 'weekly',
+                priority: 0.7,
             });
         });
     }

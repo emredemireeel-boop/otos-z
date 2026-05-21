@@ -37,9 +37,8 @@ type AnnType = 'info' | 'warning' | 'danger' | 'success';
 type Modal = { type: 'addAnn' } | { type: 'deleteAnn'; id: string; title: string } | { type: 'addTrend' } | null;
 
 export default function AdminContentPage() {
-    const [tab, setTab] = useState<Tab>('trending');
+    const [tab, setTab] = useState<Tab>('announcements');
     const [threads, setThreads] = useState<LiveThread[]>([]);
-    const [trendingThreads, setTrendingThreads] = useState<LiveThread[]>([]);
     const [announcements, setAnnouncements] = useState<Announcement[]>([]);
     const [loading, setLoading] = useState(true);
     const [modal, setModal] = useState<Modal>(null);
@@ -150,7 +149,6 @@ export default function AdminContentPage() {
             {/* Tabs */}
             <div style={{ display: 'flex', gap: '6px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', padding: '4px', marginBottom: '24px', width: 'fit-content' }}>
                 {([
-                    { key: 'trending', label: '🔥 Öne Çıkan Başlıklar', count: trendingThreads.length },
                     { key: 'announcements', label: '📢 Site Duyuruları', count: announcements.length },
                 ] as const).map(t => (
                     <button key={t.key} onClick={() => setTab(t.key)} style={{ padding: '8px 18px', borderRadius: '7px', border: 'none', background: tab === t.key ? 'var(--primary)' : 'transparent', color: tab === t.key ? 'white' : 'var(--text-muted)', fontSize: '13px', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '7px' }}>
@@ -161,7 +159,7 @@ export default function AdminContentPage() {
             </div>
 
             {/* â”€â”€ TREND SEKME â”€â”€ */}
-            {tab === 'trending' && (
+            {false && (
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                     {/* Sol: Mevcut Trendler */}
                     <div>

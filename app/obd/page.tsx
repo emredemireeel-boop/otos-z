@@ -5,7 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, Activity, AlertCircle, Wrench, X, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import obdCodes from "../../data/obd-codes.json";
+import carModelsData from "../../data/carmodels.json";
+
+const BRANDS = Object.keys(carModelsData).sort().slice(0, 15); // Show top 15 brands for brevity in sidebar, full list can be a separate page or expanded later
 
 interface ObdCode {
     code: string;
@@ -165,6 +169,46 @@ export default function ObdPage() {
                                                 <span style={{ fontWeight: '600' }}>{cat.label}</span>
                                                 <span style={{ fontSize: '11px', opacity: 0.6 }}>{cat.description}</span>
                                             </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Marka Hub Linkleri */}
+                            <div style={{
+                                marginTop: '16px',
+                                background: 'var(--card-bg)',
+                                border: '1px solid var(--card-border)',
+                                borderRadius: '16px',
+                                padding: '16px',
+                            }}>
+                                <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px' }}>
+                                    Markaya Göre Kodlar
+                                </h3>
+                                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                    {BRANDS.map((brand) => (
+                                        <li key={brand}>
+                                            <Link href={`/obd/${brand.toLowerCase()}`} style={{
+                                                display: 'block',
+                                                padding: '8px 12px',
+                                                borderRadius: '8px',
+                                                background: 'var(--secondary)',
+                                                color: 'var(--foreground)',
+                                                textDecoration: 'none',
+                                                fontSize: '13px',
+                                                fontWeight: '500',
+                                                transition: 'all 0.2s ease'
+                                            }}
+                                            onMouseEnter={(e) => {
+                                                e.currentTarget.style.background = 'var(--primary)';
+                                                e.currentTarget.style.color = 'white';
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                e.currentTarget.style.background = 'var(--secondary)';
+                                                e.currentTarget.style.color = 'var(--foreground)';
+                                            }}>
+                                                {brand} Arıza Kodları
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>

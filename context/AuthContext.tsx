@@ -35,6 +35,8 @@ export interface User {
     birthdate?: string;
     city?: string;
     profileComplete?: boolean;
+    xp?: number;
+    streak?: number;
 }
 
 interface AuthContextType {
@@ -85,6 +87,8 @@ async function mapFirebaseUser(fbUser: FirebaseUser): Promise<User> {
         firstName: (profile.firstName as string) || undefined,
         lastName: (profile.lastName as string) || undefined,
         profileComplete,
+        xp: (profile.xp as number) || 0,
+        streak: (profile.streak as number) || 0,
     };
 }
 

@@ -32,73 +32,105 @@ function createSlug(text) {
         .replace(/[^a-z0-9\s-]/g, '')
         .replace(/\s+/g, '-')
         .replace(/-+/g, '-')
-        .trim();
-}
-
-// ── İlerleme kaydetme/yükleme ──
-function loadProgress() {
-    try {
-        if (fs.existsSync(PROGRESS_FILE)) {
-            return JSON.parse(fs.readFileSync(PROGRESS_FILE, 'utf8'));
-        }
-    } catch (e) {}
-    return { completedUrls: [], lastRun: null, totalSuccess: 0, totalFail: 0 };
-}
-
-function saveProgress(progress) {
-    fs.writeFileSync(PROGRESS_FILE, JSON.stringify(progress, null, 2), 'utf8');
-}
-
-function buildUrls() {
+   function buildUrls() {
     const urls = [];
 
     // ═══════════════════════════════════════════════════════════
-    // 1. ANA SAYFALAR — En Yüksek Öncelik (6 URL)
+    // 1. ANA SAYFALAR — En Yüksek Öncelik
     // ═══════════════════════════════════════════════════════════
     const mainPages = [
-        '/',                    // Ana sayfa
-        '/forum',               // Forum (UGC, yüksek trafik)
-        '/pazar',               // Pazar (ilan, yüksek trafik)
-        '/karsilastirma',       // Araç karşılaştırma (yüksek intent)
-        '/arac-dna',            // Araç DNA analiz (benzersiz içerik)
-        '/uzmana-sor',          // Uzman soru-cevap
+        '/',
+        '/forum',
+        '/pazar',
+        '/karsilastirma',
+        '/arac-dna',
+        '/uzmana-sor',
+        '/kutuphane',
+        '/sozluk',
+        '/gosterge-paneli',
+        '/piyasalar',
+        '/anket',
+        '/obd',
+        '/etkinlikler',
+        '/ajanda',
+        '/haberler',
+        '/altin-anahtar',
+        '/guvenmetre',
+        '/otohesap',
+        '/hakkimizda',
+        '/iletisim',
+        '/gizlilik-politikasi',
+        '/kullanim-sartlari',
+        '/ikinci-el-rehberi',
+        '/bakim-rehberi',
+        '/trafik-cezasi',
+        '/para-kazan',
+        '/usta-ol',
+        '/uzman-ol',
+        '/premium',
     ];
     mainPages.forEach(p => urls.push({ url: `${BASE_URL}${p}`, tier: '🔴 T1-ANA' }));
 
     // ═══════════════════════════════════════════════════════════
-    // 2. İÇERİK SAYFALARI — Yüksek Öncelik (9 URL)
+    // 2. OTOHesap HESAPLAMA ARAÇLARI — Yüksek SEO değeri
     // ═══════════════════════════════════════════════════════════
-    const contentPages = [
-        '/kutuphane',           // Kütüphane hub
-        '/sozluk',              // Otomotiv sözlük hub
-        '/gosterge-paneli',     // Gösterge paneli
-        '/piyasalar',           // Piyasa endeksleri (yüksek trafik)
-        '/anket',               // Anketler
-        '/obd',                 // OBD hub sayfası
-        '/yakit-hesaplama',     // Yakıt hesaplama aracı
-        '/etkinlikler',         // Etkinlikler hub
-        '/ajanda',              // Ajanda
-        '/haberler',            // Haberler hub
-        '/altin-anahtar',       // Altın Anahtar usta rehberi
-        '/guvenmetre',          // Güvenmetre
-        '/otohesap',            // OtoHesap araçları
+    const otohesapModules = [
+        'yakit-hesaplama',
+        'mtv-hesaplama',
+        'kasko-deger',
+        'elektrikli-sarf-hesaplama',
+        'tasit-kredisi',
+        'kredi-karti-arac',
+        'deger-kaybi',
+        'arac-alim-hesap',
+        'al-sat-karmarji',
+        'yatirim-kiyaslama',
+        'ev-maliyet',
+        'dijital-senet-hesap',
+        'otv-muafiyet',
+        'lastik-ebat',
+        'elektrikli-sarj',
     ];
-    contentPages.forEach(p => urls.push({ url: `${BASE_URL}${p}`, tier: '🟠 T2-İÇERİK' }));
+    otohesapModules.forEach(m => urls.push({
+        url: `${BASE_URL}/otohesap/${m}`,
+        tier: '🔴 T1-HESAP'
+    }));
 
     // ═══════════════════════════════════════════════════════════
-    // 3. ETKİNLİK DETAY SAYFALARI (5 URL)
+    // 3. KÜTÜPHANE — Direkt Route Sayfaları
     // ═══════════════════════════════════════════════════════════
-    const eventIds = [
-        'istanbul-kartal-otopazari',
-        'ankara-pursaklar-otopazari',
-        'izmir-kemalpasa-otopazari',
-        'izmir-gaziemir-otopazari',
-        'bursa-nilufer-otopazari',
+    const kutuphaneSections = [
+        'trafik-cezalari',
+        'obd-ariza-kodlari',
+        'otomotiv-sozluk',
+        'gosterge-isiklari',
+        'ikinci-el-rehberi',
+        'lastik-rehberi',
+        'kaza-ilkyardim',
+        'mevsimsel-bakim',
+        'sigorta-rehberi',
+        'ilginc-bilgiler',
+        'makaleler',
+        'kasko-deger',
+        'hgs-siniflari',
+        'bakim-zamanlari',
+        'tuvturk',
+        'kasa-segmentler',
+        'plaka-kodlari',
+        'noter-islemleri',
+        'ehliyet-siniflari',
+        'otoyol-ucretleri',
+        'dolandiricilik-rehberi',
+        'nereye-gitmeli',
+        'efsane-avcilari',
     ];
-    eventIds.forEach(id => urls.push({ url: `${BASE_URL}/etkinlikler/${id}`, tier: '🟡 T3-ETKİNLİK' }));
+    kutuphaneSections.forEach(s => urls.push({
+        url: `${BASE_URL}/kutuphane/${s}`,
+        tier: '🟠 T2-KÜTÜPHANE'
+    }));
 
     // ═══════════════════════════════════════════════════════════
-    // 4. ARAÇ DNA — Marka Sayfaları (21 URL)
+    // 4. ARAÇ DNA — Marka Sayfaları
     // ═══════════════════════════════════════════════════════════
     const brands = [
         'Renault', 'Fiat', 'Toyota', 'Honda', 'Volkswagen',
@@ -112,62 +144,60 @@ function buildUrls() {
     }));
 
     // ═══════════════════════════════════════════════════════════
-    // 5. ARAÇ DNA — En Popüler Model Sayfaları (13 URL)
+    // 5. ARAÇ DNA — Model + Kronik Sorunlar Sayfaları
     // ═══════════════════════════════════════════════════════════
-    const topModels = [
+    const allModels = [
         { brand: 'Renault', model: 'Clio' },
+        { brand: 'Renault', model: 'Megane' },
         { brand: 'Fiat', model: 'Egea' },
         { brand: 'Toyota', model: 'Corolla' },
         { brand: 'Honda', model: 'Civic' },
         { brand: 'Volkswagen', model: 'Passat' },
+        { brand: 'Volkswagen', model: 'Golf' },
         { brand: 'Dacia', model: 'Duster' },
         { brand: 'Hyundai', model: 'i20' },
         { brand: 'Peugeot', model: '3008' },
         { brand: 'Opel', model: 'Corsa' },
         { brand: 'Togg', model: 'T10X' },
-        { brand: 'Volkswagen', model: 'Golf' },
+        { brand: 'Chery', model: 'Tiggo 8 Pro' },
         { brand: 'Ford', model: 'Focus' },
         { brand: 'BMW', model: '320i' },
+        { brand: 'Mercedes-Benz', model: 'C180' },
+        { brand: 'Nissan', model: 'Qashqai' },
+        { brand: 'Kia', model: 'Sportage' },
+        { brand: 'Citroen', model: 'C3' },
+        { brand: 'Skoda', model: 'Octavia' },
+        { brand: 'Seat', model: 'Leon' },
+        { brand: 'Tesla', model: 'Model Y' },
+        { brand: 'Audi', model: 'A3' },
     ];
-    topModels.forEach(v => urls.push({
-        url: `${BASE_URL}/arac-dna/${v.brand.toLowerCase().replace(/\s+/g, '-')}/${v.model.toLowerCase().replace(/\s+/g, '-')}`,
-        tier: '🟡 T3-DNA-MODEL'
-    }));
+    allModels.forEach(v => {
+        const brandSlug = v.brand.toLowerCase().replace(/\s+/g, '-');
+        const modelSlug = createSlug(v.model);
+        urls.push({
+            url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}`,
+            tier: '🟡 T3-DNA-MODEL'
+        });
+        urls.push({
+            url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/kronik-sorunlar`,
+            tier: '🟡 T3-DNA-KRONİK'
+        });
+    });
 
     // ═══════════════════════════════════════════════════════════
-    // 6. KÜTÜPHANE BÖLÜM SAYFALARI (11 URL)
+    // 6. ETKİNLİK DETAY SAYFALARI
     // ═══════════════════════════════════════════════════════════
-    const kutuphaneSections = [
-        'trafik-cezalari',      // 🔥 Çok yüksek arama hacmi
-        'obd-ariza-kodlari',    // 🔥 Çok yüksek arama hacmi
-        'otomotiv-sozluk',
-        'gosterge-isiklari',
-        'ikinci-el-rehberi',
-        'lastik-rehberi',
-        'kaza-ilkyardim',
-        'mevsimsel-bakim',
-        'sigorta-rehberi',
-        'ilginc-bilgiler',
-        'makaleler',
-        'kasko-deger',          // Kasko değer listesi
-        'hgs-siniflari',        // HGS araç sınıfları
-        'bakim-zamanlari',      // Bakım zamanları
-        'tuvturk',              // TÜVTÜRK muayene
-        'kasa-segmentler',      // Kasa tipleri
-        'plaka-kodlari',        // Plaka kodları
-        'noter-islemleri',      // Noter işlemleri
-        'ehliyet-siniflari',    // Ehliyet sınıfları
-        'otoyol-ucretleri',     // Otoyol ücretleri
-        'dolandiricilik-rehberi', // Dolandırıcılık rehberi
-        'nereye-gitmeli',       // Nereye gitmeli rehberi
+    const eventIds = [
+        'istanbul-kartal-otopazari',
+        'ankara-pursaklar-otopazari',
+        'izmir-kemalpasa-otopazari',
+        'izmir-gaziemir-otopazari',
+        'bursa-nilufer-otopazari',
     ];
-    kutuphaneSections.forEach(s => urls.push({
-        url: `${BASE_URL}/kutuphane?kategori=${s}`,
-        tier: '🟡 T3-KÜTÜPHANE'
-    }));
+    eventIds.forEach(id => urls.push({ url: `${BASE_URL}/etkinlikler/${id}`, tier: '🟢 T4-ETKİNLİK' }));
 
     // ═══════════════════════════════════════════════════════════
-    // 7. GÖSTERGE IŞIKLARI — 19 Detay Sayfası (19 URL)
+    // 7. GÖSTERGE IŞIKLARI — Detay Sayfaları
     // ═══════════════════════════════════════════════════════════
     try {
         const faultLights = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'fault_lights.json'), 'utf8'));
@@ -182,7 +212,7 @@ function buildUrls() {
     }
 
     // ═══════════════════════════════════════════════════════════
-    // 8. MAKALELER — 28 Detay Sayfası (28 URL)
+    // 8. MAKALELER — Detay Sayfaları
     // ═══════════════════════════════════════════════════════════
     try {
         const guides = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'data', 'library_guides.json'), 'utf8'));
@@ -197,7 +227,7 @@ function buildUrls() {
     }
 
     // ═══════════════════════════════════════════════════════════
-    // 9. OTOYOL ÜCRETLERİ — 13 Detay Sayfası (13 URL)
+    // 9. OTOYOL ÜCRETLERİ — Detay Sayfaları
     // ═══════════════════════════════════════════════════════════
     try {
         const otoyol = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'data', 'otoyol_ucretleri.json'), 'utf8'));
@@ -209,6 +239,83 @@ function buildUrls() {
         });
     } catch (e) {
         console.error('⚠ Otoyol verisi okunamadı:', e.message);
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // 10. KALAN SLOTLAR — İlginç Bilgiler, Trafik Cezaları, Sözlük
+    // ═══════════════════════════════════════════════════════════
+    const remainingUrls = [];
+
+    // İlginç Bilgiler
+    try {
+        const interesting = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'data', 'interesting_information.json'), 'utf8'));
+        const facts = interesting.interestingFacts;
+        
+        const processArray = (arr, titleKey) => {
+            if (!arr) return;
+            arr.forEach(item => {
+                remainingUrls.push({
+                    url: `${BASE_URL}/kutuphane/ilginc/${createSlug(item[titleKey] || item.myth || item.text.slice(0, 40))}-${item.id}`,
+                    tier: '🔵 T5-İLGİNÇ'
+                });
+            });
+        };
+
+        processArray(facts.dailyTips, 'title');
+        processArray(facts.checklists, 'title');
+        processArray(facts.doAndDont, 'title');
+        processArray(facts.quickFacts, 'text');
+        processArray(facts.mythBusters, 'myth');
+    } catch (e) {
+        console.error('⚠ İlginç bilgiler verisi okunamadı:', e.message);
+    }
+
+    // Trafik Cezaları
+    try {
+        const trafik = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'trafik_cezalari.json'), 'utf8'));
+        trafik.categories.forEach(cat => {
+            cat.rows.forEach(row => {
+                if (row.slug) {
+                    remainingUrls.push({
+                        url: `${BASE_URL}/trafik-cezasi/${row.slug}`,
+                        tier: '🔵 T5-CEZA'
+                    });
+                }
+            });
+        });
+    } catch (e) {
+        console.error('⚠ Trafik cezaları verisi okunamadı:', e.message);
+    }
+
+    // Sözlük
+    try {
+        const dictionaryContent = fs.readFileSync(path.join(__dirname, 'data', 'dictionary.ts'), 'utf8');
+        const matches = dictionaryContent.match(/id:\s*[\"']([^\"']+)[\"']/g);
+        if (matches) {
+            matches.forEach(match => {
+                const id = match.split(/[\"']/)[1];
+                remainingUrls.push({
+                    url: `${BASE_URL}/sozluk/${id}`,
+                    tier: '🔵 T5-SÖZLÜK'
+                });
+            });
+        }
+    } catch (e) {
+        console.error('⚠ Sözlük verisi okunamadı:', e.message);
+    }
+
+    // Sadece kalan limit (200 - mevcut) kadar ekle
+    const limit = 200 - urls.length;
+    let added = 0;
+    
+    for (const item of remainingUrls) {
+        if (added >= limit) break;
+        urls.push(item);
+        added++;
+    }
+
+    return urls;
+}Otoyol verisi okunamadı:', e.message);
     }
 
     // ═══════════════════════════════════════════════════════════
