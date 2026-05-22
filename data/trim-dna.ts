@@ -173,5 +173,57 @@ export const trimDNAData: VehicleTrimData[] = [
                 availability: ["standard", "standard", "standard", "standard", "standard", "standard", "optional", "optional", "standard"]
             }
         ]
+    },
+    {
+        vehicleId: 101, // Tofaş Şahin/Doğan
+        features: [
+            "Çelik Jant",
+            "Sis Farı",
+            "Renkli Camlar",
+            "Gövde Rengi Tamponlar",
+            "Hidrolik Direksiyon",
+            "Klima",
+            "Otomatik Ön Camlar",
+            "Merkezi Kilit",
+            "Kadife Koltuk Döşemesi"
+        ],
+        trims: [
+            {
+                name: "Şahin",
+                availability: ["unavailable", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"]
+            },
+            {
+                name: "Şahin S",
+                availability: ["unavailable", "unavailable", "unavailable", "unavailable", "standard", "unavailable", "unavailable", "standard", "unavailable"]
+            },
+            {
+                name: "Doğan L",
+                availability: ["unavailable", "standard", "standard", "unavailable", "unavailable", "unavailable", "standard", "standard", "standard"]
+            },
+            {
+                name: "Doğan SLX",
+                availability: ["standard", "standard", "standard", "standard", "standard", "optional", "standard", "standard", "standard"]
+            }
+        ]
+    },
+    {
+        vehicleId: 1001,
+        features: [
+            "Alaşım Jantlar",
+            "Dijital Klima",
+            "LED Ön Farlar",
+            "Geri Görüş Kamerası",
+            "Hayalet Ekran"
+        ],
+        trims: [
+            {
+                name: "Advanced",
+                availability: ["standard", "standard", "standard", "optional", "optional"]
+            },
+            {
+                name: "S line",
+                availability: ["standard", "standard", "standard", "standard", "standard"]
+            }
+        ]
     }
 ];

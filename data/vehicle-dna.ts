@@ -74,20 +74,6 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         chronicIssues: [
             {
-                id: 1,
-                title: "1.0 TCe & X-Tronic Silkeleme",
-                severity: "medium",
-                reportCount: 21,
-                description: "Özellikle sıkışık trafikte ve düşük hızlarda (10-20 km/s) gazdan ayak çekildiğinde araçta belirgin bir yığılma ve tekrar gaza basıldığında silkeleme/vuruntu hissediliyor. Yazılım güncellemesi kısmen çözüyor."
-            },
-            {
-                id: 2,
-                title: "Enjeksiyon & 'Motor Hasar Riski' Uyarısı",
-                severity: "high",
-                reportCount: 20,
-                description: "1.0 TCe motorlarda sebepsiz yere 'Enjeksiyonu Kontrol Ettirin' veya 'Motor Hasar Riski' uyarısı çıkabiliyor. Genellikle sensör kaynaklı veya yazılımsal olsa da kullanıcıyı tedirgin ediyor. Bazı vakalarda bobin değişimi gerekiyor."
-            },
-            {
                 id: 3,
                 title: "Trim Sesleri (B Sütunu & Kemer)",
                 severity: "low",
@@ -130,25 +116,11 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         chronicIssues: [
             {
-                id: 1,
-                title: "1.4 Fire Motor Yağ Eksiltme",
-                severity: "medium",
-                reportCount: 38,
-                description: "Kronik bir durumdur; 1.4 Fire motorlar 5.000-8.000 km'de ortalama 1 litre yağ eksiltebilir. Kullanıcının bagajında 1L yağ taşıması ve sık sık çubuğu kontrol etmesi önerilir."
-            },
-            {
                 id: 2,
                 title: "Amortisör Takozu ve Z-Rot Sesi",
                 severity: "low",
                 reportCount: 44,
                 description: "Ön takımdan, özellikle direksiyonu kırarken veya tümseklerde 'lok lok' veya 'gıcırtı' Şeklinde sesler gelir. Amortisör takozları ve bilyaları çabuk deforme olur."
-            },
-            {
-                id: 3,
-                title: "Partikül Filtresi (DPF) Tıkanıklığı",
-                severity: "high",
-                reportCount: 40,
-                description: "Dizel (1.3/1.6 MJT) modelleri sürekli Şehir içi kullanıldığında DPF tıkanır. Araç 'Motoru Kontrol Ettirin' uyarısı verir. Yüksek devirli kullanımda (otoban) temizlenmesi gerekir."
             },
             {
                 id: 4,
@@ -242,20 +214,6 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         chronicIssues: [
             {
-                id: 1,
-                title: "AdBlue Depo/Enjektör Arızası",
-                severity: "high",
-                reportCount: 36,
-                description: "1.5 BluedCi motorlarda AdBlue deposunun deforme olması veya enjektörün tıkanması sonucu 'Egzoz Emisyon Kontrol Ettirin' uyarısı ve yüksek onarım maliyeti."
-            },
-            {
-                id: 2,
-                title: "EDC Şanzıman 'Vites Kutusunu Kontrol Ettirin'",
-                severity: "medium",
-                reportCount: 27,
-                description: "Özellikle 2016-2018 modellerde Şanzıman beyni veya kavrama sorunları nedeniyle uyarı verip vites geçişlerini devre dışı bırakabiliyor."
-            },
-            {
                 id: 3,
                 title: "Trim ve Amortisör Sesi",
                 severity: "low",
@@ -317,13 +275,6 @@ export const vehicleDNAData: VehicleDNA[] = [
                 severity: "medium",
                 reportCount: 49,
                 description: "Özellikle kaput ve tamponda taş izleri çok çabuk oluşuyor. Kullanıcılar seramik kaplama veya PPF öneriyor."
-            },
-            {
-                id: 4,
-                title: "Yakıt Pompası Arızası",
-                severity: "high",
-                reportCount: 31,
-                description: "Bazı modellerde yakıt pompası kaynaklı yolda kalma riski nedeniyle geri çağırma bültenleri yayınlandı."
             }
         ],
         userExperiences: [],
@@ -353,20 +304,6 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Standart Donanım Zayıflığı (Baz paketler boş)"
         ],
         chronicIssues: [
-            {
-                id: 1,
-                title: "DSG Mekatronik ve Volant",
-                severity: "high",
-                reportCount: 31,
-                description: "DSG Şanzımanın 'kral' ama 'nazlı' olduğu bilinir. Mekatronik kart arızası ve çift kütleli volanttan gelen 'takırtı' sesi en büyük korkulu rüyadır. Onarımı maliyetlidir."
-            },
-            {
-                id: 2,
-                title: "Devirdaim (Su Pompası) Kaçağı",
-                severity: "medium",
-                reportCount: 38,
-                description: "Özellikle 1.4 TSI ve 1.6 TDI motorlarda devirdaim pompasından su kaçırma kroniktir. Triger seti değişirken mutlaka kontrol edilmeli ve değişmelidir."
-            },
             {
                 id: 3,
                 title: "Cam Tavan Gıcırtısı",
@@ -422,13 +359,6 @@ export const vehicleDNAData: VehicleDNA[] = [
                 severity: "low",
                 reportCount: 28,
                 description: "Bazı modellerde kapı fitillerinin yetersizliği nedeniyle araç içine, özellikle kapı eşiklerine toz ve yoğun yağmurda su girmesi Şikayetleri mevcut."
-            },
-            {
-                id: 3,
-                title: "AdBlue Sistemi Arızası",
-                severity: "high",
-                reportCount: 47,
-                description: "Blue dCi motorlarda AdBlue pompası veya enjektör tıkanıklığı nedeniyle 'Egzoz Emisyon' uyarısı ve servis ihtiyacı."
             },
             {
                 id: 4,
@@ -524,20 +454,6 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         chronicIssues: [
             {
-                id: 1,
-                title: "1.6 THP Triger Zinciri Uzaması",
-                severity: "high",
-                reportCount: 28,
-                description: "Erken dönem 1.6 THP benzinli motorlarda triger zincirinin erken uzaması ve sente atlaması sonucu motor arıza lambası yakması kroniktir."
-            },
-            {
-                id: 2,
-                title: "Auto6R Şanzıman Kavrama/Volan Arızası",
-                severity: "high",
-                reportCount: 37,
-                description: "Yarı otomatik Auto6R şanzımanda kavrama (baskı balata) ve volan dişlisinin erken ömrünü tamamlaması, dur-kalklarda silkeleme yapması yaygındır."
-            },
-            {
                 id: 3,
                 title: "Amortisör Takozu Sesleri",
                 severity: "low",
@@ -568,27 +484,6 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Yüksek Yedek Parça ve Servis Maliyetleri"
         ],
         chronicIssues: [
-            {
-                id: 1,
-                title: "1.5 BlueHDi AdBlue Sistemi Arızası",
-                severity: "high",
-                reportCount: 48,
-                description: "PSA grubunun kronik sorunudur. AdBlue deposu, pompası veya enjektörünün tıkanması sonucu 'Motor Arızası - Aracı Durdurun' veya 'Emisyon Hatası' vererek sistemin komple değişmesini gerektirebilir."
-            },
-            {
-                id: 2,
-                title: "1.2 PureTech Triger Kayışı Soyulması",
-                severity: "high",
-                reportCount: 42,
-                description: "Yağ içinde çalışan triger kayışının erken yıpranarak (soyularak) partiküllerinin yağ süzgecini tıkaması ve motor yağ basıncı arızası vermesi durumudur. Erken bakım şarttır."
-            },
-            {
-                id: 3,
-                title: "EAT6/EAT8 Şanzıman Düşük Hız Vuruntusu",
-                severity: "medium",
-                reportCount: 39,
-                description: "Özellikle 2. vitesten 1. vitese düşerken veya durmaya yakın hızlarda şanzımandan hafif bir vuruntu veya sarsıntı hissedilebilir. Yazılım güncellemesi ile büyük ölçüde çözülür."
-            },
             {
                 id: 4,
                 title: "Multimedya (SMEG/NAC) Ekran Donması",
@@ -623,13 +518,6 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Yol Sesi (Yüksek hızda)"
         ],
         chronicIssues: [
-            {
-                id: 1,
-                title: "Triger Kayışı Soyulması (1.2 PureTech)",
-                severity: "high",
-                reportCount: 27,
-                description: "Peugeot grubu motorlarda olduğu gibi, kayışın parçalanıp yağ süzgecini tıkaması riski. 'Yağ Basıncı Düşük' uyarısı alırsanız hemen durun."
-            },
             {
                 id: 2,
                 title: "Multimedya Ekran Kararması",
@@ -721,20 +609,6 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         chronicIssues: [
             {
-                id: 1,
-                title: "Yüksek Yakıt Tüketimi",
-                severity: "medium",
-                reportCount: 32,
-                description: "Kullanıcıların en büyük Şikayeti. Fabrika verisinin çok üzerinde (11-12L) yakması. 'Tüp takılmaz mı?' sorusu çok yaygın."
-            },
-            {
-                id: 2,
-                title: "Şanzıman Kararsızlığı/Vuruntu",
-                severity: "low",
-                reportCount: 30,
-                description: "Düşük hızlarda veya dur-kalk trafikte Şanzımanın vites geçişlerinde kararsız kalması veya hafif vuruntu yapması."
-            },
-            {
                 id: 3,
                 title: "Multimedya/Klima Ekran Donması",
                 severity: "low",
@@ -781,13 +655,6 @@ export const vehicleDNAData: VehicleDNA[] = [
                 severity: "low",
                 reportCount: 31,
                 description: "Tavandaki SOS modülünün arıza verip göstergede sürekli uyarı yakması. Parça değişimi gerekebiliyor."
-            },
-            {
-                id: 3,
-                title: "DSG Titreme ve Kararsızlık",
-                severity: "medium",
-                reportCount: 35,
-                description: "Özellikle 1. vitesen 2'ye geçerken kararsızlık veya titreme yapması. Kavrama ömrünün habercisi olabilir."
             }
         ],
         userExperiences: [],
@@ -816,13 +683,6 @@ export const vehicleDNAData: VehicleDNA[] = [
             "Trim Sesleri (B sütunu ve kapı içleri)"
         ],
         chronicIssues: [
-            {
-                id: 1,
-                title: "8 İleri Şanzıman Titremesi",
-                severity: "medium",
-                reportCount: 26,
-                description: "Düşük hızlarda veya dur-kalk trafikte Şanzımanın titreme (silkeleme) yapması. Yazılım güncellemesi veya valf gövdesi değişimi gerekebiliyor."
-            },
             {
                 id: 2,
                 title: "Multimedya Ekran Donması",
@@ -1784,6 +1644,2207 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         userExperiences: [],
         totalReports: 38
+    },
+    {
+        id: 101,
+        brand: "Tofaş",
+        model: "Şahin / Doğan (1988-2002)",
+        year: "1988-2002",
+        dnaScore: 60,
+        strengths: [
+            "Türkiye Şartlarına Uygunluk (Her usta anlar, yedek parça bakkalda bile var)",
+            "Ucuz Yürütme Maliyeti (Bakım ve parça fiyatları bedavadan hallice)",
+            "Arkadan İtişli Sürüş Keyfi (Yanlama potansiyeli)",
+            "Geniş İç Mekan ve Bagaj (Klasik sedan avantajı)"
+        ],
+        weaknesses: [
+            "Güvenlik Zafiyeti (Hava yastığı yok, ABS yok, kaza anında katlanma riski yüksek)",
+            "Konfor Eksikliği (Yol sesi, rüzgar sesi ve titreşim fazladır)",
+            "Klima Eksikliği (Çoğu modelde klima bulunmaz, olanlar da pek soğutmaz)",
+            "Korozyon / Çürüme Riski (Kaporta paslanmaya müsaittir)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Kaporta Çürümesi",
+                severity: "high",
+                reportCount: 50,
+                description: "Özellikle kapı altları, çamurluk ağızları ve taban sacında paslanma ve çürüme sıklıkla görülür."
+            },
+            {
+                id: 2,
+                title: "Hararet Sorunu",
+                severity: "high",
+                reportCount: 45,
+                description: "Soğutma sisteminin (radyatör, fan müşürü) zayıflığı nedeniyle özellikle yaz aylarında hararet yapma eğilimi yüksektir."
+            },
+            {
+                id: 3,
+                title: "Diferansiyel Ötmesi",
+                severity: "medium",
+                reportCount: 40,
+                description: "Arkadan itişli sistemdeki diferansiyelden belirli bir hızdan sonra 'uğultu' şeklinde ses gelmesi."
+            },
+            {
+                id: 4,
+                title: "Torpido Çatlaması",
+                severity: "low",
+                reportCount: 35,
+                description: "Güneşe maruz kalan ön göğüs (torpido) plastiğinin zamanla çatlaması kroniktir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 50
+    },
+    {
+        id: 102,
+        brand: "Fiat",
+        model: "Linea (2007-2015)",
+        year: "2007-2015",
+        dnaScore: 72,
+        strengths: [
+            "Piyasanın En Geniş Bagajlarından Biri (500 Litre)",
+            "Çok Uygun Yedek Parça ve Servis Ağı",
+            "1.3 Multijet Motorun Efsane Yakıt Ekonomisi",
+            "İkinci Elde Anında Satılabilirlik"
+        ],
+        weaknesses: [
+            "Güvenlik Zafiyeti ve Zayıf Şasi Hissi",
+            "Malzeme Kalitesi (Ön konsol ve kapılarda sert/ucuz plastik)",
+            "Süspansiyon Konforsuzluğu",
+            "Yol Sesi ve Rüzgar Sesi Yalıtımı Yetersiz"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Ön Takım (Amortisör Takozu) Sesi",
+                severity: "medium",
+                reportCount: 55,
+                description: "Ön takımdan esnemelerde ve tümseklerde lokurtu gelmesi Linea'nın en belirgin kroniklerinden biridir."
+            },
+            {
+                id: 2,
+                title: "Göğüs (Torpido) Çatlaması",
+                severity: "high",
+                reportCount: 40,
+                description: "Özellikle yolcu hava yastığı bölgesinde güneşe maruz kalmaktan dolayı torpido plastiğinde boydan boya çatlak oluşması."
+            },
+            {
+                id: 3,
+                title: "Direksiyon Şehir Modu (City) Arızası",
+                severity: "high",
+                reportCount: 35,
+                description: "City modunun devreden çıkıp direksiyonun aniden sertleşmesi ve direksiyon açı sensörü arızası vermesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 60
+    },
+    {
+        id: 103,
+        brand: "Renault",
+        model: "Symbol (2013-2021)",
+        year: "2013-2021",
+        dnaScore: 74,
+        strengths: [
+            "Sınıf Lideri Yakıt Tüketimi (1.5 dCi ile Şehir içi 4.5-5L)",
+            "Esnek ve Dayanıklı Alt Yapı (Köy yolları ve ticari kullanım için ideal)",
+            "Devasa Bagaj Hacmi (510 Litre)",
+            "İkinci El Piyasasında Tam Bir Nakit Karşılığı"
+        ],
+        weaknesses: [
+            "Dacia Altyapısı Nedeniyle Düşük Malzeme Kalitesi",
+            "Zayıf Ses Yalıtımı (Yüksek hızlarda aşırı gürültü)",
+            "Koltuk Konforsuzluğu (Uzun yolda yorucu)",
+            "Geri Görüş Açısının Zayıf Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Rüzgar ve Kapı Fitili Sesi",
+                severity: "high",
+                reportCount: 45,
+                description: "Kapı fitillerinin zayıflığından dolayı 90 km/s hızdan sonra kabin içerisine şiddetli rüzgar sesi alması."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Tıkırtısı",
+                severity: "medium",
+                reportCount: 38,
+                description: "Bozuk yollarda direksiyon milinden veya kutusundan gelen mekanik tıkırtı sesi."
+            },
+            {
+                id: 3,
+                title: "Korna Butonu Arızası",
+                severity: "low",
+                reportCount: 42,
+                description: "Sinyal kolu üzerindeki korna butonunun içten kablo kopması nedeniyle çalışmaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 55
+    },
+    {
+        id: 104,
+        brand: "Hyundai",
+        model: "Accent Era (2006-2012)",
+        year: "2006-2012",
+        dnaScore: 76,
+        strengths: [
+            "1.5 CRDi Motorun İnanılmaz Çekişi (110 HP / 235 Nm)",
+            "Taksi Çıkması Bile Çalışan Mükemmel Dayanıklılık",
+            "Ferah ve Kullanışlı İç Mekan",
+            "Sorunsuz Otomatik Şanzıman Seçeneği"
+        ],
+        weaknesses: [
+            "Yüksek Yakıt Tüketimi (Otomatik ve Benzinli versiyonlarda)",
+            "Güvenlik Donanımı Eksikliği (Çoğu pakette tek hava yastığı, ABS yokluğu)",
+            "Yol Tutuş Zafiyeti (Hızlı virajlarda arkadan kayma eğilimi)",
+            "İnce Boya ve Korozyona Yatkınlık"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "EPS (Elektrikli Direksiyon) Tıkırtısı",
+                severity: "high",
+                reportCount: 65,
+                description: "Direksiyon motorunun içindeki plastik yıldız burcun parçalanarak direksiyonu çevirirken 'tık tık' etmesi."
+            },
+            {
+                id: 2,
+                title: "Amortisör Vuruntusu",
+                severity: "medium",
+                reportCount: 40,
+                description: "Süspansiyon sisteminin kısa stroklu olmasından dolayı çukurlarda dibe vurup kütleme sesi yapması."
+            },
+            {
+                id: 3,
+                title: "Klima Yönlendirme Dişlisi Kırılması",
+                severity: "low",
+                reportCount: 30,
+                description: "Hava yönünü öncama veya ayaklara ayarlayan mekanizmanın arkasındaki plastik dişlinin kırılıp takılı kalması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 45
+    },
+    {
+        id: 105,
+        brand: "Honda",
+        model: "Civic FD6 (2006-2012)",
+        year: "2006-2012",
+        dnaScore: 82,
+        strengths: [
+            "Zamana Meydan Okuyan Sportif ve Fütüristik Tasarım",
+            "LPG'ye Tam Uyumlu Sorunsuz 1.6 i-VTEC Motor",
+            "Sürüş Dinamikleri ve Harika Direksiyon Hissi",
+            "İkinci El Piyasasında Üstün Değer Koruma"
+        ],
+        weaknesses: [
+            "Yol ve Lastik Sesi (Kronik Honda yalıtım eksikliği)",
+            "Sert Süspansiyon",
+            "Arka Diz Mesafesinin Ortadaki Tümsek Olmamasına Rağmen Sınırlı Olması",
+            "İnce Boya ve Vernik Atması Riski"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Direksiyon Kutusu Boşluğu ve Sesi",
+                severity: "high",
+                reportCount: 50,
+                description: "Özellikle bozuk yollarda direksiyon kutusundan gelen lokurtu ve boşluk hissi. Tamir takımıyla onarılması gerekebilir."
+            },
+            {
+                id: 2,
+                title: "Motor Kulağı Çökmesi",
+                severity: "medium",
+                reportCount: 42,
+                description: "Özellikle sağ hidrolik motor takozunun (kulağının) zamanla sönmesi/çökmesi ve motor titreşimini kasaya vermesi."
+            },
+            {
+                id: 3,
+                title: "Fren Balata/Disk Eğilmesi",
+                severity: "medium",
+                reportCount: 35,
+                description: "Orijinal disklerin yapısı sebebiyle yüksek süratlerde fren yapıldığında direksiyonda titreme (disk yamulması)."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 52
+    },
+    {
+        id: 106,
+        brand: "Fiat",
+        model: "Doblo 3. ve 4. Nesil (2010-2023)",
+        year: "2010-2023",
+        dnaScore: 78,
+        strengths: [
+            "Geniş Aileler ve Ticaret İçin Rakipsiz İç Hacim",
+            "Bağımsız Arka Süspansiyon (Ticari araçlar içinde en iyi yol tutuş ve konfor)",
+            "Güçlü ve Sorunsuz 1.6 Multijet (105 HP / 290 Nm veya 120 HP)",
+            "Çok Fonksiyonlu Kullanım (Hem iş hem aile arabası)"
+        ],
+        weaknesses: [
+            "Büyük Kasa Nedeniyle Yüksek Yakıt Tüketimi (Şehir içi)",
+            "Rüzgar Sesi ve Kutu Tasarımdan Kaynaklı Aerodinamik Zayıflık",
+            "Ağır Kasa Nedeniyle 1.3 Multijet Versiyonların Bayılması",
+            "Ticari Ruhsatlıysa Her Yıl Muayene Derdi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Arka Kapı / Sürgülü Kapı Sesleri",
+                severity: "medium",
+                reportCount: 48,
+                description: "Büyük sürgülü kapıların mekanizmalarının ve fitillerinin zamanla ayar kaçırması, kasislerde gacır gucur ses yapması."
+            },
+            {
+                id: 2,
+                title: "Boya Dökülmesi / Vernik Atması",
+                severity: "high",
+                reportCount: 35,
+                description: "Bazı üretim yıllarında (özellikle beyaz ve gri) tavan ve kaput bölgelerinde durduk yere boya kabarması ve vernik atması."
+            },
+            {
+                id: 3,
+                title: "Amortisör Takozu Sesi",
+                severity: "medium",
+                reportCount: 45,
+                description: "Ağır kasa sebebiyle ön amortisör takozlarının erken ömrünü tamamlayıp direksiyon çevirirken veya kasiste lokurtu yapması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 65
+    },
+    {
+        id: 107,
+        brand: "Renault",
+        model: "Megane 2 (2002-2008)",
+        year: "2002-2008",
+        dnaScore: 68,
+        strengths: [
+            "Döneminin Ötesinde Tasarım (Özellikle HB kasanın 'ütü' tasarımı)",
+            "Mükemmel Süspansiyon Konforu (Pamuk gibi yolculuk)",
+            "Kartlı Çalıştırma Sistemi (Dönemi için çok yenilikçi)",
+            "Geniş İç Hacim ve Aileye Uygunluk"
+        ],
+        weaknesses: [
+            "Elektronik Sistemlerin Fazla Narin Olması",
+            "Yaşlanan Plastiklerin Çabuk Kırılması (Özellikle iç kapı kolları soyulması)",
+            "Direksiyon Kutusunun Zayıflığı",
+            "Cam Krikosu Mekanizmalarının Sık Bozulması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Kart Okunamadı Hatası",
+                severity: "high",
+                reportCount: 85,
+                description: "Anahtar kartının içindeki lehimlerin zamanla kırılması sonucu aracın kartı tanımaması ve çalışmaması. Kartın tamiri veya yenilenmesi gerekir."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Sargısı (Airbag Sargısı) Kopması",
+                severity: "high",
+                reportCount: 70,
+                description: "Direksiyon çevirirken 'çıt çıt' ses gelmesi ve ardından airbag lambasının yanması. Sargının kopması kroniktir."
+            },
+            {
+                id: 3,
+                title: "Cam Krikosu Tel Kopması",
+                severity: "medium",
+                reportCount: 65,
+                description: "Özellikle ön camların krikosundaki plastik makaranın veya telin koparak camın kapı içine düşmesi."
+            },
+            {
+                id: 4,
+                title: "Torpido ve Kapı İçi Soyulmaları",
+                severity: "low",
+                reportCount: 90,
+                description: "Kapı tutamakları, teyp tuşları ve cam açma düğmelerindeki soft-touch (yumuşak) kaplamanın yapış yapış olup dökülmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 110
+    },
+    {
+        id: 108,
+        brand: "Ford",
+        model: "Tourneo Courier (2014-2023)",
+        year: "2014-2023",
+        dnaScore: 78,
+        strengths: [
+            "Binek Araç Konforunda Ticari Şasi (Fiesta altyapısı)",
+            "Mükemmel Yol Tutuş ve Direksiyon Hissi",
+            "Şehir İçi İçin Kompakt Boyutlar",
+            "Düşük Yakıt Tüketimi (1.5 TDCi)"
+        ],
+        weaknesses: [
+            "Rakiplerine Göre (Doblo/Caddy) Daha Dar Bagaj",
+            "Arka Süspansiyonların Zıplama Yapması (Boşken)",
+            "Sync Multimedya Sisteminin Yavaşlığı",
+            "Ticari Ruhsat (Her yıl muayene)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Sync Ekran Donması / Bluetooth Kopması",
+                severity: "low",
+                reportCount: 45,
+                description: "Orijinal teypte telefon görüşmesi sırasında sesin gitmemesi veya teybin kitlenip akü kutup başı sökülmeden düzelmemesi."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Tıkırtısı",
+                severity: "medium",
+                reportCount: 38,
+                description: "Bozuk ve parke taşlı yollarda direksiyon milinden gelen mekanik tıkırtı/boşluk sesi."
+            },
+            {
+                id: 3,
+                title: "Kapı Kilit Mekanizması Tutukluğu",
+                severity: "low",
+                reportCount: 30,
+                description: "Özellikle kış aylarında sürgülü kapıların veya ön kapıların merkezi kilitle tam kapanmaması veya açılmaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 75
+    },
+    {
+        id: 109,
+        brand: "Dacia",
+        model: "Sandero Stepway (2021-2025)",
+        year: "2021-2025",
+        dnaScore: 74,
+        strengths: [
+            "Fiyat/Performans Oranı (En ucuz B-SUV alternatifi)",
+            "Yerden Yüksek Yapı (Türkiye yolları için ideal)",
+            "Fabrika Çıkışlı ECO-G (LPG) Seçeneği İle İnanılmaz Ekonomi",
+            "Gelişmiş Dış Tasarım (Eski nesillere göre çok daha şık)"
+        ],
+        weaknesses: [
+            "Yalıtım Eksikliği (Yüksek hızda rüzgar ve yol sesi)",
+            "Sert Plastik Yoğunluğu (İç mekanda kalite hissi düşük)",
+            "X-Tronic (CVT) Şanzımanın Performansı Törpülemesi",
+            "Koltuğun Yanal Desteklerinin Zayıflığı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Medya Ekranı (Media Nav) Çökmesi",
+                severity: "medium",
+                reportCount: 42,
+                description: "Ekranın durduk yere kararması veya Apple CarPlay bağlantısının sürekli kopması. Yazılım güncellemesi gerektirir."
+            },
+            {
+                id: 2,
+                title: "Kapı Fitillerinden Su/Rüzgar Alması",
+                severity: "low",
+                reportCount: 35,
+                description: "Özellikle ön kapı üstlerinden 100 km/s hızın üzerinde ıslık sesi gelmesi."
+            },
+            {
+                id: 3,
+                title: "Wastegate (Turbo) Şıkırtısı",
+                severity: "low",
+                reportCount: 50,
+                description: "1.0 TCe motorlarda gaza basıp çekerken turbonun wastegate çubuğundan gelen mekanik şıkırtı sesi. Yetkili servisler 'karakteristik özellik' demektedir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 60
+    },
+    {
+        id: 110,
+        brand: "Skoda",
+        model: "Octavia A7 (2013-2020)",
+        year: "2013-2020",
+        dnaScore: 83,
+        strengths: [
+            "Devasa Bagaj Hacmi (590 Litre) ve Liftback Kapak",
+            "Arka Diz Mesafesi (D Segmentini kıskandıran genişlik)",
+            "Volkswagen Altyapısı (MQB platformu kalitesi)",
+            "Tasarruf ve Performans Dengesi (1.6 TDI & 1.4 TSI)"
+        ],
+        weaknesses: [
+            "Yol Sesi Yalıtımı (Özellikle arka çamurluklardan gelen uğultu)",
+            "DSG Şanzıman Endişesi",
+            "Sert Süspansiyon (Özellikle 17 inç jantlarla)",
+            "İç Mekanda Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Özellikle Gözlük Kabı ve Kapılar)",
+                severity: "low",
+                reportCount: 55,
+                description: "İç mekanda tavan lambası civarından ve kapı içlerinden bozuk yolda gelen çıtırtılar."
+            },
+            {
+                id: 2,
+                title: "Su Pompası (Devirdaim) Su Kaçağı",
+                severity: "medium",
+                reportCount: 48,
+                description: "Motor ayrımı olmaksızın su pompasının contadan antifriz sızdırması ve 'Soğutma Suyu Seviyesi Düşük' uyarısı."
+            },
+            {
+                id: 3,
+                title: "Cam Düğmeleri Kromlarının Soyulması",
+                severity: "low",
+                reportCount: 40,
+                description: "Şoför tarafındaki cam açma kapama tuşlarının uçlarındaki krom kaplamaların el kesicek şekilde soyulması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 85
+    },
+    {
+        id: 111,
+        brand: "Volkswagen",
+        model: "Polo 5. Nesil (6R/6C) (2009-2017)",
+        year: "2009-2017",
+        dnaScore: 81,
+        strengths: [
+            "Zamansız Tasarım (Hala çok modern görünüyor)",
+            "Yüksek İkinci El Değeri (Altın gibi değer korur)",
+            "Kaliteli İç Mekan (B segmenti için referans malzeme kalitesi)",
+            "Sınıfına Göre Çok İyi Yalıtım ve Tok Kapı Sesi"
+        ],
+        weaknesses: [
+            "Donanım Fakirliği (Comfortline pakette bile sis farı, çelik jant olmaması)",
+            "Dar Arka Diz Mesafesi",
+            "DSG Şanzıman Korkusu (DQ200 kuru kavrama)",
+            "Pahalı Yedek Parça ve Bakım"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Bagaj Kilidi (Mandalı) Arızası",
+                severity: "medium",
+                reportCount: 45,
+                description: "Bagaj kapağındaki VW logolu açma mekanizmasının zamanla bozulması veya içine su alıp bagajın açılmaması."
+            },
+            {
+                id: 2,
+                title: "Ön Konsol (Havalandırma) Izgara Kırılması",
+                severity: "low",
+                reportCount: 50,
+                description: "Ön konsoldaki havalandırma yönlendirici ızgaraların plastiklerinin çok hassas olup ufak bir temasta kırılması."
+            },
+            {
+                id: 3,
+                title: "Tavan Döşemesi Sarkması",
+                severity: "low",
+                reportCount: 38,
+                description: "Özellikle sıcak iklimlerde 10 yaşını geçen modellerde tavan kumaşının süngerden ayrılıp sarkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 95
+    },
+    {
+        id: 112,
+        brand: "Ford",
+        model: "Fiesta 6. Nesil (Mk7) (2008-2017)",
+        year: "2008-2017",
+        dnaScore: 79,
+        strengths: [
+            "Sınıfının En İyi Yol Tutuşu (Virajlarda inanılmaz dengeli)",
+            "Sportif ve Dinamik Dış Tasarım",
+            "Direksiyon Hissiyatı (Yolla doğrudan bağlantı hissi)",
+            "Sorunsuz ve Dayanıklı Şasi Yapısı"
+        ],
+        weaknesses: [
+            "Çok Dar Arka Yaşam Alanı",
+            "Karmaşık ve Düğme Dolu Orta Konsol (Teyp tasarımı cep telefonu gibi)",
+            "Sert Süspansiyon Nedeniyle Konfor Eksikliği",
+            "Powershift Şanzıman Problemleri (Otomatik versiyonlarda)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Direksiyon Kutusu Tıkırtısı",
+                severity: "high",
+                reportCount: 65,
+                description: "Ford'un kronik sorunudur. Parke taşlı yollarda direksiyon milinden gelen mekanik lokurtu ve boşluk hissi."
+            },
+            {
+                id: 2,
+                title: "Teyp (Bluetooth/USB) Modülü Arızası",
+                severity: "medium",
+                reportCount: 48,
+                description: "Orijinal teybin Bluetooth (Sync) modülünün yanması veya takılı kalması. Telefondan ses gitmemesi."
+            },
+            {
+                id: 3,
+                title: "Kapı Fitili ve Rüzgar Sesi",
+                severity: "low",
+                reportCount: 40,
+                description: "Özellikle otoyol hızlarında kapı üst fitillerinden içeriye rüzgar ve ıslık sesi girmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 82
+    },
+    {
+        id: 113,
+        brand: "Nissan",
+        model: "Qashqai 2. Nesil (J11) (2014-2021)",
+        year: "2014-2021",
+        dnaScore: 76,
+        strengths: [
+            "Türkiye'nin En Çok Satan SUV'si (Piyasası çok hızlı)",
+            "Cam Tavan ve Ferah İç Mekan (Donanımlı paketlerde)",
+            "Konforlu Sürüş ve Yüksek Oturma Pozisyonu",
+            "Yakıt Cimrisi 1.5 dCi Motor"
+        ],
+        weaknesses: [
+            "Malzeme Kalitesi ve Trim Sesleri",
+            "X-Tronic (CVT) Şanzıman Sorunları (Özellikle benzinli modellerde)",
+            "Multimedya Sisteminin Çağ Dışı ve Yavaş Olması",
+            "Yüksek Otoyol Hızlarında Rüzgar Sesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Ön Takım (Salıncak ve Rotil) Sesleri",
+                severity: "medium",
+                reportCount: 52,
+                description: "Ağır kasa sebebiyle ön salıncak burçlarının erken yıpranması ve kasislerde gıcırtı/lokurtu yapması."
+            },
+            {
+                id: 2,
+                title: "Akü Erken Bitme Sorunu",
+                severity: "medium",
+                reportCount: 45,
+                description: "Özellikle Start-Stop sistemli modellerde fabrika çıkışı akülerin 2 yıl bile dayanmadan ölmesi."
+            },
+            {
+                id: 3,
+                title: "Klima Kompresörü Sesi",
+                severity: "low",
+                reportCount: 30,
+                description: "Klima açıkken motordan veya havalandırmadan gelen inleme (uğultu) sesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 70
+    },
+    {
+        id: 114,
+        brand: "Peugeot",
+        model: "208 2. Nesil (2019-2025)",
+        year: "2019-2025",
+        dnaScore: 82,
+        strengths: [
+            "Göz Kamaştıran Tasarım (Aslan dişi gündüz farları)",
+            "i-Cockpit 3D (Sınıfında benzersiz teknolojik gösterge)",
+            "EAT8 Şanzıman Konforu",
+            "Kaliteli ve Özgün İç Mekan (Piyano tuşları, karbon görünümlü detaylar)"
+        ],
+        weaknesses: [
+            "Dar Arka Yaşam Alanı ve Küçük Arka Kapı Açıklığı",
+            "Küçük Direksiyon Simidinin Göstergeyi Kapatması (Boyunuza bağlı)",
+            "Klimanın Ekrana Gömülü Olması (Sürüş esnasında kullanımı zor)",
+            "Sert Süspansiyon ve Büyük Jantlarla Gelen Konforsuzluk"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Multimedya Ekran Resetlemesi",
+                severity: "low",
+                reportCount: 42,
+                description: "Orta ekranın sürüş esnasında siyah ekrana düşüp kendi kendine yeniden başlaması."
+            },
+            {
+                id: 2,
+                title: "Amortisör Takozu Gıcırtısı",
+                severity: "medium",
+                reportCount: 35,
+                description: "Sabahları soğuk havalarda veya kasis geçişlerinde ön süspansiyondan gelen kauçuk gıcırtısı."
+            },
+            {
+                id: 3,
+                title: "Apple CarPlay/Android Auto Bağlantı Kopması",
+                severity: "low",
+                reportCount: 40,
+                description: "Kablolu bağlantıda bile engebeli yollarda telefon bağlantısının aniden kopması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 58
+    },
+    {
+        id: 115,
+        brand: "Toyota",
+        model: "Corolla E140/E150 (2007-2012)",
+        year: "2007-2012",
+        dnaScore: 84,
+        strengths: [
+            "Ölümsüz Motor Bloğu (Düzenli bakımla milyon km devirir)",
+            "LPG'ye Tam Uyumlu 1.6 Dual VVT-i Motor",
+            "Yumuşak Süspansiyon ile Yüksek Konfor",
+            "Mükemmel İkinci El Değeri"
+        ],
+        weaknesses: [
+            "M-MT (MultiMode) Şanzımanın Rezalet Performansı",
+            "Tasarımın Çabuk Eskimesi ve Sıkıcı Olması",
+            "Sınıfına Göre Zayıf Yol Tutuş (Yumuşak süspansiyon nedeniyle)",
+            "Rüzgar ve Lastik Sesi Yalıtımı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Direksiyon Kolonu Tıkırtısı",
+                severity: "high",
+                reportCount: 55,
+                description: "Parke taşlı yollarda direksiyon kutusu içindeki plastik burcun aşınmasından dolayı gelen tıkırtı."
+            },
+            {
+                id: 2,
+                title: "Ön Göğüs (Torpido) Tıkırtısı",
+                severity: "low",
+                reportCount: 45,
+                description: "Kış aylarında veya bozuk yollarda ön cam ile torpido birleşim yerinden gelen plastik çıtırtıları."
+            },
+            {
+                id: 3,
+                title: "Fren Diski Eğilmesi",
+                severity: "medium",
+                reportCount: 38,
+                description: "Özellikle sert frenlemelerde disklerin çabuk ısınıp yamulması ve direksiyonda titremeye sebep olması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 88
+    },
+    {
+        id: 116,
+        brand: "Tofaş",
+        model: "Kartal (1988-2002)",
+        year: "1988-2002",
+        dnaScore: 62,
+        strengths: [
+            "Devasa Bagaj Hacmi (Esnafın, boyacının, pazarcının dostu)",
+            "Yük Taşıma Kapasitesi (Makaslı arka süspansiyon benzeri dayanıklılık)",
+            "Ucuz Yedek Parça ve Kolay Tamir",
+            "LPG'ye Tam Uyumlu"
+        ],
+        weaknesses: [
+            "Zayıf Aerodinamik (Rüzgar tutması çok fazladır)",
+            "Konforsuz ve Zıplayan Arka Süspansiyon",
+            "Güvenlik Donanımı Yok (ABS, Airbag bulunmaz)",
+            "Korozyon ve Çürüme"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Bagaj Kapağı Çürümesi",
+                severity: "high",
+                reportCount: 60,
+                description: "Kartal'a özel olarak dik inen bagaj kapağının alt kısımları ve cam kenarları çok hızlı çürür."
+            },
+            {
+                id: 2,
+                title: "Diferansiyel Ötmesi",
+                severity: "medium",
+                reportCount: 50,
+                description: "Özellikle ağır yük taşıyan Kartal modellerinde diferansiyel dişlilerinden gelen yüksek uğultu."
+            },
+            {
+                id: 3,
+                title: "Arka Silecek Motoru Arızası",
+                severity: "low",
+                reportCount: 35,
+                description: "Bagaj kapağındaki silecek motorunun su alıp kısa devre yapması veya mekanizmasının kilitlenmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 65
+    },
+    {
+        id: 117,
+        brand: "Tofaş",
+        model: "Serçe / Murat 131 (1977-1994)",
+        year: "1977-1994",
+        dnaScore: 55,
+        strengths: [
+            "Klasik Araç Statüsü (Temizleri koleksiyonluk)",
+            "Saf Mekanik Sürüş Hissi (Elektronik hiçbir şey yok)",
+            "Aşırı Ucuz Bakım",
+            "Modifiyeye Açık Alt Yapı"
+        ],
+        weaknesses: [
+            "Günümüz Trafiğinde Yetersiz Frenler",
+            "Direksiyon Çok Ağır (Hidrolik yok)",
+            "Küçük İç Hacim (Kuş serisine göre daha dardır)",
+            "Yazın Hararet, Kışın Isıtmama Sorunu"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Hararet Sorunu",
+                severity: "high",
+                reportCount: 45,
+                description: "Radyatör kapasitesinin zayıflığı sebebiyle yaz aylarında yokuş çıkarken hemen hararete kalması."
+            },
+            {
+                id: 2,
+                title: "Taban Sacı Çürümesi",
+                severity: "high",
+                reportCount: 55,
+                description: "Yaşı gereği ve yalıtım eksikliğinden aracın şoför ve yolcu ayak basma yerlerinin (taban sacı) çürümesi."
+            },
+            {
+                id: 3,
+                title: "Karbüratör Tıkanması",
+                severity: "medium",
+                reportCount: 40,
+                description: "Mekanik karbüratörün pis yakıt veya filtre bakım eksikliğinden meme tıkayıp aracın teklemesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 45
+    },
+    {
+        id: 118,
+        brand: "Honda",
+        model: "Civic 10. Nesil (FC5) (2016-2021)",
+        year: "2016-2021",
+        dnaScore: 84,
+        strengths: [
+            "Agresif ve Sportif Tasarım (Gençlerin ve modifiyecilerin favorisi)",
+            "LPG'ye %100 Uyum (Fabrika çıkışlı LPG seçeneği - Eco Serisi)",
+            "Ferah İç Mekan ve Bağımsız Arka Süspansiyon",
+            "Mükemmel İkinci El Piyasası (Nakit para gibi)"
+        ],
+        weaknesses: [
+            "Kaporta Sacının İnce Olması",
+            "Yol ve Lastik Sesini İçeri Fazla Alması",
+            "CVT Şanzımanın Performans Hissini Törpülemesi",
+            "Orijinal Multimedya Ekranının Çok Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "C Sütunu (Arka Direk) Göçmesi",
+                severity: "high",
+                reportCount: 95,
+                description: "FC5 kasanın en meşhur kroniğidir. Arka camın yanındaki C sütununda durduk yere gamze (göçük) oluşması. Honda bu durumu köpük sıkarak çözmeye çalıştı."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Boşluğu ve Tıkırtı",
+                severity: "medium",
+                reportCount: 65,
+                description: "Özellikle bozuk yollarda direksiyondan gelen tıkırtı ve zamanla oluşan boşluk hissi."
+            },
+            {
+                id: 3,
+                title: "Fren Diski Yamulması",
+                severity: "medium",
+                reportCount: 50,
+                description: "120 km/s hızlardan sert frene basıldığında direksiyonun titremesi. Disklerin ısıdan çabuk çarpılması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 120
+    },
+    {
+        id: 119,
+        brand: "Honda",
+        model: "Civic 9. Nesil (FB7) (2012-2016)",
+        year: "2012-2016",
+        dnaScore: 86,
+        strengths: [
+            "Ölümsüz i-VTEC Motor Bloğu (LPG ile kusursuz uyum)",
+            "Sorunsuz Tam Otomatik Şanzıman (Tork konvertörlü)",
+            "Sorunsuzluk ve Sanayi Yüzü Göstermeme",
+            "Konforlu Sürüş Dinamikleri"
+        ],
+        weaknesses: [
+            "Kaba ve Demode Arka Tasarım (Bir önceki efsane FD6'ya kıyasla sevilmedi)",
+            "Küçük Bagaj Hacmi (LPG tankı da gelince iyice daralır)",
+            "Rüzgar ve Yol Sesi Yalıtımı",
+            "Sert Frenlemelerde Zayıf Fren Hissi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Boya Dökülmesi ve Vernik Atması",
+                severity: "high",
+                reportCount: 75,
+                description: "Özellikle beyaz renk FB7'lerde tavan, kaput ve direklerdeki verniklerin durduk yere atıp boyanın dökülmesi."
+            },
+            {
+                id: 2,
+                title: "Akü Erken Bitme Sorunu",
+                severity: "low",
+                reportCount: 45,
+                description: "Fabrika çıkışı akü kapasitesinin (45 Amper) küçük olması sebebiyle akünün çabuk bitmesi (Genelde 55-60A ile değiştirilir)."
+            },
+            {
+                id: 3,
+                title: "Ön Cam Fitili Ses Yapması",
+                severity: "low",
+                reportCount: 55,
+                description: "Ön camın sağ veya sol köşesindeki fitillerin 100 km/s hızın üzerinde ıslık/rüzgar sesi yapması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 90
+    },
+    {
+        id: 120,
+        brand: "Renault",
+        model: "Clio 4. Nesil (2012-2019)",
+        year: "2012-2019",
+        dnaScore: 80,
+        strengths: [
+            "Şık ve Sportif Dış Tasarım (Gizli arka kapı kolları)",
+            "Çok Düşük Yakıt Tüketimi (1.5 dCi)",
+            "Yaygın Servis Ağı ve Kolay Parça Bulunabilirliği",
+            "İkinci Elde Çok Hızlı Satılabilmesi"
+        ],
+        weaknesses: [
+            "Sınıfına Göre Bile Zayıf Malzeme Kalitesi (Sert plastikler)",
+            "Yol ve Rüzgar Sesi (Özellikle arka tarafta)",
+            "Arka Diz Mesafesi Dar ve Kasvetli",
+            "Klimanın Zayıf Üflemesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Kelebek Camından Gelen Rüzgar Sesi",
+                severity: "medium",
+                reportCount: 85,
+                description: "Clio 4'ün en meşhur sorunudur. Ön kapılardaki ufak kelebek camı fitillerinden 90 km/s hızdan sonra yoğun ıslık sesi gelmesi (Fitil arasına silikon sıkarak çözülür)."
+            },
+            {
+                id: 2,
+                title: "EDC Şanzıman Beyni ve Kavrama",
+                severity: "high",
+                reportCount: 70,
+                description: "Kuru kavramalı EDC şanzımanda vites geçişlerinde titreme veya 'Vites Kutusu Kontrol Ettirin' uyarısıyla şanzıman beyninin arızalanması."
+            },
+            {
+                id: 3,
+                title: "Teyp (MediaNav) Çökmesi",
+                severity: "medium",
+                reportCount: 65,
+                description: "Orijinal dokunmatik ekranın logoda takılı kalması veya dokunmatiğinin bozulması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 110
+    },
+    {
+        id: 121,
+        brand: "Opel",
+        model: "Astra J Kasa (2009-2015)",
+        year: "2009-2015",
+        dnaScore: 78,
+        strengths: [
+            "Mükemmel Dış Tasarım (Hala C segmentinin en şıklarından)",
+            "Tank Gibi Ağır Kasa ve Otoyol Stabilitesi",
+            "Kaliteli Ön Konsol ve İç Mekan Ambiyansı (Kırmızı ışıklandırmalar)",
+            "Fiyat/Performans Olarak Donanım Zenginliği (Cosmo paket)"
+        ],
+        weaknesses: [
+            "Aşırı Ağır Kasa (Yakıt tüketimini artırır ve performansı törpüler)",
+            "Orta Konsoldaki Düğme Karmaşası (Uçak kokpiti gibi)",
+            "Elektronik Arızalara Yatkınlık",
+            "Dizel Versiyonlarda Motor Sesi Yalıtımı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "1.4 Turbo Piston Kırma (Segman Kırılması)",
+                severity: "high",
+                reportCount: 95,
+                description: "Astra J'nin en büyük kabusudur. 1.4 Turbo (A14NET/B14NET) motorlarda yanlış yağ kullanımı veya zorlama sonucu piston segmanlarının kırılması. Genelde çelik subap ve forged piston ile revize edilir."
+            },
+            {
+                id: 2,
+                title: "Bobin Arızası (Ateşleme Modülü)",
+                severity: "medium",
+                reportCount: 80,
+                description: "Özellikle 1.6 atmosferik ve 1.4 Turbo motorlarda bobinlerin ömrünün çok kısa olması, teklemeye sebep olması (Mutlaka Delphi/GM marka takılmalı)."
+            },
+            {
+                id: 3,
+                title: "Su Deposu (Genleşme Kabı) Çatlaması",
+                severity: "medium",
+                reportCount: 65,
+                description: "Antifriz genleşme kabının plastiğinin ısınıp çatlaması ve su sızdırarak 'Soğutma Sıvısı Seviyesi' uyarısı vermesi."
+            },
+            {
+                id: 4,
+                title: "Termostat Gövdesi Kaçağı",
+                severity: "high",
+                reportCount: 55,
+                description: "Termostatın plastik gövdesinin çatlaması veya elektronik termostatın arızalanıp fan açtırması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 130
+    },
+    {
+        id: 122,
+        brand: "Volkswagen",
+        model: "Golf 7 (2012-2020)",
+        year: "2012-2020",
+        dnaScore: 88,
+        strengths: [
+            "C Segmenti Hatchback Referans Noktası (Standart belirleyici)",
+            "Mükemmel Malzeme Kalitesi ve İşçilik",
+            "Çok İyi Yalıtım (Hem yol hem rüzgar sesi neredeyse yok)",
+            "Yüksek Sürüş Dinamikleri ve Tokluk Hissi"
+        ],
+        weaknesses: [
+            "Yüksek Fiyat ve İkinci Elde Fiyat Şişkinliği",
+            "Sıkıcı ve Kutu Gibi Muhafazakar Tasarım",
+            "DSG Şanzıman Riski (DQ200 kuru kavrama)",
+            "Yedek Parça ve Yetkili Servis Ücretlerinin Yüksekliği"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Kavrama ve Mekatronik Arızası",
+                severity: "high",
+                reportCount: 110,
+                description: "DQ200 7 ileri kuru kavrama şanzımanın 1'den 2'ye geçerken titremesi (kavrama bitmesi) veya aniden vitese geçmeyerek mekatronik tüpünün patlaması."
+            },
+            {
+                id: 2,
+                title: "Cam Tavan (Sunroof) Su Alma Sorunu",
+                severity: "high",
+                reportCount: 75,
+                description: "Cam tavanın su tahliye kanallarının tıkanması veya fitilinin çatlaması sonucu A sütunundan ve tavan lambasından içeri su girmesi."
+            },
+            {
+                id: 3,
+                title: "Devirdaim Su Pompası Kaçağı",
+                severity: "medium",
+                reportCount: 85,
+                description: "Hem 1.2/1.4 TSI hem de 1.6 TDI motorlarda su pompasının (devirdaim) O-ring kısmından pembe antifriz sızdırması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 140
+    },
+    {
+        id: 123,
+        brand: "Dacia",
+        model: "Duster (2010-2024)",
+        year: "2010-2024",
+        dnaScore: 75,
+        strengths: [
+            "Tam Bir Fiyat/Performans Canavarı",
+            "Mükemmel Arazi ve Bozuk Yol Kabiliyeti (Özellikle 4x4 versiyonlar)",
+            "Çok Ucuz Yedek Parça ve Yürütme Maliyeti",
+            "1.5 dCi Motorun İnanılmaz Ekonomisi"
+        ],
+        weaknesses: [
+            "İç Mekanda Yoğun Sert Plastik ve Kalitesizlik Hissi",
+            "Otoyol Hızlarında Ciddi Rüzgar ve Yol Sesi (Yalıtım zayıf)",
+            "Güvenlik Donanımı ve NCAP Puanlarının Düşüklüğü",
+            "Koltukların Uzun Yolda Konforsuz Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yakıt Göstergesi Yanılgısı",
+                severity: "low",
+                reportCount: 85,
+                description: "Özellikle LPG'li ve eski dizel modellerde yakıt şamandırasının takılı kalması veya yanlış seviye göstermesi."
+            },
+            {
+                id: 2,
+                title: "Klima Borusu / Yönlendirme Arızası",
+                severity: "medium",
+                reportCount: 60,
+                description: "Klima yönlendirme halatının (telinin) takılması sonucu havanın istenilen yöne (örn: sadece cama) verilememesi."
+            },
+            {
+                id: 3,
+                title: "Kapı Fitillerinden Su Alması",
+                severity: "medium",
+                reportCount: 55,
+                description: "Şiddetli yağmurlarda veya basınçlı yıkamada kapı üst fitillerinden kabin içine su sızması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 95
+    },
+    {
+        id: 124,
+        brand: "Peugeot",
+        model: "3008 2. Nesil (2016-2023)",
+        year: "2016-2023",
+        dnaScore: 83,
+        strengths: [
+            "Uçak Kokpitini Andıran Muazzam İç Tasarım (i-Cockpit)",
+            "Agresif ve Aslan Pençesi Dış Tasarım",
+            "Sınıfının En İyi Yol Tutuş - Konfor Dengesinden Biri",
+            "EAT8 Tam Otomatik Şanzımanın Kusursuzluğu"
+        ],
+        weaknesses: [
+            "Fiziksel Klima Tuşlarının Olmaması (Ekrana gömülü olması sürüşte zorluyor)",
+            "Dar Arka Cam ve Kısıtlı Geri Görüş",
+            "Küçük Direksiyon Simidine Herkesin Alışamaması",
+            "Süspansiyonların Biraz Sesli Çalışması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Multimedya Ekranının Donması/Kapanması",
+                severity: "low",
+                reportCount: 70,
+                description: "Sürüş esnasında orta ekranın kendi kendine kapanıp yeniden başlaması. Genelde yazılım güncellemesiyle çözülür."
+            },
+            {
+                id: 2,
+                title: "Arka Amortisör Takozu Sesi",
+                severity: "medium",
+                reportCount: 50,
+                description: "Özellikle kasislerden çapraz geçerken arka süspansiyondan gelen 'gırç gırç' burç/kauçuk sesi."
+            },
+            {
+                id: 3,
+                title: "Kapı İçi Trim ve Titreme Sesleri",
+                severity: "low",
+                reportCount: 45,
+                description: "Özellikle Focal ses sistemi olan araçlarda bas vurduğunda kapı döşemelerinin zırıldaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 110
+    },
+    {
+        id: 125,
+        brand: "Ford",
+        model: "Focus 3 & 3.5 (2011-2018)",
+        year: "2011-2018",
+        dnaScore: 81,
+        strengths: [
+            "C Segmentinin Açık Ara En İyi Yol Tutuşu",
+            "Direksiyon Hissi ve Sürüş Dinamikleri",
+            "Kaliteli Ön Konsol ve Tok Kapı Sesi",
+            "Dayanıklı Şasi ve Güvenlik (Euro NCAP 5 Yıldız)"
+        ],
+        weaknesses: [
+            "Sınıfının En Dar Arka Diz Mesafesi",
+            "Özellikle Hatchback Modelde Çok Küçük Bagaj",
+            "Powershift Şanzıman Fobisi",
+            "Orta Konsolun Sürücünün Dizini Sıkıştırması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Direksiyon Kutusu Tıkırtısı (Tüm Ford'ların Kaderi)",
+                severity: "high",
+                reportCount: 95,
+                description: "Elektrikli direksiyon (EPS) motorunun veya kutu içindeki burçların boşluk yapıp bozuk yolda tıkırtı yapması."
+            },
+            {
+                id: 2,
+                title: "Kapı Fitili Düşmesi",
+                severity: "low",
+                reportCount: 80,
+                description: "Özellikle arka kapı fitillerinin yapışkanının özelliğini yitirip aşağı doğru sarkması."
+            },
+            {
+                id: 3,
+                title: "Gösterge Paneli (Sync) Ekran Kararması",
+                severity: "medium",
+                reportCount: 65,
+                description: "Orijinal teybin veya bilgi ekranının yazılımsal olarak kitlenip akü sökülene kadar düzelmemesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 125
+    },
+    {
+        id: 126,
+        brand: "Volkswagen",
+        model: "Passat B8 (2015-2023)",
+        year: "2015-2023",
+        dnaScore: 89,
+        strengths: [
+            "D Segmentinin Tartışmasız Lideri ve Statü Sembolü",
+            "Muazzam Genişlikte Arka Diz Mesafesi ve Bagaj",
+            "Mükemmel Otoyol Konforu ve Yalıtım",
+            "İkinci Elde Cumhuriyet Altını Gibi Olması"
+        ],
+        weaknesses: [
+            "Tasarımın Fazla Ağırbaşlı (Sıkıcı) Olması",
+            "Donanımsız Paketlerde (Impression/Trendline) Boş Olması",
+            "DSG Şanzımanın Getirdiği Potansiyel Riskler",
+            "Yüksek Servis ve Kasko Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Mekatronik ve Kavrama Arızası (DSG)",
+                severity: "high",
+                reportCount: 130,
+                description: "1.4/1.5 TSI ve 1.6 TDI motorlarla gelen 7 ileri kuru kavrama DSG'nin yoğun trafikte titremesi ve mekatronik kart yakması."
+            },
+            {
+                id: 2,
+                title: "ErgoComfort Koltuk Masaj Motoru Sesi",
+                severity: "low",
+                reportCount: 40,
+                description: "Highline paketlerdeki sürücü koltuğu masaj özelliğinin zamanla çok gürültülü çalışmaya başlaması."
+            },
+            {
+                id: 3,
+                title: "Krom Çıtaların Kararması",
+                severity: "low",
+                reportCount: 65,
+                description: "Dış trimlerde ve cam kenarlarında bulunan krom detayların kalitesiz yıkama köpüklerinden dolayı beyazlaması/kararması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 150
+    },
+    {
+        id: 127,
+        brand: "Hyundai",
+        model: "Tucson 3. Nesil (2015-2020)",
+        year: "2015-2020",
+        dnaScore: 82,
+        strengths: [
+            "Heybetli ve Kaslı Dış Tasarım",
+            "Zengin Donanım Seviyesi (Elite Plus paketinde yok yok)",
+            "1.6 T-GDI Motorun Yüksek Performansı (177 HP)",
+            "Geniş ve Ferah İç Mekan, Sorunsuz Elektronik"
+        ],
+        weaknesses: [
+            "Aşırı Yüksek Yakıt Tüketimi (1.6 T-GDI Şehir içi 10-12 Litre)",
+            "Süspansiyonların Biraz Sert Olması (Büyük jantlarla beraber)",
+            "Aracın Çok Ağır Olmasından Dolayı DCT Şanzımanın Zorlanması",
+            "Rüzgar Sesi (110 km/s sonrası)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DCT (Çift Kavrama) Şanzıman Isınması",
+                severity: "high",
+                reportCount: 105,
+                description: "Özellikle yokuş yukarı dur-kalk trafikte 'Şanzıman Isındı, Güvenli Bir Yerde Durun' uyarısı vermesi ve titremesi."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Tıkırtısı (Tık Sesi)",
+                severity: "medium",
+                reportCount: 75,
+                description: "Direksiyonu sağa veya sola ilk çevirişte 'tık' diye mekanik bir burç/boşluk sesi gelmesi."
+            },
+            {
+                id: 3,
+                title: "Multimedya Navigasyon Çökmesi",
+                severity: "low",
+                reportCount: 50,
+                description: "Orijinal ünitenin geri görüş kamerasına geçerken siyah ekranda kalması (Yazılım güncellemesi gerekir)."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 125
+    },
+    {
+        id: 101,
+        brand: "Tofaş",
+        model: "Şahin (1988-2002)",
+        year: "1988-2002",
+        dnaScore: 55,
+        strengths: [
+            "İnanılmaz Ucuz ve Bol Yedek Parça",
+            "Mekaniği Basit, Her Usta Anlar",
+            "Arkadan İtişli Klasik Sürüş Hissi",
+            "LPG ile Çok Ekonomik Kullanım",
+            "Geniş Bagaj Hacmi",
+            "İkinci Elde Hızlı Alım Satım"
+        ],
+        weaknesses: [
+            "Çok Düşük Güvenlik Standartları (ABS/Airbag Yok)",
+            "Kronik Kaporta Çürüme ve Paslanma Sorunları",
+            "Düşük Ses Yalıtımı",
+            "Zayıf Fren Performansı",
+            "Yüksek Yakıt Tüketimi (Benzinde)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Şasi ve Kaporta Çürümeleri",
+                severity: "high",
+                reportCount: 350,
+                description: "Özellikle arka çamurluk ağızları, kule dipleri, kriko vurma yerleri ve kapı altlarında kronik çürümeler başlar. İkinci el alırken en dikkat edilmesi gereken yerdir."
+            },
+            {
+                id: 2,
+                title: "Diferansiyel (Şaft) Ötmesi",
+                severity: "medium",
+                reportCount: 220,
+                description: "Kronik diferansiyel uğultusu. Belirli hızlarda (özellikle 80-100 km/s arası) arka kısımdan gelen uğultu sesidir. Parça değişimi ya da ayar gerektirir."
+            },
+            {
+                id: 3,
+                title: "Hararet (Soğutma Sistemi) Sorunu",
+                severity: "high",
+                reportCount: 290,
+                description: "Radyatör tıkanması, su pompası (devirdaim) arızası veya termostat sorunları yüzünden hararet yapma eğilimi yüksektir. Bakımlı soğutma sistemi şarttır."
+            },
+            {
+                id: 4,
+                title: "Elektrik ve Tesisat Oksitlenmesi",
+                severity: "medium",
+                reportCount: 180,
+                description: "Sigorta tablası ve eskiyen kablolardan dolayı farların sönük yanması, gösterge panelinde tutarsızlıklar yaşanabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1450,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Tofa%C5%9F_%C5%9Eahin_1.6_ie.jpg/800px-Tofa%C5%9F_%C5%9Eahin_1.6_ie.jpg"
+    },
+    {
+        id: 102,
+        brand: "Tofaş",
+        model: "Doğan (1988-2002)",
+        year: "1988-2002",
+        dnaScore: 58,
+        strengths: [
+            "Şahin'e Göre Daha Konforlu Donanım (SLX Paketler)",
+            "Çelik Jant, Sis Farı, Otomatik Ön Camlar (SLX)",
+            "Ucuz Yedek Parça ve Kolay Tamir",
+            "Geniş İç Mekan ve Konforlu Koltuklar",
+            "Modifiyeye Oldukça Uygun Altyapı",
+            "LPG ile Uyumu"
+        ],
+        weaknesses: [
+            "Kaporta Korozyon Eğilimi",
+            "Zayıf Aerodinamik Yapı (Yüksek hızda güvensizlik)",
+            "Yetersiz Fren Sistemi",
+            "Kronik Elektrik Arızaları"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Kaporta ve Taban Çürümeleri",
+                severity: "high",
+                reportCount: 310,
+                description: "Araç yaşına bağlı olarak şasi uçları, kuleler ve taban sacı su alarak çürüyebilir."
+            },
+            {
+                id: 2,
+                title: "Şanzıman ve Diferansiyel Uğultusu",
+                severity: "medium",
+                reportCount: 200,
+                description: "Uzun kullanımlarda şanzımandan ve şafttan/diferansiyelden uğultu gelmesi oldukça yaygındır."
+            },
+            {
+                id: 3,
+                title: "Karbüratör / Enjeksiyon (ie) Ayarsızlığı",
+                severity: "medium",
+                reportCount: 250,
+                description: "Düz motorlarda karbüratör ayarsızlığı, ie (enjeksiyonlu) modellerde rölanti dalgalanması ve rölanti motoru arızası sık görülür."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1200,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Tofa%C5%9F_Do%C4%9Fan_1.6_ie.jpg/800px-Tofa%C5%9F_Do%C4%9Fan_1.6_ie.jpg"
+    },
+    {
+        id: 103,
+        brand: "Tofaş",
+        model: "Kartal (1988-2002)",
+        year: "1988-2002",
+        dnaScore: 57,
+        strengths: [
+            "Devasa Bagaj Hacmi (Station Wagon)",
+            "Ticari ve Aile Kullanımına Uygunluk",
+            "Arka Süspansiyonun Yüke Dayanıklılığı",
+            "Çok Ucuza Tamir Edilebilirlik",
+            "Parça ve Usta Bulma Kolaylığı"
+        ],
+        weaknesses: [
+            "Özellikle Arka Kısımda Daha Fazla Çürüme",
+            "Yalıtımın Zayıf Olması Nedeniyle Bagaj Sesi",
+            "Düşük Çarpışma Güvenliği",
+            "Ağır Yük Altında Motorun (Özellikle 1.4'lerde) Zorlanması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Bagaj Kapağı ve Arka Çamurluk Çürümeleri",
+                severity: "high",
+                reportCount: 280,
+                description: "Kartal modellerinde station wagon yapısı gereği arka bagaj kapağı dipleri ve cam altlarında çürüme ve paslanma kroniktir."
+            },
+            {
+                id: 2,
+                title: "Diferansiyel ve Şaft Ötmesi",
+                severity: "medium",
+                reportCount: 180,
+                description: "Yük taşındığı için diferansiyel dişlilerinde daha çabuk aşınma ve ötme (uğultu) görülür."
+            },
+            {
+                id: 3,
+                title: "Hararet Sorunu",
+                severity: "high",
+                reportCount: 200,
+                description: "Ağır yüklerle rampa çıkarken soğutma sistemi yetersiz kalabilir, devirdaim pompası ve radyatör temizliği hayati önem taşır."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 950,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Tofa%C5%9F_Kartal_1.6_ie.jpg/800px-Tofa%C5%9F_Kartal_1.6_ie.jpg"
+    },
+    {
+        id: 104,
+        brand: "Tofaş",
+        model: "Serçe (1984-1994)",
+        year: "1984-1994",
+        dnaScore: 50,
+        strengths: [
+            "Klasik Tasarım (Murat 124'ün Makyajlı Hali)",
+            "Kuş Serisinin En Uygun Fiyatlı Aracı",
+            "Dar Sokaklarda Şehir İçi Pratikliği",
+            "Bakım Maliyetinin Yok Denecek Kadar Az Olması"
+        ],
+        weaknesses: [
+            "İç Mekan Hacminin Çok Dar Olması",
+            "Güvenlik Donanımı Bulunmaması",
+            "Sürüş Konforunun Düşük Olması",
+            "Bagaj Hacminin Yetersizliği"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Kaporta Paslanması",
+                severity: "high",
+                reportCount: 200,
+                description: "Saç kalitesi ve yaşı gereği taban ve kapı içlerinde yoğun pas görülmesi."
+            },
+            {
+                id: 2,
+                title: "Fren Sistemi Yetersizliği",
+                severity: "medium",
+                reportCount: 150,
+                description: "Fren disk ve kampanalarının çabuk aşınması ve zayıf tutması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 450,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Fiat_124.jpg/800px-Fiat_124.jpg"
+    },
+    {
+        id: 150,
+        brand: "Renault",
+        model: "Toros (R12) (1989-2000)",
+        year: "1989-2000",
+        dnaScore: 48,
+        strengths: [
+            "Kırsal kesimde tartışmasız efsane",
+            "Yerden yüksek yapısı ile dağ bayır dinlemez",
+            "Tamiri bir tornavida ve pense ile yapılabilir",
+            "Yedek parçası bakkalda bile bulunur"
+        ],
+        weaknesses: [
+            "Sıfır güvenlik donanımı",
+            "Ağır ve hidrolik olmayan direksiyon (çok serttir)",
+            "Kötü aerodinamik ve yüksek yakıt tüketimi",
+            "Konfor seviyesinin sıfıra yakın olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Kaporta Çürümeleri",
+                severity: "high",
+                reportCount: 405,
+                description: "Özellikle kapı altları, çamurluk ağızları ve tabanda yoğun çürüme görülür."
+            },
+            {
+                id: 2,
+                title: "Karbüratör ve Distribütör Sorunları",
+                severity: "medium",
+                reportCount: 305,
+                description: "Sık sık meksefe, platin ayarı ister. Rölanti tutturmak zordur."
+            },
+            {
+                id: 3,
+                title: "Aks Kafası Ötmesi",
+                severity: "medium",
+                reportCount: 268,
+                description: "Dönüşlerde tekerlerden gelen 'tık tık tık' sesi kroniktir, aks kafası bozulur."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1044,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Renault_12_Toros_1.4_TX.jpg/800px-Renault_12_Toros_1.4_TX.jpg"
+    },
+    {
+        id: 151,
+        brand: "Renault",
+        model: "R9 Broadway (1985-2000)",
+        year: "1985-2000",
+        dnaScore: 54,
+        strengths: [
+            "Az yakar, çok kaçar efsanesi",
+            "Muazzam ucuz yedek parça ve bakım maliyeti",
+            "İkinci elde peynir ekmek gibi satılması",
+            "Geniş bagajı ve hafif kasası"
+        ],
+        weaknesses: [
+            "Yol tutuşunun zayıf olması",
+            "Yüksek hızlarda savrulma eğilimi",
+            "Ön cam otomatiklerinin sık bozulması",
+            "Zayıf fren performansı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Hararet Sorunu",
+                severity: "high",
+                reportCount: 323,
+                description: "Radyatör kapağı veya fan müşürü arızaları yüzünden yazın sık sık hararet yapar."
+            },
+            {
+                id: 2,
+                title: "Ön Takım Hassasiyeti",
+                severity: "medium",
+                reportCount: 167,
+                description: "Rotil ve salıncak bozulmaları, ön takımdan gelen sesler."
+            },
+            {
+                id: 3,
+                title: "Kaporta Çürümesi",
+                severity: "high",
+                reportCount: 351,
+                description: "Özellikle kule dipleri ve bagaj havuzunda su alma/çürüme problemleri."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1123,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Renault_9_Broadway.jpg/800px-Renault_9_Broadway.jpg"
+    },
+    {
+        id: 152,
+        brand: "Fiat",
+        model: "Uno (1995-2001)",
+        year: "1995-2001",
+        dnaScore: 56,
+        strengths: [
+            "Şehir içinde inanılmaz pratik ve atik",
+            "Öğrenci ve ilk arabasını alanlar için ideal",
+            "LPG ile mükemmel ekonomi",
+            "Motorunun devirlenme isteği"
+        ],
+        weaknesses: [
+            "Çok dar iç hacim",
+            "Bagajın neredeyse yok denecek kadar küçük olması",
+            "Güvenlik donanımının eksikliği",
+            "Uzun yolda yorucu sürüş"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Karbüratör (70 S) ve Enjeksiyon (70 SX ie) Sorunları",
+                severity: "high",
+                reportCount: 282,
+                description: "Rölanti dengesizliği, stop etme ve tek nokta enjeksiyonlu modellerde sensör arızaları."
+            },
+            {
+                id: 2,
+                title: "Elektrik Sistemi Arızaları",
+                severity: "medium",
+                reportCount: 317,
+                description: "Şase kablolarının oksitlenmesi sonucu gösterge paneli ve sinyal kolları arızaları."
+            },
+            {
+                id: 3,
+                title: "Ön Takım ve Aks Körükleri",
+                severity: "medium",
+                reportCount: 257,
+                description: "Aks körüklerinin çabuk yırtılıp aks kafasını bozması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 824,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fiat_Uno.jpg/800px-Fiat_Uno.jpg"
+    },
+    {
+        id: 153,
+        brand: "Toyota",
+        model: "Corolla AE101 (Efsane Kasa) (1993-1998)",
+        year: "1993-1998",
+        dnaScore: 72,
+        strengths: [
+            "Bozulmak nedir bilmeyen efsanevi Japon sağlamlığı",
+            "1.6 GLi motorunun efsanevi performansı ve dayanıklılığı",
+            "İç mekan kalitesi ve tıkırtı yapmayan konsol",
+            "Klima (varsa) çok güçlü soğutur"
+        ],
+        weaknesses: [
+            "Temizini bulmak günümüzde çok zor",
+            "Yaşına rağmen ikinci el fiyatlarının çok abartılı olması",
+            "Yol yalıtımı zayıftır, motor ve yol sesini içeri alır"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Distribütör O-Ring Yağ Kaçağı",
+                severity: "low",
+                reportCount: 307,
+                description: "Distribütör dibinden yağ sızdırması en bilindik (ama çözümü basit) sorunudur."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Boşluğu",
+                severity: "medium",
+                reportCount: 395,
+                description: "Yaşa bağlı olarak direksiyon kutusunda boşluk ve tıkırtı oluşması."
+            },
+            {
+                id: 3,
+                title: "Bagaj Su Alması",
+                severity: "low",
+                reportCount: 202,
+                description: "Arka stop lambalarının contalarından bagaja su sızması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1385,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Toyota_Corolla_E100_front_20080112.jpg/800px-Toyota_Corolla_E100_front_20080112.jpg"
+    },
+    {
+        id: 154,
+        brand: "Hyundai",
+        model: "Accent (Yumurta Kasa) (1995-2000)",
+        year: "1995-2000",
+        dnaScore: 62,
+        strengths: [
+            "1.5 GLS motoru inanılmaz atiktir",
+            "Hidrolik direksiyon, 4 cam otomatik gibi dönemi için iyi donanım",
+            "Parçası ucuz ve heryerde bulunur",
+            "Kliması (GLS) çok başarılıdır"
+        ],
+        weaknesses: [
+            "Torpido çatlaması kroniktir",
+            "Süspansiyonlar çok yumuşaktır, virajda güvensiz hissettirir",
+            "Fren mesafesi uzundur"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Torpido / Konsol Çatlaması",
+                severity: "low",
+                reportCount: 410,
+                description: "Güneşe maruz kalan göğüs (torpido) plastiğinde ortadan çatlamalar oluşur, kroniktir."
+            },
+            {
+                id: 2,
+                title: "Rölanti Dalgalanması ve Step Motor Arızası",
+                severity: "medium",
+                reportCount: 327,
+                description: "Rölanti adım motoru kirlenmesi kaynaklı stop etme sorunları."
+            },
+            {
+                id: 3,
+                title: "Amortisör ve Helezon Zayıflığı",
+                severity: "medium",
+                reportCount: 155,
+                description: "Arka tarafın yüklendiğinde çok çökmesi ve amortisör patlatması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 860,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hyundai_Accent_X3_1.5_GLS_front.JPG/800px-Hyundai_Accent_X3_1.5_GLS_front.JPG"
+    },
+    {
+        id: 155,
+        brand: "Lada",
+        model: "Samara (1990-2004)",
+        year: "1990-2004",
+        dnaScore: 45,
+        strengths: [
+            "Rus tankı gibi dayanıklı alt takım",
+            "1.5 motoru beklediğinizden çok daha iyi ivmelenir",
+            "Tamponları demir gibidir, ufak kazalarda kırılmaz",
+            "Kaloriferi cehennem sıcağı üfler"
+        ],
+        weaknesses: [
+            "İç mekanda inanılmaz trim sesi vardır",
+            "Frenler çok hissiz ve zayıftır",
+            "Kapı kilitleri ve mekanizmaları çok sıkıntılıdır",
+            "Ağır direksiyon"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Kapı İç Trimleri ve Göğüs Tıkırtıları",
+                severity: "medium",
+                reportCount: 340,
+                description: "Kasislerde tüm plastik aksamdan yoğun ses gelmesi."
+            },
+            {
+                id: 2,
+                title: "Sigorta Tablası Arızaları",
+                severity: "high",
+                reportCount: 393,
+                description: "Su alma sebebiyle sigorta tablası oksitlenir, farlar ve silecekler kafasına göre çalışır."
+            },
+            {
+                id: 3,
+                title: "Senkromeç ve Şanzıman Geçişleri",
+                severity: "high",
+                reportCount: 184,
+                description: "Vites geçişleri, özellikle 2. vites cırtlaması ve sertliği kroniktir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1024,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Lada_Samara_front_20080220.jpg/800px-Lada_Samara_front_20080220.jpg"
+    },
+
+    {
+        id: 156,
+        brand: "Renault",
+        model: "Symbol / Clio Symbol",
+        year: "2000-2012",
+        dnaScore: 60,
+        strengths: [
+            "1.5 dCi motorun efsanevi yakıt cimriliği",
+            "Geniş bagaj hacmi",
+            "Şehir içinde kolay park ve manevra",
+            "İkinci elde anında nakite çevrilebilme"
+        ],
+        weaknesses: [
+            "Konfor seviyesinin düşük olması",
+            "Yüksek hızlarda rüzgar sesi ve savrulma",
+            "Arka diz mesafesi darlığı",
+            "Malzeme kalitesinin düşük olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Enjektör ve Mazot Pompası (dCi)",
+                severity: "high",
+                reportCount: 318,
+                description: "Kötü yakıt kullanımı veya yaşa bağlı olarak enjektör tıkanması/bozulması."
+            },
+            {
+                id: 2,
+                title: "Klima Kompresörü",
+                severity: "medium",
+                reportCount: 366,
+                description: "Özellikle eski modellerde klimanın yeterince soğutmaması veya kompresör arızası."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1599,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Renault_Symbol_front_20081206.jpg/800px-Renault_Symbol_front_20081206.jpg"
+    },
+    {
+        id: 157,
+        brand: "Fiat",
+        model: "Linea",
+        year: "2007-2018",
+        dnaScore: 65,
+        strengths: [
+            "Tam bir aile arabası, bagajı devasadır",
+            "1.3 Multijet motorun dayanıklılığı ve ekonomisi",
+            "Bakım ve yedek parça maliyetlerinin çok düşük olması",
+            "Türkiye şartlarına uygun yerden yüksek yapısı"
+        ],
+        weaknesses: [
+            "Şehir içinde 1.3 motorun kalkışlarda hantal kalması",
+            "Yol sesi yalıtımının zayıf olması",
+            "İç mekanda sert plastik kullanımı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "EGR ve DPF Tıkanıklığı",
+                severity: "medium",
+                reportCount: 371,
+                description: "Sürekli şehir içi kullanımda Partikül Filtresi ve EGR valfi dolar."
+            },
+            {
+                id: 2,
+                title: "Zincir Sesi (1.3 Multijet)",
+                severity: "high",
+                reportCount: 400,
+                description: "100.000 km üzeri triger zincirinden ses gelmesi ve değişmesi gerekmesi."
+            },
+            {
+                id: 3,
+                title: "Direksiyon Kutusu Boşluğu",
+                severity: "medium",
+                reportCount: 416,
+                description: "Tıkırtı burçlarının aşınması sonucu direksiyondan gelen boşluk ve tıkırtı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1252,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Fiat_Linea_front.JPG/800px-Fiat_Linea_front.JPG"
+    },
+    {
+        id: 158,
+        brand: "Peugeot",
+        model: "206",
+        year: "1998-2012",
+        dnaScore: 58,
+        strengths: [
+            "Yıllara meydan okuyan muazzam tasarım",
+            "Şehir içinde çok pratik ve çevik olması",
+            "Özellikle 1.4 HDi ve LPG'li modellerinin çok az yakması"
+        ],
+        weaknesses: [
+            "Elektronik sorunlara olan yatkınlığı",
+            "Arka torsiyon sisteminin pahalı ve kronik arızası",
+            "Arka yaşam alanının dar olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Arka Torsiyon (Dingil) Arızası",
+                severity: "high",
+                reportCount: 271,
+                description: "Arka tekerleklerin içe doğru yatması ve kasislerde gıcırtı gelmesi, tamiri masraflıdır."
+            },
+            {
+                id: 2,
+                title: "Elektrik Sistemi ve Müşürler",
+                severity: "high",
+                reportCount: 362,
+                description: "Sinyal kolu (COM2000) arızası, kendi kendine sinyal verme veya far açma kroniktir."
+            },
+            {
+                id: 3,
+                title: "Kalorifer Peteği Su Sızıntısı",
+                severity: "medium",
+                reportCount: 252,
+                description: "Paspasların altının ıslanması, petek değişimi için göğsün sökülmesi gerekir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1538,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Peugeot_206_front_20080612.jpg/800px-Peugeot_206_front_20080612.jpg"
+    },
+    {
+        id: 159,
+        brand: "Honda",
+        model: "Civic FD6",
+        year: "2006-2012",
+        dnaScore: 82,
+        strengths: [
+            "Uzay mekiği gibi dijital gösterge tablosu",
+            "LPG ile mükemmel uyumlu 1.6 i-VTEC motoru",
+            "Sorunsuz tam otomatik şanzımanı",
+            "Tasarımının hala modern durması"
+        ],
+        weaknesses: [
+            "Yol ve rüzgar sesini kabine fazlasıyla alması",
+            "Bagaj hacminin rakiplerine göre küçük olması",
+            "Süspansiyonların sert olması ve çukur hissettirmesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Direksiyon Kutusu Tıkırtısı",
+                severity: "medium",
+                reportCount: 284,
+                description: "Parke taşlı veya bozuk yollarda direksiyon kutusundan gelen ses."
+            },
+            {
+                id: 2,
+                title: "Otomatik Cam Mekanizması Düşmesi",
+                severity: "low",
+                reportCount: 253,
+                description: "Özellikle şoför camının yuvadan çıkarak çapraz kalkması/inmesi."
+            },
+            {
+                id: 3,
+                title: "Motor Takozu Çökmesi",
+                severity: "medium",
+                reportCount: 271,
+                description: "Motor takozunun ezilerek rölantide kabin içine titreme vermesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1348,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/2006-2008_Honda_Civic_VTi-L_sedan_01.jpg/800px-2006-2008_Honda_Civic_VTi-L_sedan_01.jpg"
+    },
+    {
+        id: 160,
+        brand: "Opel",
+        model: "Vectra B",
+        year: "1995-2002",
+        dnaScore: 64,
+        strengths: [
+            "Dönemine göre çok yüksek donanım ve konfor",
+            "Yol tutuşunun tank gibi güven vermesi",
+            "Geniş iç hacim ve D segmenti hissi",
+            "Aynalarla bütünleşen aerodinamik tasarım"
+        ],
+        weaknesses: [
+            "Elektronik arıza verme potansiyeli yüksektir",
+            "Yedek parçaları eski bir araca göre pahalıdır",
+            "Şehir içi yakıt tüketimi fazladır (2.0 ve 1.6 motor)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Eksantrik ve Krank Devir Sensörü",
+                severity: "medium",
+                reportCount: 397,
+                description: "Motorun birden stop etmesi veya geç çalışmasına sebep olur."
+            },
+            {
+                id: 2,
+                title: "EGR Valfi ve Rölanti Dalgalanması",
+                severity: "medium",
+                reportCount: 244,
+                description: "Stop etme, rölantide devrin sürekli inip çıkması."
+            },
+            {
+                id: 3,
+                title: "Yol Bilgisayarı (TID/MID) Ekran Piksel Kaybı",
+                severity: "low",
+                reportCount: 207,
+                description: "Ekranda çizgiler oluşması ve yazıların okunmaz hale gelmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1740,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Opel_Vectra_B_front_20080313.jpg/800px-Opel_Vectra_B_front_20080313.jpg"
+    },
+    {
+        id: 161,
+        brand: "Tofaş",
+        model: "Murat 131",
+        year: "1977-1988",
+        dnaScore: 50,
+        strengths: [
+            "Türkiye otomotiv tarihinin ilk gözağrılarından",
+            "Modifiyeye ve klasik restorasyona uygun altyapı",
+            "Basit motor mimarisi",
+            "Yedek parçasının çok ucuz olması"
+        ],
+        weaknesses: [
+            "Paslanmaya aşırı müsait kaporta",
+            "Güvenlik, konfor veya yalıtımın hiç olmaması",
+            "Fren mesafesinin çok uzun olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yoğun Kaporta Çürümeleri",
+                severity: "high",
+                reportCount: 225,
+                description: "Tavan hariç neredeyse tüm aksamlarda pas ve çürüme gözlemlenmesi."
+            },
+            {
+                id: 2,
+                title: "Karbüratör Karışım Sorunu",
+                severity: "medium",
+                reportCount: 256,
+                description: "Karbüratörün sık sık ayar istemesi."
+            },
+            {
+                id: 3,
+                title: "Diferansiyel Ötmesi",
+                severity: "medium",
+                reportCount: 218,
+                description: "Arka diferansiyelden özellikle hızlandıkça gelen uğultu."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 1368,
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Fiat_124.jpg/800px-Fiat_124.jpg"
+    },
+    {
+        id: 1001,
+        brand: "Audi",
+        model: "A3 (2020-2025)",
+        year: "2020-2025",
+        ncapStars: 5,
+        ncapYear: "2020",
+        dnaScore: 82,
+        strengths: [
+            "Premium iç mekan hissiyatı",
+            "Güçlü teknolojik donanım",
+            "Yüksek güvenlik standartları"
+        ],
+        weaknesses: [
+            "Yüksek servis maliyetleri",
+            "Sert süspansiyon"
+        ],
+        chronicIssues: [],
+        userExperiences: [],
+        totalReports: 10
+    }
+,
+    {
+        id: 1002,
+        brand: "Renault",
+        model: "Symbol 1.0 SCe",
+        year: "2017-2021",
+        ncapStars: 3,
+        ncapYear: "2013",
+        dnaScore: 68,
+        strengths: [
+            "Atmosferik motorun getirdiği sadelik ve düşük bakım maliyeti",
+            "Şehir içi kullanıma uygun düşük yakıt tüketimi",
+            "Sınıfına göre devasa bagaj hacmi (510 litre)",
+            "LPG uyumu yüksek (atmosferik enjeksiyon)",
+            "Yedek parça ucuzluğu ve servis ağının çok geniş olması"
+        ],
+        weaknesses: [
+            "Düşük tork (97 Nm) sebebiyle yokuşlarda çekişten düşme",
+            "Klima açıkken veya araç doluyken performans kaybı",
+            "Yüksek hızlarda yetersiz ses yalıtımı",
+            "Sert plastik ağırlıklı, basit iç mekan kalitesi",
+            "Güvenlik donanımlarının sadece temel seviyede olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Rölanti dalgalanması",
+                severity: "medium",
+                reportCount: 145,
+                description: "Boğaz kelebeğinin kirlenmesi veya ateşleme bobinlerindeki hassasiyet nedeniyle rölantide titreme ve dalgalanma yaşanabiliyor. Temizlik veya bobin değişimi ile çözülür."
+            },
+            {
+                id: 2,
+                title: "Triger kayışı ömrü",
+                severity: "high",
+                reportCount: 85,
+                description: "1.0 SCe motorlarda triger seti değişim periyoduna çok dikkat edilmeli. Kayış kopması durumunda motorda ağır hasarlar oluşabilir."
+            },
+            {
+                id: 3,
+                title: "Amortisör ve alt takım sesleri",
+                severity: "low",
+                reportCount: 230,
+                description: "Özellikle bozuk yollarda ön takımdan ve amortisör kulelerinden lokurtu şeklinde sesler gelmesi kronik sayılabilir."
+            }
+        ],
+        userExperiences: [
+            {
+                id: 1,
+                author: "Taksi_Cem",
+                authorLevel: "Gümüş Üye",
+                text: "Şehir içi taksi ve kurye işinde kullanıyoruz. Yakıtı kokluyor adeta. Ama uzun yola veya yokuşlu bölgelere pek gelmez. Düz yolda problemsiz.",
+                likes: 42,
+                replies: 5,
+                date: "2024-03-12",
+                rating: 4
+            },
+            {
+                id: 2,
+                author: "AileBabası",
+                authorLevel: "Bronz Üye",
+                text: "Bagajı puset ve valizler için harika. Fakat araç sollarken 2 kez düşünmek gerekiyor. Tork çok zayıf. LPG taktırdım, şu an bedavaya geziyorum resmen.",
+                likes: 85,
+                replies: 12,
+                date: "2023-11-20",
+                rating: 3
+            }
+        ],
+        totalReports: 742,
+        imageUrl: "https://images.unsplash.com/photo-1549314418-6c841bb749f7?q=80&w=2070&auto=format&fit=crop"
+    }
+,
+    {
+        id: 1003,
+        brand: "Kia",
+        model: "Rio 4. Nesil (2017-2023)",
+        year: "2017-2023",
+        ncapStars: 5,
+        ncapYear: "2017",
+        dnaScore: 79,
+        strengths: [
+            "1.4 MPI motorda sunulan tam otomatik şanzımanın yüksek dayanıklılığı ve sarsıntısız geçişleri",
+            "B segmentine göre oldukça ferah ve ergonomik iç mekan tasarımı",
+            "Hyundai i20 ile ortak parça kullanımı sayesinde ucuz ve kolay bulunabilen yedek parça",
+            "Genel mekanik güvenilirliğinin sınıf standartlarının üzerinde olması",
+            "Atmosferik motorların LPG uyumunun çok iyi olması"
+        ],
+        weaknesses: [
+            "1.4 MPI otomatik versiyonun şehir içi yakıt tüketiminin rakiplerine göre yüksek olması",
+            "1.25 MPI versiyonunda yüklüyken ve yokuşlarda belirgin çekiş düşüklüğü",
+            "Süspansiyonların rakiplerine (örneğin Clio) göre daha sert olması",
+            "Yüksek hızlarda kabin içine alınan yol ve rüzgar sesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Direksiyon Kutusu Tıkırtısı",
+                severity: "medium",
+                reportCount: 185,
+                description: "Özellikle parke taşlı veya bozuk yollarda direksiyon kutusundan tıkırtı benzeri sesler gelmesi bilinen bir durumdur. Genellikle eps kaplini değişimi veya kutu revizyonu ile çözülür."
+            },
+            {
+                id: 2,
+                title: "Multimedya Ekran Donmaları",
+                severity: "low",
+                reportCount: 95,
+                description: "Ara sıra multimedya sisteminin donması veya Apple CarPlay/Android Auto bağlantısının kopması yaşanabilir. Yazılım güncellemesi ile büyük ölçüde giderilir."
+            }
+        ],
+        userExperiences: [
+            {
+                id: 1,
+                author: "SehirIciSurucusu",
+                authorLevel: "Altın Üye",
+                text: "1.4 otomatik olanını 3 yıldır kullanıyorum. Vites geçişlerini hissetmiyorsunuz bile, DSG gibi sorun çıkarır mı korkusu yok. Tek derdim şehir içi 8.5-9 litreyi bulabilen yakıt tüketimi.",
+                likes: 56,
+                replies: 8,
+                date: "2024-02-15",
+                rating: 4
+            },
+            {
+                id: 2,
+                author: "RioMan",
+                authorLevel: "Gümüş Üye",
+                text: "Süspansiyonları bana biraz sert geldi, bozuk yollarda konfor düşüyor ama bunun karşılığında yol tutuşu sınıfına göre gayet güven veriyor. i20 yerine tercih ettim, daha sportif duruyor.",
+                likes: 34,
+                replies: 3,
+                date: "2023-09-28",
+                rating: 4
+            }
+        ],
+        totalReports: 512,
+        imageUrl: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fd?q=80&w=2070&auto=format&fit=crop"
+    }
+,
+    {
+        id: 1004,
+        brand: "Hyundai",
+        model: "i20 3. Nesil (2020-Günümüz)",
+        year: "2020-2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 82,
+        strengths: [
+            "Çok dikkat çekici, sportif ve yenilikçi dış tasarım",
+            "1.4 MPI motor ve 6 ileri tork konvertörlü tam otomatik şanzımanın mükemmel uyumu ve arıza yapmama garantisi",
+            "Sınıfına göre çok geniş arka diz mesafesi ve 352 litrelik büyük bagaj hacmi",
+            "Apple CarPlay, kablosuz şarj ve dijital gösterge gibi teknolojik donanımların zenginliği",
+            "İkinci el piyasasında çok hızlı alınıp satılabilmesi"
+        ],
+        weaknesses: [
+            "1.4 MPI motorun ivmelenmede zayıf kalması ve şehir içi 9-10 litreleri bulan yüksek yakıt tüketimi",
+            "Süspansiyonların sportif sürüş odaklı, yani biraz sert olması (çukurları hissettirmesi)",
+            "Kabin içinde, özellikle kapı içlerinde ve konsolda kullanılan sert plastik malzemeler",
+            "Yüksek hızlarda (110 km/s üzeri) kabin içine alınan yol ve rüzgar sesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "EPS Direksiyon Kaplini Tıkırtısı",
+                severity: "medium",
+                reportCount: 215,
+                description: "Özellikle bozuk veya parke taşlı yollarda direksiyon kutusundan tıkırtı gelmesi kroniktir. EPS kaplini değişimi veya yağlanması ile çözülür, kronik bir Hyundai/Kia sorunudur."
+            },
+            {
+                id: 2,
+                title: "Trim (Plastik) Sesleri",
+                severity: "low",
+                reportCount: 140,
+                description: "Havaların soğumasıyla veya bozuk yollarda ön konsoldan ve kapı döşemelerinden tıkırtılar (trim sesi) gelebilir."
+            }
+        ],
+        userExperiences: [
+            {
+                id: 1,
+                author: "TasarimciKiz",
+                authorLevel: "Gümüş Üye",
+                text: "Tasarımına aşık olup 1.4 otomatiğini aldım. Çok havalı duruyor, içi çok geniş. Ama İstanbul trafiğinde su gibi benzin içiyor. LPG taktırmak şart oldu.",
+                likes: 88,
+                replies: 14,
+                date: "2024-01-05",
+                rating: 4
+            },
+            {
+                id: 2,
+                author: "HizliPilot",
+                authorLevel: "Bronz Üye",
+                text: "1.0 T-GDI DCT versiyonu uçak gibi kaçıyor. 1.4'teki o hantallık yok. Vites geçişleri efsane hızlı. Fakat süspansiyonlar belimi ağrıtıyor bozuk yollarda.",
+                likes: 65,
+                replies: 10,
+                date: "2023-11-12",
+                rating: 4
+            }
+        ],
+        totalReports: 625,
+        imageUrl: "https://images.unsplash.com/photo-1695420138139-448f22ed1525?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+        id: 1005,
+        brand: "Hyundai",
+        model: "Tucson 4. Nesil (2021-Günümüz)",
+        year: "2021-2025",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 88,
+        strengths: [
+            "Parametrik gizli aydınlatmalı ızgarasıyla trafikte herkesin dönüp baktığı fütüristik tasarım",
+            "C-SUV segmentinin en geniş iç hacimlerinden ve en büyük bagajlarından (620 litre) birini sunması",
+            "Adaptif hız sabitleyici, şerit takip ve çarpışma önleme gibi güvenlik asistanlarının kusursuz çalışması",
+            "Premium araç hissiyatı veren kaliteli iç mekan ve yüksek çözünürlüklü ekranlar",
+            "Dört tekerlekten çekiş (HTRAC) opsiyonunun son derece başarılı olması"
+        ],
+        weaknesses: [
+            "1.6 T-GDI benzinli motorun cüsseli kasada 10 litrenin altına düşmeyen yüksek yakıt tüketimi",
+            "Konsoldaki parlak siyah (Piano Black) plastiklerin ve dokunmatik tuşların anında çizilmesi ve toz tutması",
+            "Fiziksel tuş olmaması sebebiyle sürüş esnasında klima ayarı yapmanın dikkat dağıtması",
+            "7 ileri DCT şanzımanın yoğun dur-kalk trafikte kararsızlık yaşaması ve ısınma eğilimi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DCT Şanzıman Isınma Uyarısı",
+                severity: "high",
+                reportCount: 310,
+                description: "Özellikle çok dik yokuşlarda veya saatler süren dur-kalk trafiğinde, çift kavramalı (DCT) şanzıman ısınarak ekranda 'Şanzıman Isındı, Durun' uyarısı verebilir."
+            },
+            {
+                id: 2,
+                title: "Multimedya Yazılım Sorunları",
+                severity: "low",
+                reportCount: 120,
+                description: "Zaman zaman geri görüş kamerasının siyah ekran vermesi veya Bluetooth bağlantısının kopması yaşanıyor. Serviste yapılan güncellemelerle çözülüyor."
+            }
+        ],
+        userExperiences: [
+            {
+                id: 1,
+                author: "SUV_Tutkunu",
+                authorLevel: "Altın Üye",
+                text: "Tasarımı hala ilk günkü gibi heyecan veriyor. Arka koltukta bacak bacak üstüne atılıyor. Bagaj devasa. 1.6 benzinli modelde performans müthiş ama yakıtı görünce insan bir ağlıyor.",
+                likes: 145,
+                replies: 22,
+                date: "2024-04-10",
+                rating: 5
+            },
+            {
+                id: 2,
+                author: "GezginBaba",
+                authorLevel: "Gümüş Üye",
+                text: "1.6 CRDi Dizel kullanıcısıyım. Tork efsane, rampa mampa dinlemiyor. Yakıtı da dizel olduğu için makul. Tek sıkıntım klima tuşlarını bulamamak, yola bakarken derece kısmak işkence.",
+                likes: 92,
+                replies: 15,
+                date: "2023-12-05",
+                rating: 4
+            }
+        ],
+        totalReports: 854,
+        imageUrl: "https://images.unsplash.com/photo-1629897048514-3dd741427cc7?q=80&w=2072&auto=format&fit=crop"
     }
 ];
 

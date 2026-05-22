@@ -6,7 +6,33 @@ export default function robots(): MetadataRoute.Robots {
             {
                 // Ana Googlebot ve tüm arama motorları
                 userAgent: '*',
-                allow: '/',
+                allow: [
+                    '/',
+                    '/etkinlikler/',
+                    '/arac-dna/',
+                    '/forum/',
+                    '/kutuphane/',
+                    '/haberler/',
+                    '/piyasalar/',
+                    '/obd/',
+                    '/sozluk/',
+                    '/guvenmetre/',
+                    '/karsilastirma/',
+                    '/otohesap/',
+                    '/uzmana-sor/',
+                    '/altin-anahtar/',
+                    '/anket/',
+                    '/ajanda/',
+                    '/bakim-rehberi/',
+                    '/ikinci-el-rehberi/',
+                    '/trafik-cezasi/',
+                    '/gosterge/',
+                    '/makale/',
+                    '/hakkimizda/',
+                    '/iletisim/',
+                    '/usta-ol/',
+                    '/uzman-ol/',
+                ],
                 disallow: [
                     '/api/',           // API endpoint'leri indeksleme
                     '/admin/',         // Admin paneli
@@ -20,6 +46,7 @@ export default function robots(): MetadataRoute.Robots {
                     '/profil-tamamla/',// Profil tamamlama
                     '/para-kazan/',    // Para kazanma
                     '/premium/',       // Premium sayfası
+                    '/pazar/',         // Pazar gizli
                     '/*?query=',       // Arama parametreleri
                     '/*?sort=',        // Sıralama parametreleri
                     '/*?tab=',         // Tab parametreleri

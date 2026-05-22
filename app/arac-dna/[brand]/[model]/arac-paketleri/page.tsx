@@ -75,6 +75,31 @@ export default function TrimLevelsPage() {
                     <p>Bu aracın donanım paketi verileri henüz uzmanlarımız tarafından eklenmemiştir.</p>
                 </div>
             )}
+
+            {/* SEO Content Depth Expansion for Trim Page */}
+            <div style={{
+                marginTop: '48px',
+                padding: '32px',
+                background: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
+                borderRadius: '16px',
+                textAlign: 'left',
+                color: 'var(--text-muted)',
+                lineHeight: '1.7'
+            }}>
+                <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '16px' }}>
+                    {vehicle.brand} {vehicle.model} Donanım Paketleri ve Özellik Karşılaştırması
+                </h2>
+                <p style={{ marginBottom: '16px' }}>
+                    İkinci el veya sıfır kilometre bir <strong>{vehicle.brand} {vehicle.model}</strong> alırken, aracın hangi donanım paketine sahip olduğu fiyatını, sürüş konforunu ve ikinci eldeki değerini doğrudan etkiler. Aynı aracın giriş seviyesi (boş paket) versiyonu ile en dolu (full paket) versiyonu arasında iç tasarım kalitesi, multimedya sistemleri, güvenlik asistanları ve dış görünüm özellikleri açısından çok büyük uçurumlar bulunabilir. Araç alırken bütçenizi en doğru şekilde yönlendirebilmeniz için, her pakette standart olarak sunulan ve opsiyonel olan donanımları dikkatlice analiz etmelisiniz.
+                </p>
+                <p style={{ marginBottom: '16px' }}>
+                    Yukarıdaki tabloda, <strong>{vehicle.brand} {vehicle.model}</strong> için sunulan başlıca donanım seviyelerini (örneğin baz donanım, orta donanım ve üst donanım) kıyaslayabilirsiniz. Boş paketlerde manuel klima ve halojen farlar standartken, üst donanımlara çıktıkça otomatik dijital klima, LED/Matrix farlar, açılır cam tavan veya panoramik cam tavan, gelişmiş sürüş destek sistemleri (şerit takip, kör nokta uyarı vb.) standart hale gelmektedir.
+                </p>
+                <p>
+                    OtoAsfalt olarak donanım paketlerini detaylı bir şekilde analiz ediyor ve ikinci el piyasasındaki değer kaybı durumuna göre en mantıklı paketi (Fiyat/Performans Paketi) belirlemenize yardımcı oluyoruz. Aracı satın almadan önce hangi donanımların sizin için olmazsa olmaz olduğuna karar vermek, uzun vadeli kullanıcı memnuniyetini garantileyen en önemli adımlardan biridir.
+                </p>
+            </div>
         </div>
     );
 }

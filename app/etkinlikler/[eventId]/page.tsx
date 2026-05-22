@@ -1,17 +1,47 @@
 "use client";
 
-import { use } from "react";
+import { use, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { events, getEventById, eventCategories, DaySchedule } from "@/data/events";
-import { ArrowLeft, Calendar, MapPin, Users, Tag, Clock, Info, CheckCircle, XCircle, Share2, Heart, Bookmark, ExternalLink, Star, Building2 } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, Users, Tag, Clock, Info, CheckCircle, XCircle, Share2, Heart, Bookmark, ExternalLink, Star, Building2, HelpCircle } from "lucide-react";
 import Link from "next/link";
+import EventSubmissionModal from "@/components/EventSubmissionModal";
+import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
 export default function EventDetailPage({ params }: { params: Promise<{ eventId: string }> }) {
     const router = useRouter();
     const { eventId } = use(params);
     const event = getEventById(eventId);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalTab, setModalTab] = useState<'NEW_EVENT' | 'UPDATE_EVENT'>('NEW_EVENT');
+    const [timeLeft, setTimeLeft] = useState<{ d: number, h: number, m: number, s: number } | null>(null);
+
+    useEffect(() => {
+        if (!event) return;
+        const eventDateObj = new Date(event.date);
+        
+        const calculateTimeLeft = () => {
+            const now = new Date();
+            const diff = eventDateObj.getTime() - now.getTime();
+            
+            if (diff > 0) {
+                setTimeLeft({
+                    d: Math.floor(diff / (1000 * 60 * 60 * 24)),
+                    h: Math.floor((diff / (1000 * 60 * 60)) % 24),
+                    m: Math.floor((diff / 1000 / 60) % 60),
+                    s: Math.floor((diff / 1000) % 60)
+                });
+            } else {
+                setTimeLeft(null);
+            }
+        };
+
+        calculateTimeLeft();
+        const timer = setInterval(calculateTimeLeft, 1000);
+        return () => clearInterval(timer);
+    }, [event]);
 
     if (!event) {
         return (
@@ -102,8 +132,9 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                     <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
                                         <span style={{
                                             padding: '4px 10px',
-                                            background: eventCategories[event.category].color + '40',
-                                            color: eventCategories[event.category].color,
+                                            background: 'var(--secondary)',
+                                            color: 'var(--foreground)',
+                                            border: '1px solid var(--card-border)',
                                             fontSize: '11px',
                                             borderRadius: '9999px',
                                             fontWeight: '600',
@@ -258,6 +289,52 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                         <Bookmark style={{ width: '20px', height: '20px', color: 'white' }} />
                                     </button>
                                 </div>
+
+                                {/* Countdown Overlay */}
+                                {timeLeft && (
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '20px',
+                                        left: '20px',
+                                        display: 'flex',
+                                        gap: '8px'
+                                    }}>
+                                        <div style={{
+                                            background: 'rgba(255, 107, 0, 0.9)',
+                                            backdropFilter: 'blur(10px)',
+                                            border: '1px solid rgba(255,255,255,0.2)',
+                                            borderRadius: '12px',
+                                            padding: '12px 20px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '12px',
+                                            boxShadow: '0 10px 25px -5px rgba(255, 107, 0, 0.4)'
+                                        }}>
+                                            <Clock style={{ width: '20px', height: '20px', color: 'white' }} />
+                                            <div style={{ display: 'flex', gap: '8px' }}>
+                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '18px', fontWeight: '800', color: 'white', lineHeight: '1' }}>{timeLeft.d}</span>
+                                                    <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', fontWeight: '600' }}>GÜN</span>
+                                                </div>
+                                                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', fontWeight: '800' }}>:</span>
+                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '18px', fontWeight: '800', color: 'white', lineHeight: '1' }}>{String(timeLeft.h).padStart(2, '0')}</span>
+                                                    <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', fontWeight: '600' }}>SAAT</span>
+                                                </div>
+                                                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', fontWeight: '800' }}>:</span>
+                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '18px', fontWeight: '800', color: 'white', lineHeight: '1' }}>{String(timeLeft.m).padStart(2, '0')}</span>
+                                                    <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', fontWeight: '600' }}>DAK</span>
+                                                </div>
+                                                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', fontWeight: '800' }}>:</span>
+                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                                    <span style={{ fontSize: '18px', fontWeight: '800', color: 'white', lineHeight: '1' }}>{String(timeLeft.s).padStart(2, '0')}</span>
+                                                    <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', fontWeight: '600' }}>SAN</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Event Info Cards */}
@@ -292,7 +369,8 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                         width: '40px',
                                         height: '40px',
                                         borderRadius: '10px',
-                                        background: 'rgba(255, 107, 0, 0.15)',
+                                        background: 'var(--secondary)',
+                                        border: '1px solid var(--card-border)',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center'
@@ -324,7 +402,8 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                             width: '40px',
                                             height: '40px',
                                             borderRadius: '10px',
-                                            background: 'rgba(255, 107, 0, 0.15)',
+                                            background: 'var(--secondary)',
+                                            border: '1px solid var(--card-border)',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center'
@@ -354,48 +433,86 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                         width: '40px',
                                         height: '40px',
                                         borderRadius: '10px',
-                                        background: 'rgba(255, 107, 0, 0.15)',
+                                        background: 'var(--secondary)',
+                                        border: '1px solid var(--card-border)',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center'
                                     }}>
-                                        
+                                        <MapPin style={{ width: '20px', height: '20px', color: 'var(--text-muted)' }} />
                                     </div>
                                     Konum
                                 </h2>
                                 <div style={{
                                     width: '100%',
-                                    height: '300px',
-                                    background: 'var(--secondary)',
+                                    background: 'var(--card-bg)',
                                     borderRadius: '12px',
+                                    border: '1px solid var(--card-border)',
+                                    overflow: 'hidden',
                                     display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    flexDirection: 'column',
-                                    gap: '12px',
-                                    border: '1px solid var(--card-border)'
+                                    flexDirection: 'column'
                                 }}>
-                                    <MapPin style={{ width: '40px', height: '40px', color: 'var(--text-muted)' }} />
-                                    <div style={{ textAlign: 'center' }}>
-                                        <div style={{ fontSize: '16px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>
-                                            {event.location}
+                                    {/* Embedded Map */}
+                                    <div style={{ width: '100%', height: '300px', backgroundColor: 'var(--secondary)' }}>
+                                        <iframe 
+                                            width="100%" 
+                                            height="100%" 
+                                            frameBorder="0" 
+                                            scrolling="no" 
+                                            marginHeight={0} 
+                                            marginWidth={0} 
+                                            src={`https://maps.google.com/maps?q=${encodeURIComponent(event.location + ' ' + event.city)}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
+                                            style={{ border: 0 }}
+                                            allowFullScreen
+                                        />
+                                    </div>
+                                    
+                                    {/* Location Details & Button */}
+                                    <div style={{ padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                            <div style={{
+                                                width: '40px',
+                                                height: '40px',
+                                                borderRadius: '10px',
+                                                background: 'rgba(37, 99, 235, 0.1)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}>
+                                                <MapPin style={{ width: '20px', height: '20px', color: 'var(--primary)' }} />
+                                            </div>
+                                            <div>
+                                                <div style={{ fontSize: '15px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '2px' }}>
+                                                    {event.location}
+                                                </div>
+                                                <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
+                                                    {event.city}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <button style={{
-                                            padding: '8px 16px',
-                                            background: 'var(--primary)',
-                                            color: 'white',
-                                            border: 'none',
-                                            borderRadius: '8px',
-                                            cursor: 'pointer',
-                                            fontWeight: '600',
-                                            fontSize: '13px',
-                                            display: 'inline-flex',
-                                            alignItems: 'center',
-                                            gap: '6px'
-                                        }}>
-                                            <ExternalLink style={{ width: '14px', height: '14px' }} />
+                                        
+                                        <a 
+                                            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location + ' ' + event.city)}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style={{
+                                                padding: '10px 20px',
+                                                background: 'var(--primary)',
+                                                color: 'white',
+                                                border: 'none',
+                                                borderRadius: '10px',
+                                                cursor: 'pointer',
+                                                fontWeight: '600',
+                                                fontSize: '13px',
+                                                display: 'inline-flex',
+                                                alignItems: 'center',
+                                                gap: '8px',
+                                                textDecoration: 'none'
+                                            }}
+                                        >
+                                            <ExternalLink style={{ width: '16px', height: '16px' }} />
                                             Haritada Aç
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -607,6 +724,56 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                         {' '}Katılım öncesi organizatörle iletişime geçmeniz önerilir.
                                     </p>
                                 </div>
+
+                                {/* Support Us Box */}
+                                <div style={{
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '16px',
+                                    padding: '16px',
+                                }}>
+                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                        <HelpCircle style={{ width: '14px', height: '14px', color: 'var(--primary)' }} />
+                                        Bize Destek Ver
+                                    </h3>
+                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5', marginBottom: '12px' }}>
+                                        Daha fazla oto pazarı veya etkinlik eklememize yardımcı olabilir, eksik veya hatalı bilgileri bize bildirebilirsiniz.
+                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                        <button 
+                                            onClick={() => { setModalTab('NEW_EVENT'); setIsModalOpen(true); }}
+                                            style={{
+                                                padding: '10px',
+                                                background: 'var(--primary)',
+                                                color: 'white',
+                                                border: 'none',
+                                                borderRadius: '8px',
+                                                fontSize: '13px',
+                                                fontWeight: '600',
+                                                cursor: 'pointer'
+                                            }}
+                                        >
+                                            Yeni Pazar / Etkinlik Ekle
+                                        </button>
+                                        <button 
+                                            onClick={() => { setModalTab('UPDATE_EVENT'); setIsModalOpen(true); }}
+                                            style={{
+                                                padding: '10px',
+                                                background: 'var(--secondary)',
+                                                color: 'var(--foreground)',
+                                                border: '1px solid var(--card-border)',
+                                                borderRadius: '8px',
+                                                fontSize: '13px',
+                                                fontWeight: '600',
+                                                cursor: 'pointer'
+                                            }}
+                                        >
+                                            Bu Etkinlik Hakkında Bilgi Gönder
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <LatestThreadsWidget />
                             </div>
                         </aside>
                     </div>
@@ -614,6 +781,14 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
             </main>
 
             <Footer />
+
+            <EventSubmissionModal 
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                initialTab={modalTab}
+                existingEventId={event.id}
+                existingEventTitle={event.title}
+            />
         </div>
     );
 }
@@ -633,11 +808,12 @@ function InfoCard({ icon, title, value }: { icon: React.ReactNode; title: string
                 width: '44px',
                 height: '44px',
                 borderRadius: '12px',
-                background: 'rgba(255, 107, 0, 0.15)',
+                background: 'var(--secondary)',
+                border: '1px solid var(--card-border)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--primary)',
+                color: 'var(--foreground)',
             }}>
                 {icon}
             </div>
@@ -656,9 +832,9 @@ function ScheduleRow({ day }: { day: DaySchedule }) {
             alignItems: 'center',
             justifyContent: 'space-between',
             padding: '14px 16px',
-            background: day.isOpen ? 'rgba(34, 197, 94, 0.1)' : 'var(--secondary)',
+            background: 'var(--secondary)',
             borderRadius: '10px',
-            border: `1px solid ${day.isOpen ? 'rgba(34, 197, 94, 0.3)' : 'var(--card-border)'}`
+            border: '1px solid var(--card-border)'
         }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 {day.isOpen ? (

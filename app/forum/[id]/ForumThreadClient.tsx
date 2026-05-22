@@ -16,8 +16,10 @@ import { rateUser, getMyRatingForUser } from "@/lib/userService";
 import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star, ChevronLeft, ChevronRight, TrendingUp, ArrowUp, Flame, AlertTriangle, Plus, X, ShieldCheck } from "lucide-react";
 import { sampleListings, formatListingPrice } from "@/data/listings";
 import AutoLinkText from "@/components/AutoLinkText";
+import AdPlaceholder from "@/components/AdPlaceholder";
 import { doc, getDoc, collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
 const parseComparisonContent = (text: string) => {
     if (!text.includes("Karsilastirilan Araclar:")) return { description: text, vehicles: [] };
@@ -50,7 +52,6 @@ export default function ForumThreadPage() {
     const [submitting, setSubmitting] = useState(false);
     const [likingEntry, setLikingEntry] = useState<string | null>(null);
     const [randomListings, setRandomListings] = useState<any[]>([]);
-    const [sidebarAd, setSidebarAd] = useState<any>(null);
     const [reportModal, setReportModal] = useState<{ entry: ForumEntry; threadTitle: string } | null>(null);
     const [reportCategory, setReportCategory] = useState('hakaret');
     const [reportNote, setReportNote] = useState('');
@@ -93,19 +94,6 @@ export default function ForumThreadPage() {
         // Rastgele ilanları hazırla
         const shuffled = [...sampleListings].sort(() => 0.5 - Math.random());
         setRandomListings(shuffled.slice(0, 3));
-
-        // Sidebar Reklamı
-        fetch('/api/admin?section=advertisements')
-            .then(res => res.json())
-            .then(data => {
-                if (data.success && data.ads) {
-                    const activeSidebarAds = data.ads.filter((a: any) => a.position === 'sidebar' && a.status === 'active');
-                    if (activeSidebarAds.length > 0) {
-                        setSidebarAd(activeSidebarAds[Math.floor(Math.random() * activeSidebarAds.length)]);
-                    }
-                }
-            })
-            .catch(err => console.error("Error loading ads:", err));
     }, [slugParam]);
 
     // Entry'leri realtime dinle (thread yuklendikten sonra gercek ID kullan)
@@ -589,7 +577,7 @@ export default function ForumThreadPage() {
                                     const { description, vehicles } = (isFirstEntry && isKarsilastirma) ? parseComparisonContent(entry.content) : { description: entry.content, vehicles: [] };
                                     const garageText = userGarageMap[entry.authorId];
                                     const isExpert = userRoleMap[entry.authorId] === 'usta';
-                                    const isOp = entry.authorUsername === thread.authorUsername;
+                                    const isOp = entry.username === thread.authorUsername;
                                     
                                     const entryBg = isExpert ? 'linear-gradient(to right, rgba(234,179,8,0.03), transparent)' : (isOp && !isFirstEntry ? 'var(--hover-primary)' : 'var(--card-bg)');
                                     const entryBorderLeft = !isFirstEntry ? (isOp ? '3px solid var(--primary)' : '3px solid var(--card-border)') : undefined;
@@ -964,61 +952,15 @@ export default function ForumThreadPage() {
                     <div className="forum-sidebar" style={{ width: '100%', maxWidth: '320px', display: 'flex', flexDirection: 'column', gap: '24px', flexShrink: 0 }}>
                         {/* Vitrin Widget */}
                         <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--card-shadow)' }}>
-                            <div style={{ padding: '16px', borderBottom: '1px solid var(--card-border)', background: 'rgba(255,107,0,0.05)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Car size={18} color="var(--primary)" />
-                                <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>Pazar Vitrini</h3>
-                            </div>
-                            <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                                {randomListings.map(listing => (
-                                    <Link href="/pazar" key={listing.id} style={{ textDecoration: 'none' }}>
-                                        <div style={{ display: 'flex', gap: '12px', alignItems: 'center', padding: '8px', borderRadius: '8px', transition: 'background 0.2s' }}
-                                             onMouseEnter={(e) => e.currentTarget.style.background = 'var(--secondary)'}
-                                             onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                                            <div style={{ flex: 1 }}>
-                                                <div style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px' }}>{listing.brand} {listing.model}</div>
-                                                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {listing.km.toLocaleString()} km</div>
-                                            </div>
-                                            <div style={{ fontSize: '14px', fontWeight: '800', color: '#10B981' }}>
-                                                {formatListingPrice(listing.price)}
-                                            </div>
-                                        </div>
-                                    </Link>
-                                ))}
-                            </div>
-                            <Link href="/pazar" style={{ display: 'block', padding: '12px', textAlign: 'center', fontSize: '13px', fontWeight: '600', color: 'var(--primary)', borderTop: '1px solid var(--card-border)', textDecoration: 'none', background: 'var(--secondary)' }}>
-                                Tüm İlanları Gör
-                            </Link>
+                            {/* Pazar Vitrini (Gizlendi) */}
+                            <LatestThreadsWidget />
+
+                            {/* Pazar Icerikleri Gizlendi */}
+                            {/* Tüm İlanları Gör Gizlendi */}
                         </div>
                         
                         {/* Reklam Alani */}
-                        {sidebarAd ? (
-                            <a href={sidebarAd.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
-                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--primary)', borderRadius: '16px', padding: '20px', position: 'relative', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
-                                    <div style={{ position: 'absolute', top: 0, right: 0, background: 'var(--primary)', color: 'white', fontSize: '10px', padding: '4px 10px', borderBottomLeftRadius: '12px', fontWeight: 'bold' }}>Sponsorlu</div>
-                                    <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(59,130,246,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '12px' }}>
-                                        <Sparkles size={20} />
-                                    </div>
-                                    <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '6px' }}>{sidebarAd.title}</h4>
-                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>{sidebarAd.description}</p>
-                                </div>
-                            </a>
-                        ) : (
-                            <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block' }}>
-                                <div style={{ 
-                                    background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px', 
-                                    height: '350px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                                    color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '24px', textAlign: 'center'
-                                }}
-                                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
-                                     onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
-                                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-                                        <Sparkles size={24} color="currentColor" />
-                                    </div>
-                                    <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '8px' }}>Buraya Reklam Ver</h3>
-                                    <p style={{ fontSize: '13px', lineHeight: '1.5' }}>Günde 10.000+ otomotiv tutkununa markanızı ulaştırın.</p>
-                                </div>
-                            </Link>
-                        )}
+                        <AdPlaceholder position="sidebar" />
                     </div>
                 </div>
             </main>

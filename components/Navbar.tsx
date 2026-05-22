@@ -9,7 +9,6 @@ import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
 import { usePathname } from "next/navigation";
 import CarThemeToggle from "@/components/CarThemeToggle";
-import DailyStreakModal from "@/components/DailyStreakModal";
 import { subscribeToNotifications, markNotificationRead, markAllRead, type Notification as FBNotification } from "@/lib/notificationService";
 import { subscribeToConversations, type Conversation as FBConversation } from "@/lib/messageService";
 import { playNotificationSound, preloadNotificationSound } from "@/lib/notificationSound";
@@ -175,11 +174,9 @@ export default function Navbar() {
         { name: 'KÜTÜPHANE', href: '/kutuphane' },
         { name: 'HABERLER', href: '/haberler' },
         { name: 'OTOHESAP', href: '/otohesap/yakit-hesaplama' },
-        { name: 'PAZAR', href: '/pazar' },
         { name: 'ETKİNLİKLER', href: '/etkinlikler' },
         { name: 'GÜVENMETRE', href: '/guvenmetre' },
         { name: 'PİYASALAR', href: '/piyasalar' },
-        { name: 'ALTIN ANAHTAR', href: '/altin-anahtar' },
     ];
 
     return (
@@ -190,16 +187,17 @@ export default function Navbar() {
             background: 'var(--navbar-bg)',
             backdropFilter: 'blur(20px)',
             borderBottom: '1px solid var(--card-border)',
-            padding: '0 20px',
+            padding: '0 16px',
         }}>
             <div style={{
+                position: 'relative',
                 maxWidth: '1400px',
                 margin: '0 auto',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                height: '60px',
-                gap: '16px',
+                height: '54px',
+                gap: '8px',
             }}>
                 {/* Logo */}
                 <Link href="/" style={{
@@ -231,11 +229,12 @@ export default function Navbar() {
 
                 {/* Desktop Navigation */}
                 <div style={{
+                    position: 'absolute',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '4px',
-                    flex: 1,
-                    justifyContent: 'center',
                 }} className="desktop-nav">
                     {navLinks.map((item) => {
                         const isActive = pathname === item.href;
@@ -276,33 +275,13 @@ export default function Navbar() {
                 <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '8px',
+                    gap: '6px',
                     flexShrink: 0,
                 }}>
                     {/* Logged In - Show Messages, Notifications, Settings, Profile */}
                     {/* Logged In - Show Messages, Notifications, Settings, Profile */}
                     {isLoggedIn ? (
                         <>
-                            {/* Streak Indicator */}
-                            <button
-                                onClick={() => setShowStreakModal(true)}
-                                className="hover-lift"
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '6px',
-                                    padding: '6px 12px',
-                                    background: 'var(--secondary)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '20px',
-                                    cursor: 'pointer',
-                                    color: 'var(--foreground)',
-                                    fontWeight: '700',
-                                    fontSize: '14px',
-                                }}>
-                                <span style={{ fontSize: '16px' }}>🔥</span>
-                                {user?.streak || 3}
-                            </button>
 
                             {/* Messages Dropdown */}
                             <div style={{ position: 'relative' }}>
@@ -970,12 +949,7 @@ export default function Navbar() {
             )}
 
             {/* Streak Modal */}
-            <DailyStreakModal
-                streak={user?.streak || 3}
-                xpGained={20}
-                isVisible={showStreakModal}
-                onClose={() => setShowStreakModal(false)}
-            />
+            
         </nav>
     );
 }

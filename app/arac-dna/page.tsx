@@ -13,7 +13,8 @@ interface EngineVariantDisplay {
     engine: EngineOption;
 }
 
-import { Dna, Search, TrendingUp, Car, Calendar, AlertCircle, Send, CheckCircle2, Zap } from "lucide-react";
+import { Dna, Search, TrendingUp, Car, Calendar, AlertCircle, Send, CheckCircle2, Zap, Star, TrendingDown } from "lucide-react";
+import AdPlaceholder from "@/components/AdPlaceholder";
 
 export default function AracDNAPage() {
     const [brandInput, setBrandInput] = useState("");
@@ -49,6 +50,16 @@ export default function AracDNAPage() {
 
     // Get popular vehicles (top 50)
     const popularVehicles = allEngineVariants.slice(0, 50);
+
+    // Get top 5 and bottom 5 vehicles
+    const topCars = [...allEngineVariants]
+        .sort((a, b) => b.engine.score - a.engine.score)
+        .slice(0, 5);
+        
+    const bottomCars = [...allEngineVariants]
+        .filter(a => a.engine.score > 0)
+        .sort((a, b) => a.engine.score - b.engine.score)
+        .slice(0, 5);
 
     const handleSearch = () => {
         setSearchAttempted(true);
@@ -160,15 +171,86 @@ export default function AracDNAPage() {
                         <h1 style={{ fontSize: '36px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '16px' }}>
                              Araç DNA Analizi
                         </h1>
-                        <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
+                        <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 24px auto' }}>
                             Aracınızın marka, model ve yılını girin. Detaylı DNA analizi, güçlü/zayıf yanları ve kronik sorunları görün
                         </p>
+                        
+                        {/* Kıyaslama Butonu */}
+                        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
+                            <Link href="/arac-dna/kiyasla" style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                background: 'var(--card-bg)',
+                                color: 'var(--foreground)',
+                                border: '1px solid var(--card-border)',
+                                padding: '12px 24px',
+                                borderRadius: '12px',
+                                textDecoration: 'none',
+                                fontWeight: '600',
+                                fontSize: '16px',
+                                transition: 'all 0.2s',
+                                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.borderColor = 'var(--primary)';
+                                e.currentTarget.style.transform = 'translateY(-2px)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.borderColor = 'var(--card-border)';
+                                e.currentTarget.style.transform = 'translateY(0)';
+                            }}>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8"/><path d="m3 3 7 7"/><path d="m21 3-7 7"/><path d="m14 15-2-2-2 2"/><path d="M4 15h16"/></svg>
+                                Araçları Kıyasla
+                            </Link>
+                        </div>
                     </div>
                 </div>
 
-                <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 24px' }}>
-                    {/* Search Form */}
-                    <div style={{
+                <div className="home-main-grid" style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px', display: 'grid', gridTemplateColumns: '250px 1fr 250px', gap: '24px', alignItems: 'start' }}>
+                    {/* Left Sidebar */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                        <AdPlaceholder position="sidebar_left" />
+                        
+                        {/* Top Rated Vehicles Card */}
+                        <div style={{
+                            background: 'var(--card-bg)',
+                            border: '1px solid var(--card-border)',
+                            borderRadius: '16px',
+                            padding: '24px',
+                            color: 'var(--foreground)'
+                        }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                                <Star fill="#22c55e" color="#22c55e" size={16} />
+                                <h3 style={{ fontSize: '14px', fontWeight: '700', margin: 0, color: 'var(--foreground)' }}>En Yüksek Puanlılar</h3>
+                            </div>
+                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                                {topCars.map((item, idx) => {
+                                    const slug = `${createSlug(item.vehicle.brand)}/${createSlug(item.vehicle.model)}/${item.engine.slug}`;
+                                    return (
+                                        <li key={idx}>
+                                            <Link href={`/arac-dna/${slug}`} style={{ textDecoration: 'none', color: 'var(--foreground)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 6px', borderRadius: '6px', transition: 'background 0.2s' }}
+                                                 onMouseEnter={(e) => e.currentTarget.style.background = 'var(--secondary)'}
+                                                 onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
+                                                <div style={{ flex: 1, minWidth: 0 }}>
+                                                    <div style={{ fontSize: '13px', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.vehicle.brand} {item.vehicle.model}</div>
+                                                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.engine.name}</div>
+                                                </div>
+                                                <div style={{ color: '#22c55e', fontWeight: '700', fontSize: '13px', paddingLeft: '8px', flexShrink: 0 }}>
+                                                    {item.engine.score}
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Main Content */}
+                    <div>
+                        {/* Search Form */}
+                        <div style={{
                         background: 'var(--card-bg)',
                         border: '1px solid var(--card-border)',
                         borderRadius: '16px',
@@ -641,7 +723,7 @@ export default function AracDNAPage() {
                                                         <Calendar size={14} /> {vehicle.year}
                                                     </span>
                                                     <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                                        <AlertCircle size={14} /> {vehicle.chronicIssues.length + engine.issues.length} Sorun
+                                                        <AlertCircle size={14} /> {vehicle.chronicIssues.length + (engine.chronicIssues?.length || 0)} Sorun
                                                     </span>
                                                 </div>
                                             </div>
@@ -677,6 +759,47 @@ export default function AracDNAPage() {
                                 );
                             })}
                         </div>
+                    </div>
+
+                    </div>
+
+                    {/* Right Sidebar */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                        {/* Lowest Rated Vehicles Card */}
+                        <div style={{
+                            background: 'var(--card-bg)',
+                            border: '1px solid var(--card-border)',
+                            borderRadius: '16px',
+                            padding: '24px',
+                            color: 'var(--foreground)'
+                        }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                                <TrendingDown color="#ef4444" size={16} />
+                                <h3 style={{ fontSize: '14px', fontWeight: '700', margin: 0, color: 'var(--foreground)' }}>En Düşük Puanlılar</h3>
+                            </div>
+                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                                {bottomCars.map((item, idx) => {
+                                    const slug = `${createSlug(item.vehicle.brand)}/${createSlug(item.vehicle.model)}/${item.engine.slug}`;
+                                    return (
+                                        <li key={idx}>
+                                            <Link href={`/arac-dna/${slug}`} style={{ textDecoration: 'none', color: 'var(--foreground)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 6px', borderRadius: '6px', transition: 'background 0.2s' }}
+                                                 onMouseEnter={(e) => e.currentTarget.style.background = 'var(--secondary)'}
+                                                 onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
+                                                <div style={{ flex: 1, minWidth: 0 }}>
+                                                    <div style={{ fontSize: '13px', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.vehicle.brand} {item.vehicle.model}</div>
+                                                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.engine.name}</div>
+                                                </div>
+                                                <div style={{ color: '#ef4444', fontWeight: '700', fontSize: '13px', paddingLeft: '8px', flexShrink: 0 }}>
+                                                    {item.engine.score}
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+
+                        <AdPlaceholder position="sidebar_right" />
                     </div>
                 </div>
             </main>

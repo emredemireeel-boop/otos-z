@@ -892,4 +892,17 @@ a {
     grid-template-columns: 1fr !important;
   }
 }
-
+
+
+.dna-page-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .dna-page-layout {
+    grid-template-columns: 1fr;
+  }
+}

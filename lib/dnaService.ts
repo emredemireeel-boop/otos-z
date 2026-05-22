@@ -1,5 +1,5 @@
 import { db } from "@/lib/firebase";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, addDoc, collection, getDocs, query, orderBy, deleteDoc } from "firebase/firestore";
 
 export interface DNAChronicIssue {
     id: string;
@@ -58,6 +58,10 @@ export async function addVehicleChronicIssue(brandSlug: string, modelSlug: strin
         const snap = await getDoc(docRef);
         if (snap.exists()) {
             const issues = snap.data().chronicIssues || [];
+            if (issues.length >= 10) {
+                console.warn("Max 10 issues reached");
+                return null;
+            }
             await updateDoc(docRef, {
                 chronicIssues: [...issues, newIssue]
             });
@@ -157,4 +161,81 @@ export async function toggleVehicleStaticVote(brandSlug: string, modelSlug: stri
         console.error("Error toggling static vehicle chronic issue vote:", e);
     }
     return false;
+}
+
+/** DNA Kronik Sorun Bildirimi Tipi */
+export interface DNAChronicReport {
+    id: string;
+    brandSlug: string;
+    modelSlug: string;
+    brandName: string;
+    modelName: string;
+    engineName: string;
+    issueTitle: string;
+    issueDescription: string;
+    severity: 'low' | 'medium' | 'high';
+    username: string;
+    userId: string;
+    status: 'bekliyor' | 'onaylandi' | 'reddedildi';
+    createdAt: number;
+}
+
+/** Kullanıcıdan gelen kronik sorun bildirimini admin onay kuyruğuna ekler */
+export async function submitDNAChronicReport(data: {
+    brandSlug: string;
+    modelSlug: string;
+    brandName: string;
+    modelName: string;
+    engineName: string;
+    issueTitle: string;
+    issueDescription: string;
+    severity: 'low' | 'medium' | 'high';
+    username: string;
+    userId: string;
+}): Promise<boolean> {
+    try {
+        await addDoc(collection(db, "dna_chronic_reports"), {
+            ...data,
+            status: 'bekliyor',
+            createdAt: Date.now(),
+        });
+        return true;
+    } catch (e) {
+        console.error("Error submitting DNA chronic report:", e);
+        return false;
+    }
+}
+
+/** Admin: Tüm DNA kronik sorun bildirimlerini getir */
+export async function getDNAChronicReports(): Promise<DNAChronicReport[]> {
+    try {
+        const q = query(collection(db, "dna_chronic_reports"), orderBy("createdAt", "desc"));
+        const snap = await getDocs(q);
+        return snap.docs.map(d => ({ id: d.id, ...d.data() } as DNAChronicReport));
+    } catch (e) {
+        console.error("Error fetching DNA chronic reports:", e);
+        return [];
+    }
+}
+
+/** Admin: DNA kronik sorun bildiriminin durumunu günceller */
+export async function updateDNAChronicReportStatus(reportId: string, status: 'onaylandi' | 'reddedildi'): Promise<boolean> {
+    try {
+        await updateDoc(doc(db, "dna_chronic_reports", reportId), { status });
+        return true;
+    } catch (e) {
+        console.error("Error updating DNA chronic report status:", e);
+        return false;
+    }
+}
+
+/** Admin: DNA kronik sorun bildirimini siler */
+export async function deleteDNAChronicReport(reportId: string): Promise<boolean> {
+    try {
+        await deleteDoc(doc(db, "dna_chronic_reports", reportId));
+        return true;
+    } catch (e) {
+        console.error("Error deleting DNA chronic report:", e);
+        return false;
+    }
 }

@@ -3,9 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import { categories, getBrandsForCategory } from '@/data/guvenmetre';
 import { getAdminDb } from '@/lib/firebaseAdmin';
+import { events } from '@/data/events';
 
-// Sitemap'in en fazla saatte 1 kez yeniden oluşturulması (cache) için:
-export const revalidate = 3600;
+// Sitemap'in 15 dakikada bir yeniden oluşturulması — yeni başlık/entry'ler hızla Google'a gider
+export const revalidate = 900;
 
 const BASE_URL = 'https://www.otosoz.com';
 
@@ -31,7 +32,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE_URL}/kutuphane`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
         { url: `${BASE_URL}/arac-dna`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
         { url: `${BASE_URL}/forum`, lastModified: new Date(), changeFrequency: 'always', priority: 0.9 },
-        { url: `${BASE_URL}/pazar`, lastModified: new Date(), changeFrequency: 'always', priority: 0.9 },
         { url: `${BASE_URL}/haberler`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
         { url: `${BASE_URL}/karsilastirma`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
         { url: `${BASE_URL}/uzmana-sor`, lastModified: new Date(), changeFrequency: 'always', priority: 0.8 },
@@ -43,10 +43,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE_URL}/etkinlikler`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
         { url: `${BASE_URL}/sozluk`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
         { url: `${BASE_URL}/obd`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+        { url: `${BASE_URL}/ajanda`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+        { url: `${BASE_URL}/bakim-rehberi`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+        { url: `${BASE_URL}/ikinci-el-rehberi`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+        { url: `${BASE_URL}/usta-ol`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+        { url: `${BASE_URL}/uzman-ol`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
         { url: `${BASE_URL}/hakkimizda`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
         { url: `${BASE_URL}/iletisim`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
         { url: `${BASE_URL}/gizlilik-politikasi`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-        { url: `${BASE_URL}/kullanim-kosullari`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+        { url: `${BASE_URL}/kullanim-sartlari`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     ];
 
     const safeReadFile = (fileName: string) => {
@@ -65,19 +70,60 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // 1. Araç DNA Markaları, Modelleri ve Kronik Sorun Sayfaları (hafif statik liste)
     const vehicleList: { brand: string; model: string }[] = [
+        // Renault
         { brand: 'Renault', model: 'Clio' }, { brand: 'Renault', model: 'Megane' },
-        { brand: 'Fiat', model: 'Egea' }, { brand: 'Toyota', model: 'Corolla' },
-        { brand: 'Honda', model: 'Civic' }, { brand: 'Volkswagen', model: 'Passat' },
-        { brand: 'Volkswagen', model: 'Golf' }, { brand: 'Dacia', model: 'Duster' },
-        { brand: 'Hyundai', model: 'i20' }, { brand: 'Peugeot', model: '3008 (1. Nesil 2009-2016)' },
+        { brand: 'Renault', model: 'Symbol' }, { brand: 'Renault', model: 'Clio 4' },
+        { brand: 'Renault', model: 'Megane 2' },
+        // Fiat & Tofaş
+        { brand: 'Fiat', model: 'Egea' }, { brand: 'Fiat', model: 'Linea' },
+        { brand: 'Fiat', model: 'Doblo' }, { brand: 'Tofaş', model: 'Şahin Doğan' },
+        // Toyota
+        { brand: 'Toyota', model: 'Corolla' },
+        // Honda
+        { brand: 'Honda', model: 'Civic' }, { brand: 'Honda', model: 'City' },
+        { brand: 'Honda', model: 'Civic FD6' },
+        // Volkswagen
+        { brand: 'Volkswagen', model: 'Passat' }, { brand: 'Volkswagen', model: 'Golf' },
+        { brand: 'Volkswagen', model: 'Polo AW' }, { brand: 'Volkswagen', model: 'Polo 5' },
+        // Dacia
+        { brand: 'Dacia', model: 'Duster' }, { brand: 'Dacia', model: 'Sandero Stepway' },
+        // Hyundai
+        { brand: 'Hyundai', model: 'i20' }, { brand: 'Hyundai', model: 'i20 2. Nesil' },
+        { brand: 'Hyundai', model: 'i30' }, { brand: 'Hyundai', model: 'Tucson' },
+        { brand: 'Hyundai', model: 'Accent Era' },
+        // Peugeot
+        { brand: 'Peugeot', model: '3008 (1. Nesil 2009-2016)' },
         { brand: 'Peugeot', model: '3008 (2. Nesil 2016-2023)' },
-        { brand: 'Opel', model: 'Corsa' }, { brand: 'Togg', model: 'T10X' },
-        { brand: 'Chery', model: 'Tiggo 8 Pro' }, { brand: 'Ford', model: 'Focus' },
-        { brand: 'BMW', model: '320i' }, { brand: 'Mercedes-Benz', model: 'C180' },
-        { brand: 'Nissan', model: 'Qashqai' }, { brand: 'Kia', model: 'Sportage' },
-        { brand: 'Citroen', model: 'C3' }, { brand: 'Skoda', model: 'Octavia' },
-        { brand: 'Seat', model: 'Leon' }, { brand: 'Tesla', model: 'Model Y' },
-        { brand: 'Audi', model: 'A3' },
+        { brand: 'Peugeot', model: '2008' }, { brand: 'Peugeot', model: '208' },
+        // Opel
+        { brand: 'Opel', model: 'Corsa' }, { brand: 'Opel', model: 'Astra K' },
+        // Togg
+        { brand: 'Togg', model: 'T10X' },
+        // Chery
+        { brand: 'Chery', model: 'Tiggo 8 Pro' }, { brand: 'Chery', model: 'Omoda 5' },
+        { brand: 'Chery', model: 'Tiggo 7 Pro' },
+        // Ford
+        { brand: 'Ford', model: 'Focus' }, { brand: 'Ford', model: 'Tourneo Courier' },
+        { brand: 'Ford', model: 'Fiesta' },
+        // BMW
+        { brand: 'BMW', model: '320i' },
+        // Mercedes-Benz
+        { brand: 'Mercedes-Benz', model: 'C180' },
+        // Nissan
+        { brand: 'Nissan', model: 'Qashqai' }, { brand: 'Nissan', model: 'Qashqai 2' },
+        // Kia
+        { brand: 'Kia', model: 'Sportage' }, { brand: 'Kia', model: 'Rio' },
+        // Citroen
+        { brand: 'Citroen', model: 'C3' }, { brand: 'Citroen', model: 'C4 X' },
+        // Skoda
+        { brand: 'Skoda', model: 'Octavia' }, { brand: 'Skoda', model: 'Superb' },
+        { brand: 'Skoda', model: 'Octavia A7' },
+        // Seat
+        { brand: 'Seat', model: 'Leon' },
+        // Tesla
+        { brand: 'Tesla', model: 'Model Y' },
+        // Audi
+        { brand: 'Audi', model: 'A3' }, { brand: 'Audi', model: 'TT' },
     ];
 
     const uniqueBrands = [...new Set(vehicleList.map(v => v.brand))];
@@ -310,14 +356,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     });
 
-    // 14. Etkinlikler (events.ts'den)
-    const eventSlugs = [
-        'istanbul-kartal-otopazari', 'ankara-pursaklar-otopazari',
-        'izmir-kemalpasa-otopazari', 'izmir-gaziemir-otopazari', 'bursa-nilufer-otopazari',
-    ];
-    eventSlugs.forEach(slug => {
+    // 14. Etkinlikler (events.ts'den - dinamik)
+    events.forEach(event => {
         sitemapEntries.push({
-            url: `${BASE_URL}/etkinlikler/${slug}`,
+            url: `${BASE_URL}/etkinlikler/${event.id}`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.6,
@@ -329,7 +371,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         const db = getAdminDb();
         const threadsSnapshot = await db.collection('threads')
             .orderBy('createdAt', 'desc')
-            .limit(1000)
+            .limit(2000)
             .get();
             
         threadsSnapshot.forEach(doc => {

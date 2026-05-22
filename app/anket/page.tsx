@@ -12,6 +12,8 @@ import {
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
+import AdPlaceholder from "@/components/AdPlaceholder";
+import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
 interface Nominee {
     id: number;
@@ -133,7 +135,7 @@ export default function AnketPage() {
                 title: data.title,
                 description: data.description,
                 category: data.category,
-                status: "active",
+                status: "pending",
                 totalVotes: 0,
                 nominees,
                 voters: {},
@@ -145,14 +147,14 @@ export default function AnketPage() {
                 title: data.title,
                 description: data.description,
                 category: data.category,
-                status: "active",
+                status: "pending",
                 totalVotes: 0,
                 nominees,
                 voters: {},
                 createdBy: user.username,
             }, ...prev]);
             setShowCreateModal(false);
-            showToast("Anket olusturuldu!", "success");
+            showToast("Anketiniz onay için yönetime gönderildi!", "success");
         } catch (e) {
             console.error("Anket olusturulamadi:", e);
             showToast("Anket olusturulamadi.", "error");
@@ -160,8 +162,9 @@ export default function AnketPage() {
     };
 
     const filteredSurveys = useMemo(() => {
-        if (selectedCategory === "Tümü") return surveys;
-        return surveys.filter(s => s.category === selectedCategory);
+        const activeSurveys = surveys.filter(s => s.status === 'active');
+        if (selectedCategory === "Tümü") return activeSurveys;
+        return activeSurveys.filter(s => s.category === selectedCategory);
     }, [surveys, selectedCategory]);
 
     const ITEMS_PER_PAGE = 9;
@@ -261,49 +264,9 @@ export default function AnketPage() {
                                     <p style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>Fikrinizi belirtmek için anketlere katılın. Sonuçlar anında güncellenir. Dilerseniz kendi anketinizi de oluşturabilirsiniz.</p>
                                 </div>
 
-                                {/* Pazar Vitrini */}
-                                <div style={{
-                                    marginTop: '16px',
-                                    background: 'var(--card-bg)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '16px',
-                                    padding: '16px',
-                                    overflow: 'hidden'
-                                }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                            Pazar Vitrini
-                                        </h3>
-                                        <Link href="/pazar" style={{ fontSize: '12px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }}>
-                                            Tümü
-                                        </Link>
-                                    </div>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                        {sampleListings.slice(0, 2).map((listing, index) => (
-                                            <Link key={listing.id || index} href="/pazar" style={{ textDecoration: 'none' }}>
-                                                <div style={{
-                                                    background: 'var(--secondary)',
-                                                    border: '1px solid var(--card-border)',
-                                                    borderRadius: '12px',
-                                                    padding: '12px',
-                                                    transition: 'all 0.2s',
-                                                    cursor: 'pointer'
-                                                }}
-                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
-                                                >
-                                                    <div style={{ fontSize: '13px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                                        {listing.brand} {listing.model}
-                                                    </div>
-                                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {formatKm(listing.km)}</span>
-                                                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e', whiteSpace: 'nowrap' }}>{formatListingPrice(listing.price)}</span>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
+                                {/* Pazar Vitrini (Gizlendi) */}
+                                <LatestThreadsWidget />
+
                             </div>
                         </aside>
 
@@ -524,21 +487,9 @@ export default function AnketPage() {
                         <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
                                 {/* Reklam Alanı */}
-                                <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block', marginBottom: '16px' }}>
-                                    <div style={{
-                                        background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
-                                        height: '220px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                                        color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '20px', textAlign: 'center'
-                                    }}
-                                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
-                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
-                                        <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
-                                            <Sparkles size={20} color="currentColor" />
-                                        </div>
-                                        <h3 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '8px' }}>Buraya Reklam Ver</h3>
-                                        <p style={{ fontSize: '12px', lineHeight: '1.5', margin: 0 }}>Günde binlerce otomotiv tutkununa markanızı ulaştırın.</p>
-                                    </div>
-                                </Link>
+                                <div style={{ marginBottom: '16px' }}>
+                                    <AdPlaceholder position="sidebar" />
+                                </div>
 
                                 <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px' }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
@@ -720,7 +671,7 @@ function CreateSurveyModal({
                             border: 'none', color: 'white', cursor: 'pointer', fontWeight: '600',
                             opacity: canSubmit ? 1 : 0.5,
                         }}>
-                            Anketi Oluştur
+                            Anketi Onaya Gönder
                         </button>
                     </div>
                 </form>

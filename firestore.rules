@@ -59,6 +59,13 @@ service cloud.firestore {
       allow write: if request.auth != null;
     }
 
+    // DNA Kronik Sorun Bildirimleri (Admin Onay Kuyruğu)
+    match /dna_chronic_reports/{reportId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null;
+    }
+
     // Kullanıcı Puanları
     match /userRatings/{ratingId} {
       allow read: if request.auth != null;

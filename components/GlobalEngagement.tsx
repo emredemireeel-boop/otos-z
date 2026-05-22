@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import XPPopup from "./XPPopup";
-import DailyStreakModal from "./DailyStreakModal";
 import MobileBottomNav from "./MobileBottomNav";
 
 export default function GlobalEngagement() {
@@ -51,12 +50,7 @@ export default function GlobalEngagement() {
                 />
             )}
             
-            <DailyStreakModal
-                isVisible={streakModal?.show || false}
-                streak={streakModal?.streak || 0}
-                xpGained={streakModal?.xpGained || 0}
-                onClose={() => setStreakModal(null)}
-            />
+            
             
             <MobileBottomNav />
         </>

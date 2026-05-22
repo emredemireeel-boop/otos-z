@@ -151,6 +151,10 @@ export default function ChronicIssuesPage() {
                                 setShowLoginPrompt(true);
                                 return;
                             }
+                            if (dynamicIssues.length >= 10) {
+                                alert("Maksimum rapor sayısına (10) ulaşıldı. Daha fazla rapor eklenemez.");
+                                return;
+                            }
                             setIsReportingChronic(true);
                         }}
                         style={{
@@ -171,7 +175,7 @@ export default function ChronicIssuesPage() {
 
                 {vehicle.chronicIssues.length > 0 ? (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                        {vehicle.chronicIssues.map((issue) => {
+                        {vehicle.chronicIssues.slice(0, 10).map((issue) => {
                             const severityColor = getSeverityColor(issue.severity);
                             const severityLabel = getSeverityLabel(issue.severity);
                             const hasVoted = user && (staticVotes[issue.id.toString()] || []).includes(user.id as string);
@@ -246,7 +250,7 @@ export default function ChronicIssuesPage() {
                             <AlertTriangle size={20} color="#ef4444" /> Kullanıcı Bildirimleri
                         </h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            {[...dynamicIssues].sort((a, b) => b.votes - a.votes).map((issue) => {
+                            {[...dynamicIssues].sort((a, b) => b.votes - a.votes).slice(0, 10).map((issue) => {
                                 const hasVoted = user && issue.votedBy.includes(user.id as string);
                                 return (
                                     <div key={issue.id} style={{

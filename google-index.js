@@ -31,8 +31,21 @@ function createSlug(text) {
         .toLowerCase()
         .replace(/[^a-z0-9\s-]/g, '')
         .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-   function buildUrls() {
+        .replace(/-+/g, '-');
+}
+
+function loadProgress() {
+    if (fs.existsSync(PROGRESS_FILE)) {
+        return JSON.parse(fs.readFileSync(PROGRESS_FILE, 'utf8'));
+    }
+    return { completedUrls: [], totalSuccess: 0, totalFail: 0, lastRun: null };
+}
+
+function saveProgress(progress) {
+    fs.writeFileSync(PROGRESS_FILE, JSON.stringify(progress, null, 2), 'utf8');
+}
+
+function buildUrls() {
     const urls = [];
 
     // ═══════════════════════════════════════════════════════════
@@ -41,7 +54,6 @@ function createSlug(text) {
     const mainPages = [
         '/',
         '/forum',
-        '/pazar',
         '/karsilastirma',
         '/arac-dna',
         '/uzmana-sor',
@@ -67,7 +79,6 @@ function createSlug(text) {
         '/para-kazan',
         '/usta-ol',
         '/uzman-ol',
-        '/premium',
     ];
     mainPages.forEach(p => urls.push({ url: `${BASE_URL}${p}`, tier: '🔴 T1-ANA' }));
 
@@ -294,84 +305,6 @@ function createSlug(text) {
         if (matches) {
             matches.forEach(match => {
                 const id = match.split(/[\"']/)[1];
-                remainingUrls.push({
-                    url: `${BASE_URL}/sozluk/${id}`,
-                    tier: '🔵 T5-SÖZLÜK'
-                });
-            });
-        }
-    } catch (e) {
-        console.error('⚠ Sözlük verisi okunamadı:', e.message);
-    }
-
-    // Sadece kalan limit (200 - mevcut) kadar ekle
-    const limit = 200 - urls.length;
-    let added = 0;
-    
-    for (const item of remainingUrls) {
-        if (added >= limit) break;
-        urls.push(item);
-        added++;
-    }
-
-    return urls;
-}Otoyol verisi okunamadı:', e.message);
-    }
-
-    // ═══════════════════════════════════════════════════════════
-    // 10. İLGİNÇ BİLGİLER, SÖZLÜK VE TRAFİK CEZALARI — Kalan Slotlarla
-    // ═══════════════════════════════════════════════════════════
-    const remainingUrls = [];
-
-    // İlginç Bilgiler
-    try {
-        const interesting = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'data', 'interesting_information.json'), 'utf8'));
-        const facts = interesting.interestingFacts;
-        
-        const processArray = (arr, titleKey) => {
-            if (!arr) return;
-            arr.forEach(item => {
-                remainingUrls.push({
-                    url: `${BASE_URL}/kutuphane/ilginc/${createSlug(item[titleKey] || item.myth || item.text.slice(0, 40))}-${item.id}`,
-                    tier: '🔵 T5-İLGİNÇ'
-                });
-            });
-        };
-
-        processArray(facts.dailyTips, 'title');
-        processArray(facts.checklists, 'title');
-        processArray(facts.doAndDont, 'title');
-        processArray(facts.quickFacts, 'text');
-        processArray(facts.mythBusters, 'myth');
-    } catch (e) {
-        console.error('⚠ İlginç bilgiler verisi okunamadı:', e.message);
-    }
-
-    // Trafik Cezaları
-    try {
-        const trafik = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'trafik_cezalari.json'), 'utf8'));
-        trafik.categories.forEach(cat => {
-            cat.rows.forEach(row => {
-                if (row.slug) {
-                    remainingUrls.push({
-                        url: `${BASE_URL}/trafik-cezasi/${row.slug}`,
-                        tier: '🔵 T5-CEZA'
-                    });
-                }
-            });
-        });
-    } catch (e) {
-        console.error('⚠ Trafik cezaları verisi okunamadı:', e.message);
-    }
-
-    // Sözlük
-    try {
-        const dictionaryContent = fs.readFileSync(path.join(__dirname, 'data', 'dictionary.ts'), 'utf8');
-        // Simple extraction since it's a TS file
-        const matches = dictionaryContent.match(/id:\s*["']([^"']+)["']/g);
-        if (matches) {
-            matches.forEach(match => {
-                const id = match.split(/["']/)[1];
                 remainingUrls.push({
                     url: `${BASE_URL}/sozluk/${id}`,
                     tier: '🔵 T5-SÖZLÜK'

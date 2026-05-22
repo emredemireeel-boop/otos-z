@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/context/AuthContext";
+import AdPlaceholder from "@/components/AdPlaceholder";
 
 
 import { events } from "@/data/events";
@@ -16,6 +17,7 @@ import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import carModelsData from "@/data/carmodels.json";
 import { mythsData, Myth } from "@/data/efsane-avcilari-data";
+import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
 // Yazar seviye renkleri
 const levelColors: Record<string, { bg: string; text: string }> = {
@@ -145,19 +147,6 @@ export default function Home() {
             const randomMythIndex = Math.floor(Math.random() * mythsData.length);
             setRandomMyth(mythsData[randomMythIndex]);
         }
-
-        // Sidebar Reklamı
-        fetch('/api/admin?section=advertisements')
-            .then(res => res.json())
-            .then(data => {
-                if (data.success && data.ads) {
-                    const activeSidebarAds = data.ads.filter((a: any) => a.position === 'sidebar' && a.status === 'active');
-                    if (activeSidebarAds.length > 0) {
-                        setSidebarAd(activeSidebarAds[Math.floor(Math.random() * activeSidebarAds.length)]);
-                    }
-                }
-            })
-            .catch(err => console.error("Error loading ads:", err));
     }, []);
 
     // ── Global New Topic Modal Listener ──────────────────────────────────────
@@ -648,78 +637,11 @@ export default function Home() {
                             </div>
                             
                             {/* Reklam Alanı */}
-                            {sidebarAd ? (
-                                <a href={sidebarAd.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', marginTop: '16px' }}>
-                                    <div style={{ background: 'var(--card-bg)', border: '1px solid var(--primary)', borderRadius: '16px', padding: '20px', position: 'relative', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
-                                        <div style={{ position: 'absolute', top: 0, right: 0, background: 'var(--primary)', color: 'white', fontSize: '10px', padding: '4px 10px', borderBottomLeftRadius: '12px', fontWeight: 'bold' }}>Sponsorlu</div>
-                                        <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(59,130,246,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '12px' }}>
-                                            <Zap size={20} />
-                                        </div>
-                                        <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '6px' }}>{sidebarAd.title}</h4>
-                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>{sidebarAd.description}</p>
-                                    </div>
-                                </a>
-                            ) : (
-                                <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block', marginTop: '16px' }}>
-                                    <div style={{ 
-                                        background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px', 
-                                        height: '220px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                                        color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '20px', textAlign: 'center'
-                                    }}
-                                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
-                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
-                                        <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
-                                            <Sparkles size={20} color="currentColor" />
-                                        </div>
-                                        <h3 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '8px' }}>Buraya Reklam Ver</h3>
-                                        <p style={{ fontSize: '12px', lineHeight: '1.5', margin: 0 }}>Günde 10.000+ otomotiv tutkununa markanızı ulaştırın.</p>
-                                    </div>
-                                </Link>
-                            )}
+                            <AdPlaceholder position="sidebar" style={{ marginTop: '16px' }} />
 
-                            {/* Pazar Vitrini */}
-                            <div style={{
-                                marginTop: '16px',
-                                background: 'var(--card-bg)',
-                                border: '1px solid var(--card-border)',
-                                borderRadius: '16px',
-                                padding: '16px',
-                                overflow: 'hidden'
-                            }}>
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                                    <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                        Pazar Vitrini
-                                    </h3>
-                                    <Link href="/pazar" style={{ fontSize: '12px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }}>
-                                        Tümü
-                                    </Link>
-                                </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                    {sampleListings.slice(0, 2).map((listing, index) => (
-                                        <Link key={listing.id || index} href="/pazar" style={{ textDecoration: 'none' }}>
-                                            <div style={{
-                                                background: 'var(--secondary)',
-                                                border: '1px solid var(--card-border)',
-                                                borderRadius: '12px',
-                                                padding: '12px',
-                                                transition: 'all 0.2s',
-                                                cursor: 'pointer'
-                                            }}
-                                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
-                                            >
-                                                <div style={{ fontSize: '13px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                                    {listing.brand} {listing.model}
-                                                </div>
-                                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                                    <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {formatKm(listing.km)}</span>
-                                                    <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e', whiteSpace: 'nowrap' }}>{formatListingPrice(listing.price)}</span>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
+                            {/* Pazar Vitrini (Gizlendi) */}
+                            <LatestThreadsWidget />
+
 
                             {/* Efsane Avcıları Vitrini */}
                             {randomMyth && (

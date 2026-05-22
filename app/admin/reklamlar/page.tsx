@@ -102,7 +102,7 @@ export default function AdminReklamlarPage() {
 
     // Yeni reklam formu
     const [form, setForm] = useState({
-        advertiser: '', title: '', description: '', url: '',
+        advertiser: '', title: '', description: '', url: '', imageUrl: '',
         position: 'forum_feed', type: 'banner_leaderboard', budget: '',
         startDate: '', endDate: '',
     });
@@ -162,7 +162,7 @@ export default function AdminReklamlarPage() {
         const payload = { ...form, size: sizeMap[form.type] || '300x250', budget: Number(form.budget) || 0 };
         const ok = await apiAction('create_ad', 'new', JSON.stringify(payload));
         if (ok) {
-            setForm({ advertiser: '', title: '', description: '', url: '', position: 'forum_feed', type: 'banner_leaderboard', budget: '', startDate: '', endDate: '' });
+            setForm({ advertiser: '', title: '', description: '', url: '', imageUrl: '', position: 'forum_feed', type: 'banner_leaderboard', budget: '', startDate: '', endDate: '' });
             setTab('kampanyalar');
             showToast(`✓ "${form.title}" kampanyası oluşturuldu ve yayına alındı!`);
         }
@@ -470,6 +470,17 @@ export default function AdminReklamlarPage() {
                                 <label style={labelStyle}>Bütçe (₺)</label>
                                 <input type="number" value={form.budget} onChange={e => setForm(f => ({ ...f, budget: e.target.value }))} placeholder="5000" style={inputStyle} />
                             </div>
+                        </div>
+
+                        {/* Görsel URL */}
+                        <div style={{ marginBottom: '14px' }}>
+                            <label style={labelStyle}>
+                                Görsel URL (İsteğe Bağlı) 
+                                <span style={{ marginLeft: '6px', fontSize: '10px', color: 'var(--primary)', fontWeight: 'normal', textTransform: 'none' }}>
+                                    (Boyutlar seçilen reklam türüne göre otomatik ayarlanacaktır)
+                                </span>
+                            </label>
+                            <input value={form.imageUrl} onChange={e => setForm(f => ({ ...f, imageUrl: e.target.value }))} placeholder="https://ornek.com/gorsel.jpg" style={inputStyle} />
                         </div>
 
                         {/* Reklam Tipi */}

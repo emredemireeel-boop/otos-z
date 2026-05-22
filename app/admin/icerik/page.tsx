@@ -39,6 +39,7 @@ type Modal = { type: 'addAnn' } | { type: 'deleteAnn'; id: string; title: string
 export default function AdminContentPage() {
     const [tab, setTab] = useState<Tab>('announcements');
     const [threads, setThreads] = useState<LiveThread[]>([]);
+    const [trendingThreads, setTrendingThreads] = useState<LiveThread[]>([]);
     const [announcements, setAnnouncements] = useState<Announcement[]>([]);
     const [loading, setLoading] = useState(true);
     const [modal, setModal] = useState<Modal>(null);

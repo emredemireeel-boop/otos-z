@@ -6,7 +6,7 @@ import {
     LayoutDashboard, Users, MessageSquareWarning, Settings, LogOut,
     ShoppingCart, Banknote, Tags, ShieldCheck, Activity,
     AlertCircle, Megaphone, Flag, Award,
-    Filter, Radio, UserCog, BookOpen
+    Filter, Radio, UserCog, BookOpen, CheckSquare
 } from "lucide-react";
 import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
@@ -31,6 +31,8 @@ const navItems = [
             { name: "Pazar Kontrolu", href: "/admin/pazar", icon: ShoppingCart, badge: null },
             { name: "Guvenmetre", href: "/admin/guvenmetre", icon: ShieldCheck, badge: null },
             { name: "GM Yorumları", href: "/admin/guvenmetre/yorumlar", icon: MessageSquareWarning, badge: null },
+            { name: "Anket Onayları", href: "/admin/anketler", icon: CheckSquare, badge: null },
+            { name: "DNA Raporları", href: "/admin/dna-raporlar", icon: AlertCircle, badge: null },
         ]
     },
     {

@@ -9,6 +9,8 @@ import { subscribeToThreads, createThread, formatTimestamp, type ForumThread } f
 import { HelpCircle, Plus, X, Sparkles, Users, Clock, MessageSquare, Eye, Lightbulb, Award, BarChart3 } from "lucide-react";
 import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 import ExpertModal from "@/components/ExpertModal";
+import AdPlaceholder from "@/components/AdPlaceholder";
+import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
 const CATEGORIES = ["Tümü", "Motor", "Sanzıman", "Lastik", "Bakım", "Elektrik", "Fren", "Süspansiyon", "Diğer"];
 
@@ -107,21 +109,9 @@ export default function UzmanaSorPage() {
                                         Sorunuzu sorun, topluluk ve uzmanlar en kısa sürede yanıtlasın. Kategori seçerek filtreleme yapabilirsiniz.
                                     </p>
                                 </div>
-                                <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block' }}>
-                                    <div style={{
-                                        background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
-                                        height: '220px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                                        color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '20px', textAlign: 'center'
-                                    }}
-                                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
-                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
-                                        <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
-                                            <Sparkles size={20} color="currentColor" />
-                                        </div>
-                                        <h3 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '8px' }}>Buraya Reklam Ver</h3>
-                                        <p style={{ fontSize: '12px', lineHeight: '1.5', margin: 0 }}>Günde 10.000+ otomotiv tutkununa ulaşın.</p>
-                                    </div>
-                                </Link>
+                                <div style={{ marginBottom: '16px' }}>
+                                    <AdPlaceholder position="sidebar" />
+                                </div>
                             </div>
                         </aside>
 
@@ -250,65 +240,13 @@ export default function UzmanaSorPage() {
                                         </div>
                                     </div>
                                 </div>
-                                <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block' }}>
-                                    <div style={{
-                                        background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
-                                        height: '220px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                                        color: 'var(--text-muted)', cursor: 'pointer', transition: 'all 0.2s', padding: '20px', textAlign: 'center'
-                                    }}
-                                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.color = 'var(--primary)'; }}
-                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; }}>
-                                        <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
-                                            <Sparkles size={20} color="currentColor" />
-                                        </div>
-                                        <h3 style={{ fontSize: '15px', fontWeight: '700', marginBottom: '8px' }}>Buraya Reklam Ver</h3>
-                                        <p style={{ fontSize: '12px', lineHeight: '1.5', margin: 0 }}>Günde 10.000+ otomotiv tutkununa ulaşın.</p>
-                                    </div>
-                                </Link>
-
-                                {/* Pazar Vitrini */}
-                                <div style={{
-                                    marginTop: '16px',
-                                    background: 'var(--card-bg)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '16px',
-                                    padding: '16px',
-                                    overflow: 'hidden'
-                                }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                            Pazar Vitrini
-                                        </h3>
-                                        <Link href="/pazar" style={{ fontSize: '12px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }}>
-                                            Tümü
-                                        </Link>
-                                    </div>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                        {sampleListings.slice(0, 2).map((listing, index) => (
-                                            <Link key={listing.id || index} href="/pazar" style={{ textDecoration: 'none' }}>
-                                                <div style={{
-                                                    background: 'var(--secondary)',
-                                                    border: '1px solid var(--card-border)',
-                                                    borderRadius: '12px',
-                                                    padding: '12px',
-                                                    transition: 'all 0.2s',
-                                                    cursor: 'pointer'
-                                                }}
-                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
-                                                >
-                                                    <div style={{ fontSize: '13px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                                        {listing.brand} {listing.model}
-                                                    </div>
-                                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                                        <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{listing.year} • {formatKm(listing.km)}</span>
-                                                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#22c55e', whiteSpace: 'nowrap' }}>{formatListingPrice(listing.price)}</span>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        ))}
-                                    </div>
+                                <div style={{ marginBottom: '16px' }}>
+                                    <AdPlaceholder position="sidebar" />
                                 </div>
+
+                                {/* Pazar Vitrini (Gizlendi) */}
+                                <LatestThreadsWidget />
+
                             </div>
                         </aside>
                     </div>

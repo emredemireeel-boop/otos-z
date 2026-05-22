@@ -148,10 +148,10 @@ export default function EngineCards({ engineData }: EngineCardsProps) {
                                     Bu Motora Özel Kronik Sorunlar
                                 </h4>
                             </div>
-                            {engine.issues.length > 0 ? (
+                            {engine.chronicIssues.length > 0 ? (
                                 <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--text-muted)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                    {engine.issues.map((issue, idx) => (
-                                        <li key={idx}>{issue}</li>
+                                    {engine.chronicIssues.slice(0, 10).map((issue, idx) => (
+                                        <li key={idx}><strong>{issue.title}:</strong> {issue.description}</li>
                                     ))}
                                 </ul>
                             ) : (

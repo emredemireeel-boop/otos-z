@@ -1679,4 +1679,986 @@ export const trimLevelsData: TrimLevelData[] = [
             },
         ]
     },
+    {
+        vehicleId: 101,
+        brand: "Tofaş",
+        model: "Şahin / Doğan (1988-2002)",
+        generation: "Bilmiyoruz",
+        trims: ["1.6", "S", "1.6 i.e."],
+        categories: [
+            {
+                categoryName: "İç Donanım ve Konfor",
+                features: [
+                    { name: "Kumaş Koltuklar", status: {"1.6":"standard","S":"standard","1.6 i.e.":"standard"} },
+                    { name: "Ön Cam Otomatiği", status: {"1.6":"none","S":"none","1.6 i.e.":"none"} },
+                    { name: "Hidrolik Direksiyon", status: {"1.6":"none","S":"optional","1.6 i.e.":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"1.6":"none","S":"none","1.6 i.e.":"none"} },
+                    { name: "Sis Farı", status: {"1.6":"none","S":"none","1.6 i.e.":"none"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 102,
+        brand: "Fiat",
+        model: "Linea (2007-2015)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 103,
+        brand: "Renault",
+        model: "Symbol (2013-2021)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 104,
+        brand: "Hyundai",
+        model: "Accent Era (2006-2012)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 105,
+        brand: "Honda",
+        model: "Civic FD6 (2006-2012)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 106,
+        brand: "Fiat",
+        model: "Doblo 3. ve 4. Nesil (2010-2023)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 107,
+        brand: "Renault",
+        model: "Megane 2 (2002-2008)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 108,
+        brand: "Ford",
+        model: "Tourneo Courier (2014-2023)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 109,
+        brand: "Dacia",
+        model: "Sandero Stepway (2021-2025)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 110,
+        brand: "Skoda",
+        model: "Octavia A7 (2013-2020)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 111,
+        brand: "Volkswagen",
+        model: "Polo 5. Nesil (6R/6C) (2009-2017)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 112,
+        brand: "Ford",
+        model: "Fiesta 6. Nesil (Mk7) (2008-2017)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 113,
+        brand: "Nissan",
+        model: "Qashqai 2. Nesil (J11) (2014-2021)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 114,
+        brand: "Peugeot",
+        model: "208 2. Nesil (2019-2025)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 115,
+        brand: "Toyota",
+        model: "Corolla E140/E150 (2007-2012)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 116,
+        brand: "Tofaş",
+        model: "Kartal (1988-2002)",
+        generation: "Bilmiyoruz",
+        trims: ["L", "SL", "SLX", "1.6 i.e."],
+        categories: [
+            {
+                categoryName: "İç Donanım ve Konfor",
+                features: [
+                    { name: "Ön Cam Otomatiği", status: {"L":"none","SL":"standard","SLX":"standard","1.6 i.e.":"standard"} },
+                    { name: "Geniş Bagaj Hacmi", status: {"L":"standard","SL":"standard","SLX":"standard","1.6 i.e.":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Tavan Çıtası", status: {"L":"standard","SL":"standard","SLX":"standard","1.6 i.e.":"standard"} },
+                    { name: "Çelik Jant", status: {"L":"none","SL":"none","SLX":"standard","1.6 i.e.":"none"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 117,
+        brand: "Tofaş",
+        model: "Serçe / Murat 131 (1977-1994)",
+        generation: "Bilmiyoruz",
+        trims: ["Standart"],
+        categories: [
+            {
+                categoryName: "İç Donanım ve Konfor",
+                features: [
+                    { name: "Kumaş Koltuklar", status: {"Standart":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Yuvarlak Çift Far", status: {"Standart":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 118,
+        brand: "Honda",
+        model: "Civic 10. Nesil (FC5) (2016-2021)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 119,
+        brand: "Honda",
+        model: "Civic 9. Nesil (FB7) (2012-2016)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 120,
+        brand: "Renault",
+        model: "Clio 4. Nesil (2012-2019)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 121,
+        brand: "Opel",
+        model: "Astra J Kasa (2009-2015)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 122,
+        brand: "Volkswagen",
+        model: "Golf 7 (2012-2020)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 123,
+        brand: "Dacia",
+        model: "Duster (2010-2024)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 124,
+        brand: "Peugeot",
+        model: "3008 2. Nesil (2016-2023)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 125,
+        brand: "Ford",
+        model: "Focus 3 & 3.5 (2011-2018)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 126,
+        brand: "Volkswagen",
+        model: "Passat B8 (2015-2023)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 127,
+        brand: "Hyundai",
+        model: "Tucson 3. Nesil (2015-2020)",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 101,
+        brand: "Tofaş",
+        model: "Şahin (1988-2002)",
+        generation: "Bilmiyoruz",
+        trims: ["1.6", "S", "1.6 i.e."],
+        categories: [
+            {
+                categoryName: "İç Donanım ve Konfor",
+                features: [
+                    { name: "Kumaş Koltuklar", status: {"1.6":"standard","S":"standard","1.6 i.e.":"standard"} },
+                    { name: "Ön Cam Otomatiği", status: {"1.6":"none","S":"none","1.6 i.e.":"none"} },
+                    { name: "Hidrolik Direksiyon", status: {"1.6":"none","S":"optional","1.6 i.e.":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"1.6":"none","S":"none","1.6 i.e.":"none"} },
+                    { name: "Sis Farı", status: {"1.6":"none","S":"none","1.6 i.e.":"none"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 102,
+        brand: "Tofaş",
+        model: "Doğan (1988-2002)",
+        generation: "Bilmiyoruz",
+        trims: ["L", "SL", "SLX", "SLX i.e."],
+        categories: [
+            {
+                categoryName: "İç Donanım ve Konfor",
+                features: [
+                    { name: "Ön Cam Otomatiği", status: {"L":"standard","SL":"standard","SLX":"standard","SLX i.e.":"standard"} },
+                    { name: "Merkezi Kilit", status: {"L":"standard","SL":"standard","SLX":"standard","SLX i.e.":"standard"} },
+                    { name: "Hidrolik Direksiyon", status: {"L":"none","SL":"none","SLX":"standard","SLX i.e.":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"L":"none","SL":"none","SLX":"standard","SLX i.e.":"standard"} },
+                    { name: "Sis Farı", status: {"L":"none","SL":"standard","SLX":"standard","SLX i.e.":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 103,
+        brand: "Tofaş",
+        model: "Kartal (1988-2002)",
+        generation: "Bilmiyoruz",
+        trims: ["L", "SL", "SLX", "1.6 i.e."],
+        categories: [
+            {
+                categoryName: "İç Donanım ve Konfor",
+                features: [
+                    { name: "Ön Cam Otomatiği", status: {"L":"none","SL":"standard","SLX":"standard","1.6 i.e.":"standard"} },
+                    { name: "Geniş Bagaj Hacmi", status: {"L":"standard","SL":"standard","SLX":"standard","1.6 i.e.":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Tavan Çıtası", status: {"L":"standard","SL":"standard","SLX":"standard","1.6 i.e.":"standard"} },
+                    { name: "Çelik Jant", status: {"L":"none","SL":"none","SLX":"standard","1.6 i.e.":"none"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 104,
+        brand: "Tofaş",
+        model: "Serçe (1984-1994)",
+        generation: "Bilmiyoruz",
+        trims: ["Standart"],
+        categories: [
+            {
+                categoryName: "İç Donanım ve Konfor",
+                features: [
+                    { name: "Kumaş Koltuklar", status: {"Standart":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Yuvarlak Çift Far", status: {"Standart":"standard"} }
+                ]
+            }
+        ]
+    },
+        {
+        vehicleId: 150,
+        brand: "Renault",
+        model: "Toros (1989-2000)",
+        generation: "Bilmiyoruz",
+        trims: ["Standart","TX"],
+        categories: [
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Kumaş Koltuklar", status: {"Standart":"standard","TX":"standard"} },
+                    { name: "Devir Saati", status: {"Standart":"none","TX":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Saç Jant", status: {"Standart":"standard","TX":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 151,
+        brand: "Renault",
+        model: "R9 Broadway",
+        generation: "Bilmiyoruz",
+        trims: ["GTE","Broadway","Fairway"],
+        categories: [
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Ön Cam Otomatiği", status: {"GTE":"none","Broadway":"standard","Fairway":"standard"} },
+                    { name: "Merkezi Kilit", status: {"GTE":"none","Broadway":"standard","Fairway":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Sis Farı", status: {"GTE":"none","Broadway":"none","Fairway":"optional"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 152,
+        brand: "Fiat",
+        model: "Uno",
+        generation: "Bilmiyoruz",
+        trims: ["S","SX","Hobby"],
+        categories: [
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Ön Cam Otomatiği", status: {"S":"none","SX":"standard","Hobby":"standard"} },
+                    { name: "Hidrolik Direksiyon", status: {"S":"none","SX":"optional","Hobby":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Gövde Rengi Tampon", status: {"S":"none","SX":"standard","Hobby":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 153,
+        brand: "Toyota",
+        model: "Corolla AE101",
+        generation: "Bilmiyoruz",
+        trims: ["XL","GLi","XEi"],
+        categories: [
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Klima", status: {"XL":"none","GLi":"standard","XEi":"optional"} },
+                    { name: "4 Cam Otomatiği", status: {"XL":"none","GLi":"standard","XEi":"standard"} },
+                    { name: "Hidrolik Direksiyon", status: {"XL":"standard","GLi":"standard","XEi":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Gövde Rengi Aynalar", status: {"XL":"none","GLi":"standard","XEi":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 154,
+        brand: "Hyundai",
+        model: "Accent",
+        generation: "Bilmiyoruz",
+        trims: ["LS","LX","GLS"],
+        categories: [
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Klima", status: {"LS":"none","LX":"optional","GLS":"standard"} },
+                    { name: "4 Cam Otomatiği", status: {"LS":"none","LX":"none","GLS":"standard"} },
+                    { name: "Hidrolik Direksiyon", status: {"LS":"none","LX":"standard","GLS":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Sis Farı", status: {"LS":"none","LX":"none","GLS":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 155,
+        brand: "Lada",
+        model: "Samara",
+        generation: "Bilmiyoruz",
+        trims: ["Standart"],
+        categories: [
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Kumaş Koltuklar", status: {"Standart":"standard"} },
+                    { name: "Ön Cam Otomatiği", status: {"Standart":"none"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Saç Jant", status: {"Standart":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 156,
+        brand: "Renault",
+        model: "Symbol / Clio Symbol",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 157,
+        brand: "Fiat",
+        model: "Linea",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 158,
+        brand: "Peugeot",
+        model: "206",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 159,
+        brand: "Honda",
+        model: "Civic FD6",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 160,
+        brand: "Opel",
+        model: "Vectra B",
+        generation: "Bilmiyoruz",
+        trims: ["Giriş (Joy/Easy)", "Orta (Touch/Urban)", "Üst (Icon/Lounge)"],
+        categories: [
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Çelik Jant", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Sis Farı", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            },
+            {
+                categoryName: "İç Donanım",
+                features: [
+                    { name: "Otomatik Klima", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} },
+                    { name: "Geri Görüş Kamerası", status: {"Giriş (Joy/Easy)":"none","Orta (Touch/Urban)":"standard","Üst (Icon/Lounge)":"standard"} }
+                ]
+            }
+        ]
+    },
+    {
+        vehicleId: 161,
+        brand: "Tofaş",
+        model: "Murat 131",
+        generation: "Bilmiyoruz",
+        trims: ["Standart"],
+        categories: [
+            {
+                categoryName: "İç Donanım ve Konfor",
+                features: [
+                    { name: "Kumaş Koltuklar", status: {"Standart":"standard"} }
+                ]
+            },
+            {
+                categoryName: "Dış Donanım",
+                features: [
+                    { name: "Yuvarlak Çift Far", status: {"Standart":"standard"} }
+                ]
+            }
+        ]
+    },
 ];
