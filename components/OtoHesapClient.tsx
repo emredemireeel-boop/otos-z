@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon, Calculator, CreditCard, Wallet, FileText, Banknote, Shield, Zap, Activity, Circle, Wrench, BadgePercent, TrendingUp, LineChart, Printer, MessageCircle } from "lucide-react";
+import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon, Calculator, CreditCard, Wallet, FileText, Banknote, Shield, Zap, Activity, Circle, Wrench, BadgePercent, TrendingUp, LineChart, Printer, MessageCircle, Route, Car } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
@@ -23,7 +23,7 @@ import OtvMuafiyetSection from "@/app/kutuphane/otv-muafiyet-section";
 import AlSatKarMarjiSection from "@/app/kutuphane/al-sat-karmarji-section";
 import YatirimKiyaslamaSection from "@/app/kutuphane/yatirim-kiyaslama-section";
 import AracIthalatSection from "@/app/kutuphane/arac-ithalat-section";
-
+import AracVsTaksiSection from "@/app/kutuphane/arac-vs-taksi-section";
 const RouteMap = dynamic(() => import("@/components/RouteMap"), { ssr: false });
 
 /* ═══════════════════════════════════════════
@@ -409,6 +409,7 @@ export default function OtoHesapClient({ activeModule }: { activeModule: string 
     { key: 'kasko-deger-sorgulama' as const, label: 'Kasko Değer', desc: 'TSB kasko bedeli sorgulama', icon: Shield, color: '#0EA5E9', href: '/yakit-hesaplama/kasko-deger-sorgulama' },
     { key: 'elektrikli-arac-sarj-maliyeti' as const, label: 'Elektrikli Araç', desc: 'Şarj maliyeti ve karşılaştırma', icon: Zap, color: '#10B981', href: '/yakit-hesaplama/elektrikli-arac-sarj-maliyeti' },
     { key: 'arac-ithalat-vergisi' as const, label: 'Yurtdışı İthalat', desc: 'Gümrük ve ÖTV maliyeti', icon: MapIcon, color: '#0EA5E9', href: '/yakit-hesaplama/arac-ithalat-vergisi' },
+    { key: 'arac-vs-taksi' as const, label: 'Araç Mı Taksi Mi?', desc: 'Satın alma & Kiralama', icon: Route, color: '#6366F1', href: '/yakit-hesaplama/arac-vs-taksi' },
   ];
 
   return (
@@ -769,6 +770,13 @@ export default function OtoHesapClient({ activeModule }: { activeModule: string 
         {activeModule === 'arac-ithalat-vergisi' && (
           <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
             <AracIthalatSection />
+          </div>
+        )}
+
+        {/* Araç vs Taksi Tab */}
+        {activeModule === 'arac-vs-taksi' && (
+          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+            <AracVsTaksiSection />
           </div>
         )}
       </main>

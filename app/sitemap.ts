@@ -68,65 +68,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return null;
     };
 
-    // 1. Araç DNA Markaları, Modelleri ve Kronik Sorun Sayfaları (hafif statik liste)
-    const vehicleList: { brand: string; model: string }[] = [
-        // Renault
-        { brand: 'Renault', model: 'Clio' }, { brand: 'Renault', model: 'Megane' },
-        { brand: 'Renault', model: 'Symbol' }, { brand: 'Renault', model: 'Clio 4' },
-        { brand: 'Renault', model: 'Megane 2' },
-        // Fiat & Tofaş
-        { brand: 'Fiat', model: 'Egea' }, { brand: 'Fiat', model: 'Linea' },
-        { brand: 'Fiat', model: 'Doblo' }, { brand: 'Tofaş', model: 'Şahin Doğan' },
-        // Toyota
-        { brand: 'Toyota', model: 'Corolla' },
-        // Honda
-        { brand: 'Honda', model: 'Civic' }, { brand: 'Honda', model: 'City' },
-        { brand: 'Honda', model: 'Civic FD6' },
-        // Volkswagen
-        { brand: 'Volkswagen', model: 'Passat' }, { brand: 'Volkswagen', model: 'Golf' },
-        { brand: 'Volkswagen', model: 'Polo AW' }, { brand: 'Volkswagen', model: 'Polo 5' },
-        // Dacia
-        { brand: 'Dacia', model: 'Duster' }, { brand: 'Dacia', model: 'Sandero Stepway' },
-        // Hyundai
-        { brand: 'Hyundai', model: 'i20' }, { brand: 'Hyundai', model: 'i20 2. Nesil' },
-        { brand: 'Hyundai', model: 'i30' }, { brand: 'Hyundai', model: 'Tucson' },
-        { brand: 'Hyundai', model: 'Accent Era' },
-        // Peugeot
-        { brand: 'Peugeot', model: '3008 (1. Nesil 2009-2016)' },
-        { brand: 'Peugeot', model: '3008 (2. Nesil 2016-2023)' },
-        { brand: 'Peugeot', model: '2008' }, { brand: 'Peugeot', model: '208' },
-        // Opel
-        { brand: 'Opel', model: 'Corsa' }, { brand: 'Opel', model: 'Astra K' },
-        // Togg
-        { brand: 'Togg', model: 'T10X' },
-        // Chery
-        { brand: 'Chery', model: 'Tiggo 8 Pro' }, { brand: 'Chery', model: 'Omoda 5' },
-        { brand: 'Chery', model: 'Tiggo 7 Pro' },
-        // Ford
-        { brand: 'Ford', model: 'Focus' }, { brand: 'Ford', model: 'Tourneo Courier' },
-        { brand: 'Ford', model: 'Fiesta' },
-        // BMW
-        { brand: 'BMW', model: '320i' },
-        // Mercedes-Benz
-        { brand: 'Mercedes-Benz', model: 'C180' },
-        // Nissan
-        { brand: 'Nissan', model: 'Qashqai' }, { brand: 'Nissan', model: 'Qashqai 2' },
-        // Kia
-        { brand: 'Kia', model: 'Sportage' }, { brand: 'Kia', model: 'Rio' },
-        // Citroen
-        { brand: 'Citroen', model: 'C3' }, { brand: 'Citroen', model: 'C4 X' },
-        // Skoda
-        { brand: 'Skoda', model: 'Octavia' }, { brand: 'Skoda', model: 'Superb' },
-        { brand: 'Skoda', model: 'Octavia A7' },
-        // Seat
-        { brand: 'Seat', model: 'Leon' },
-        // Tesla
-        { brand: 'Tesla', model: 'Model Y' },
-        // Audi
-        { brand: 'Audi', model: 'A3' }, { brand: 'Audi', model: 'TT' },
-    ];
-
-    const uniqueBrands = [...new Set(vehicleList.map(v => v.brand))];
+    // 1. Araç DNA Markaları, Modelleri ve Kronik Sorun Sayfaları (vehicle-dna'dan dinamik olarak)
+    const { vehicleDNAData } = require('@/data/vehicle-dna');
+    const { engineDNAData } = require('@/data/engine-dna');
+    const { trimLevelsData } = require('@/data/trim-levels');
+    const { OTOBUTCE_CATEGORIES } = require('@/data/otobutce-data');
+    
+    const vehicleList = vehicleDNAData || [];
+    const engineList = engineDNAData || [];
+    const trimList = trimLevelsData || [];
+    
+    const uniqueBrands = [...new Set(vehicleList.map((v: any) => v.brand))];
     uniqueBrands.forEach(brand => {
         sitemapEntries.push({
             url: `${BASE_URL}/arac-dna/${createSlug(brand)}`,
@@ -136,7 +88,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     });
 
-    vehicleList.forEach(vehicle => {
+    vehicleList.forEach((vehicle: any) => {
         const brandSlug = createSlug(vehicle.brand);
         const modelSlug = createSlug(vehicle.model);
 
@@ -155,7 +107,58 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'weekly',
             priority: 0.7,
         });
+
+        // Neden alınır sayfası
+        sitemapEntries.push({
+            url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/neden-alinir`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        });
+
+        // Kullanıcı deneyimleri sayfası
+        sitemapEntries.push({
+            url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/kullanici-deneyimleri`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        });
+        
+        // Donanım paketleri sayfası (Sadece varsa)
+        const hasTrim = trimList.find((t: any) => t.brand === vehicle.brand && t.model === vehicle.model);
+        if (hasTrim) {
+            sitemapEntries.push({
+                url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/arac-paketleri`,
+                lastModified: new Date(),
+                changeFrequency: 'weekly',
+                priority: 0.7,
+            });
+        }
+        
+        // Motor seçenekleri (Sadece varsa)
+        const vehicleEngines = engineList.find((e: any) => e.brand === vehicle.brand && e.model === vehicle.model);
+        if (vehicleEngines && vehicleEngines.engines) {
+            vehicleEngines.engines.forEach((engine: any) => {
+                sitemapEntries.push({
+                    url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/${createSlug(engine.name)}`,
+                    lastModified: new Date(),
+                    changeFrequency: 'weekly',
+                    priority: 0.7,
+                });
+            });
+        }
     });
+
+    if (OTOBUTCE_CATEGORIES) {
+        OTOBUTCE_CATEGORIES.forEach((category: any) => {
+            sitemapEntries.push({
+                url: `${BASE_URL}/otobutce/${category.slug}`,
+                lastModified: new Date(),
+                changeFrequency: 'weekly',
+                priority: 0.8,
+            });
+        });
+    }
 
     // 2. OBD Arıza Kodları - Marka Hub'ları (Silo Mimarisi)
     // Binlerce tekil arıza kodunu sitemap'e koyup şişirmek yerine,

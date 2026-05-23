@@ -1,4 +1,3 @@
-
 export function createSlug(text: string): string {
     if (!text) return '';
     const trMap: Record<string, string> = {
@@ -77,19 +76,19 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 3,
                 title: "Trim Sesleri (B Sütunu & Kemer)",
                 severity: "low",
-                reportCount: 24,
+                reportCount: 9,
                 description: "Kullanıcıların %80'i emniyet kemeri mekanizmasından (B sütunu) gelen tıkırtı sesinden Şikayetçi. Servislerde izolasyon bandı uygulaması yapılıyor."
             },
             {
                 id: 4,
                 title: "Akü Zayıflığı ve Start-Stop Hatası",
                 severity: "medium",
-                reportCount: 23,
+                reportCount: 6,
                 description: "Fabrikasyon akülerin (EFB) ömrü kısa olabiliyor. Akü voltajı düştüğünde araç 'Start-Stop Arızası' veya 'Akü Şarj oluyor' uyarısı verip sistemi devre dışı bırakıyor."
             }
         ],
         userExperiences: [],
-        totalReports: 45
+        totalReports: 7
     },
     {
         id: 2,
@@ -119,19 +118,19 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 2,
                 title: "Amortisör Takozu ve Z-Rot Sesi",
                 severity: "low",
-                reportCount: 44,
+                reportCount: 9,
                 description: "Ön takımdan, özellikle direksiyonu kırarken veya tümseklerde 'lok lok' veya 'gıcırtı' Şeklinde sesler gelir. Amortisör takozları ve bilyaları çabuk deforme olur."
             },
             {
                 id: 4,
                 title: "Krom Parça Soyulmaları",
                 severity: "low",
-                reportCount: 33,
+                reportCount: 9,
                 description: "Dış kapı kollarındaki ve ön panjurda bulunan krom kaplamalar zamanla kabarabilir veya soyulabilir."
             }
         ],
         userExperiences: [],
-        totalReports: 42
+        totalReports: 6
     },
     {
         id: 3,
@@ -161,33 +160,33 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Boya Atması (Beyaz Renk)",
                 severity: "medium",
-                reportCount: 42,
+                reportCount: 9,
                 description: "Özellikle inci beyazı renkli modellerde, basınçlı yıkama sonrası tampon köşelerinde ve tavan rayı kenarlarında boya kalkması sorunu yaşanabiliyor. Servisler lokal boya ile onarım öneriyor."
             },
             {
                 id: 2,
                 title: "Rüzgar Sesi (A Sütunu)",
                 severity: "low",
-                reportCount: 47,
+                reportCount: 8,
                 description: "Araç 100-110 km/s hızı geçince kapı fitillerinden ve aynalardan rüzgar sesi almaya başlıyor. Yalıtım zayıflığı kullanıcıların en sık Şikayet ettiği konu."
             },
             {
                 id: 3,
                 title: "Balata ve Fren Islık Sesi",
                 severity: "low",
-                reportCount: 42,
+                reportCount: 9,
                 description: "Geri manevrada veya düşük hızda fren yaparken balatalardan gelen tiz ıslık sesi. Serviste temizlik veya değişim yapılmasına rağmen tekrarlayabiliyor."
             },
             {
                 id: 4,
                 title: "Multimedya Sorunları",
                 severity: "low",
-                reportCount: 44,
+                reportCount: 7,
                 description: "Ekranın güneşte parlaması, dokunmatiğin geç algılaması ve Apple CarPlay bağlantısının bazen kopması gibi teknolojik sorunlar."
             }
         ],
         userExperiences: [],
-        totalReports: 35
+        totalReports: 9
     },
     {
         id: 4,
@@ -217,19 +216,19 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 3,
                 title: "Trim ve Amortisör Sesi",
                 severity: "low",
-                reportCount: 35,
+                reportCount: 6,
                 description: "Soğuk havalarda ön amortisörlerden gelen gıcırtı ve bozuk yollarda B sütunu/panoramik tavan fitillerinden gelen tıkırtı sesleri."
             },
             {
                 id: 4,
                 title: "R-Link Ekran Kararması",
                 severity: "low",
-                reportCount: 27,
+                reportCount: 7,
                 description: "Multimedya ekranının kendi kendine kapanıp açılması veya donması. Genellikle servis güncellemesi ile çözülüyor."
             }
         ],
         userExperiences: [],
-        totalReports: 20
+        totalReports: 9
     },
     {
         id: 5,
@@ -259,26 +258,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yapışkan Direksiyon (Sticky Steering)",
                 severity: "medium",
-                reportCount: 30,
+                reportCount: 8,
                 description: "Özellikle uzun yolda direksiyonda takılma/yapışma hissi oluşuyor. Honda bazı serilerde direksiyon kutusu değişimi veya yazılım güncellemesi ile çözüm sunuyor."
             },
             {
                 id: 2,
                 title: "Trim Sesleri (Emniyet Kemeri/A Sütunu)",
                 severity: "low",
-                reportCount: 49,
+                reportCount: 6,
                 description: "B sütunundan ve emniyet kemeri mekanizmasından tıkırtı sesleri gelmesi yaygın."
             },
             {
                 id: 3,
                 title: "İnce Kaporta Boyası",
                 severity: "medium",
-                reportCount: 49,
+                reportCount: 6,
                 description: "Özellikle kaput ve tamponda taş izleri çok çabuk oluşuyor. Kullanıcılar seramik kaplama veya PPF öneriyor."
             }
         ],
         userExperiences: [],
-        totalReports: 43
+        totalReports: 6
     },
     {
         id: 6,
@@ -308,19 +307,19 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 3,
                 title: "Cam Tavan Gıcırtısı",
                 severity: "low",
-                reportCount: 24,
+                reportCount: 7,
                 description: "Panoramik cam tavan kasislerde ve esnemelerde gıcırtı yapabilir. Serviste özel yağlama ile geçici çözüm sağlanır ama tekrarlayabilir."
             },
             {
                 id: 4,
                 title: "Kapı Kilit Mekanizması",
                 severity: "low",
-                reportCount: 47,
+                reportCount: 6,
                 description: "Soğuk havalarda kapıların kilitlenmemesi veya dışarıdan açılmaması sorunu yaşanabilir."
             }
         ],
         userExperiences: [],
-        totalReports: 31
+        totalReports: 8
     },
     {
         id: 7,
@@ -350,26 +349,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Kutusu Sesi",
                 severity: "medium",
-                reportCount: 26,
+                reportCount: 8,
                 description: "Manevralarda veya bozuk yolda direksiyondan gelen 'takırtı' veya inleme sesi. Genellikle direksiyon kutusu veya milindeki boşluktan kaynaklanıyor."
             },
             {
                 id: 2,
                 title: "Toz ve Su Alma Sorunu",
                 severity: "low",
-                reportCount: 28,
+                reportCount: 9,
                 description: "Bazı modellerde kapı fitillerinin yetersizliği nedeniyle araç içine, özellikle kapı eşiklerine toz ve yoğun yağmurda su girmesi Şikayetleri mevcut."
             },
             {
                 id: 4,
                 title: "Yakıt Göstergesi Tutarsızlığı",
                 severity: "low",
-                reportCount: 46,
+                reportCount: 8,
                 description: "LPG'li modellerde benzin/LPG göstergesinin yanlış seviye göstermesi veya takılı kalması."
             }
         ],
         userExperiences: [],
-        totalReports: 29
+        totalReports: 6
     },
     {
         id: 8,
@@ -399,40 +398,40 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Debriyaj Aktüatör Sesi (Gıcırtı)",
                 severity: "low",
-                reportCount: 22,
+                reportCount: 8,
                 description: "Pedaldan ayağı çekerken gelen 'guuuuğğkkk' veya gıcırtı sesi. Debriyaj müşürü veya aktüatör kaynaklı, sürüşe engel değil ama can sıkıcı."
             },
             {
                 id: 2,
                 title: "Vernik/Boya Atması",
                 severity: "medium",
-                reportCount: 20,
+                reportCount: 8,
                 description: "Özellikle kaput ve tavan bölgesinde erken vernik atması veya boya dökülmesi Şikayetleri (beyaz renklerde daha sık)."
             },
             {
                 id: 3,
                 title: "Rölanti Dalgalanması",
                 severity: "low",
-                reportCount: 40,
+                reportCount: 8,
                 description: "Rölantide devir saatinin kendi kendine inip kalkması. Genellikle LPG'li araçlarda veya debriyaj müşürü kaynaklı."
             },
             {
                 id: 4,
                 title: "Direksiyon Derisi Soyulması",
                 severity: "medium",
-                reportCount: 29,
+                reportCount: 6,
                 description: "Erken kilometrelerde direksiyon simidinde soyulma. Garanti kapsamında değişim yapılıyor."
             },
             {
                 id: 5,
                 title: "Benzin Pompası Sesi",
                 severity: "low",
-                reportCount: 29,
+                reportCount: 7,
                 description: "Arka koltuk altından gelen 'vınlama' veya 'vızzz' sesi. Depo azken artabilir."
             }
         ],
         userExperiences: [],
-        totalReports: 37
+        totalReports: 8
     },
     {
         id: 901,
@@ -457,12 +456,12 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 3,
                 title: "Amortisör Takozu Sesleri",
                 severity: "low",
-                reportCount: 27,
+                reportCount: 9,
                 description: "Ön süspansiyonlardan, özellikle kasis geçişlerinde lokurtu/gıcırtı sesleri gelmesi sık rastlanan bir montaj/parça zayıflığıdır."
             }
         ],
         userExperiences: [],
-        totalReports: 47
+        totalReports: 9
     },
     {
         id: 902,
@@ -488,12 +487,12 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 4,
                 title: "Multimedya (SMEG/NAC) Ekran Donması",
                 severity: "low",
-                reportCount: 41,
+                reportCount: 7,
                 description: "Orta ekranın kendi kendine kapanması, geri görüş kamerasının siyah ekranda kalması veya Bluetooth bağlantısının kopması sorunları yazılımsal olarak yaşanmaktadır."
             }
         ],
         userExperiences: [],
-        totalReports: 45
+        totalReports: 8
     },
     {
         id: 10,
@@ -522,19 +521,19 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 2,
                 title: "Multimedya Ekran Kararması",
                 severity: "low",
-                reportCount: 42,
+                reportCount: 9,
                 description: "Ekranın siyah olması veya dokunmatiğin tepki vermemesi. Genellikle akü kutup başı sök-tak veya güncelleme ile düzelir."
             },
             {
                 id: 3,
                 title: "Direksiyon Kutusu Sesi",
                 severity: "medium",
-                reportCount: 25,
+                reportCount: 8,
                 description: "Kasislerde direksiyondan gelen tıkırtı sesi."
             }
         ],
         userExperiences: [],
-        totalReports: 20
+        totalReports: 7
     },
     {
         id: 11,
@@ -564,26 +563,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Ekran Donması ve Resetleme",
                 severity: "medium",
-                reportCount: 23,
+                reportCount: 9,
                 description: "Ana ekranın veya göstergelerin sürüş esnasında donması, kararması. Reset atılarak (iki tuşa basılı tutarak) çözülüyor ancak can sıkıcı."
             },
             {
                 id: 2,
                 title: "Şarj Başlatma Hatası",
                 severity: "high",
-                reportCount: 43,
+                reportCount: 8,
                 description: "Bazı DC istasyonlarda 'Şarj Başlatılamadı' hatası veya Şarjın yarıda kesilmesi. OBC (On-Board Charger) güncellemesi gerekebiliyor."
             },
             {
                 id: 3,
                 title: "SOS / eCall Hatası",
                 severity: "low",
-                reportCount: 34,
+                reportCount: 7,
                 description: "Tavandaki SOS modülünün yazılımsal olarak hata vermesi ve ekranda sürekli uyarı çıkması."
             }
         ],
         userExperiences: [],
-        totalReports: 39
+        totalReports: 6
     },
     {
         id: 12,
@@ -612,12 +611,12 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 3,
                 title: "Multimedya/Klima Ekran Donması",
                 severity: "low",
-                reportCount: 33,
+                reportCount: 8,
                 description: "Klima panelinin veya ana ekranın tepki vermemesi. Yazılım güncellemesi ile düzeliyor."
             }
         ],
         userExperiences: [],
-        totalReports: 44
+        totalReports: 6
     },
     {
         id: 13,
@@ -646,19 +645,19 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yazılım ve Ekran Hataları",
                 severity: "medium",
-                reportCount: 29,
+                reportCount: 6,
                 description: "Golf 8'in en büyük baş belası. Ekranın donması, siyah ekran, asistan sistemlerin 'Şu an kullanılamıyor' uyarısı vermesi. Güncellemelerle çözülmeye çalışılıyor."
             },
             {
                 id: 2,
                 title: "SOS Acil Çağrı Hatası",
                 severity: "low",
-                reportCount: 31,
+                reportCount: 8,
                 description: "Tavandaki SOS modülünün arıza verip göstergede sürekli uyarı yakması. Parça değişimi gerekebiliyor."
             }
         ],
         userExperiences: [],
-        totalReports: 47
+        totalReports: 6
     },
     {
         id: 14,
@@ -687,19 +686,19 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 2,
                 title: "Multimedya Ekran Donması",
                 severity: "low",
-                reportCount: 38,
+                reportCount: 9,
                 description: "Sync ekranının tepki vermemesi veya geri görüş kamerasının geç gelmesi."
             },
             {
                 id: 3,
                 title: "B Sütunu Trim Sesi",
                 severity: "low",
-                reportCount: 45,
+                reportCount: 7,
                 description: "Emniyet kemeri çıkışından gelen tıkırtı sesi, özellikle bozuk yolda belirginleşiyor."
             }
         ],
         userExperiences: [],
-        totalReports: 39
+        totalReports: 9
     },
     {
         id: 15,
@@ -728,26 +727,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Su Eksiltme / Soğutma Sızıntısı",
                 severity: "medium",
-                reportCount: 31,
+                reportCount: 9,
                 description: "Genleşme kabı, devirdaim veya hortumlardan soğutma sıvısı kaçağı. 'Soğutma suyu seviyesi düşük' uyarısı dikkate alınmalı."
             },
             {
                 id: 2,
                 title: "Direksiyon Trim Sesi",
                 severity: "low",
-                reportCount: 47,
+                reportCount: 6,
                 description: "Direksiyon simidinden veya airbag sargısından gelen sürtünme/gıcırtı sesi."
             },
             {
                 id: 3,
                 title: "Klima Izgarası Kırılması",
                 severity: "low",
-                reportCount: 28,
+                reportCount: 6,
                 description: "Ön konsol havalandırma yönlendirme ızgaralarının hassas olması ve çabuk kırılması."
             }
         ],
         userExperiences: [],
-        totalReports: 29
+        totalReports: 7
     },
     {
         id: 16,
@@ -776,26 +775,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "48V Akü Sistemi Arızası",
                 severity: "high",
-                reportCount: 24,
+                reportCount: 7,
                 description: "Aracın çalışmamasına neden olan kronik bir sorun. '48V sistemi arızası' uyarısı verip yolda bırakabiliyor. Yazılım veya parça değişimi gerektirir."
             },
             {
                 id: 2,
                 title: "Fren Sesi ve Titreme",
                 severity: "low",
-                reportCount: 35,
+                reportCount: 9,
                 description: "Düşük hızlarda frenlerden gelen sürtünme sesi ve disklerin çabuk eğilmesi sonucu titreme."
             },
             {
                 id: 3,
                 title: "Trim Sesleri (Konsol)",
                 severity: "low",
-                reportCount: 47,
+                reportCount: 8,
                 description: "Özellikle orta konsol ve ekran çevresinden gelen gıcırtı sesleri (piyano siyahı parçalar)."
             }
         ],
         userExperiences: [],
-        totalReports: 44
+        totalReports: 9
     },
     {
         id: 17,
@@ -824,26 +823,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Fren Sesi ve Disk Eğriliği",
                 severity: "medium",
-                reportCount: 22,
+                reportCount: 6,
                 description: "Frenleme esnasında metalik sürtünme sesi ve disklerde erken eğilme sonucu titreme. Servislerde değişim yapılıyor."
             },
             {
                 id: 2,
                 title: "Yüksek Yakıt Tüketimi",
                 severity: "medium",
-                reportCount: 47,
+                reportCount: 9,
                 description: "Fabrika verisinin çok üzerinde, agresif kullanımda 12-13 litreleri görebilen tüketim."
             },
             {
                 id: 3,
                 title: "Ayna Titremesi",
                 severity: "low",
-                reportCount: 33,
+                reportCount: 6,
                 description: "Yüksek hızlarda yan aynaların rüzgar etkisiyle titremesi."
             }
         ],
         userExperiences: [],
-        totalReports: 44
+        totalReports: 6
     },
     {
         id: 18,
@@ -872,26 +871,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "e-Power Sistem Hatası",
                 severity: "high",
-                reportCount: 31,
+                reportCount: 8,
                 description: "Aracın 'Sistem Hatası' verip çalışmaması veya yolda kalması. Genellikle jeneratör ünitesi veya inverter kaynaklı ciddi bir arıza."
             },
             {
                 id: 2,
                 title: "Ekran Donması ve Kararma",
                 severity: "medium",
-                reportCount: 27,
+                reportCount: 9,
                 description: "Multimedya ekranının tepki vermemesi, donması veya tamamen kararması. Yazılım güncellemesi ile bazen çözülüyor."
             },
             {
                 id: 3,
                 title: "Akü Zayıflığı",
                 severity: "low",
-                reportCount: 42,
+                reportCount: 9,
                 description: "12V akünün çabuk bitmesi sonucu aracın sistemlerinin devreye girmemesi."
             }
         ],
         userExperiences: [],
-        totalReports: 43
+        totalReports: 7
     },
     {
         id: 19,
@@ -920,26 +919,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "GPF Tıkanıklığı Uyarısı",
                 severity: "medium",
-                reportCount: 26,
+                reportCount: 6,
                 description: "Egzoz sistemi uyarısı olarak çıkar. Özellikle sürekli kısa mesafe kullanımlarda partikül filtresi tıkanabilir. Uzun yolda yüksek devir çevirmek gerekebilir."
             },
             {
                 id: 2,
                 title: "Kalkışta Titreme",
                 severity: "low",
-                reportCount: 22,
+                reportCount: 6,
                 description: "DCT Şanzımanın kavraması kaynaklı, özellikle yokuş kalkışlarında veya 1-2 vites geçişlerinde titreme."
             },
             {
                 id: 3,
                 title: "Multimedya Reset",
                 severity: "low",
-                reportCount: 27,
+                reportCount: 7,
                 description: "Ekranın nadiren donması ve resetleme gerektirmesi."
             }
         ],
         userExperiences: [],
-        totalReports: 36
+        totalReports: 7
     },
     {
         id: 20,
@@ -968,26 +967,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DCT Şanzıman Isınması",
                 severity: "medium",
-                reportCount: 29,
+                reportCount: 9,
                 description: "Yoğun dur-kalk trafikte Şanzıman sıcaklık uyarısı verip kenara çekmenizi isteyebilir. Kuru kavrama handikapı."
             },
             {
                 id: 2,
                 title: "Sunroof Sesi",
                 severity: "low",
-                reportCount: 34,
+                reportCount: 7,
                 description: "Cam tavan mekanizmasından veya fitillerinden gelen tıkırtı/gıcırtı sesleri."
             },
             {
                 id: 3,
                 title: "PPF (Partikül Filtresi) Sorunu",
                 severity: "medium",
-                reportCount: 43,
+                reportCount: 9,
                 description: "Benzinli modellerde partikül filtresi tıkanıklığı uyarısı (Tucson ile ortak sorun)."
             }
         ],
         userExperiences: [],
-        totalReports: 33
+        totalReports: 7
     },
     {
         id: 21,
@@ -1016,26 +1015,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Triger Kayışı Soyulması (1.2 PureTech)",
                 severity: "high",
-                reportCount: 48,
+                reportCount: 9,
                 description: "Kayışın parçalanıp yağ kanalını tıkaması sonucu 'Yağ Basıncı Arızası'. Motor yatak sarmasına kadar gidebilir. Periyodik kontrol Şart."
             },
             {
                 id: 2,
                 title: "Yağ Eksiltme",
                 severity: "medium",
-                reportCount: 48,
+                reportCount: 6,
                 description: "1.2 Turbo benzinli motorlarda yağ yakma/eksiltme sorunu."
             },
             {
                 id: 3,
                 title: "AdBlue Depo Sorunu (Dizel)",
                 severity: "high",
-                reportCount: 26,
+                reportCount: 7,
                 description: "Dizel versiyonlarda AdBlue deposu/pompası arızası."
             }
         ],
         userExperiences: [],
-        totalReports: 29
+        totalReports: 6
     },
     {
         id: 22,
@@ -1048,10 +1047,10 @@ export const vehicleDNAData: VehicleDNA[] = [
         strengths: ["Keskin tasarım (Vizor)", "Alman ergonomisi", "Yol tutuş"],
         weaknesses: ["Multimedya hızı", "Sert koltuklar", "Vasat arka görüş"],
         chronicIssues: [
-            { id: 1, title: "Ekran Kararması", severity: "low", reportCount: 48, description: "Pure Panel ekran sorunları." }
+            { id: 1, title: "Ekran Kararması", severity: "low", reportCount: 8, description: "Pure Panel ekran sorunları." }
         ],
         userExperiences: [],
-        totalReports: 25
+        totalReports: 9
     },
     {
         id: 23,
@@ -1064,10 +1063,10 @@ export const vehicleDNAData: VehicleDNA[] = [
         strengths: ["Geniş iç hacim", "Ekonomik motor", "Sorunsuzluk"],
         weaknesses: ["Yalıtım zayıf", "Dar lastikler", "Bazı donanımlar eksik"],
         chronicIssues: [
-            { id: 1, title: "Boya Kalitesi", severity: "medium", reportCount: 48, description: "İnce boya katmanı." }
+            { id: 1, title: "Boya Kalitesi", severity: "medium", reportCount: 9, description: "İnce boya katmanı." }
         ],
         userExperiences: [],
-        totalReports: 37
+        totalReports: 8
     },
     {
         id: 24,
@@ -1096,26 +1095,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DSG Kavrama Titremesi",
                 severity: "medium",
-                reportCount: 35,
+                reportCount: 7,
                 description: "Özellikle 2. vites geçişlerinde kararsızlık ve titreme. Yoğun trafikte manüel modda kullanılması önerilir."
             },
             {
                 id: 2,
                 title: "Klima Kompresör Sesi",
                 severity: "low",
-                reportCount: 25,
+                reportCount: 7,
                 description: "Klima açıldığında motordan gelen uğultu veya vınlama sesi."
             },
             {
                 id: 3,
                 title: "Trim Sesleri",
                 severity: "low",
-                reportCount: 33,
+                reportCount: 9,
                 description: "Sert süspansiyon nedeniyle bozuk yollarda B sütunu ve konsoldan gelen tıkırtılar."
             }
         ],
         userExperiences: [],
-        totalReports: 47
+        totalReports: 8
     },
     {
         id: 25,
@@ -1144,26 +1143,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Tablet Ekran Kararması",
                 severity: "medium",
-                reportCount: 42,
+                reportCount: 8,
                 description: "Multimedya ekranının sürüş esnasında siyah olması, donması veya 'Hello Citroen' asistanının çalışmaması. Yazılım güncellemesi ile düzeliyor."
             },
             {
                 id: 2,
                 title: "Süspansiyon Sesi (Lokurtu)",
                 severity: "low",
-                reportCount: 38,
+                reportCount: 6,
                 description: "Özellikle tümsek geçişlerinde arka süspansiyondan gelen tok 'lok lok' sesi. Amortisör yapısı kaynaklı karakteristik bir durum."
             },
             {
                 id: 3,
                 title: "AdBlue Uyarısı",
                 severity: "medium",
-                reportCount: 44,
+                reportCount: 6,
                 description: "Dizel versiyonlarda AdBlue sistemi arızası veya yanlış seviye uyarısı."
             }
         ],
         userExperiences: [],
-        totalReports: 45
+        totalReports: 9
     },
     {
         id: 26,
@@ -1192,26 +1191,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yazılım Hataları ve SOS Arızası",
                 severity: "medium",
-                reportCount: 40,
+                reportCount: 6,
                 description: "Golf 8 ile benzer platformu paylaştığı için yazılım hataları (ekran donması, asistan hataları) ve 'SOS arızası' uyarısı yaygındır."
             },
             {
                 id: 2,
                 title: "Vites Seçici (Shift-by-wire) Hatası",
                 severity: "low",
-                reportCount: 42,
+                reportCount: 9,
                 description: "Küçük vites mandalının bazen tepki vermemesi veya 'Aracı P konumuna alın' uyarısı."
             },
             {
                 id: 3,
                 title: "Trim Sesleri",
                 severity: "low",
-                reportCount: 36,
+                reportCount: 9,
                 description: "Özellikle kapı tutamaklarından ve B sütunundan gelen gıcırtı sesleri."
             }
         ],
         userExperiences: [],
-        totalReports: 21
+        totalReports: 8
     },
     {
         id: 27,
@@ -1240,26 +1239,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Krom Çıta Solması",
                 severity: "low",
-                reportCount: 43,
+                reportCount: 8,
                 description: "Cam çevresindeki krom çıtaların zamanla matlaşması ve lekelenmesi. Garantiden değişim zor olabiliyor."
             },
             {
                 id: 2,
                 title: "DSG Mekatronik Arızası",
                 severity: "high",
-                reportCount: 26,
+                reportCount: 9,
                 description: "Volkswagen grubunun klasik sorunu. Vites geçişlerinde vuruntu veya 'Şanzıman Hatası' uyarısı. Maliyetli olabilir."
             },
             {
                 id: 3,
                 title: "Amortisör Takoz Sesi",
                 severity: "low",
-                reportCount: 47,
+                reportCount: 8,
                 description: "Kasis geçişlerinde ön takımdan gelen gıcırtı sesi."
             }
         ],
         userExperiences: [],
-        totalReports: 21
+        totalReports: 9
     },
     {
         id: 28,
@@ -1288,26 +1287,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yüksek Yakıt Tüketimi",
                 severity: "medium",
-                reportCount: 33,
+                reportCount: 8,
                 description: "Kullanıcıların en büyük Şikayeti. Fabrika verisinin üzerinde, agresif kullanımda 12 litreleri görebiliyor."
             },
             {
                 id: 2,
                 title: "Şanzıman Isınması/Vuruntu",
                 severity: "low",
-                reportCount: 47,
+                reportCount: 7,
                 description: "Yoğun trafikte Şanzıman ısınma uyarısı veya vites geçişlerinde (özellikle 1-2) sarsıntı."
             },
             {
                 id: 3,
                 title: "Multimedya Donması",
                 severity: "low",
-                reportCount: 25,
+                reportCount: 9,
                 description: "Apple CarPlay bağlantı kopması veya ekranın tamamen donması."
             }
         ],
         userExperiences: [],
-        totalReports: 39
+        totalReports: 9
     },
     {
         id: 29,
@@ -1336,26 +1335,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "SOS Acil Çağrı Hatası",
                 severity: "high",
-                reportCount: 30,
+                reportCount: 6,
                 description: "Gösterge panelinde sürekli yanan 'SOS Arızası' uyarısı. Golf 8 ile ortak kronik sorun. Yazılım veya modül değişimi gerekiyor."
             },
             {
                 id: 2,
                 title: "Multimedya Resetleme",
                 severity: "medium",
-                reportCount: 46,
+                reportCount: 8,
                 description: "Ekranın kendi kendine kapanıp açılması, donması. Yazılım güncellemesi ile düzelme ihtimali var."
             },
             {
                 id: 3,
                 title: "Arka Stop Çatlaması",
                 severity: "low",
-                reportCount: 43,
+                reportCount: 6,
                 description: "Boydan boya uzanan arka led stop lambasında kılcal çatlamalar oluşması."
             }
         ],
         userExperiences: [],
-        totalReports: 27
+        totalReports: 6
     },
     {
         id: 30,
@@ -1385,33 +1384,33 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Phantom Braking (Hayalet Fren)",
                 severity: "high",
-                reportCount: 47,
+                reportCount: 6,
                 description: "Otopilot veya hız sabitleyici açıkken, araç gölgeyi veya tünel girişini engel sanıp aniden sert fren yapabiliyor. Arkadan gelen araç için risk oluşturabilir."
             },
             {
                 id: 2,
                 title: "Montaj ve Panel Açıklıkları",
                 severity: "low",
-                reportCount: 27,
+                reportCount: 7,
                 description: "Kapı, bagaj veya kaput aralıklarının eşit olmaması (Panel Gaps). Berlin üretimi araçlarda azalsa da hala görülebiliyor."
             },
             {
                 id: 3,
                 title: "Trim Sesleri",
                 severity: "low",
-                reportCount: 26,
+                reportCount: 9,
                 description: "Sessiz elektrik motoru nedeniyle kabin içindeki en ufak tıkırtı (emniyet kemeri, koltuk kızakları) duyulabiliyor."
             },
             {
                 id: 4,
                 title: "Süspansiyon Sertliği",
                 severity: "medium",
-                reportCount: 33,
+                reportCount: 9,
                 description: "Özellikle 2022-2023 modellerde süspansiyon oldukça sert. 20 cm jantlı Performance modellerde konfor daha da azalıyor."
             }
         ],
         userExperiences: [],
-        totalReports: 22
+        totalReports: 8
     },
     {
         id: 31,
@@ -1438,33 +1437,33 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DPF ve EGR Tıkanması",
                 severity: "high",
-                reportCount: 44,
+                reportCount: 7,
                 description: "Sürekli şehir içi ve düşük devir kullanımında DPF'nin kurum bağlaması. Çekiş düşüklüğü, artan yakıt tüketimi ve motor arıza lambasıyla kendini belli eder. Yüksek devirli uzun yol kullanımı ile temizlenmesi gerekir."
             },
             {
                 id: 2,
                 title: "Direksiyon Derisi Soyulması",
                 severity: "medium",
-                reportCount: 32,
+                reportCount: 9,
                 description: "Düşük kilometrelerde bile direksiyon simidinde erken aşınma ve bölgesel soyulmaların başlaması. Özellikle güneşe maruz kalan araçlarda daha sık görülür."
             },
             {
                 id: 3,
                 title: "Motor Kulağı Yıpranması / Kabin Titreşimi",
                 severity: "medium",
-                reportCount: 31,
+                reportCount: 9,
                 description: "Kilometre ilerledikçe motor takozlarının özelliğini yitirmesi sonucu rölantideyken dizel motorun titreşiminin kabin içine, direksiyona ve pedallara fazlaca yansıması."
             },
             {
                 id: 4,
                 title: "Turbo Hortumu Terlemesi",
                 severity: "low",
-                reportCount: 34,
+                reportCount: 9,
                 description: "Yüksek kilometreli araçlarda turbo borularında yağ terlemesi veya ufak basınç kaçakları oluşması. İvmelenme esnasında ekstra ıslık sesiyle fark edilebilir."
             }
         ],
         userExperiences: [],
-        totalReports: 49
+        totalReports: 9
     },
     {
         id: 32,
@@ -1490,40 +1489,40 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Tıkırtı Burcu (Yıldız / EPS) Boşluğu",
                 severity: "high",
-                reportCount: 43,
+                reportCount: 9,
                 description: "Elektrikli direksiyon motorunun (EPS) içindeki plastik yıldız burcun zamanla aşınıp ufalanması sonucu, bozuk yollarda direksiyon kutusundan kabine belirgin bir 'tık tık tık' ses gelmesi. Uygun maliyetli burç değişimiyle çözülür."
             },
             {
                 id: 2,
                 title: "DCT Şanzıman Titremesi (2015 Sonrası)",
                 severity: "medium",
-                reportCount: 48,
+                reportCount: 6,
                 description: "2015 yılı makyajıyla gelen 7 ileri DCT şanzımanlarda, yoğun dur-kalk trafiğinde kavramanın ısınıp uyarı vermesi veya yokuşlarda 1'den 2'ye geçerken kavrama titremesi."
             },
             {
                 id: 3,
                 title: "Geri Görüş Kamerası Mekanizma Takılması",
                 severity: "medium",
-                reportCount: 27,
+                reportCount: 6,
                 description: "Bagaj kapağındaki Hyundai logosunun arkasında gizli kameranın, toz/pislik girmesi veya mekanik dişli sıyırması sebebiyle takılı kalıp açılmaması ya da kapanmaması durumu."
             },
             {
                 id: 4,
                 title: "Panoramik Cam Tavan Esneme Sesi",
                 severity: "medium",
-                reportCount: 39,
+                reportCount: 8,
                 description: "Elite paketlerdeki büyük cam tavanın fitillerinin kuruması veya ağır kasanın esnemesi sebebiyle çapraz kasis geçişlerinde tavandan gıcırtı ve çıtırtı sesleri gelmesi. Silikon spreyi ile çözülebilir."
             },
             {
                 id: 5,
                 title: "Direksiyon Derisi Soyulması",
                 severity: "low",
-                reportCount: 42,
+                reportCount: 8,
                 description: "Araç kapalı garajda muhafaza edilmediyse, direksiyon simidindeki suni deri kaplamanın el teri ve güneşe bağlı olarak erken kilometrelerde soyulmaya ve matlaşmaya başlaması."
             }
         ],
         userExperiences: [],
-        totalReports: 43
+        totalReports: 7
     },
     {
         id: 33,
@@ -1549,40 +1548,40 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Piston Segmanı / Aşırı Yağ Yakma Sorunu",
                 severity: "high",
-                reportCount: 41,
+                reportCount: 9,
                 description: "Özellikle 2009-2011 arası üretilen 1.8 ve 2.0 TFSI (EA888 kodlu) motorların hatalı tasarlanan yağ segmanları nedeniyle 1000 kilometrede 1 litreye varan yağ eksiltmesi. Genellikle motorun açılıp revize edilmiş segman ve pistonlarla toplanması gerekir."
             },
             {
                 id: 2,
                 title: "S tronic (DSG) Mekatronik ve Kavrama Yıpranması",
                 severity: "high",
-                reportCount: 24,
+                reportCount: 9,
                 description: "Hor kullanılmış veya yazılımla torku yükseltilmiş araçlarda çift kavramanın erken bitmesi veya mekatronik beyninin arıza vermesi. Vites geçişlerinde kararsızlık, vuruntu ve silkeleme ile kendini belli eder."
             },
             {
                 id: 3,
                 title: "PCV Valfi ve Bobin Arızaları",
                 severity: "medium",
-                reportCount: 39,
+                reportCount: 7,
                 description: "Karter havalandırma (PCV) valfinin içindeki diyaframın zamanla yırtılması sonucu aracın rölantisinin dalgalanması, ıslık sesi çıkarması ve yağ yakımının artması."
             },
             {
                 id: 4,
                 title: "Arka Stop Lambası Şasi Problemi",
                 severity: "low",
-                reportCount: 20,
+                reportCount: 8,
                 description: "Arka stop lambalarının duy soketlerindeki toprak (şasi) hattının zayıf olması sebebiyle zamanla ısınarak soketin erimesi. Genelde ek bir şasi kablosu çekilerek ucuza çözülür."
             },
             {
                 id: 5,
                 title: "Cam Krikosu ve Şalter Arızaları",
                 severity: "low",
-                reportCount: 31,
+                reportCount: 6,
                 description: "Kapı açıldığında camı bir miktar aşağı indiren mekanizmanın zamanla bozulması veya cam krikosu tellerinin koparak camın kapı içinde düşmesi."
             }
         ],
         userExperiences: [],
-        totalReports: 23
+        totalReports: 9
     },
     {
         id: 34,
@@ -1610,40 +1609,40 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Rüzgar Sesi ve Fitil Problemi",
                 severity: "high",
-                reportCount: 41,
+                reportCount: 8,
                 description: "Clio 4'ün en meşhur kronik sorunudur. Ön kelebek camlarından, ayna diplerinden ve kapı fitillerinden 90 km/s hızdan itibaren kabine belirgin ıslık/rüzgar sesi girmesi. Genelde ekstra fitil uygulaması ile çözülür."
             },
             {
                 id: 2,
                 title: "EDC Şanzıman Beyni ve Kavrama Sorunları",
                 severity: "high",
-                reportCount: 29,
+                reportCount: 9,
                 description: "Otomatik vitesli (EDC çift kavrama) versiyonlarda, yoğun dur-kalk trafikte kavramanın çabuk ısınarak silkeleme yapması ve şanzıman beyninin (TCM) lehim atarak arıza vermesi durumu."
             },
             {
                 id: 3,
                 title: "Ön Takım ve Süspansiyon Sesleri",
                 severity: "medium",
-                reportCount: 30,
+                reportCount: 8,
                 description: "Süspansiyonların sertliği sebebiyle viraj demir uç lastikleri, Z rotlar ve amortisör takozlarının erken yıpranması, çukurlarda ön takımdan lok lok vuruntu sesleri gelmesi."
             },
             {
                 id: 4,
                 title: "Direksiyon ve Vites Topuzu Soyulması",
                 severity: "medium",
-                reportCount: 21,
+                reportCount: 9,
                 description: "Özellikle Touch ve Joy paketlerde kullanılan suni deri direksiyon simidinin ve vites topuzu nikelajının el terine dayanamayıp 40-50 bin kilometrelerde soyulup dökülmeye başlaması."
             },
             {
                 id: 5,
                 title: "MediaNav Multimedya Çökmeleri",
                 severity: "low",
-                reportCount: 22,
+                reportCount: 9,
                 description: "Dokunmatik ekranlı MediaNav sisteminin ara sıra logoda takılı kalması, donması veya Bluetooth bağlantısının kopması. Çoğu zaman yazılım güncellemesi ile düzeltilebilmektedir."
             }
         ],
         userExperiences: [],
-        totalReports: 38
+        totalReports: 9
     },
     {
         id: 101,
@@ -1668,33 +1667,33 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Kaporta Çürümesi",
                 severity: "high",
-                reportCount: 50,
+                reportCount: 8,
                 description: "Özellikle kapı altları, çamurluk ağızları ve taban sacında paslanma ve çürüme sıklıkla görülür."
             },
             {
                 id: 2,
                 title: "Hararet Sorunu",
                 severity: "high",
-                reportCount: 45,
+                reportCount: 6,
                 description: "Soğutma sisteminin (radyatör, fan müşürü) zayıflığı nedeniyle özellikle yaz aylarında hararet yapma eğilimi yüksektir."
             },
             {
                 id: 3,
                 title: "Diferansiyel Ötmesi",
                 severity: "medium",
-                reportCount: 40,
+                reportCount: 6,
                 description: "Arkadan itişli sistemdeki diferansiyelden belirli bir hızdan sonra 'uğultu' şeklinde ses gelmesi."
             },
             {
                 id: 4,
                 title: "Torpido Çatlaması",
                 severity: "low",
-                reportCount: 35,
+                reportCount: 7,
                 description: "Güneşe maruz kalan ön göğüs (torpido) plastiğinin zamanla çatlaması kroniktir."
             }
         ],
         userExperiences: [],
-        totalReports: 50
+        totalReports: 6
     },
     {
         id: 102,
@@ -1719,26 +1718,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Ön Takım (Amortisör Takozu) Sesi",
                 severity: "medium",
-                reportCount: 55,
+                reportCount: 8,
                 description: "Ön takımdan esnemelerde ve tümseklerde lokurtu gelmesi Linea'nın en belirgin kroniklerinden biridir."
             },
             {
                 id: 2,
                 title: "Göğüs (Torpido) Çatlaması",
                 severity: "high",
-                reportCount: 40,
+                reportCount: 9,
                 description: "Özellikle yolcu hava yastığı bölgesinde güneşe maruz kalmaktan dolayı torpido plastiğinde boydan boya çatlak oluşması."
             },
             {
                 id: 3,
                 title: "Direksiyon Şehir Modu (City) Arızası",
                 severity: "high",
-                reportCount: 35,
+                reportCount: 7,
                 description: "City modunun devreden çıkıp direksiyonun aniden sertleşmesi ve direksiyon açı sensörü arızası vermesi."
             }
         ],
         userExperiences: [],
-        totalReports: 60
+        totalReports: 7
     },
     {
         id: 103,
@@ -1763,26 +1762,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Rüzgar ve Kapı Fitili Sesi",
                 severity: "high",
-                reportCount: 45,
+                reportCount: 6,
                 description: "Kapı fitillerinin zayıflığından dolayı 90 km/s hızdan sonra kabin içerisine şiddetli rüzgar sesi alması."
             },
             {
                 id: 2,
                 title: "Direksiyon Kutusu Tıkırtısı",
                 severity: "medium",
-                reportCount: 38,
+                reportCount: 8,
                 description: "Bozuk yollarda direksiyon milinden veya kutusundan gelen mekanik tıkırtı sesi."
             },
             {
                 id: 3,
                 title: "Korna Butonu Arızası",
                 severity: "low",
-                reportCount: 42,
+                reportCount: 8,
                 description: "Sinyal kolu üzerindeki korna butonunun içten kablo kopması nedeniyle çalışmaması."
             }
         ],
         userExperiences: [],
-        totalReports: 55
+        totalReports: 7
     },
     {
         id: 104,
@@ -1807,26 +1806,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "EPS (Elektrikli Direksiyon) Tıkırtısı",
                 severity: "high",
-                reportCount: 65,
+                reportCount: 6,
                 description: "Direksiyon motorunun içindeki plastik yıldız burcun parçalanarak direksiyonu çevirirken 'tık tık' etmesi."
             },
             {
                 id: 2,
                 title: "Amortisör Vuruntusu",
                 severity: "medium",
-                reportCount: 40,
+                reportCount: 8,
                 description: "Süspansiyon sisteminin kısa stroklu olmasından dolayı çukurlarda dibe vurup kütleme sesi yapması."
             },
             {
                 id: 3,
                 title: "Klima Yönlendirme Dişlisi Kırılması",
                 severity: "low",
-                reportCount: 30,
+                reportCount: 7,
                 description: "Hava yönünü öncama veya ayaklara ayarlayan mekanizmanın arkasındaki plastik dişlinin kırılıp takılı kalması."
             }
         ],
         userExperiences: [],
-        totalReports: 45
+        totalReports: 9
     },
     {
         id: 105,
@@ -1851,26 +1850,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Kutusu Boşluğu ve Sesi",
                 severity: "high",
-                reportCount: 50,
+                reportCount: 8,
                 description: "Özellikle bozuk yollarda direksiyon kutusundan gelen lokurtu ve boşluk hissi. Tamir takımıyla onarılması gerekebilir."
             },
             {
                 id: 2,
                 title: "Motor Kulağı Çökmesi",
                 severity: "medium",
-                reportCount: 42,
+                reportCount: 7,
                 description: "Özellikle sağ hidrolik motor takozunun (kulağının) zamanla sönmesi/çökmesi ve motor titreşimini kasaya vermesi."
             },
             {
                 id: 3,
                 title: "Fren Balata/Disk Eğilmesi",
                 severity: "medium",
-                reportCount: 35,
+                reportCount: 6,
                 description: "Orijinal disklerin yapısı sebebiyle yüksek süratlerde fren yapıldığında direksiyonda titreme (disk yamulması)."
             }
         ],
         userExperiences: [],
-        totalReports: 52
+        totalReports: 7
     },
     {
         id: 106,
@@ -1895,26 +1894,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Arka Kapı / Sürgülü Kapı Sesleri",
                 severity: "medium",
-                reportCount: 48,
+                reportCount: 9,
                 description: "Büyük sürgülü kapıların mekanizmalarının ve fitillerinin zamanla ayar kaçırması, kasislerde gacır gucur ses yapması."
             },
             {
                 id: 2,
                 title: "Boya Dökülmesi / Vernik Atması",
                 severity: "high",
-                reportCount: 35,
+                reportCount: 6,
                 description: "Bazı üretim yıllarında (özellikle beyaz ve gri) tavan ve kaput bölgelerinde durduk yere boya kabarması ve vernik atması."
             },
             {
                 id: 3,
                 title: "Amortisör Takozu Sesi",
                 severity: "medium",
-                reportCount: 45,
+                reportCount: 7,
                 description: "Ağır kasa sebebiyle ön amortisör takozlarının erken ömrünü tamamlayıp direksiyon çevirirken veya kasiste lokurtu yapması."
             }
         ],
         userExperiences: [],
-        totalReports: 65
+        totalReports: 9
     },
     {
         id: 107,
@@ -1939,33 +1938,33 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Kart Okunamadı Hatası",
                 severity: "high",
-                reportCount: 85,
+                reportCount: 7,
                 description: "Anahtar kartının içindeki lehimlerin zamanla kırılması sonucu aracın kartı tanımaması ve çalışmaması. Kartın tamiri veya yenilenmesi gerekir."
             },
             {
                 id: 2,
                 title: "Direksiyon Sargısı (Airbag Sargısı) Kopması",
                 severity: "high",
-                reportCount: 70,
+                reportCount: 8,
                 description: "Direksiyon çevirirken 'çıt çıt' ses gelmesi ve ardından airbag lambasının yanması. Sargının kopması kroniktir."
             },
             {
                 id: 3,
                 title: "Cam Krikosu Tel Kopması",
                 severity: "medium",
-                reportCount: 65,
+                reportCount: 6,
                 description: "Özellikle ön camların krikosundaki plastik makaranın veya telin koparak camın kapı içine düşmesi."
             },
             {
                 id: 4,
                 title: "Torpido ve Kapı İçi Soyulmaları",
                 severity: "low",
-                reportCount: 90,
+                reportCount: 9,
                 description: "Kapı tutamakları, teyp tuşları ve cam açma düğmelerindeki soft-touch (yumuşak) kaplamanın yapış yapış olup dökülmesi."
             }
         ],
         userExperiences: [],
-        totalReports: 110
+        totalReports: 6
     },
     {
         id: 108,
@@ -1990,26 +1989,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Sync Ekran Donması / Bluetooth Kopması",
                 severity: "low",
-                reportCount: 45,
+                reportCount: 8,
                 description: "Orijinal teypte telefon görüşmesi sırasında sesin gitmemesi veya teybin kitlenip akü kutup başı sökülmeden düzelmemesi."
             },
             {
                 id: 2,
                 title: "Direksiyon Kutusu Tıkırtısı",
                 severity: "medium",
-                reportCount: 38,
+                reportCount: 8,
                 description: "Bozuk ve parke taşlı yollarda direksiyon milinden gelen mekanik tıkırtı/boşluk sesi."
             },
             {
                 id: 3,
                 title: "Kapı Kilit Mekanizması Tutukluğu",
                 severity: "low",
-                reportCount: 30,
+                reportCount: 9,
                 description: "Özellikle kış aylarında sürgülü kapıların veya ön kapıların merkezi kilitle tam kapanmaması veya açılmaması."
             }
         ],
         userExperiences: [],
-        totalReports: 75
+        totalReports: 8
     },
     {
         id: 109,
@@ -2034,26 +2033,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Medya Ekranı (Media Nav) Çökmesi",
                 severity: "medium",
-                reportCount: 42,
+                reportCount: 8,
                 description: "Ekranın durduk yere kararması veya Apple CarPlay bağlantısının sürekli kopması. Yazılım güncellemesi gerektirir."
             },
             {
                 id: 2,
                 title: "Kapı Fitillerinden Su/Rüzgar Alması",
                 severity: "low",
-                reportCount: 35,
+                reportCount: 6,
                 description: "Özellikle ön kapı üstlerinden 100 km/s hızın üzerinde ıslık sesi gelmesi."
             },
             {
                 id: 3,
                 title: "Wastegate (Turbo) Şıkırtısı",
                 severity: "low",
-                reportCount: 50,
+                reportCount: 7,
                 description: "1.0 TCe motorlarda gaza basıp çekerken turbonun wastegate çubuğundan gelen mekanik şıkırtı sesi. Yetkili servisler 'karakteristik özellik' demektedir."
             }
         ],
         userExperiences: [],
-        totalReports: 60
+        totalReports: 6
     },
     {
         id: 110,
@@ -2078,26 +2077,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Trim Sesleri (Özellikle Gözlük Kabı ve Kapılar)",
                 severity: "low",
-                reportCount: 55,
+                reportCount: 6,
                 description: "İç mekanda tavan lambası civarından ve kapı içlerinden bozuk yolda gelen çıtırtılar."
             },
             {
                 id: 2,
                 title: "Su Pompası (Devirdaim) Su Kaçağı",
                 severity: "medium",
-                reportCount: 48,
+                reportCount: 8,
                 description: "Motor ayrımı olmaksızın su pompasının contadan antifriz sızdırması ve 'Soğutma Suyu Seviyesi Düşük' uyarısı."
             },
             {
                 id: 3,
                 title: "Cam Düğmeleri Kromlarının Soyulması",
                 severity: "low",
-                reportCount: 40,
+                reportCount: 8,
                 description: "Şoför tarafındaki cam açma kapama tuşlarının uçlarındaki krom kaplamaların el kesicek şekilde soyulması."
             }
         ],
         userExperiences: [],
-        totalReports: 85
+        totalReports: 8
     },
     {
         id: 111,
@@ -2122,26 +2121,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Bagaj Kilidi (Mandalı) Arızası",
                 severity: "medium",
-                reportCount: 45,
+                reportCount: 6,
                 description: "Bagaj kapağındaki VW logolu açma mekanizmasının zamanla bozulması veya içine su alıp bagajın açılmaması."
             },
             {
                 id: 2,
                 title: "Ön Konsol (Havalandırma) Izgara Kırılması",
                 severity: "low",
-                reportCount: 50,
+                reportCount: 9,
                 description: "Ön konsoldaki havalandırma yönlendirici ızgaraların plastiklerinin çok hassas olup ufak bir temasta kırılması."
             },
             {
                 id: 3,
                 title: "Tavan Döşemesi Sarkması",
                 severity: "low",
-                reportCount: 38,
+                reportCount: 9,
                 description: "Özellikle sıcak iklimlerde 10 yaşını geçen modellerde tavan kumaşının süngerden ayrılıp sarkması."
             }
         ],
         userExperiences: [],
-        totalReports: 95
+        totalReports: 6
     },
     {
         id: 112,
@@ -2166,26 +2165,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Kutusu Tıkırtısı",
                 severity: "high",
-                reportCount: 65,
+                reportCount: 6,
                 description: "Ford'un kronik sorunudur. Parke taşlı yollarda direksiyon milinden gelen mekanik lokurtu ve boşluk hissi."
             },
             {
                 id: 2,
                 title: "Teyp (Bluetooth/USB) Modülü Arızası",
                 severity: "medium",
-                reportCount: 48,
+                reportCount: 9,
                 description: "Orijinal teybin Bluetooth (Sync) modülünün yanması veya takılı kalması. Telefondan ses gitmemesi."
             },
             {
                 id: 3,
                 title: "Kapı Fitili ve Rüzgar Sesi",
                 severity: "low",
-                reportCount: 40,
+                reportCount: 6,
                 description: "Özellikle otoyol hızlarında kapı üst fitillerinden içeriye rüzgar ve ıslık sesi girmesi."
             }
         ],
         userExperiences: [],
-        totalReports: 82
+        totalReports: 8
     },
     {
         id: 113,
@@ -2210,26 +2209,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Ön Takım (Salıncak ve Rotil) Sesleri",
                 severity: "medium",
-                reportCount: 52,
+                reportCount: 8,
                 description: "Ağır kasa sebebiyle ön salıncak burçlarının erken yıpranması ve kasislerde gıcırtı/lokurtu yapması."
             },
             {
                 id: 2,
                 title: "Akü Erken Bitme Sorunu",
                 severity: "medium",
-                reportCount: 45,
+                reportCount: 7,
                 description: "Özellikle Start-Stop sistemli modellerde fabrika çıkışı akülerin 2 yıl bile dayanmadan ölmesi."
             },
             {
                 id: 3,
                 title: "Klima Kompresörü Sesi",
                 severity: "low",
-                reportCount: 30,
+                reportCount: 8,
                 description: "Klima açıkken motordan veya havalandırmadan gelen inleme (uğultu) sesi."
             }
         ],
         userExperiences: [],
-        totalReports: 70
+        totalReports: 7
     },
     {
         id: 114,
@@ -2254,26 +2253,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Multimedya Ekran Resetlemesi",
                 severity: "low",
-                reportCount: 42,
+                reportCount: 9,
                 description: "Orta ekranın sürüş esnasında siyah ekrana düşüp kendi kendine yeniden başlaması."
             },
             {
                 id: 2,
                 title: "Amortisör Takozu Gıcırtısı",
                 severity: "medium",
-                reportCount: 35,
+                reportCount: 9,
                 description: "Sabahları soğuk havalarda veya kasis geçişlerinde ön süspansiyondan gelen kauçuk gıcırtısı."
             },
             {
                 id: 3,
                 title: "Apple CarPlay/Android Auto Bağlantı Kopması",
                 severity: "low",
-                reportCount: 40,
+                reportCount: 7,
                 description: "Kablolu bağlantıda bile engebeli yollarda telefon bağlantısının aniden kopması."
             }
         ],
         userExperiences: [],
-        totalReports: 58
+        totalReports: 7
     },
     {
         id: 115,
@@ -2298,26 +2297,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Kolonu Tıkırtısı",
                 severity: "high",
-                reportCount: 55,
+                reportCount: 6,
                 description: "Parke taşlı yollarda direksiyon kutusu içindeki plastik burcun aşınmasından dolayı gelen tıkırtı."
             },
             {
                 id: 2,
                 title: "Ön Göğüs (Torpido) Tıkırtısı",
                 severity: "low",
-                reportCount: 45,
+                reportCount: 7,
                 description: "Kış aylarında veya bozuk yollarda ön cam ile torpido birleşim yerinden gelen plastik çıtırtıları."
             },
             {
                 id: 3,
                 title: "Fren Diski Eğilmesi",
                 severity: "medium",
-                reportCount: 38,
+                reportCount: 8,
                 description: "Özellikle sert frenlemelerde disklerin çabuk ısınıp yamulması ve direksiyonda titremeye sebep olması."
             }
         ],
         userExperiences: [],
-        totalReports: 88
+        totalReports: 6
     },
     {
         id: 116,
@@ -2342,26 +2341,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Bagaj Kapağı Çürümesi",
                 severity: "high",
-                reportCount: 60,
+                reportCount: 6,
                 description: "Kartal'a özel olarak dik inen bagaj kapağının alt kısımları ve cam kenarları çok hızlı çürür."
             },
             {
                 id: 2,
                 title: "Diferansiyel Ötmesi",
                 severity: "medium",
-                reportCount: 50,
+                reportCount: 6,
                 description: "Özellikle ağır yük taşıyan Kartal modellerinde diferansiyel dişlilerinden gelen yüksek uğultu."
             },
             {
                 id: 3,
                 title: "Arka Silecek Motoru Arızası",
                 severity: "low",
-                reportCount: 35,
+                reportCount: 7,
                 description: "Bagaj kapağındaki silecek motorunun su alıp kısa devre yapması veya mekanizmasının kilitlenmesi."
             }
         ],
         userExperiences: [],
-        totalReports: 65
+        totalReports: 8
     },
     {
         id: 117,
@@ -2386,26 +2385,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Hararet Sorunu",
                 severity: "high",
-                reportCount: 45,
+                reportCount: 9,
                 description: "Radyatör kapasitesinin zayıflığı sebebiyle yaz aylarında yokuş çıkarken hemen hararete kalması."
             },
             {
                 id: 2,
                 title: "Taban Sacı Çürümesi",
                 severity: "high",
-                reportCount: 55,
+                reportCount: 8,
                 description: "Yaşı gereği ve yalıtım eksikliğinden aracın şoför ve yolcu ayak basma yerlerinin (taban sacı) çürümesi."
             },
             {
                 id: 3,
                 title: "Karbüratör Tıkanması",
                 severity: "medium",
-                reportCount: 40,
+                reportCount: 9,
                 description: "Mekanik karbüratörün pis yakıt veya filtre bakım eksikliğinden meme tıkayıp aracın teklemesi."
             }
         ],
         userExperiences: [],
-        totalReports: 45
+        totalReports: 9
     },
     {
         id: 118,
@@ -2430,26 +2429,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "C Sütunu (Arka Direk) Göçmesi",
                 severity: "high",
-                reportCount: 95,
+                reportCount: 8,
                 description: "FC5 kasanın en meşhur kroniğidir. Arka camın yanındaki C sütununda durduk yere gamze (göçük) oluşması. Honda bu durumu köpük sıkarak çözmeye çalıştı."
             },
             {
                 id: 2,
                 title: "Direksiyon Kutusu Boşluğu ve Tıkırtı",
                 severity: "medium",
-                reportCount: 65,
+                reportCount: 6,
                 description: "Özellikle bozuk yollarda direksiyondan gelen tıkırtı ve zamanla oluşan boşluk hissi."
             },
             {
                 id: 3,
                 title: "Fren Diski Yamulması",
                 severity: "medium",
-                reportCount: 50,
+                reportCount: 6,
                 description: "120 km/s hızlardan sert frene basıldığında direksiyonun titremesi. Disklerin ısıdan çabuk çarpılması."
             }
         ],
         userExperiences: [],
-        totalReports: 120
+        totalReports: 6
     },
     {
         id: 119,
@@ -2474,26 +2473,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Boya Dökülmesi ve Vernik Atması",
                 severity: "high",
-                reportCount: 75,
+                reportCount: 8,
                 description: "Özellikle beyaz renk FB7'lerde tavan, kaput ve direklerdeki verniklerin durduk yere atıp boyanın dökülmesi."
             },
             {
                 id: 2,
                 title: "Akü Erken Bitme Sorunu",
                 severity: "low",
-                reportCount: 45,
+                reportCount: 9,
                 description: "Fabrika çıkışı akü kapasitesinin (45 Amper) küçük olması sebebiyle akünün çabuk bitmesi (Genelde 55-60A ile değiştirilir)."
             },
             {
                 id: 3,
                 title: "Ön Cam Fitili Ses Yapması",
                 severity: "low",
-                reportCount: 55,
+                reportCount: 7,
                 description: "Ön camın sağ veya sol köşesindeki fitillerin 100 km/s hızın üzerinde ıslık/rüzgar sesi yapması."
             }
         ],
         userExperiences: [],
-        totalReports: 90
+        totalReports: 7
     },
     {
         id: 120,
@@ -2518,26 +2517,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Kelebek Camından Gelen Rüzgar Sesi",
                 severity: "medium",
-                reportCount: 85,
+                reportCount: 9,
                 description: "Clio 4'ün en meşhur sorunudur. Ön kapılardaki ufak kelebek camı fitillerinden 90 km/s hızdan sonra yoğun ıslık sesi gelmesi (Fitil arasına silikon sıkarak çözülür)."
             },
             {
                 id: 2,
                 title: "EDC Şanzıman Beyni ve Kavrama",
                 severity: "high",
-                reportCount: 70,
+                reportCount: 9,
                 description: "Kuru kavramalı EDC şanzımanda vites geçişlerinde titreme veya 'Vites Kutusu Kontrol Ettirin' uyarısıyla şanzıman beyninin arızalanması."
             },
             {
                 id: 3,
                 title: "Teyp (MediaNav) Çökmesi",
                 severity: "medium",
-                reportCount: 65,
+                reportCount: 8,
                 description: "Orijinal dokunmatik ekranın logoda takılı kalması veya dokunmatiğinin bozulması."
             }
         ],
         userExperiences: [],
-        totalReports: 110
+        totalReports: 9
     },
     {
         id: 121,
@@ -2562,33 +2561,33 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "1.4 Turbo Piston Kırma (Segman Kırılması)",
                 severity: "high",
-                reportCount: 95,
+                reportCount: 7,
                 description: "Astra J'nin en büyük kabusudur. 1.4 Turbo (A14NET/B14NET) motorlarda yanlış yağ kullanımı veya zorlama sonucu piston segmanlarının kırılması. Genelde çelik subap ve forged piston ile revize edilir."
             },
             {
                 id: 2,
                 title: "Bobin Arızası (Ateşleme Modülü)",
                 severity: "medium",
-                reportCount: 80,
+                reportCount: 7,
                 description: "Özellikle 1.6 atmosferik ve 1.4 Turbo motorlarda bobinlerin ömrünün çok kısa olması, teklemeye sebep olması (Mutlaka Delphi/GM marka takılmalı)."
             },
             {
                 id: 3,
                 title: "Su Deposu (Genleşme Kabı) Çatlaması",
                 severity: "medium",
-                reportCount: 65,
+                reportCount: 7,
                 description: "Antifriz genleşme kabının plastiğinin ısınıp çatlaması ve su sızdırarak 'Soğutma Sıvısı Seviyesi' uyarısı vermesi."
             },
             {
                 id: 4,
                 title: "Termostat Gövdesi Kaçağı",
                 severity: "high",
-                reportCount: 55,
+                reportCount: 9,
                 description: "Termostatın plastik gövdesinin çatlaması veya elektronik termostatın arızalanıp fan açtırması."
             }
         ],
         userExperiences: [],
-        totalReports: 130
+        totalReports: 6
     },
     {
         id: 122,
@@ -2613,26 +2612,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DSG Kavrama ve Mekatronik Arızası",
                 severity: "high",
-                reportCount: 110,
+                reportCount: 7,
                 description: "DQ200 7 ileri kuru kavrama şanzımanın 1'den 2'ye geçerken titremesi (kavrama bitmesi) veya aniden vitese geçmeyerek mekatronik tüpünün patlaması."
             },
             {
                 id: 2,
                 title: "Cam Tavan (Sunroof) Su Alma Sorunu",
                 severity: "high",
-                reportCount: 75,
+                reportCount: 6,
                 description: "Cam tavanın su tahliye kanallarının tıkanması veya fitilinin çatlaması sonucu A sütunundan ve tavan lambasından içeri su girmesi."
             },
             {
                 id: 3,
                 title: "Devirdaim Su Pompası Kaçağı",
                 severity: "medium",
-                reportCount: 85,
+                reportCount: 8,
                 description: "Hem 1.2/1.4 TSI hem de 1.6 TDI motorlarda su pompasının (devirdaim) O-ring kısmından pembe antifriz sızdırması."
             }
         ],
         userExperiences: [],
-        totalReports: 140
+        totalReports: 8
     },
     {
         id: 123,
@@ -2657,26 +2656,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yakıt Göstergesi Yanılgısı",
                 severity: "low",
-                reportCount: 85,
+                reportCount: 6,
                 description: "Özellikle LPG'li ve eski dizel modellerde yakıt şamandırasının takılı kalması veya yanlış seviye göstermesi."
             },
             {
                 id: 2,
                 title: "Klima Borusu / Yönlendirme Arızası",
                 severity: "medium",
-                reportCount: 60,
+                reportCount: 9,
                 description: "Klima yönlendirme halatının (telinin) takılması sonucu havanın istenilen yöne (örn: sadece cama) verilememesi."
             },
             {
                 id: 3,
                 title: "Kapı Fitillerinden Su Alması",
                 severity: "medium",
-                reportCount: 55,
+                reportCount: 8,
                 description: "Şiddetli yağmurlarda veya basınçlı yıkamada kapı üst fitillerinden kabin içine su sızması."
             }
         ],
         userExperiences: [],
-        totalReports: 95
+        totalReports: 7
     },
     {
         id: 124,
@@ -2701,26 +2700,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Multimedya Ekranının Donması/Kapanması",
                 severity: "low",
-                reportCount: 70,
+                reportCount: 7,
                 description: "Sürüş esnasında orta ekranın kendi kendine kapanıp yeniden başlaması. Genelde yazılım güncellemesiyle çözülür."
             },
             {
                 id: 2,
                 title: "Arka Amortisör Takozu Sesi",
                 severity: "medium",
-                reportCount: 50,
+                reportCount: 8,
                 description: "Özellikle kasislerden çapraz geçerken arka süspansiyondan gelen 'gırç gırç' burç/kauçuk sesi."
             },
             {
                 id: 3,
                 title: "Kapı İçi Trim ve Titreme Sesleri",
                 severity: "low",
-                reportCount: 45,
+                reportCount: 6,
                 description: "Özellikle Focal ses sistemi olan araçlarda bas vurduğunda kapı döşemelerinin zırıldaması."
             }
         ],
         userExperiences: [],
-        totalReports: 110
+        totalReports: 7
     },
     {
         id: 125,
@@ -2745,26 +2744,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Kutusu Tıkırtısı (Tüm Ford'ların Kaderi)",
                 severity: "high",
-                reportCount: 95,
+                reportCount: 6,
                 description: "Elektrikli direksiyon (EPS) motorunun veya kutu içindeki burçların boşluk yapıp bozuk yolda tıkırtı yapması."
             },
             {
                 id: 2,
                 title: "Kapı Fitili Düşmesi",
                 severity: "low",
-                reportCount: 80,
+                reportCount: 7,
                 description: "Özellikle arka kapı fitillerinin yapışkanının özelliğini yitirip aşağı doğru sarkması."
             },
             {
                 id: 3,
                 title: "Gösterge Paneli (Sync) Ekran Kararması",
                 severity: "medium",
-                reportCount: 65,
+                reportCount: 6,
                 description: "Orijinal teybin veya bilgi ekranının yazılımsal olarak kitlenip akü sökülene kadar düzelmemesi."
             }
         ],
         userExperiences: [],
-        totalReports: 125
+        totalReports: 8
     },
     {
         id: 126,
@@ -2789,26 +2788,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Mekatronik ve Kavrama Arızası (DSG)",
                 severity: "high",
-                reportCount: 130,
+                reportCount: 8,
                 description: "1.4/1.5 TSI ve 1.6 TDI motorlarla gelen 7 ileri kuru kavrama DSG'nin yoğun trafikte titremesi ve mekatronik kart yakması."
             },
             {
                 id: 2,
                 title: "ErgoComfort Koltuk Masaj Motoru Sesi",
                 severity: "low",
-                reportCount: 40,
+                reportCount: 7,
                 description: "Highline paketlerdeki sürücü koltuğu masaj özelliğinin zamanla çok gürültülü çalışmaya başlaması."
             },
             {
                 id: 3,
                 title: "Krom Çıtaların Kararması",
                 severity: "low",
-                reportCount: 65,
+                reportCount: 7,
                 description: "Dış trimlerde ve cam kenarlarında bulunan krom detayların kalitesiz yıkama köpüklerinden dolayı beyazlaması/kararması."
             }
         ],
         userExperiences: [],
-        totalReports: 150
+        totalReports: 9
     },
     {
         id: 127,
@@ -2833,26 +2832,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DCT (Çift Kavrama) Şanzıman Isınması",
                 severity: "high",
-                reportCount: 105,
+                reportCount: 7,
                 description: "Özellikle yokuş yukarı dur-kalk trafikte 'Şanzıman Isındı, Güvenli Bir Yerde Durun' uyarısı vermesi ve titremesi."
             },
             {
                 id: 2,
                 title: "Direksiyon Kutusu Tıkırtısı (Tık Sesi)",
                 severity: "medium",
-                reportCount: 75,
+                reportCount: 6,
                 description: "Direksiyonu sağa veya sola ilk çevirişte 'tık' diye mekanik bir burç/boşluk sesi gelmesi."
             },
             {
                 id: 3,
                 title: "Multimedya Navigasyon Çökmesi",
                 severity: "low",
-                reportCount: 50,
+                reportCount: 8,
                 description: "Orijinal ünitenin geri görüş kamerasına geçerken siyah ekranda kalması (Yazılım güncellemesi gerekir)."
             }
         ],
         userExperiences: [],
-        totalReports: 125
+        totalReports: 9
     },
     {
         id: 101,
@@ -2880,33 +2879,33 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Şasi ve Kaporta Çürümeleri",
                 severity: "high",
-                reportCount: 350,
+                reportCount: 7,
                 description: "Özellikle arka çamurluk ağızları, kule dipleri, kriko vurma yerleri ve kapı altlarında kronik çürümeler başlar. İkinci el alırken en dikkat edilmesi gereken yerdir."
             },
             {
                 id: 2,
                 title: "Diferansiyel (Şaft) Ötmesi",
                 severity: "medium",
-                reportCount: 220,
+                reportCount: 6,
                 description: "Kronik diferansiyel uğultusu. Belirli hızlarda (özellikle 80-100 km/s arası) arka kısımdan gelen uğultu sesidir. Parça değişimi ya da ayar gerektirir."
             },
             {
                 id: 3,
                 title: "Hararet (Soğutma Sistemi) Sorunu",
                 severity: "high",
-                reportCount: 290,
+                reportCount: 8,
                 description: "Radyatör tıkanması, su pompası (devirdaim) arızası veya termostat sorunları yüzünden hararet yapma eğilimi yüksektir. Bakımlı soğutma sistemi şarttır."
             },
             {
                 id: 4,
                 title: "Elektrik ve Tesisat Oksitlenmesi",
                 severity: "medium",
-                reportCount: 180,
+                reportCount: 9,
                 description: "Sigorta tablası ve eskiyen kablolardan dolayı farların sönük yanması, gösterge panelinde tutarsızlıklar yaşanabilir."
             }
         ],
         userExperiences: [],
-        totalReports: 1450,
+        totalReports: 6,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Tofa%C5%9F_%C5%9Eahin_1.6_ie.jpg/800px-Tofa%C5%9F_%C5%9Eahin_1.6_ie.jpg"
     },
     {
@@ -2934,26 +2933,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Kaporta ve Taban Çürümeleri",
                 severity: "high",
-                reportCount: 310,
+                reportCount: 8,
                 description: "Araç yaşına bağlı olarak şasi uçları, kuleler ve taban sacı su alarak çürüyebilir."
             },
             {
                 id: 2,
                 title: "Şanzıman ve Diferansiyel Uğultusu",
                 severity: "medium",
-                reportCount: 200,
+                reportCount: 7,
                 description: "Uzun kullanımlarda şanzımandan ve şafttan/diferansiyelden uğultu gelmesi oldukça yaygındır."
             },
             {
                 id: 3,
                 title: "Karbüratör / Enjeksiyon (ie) Ayarsızlığı",
                 severity: "medium",
-                reportCount: 250,
+                reportCount: 8,
                 description: "Düz motorlarda karbüratör ayarsızlığı, ie (enjeksiyonlu) modellerde rölanti dalgalanması ve rölanti motoru arızası sık görülür."
             }
         ],
         userExperiences: [],
-        totalReports: 1200,
+        totalReports: 7,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Tofa%C5%9F_Do%C4%9Fan_1.6_ie.jpg/800px-Tofa%C5%9F_Do%C4%9Fan_1.6_ie.jpg"
     },
     {
@@ -2980,26 +2979,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Bagaj Kapağı ve Arka Çamurluk Çürümeleri",
                 severity: "high",
-                reportCount: 280,
+                reportCount: 7,
                 description: "Kartal modellerinde station wagon yapısı gereği arka bagaj kapağı dipleri ve cam altlarında çürüme ve paslanma kroniktir."
             },
             {
                 id: 2,
                 title: "Diferansiyel ve Şaft Ötmesi",
                 severity: "medium",
-                reportCount: 180,
+                reportCount: 9,
                 description: "Yük taşındığı için diferansiyel dişlilerinde daha çabuk aşınma ve ötme (uğultu) görülür."
             },
             {
                 id: 3,
                 title: "Hararet Sorunu",
                 severity: "high",
-                reportCount: 200,
+                reportCount: 9,
                 description: "Ağır yüklerle rampa çıkarken soğutma sistemi yetersiz kalabilir, devirdaim pompası ve radyatör temizliği hayati önem taşır."
             }
         ],
         userExperiences: [],
-        totalReports: 950,
+        totalReports: 6,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Tofa%C5%9F_Kartal_1.6_ie.jpg/800px-Tofa%C5%9F_Kartal_1.6_ie.jpg"
     },
     {
@@ -3025,19 +3024,19 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Kaporta Paslanması",
                 severity: "high",
-                reportCount: 200,
+                reportCount: 7,
                 description: "Saç kalitesi ve yaşı gereği taban ve kapı içlerinde yoğun pas görülmesi."
             },
             {
                 id: 2,
                 title: "Fren Sistemi Yetersizliği",
                 severity: "medium",
-                reportCount: 150,
+                reportCount: 8,
                 description: "Fren disk ve kampanalarının çabuk aşınması ve zayıf tutması."
             }
         ],
         userExperiences: [],
-        totalReports: 450,
+        totalReports: 6,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Fiat_124.jpg/800px-Fiat_124.jpg"
     },
     {
@@ -3063,26 +3062,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Kaporta Çürümeleri",
                 severity: "high",
-                reportCount: 405,
+                reportCount: 7,
                 description: "Özellikle kapı altları, çamurluk ağızları ve tabanda yoğun çürüme görülür."
             },
             {
                 id: 2,
                 title: "Karbüratör ve Distribütör Sorunları",
                 severity: "medium",
-                reportCount: 305,
+                reportCount: 7,
                 description: "Sık sık meksefe, platin ayarı ister. Rölanti tutturmak zordur."
             },
             {
                 id: 3,
                 title: "Aks Kafası Ötmesi",
                 severity: "medium",
-                reportCount: 268,
+                reportCount: 9,
                 description: "Dönüşlerde tekerlerden gelen 'tık tık tık' sesi kroniktir, aks kafası bozulur."
             }
         ],
         userExperiences: [],
-        totalReports: 1044,
+        totalReports: 9,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Renault_12_Toros_1.4_TX.jpg/800px-Renault_12_Toros_1.4_TX.jpg"
     },
     {
@@ -3108,26 +3107,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Hararet Sorunu",
                 severity: "high",
-                reportCount: 323,
+                reportCount: 9,
                 description: "Radyatör kapağı veya fan müşürü arızaları yüzünden yazın sık sık hararet yapar."
             },
             {
                 id: 2,
                 title: "Ön Takım Hassasiyeti",
                 severity: "medium",
-                reportCount: 167,
+                reportCount: 8,
                 description: "Rotil ve salıncak bozulmaları, ön takımdan gelen sesler."
             },
             {
                 id: 3,
                 title: "Kaporta Çürümesi",
                 severity: "high",
-                reportCount: 351,
+                reportCount: 9,
                 description: "Özellikle kule dipleri ve bagaj havuzunda su alma/çürüme problemleri."
             }
         ],
         userExperiences: [],
-        totalReports: 1123,
+        totalReports: 7,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Renault_9_Broadway.jpg/800px-Renault_9_Broadway.jpg"
     },
     {
@@ -3153,26 +3152,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Karbüratör (70 S) ve Enjeksiyon (70 SX ie) Sorunları",
                 severity: "high",
-                reportCount: 282,
+                reportCount: 9,
                 description: "Rölanti dengesizliği, stop etme ve tek nokta enjeksiyonlu modellerde sensör arızaları."
             },
             {
                 id: 2,
                 title: "Elektrik Sistemi Arızaları",
                 severity: "medium",
-                reportCount: 317,
+                reportCount: 9,
                 description: "Şase kablolarının oksitlenmesi sonucu gösterge paneli ve sinyal kolları arızaları."
             },
             {
                 id: 3,
                 title: "Ön Takım ve Aks Körükleri",
                 severity: "medium",
-                reportCount: 257,
+                reportCount: 9,
                 description: "Aks körüklerinin çabuk yırtılıp aks kafasını bozması."
             }
         ],
         userExperiences: [],
-        totalReports: 824,
+        totalReports: 7,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fiat_Uno.jpg/800px-Fiat_Uno.jpg"
     },
     {
@@ -3197,26 +3196,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Distribütör O-Ring Yağ Kaçağı",
                 severity: "low",
-                reportCount: 307,
+                reportCount: 6,
                 description: "Distribütör dibinden yağ sızdırması en bilindik (ama çözümü basit) sorunudur."
             },
             {
                 id: 2,
                 title: "Direksiyon Kutusu Boşluğu",
                 severity: "medium",
-                reportCount: 395,
+                reportCount: 6,
                 description: "Yaşa bağlı olarak direksiyon kutusunda boşluk ve tıkırtı oluşması."
             },
             {
                 id: 3,
                 title: "Bagaj Su Alması",
                 severity: "low",
-                reportCount: 202,
+                reportCount: 9,
                 description: "Arka stop lambalarının contalarından bagaja su sızması."
             }
         ],
         userExperiences: [],
-        totalReports: 1385,
+        totalReports: 7,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Toyota_Corolla_E100_front_20080112.jpg/800px-Toyota_Corolla_E100_front_20080112.jpg"
     },
     {
@@ -3241,26 +3240,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Torpido / Konsol Çatlaması",
                 severity: "low",
-                reportCount: 410,
+                reportCount: 8,
                 description: "Güneşe maruz kalan göğüs (torpido) plastiğinde ortadan çatlamalar oluşur, kroniktir."
             },
             {
                 id: 2,
                 title: "Rölanti Dalgalanması ve Step Motor Arızası",
                 severity: "medium",
-                reportCount: 327,
+                reportCount: 7,
                 description: "Rölanti adım motoru kirlenmesi kaynaklı stop etme sorunları."
             },
             {
                 id: 3,
                 title: "Amortisör ve Helezon Zayıflığı",
                 severity: "medium",
-                reportCount: 155,
+                reportCount: 6,
                 description: "Arka tarafın yüklendiğinde çok çökmesi ve amortisör patlatması."
             }
         ],
         userExperiences: [],
-        totalReports: 860,
+        totalReports: 6,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hyundai_Accent_X3_1.5_GLS_front.JPG/800px-Hyundai_Accent_X3_1.5_GLS_front.JPG"
     },
     {
@@ -3286,26 +3285,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Kapı İç Trimleri ve Göğüs Tıkırtıları",
                 severity: "medium",
-                reportCount: 340,
+                reportCount: 9,
                 description: "Kasislerde tüm plastik aksamdan yoğun ses gelmesi."
             },
             {
                 id: 2,
                 title: "Sigorta Tablası Arızaları",
                 severity: "high",
-                reportCount: 393,
+                reportCount: 8,
                 description: "Su alma sebebiyle sigorta tablası oksitlenir, farlar ve silecekler kafasına göre çalışır."
             },
             {
                 id: 3,
                 title: "Senkromeç ve Şanzıman Geçişleri",
                 severity: "high",
-                reportCount: 184,
+                reportCount: 8,
                 description: "Vites geçişleri, özellikle 2. vites cırtlaması ve sertliği kroniktir."
             }
         ],
         userExperiences: [],
-        totalReports: 1024,
+        totalReports: 6,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Lada_Samara_front_20080220.jpg/800px-Lada_Samara_front_20080220.jpg"
     },
 
@@ -3332,19 +3331,19 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Enjektör ve Mazot Pompası (dCi)",
                 severity: "high",
-                reportCount: 318,
+                reportCount: 9,
                 description: "Kötü yakıt kullanımı veya yaşa bağlı olarak enjektör tıkanması/bozulması."
             },
             {
                 id: 2,
                 title: "Klima Kompresörü",
                 severity: "medium",
-                reportCount: 366,
+                reportCount: 8,
                 description: "Özellikle eski modellerde klimanın yeterince soğutmaması veya kompresör arızası."
             }
         ],
         userExperiences: [],
-        totalReports: 1599,
+        totalReports: 8,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Renault_Symbol_front_20081206.jpg/800px-Renault_Symbol_front_20081206.jpg"
     },
     {
@@ -3369,26 +3368,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "EGR ve DPF Tıkanıklığı",
                 severity: "medium",
-                reportCount: 371,
+                reportCount: 9,
                 description: "Sürekli şehir içi kullanımda Partikül Filtresi ve EGR valfi dolar."
             },
             {
                 id: 2,
                 title: "Zincir Sesi (1.3 Multijet)",
                 severity: "high",
-                reportCount: 400,
+                reportCount: 6,
                 description: "100.000 km üzeri triger zincirinden ses gelmesi ve değişmesi gerekmesi."
             },
             {
                 id: 3,
                 title: "Direksiyon Kutusu Boşluğu",
                 severity: "medium",
-                reportCount: 416,
+                reportCount: 7,
                 description: "Tıkırtı burçlarının aşınması sonucu direksiyondan gelen boşluk ve tıkırtı."
             }
         ],
         userExperiences: [],
-        totalReports: 1252,
+        totalReports: 6,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Fiat_Linea_front.JPG/800px-Fiat_Linea_front.JPG"
     },
     {
@@ -3412,26 +3411,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Arka Torsiyon (Dingil) Arızası",
                 severity: "high",
-                reportCount: 271,
+                reportCount: 9,
                 description: "Arka tekerleklerin içe doğru yatması ve kasislerde gıcırtı gelmesi, tamiri masraflıdır."
             },
             {
                 id: 2,
                 title: "Elektrik Sistemi ve Müşürler",
                 severity: "high",
-                reportCount: 362,
+                reportCount: 9,
                 description: "Sinyal kolu (COM2000) arızası, kendi kendine sinyal verme veya far açma kroniktir."
             },
             {
                 id: 3,
                 title: "Kalorifer Peteği Su Sızıntısı",
                 severity: "medium",
-                reportCount: 252,
+                reportCount: 7,
                 description: "Paspasların altının ıslanması, petek değişimi için göğsün sökülmesi gerekir."
             }
         ],
         userExperiences: [],
-        totalReports: 1538,
+        totalReports: 7,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Peugeot_206_front_20080612.jpg/800px-Peugeot_206_front_20080612.jpg"
     },
     {
@@ -3456,26 +3455,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Kutusu Tıkırtısı",
                 severity: "medium",
-                reportCount: 284,
+                reportCount: 9,
                 description: "Parke taşlı veya bozuk yollarda direksiyon kutusundan gelen ses."
             },
             {
                 id: 2,
                 title: "Otomatik Cam Mekanizması Düşmesi",
                 severity: "low",
-                reportCount: 253,
+                reportCount: 8,
                 description: "Özellikle şoför camının yuvadan çıkarak çapraz kalkması/inmesi."
             },
             {
                 id: 3,
                 title: "Motor Takozu Çökmesi",
                 severity: "medium",
-                reportCount: 271,
+                reportCount: 8,
                 description: "Motor takozunun ezilerek rölantide kabin içine titreme vermesi."
             }
         ],
         userExperiences: [],
-        totalReports: 1348,
+        totalReports: 6,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/2006-2008_Honda_Civic_VTi-L_sedan_01.jpg/800px-2006-2008_Honda_Civic_VTi-L_sedan_01.jpg"
     },
     {
@@ -3500,26 +3499,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Eksantrik ve Krank Devir Sensörü",
                 severity: "medium",
-                reportCount: 397,
+                reportCount: 6,
                 description: "Motorun birden stop etmesi veya geç çalışmasına sebep olur."
             },
             {
                 id: 2,
                 title: "EGR Valfi ve Rölanti Dalgalanması",
                 severity: "medium",
-                reportCount: 244,
+                reportCount: 8,
                 description: "Stop etme, rölantide devrin sürekli inip çıkması."
             },
             {
                 id: 3,
                 title: "Yol Bilgisayarı (TID/MID) Ekran Piksel Kaybı",
                 severity: "low",
-                reportCount: 207,
+                reportCount: 6,
                 description: "Ekranda çizgiler oluşması ve yazıların okunmaz hale gelmesi."
             }
         ],
         userExperiences: [],
-        totalReports: 1740,
+        totalReports: 6,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Opel_Vectra_B_front_20080313.jpg/800px-Opel_Vectra_B_front_20080313.jpg"
     },
     {
@@ -3544,26 +3543,26 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Yoğun Kaporta Çürümeleri",
                 severity: "high",
-                reportCount: 225,
+                reportCount: 6,
                 description: "Tavan hariç neredeyse tüm aksamlarda pas ve çürüme gözlemlenmesi."
             },
             {
                 id: 2,
                 title: "Karbüratör Karışım Sorunu",
                 severity: "medium",
-                reportCount: 256,
+                reportCount: 9,
                 description: "Karbüratörün sık sık ayar istemesi."
             },
             {
                 id: 3,
                 title: "Diferansiyel Ötmesi",
                 severity: "medium",
-                reportCount: 218,
+                reportCount: 6,
                 description: "Arka diferansiyelden özellikle hızlandıkça gelen uğultu."
             }
         ],
         userExperiences: [],
-        totalReports: 1368,
+        totalReports: 7,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Fiat_124.jpg/800px-Fiat_124.jpg"
     },
     {
@@ -3585,7 +3584,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         chronicIssues: [],
         userExperiences: [],
-        totalReports: 10
+        totalReports: 9
     }
 ,
     {
@@ -3615,21 +3614,21 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Rölanti dalgalanması",
                 severity: "medium",
-                reportCount: 145,
+                reportCount: 9,
                 description: "Boğaz kelebeğinin kirlenmesi veya ateşleme bobinlerindeki hassasiyet nedeniyle rölantide titreme ve dalgalanma yaşanabiliyor. Temizlik veya bobin değişimi ile çözülür."
             },
             {
                 id: 2,
                 title: "Triger kayışı ömrü",
                 severity: "high",
-                reportCount: 85,
+                reportCount: 6,
                 description: "1.0 SCe motorlarda triger seti değişim periyoduna çok dikkat edilmeli. Kayış kopması durumunda motorda ağır hasarlar oluşabilir."
             },
             {
                 id: 3,
                 title: "Amortisör ve alt takım sesleri",
                 severity: "low",
-                reportCount: 230,
+                reportCount: 9,
                 description: "Özellikle bozuk yollarda ön takımdan ve amortisör kulelerinden lokurtu şeklinde sesler gelmesi kronik sayılabilir."
             }
         ],
@@ -3655,7 +3654,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 rating: 3
             }
         ],
-        totalReports: 742,
+        totalReports: 6,
         imageUrl: "https://images.unsplash.com/photo-1549314418-6c841bb749f7?q=80&w=2070&auto=format&fit=crop"
     }
 ,
@@ -3685,14 +3684,14 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "Direksiyon Kutusu Tıkırtısı",
                 severity: "medium",
-                reportCount: 185,
+                reportCount: 8,
                 description: "Özellikle parke taşlı veya bozuk yollarda direksiyon kutusundan tıkırtı benzeri sesler gelmesi bilinen bir durumdur. Genellikle eps kaplini değişimi veya kutu revizyonu ile çözülür."
             },
             {
                 id: 2,
                 title: "Multimedya Ekran Donmaları",
                 severity: "low",
-                reportCount: 95,
+                reportCount: 8,
                 description: "Ara sıra multimedya sisteminin donması veya Apple CarPlay/Android Auto bağlantısının kopması yaşanabilir. Yazılım güncellemesi ile büyük ölçüde giderilir."
             }
         ],
@@ -3718,7 +3717,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 rating: 4
             }
         ],
-        totalReports: 512,
+        totalReports: 8,
         imageUrl: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fd?q=80&w=2070&auto=format&fit=crop"
     }
 ,
@@ -3748,14 +3747,14 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "EPS Direksiyon Kaplini Tıkırtısı",
                 severity: "medium",
-                reportCount: 215,
+                reportCount: 9,
                 description: "Özellikle bozuk veya parke taşlı yollarda direksiyon kutusundan tıkırtı gelmesi kroniktir. EPS kaplini değişimi veya yağlanması ile çözülür, kronik bir Hyundai/Kia sorunudur."
             },
             {
                 id: 2,
                 title: "Trim (Plastik) Sesleri",
                 severity: "low",
-                reportCount: 140,
+                reportCount: 8,
                 description: "Havaların soğumasıyla veya bozuk yollarda ön konsoldan ve kapı döşemelerinden tıkırtılar (trim sesi) gelebilir."
             }
         ],
@@ -3781,7 +3780,7 @@ export const vehicleDNAData: VehicleDNA[] = [
                 rating: 4
             }
         ],
-        totalReports: 625,
+        totalReports: 9,
         imageUrl: "https://images.unsplash.com/photo-1695420138139-448f22ed1525?q=80&w=2070&auto=format&fit=crop"
     },
     {
@@ -3810,14 +3809,14 @@ export const vehicleDNAData: VehicleDNA[] = [
                 id: 1,
                 title: "DCT Şanzıman Isınma Uyarısı",
                 severity: "high",
-                reportCount: 310,
+                reportCount: 8,
                 description: "Özellikle çok dik yokuşlarda veya saatler süren dur-kalk trafiğinde, çift kavramalı (DCT) şanzıman ısınarak ekranda 'Şanzıman Isındı, Durun' uyarısı verebilir."
             },
             {
                 id: 2,
                 title: "Multimedya Yazılım Sorunları",
                 severity: "low",
-                reportCount: 120,
+                reportCount: 9,
                 description: "Zaman zaman geri görüş kamerasının siyah ekran vermesi veya Bluetooth bağlantısının kopması yaşanıyor. Serviste yapılan güncellemelerle çözülüyor."
             }
         ],
@@ -3843,11 +3842,5216 @@ export const vehicleDNAData: VehicleDNA[] = [
                 rating: 4
             }
         ],
-        totalReports: 854,
+        totalReports: 6,
         imageUrl: "https://images.unsplash.com/photo-1629897048514-3dd741427cc7?q=80&w=2072&auto=format&fit=crop"
+    },
+    {
+        id: 2001,
+        brand: "Renault",
+        model: "19 (Europa)",
+        year: "1994 - 2001",
+        ncapStars: 3,
+        ncapYear: "1998",
+        dnaScore: 74,
+        strengths: [
+            "Konforlu ve yumuşak süspansiyon sistemi",
+            "Mekanik sadeliği sayesinde her sanayide kolayca tamir edilebilmesi",
+            "Geniş iç hacmi ve tatminkar bagaj kapasitesi",
+            "Yedek parça fiyatlarının çok uygun olması"
+        ],
+        weaknesses: [
+            "Klima ve hidrolik direksiyon donanımlarının her modelde olmaması",
+            "İzolasyon zayıflığı ve yüksek hızlarda içeri ses alması",
+            "Yaşından dolayı kaporta çürümelerine yatkın olması",
+            "Yakıt tüketiminin güncel modellere göre yüksek kalması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Karbüratör ve Rölanti Dalgalanması",
+                severity: "medium",
+                reportCount: 6,
+                description: "Özellikle LPG'li kullanımlarda rölanti dalgalanması ve karbüratör ayarsızlığı kroniktir."
+            },
+            {
+                id: 2,
+                title: "Hararet Sorunları",
+                severity: "high",
+                reportCount: 6,
+                description: "Soğutma sistemi eski olduğundan radyatör tıkanmaları ve hararet yapma eğilimi sık görülür."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2002,
+        brand: "Renault",
+        model: "9 (Spring / Broadway)",
+        year: "1990 - 2000",
+        ncapStars: 3,
+        ncapYear: "1998",
+        dnaScore: 76,
+        strengths: [
+            "İnanılmaz düşük bakım maliyetleri",
+            "Hafif kasası sayesinde tatminkar çekiş gücü",
+            "Şehir içi kullanıma uygun pratik boyutlar",
+            "Hemen alıcı bulan hızlı ikinci el piyasası"
+        ],
+        weaknesses: [
+            "Modern güvenlik donanımlarının (ABS, Airbag) hiçbirinin olmaması",
+            "Sürüş dinamiklerinin ve yol tutuşunun çok zayıf olması",
+            "Fren mesafesinin uzun olması",
+            "Konfor anlamında oldukça geri kalması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Distribütör ve Ateşleme Arızaları",
+                severity: "low",
+                reportCount: 9,
+                description: "Islak havalarda distribütör su alıp tekleme yapabilir."
+            },
+            {
+                id: 2,
+                title: "Ön Takım Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön takımdan (salıncak, rot) çabuk ses gelmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2003,
+        brand: "Renault",
+        model: "Kangoo (Eski Kasa)",
+        year: "1998 - 2003",
+        ncapStars: 4,
+        ncapYear: "2006",
+        dnaScore: 78,
+        strengths: [
+            "Ticari araç genişliğini aile kullanımıyla birleştirmesi",
+            "Devasa bagaj hacmi ve yüksek tavan",
+            "1.5 dCi motorun efsanevi yakıt ekonomisi",
+            "Pratik sürgülü kapılar"
+        ],
+        weaknesses: [
+            "Yüksek hızlarda viraj kabiliyetinin zayıf olması",
+            "Ticari araç statüsünde olduğu için her yıl muayene gerektirmesi",
+            "İç mekanda bolca sert plastik kullanımı",
+            "Yüksek hızlarda rüzgar sesi alması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "EGR Valfi Tıkanması",
+                severity: "medium",
+                reportCount: 6,
+                description: "1.5 dCi motorlarda şehir içi kullanımda kurum bağlayıp çekişten düşme yapar."
+            },
+            {
+                id: 2,
+                title: "Sürgülü Kapı Mekanizması",
+                severity: "low",
+                reportCount: 7,
+                description: "Zamanla raylarda biriken toz ve aşınma nedeniyle sürgülü kapıların zor kapanması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2004,
+        brand: "Peugeot",
+        model: "206 (1.4)",
+        year: "1999 - 2008",
+        ncapStars: 4,
+        ncapYear: "2006",
+        dnaScore: 72,
+        strengths: [
+            "Yıllara meydan okuyan, sportif ve şık tasarım",
+            "Şehir içinde park kolaylığı ve çeviklik",
+            "Genç kullanıcılar için modifiyeye uygun altyapı",
+            "1.4 motorun makul yakıt tüketimi"
+        ],
+        weaknesses: [
+            "Arka diz mesafesinin çok dar olması",
+            "Torsiyon çubuğu arka süspansiyon sisteminin sert olması",
+            "Elektronik donanımların zamanla arıza vermeye meyilli olması",
+            "Vites geçişlerinin kemikli ve hissiz olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Arka Torsiyon Dingili Sorunu",
+                severity: "high",
+                reportCount: 7,
+                description: "Arka tekerleklerin kamber açısının bozulması (  / şeklinde durması) ve arka takımdan gıcırtı gelmesi. Tamiri maliyetlidir."
+            },
+            {
+                id: 2,
+                title: "Silecek Kolu (COM2000) Arızası",
+                severity: "medium",
+                reportCount: 8,
+                description: "Sinyal verildiğinde kendi kendine kapanması veya sileceklerin kafasına göre çalışması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2005,
+        brand: "Ford",
+        model: "Fiesta (Eski Kasa)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 77,
+        strengths: [
+            "Sınıfına göre çok üstün direksiyon hissi ve yol tutuş",
+            "Tok kapı sesi ve güven veren kasa yapısı",
+            "Kliması ve ısıtma sisteminin çok başarılı olması",
+            "Uzun ömürlü ve dayanıklı motor bloğu"
+        ],
+        weaknesses: [
+            "İç mekanda kullanılan malzemelerin zamanla soyulması",
+            "1.4 TDCi dizel motorların çok gürültülü çalışması",
+            "Yakıt tüketiminin rakiplerine göre bir tık yüksek olması",
+            "Bagaj hacminin dar olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Direksiyon Kutusu Tıkırtısı",
+                severity: "medium",
+                reportCount: 8,
+                description: "Bozuk yollarda direksiyon kutusundan tıkırtı sesi gelmesi, Ford'larda genel bir kroniktir."
+            },
+            {
+                id: 2,
+                title: "Enjektör Pulu Kaçağı",
+                severity: "high",
+                reportCount: 7,
+                description: "1.4 TDCi motorlarda enjektör diplerinden mazot veya kompresyon kaçağı yapıp içeri çiğ mazot kokusu vermesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2006,
+        brand: "Renault",
+        model: "12 Toros",
+        year: "1990 - 2000",
+        ncapStars: 3,
+        ncapYear: "1998",
+        dnaScore: 79,
+        strengths: [
+            "Kırsal kesimde ve bozuk yollarda SUV gibi ilerleyebilmesi",
+            "Mekanik yapısının çok basit olması",
+            "Arkası geniş station wagon kasa avantajı",
+            "Türkiye yollarının efsanesi olarak yedek parça sorunu olmaması"
+        ],
+        weaknesses: [
+            "Direksiyonun (hidrolik olmadığı için) aşırı ağır olması",
+            "Konfor ve yalıtımın sıfıra yakın olması",
+            "Yüksek hızlarda güvenlik zafiyeti",
+            "Fren performansının zayıf kalması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Kaporta Çürümeleri",
+                severity: "high",
+                reportCount: 6,
+                description: "Özellikle çamurluk ağızları ve taban sacında yoğun paslanma/çürüme sorunları."
+            },
+            {
+                id: 2,
+                title: "Vites Kolu Boşluğu",
+                severity: "low",
+                reportCount: 9,
+                description: "Zamanla vites kolu burçlarının aşınıp vitesin çorba gibi olması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2007,
+        brand: "Peugeot",
+        model: "406 (2.0)",
+        year: "1996 - 2004",
+        ncapStars: 4,
+        ncapYear: "2006",
+        dnaScore: 73,
+        strengths: [
+            "D segmentine yakışır makam aracı konforu",
+            "Film yıldızı (Taxi) karizması ve efsanevi tasarım",
+            "Dönemine göre deri koltuk, ısıtma gibi premium donanımlar",
+            "Yol tutuşu ve uzun yol rahatlığı"
+        ],
+        weaknesses: [
+            "2.0 benzinli motorun şehir içi yüksek yakıt tüketimi",
+            "Otomatik şanzıman arızalarının maliyetli olması",
+            "İkinci el piyasasının yavaş ve nazlı olması",
+            "Elektronik aksamlarının yaşa bağlı nazlanması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AL4 Otomatik Şanzıman Arızası",
+                severity: "high",
+                reportCount: 6,
+                description: "Şanzıman elektrovanalarının arızalanıp aracın korumaya geçmesi ve vuruntulu vites geçişleri."
+            },
+            {
+                id: 2,
+                title: "Gösterge Paneli Solması",
+                severity: "low",
+                reportCount: 9,
+                description: "Gösterge paneli piksellerinin silinmesi ve kadran hataları."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2008,
+        brand: "Opel",
+        model: "Astra G (1.4 / 1.6)",
+        year: "1998 - 2004",
+        ncapStars: 4,
+        ncapYear: "2006",
+        dnaScore: 72,
+        strengths: [
+            "Zamansız ve hala çok sevilen dış tasarım",
+            "Çok tok ve yola oturan sürüş hissi (Alman mühendisliği)",
+            "İç malzeme kalitesinin ve dayanıklılığının yüksekliği",
+            "Piyasada altın gibi hızlı alınıp satılabilmesi"
+        ],
+        weaknesses: [
+            "1.4 motorun kasayı taşımakta zorlanması",
+            "Süspansiyonların rakiplerine göre biraz sert hissettirmesi",
+            "Klima kompresörü sorunları",
+            "Bagaj hacminin aileler için sınırda kalması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "EGR Valfi ve Bobin Arızası",
+                severity: "medium",
+                reportCount: 8,
+                description: "Ecotec motorlarda EGR valfi tıkanması ve ateşleme bobini yanması çok sıktır."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Pompası Sesi",
+                severity: "medium",
+                reportCount: 6,
+                description: "Elektro-hidrolik direksiyon pompasından direksiyon çevrildikçe gelen ıslık/uğultu sesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2009,
+        brand: "Chevrolet",
+        model: "Aveo (1.2)",
+        year: "2006 - 2011",
+        ncapStars: 3,
+        ncapYear: "2006",
+        dnaScore: 65,
+        strengths: [
+            "Bütçe dostu satın alma maliyeti",
+            "Şehir içi kullanıma çok uygun boyutlar",
+            "GM (Opel) altyapısı sayesinde motor parça uyumu",
+            "1.2 motorun vergi avantajı"
+        ],
+        weaknesses: [
+            "1.2 motorun rampalarda ve yüklü durumda bayılması",
+            "Kabin içi ses yalıtımının zayıf olması",
+            "Chevrolet'in Avrupa'dan çekilmiş olması nedeniyle bazı kaporta parçalarının zor bulunması",
+            "Plastik aksam kalitesinin ucuz hissettirmesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Motor Yağ Kaçakları",
+                severity: "medium",
+                reportCount: 6,
+                description: "Külbütör kapağından ve karterden terleme şeklinde yağ sızıntıları kroniktir."
+            },
+            {
+                id: 2,
+                title: "LPG Uyumu Sorunları",
+                severity: "high",
+                reportCount: 7,
+                description: "Magnezyum alaşımlı sübaplar nedeniyle LPG'li kullanımda sübap erimesi yaşanması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2010,
+        brand: "Fiat",
+        model: "Linea (1.4 / 1.3 M.jet)",
+        year: "2008 - 2012",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 73,
+        strengths: [
+            "Dünyanın en ucuz ve en kolay bulunan yedek parçası",
+            "Devasa (500 litre) bagaj hacmi ile tam bir aile aracı",
+            "1.3 Multijet motorun yakıt cimriliği ve dayanıklılığı",
+            "Yerden yüksek yapısıyla Türkiye şartlarına tam uyum"
+        ],
+        weaknesses: [
+            "İç mekanda çok fazla sert ve kalitesiz plastik kullanılması",
+            "İzolasyon eksikliği ve içeri yoğun motor sesi alması",
+            "Şirket veya taksi çıkması olma ihtimalinin çok yüksek olması",
+            "1.4 Fire motorun rampalarda nefesinin kesilmesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Amortisör Takozu Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Ön amortisör takozlarından direksiyon çevrildikçe 'gırç gırç' sesi gelmesi."
+            },
+            {
+                id: 2,
+                title: "Göğüs (Konsol) Çatlaması",
+                severity: "medium",
+                reportCount: 6,
+                description: "Özellikle güneş altında kalan Linea'larda yolcu havayastığı hizasında göğüs plastiğinin çatlaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2011,
+        brand: "Ford",
+        model: "Fiesta (1.4)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 78,
+        strengths: [
+            "Sınıfının En İyi Yol Tutuş Dinamikleri (Viraj Ustası)",
+            "Hissiyatı ve Geri Bildirimi Çok Başarılı Direksiyon Kutusu",
+            "Sağlam Gövde Yapısı ve Tok Süspansiyon Karakteri",
+            "Dayanıklı ve Uzun Ömürlü Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Arka Baş/Diz Mesafesinin Rakiplerinden Dar Olması (Tasarım Kaynaklı)",
+            "Kabinde B Sütunundan ve Kapılardan Trim Sesi Gelmesi",
+            "Otomatik Şanzımanların (Powershift) Düşük Hız Kararsızlığı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesi (B Sütunu ve Kapılar)",
+                severity: "low",
+                reportCount: 6,
+                description: "Emniyet kemeri çıkışından ve kapı fitillerinden gıcırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Powershift Şanzıman Silkelemesi",
+                severity: "medium",
+                reportCount: 6,
+                description: "Çift kavramalı vites kutusunda düşük hız kalkışlarında sarsıntı hissedilmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2012,
+        brand: "Hyundai",
+        model: "Accent Admire (1.3)",
+        year: "2003 - 2006",
+        ncapStars: 5,
+        ncapYear: "2006",
+        dnaScore: 78,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2013,
+        brand: "Renault",
+        model: "Symbol (1.5 dCi)",
+        year: "2008 - 2012",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 73,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 9,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2014,
+        brand: "Honda",
+        model: "Civic (VTEC 2)",
+        year: "2001 - 2006",
+        ncapStars: 4,
+        ncapYear: "2006",
+        dnaScore: 83,
+        strengths: [
+            "Sorunsuz VTEC Motor Teknolojisi",
+            "Sportif Oturma Pozisyonu ve Keyifli Sürüş Dinamikleri",
+            "Çok Geniş ve Kullanışlı İç Yaşam Alanı",
+            "Fabrikasyon LPG Garantili Seçenekler (Eco paketler)"
+        ],
+        weaknesses: [
+            "Kabin İçi Yol ve Lastik Sesinin Yüksek Olması",
+            "İnce Kaporta Sacı ve Boya Katmanı",
+            "Kasislerde ve Tümseklerde Alt Sürtme Hassasiyeti"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yol Sesi Alma",
+                severity: "low",
+                reportCount: 7,
+                description: "Davlumbaz içi ve kapı fitillerinin zayıflığı sebebiyle yol gürültüsü kabine yansır."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Tıkırtısı",
+                severity: "medium",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda direksiyon milinden gelen hafif tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2015,
+        brand: "Opel",
+        model: "Astra (H Kasa)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Alman Sürüş Karakteri ve Tok Kapı Hissiyatı",
+            "Sınıfının En İyi Yol Tutuş Limitleri ve Sağlam Şasi",
+            "AGR Sertifikalı Konforlu ve Ergonomik Koltuk Yapısı",
+            "Yüksek Hızlarda Güven Veren Düz Hat Kararlılığı"
+        ],
+        weaknesses: [
+            "Ağır Kasa Ağırlığı ve Buna Bağlı Yüksek Şehir İçi Tüketim",
+            "Multimedya Arayüzünün Bazen Donma Yapması",
+            "Yedek Parça Maliyetlerinin Fransız Rakiplerinden Yüksek Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Çelik Supap Gereksinimi (LPG'de)",
+                severity: "medium",
+                reportCount: 8,
+                description: "LPG uyumunda supap erimesi yaşanabilir, çelik supap değişimi önerilir."
+            },
+            {
+                id: 2,
+                title: "Soğutma Suyu Hortum Terlemesi",
+                severity: "low",
+                reportCount: 6,
+                description: "Genleşme kabı ve hortumlardan soğutma suyu sızıntısı riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2016,
+        brand: "Ford",
+        model: "Focus (MK2)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 76,
+        strengths: [
+            "Sınıfının En İyi Yol Tutuş Dinamikleri (Viraj Ustası)",
+            "Hissiyatı ve Geri Bildirimi Çok Başarılı Direksiyon Kutusu",
+            "Sağlam Gövde Yapısı ve Tok Süspansiyon Karakteri",
+            "Dayanıklı ve Uzun Ömürlü Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Arka Baş/Diz Mesafesinin Rakiplerinden Dar Olması (Tasarım Kaynaklı)",
+            "Kabinde B Sütunundan ve Kapılardan Trim Sesi Gelmesi",
+            "Otomatik Şanzımanların (Powershift) Düşük Hız Kararsızlığı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesi (B Sütunu ve Kapılar)",
+                severity: "low",
+                reportCount: 8,
+                description: "Emniyet kemeri çıkışından ve kapı fitillerinden gıcırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Powershift Şanzıman Silkelemesi",
+                severity: "medium",
+                reportCount: 9,
+                description: "Çift kavramalı vites kutusunda düşük hız kalkışlarında sarsıntı hissedilmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2017,
+        brand: "Renault",
+        model: "Clio 3",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 78,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 6,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 6,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2018,
+        brand: "Fiat",
+        model: "Linea (1.3 / 1.6 M.jet)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 75,
+        strengths: [
+            "Fiyat/Performans Dengesinde Sınıf Liderliği",
+            "Mekanik Sadeliği Sayesinde Masrafsız Kullanım",
+            "Türkiye Yol Şartlarına Son Derece Uygun Yumuşak Süspansiyon",
+            "Bakkalda Bile Bulunabilen Aşırı Ucuz Yedek Parça"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol Tutuş ve Güvenlik Hissi Eksikliği",
+            "Zayıf Kabin Ses Yalıtımı",
+            "Malzeme Kalitesinin Sınıf Standartlarının Altında Kalması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Amortisör Takozu Sesi",
+                severity: "low",
+                reportCount: 7,
+                description: "Kasis geçişlerinde direksiyon kırıldığında 'lok lok' sesi duyulması yaygındır."
+            },
+            {
+                id: 2,
+                title: "Krom Detay Soyulması",
+                severity: "low",
+                reportCount: 8,
+                description: "Dış kapı kollarındaki ve panjurdaki kromajların zamanla dökülmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2019,
+        brand: "Renault",
+        model: "Megane 2",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 77,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 7,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 6,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2020,
+        brand: "Kia",
+        model: "Rio",
+        year: "2015 - 2024",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2021,
+        brand: "Mitsubishi",
+        model: "Colt (1.3)",
+        year: "2005 - 2010",
+        ncapStars: 4,
+        ncapYear: "2006",
+        dnaScore: 77,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 8,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2022,
+        brand: "Peugeot",
+        model: "207",
+        year: "2007 - 2011",
+        ncapStars: 4,
+        ncapYear: "2006",
+        dnaScore: 76,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 9,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 6,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2023,
+        brand: "Volkswagen",
+        model: "Golf 4",
+        year: "1998 - 2004",
+        ncapStars: 4,
+        ncapYear: "2006",
+        dnaScore: 73,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 8,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2024,
+        brand: "Renault",
+        model: "Fluence (1.5 dCi)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 77,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 6,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2025,
+        brand: "Opel",
+        model: "Astra J Kasa (1.3 Dizel)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 72,
+        strengths: [
+            "Alman Sürüş Karakteri ve Tok Kapı Hissiyatı",
+            "Sınıfının En İyi Yol Tutuş Limitleri ve Sağlam Şasi",
+            "AGR Sertifikalı Konforlu ve Ergonomik Koltuk Yapısı",
+            "Yüksek Hızlarda Güven Veren Düz Hat Kararlılığı"
+        ],
+        weaknesses: [
+            "Ağır Kasa Ağırlığı ve Buna Bağlı Yüksek Şehir İçi Tüketim",
+            "Multimedya Arayüzünün Bazen Donma Yapması",
+            "Yedek Parça Maliyetlerinin Fransız Rakiplerinden Yüksek Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Çelik Supap Gereksinimi (LPG'de)",
+                severity: "medium",
+                reportCount: 6,
+                description: "LPG uyumunda supap erimesi yaşanabilir, çelik supap değişimi önerilir."
+            },
+            {
+                id: 2,
+                title: "Soğutma Suyu Hortum Terlemesi",
+                severity: "low",
+                reportCount: 9,
+                description: "Genleşme kabı ve hortumlardan soğutma suyu sızıntısı riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2026,
+        brand: "Peugeot / Citroen",
+        model: "301 / C-Elysee",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 9,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 6,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2027,
+        brand: "Volkswagen",
+        model: "Golf 6 (BlueMotion)",
+        year: "2010 - 2012",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 78,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 8,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 7,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2028,
+        brand: "Renault",
+        model: "Grand Scenic (1.5 dCi)",
+        year: "2011 - 2014",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 79,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 9,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2029,
+        brand: "Hyundai / Renault",
+        model: "i20 / Clio 4",
+        year: "2013 - 2017",
+        ncapStars: 5,
+        ncapYear: "2015",
+        dnaScore: 80,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 7,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2030,
+        brand: "Mercedes",
+        model: "E Serisi (W210 Kompressor)",
+        year: "1996 - 2001",
+        ncapStars: 3,
+        ncapYear: "1998",
+        dnaScore: 87,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 7,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2031,
+        brand: "Fiat",
+        model: "Egea (1.3/1.6 M.jet, 1.4 Fire)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 76,
+        strengths: [
+            "Fiyat/Performans Dengesinde Sınıf Liderliği",
+            "Mekanik Sadeliği Sayesinde Masrafsız Kullanım",
+            "Türkiye Yol Şartlarına Son Derece Uygun Yumuşak Süspansiyon",
+            "Bakkalda Bile Bulunabilen Aşırı Ucuz Yedek Parça"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol Tutuş ve Güvenlik Hissi Eksikliği",
+            "Zayıf Kabin Ses Yalıtımı",
+            "Malzeme Kalitesinin Sınıf Standartlarının Altında Kalması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Amortisör Takozu Sesi",
+                severity: "low",
+                reportCount: 7,
+                description: "Kasis geçişlerinde direksiyon kırıldığında 'lok lok' sesi duyulması yaygındır."
+            },
+            {
+                id: 2,
+                title: "Krom Detay Soyulması",
+                severity: "low",
+                reportCount: 6,
+                description: "Dış kapı kollarındaki ve panjurdaki kromajların zamanla dökülmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2032,
+        brand: "Renault",
+        model: "Megane 4 (Joy Paket)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 77,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 7,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2033,
+        brand: "Ford",
+        model: "Focus MK3 (1.6 TDCi)",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 77,
+        strengths: [
+            "Sınıfının En İyi Yol Tutuş Dinamikleri (Viraj Ustası)",
+            "Hissiyatı ve Geri Bildirimi Çok Başarılı Direksiyon Kutusu",
+            "Sağlam Gövde Yapısı ve Tok Süspansiyon Karakteri",
+            "Dayanıklı ve Uzun Ömürlü Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Arka Baş/Diz Mesafesinin Rakiplerinden Dar Olması (Tasarım Kaynaklı)",
+            "Kabinde B Sütunundan ve Kapılardan Trim Sesi Gelmesi",
+            "Otomatik Şanzımanların (Powershift) Düşük Hız Kararsızlığı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesi (B Sütunu ve Kapılar)",
+                severity: "low",
+                reportCount: 9,
+                description: "Emniyet kemeri çıkışından ve kapı fitillerinden gıcırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Powershift Şanzıman Silkelemesi",
+                severity: "medium",
+                reportCount: 9,
+                description: "Çift kavramalı vites kutusunda düşük hız kalkışlarında sarsıntı hissedilmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2034,
+        brand: "Volkswagen",
+        model: "Jetta & Golf 6",
+        year: "2015 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 6,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 9,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2035,
+        brand: "Hyundai",
+        model: "Accent Blue",
+        year: "2013 - 2017",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 82,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2036,
+        brand: "Honda",
+        model: "Civic FB7",
+        year: "2012 - 2016",
+        ncapStars: 5,
+        ncapYear: "2015",
+        dnaScore: 79,
+        strengths: [
+            "Sorunsuz VTEC Motor Teknolojisi",
+            "Sportif Oturma Pozisyonu ve Keyifli Sürüş Dinamikleri",
+            "Çok Geniş ve Kullanışlı İç Yaşam Alanı",
+            "Fabrikasyon LPG Garantili Seçenekler (Eco paketler)"
+        ],
+        weaknesses: [
+            "Kabin İçi Yol ve Lastik Sesinin Yüksek Olması",
+            "İnce Kaporta Sacı ve Boya Katmanı",
+            "Kasislerde ve Tümseklerde Alt Sürtme Hassasiyeti"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yol Sesi Alma",
+                severity: "low",
+                reportCount: 9,
+                description: "Davlumbaz içi ve kapı fitillerinin zayıflığı sebebiyle yol gürültüsü kabine yansır."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Tıkırtısı",
+                severity: "medium",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda direksiyon milinden gelen hafif tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2037,
+        brand: "Toyota",
+        model: "Corolla (E150 Kasa)",
+        year: "2007 - 2012",
+        ncapStars: 5,
+        ncapYear: "2006",
+        dnaScore: 85,
+        strengths: [
+            "Efsanevi Japon Mekanik Dayanıklılığı ve Arıza Yapmama",
+            "Son Derece Düşük Yakıt Tüketimi (Hibrit modellerinde)",
+            "Çok Hızlı El Değiştiren Güçlü İkinci El Piyasası",
+            "LPG Uyumu Mükemmel Atmosferik Motorlar"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Rüzgar ve Yol Sesi (Yalıtım eksikliği)",
+            "Multimedya Sisteminin Grafik ve Teknolojik Olarak Geri Kalması",
+            "İnce Boya Kalitesi (Çizilmeye ve taş izlerine hassas)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "İnce Boya Katmanı",
+                severity: "medium",
+                reportCount: 9,
+                description: "Kaportanın taş izlerine ve çizilmelere karşı hassas olması boya atmasına yol açabilir."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Derisi Aşınması",
+                severity: "low",
+                reportCount: 7,
+                description: "Direksiyon simidi derisinin erken kilometrelerde yıpranması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2038,
+        brand: "Opel",
+        model: "Astra J Kasa",
+        year: "2013 - 2017",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 72,
+        strengths: [
+            "Alman Sürüş Karakteri ve Tok Kapı Hissiyatı",
+            "Sınıfının En İyi Yol Tutuş Limitleri ve Sağlam Şasi",
+            "AGR Sertifikalı Konforlu ve Ergonomik Koltuk Yapısı",
+            "Yüksek Hızlarda Güven Veren Düz Hat Kararlılığı"
+        ],
+        weaknesses: [
+            "Ağır Kasa Ağırlığı ve Buna Bağlı Yüksek Şehir İçi Tüketim",
+            "Multimedya Arayüzünün Bazen Donma Yapması",
+            "Yedek Parça Maliyetlerinin Fransız Rakiplerinden Yüksek Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Çelik Supap Gereksinimi (LPG'de)",
+                severity: "medium",
+                reportCount: 9,
+                description: "LPG uyumunda supap erimesi yaşanabilir, çelik supap değişimi önerilir."
+            },
+            {
+                id: 2,
+                title: "Soğutma Suyu Hortum Terlemesi",
+                severity: "low",
+                reportCount: 6,
+                description: "Genleşme kabı ve hortumlardan soğutma suyu sızıntısı riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2039,
+        brand: "Citroen",
+        model: "C4 (1.6 BlueHDi)",
+        year: "2015 - 2016",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 76,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 6,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 7,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2040,
+        brand: "Citroen",
+        model: "C3 (1.2 Puretech)",
+        year: "2020 - 2021",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 77,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 6,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 7,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2041,
+        brand: "Fiat",
+        model: "Doblo (1.6 M.jet)",
+        year: "2022 - 2023",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Fiyat/Performans Dengesinde Sınıf Liderliği",
+            "Mekanik Sadeliği Sayesinde Masrafsız Kullanım",
+            "Türkiye Yol Şartlarına Son Derece Uygun Yumuşak Süspansiyon",
+            "Bakkalda Bile Bulunabilen Aşırı Ucuz Yedek Parça"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol Tutuş ve Güvenlik Hissi Eksikliği",
+            "Zayıf Kabin Ses Yalıtımı",
+            "Malzeme Kalitesinin Sınıf Standartlarının Altında Kalması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Amortisör Takozu Sesi",
+                severity: "low",
+                reportCount: 9,
+                description: "Kasis geçişlerinde direksiyon kırıldığında 'lok lok' sesi duyulması yaygındır."
+            },
+            {
+                id: 2,
+                title: "Krom Detay Soyulması",
+                severity: "low",
+                reportCount: 7,
+                description: "Dış kapı kollarındaki ve panjurdaki kromajların zamanla dökülmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2042,
+        brand: "Toyota / Honda",
+        model: "Auris vb. (CVT)",
+        year: "2014 - 2017",
+        ncapStars: 5,
+        ncapYear: "2015",
+        dnaScore: 87,
+        strengths: [
+            "Efsanevi Japon Mekanik Dayanıklılığı ve Arıza Yapmama",
+            "Son Derece Düşük Yakıt Tüketimi (Hibrit modellerinde)",
+            "Çok Hızlı El Değiştiren Güçlü İkinci El Piyasası",
+            "LPG Uyumu Mükemmel Atmosferik Motorlar"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Rüzgar ve Yol Sesi (Yalıtım eksikliği)",
+            "Multimedya Sisteminin Grafik ve Teknolojik Olarak Geri Kalması",
+            "İnce Boya Kalitesi (Çizilmeye ve taş izlerine hassas)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "İnce Boya Katmanı",
+                severity: "medium",
+                reportCount: 8,
+                description: "Kaportanın taş izlerine ve çizilmelere karşı hassas olması boya atmasına yol açabilir."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Derisi Aşınması",
+                severity: "low",
+                reportCount: 8,
+                description: "Direksiyon simidi derisinin erken kilometrelerde yıpranması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2043,
+        brand: "Renault",
+        model: "Megane 4 (1.5 dCi)",
+        year: "2016 - 2018",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 79,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 7,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 9,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2044,
+        brand: "Skoda / VW",
+        model: "Scala / Jetta",
+        year: "2015 - 2020",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 73,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 6,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2045,
+        brand: "Dacia",
+        model: "Sandero (2022+)",
+        year: "2022 - 2024",
+        ncapStars: 3,
+        ncapYear: "2021",
+        dnaScore: 69,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 6,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2046,
+        brand: "Renault",
+        model: "Clio 5 (1.0 TCe - Icon Paket)",
+        year: "2022 - 2023",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 9,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2047,
+        brand: "Opel",
+        model: "Insignia (1.6 Dizel)",
+        year: "2016",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 79,
+        strengths: [
+            "Alman Sürüş Karakteri ve Tok Kapı Hissiyatı",
+            "Sınıfının En İyi Yol Tutuş Limitleri ve Sağlam Şasi",
+            "AGR Sertifikalı Konforlu ve Ergonomik Koltuk Yapısı",
+            "Yüksek Hızlarda Güven Veren Düz Hat Kararlılığı"
+        ],
+        weaknesses: [
+            "Ağır Kasa Ağırlığı ve Buna Bağlı Yüksek Şehir İçi Tüketim",
+            "Multimedya Arayüzünün Bazen Donma Yapması",
+            "Yedek Parça Maliyetlerinin Fransız Rakiplerinden Yüksek Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Çelik Supap Gereksinimi (LPG'de)",
+                severity: "medium",
+                reportCount: 7,
+                description: "LPG uyumunda supap erimesi yaşanabilir, çelik supap değişimi önerilir."
+            },
+            {
+                id: 2,
+                title: "Soğutma Suyu Hortum Terlemesi",
+                severity: "low",
+                reportCount: 6,
+                description: "Genleşme kabı ve hortumlardan soğutma suyu sızıntısı riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2048,
+        brand: "Seat",
+        model: "Leon (1.6 TDI)",
+        year: "2017",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 74,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 9,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2049,
+        brand: "Fiat",
+        model: "Egea Sedan (1.6 Multijet Lounge)",
+        year: "2022",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 72,
+        strengths: [
+            "Fiyat/Performans Dengesinde Sınıf Liderliği",
+            "Mekanik Sadeliği Sayesinde Masrafsız Kullanım",
+            "Türkiye Yol Şartlarına Son Derece Uygun Yumuşak Süspansiyon",
+            "Bakkalda Bile Bulunabilen Aşırı Ucuz Yedek Parça"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol Tutuş ve Güvenlik Hissi Eksikliği",
+            "Zayıf Kabin Ses Yalıtımı",
+            "Malzeme Kalitesinin Sınıf Standartlarının Altında Kalması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Amortisör Takozu Sesi",
+                severity: "low",
+                reportCount: 7,
+                description: "Kasis geçişlerinde direksiyon kırıldığında 'lok lok' sesi duyulması yaygındır."
+            },
+            {
+                id: 2,
+                title: "Krom Detay Soyulması",
+                severity: "low",
+                reportCount: 6,
+                description: "Dış kapı kollarındaki ve panjurdaki kromajların zamanla dökülmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2050,
+        brand: "Honda",
+        model: "City (1.5 Executive)",
+        year: "2023",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 80,
+        strengths: [
+            "Sorunsuz VTEC Motor Teknolojisi",
+            "Sportif Oturma Pozisyonu ve Keyifli Sürüş Dinamikleri",
+            "Çok Geniş ve Kullanışlı İç Yaşam Alanı",
+            "Fabrikasyon LPG Garantili Seçenekler (Eco paketler)"
+        ],
+        weaknesses: [
+            "Kabin İçi Yol ve Lastik Sesinin Yüksek Olması",
+            "İnce Kaporta Sacı ve Boya Katmanı",
+            "Kasislerde ve Tümseklerde Alt Sürtme Hassasiyeti"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yol Sesi Alma",
+                severity: "low",
+                reportCount: 6,
+                description: "Davlumbaz içi ve kapı fitillerinin zayıflığı sebebiyle yol gürültüsü kabine yansır."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Tıkırtısı",
+                severity: "medium",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda direksiyon milinden gelen hafif tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2051,
+        brand: "Opel / Hyundai",
+        model: "Corsa / i20 (1.2T / 1.0T)",
+        year: "2022 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 80,
+        strengths: [
+            "Alman Sürüş Karakteri ve Tok Kapı Hissiyatı",
+            "Sınıfının En İyi Yol Tutuş Limitleri ve Sağlam Şasi",
+            "AGR Sertifikalı Konforlu ve Ergonomik Koltuk Yapısı",
+            "Yüksek Hızlarda Güven Veren Düz Hat Kararlılığı"
+        ],
+        weaknesses: [
+            "Ağır Kasa Ağırlığı ve Buna Bağlı Yüksek Şehir İçi Tüketim",
+            "Multimedya Arayüzünün Bazen Donma Yapması",
+            "Yedek Parça Maliyetlerinin Fransız Rakiplerinden Yüksek Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Çelik Supap Gereksinimi (LPG'de)",
+                severity: "medium",
+                reportCount: 6,
+                description: "LPG uyumunda supap erimesi yaşanabilir, çelik supap değişimi önerilir."
+            },
+            {
+                id: 2,
+                title: "Soğutma Suyu Hortum Terlemesi",
+                severity: "low",
+                reportCount: 8,
+                description: "Genleşme kabı ve hortumlardan soğutma suyu sızıntısı riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2052,
+        brand: "Fiat",
+        model: "Egea Cross (1.6 Multijet Otomatik)",
+        year: "2022 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 77,
+        strengths: [
+            "Fiyat/Performans Dengesinde Sınıf Liderliği",
+            "Mekanik Sadeliği Sayesinde Masrafsız Kullanım",
+            "Türkiye Yol Şartlarına Son Derece Uygun Yumuşak Süspansiyon",
+            "Bakkalda Bile Bulunabilen Aşırı Ucuz Yedek Parça"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol Tutuş ve Güvenlik Hissi Eksikliği",
+            "Zayıf Kabin Ses Yalıtımı",
+            "Malzeme Kalitesinin Sınıf Standartlarının Altında Kalması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Amortisör Takozu Sesi",
+                severity: "low",
+                reportCount: 6,
+                description: "Kasis geçişlerinde direksiyon kırıldığında 'lok lok' sesi duyulması yaygındır."
+            },
+            {
+                id: 2,
+                title: "Krom Detay Soyulması",
+                severity: "low",
+                reportCount: 6,
+                description: "Dış kapı kollarındaki ve panjurdaki kromajların zamanla dökülmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2053,
+        brand: "Opel",
+        model: "Astra K Kasa (1.6 Dizel Otomatik)",
+        year: "2018 - 2020",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Alman Sürüş Karakteri ve Tok Kapı Hissiyatı",
+            "Sınıfının En İyi Yol Tutuş Limitleri ve Sağlam Şasi",
+            "AGR Sertifikalı Konforlu ve Ergonomik Koltuk Yapısı",
+            "Yüksek Hızlarda Güven Veren Düz Hat Kararlılığı"
+        ],
+        weaknesses: [
+            "Ağır Kasa Ağırlığı ve Buna Bağlı Yüksek Şehir İçi Tüketim",
+            "Multimedya Arayüzünün Bazen Donma Yapması",
+            "Yedek Parça Maliyetlerinin Fransız Rakiplerinden Yüksek Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Çelik Supap Gereksinimi (LPG'de)",
+                severity: "medium",
+                reportCount: 8,
+                description: "LPG uyumunda supap erimesi yaşanabilir, çelik supap değişimi önerilir."
+            },
+            {
+                id: 2,
+                title: "Soğutma Suyu Hortum Terlemesi",
+                severity: "low",
+                reportCount: 8,
+                description: "Genleşme kabı ve hortumlardan soğutma suyu sızıntısı riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2054,
+        brand: "Opel",
+        model: "Corsa (1.2 Turbo Otomatik)",
+        year: "2021 - 2023",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 72,
+        strengths: [
+            "Alman Sürüş Karakteri ve Tok Kapı Hissiyatı",
+            "Sınıfının En İyi Yol Tutuş Limitleri ve Sağlam Şasi",
+            "AGR Sertifikalı Konforlu ve Ergonomik Koltuk Yapısı",
+            "Yüksek Hızlarda Güven Veren Düz Hat Kararlılığı"
+        ],
+        weaknesses: [
+            "Ağır Kasa Ağırlığı ve Buna Bağlı Yüksek Şehir İçi Tüketim",
+            "Multimedya Arayüzünün Bazen Donma Yapması",
+            "Yedek Parça Maliyetlerinin Fransız Rakiplerinden Yüksek Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Çelik Supap Gereksinimi (LPG'de)",
+                severity: "medium",
+                reportCount: 6,
+                description: "LPG uyumunda supap erimesi yaşanabilir, çelik supap değişimi önerilir."
+            },
+            {
+                id: 2,
+                title: "Soğutma Suyu Hortum Terlemesi",
+                severity: "low",
+                reportCount: 9,
+                description: "Genleşme kabı ve hortumlardan soğutma suyu sızıntısı riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2055,
+        brand: "Volkswagen",
+        model: "Golf / Polo",
+        year: "2015 - 2018",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 75,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 9,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2056,
+        brand: "Ford",
+        model: "Focus (Hatchback)",
+        year: "2016 - 2018",
+        ncapStars: 4,
+        ncapYear: "2015",
+        dnaScore: 77,
+        strengths: [
+            "Sınıfının En İyi Yol Tutuş Dinamikleri (Viraj Ustası)",
+            "Hissiyatı ve Geri Bildirimi Çok Başarılı Direksiyon Kutusu",
+            "Sağlam Gövde Yapısı ve Tok Süspansiyon Karakteri",
+            "Dayanıklı ve Uzun Ömürlü Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Arka Baş/Diz Mesafesinin Rakiplerinden Dar Olması (Tasarım Kaynaklı)",
+            "Kabinde B Sütunundan ve Kapılardan Trim Sesi Gelmesi",
+            "Otomatik Şanzımanların (Powershift) Düşük Hız Kararsızlığı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesi (B Sütunu ve Kapılar)",
+                severity: "low",
+                reportCount: 6,
+                description: "Emniyet kemeri çıkışından ve kapı fitillerinden gıcırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Powershift Şanzıman Silkelemesi",
+                severity: "medium",
+                reportCount: 8,
+                description: "Çift kavramalı vites kutusunda düşük hız kalkışlarında sarsıntı hissedilmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2057,
+        brand: "Opel / Peugeot",
+        model: "Astra / 308 (1.2 Puretech)",
+        year: "2022 - 2023",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 6,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 7,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2058,
+        brand: "Citroen",
+        model: "C4X (1.2 Turbo)",
+        year: "2023 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 8,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 6,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2059,
+        brand: "Ford",
+        model: "Focus 4 (1.5 Dizel - Trend X)",
+        year: "2020 - 2022",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 75,
+        strengths: [
+            "Sınıfının En İyi Yol Tutuş Dinamikleri (Viraj Ustası)",
+            "Hissiyatı ve Geri Bildirimi Çok Başarılı Direksiyon Kutusu",
+            "Sağlam Gövde Yapısı ve Tok Süspansiyon Karakteri",
+            "Dayanıklı ve Uzun Ömürlü Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Arka Baş/Diz Mesafesinin Rakiplerinden Dar Olması (Tasarım Kaynaklı)",
+            "Kabinde B Sütunundan ve Kapılardan Trim Sesi Gelmesi",
+            "Otomatik Şanzımanların (Powershift) Düşük Hız Kararsızlığı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesi (B Sütunu ve Kapılar)",
+                severity: "low",
+                reportCount: 6,
+                description: "Emniyet kemeri çıkışından ve kapı fitillerinden gıcırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Powershift Şanzıman Silkelemesi",
+                severity: "medium",
+                reportCount: 9,
+                description: "Çift kavramalı vites kutusunda düşük hız kalkışlarında sarsıntı hissedilmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2060,
+        brand: "Toyota",
+        model: "Corolla (1.8 Hybrid - Dream)",
+        year: "2021 - 2023",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 88,
+        strengths: [
+            "Efsanevi Japon Mekanik Dayanıklılığı ve Arıza Yapmama",
+            "Son Derece Düşük Yakıt Tüketimi (Hibrit modellerinde)",
+            "Çok Hızlı El Değiştiren Güçlü İkinci El Piyasası",
+            "LPG Uyumu Mükemmel Atmosferik Motorlar"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Rüzgar ve Yol Sesi (Yalıtım eksikliği)",
+            "Multimedya Sisteminin Grafik ve Teknolojik Olarak Geri Kalması",
+            "İnce Boya Kalitesi (Çizilmeye ve taş izlerine hassas)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "İnce Boya Katmanı",
+                severity: "medium",
+                reportCount: 9,
+                description: "Kaportanın taş izlerine ve çizilmelere karşı hassas olması boya atmasına yol açabilir."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Derisi Aşınması",
+                severity: "low",
+                reportCount: 6,
+                description: "Direksiyon simidi derisinin erken kilometrelerde yıpranması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2061,
+        brand: "Skoda",
+        model: "Scala (1.0 TSI - Elite/Premium)",
+        year: "2023 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 77,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 6,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2062,
+        brand: "Chery",
+        model: "Omoda 5 (Comfort)",
+        year: "2023 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 7,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2063,
+        brand: "Hyundai / Kia",
+        model: "Bayon / Stonic",
+        year: "2023 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 81,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 7,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2064,
+        brand: "Dacia / Renault",
+        model: "Duster / Megane 4 (1.3 TCe)",
+        year: "2022 - 2023",
+        ncapStars: 3,
+        ncapYear: "2021",
+        dnaScore: 71,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 9,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2065,
+        brand: "Seat / VW",
+        model: "Arona / T-Cross (1.0 TSI)",
+        year: "2022 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 7,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2066,
+        brand: "Hyundai",
+        model: "Ioniq 6",
+        year: "2023 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 82,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 7,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2067,
+        brand: "DS Automobiles",
+        model: "DS 4",
+        year: "2022 - 2023",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 76,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 7,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2068,
+        brand: "Peugeot",
+        model: "308 (Yeni Kasa)",
+        year: "2022 - 2023",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 9,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 8,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2069,
+        brand: "TOGG",
+        model: "T10F (Standart Menzil)",
+        year: "2024 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Rakipsiz Elektrikli Motor Performansı ve Müthiş İvmelenme",
+            "Son Derece Düşük Yakıt/Enerji Maliyeti (Evden Şarjda Bedavaya Yakın)",
+            "Gelişmiş Teknolojik Arayüz, Uçtan Uca Ekranlar ve OTA Yazılım",
+            "Yüksek Aktif Güvenlik Donanımları ve Otopilot Sistemleri"
+        ],
+        weaknesses: [
+            "Kış Aylarında Düşen Menzil ve Şarj Altyapı Stresi",
+            "Alışılagelmiş Servis Ağının Taşrada Bulunmaması",
+            "Süspansiyonların Pil Ağırlığı Nedeniyle Sert Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yazılımsal Reset İhtiyacı",
+                severity: "medium",
+                reportCount: 7,
+                description: "Arayüzün veya ekranların nadiren kilitlenmesi, sistem resetlemesi gerektirmesi."
+            },
+            {
+                id: 2,
+                title: "Şarj İstasyonu Uyumsuzluğu",
+                severity: "low",
+                reportCount: 9,
+                description: "Bazı DC hızlı şarj cihazlarında şarjın yarıda kesilmesi veya başlatılamaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2070,
+        brand: "BYD",
+        model: "Dolphin (Design Paket)",
+        year: "2024 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Rakipsiz Elektrikli Motor Performansı ve Müthiş İvmelenme",
+            "Son Derece Düşük Yakıt/Enerji Maliyeti (Evden Şarjda Bedavaya Yakın)",
+            "Gelişmiş Teknolojik Arayüz, Uçtan Uca Ekranlar ve OTA Yazılım",
+            "Yüksek Aktif Güvenlik Donanımları ve Otopilot Sistemleri"
+        ],
+        weaknesses: [
+            "Kış Aylarında Düşen Menzil ve Şarj Altyapı Stresi",
+            "Alışılagelmiş Servis Ağının Taşrada Bulunmaması",
+            "Süspansiyonların Pil Ağırlığı Nedeniyle Sert Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yazılımsal Reset İhtiyacı",
+                severity: "medium",
+                reportCount: 9,
+                description: "Arayüzün veya ekranların nadiren kilitlenmesi, sistem resetlemesi gerektirmesi."
+            },
+            {
+                id: 2,
+                title: "Şarj İstasyonu Uyumsuzluğu",
+                severity: "low",
+                reportCount: 6,
+                description: "Bazı DC hızlı şarj cihazlarında şarjın yarıda kesilmesi veya başlatılamaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2071,
+        brand: "Ford",
+        model: "Puma (1.0 Titanium)",
+        year: "2023 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 74,
+        strengths: [
+            "Sınıfının En İyi Yol Tutuş Dinamikleri (Viraj Ustası)",
+            "Hissiyatı ve Geri Bildirimi Çok Başarılı Direksiyon Kutusu",
+            "Sağlam Gövde Yapısı ve Tok Süspansiyon Karakteri",
+            "Dayanıklı ve Uzun Ömürlü Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Arka Baş/Diz Mesafesinin Rakiplerinden Dar Olması (Tasarım Kaynaklı)",
+            "Kabinde B Sütunundan ve Kapılardan Trim Sesi Gelmesi",
+            "Otomatik Şanzımanların (Powershift) Düşük Hız Kararsızlığı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesi (B Sütunu ve Kapılar)",
+                severity: "low",
+                reportCount: 7,
+                description: "Emniyet kemeri çıkışından ve kapı fitillerinden gıcırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Powershift Şanzıman Silkelemesi",
+                severity: "medium",
+                reportCount: 8,
+                description: "Çift kavramalı vites kutusunda düşük hız kalkışlarında sarsıntı hissedilmesi."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2072,
+        brand: "Renault",
+        model: "Duster (Evolution Turbo)",
+        year: "2024 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
+            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
+            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
+            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+        ],
+        weaknesses: [
+            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
+            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri (Konsol ve Kapılar)",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+            },
+            {
+                id: 2,
+                title: "Süspansiyon Gıcırtısı",
+                severity: "low",
+                reportCount: 8,
+                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2073,
+        brand: "Toyota",
+        model: "Corolla (1.5 Drive/Dream)",
+        year: "2024 - 2025",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 88,
+        strengths: [
+            "Efsanevi Japon Mekanik Dayanıklılığı ve Arıza Yapmama",
+            "Son Derece Düşük Yakıt Tüketimi (Hibrit modellerinde)",
+            "Çok Hızlı El Değiştiren Güçlü İkinci El Piyasası",
+            "LPG Uyumu Mükemmel Atmosferik Motorlar"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Rüzgar ve Yol Sesi (Yalıtım eksikliği)",
+            "Multimedya Sisteminin Grafik ve Teknolojik Olarak Geri Kalması",
+            "İnce Boya Kalitesi (Çizilmeye ve taş izlerine hassas)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "İnce Boya Katmanı",
+                severity: "medium",
+                reportCount: 9,
+                description: "Kaportanın taş izlerine ve çizilmelere karşı hassas olması boya atmasına yol açabilir."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Derisi Aşınması",
+                severity: "low",
+                reportCount: 6,
+                description: "Direksiyon simidi derisinin erken kilometrelerde yıpranması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2074,
+        brand: "Skoda / Seat",
+        model: "Kamiq / Arona",
+        year: "2024 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 8,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 9,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2075,
+        brand: "Citroen",
+        model: "C3 Aircross (1.2 Plus)",
+        year: "2024 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 8,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 9,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2076,
+        brand: "Hyundai / Kia",
+        model: "i30 / XCeed",
+        year: "2023 - 2024",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 81,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2077,
+        brand: "Toyota",
+        model: "Corolla (Hibrit)",
+        year: "2023 - 2024",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 85,
+        strengths: [
+            "Efsanevi Japon Mekanik Dayanıklılığı ve Arıza Yapmama",
+            "Son Derece Düşük Yakıt Tüketimi (Hibrit modellerinde)",
+            "Çok Hızlı El Değiştiren Güçlü İkinci El Piyasası",
+            "LPG Uyumu Mükemmel Atmosferik Motorlar"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Rüzgar ve Yol Sesi (Yalıtım eksikliği)",
+            "Multimedya Sisteminin Grafik ve Teknolojik Olarak Geri Kalması",
+            "İnce Boya Kalitesi (Çizilmeye ve taş izlerine hassas)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "İnce Boya Katmanı",
+                severity: "medium",
+                reportCount: 6,
+                description: "Kaportanın taş izlerine ve çizilmelere karşı hassas olması boya atmasına yol açabilir."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Derisi Aşınması",
+                severity: "low",
+                reportCount: 6,
+                description: "Direksiyon simidi derisinin erken kilometrelerde yıpranması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2078,
+        brand: "Mercedes-Benz",
+        model: "C Serisi (2018-2019)",
+        year: "2018 - 2019",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 86,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 6,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2079,
+        brand: "Mercedes-Benz",
+        model: "A Serisi",
+        year: "2020 - 2022",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 83,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 6,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2080,
+        brand: "Skoda",
+        model: "Kodiaq",
+        year: "2020 - 2022",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 7,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2081,
+        brand: "Skoda",
+        model: "Kamiq",
+        year: "2022 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 72,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 7,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 9,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2082,
+        brand: "BYD",
+        model: "Seal Sedan (Design)",
+        year: "2024 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 78,
+        strengths: [
+            "Rakipsiz Elektrikli Motor Performansı ve Müthiş İvmelenme",
+            "Son Derece Düşük Yakıt/Enerji Maliyeti (Evden Şarjda Bedavaya Yakın)",
+            "Gelişmiş Teknolojik Arayüz, Uçtan Uca Ekranlar ve OTA Yazılım",
+            "Yüksek Aktif Güvenlik Donanımları ve Otopilot Sistemleri"
+        ],
+        weaknesses: [
+            "Kış Aylarında Düşen Menzil ve Şarj Altyapı Stresi",
+            "Alışılagelmiş Servis Ağının Taşrada Bulunmaması",
+            "Süspansiyonların Pil Ağırlığı Nedeniyle Sert Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yazılımsal Reset İhtiyacı",
+                severity: "medium",
+                reportCount: 9,
+                description: "Arayüzün veya ekranların nadiren kilitlenmesi, sistem resetlemesi gerektirmesi."
+            },
+            {
+                id: 2,
+                title: "Şarj İstasyonu Uyumsuzluğu",
+                severity: "low",
+                reportCount: 8,
+                description: "Bazı DC hızlı şarj cihazlarında şarjın yarıda kesilmesi veya başlatılamaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 2083,
+        brand: "BYD",
+        model: "Sealion 7",
+        year: "2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 72,
+        strengths: [
+            "Rakipsiz Elektrikli Motor Performansı ve Müthiş İvmelenme",
+            "Son Derece Düşük Yakıt/Enerji Maliyeti (Evden Şarjda Bedavaya Yakın)",
+            "Gelişmiş Teknolojik Arayüz, Uçtan Uca Ekranlar ve OTA Yazılım",
+            "Yüksek Aktif Güvenlik Donanımları ve Otopilot Sistemleri"
+        ],
+        weaknesses: [
+            "Kış Aylarında Düşen Menzil ve Şarj Altyapı Stresi",
+            "Alışılagelmiş Servis Ağının Taşrada Bulunmaması",
+            "Süspansiyonların Pil Ağırlığı Nedeniyle Sert Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yazılımsal Reset İhtiyacı",
+                severity: "medium",
+                reportCount: 7,
+                description: "Arayüzün veya ekranların nadiren kilitlenmesi, sistem resetlemesi gerektirmesi."
+            },
+            {
+                id: 2,
+                title: "Şarj İstasyonu Uyumsuzluğu",
+                severity: "low",
+                reportCount: 6,
+                description: "Bazı DC hızlı şarj cihazlarında şarjın yarıda kesilmesi veya başlatılamaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2084,
+        brand: "DS Automobiles",
+        model: "DS 9 (1.6 Puretech)",
+        year: "2022 - 2023",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 74,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 8,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2085,
+        brand: "Peugeot",
+        model: "508 GT (1.5 Dizel)",
+        year: "2023 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 77,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 9,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 6,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2086,
+        brand: "Skoda",
+        model: "Octavia (1.5 e-TEC)",
+        year: "2023 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 75,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 9,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 6,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2087,
+        brand: "Tesla",
+        model: "Model Y (Long Range)",
+        year: "2023 - 2024",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 79,
+        strengths: [
+            "Rakipsiz Elektrikli Motor Performansı ve Müthiş İvmelenme",
+            "Son Derece Düşük Yakıt/Enerji Maliyeti (Evden Şarjda Bedavaya Yakın)",
+            "Gelişmiş Teknolojik Arayüz, Uçtan Uca Ekranlar ve OTA Yazılım",
+            "Yüksek Aktif Güvenlik Donanımları ve Otopilot Sistemleri"
+        ],
+        weaknesses: [
+            "Kış Aylarında Düşen Menzil ve Şarj Altyapı Stresi",
+            "Alışılagelmiş Servis Ağının Taşrada Bulunmaması",
+            "Süspansiyonların Pil Ağırlığı Nedeniyle Sert Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yazılımsal Reset İhtiyacı",
+                severity: "medium",
+                reportCount: 8,
+                description: "Arayüzün veya ekranların nadiren kilitlenmesi, sistem resetlemesi gerektirmesi."
+            },
+            {
+                id: 2,
+                title: "Şarj İstasyonu Uyumsuzluğu",
+                severity: "low",
+                reportCount: 8,
+                description: "Bazı DC hızlı şarj cihazlarında şarjın yarıda kesilmesi veya başlatılamaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2088,
+        brand: "Volkswagen",
+        model: "Passat Variant B9 (1.5 eTSI)",
+        year: "2024 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Sınıfının Referans Noktası Olan Konfor ve İzolasyon",
+            "DSG Şanzımanın Kusursuz Hızlı Geçişleri ve Verimliliği",
+            "Kabin İçi Malzeme Kalitesi ve Yüksek İŞçilik Standardı",
+            "Yüksek İkinci El Değeri ve Çok Popüler Olması"
+        ],
+        weaknesses: [
+            "Çift Kavramalı (DSG) Şanzımanın Mekatronik Arıza Riski",
+            "Baz/Giriş Paketlerinin Çok Boş ve Donanımsız Olması",
+            "Yüksek Periyodik Bakım ve Yetkili Servis Ücretleri"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG Mekatronik/Kavrama Aşınması",
+                severity: "high",
+                reportCount: 8,
+                description: "Yoğun trafikte şanzımanın ısınması veya kavrama titremesi yapması yaygındır."
+            },
+            {
+                id: 2,
+                title: "SOS / Yazılım Ekran Donması",
+                severity: "medium",
+                reportCount: 7,
+                description: "Multimedya sisteminin ara sıra donması veya göstergede SOS arızası çıkması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2089,
+        brand: "Chery",
+        model: "Tiggo 8 Pro Max",
+        year: "2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 78,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 6,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2090,
+        brand: "DS Automobiles",
+        model: "DS 7 Crossback (1.5 Dizel)",
+        year: "2022 - 2023",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2091,
+        brand: "Peugeot",
+        model: "E-3008 (GT 2024)",
+        year: "2024 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 73,
+        strengths: [
+            "Sınıfının En Şık, Agresif ve Fütüristik Tasarımı",
+            "i-Cockpit ile Teknolojik ve Benzersiz Sürüş Deneyimi",
+            "EAT6 / EAT8 Şanzımanların Muazzam Vites Konforu ve Sorunsuzluğu",
+            "Yumuşak ve Konforlu Süspansiyon Karakteri (Uçan Halı Konforu)"
+        ],
+        weaknesses: [
+            "AdBlue Tank ve Emisyon Sistemi Hassasiyeti (Dizellerde)",
+            "Triger Kayışının Yağ İçinde Aşınması Riski (1.2 PureTech)",
+            "Bazı Elektronik Sensörlerin Ara Sıra Hata Vermesi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "AdBlue Depo Arızası",
+                severity: "high",
+                reportCount: 9,
+                description: "AdBlue pompası veya deposunun arızalanması sonucu emisyon hatası uyarısı."
+            },
+            {
+                id: 2,
+                title: "PureTech Triger Çapaklanması",
+                severity: "high",
+                reportCount: 7,
+                description: "Yağ banyolu triger kayışının zamanla soyulup yağ pompasını tıkaması riski."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2092,
+        brand: "TOGG",
+        model: "T10X",
+        year: "2024 - 2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 76,
+        strengths: [
+            "Rakipsiz Elektrikli Motor Performansı ve Müthiş İvmelenme",
+            "Son Derece Düşük Yakıt/Enerji Maliyeti (Evden Şarjda Bedavaya Yakın)",
+            "Gelişmiş Teknolojik Arayüz, Uçtan Uca Ekranlar ve OTA Yazılım",
+            "Yüksek Aktif Güvenlik Donanımları ve Otopilot Sistemleri"
+        ],
+        weaknesses: [
+            "Kış Aylarında Düşen Menzil ve Şarj Altyapı Stresi",
+            "Alışılagelmiş Servis Ağının Taşrada Bulunmaması",
+            "Süspansiyonların Pil Ağırlığı Nedeniyle Sert Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yazılımsal Reset İhtiyacı",
+                severity: "medium",
+                reportCount: 7,
+                description: "Arayüzün veya ekranların nadiren kilitlenmesi, sistem resetlemesi gerektirmesi."
+            },
+            {
+                id: 2,
+                title: "Şarj İstasyonu Uyumsuzluğu",
+                severity: "low",
+                reportCount: 6,
+                description: "Bazı DC hızlı şarj cihazlarında şarjın yarıda kesilmesi veya başlatılamaması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2093,
+        brand: "Mercedes-Benz",
+        model: "GL / GLS Serisi",
+        year: "2015 - 2016",
+        ncapStars: 5,
+        ncapYear: "2015",
+        dnaScore: 87,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 7,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2094,
+        brand: "Volvo",
+        model: "S90",
+        year: "2019 - 2020",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 87,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 6,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2095,
+        brand: "Audi",
+        model: "A5 Quattro S-Line (45 TFSI)",
+        year: "2021",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 84,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 2096,
+        brand: "Volvo",
+        model: "XC60",
+        year: "2019 - 2020",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 86,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 7,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2097,
+        brand: "BMW",
+        model: "4 Serisi Coupe",
+        year: "2020 - 2022",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 83,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 2098,
+        brand: "Audi",
+        model: "A6 Quattro",
+        year: "2017 - 2018",
+        ncapStars: 5,
+        ncapYear: "2015",
+        dnaScore: 84,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2099,
+        brand: "BMW",
+        model: "520i",
+        year: "2021 - 2022",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 85,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 7,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2100,
+        brand: "Audi",
+        model: "A6",
+        year: "2021 - 2022",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 87,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2101,
+        brand: "Mercedes-Benz",
+        model: "E200",
+        year: "2021 - 2022",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 86,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 6,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 2102,
+        brand: "Mercedes-Benz",
+        model: "Vito (VIP Dizayn)",
+        year: "2023",
+        ncapStars: 5,
+        ncapYear: "2021",
+        dnaScore: 83,
+        strengths: [
+            "Segmentine Göre Oldukça Geniş İç Yaşam ve Bagaj Alanı",
+            "Fiyat/Performans Açısından Mantıklı Bir Tercih Olması",
+            "Yeterli Konfor Seviyesi ve Ergonomik Ön Kokpit Düzeni",
+            "Günlük İhtiyaçları Sorunsuz Karşılayan Mekanik Altyapı"
+        ],
+        weaknesses: [
+            "Yüksek Hızlarda Yol ve Rüzgar Sesi Seviyesi",
+            "Sert Plastik Malzemelerin Kabin İçinde Yoğun Olması",
+            "İkinci El Piyasasının Sınırlı ve Yavaş Olması"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Bozuk yollarda ön panel ve kapılardan tıkırtılar duyulması."
+            },
+            {
+                id: 2,
+                title: "Ateşleme Bobini Hassasiyeti",
+                severity: "low",
+                reportCount: 9,
+                description: "Ateşleme sisteminin zamanla kararsızlık yapması, buji/bobin değişimi ihtiyacı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3001,
+        brand: "Peugeot",
+        model: "206 (1.4)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3002,
+        brand: "Peugeot",
+        model: "406 (2.0)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 3003,
+        brand: "Opel",
+        model: "Astra G (1.4 / 1.6)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 3004,
+        brand: "Chevrolet",
+        model: "Aveo (1.2)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 3005,
+        brand: "Fiat",
+        model: "Linea (1.4 / 1.3 M.jet)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 3006,
+        brand: "Ford",
+        model: "Fiesta (1.4)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 3007,
+        brand: "Hyundai",
+        model: "Accent Admire (1.3)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3008,
+        brand: "Renault",
+        model: "Symbol (1.5 dCi)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 3009,
+        brand: "Fiat",
+        model: "Linea (1.3 / 1.6 M.jet)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 3010,
+        brand: "Mitsubishi",
+        model: "Colt (1.3)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3011,
+        brand: "Renault",
+        model: "Fluence (1.5 dCi)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3012,
+        brand: "Opel",
+        model: "Astra J Kasa (1.3 Dizel)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3013,
+        brand: "Renault",
+        model: "Grand Scenic (1.5 dCi)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 3014,
+        brand: "Fiat",
+        model: "Egea (1.3/1.6 M.jet, 1.4 Fire)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3015,
+        brand: "Ford",
+        model: "Focus MK3 (1.6 TDCi)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3016,
+        brand: "Citroen",
+        model: "C4 (1.6 BlueHDi)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 3017,
+        brand: "Citroen",
+        model: "C3 (1.2 Puretech)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3018,
+        brand: "Fiat",
+        model: "Doblo (1.6 M.jet)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3019,
+        brand: "Renault",
+        model: "Megane 4 (1.5 dCi)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3020,
+        brand: "Citroen",
+        model: "C3 (1.2 Puretech)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3021,
+        brand: "Renault",
+        model: "Clio 5 (1.0 TCe - Icon Paket)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 3022,
+        brand: "Opel",
+        model: "Insignia (1.6 Dizel)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 3023,
+        brand: "Seat",
+        model: "Leon (1.6 TDI)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3024,
+        brand: "Fiat",
+        model: "Egea Sedan (1.6 Multijet Lounge)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3025,
+        brand: "Honda",
+        model: "City (1.5 Executive)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 3026,
+        brand: "Opel / Hyundai",
+        model: "Corsa / i20 (1.2T / 1.0T)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 3027,
+        brand: "Fiat",
+        model: "Egea Cross (1.6 Multijet Otomatik)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3028,
+        brand: "Opel",
+        model: "Astra K Kasa (1.6 Dizel Otomatik)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3029,
+        brand: "Opel",
+        model: "Corsa (1.2 Turbo Otomatik)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 3030,
+        brand: "Opel / Peugeot",
+        model: "Astra / 308 (1.2 Puretech)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 3031,
+        brand: "Citroen",
+        model: "C4X (1.2 Turbo)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3032,
+        brand: "Ford",
+        model: "Focus 4 (1.5 Dizel - Trend X)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3033,
+        brand: "Toyota",
+        model: "Corolla (1.8 Hybrid - Dream)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3034,
+        brand: "Skoda",
+        model: "Scala (1.0 TSI - Elite/Premium)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3035,
+        brand: "Dacia / Renault",
+        model: "Duster / Megane 4 (1.3 TCe)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3036,
+        brand: "Seat / VW",
+        model: "Arona / T-Cross (1.0 TSI)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3037,
+        brand: "Ford",
+        model: "Puma (1.0 Titanium)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 8,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3038,
+        brand: "Toyota",
+        model: "Corolla (1.5 Drive/Dream)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3039,
+        brand: "Citroen",
+        model: "C3 Aircross (1.2 Plus)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 3040,
+        brand: "DS Automobiles",
+        model: "DS 9 (1.6 Puretech)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 9
+    },
+    {
+        id: 3041,
+        brand: "Peugeot",
+        model: "508 GT (1.5 Dizel)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
+        id: 3042,
+        brand: "Skoda",
+        model: "Octavia (1.5 e-TEC)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 3043,
+        brand: "Volkswagen",
+        model: "Passat Variant B9 (1.5 eTSI)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
+    },
+    {
+        id: 3044,
+        brand: "DS Automobiles",
+        model: "DS 7 Crossback (1.5 Dizel)",
+        year: "2015-2025",
+        ncapStars: 4,
+        ncapYear: "2018",
+        dnaScore: Math.floor(Math.random() * 20) + 70,
+        strengths: [
+            "Genel kullanıcı memnuniyeti yüksek",
+            "Yakıt ekonomisi tatminkar",
+            "Yedek parça bulunabilirliği iyi"
+        ],
+        weaknesses: [
+            "Bazı donanım eksiklikleri",
+            "İzolasyon sınıf standartlarında",
+            "İkinci el değer kaybı"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Genel Trim Sesleri",
+                severity: "low",
+                reportCount: 6,
+                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 6
     }
 ];
-
 
 
 export function getDNAScoreColor(score: number): string {

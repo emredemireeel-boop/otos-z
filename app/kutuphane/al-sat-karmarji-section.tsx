@@ -27,6 +27,8 @@ const DEFAULT_MASRAFLAR: Masraf[] = [
 export default function AlSatKarMarjiSection() {
   const [alisFiyati, setAlisFiyati] = useState<number>(1200000);
   const [satisFiyati, setSatisFiyati] = useState<number>(1350000);
+  const [hesaplamaTuru, setHesaplamaTuru] = useState<"kar" | "satis">("kar");
+  const [hedefKarMarji, setHedefKarMarji] = useState<number>(10);
   const [beklemeSuresi, setBeklemeSuresi] = useState<number>(30); // Gün
   const [mevduatFaizi, setMevduatFaizi] = useState<number>(45); // Yıllık brüt %
   
@@ -57,9 +59,20 @@ export default function AlSatKarMarjiSection() {
     const toplamMasraf = masraflar.reduce((acc, curr) => acc + (curr.tutar || 0), 0);
     const toplamMaliyet = alisFiyati + toplamMasraf;
     
-    const brutKar = satisFiyati - alisFiyati;
-    const netKar = satisFiyati - toplamMaliyet;
-    const netKarMarji = toplamMaliyet > 0 ? (netKar / toplamMaliyet) * 100 : 0;
+    let islemSatisFiyati = satisFiyati;
+    let netKarMarji = 0;
+    let netKar = 0;
+
+    if (hesaplamaTuru === "satis") {
+      netKar = toplamMaliyet * (hedefKarMarji / 100);
+      islemSatisFiyati = toplamMaliyet + netKar;
+      netKarMarji = hedefKarMarji;
+    } else {
+      netKar = islemSatisFiyati - toplamMaliyet;
+      netKarMarji = toplamMaliyet > 0 ? (netKar / toplamMaliyet) * 100 : 0;
+    }
+    
+    const brutKar = islemSatisFiyati - alisFiyati;
 
     // Mevduat hesaplaması: (Anapara * Gün * Net Faiz) / 36500
     // Brüt faiz üzerinden %7.5 stopaj kesintisi farz ediyoruz (güncel standartlar)
@@ -73,6 +86,7 @@ export default function AlSatKarMarjiSection() {
     return {
       toplamMasraf,
       toplamMaliyet,
+      islemSatisFiyati,
       brutKar,
       netKar,
       netKarMarji,
@@ -80,7 +94,7 @@ export default function AlSatKarMarjiSection() {
       firsatFarki,
       isProfitableVsBank
     };
-  }, [alisFiyati, satisFiyati, beklemeSuresi, mevduatFaizi, masraflar]);
+  }, [alisFiyati, satisFiyati, beklemeSuresi, mevduatFaizi, masraflar, hesaplamaTuru, hedefKarMarji]);
 
   const card: React.CSSProperties = { background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "16px", padding: "24px" };
   const secTitle: React.CSSProperties = { fontSize: "11px", fontWeight: "700", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "14px", display: "flex", alignItems: "center", gap: "8px" };
@@ -108,6 +122,15 @@ export default function AlSatKarMarjiSection() {
         
         {/* ── Temel Girdiler ── */}
         <div style={{ ...card, padding: "20px" }}>
+          <div style={{ display: "flex", gap: "8px", marginBottom: "20px" }}>
+            <button onClick={() => setHesaplamaTuru("kar")} style={{ flex: 1, padding: "10px", borderRadius: "8px", border: `1px solid ${hesaplamaTuru === "kar" ? AC : "var(--card-border)"}`, background: hesaplamaTuru === "kar" ? AC_L : "var(--secondary)", color: hesaplamaTuru === "kar" ? AC : "var(--text-muted)", fontWeight: "600", fontSize: "13px", cursor: "pointer", transition: "all 0.2s" }}>
+              Satış Fiyatından Kâr Hesapla
+            </button>
+            <button onClick={() => setHesaplamaTuru("satis")} style={{ flex: 1, padding: "10px", borderRadius: "8px", border: `1px solid ${hesaplamaTuru === "satis" ? AC : "var(--card-border)"}`, background: hesaplamaTuru === "satis" ? AC_L : "var(--secondary)", color: hesaplamaTuru === "satis" ? AC : "var(--text-muted)", fontWeight: "600", fontSize: "13px", cursor: "pointer", transition: "all 0.2s" }}>
+              Hedef Kârdan Fiyat Hesapla
+            </button>
+          </div>
+
           <div style={secTitle}><ArrowRightLeft size={13} color={AC} /> Alış - Satış ve Süre</div>
           
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "20px" }}>
@@ -121,16 +144,29 @@ export default function AlSatKarMarjiSection() {
                   style={{ width: "100%", padding: "12px 12px 12px 30px", background: "var(--secondary)", border: "1px solid var(--card-border)", borderRadius: "10px", color: "var(--foreground)", fontSize: "15px", fontWeight: "600" }} />
               </div>
             </div>
-            <div>
-              <label style={{ fontSize: "12px", fontWeight: "600", color: "var(--text-muted)", marginBottom: "8px", display: "block" }}>
-                Tahmini Satış Fiyatı (TL)
-              </label>
-              <div style={{ position: "relative" }}>
-                <span style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "var(--text-muted)", fontWeight: "600" }}>₺</span>
-                <input type="number" min="0" value={satisFiyati || ""} onChange={e => setSatisFiyati(Number(e.target.value))}
-                  style={{ width: "100%", padding: "12px 12px 12px 30px", background: "rgba(16, 185, 129, 0.05)", border: "1px solid rgba(16, 185, 129, 0.2)", borderRadius: "10px", color: "#10B981", fontSize: "15px", fontWeight: "700" }} />
+            {hesaplamaTuru === "kar" ? (
+              <div>
+                <label style={{ fontSize: "12px", fontWeight: "600", color: "var(--text-muted)", marginBottom: "8px", display: "block" }}>
+                  Tahmini Satış Fiyatı (TL)
+                </label>
+                <div style={{ position: "relative" }}>
+                  <span style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "var(--text-muted)", fontWeight: "600" }}>₺</span>
+                  <input type="number" min="0" value={satisFiyati || ""} onChange={e => setSatisFiyati(Number(e.target.value))}
+                    style={{ width: "100%", padding: "12px 12px 12px 30px", background: "rgba(16, 185, 129, 0.05)", border: "1px solid rgba(16, 185, 129, 0.2)", borderRadius: "10px", color: "#10B981", fontSize: "15px", fontWeight: "700" }} />
+                </div>
               </div>
-            </div>
+            ) : (
+              <div>
+                <label style={{ fontSize: "12px", fontWeight: "600", color: "var(--text-muted)", marginBottom: "8px", display: "block" }}>
+                  Hedef Net Kâr Marjı (%)
+                </label>
+                <div style={{ position: "relative" }}>
+                  <span style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "var(--text-muted)", fontWeight: "600" }}>%</span>
+                  <input type="number" min="0" step="0.5" value={hedefKarMarji || ""} onChange={e => setHedefKarMarji(Number(e.target.value))}
+                    style={{ width: "100%", padding: "12px 12px 12px 30px", background: "rgba(16, 185, 129, 0.05)", border: "1px solid rgba(16, 185, 129, 0.2)", borderRadius: "10px", color: "#10B981", fontSize: "15px", fontWeight: "700" }} />
+                </div>
+              </div>
+            )}
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
@@ -207,6 +243,17 @@ export default function AlSatKarMarjiSection() {
       {/* ── Results ── */}
       <div style={{ ...card, border: `2px solid ${AC}`, background: "var(--card-bg)", position: "relative", overflow: "hidden" }}>
         
+        {hesaplamaTuru === "satis" && (
+          <div style={{ textAlign: "center", marginBottom: "20px", padding: "16px", background: "rgba(16, 185, 129, 0.05)", borderRadius: "12px", border: "1px dashed rgba(16, 185, 129, 0.3)" }}>
+            <div style={{ fontSize: "12px", fontWeight: "700", color: "#10B981", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "6px" }}>
+              Tahmini Satış Fiyatı Olmalı
+            </div>
+            <div style={{ fontSize: "36px", fontWeight: "900", color: "#10B981", lineHeight: 1 }}>
+              {"\u20BA"}{results.islemSatisFiyati.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}
+            </div>
+          </div>
+        )}
+
         <div style={{ textAlign: "center", marginBottom: "24px" }}>
           <div style={{ fontSize: "12px", fontWeight: "700", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "8px" }}>
             Net Kâr Tutarı

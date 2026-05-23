@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { LineChart, DollarSign, Coins, Car, ExternalLink, ArrowRight, Trophy, TrendingUp, HelpCircle } from "lucide-react";
+import { useState, useMemo, useEffect } from "react";
+import { LineChart, DollarSign, Coins, Car, ExternalLink, ArrowRight, Trophy, TrendingUp, HelpCircle, RefreshCw } from "lucide-react";
 
 /* ── Accent Colors ── */
 const AC = "#EAB308"; // Gold for Investment
@@ -18,6 +18,31 @@ export default function YatirimKiyaslamaSection() {
 
   const [eskiAltin, setEskiAltin] = useState<number>(1050);
   const [guncelAltin, setGuncelAltin] = useState<number>(7000);
+
+  const [loadingKurlar, setLoadingKurlar] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/kurlar')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.USD && data['gram-altin']) {
+          const usdSat = parseFloat(data.USD.Satış.replace(',', '.'));
+          // Gram altın string'i "6.630,84" gibi gelebiliyor, önce noktayı (binlik ayracı) silip sonra virgülü noktaya çeviriyoruz
+          const altinSat = parseFloat(data['gram-altin'].Satış.replace(/\./g, '').replace(',', '.'));
+          
+          if (!isNaN(usdSat)) {
+            setGuncelDolar(usdSat);
+            setEskiDolar(usdSat);
+          }
+          if (!isNaN(altinSat)) {
+            setGuncelAltin(altinSat);
+            setEskiAltin(altinSat);
+          }
+        }
+      })
+      .catch(err => console.error("Kurlar çekilemedi", err))
+      .finally(() => setLoadingKurlar(false));
+  }, []);
 
   const results = useMemo(() => {
     // 1. Araç Getirisi
@@ -111,7 +136,11 @@ export default function YatirimKiyaslamaSection() {
           {/* Dolar */}
           <div style={{ ...card, padding: "20px" }}>
             <div style={{ ...secTitle, color: "#10B981" }}>
-              <DollarSign size={13} color="#10B981" /> Dolar (USD)
+              <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                <DollarSign size={13} color="#10B981" /> Dolar (USD)
+                {loadingKurlar && <RefreshCw size={10} style={{ animation: "spin 1s linear infinite", color: "#10B981" }} />}
+                {!loadingKurlar && <span style={{ fontSize: "9px", background: "rgba(16, 185, 129, 0.15)", padding: "2px 6px", borderRadius: "4px", color: "#10B981" }}>Canlı</span>}
+              </div>
               <a href="https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/Istatistikler/Doviz+Kurlari" target="_blank" rel="noreferrer" style={{ marginLeft: "auto", fontSize: "10px", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "4px", textDecoration: "none" }}>
                 Kurlara Bak <ExternalLink size={10} />
               </a>
@@ -133,7 +162,11 @@ export default function YatirimKiyaslamaSection() {
           {/* Altın */}
           <div style={{ ...card, padding: "20px" }}>
             <div style={{ ...secTitle, color: "#EAB308" }}>
-              <Coins size={13} color="#EAB308" /> Gram Altın
+              <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                <Coins size={13} color="#EAB308" /> Gram Altın
+                {loadingKurlar && <RefreshCw size={10} style={{ animation: "spin 1s linear infinite", color: "#EAB308" }} />}
+                {!loadingKurlar && <span style={{ fontSize: "9px", background: "rgba(234, 179, 8, 0.15)", padding: "2px 6px", borderRadius: "4px", color: "#EAB308" }}>Canlı</span>}
+              </div>
               <a href="https://www.haremaltin.com/canli-piyasalar/arsiv" target="_blank" rel="noreferrer" style={{ marginLeft: "auto", fontSize: "10px", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "4px", textDecoration: "none" }}>
                 Arşive Bak <ExternalLink size={10} />
               </a>

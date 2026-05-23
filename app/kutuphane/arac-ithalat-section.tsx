@@ -1,13 +1,27 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { Calculator, Info, Car, Globe, Zap, Fuel, AlertCircle, Euro, Banknote, MapIcon, ChevronRight } from "lucide-react";
+import { useState, useMemo, useEffect } from "react";
+import { Calculator, Info, Car, Globe, Zap, Fuel, AlertCircle, Euro, Banknote, MapIcon, ChevronRight, RefreshCw } from "lucide-react";
 
 export default function AracIthalatSection() {
   const [fiyatEuro, setFiyatEuro] = useState<number>(25000);
   const [navlunEuro, setNavlunEuro] = useState<number>(1500);
   const [kur, setKur] = useState<number>(36.50);
+  const [loadingKur, setLoadingKur] = useState<boolean>(true);
   
+  useEffect(() => {
+    fetch('/api/kurlar')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.EUR) {
+          const eurSat = parseFloat(data.EUR.Satış.replace(',', '.'));
+          if (!isNaN(eurSat)) setKur(eurSat);
+        }
+      })
+      .catch(err => console.error("Kurlar çekilemedi", err))
+      .finally(() => setLoadingKur(false));
+  }, []);
+
   const [mensei, setMensei] = useState<"ab" | "diger" | "cin">("ab");
   const [aracTipi, setAracTipi] = useState<"ice" | "ev">("ice");
   
@@ -166,7 +180,11 @@ export default function AracIthalatSection() {
         </div>
 
         <div style={{ marginTop: "16px" }}>
-          <label style={labelStyle}>Euro Kuru (1 € = X TL)</label>
+          <label style={{ ...labelStyle, display: "flex", alignItems: "center", gap: "6px" }}>
+            Euro Kuru (1 € = X TL)
+            {loadingKur && <RefreshCw size={10} style={{ animation: "spin 1s linear infinite", color: "#0EA5E9" }} />}
+            {!loadingKur && <span style={{ fontSize: "9px", background: "rgba(14, 165, 233, 0.15)", padding: "2px 6px", borderRadius: "4px", color: "#0EA5E9", fontWeight: "700" }}>Canlı</span>}
+          </label>
           <div style={{ position: "relative" }}>
             <span style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "var(--text-muted)" }}>₺</span>
             <input type="number" step="0.01" value={kur} onChange={(e) => setKur(Number(e.target.value))} style={{ ...inputStyle, paddingLeft: "28px" }} />

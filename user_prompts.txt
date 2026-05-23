@@ -1,0 +1,800 @@
+<USER_REQUEST>
+otohesap başka ne ekleyebiliriz sence
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T06:26:23+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\arac-dna\[brand]\[model]\kronik-sorunlar\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\admin\dna-raporlar\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\components\admin\AdminSidebar.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\guvenmetre\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\karsilastirma\page.tsx (LANGUAGE_TSX)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
+
+=========================
+
+<USER_REQUEST>
+Araç Al-Sat Yatırım ve Kâr Analizi tahmini satış fiyatını da hesaplatabilsin yüzdelik girip yani alıç fiyatı + masrafların topla üstüne kullancının girdiği değeri ekle o fiyatı ver! bazıları fiyat hesaplatmak isteyebilir! o seçeneği sun yani o zamanda tahmini satış fiyatını hesaplıcan önce seçtir tahmini satış fiyatı, yüzde olarak! sonra devam
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T06:28:10+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\uzmana-sor\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\addSymbol.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\find_missing.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\arac-dna\[brand]\[model]\layout.tsx (LANGUAGE_TSX)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+dolar altın usd için bize bedava api lazım bulabilir misin! otohesapta çok kullanıyoruz çünkü bulursan otohesap'a entegre et birçok yerinde kullanıyoruz
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T06:30:47+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\al-sat-karmarji-section.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1m4s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+alım tarihi g güncel gramları yaz şu anlık! yurtdışı euro bilgisi lazım onuda çek yurtdısı ithalat verigisi hesapalyıcı ya
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T06:33:33+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 253
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\api\kurlar\route.ts (LANGUAGE_TYPESCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 3m50s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+Araç Sahibi Olmak vs. Taksi/Kiralama Kıyaslaması: Kullanıcının yıllık yaptığı tahmini kilometreye göre; araba satın alıp tüm masraflarını (MTV, kasko, yakıt, değer kaybı, bakım) karşılamanın mı, yoksa ihtiyaç anında taksi/araç paylaşım uygulamaları (TikTak, Moov vb.) kullanmanın mı daha mantıklı olduğunu gösteren bir analiz. bunuda ekleyelim harika olsun! her ayrıntısını düşün
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T06:34:45+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\api\kurlar\route.ts (LANGUAGE_TYPESCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 5m2s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+Araç Sahibi Olmak vs. Taksi/Kiralama Kıyaslaması: Kullanıcının yıllık yaptığı tahmini kilometreye göre; araba satın alıp tüm masraflarını (MTV, kasko, yakıt, değer kaybı, bakım) karşılamanın mı, yoksa ihtiyaç anında taksi/araç paylaşım uygulamaları (TikTak, Moov vb.) kullanmanın mı daha mantıklı olduğunu gösteren bir analiz. bunuda ekleyelim harika olsun! her ayrıntısını düşün
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T06:34:45+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\api\kurlar\route.ts (LANGUAGE_TYPESCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 5m2s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+Araç Almak mı, Taksi / Kiralama mı? yakıt fiyatını yakıt apisinden çek kullandıgımız yaaktif yakıt apisi var biizm kendi yaptıgımız
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T06:41:14+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\api\kurlar\route.ts (LANGUAGE_TYPESCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 11m31s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+Şimdi 200-300 bin bandı 300-400 bin bandı gibi araç alım satımlarında çok sık ceo çeken bir sayfa oluşturmalıyım ismi ne olsun 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T06:57:44+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\api\kurlar\route.ts (LANGUAGE_TYPESCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 28m1s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+OtoBütçe olsun top bara ekle harika uix lazım, amacımız net 0-100.000 TL 100.000-200 TL diye gideceğiz bu sayfa admin kontrol edebilsin ama panel olmadan yani başka biri sayfa üzerine yeni fiyat aralığı araba ekleme silme yapamasın, harika yap kişi fiyat bandı seçtiğinde o fiyat abandındaki öneri sıralamalarını göster araç hakkında bilgi isterse de araç dna yönlendir o yüzden araç eklerken marka model yakıt tipi falan gerkeli şeyleri seçtir hazır jsonumuz var zaten! inanılmaz iyi olsun
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:00:51+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 31m8s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+OtoBütçe olsun top bara ekle harika uix lazım, amacımız net 0-100.000 TL 100.000-200 TL diye gideceğiz bu sayfa admin kontrol edebilsin ama panel olmadan yani başka biri sayfa üzerine yeni fiyat aralığı araba ekleme silme yapamasın, harika yap kişi fiyat bandı seçtiğinde o fiyat abandındaki öneri sıralamalarını göster araç hakkında bilgi isterse de araç dna yönlendir o yüzden araç eklerken marka model yakıt tipi falan gerkeli şeyleri seçtir hazır jsonumuz var zaten! inanılmaz iyi olsun
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:00:51+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 31m8s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+100.000 TL Altı: "Ayağımı Yerden Kessin" Arabaları"Otobüste, dolmuşta çile çekmek istemiyorum, kapımın önünde 4 lastik olsun yeter" diyorsanız, 100.000 TL bandında alabileceğiniz araçlar temel ulaşım ihtiyacınızı karşılamaya yöneliktir.Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaporta beklemek gerçekçi olmaz. Bu fiyat bandında alacağınız araçlarda "komple boya" veya "değişen parça" olması son derece doğaldır. Önemli olan motorun yürür durumda olması ve sizi yolda bırakmamasıdır.İşte 100.000 TL bütçeyle piyasada bulabileceğiniz, en temel ulaşım ihtiyacını çözen o modeller:Marka / ModelDönem / KasaKullanım AmacıTofaş Murat131 ve 121Nostaljik / Temel ulaşımTofaş DoğanEski KasaGeniş iç hacim, ucuz parçaSkodaFavorit & FormanUygun fiyatlı aile kullanımıRenaultSpringAz yakan, masrafsız klasikFordEscortDöneminin konforlu seçeneklerindenFordTaunusSağlam kasa, arkadan itişLadaSamaraZorlu şartlara dayanıklı, kemikli yapıRenaultFlashDöneminin performanslı modellerindenFiatUnoŞehir içi kolay park, pratik kullanımOtosöz Tavsiyesi: Bu araçları alırken kaporta takıntısını bir kenara bırakın. Odaklanmanız gereken tek şey motorun sağlıklı çalışması, şasenin düzgün olması ve yürüyen aksamın (fren, debriyaj, şanzıman) güvenliğiniz için sorunsuz olmasıdır. Darda kaldığınızda kimseye ağız eğmemek için bu araçlar hala en mantıklı başlangıç noktasıdır. 0-100.000 tl bunu ekle
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:04:58+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 35m15s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+4904 veriyor tıklayınca
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:07:01+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 37m18s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+http://localhost:3000/otobutce/100-bin-tl-alti-araclar 404 veriyor
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:08:58+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 39m15s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+200.000 TL - 400.000 TL Arası
+3 araç önerisi bulunuyor
+
+400.000 TL - 600.000 TL Arası
+3 araç önerisi bulunuyor
+
+600.000 TL - 800.000 TL Arası
+3 araç önerisi bulunuyor
+
+800.000 TL - 1.000.000 TL Arası
+3 araç önerisi bulunuyor sil ama hala çalışmyıor tıklayınca 404 - Kategori Bulunamadı
+Aranan slug:
+
+Mevcut sluglar: 100-bin-tl-alti-araclar, 200-400-bin-tl-arasi-araclar, 400-600-bin-tl-arasi-araclar, 600-800-bin-tl-arasi-araclar, 800-bin-1-milyon-tl-arasi-araclar
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:10:49+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 41m6s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+hatayı düzelt
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:11:47+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 42m4s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <... href=... style={{...}} onMouseEnter=... onMouseLeave={function onMouseLeave} children=...>
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1697919630'
+} böyle hatyatlar veriyor
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:15:58+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 46m15s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+Ortalama Piyasa Fiyatı
+92.000 ₺ kaldır altındaki araç dna  git ortala direkt orda
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:17:47+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 48m4s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+Bütçenizi 100.000 TL ile 200.000 TL arasına çıkardığınızda, piyasadaki seçeneklerin hala kısıtlı olduğunu baştan kabul etmek gerekir. Bu bütçe bandında alacağınız bir aracın size vereceği en büyük avantaj, lüks veya performans değil; bakım maliyetlerinin düşüklüğü ve her sanayide kolayca tamir edilebilmesidir.İşte bu fiyat aralığında, özellikle bir usta gözüyle tavsiye edilen, dayanıklılığıyla öne çıkan o modeller:Marka / ModelKasa TipiÖne Çıkan ÖzelliğiRenault 19 (Europa)Sedan / HatchbackKonforu ve mekanik sadeliği ile sınıfının efsanesiRenault 9 (Spring/Broadway)SedanAz yakar, masrafsızdır, parçası çok ucuzdurRenault Kangoo (Eski Kasa)Hafif TicariHem ticari hem geniş aile kullanımı için ideal. Otosöz Tavsiyesi: Bu bütçelerde "farklı bir marka alayım, özel bir arabam olsun" düşüncesi sanayide çok fazla vakit ve para harcamanıza sebep olabilir. Bu fiyat bandında eski kasa Renault modellerine yönelmek, Türkiye şartlarında yapabileceğiniz en güvenli mekanik tercihtir. Bu araçların parçaları ucuzdur ve dilinden anlamayan usta neredeyse yoktur.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:18:56+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 49m13s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+Bu bütçe aralığı, Türkiye ikinci el pazarının en hareketli ama bir o kadar da dikkat gerektiren "mayına basma" ihtimali yüksek bölgesidir. 200.000 ile 300.000 TL arasında araç bakarken kağıt üzerindeki özelliklerden çok, aracın güncel kondisyonu ve geçmişte nasıl bakıldığı (şaseler, motor sağlığı, ağır hasar durumu) hayati önem taşır.Sahadaki gerçek fiyatlar ve oto pazarından öne çıkan bazı alternatifler şunlardır:Marka / ModelKasa TipiDikkat Edilmesi Gerekenler / Öne ÇıkanlarPeugeot 206 (1.4 Dizel/Benzin)HatchbackGençlerin favorisi. Ancak dizellerinde yorgunluk payı yüksektir, temiz benzinlisi tercih edilmelidir.Ford Fiesta (Eski Kasa)Hatchback1.25 motorları yaygındır. Klimasının aktif çalışıp çalışmadığı mutlaka kontrol edilmelidir.Renault 12 TorosStation / SedanBoyasız/hatasız olanları hala yüksek fiyatlara alıcı bulur. Kırsalda vazgeçilmezdir, klimasız ve hidroliksizdir.Peugeot 406 (2.0 Motor)D Segment SedanDöneminin lüksünü sunar (elektrikli/deri/ısıtmalı koltuklar). Otomatik şanzımanına dikkat edilmeli, bakımlısı keyif verir.Opel Astra G (1.4 / 1.6)Hatchback / SedanKasası sağlamdır. Opel grubunda sık görülen direksiyon/deri deformasyonlarına ve hava yastığı durumuna bakılmalıdır.Chevrolet Aveo (1.2)HatchbackÖzellikle park sensörü vb. donanımlarla küçük aile/şehir arabası olarak tercih edilir. Boyasız/az boyalı olanları bu bütçede bulunabilir. Otosöz Tavsiyesi: Bu fiyat bandında 20 yaş ve üzeri bir araç alırken kaportadaki ufak tefek güneş yanıkları veya macun izlerinden ziyade; şase, direkler ve hava yastığı gibi temel güvenlik unsurlarının sağlamlığına odaklanın. Ayrıca, D segmenti eski lüks bir araç (örneğin Peugeot 406) alıyorsanız, konforunun bedeli olarak olası şanzıman veya elektronik masraflarına karşı hazırlıklı olmalı ve sadece "bakımını gününde yaptırmış" titiz kullanıcılardan araç almalısınız.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:38:09+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h8m26s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+Chevrolet Aveo yazmışın ama 1.2 yazmamaşın asta 14 yazmamşono bunlar onemlı oncekılerıde ona gore duzenle
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:40:07+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h10m24s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+300.000 TL - 400.000 TL Bandı: "Çeyrek Altın" ve İhtiyaç ArabalarıBütçenizi 300.000 - 400.000 TL aralığına taşıdığınızda artık sadece ayağınızı yerden kesen değil, piyasası çok hızlı olan, satmak istediğinizde anında nakde dönebilen "çeyrek altın" kıvamındaki araçlara geçiş yaparsınız. Bu bütçe, donanım (klima, hava yastığı) beklentilerinizin karşılanmaya başladığı ve parça/usta sıkıntısının sıfıra indiği tam bir "fiyat/performans" noktasıdır.İşte bu bütçenin yıldızı olan o mantıklı seçenekler:Marka / ModelTavsiye Edilen MotorÖne Çıkan ÖzelliğiFiat Linea1.4 Benzinli (77 HP) veya 1.3 Multijet (90 HP)Tam bir görev adamıdır. Parça ve usta bulmak dünyanın en kolay işidir.Ford Fiesta1.4 BenzinliŞehir içi pratikliği sunar. (Bu bütçelerde 1.4 dizel versiyonu yerine benzinlisi önerilir).Hyundai Accent Admire1.3 BenzinliKlimalı, hava yastıklı ve bu bütçede düşük kilometrelerde bulunabilen en iyi alternatiflerden biridir.Renault Clio 2 (Makyajlı)1.5 dCi (65 HP / 80 HP)"Az yakar, çok kaçar." Bakkalda bile parçası bulunabilen, işletme maliyeti en düşük araçlardandır.Toyota Corolla (Efsane Kasa)1.3 / 1.6 Benzinli"Sorunsuzluk" kelimesinin sözlük karşılığıdır. Yarı yolda bırakmaz, alıcısı daima hazırdır.Renault Symbol1.5 dCi DizelEkonomik sürüşü ve dayanıklılığı ile tam bir bütçe dostudur.Otosöz Tavsiyesi: Bu fiyat bandında özellikle Fiat Linea veya Symbol gibi araçları alırken çevrenizden "taksi çıkmasıdır o, alınmaz" gibi mahalle baskıları görebilirsiniz. Eğer beklentiniz düşük yakıt tüketimi, ucuz yedek parça ve ihtiyaçlarınızı sorunsuz karşılamak ise bu söylentilere kulak asmayın. Ancak eski nesil dizel motorlarda (özellikle Fiesta 1.4 TDCi) sürpriz enjektör/turbo masraflarına girmemek adına, temiz benzinli motorlara yönelmek çok daha risksiz bir hamle olacaktır.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:42:49+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h13m6s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+400.000 TL - 500.000 TL Bandı: Konfor, Donanım ve MantıkBütçenizi 400.000 - 500.000 TL aralığına taşıdığınızda, piyasanın en çok tercih edilen, hem tasarım anlamında güncel hissettiren hem de donanım olarak tatmin eden C ve B segmenti araçlarına ulaşabilirsiniz. Bu bantta artık sadece bir "ulaşım aracı" değil, konforuyla öne çıkan, uzun yolda yormayan ve aile kullanımına son derece uygun modeller bulunur.İşte bu bütçenin en çok aranan ve satışı en hızlı olan modelleri:Marka / ModelÖne Çıkan Özelliğiİdeal KullanımHonda Civic VTEC 2Efsanevi VTEC motor performansı ve sportif kasa yapısı.Genç kullanıcılar ve performans arayanlarOpel Astra H KasaAlman sağlamlığı, tok sürüş hissi ve zamansız tasarım.Aile ve uzun yolFord Focus MK2Sınıfının en iyi yol tutuşu ve dayanıklı yürüyen aksam.Sürüş dinamiklerine önem verenlerRenault Clio 3Şehir içi pratikliği, geniş iç hacmi ve yedek parça bolluğu.Şehir içi günlük kullanımFiat Linea (1.3 / 1.6 Multijet)1.3 ekonomisi veya 1.6 performansı; düşük işletme maliyeti.Şirket / Geniş bagaj isteyen ailelerRenault Megane 2Geniş iç mekan, konfor odaklı süspansiyon ve elektronik donanım.Konfor odaklı aile kullanımıKia RioKendi sınıfında fiyatına göre yüksek donanım ve şık tasarım.Modern donanım arayanlarMitsubishi Colt (1.3)Sorunsuz Japon motoru, inanılmaz geniş iç hacim ve dayanıklılık.Şehir içi ferahlık isteyenlerToyota Corolla (1.6)Yıllara meydan okuyan motor ömrü ve yüksek ikinci el değeri."Sanayiye sadece bakım için gidelim" diyenlerPeugeot 207Sportif hatları, zengin donanımı ve şehirli duruşu.Tarzına önem veren genç kullanıcılarVolkswagen Golf 4Efsanevi Golf hissinin başlangıcı, malzeme kalitesi ve tok kapı sesi.Klasik Alman kalitesi arayanlarOtosöz Tavsiyesi: Bu fiyat bandında araç yelpazesi çok geniştir. Eğer performans ve sportiflik arıyorsanız Honda Civic VTEC 2 veya Golf 4 gibi kült modellere yönelebilirsiniz. Ancak önceliğiniz düşük yakıt tüketimi ve masrafsızlık ise, temiz bir Fiat Linea 1.6 Multijet veya sorunsuzluğuyla bilinen Toyota Corolla sizi fazlasıyla memnun edecektir. Eski nesil teknoloji barındıran araçlarda (Megane 2 gibi elektronik aksamı yoğun olanlar) mutlaka kapsamlı bir ekspertiz yaptırmayı unutmayın.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:45:28+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h15m45s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+500.000 TL - 600.000 TL Bandı: Modelli ve Mantıklı TercihlerBütçenizi 500.000 - 600.000 TL aralığına taşıdığınızda, piyasada artık daha güncel, yaşı daha genç ve donanım olarak sizi tatmin edecek araçlar bulmanız mümkündür. Bu bantta, sorunsuzluklarıyla öne çıkan, "sanayiden uzak, yolda rahat" mottosuna uygun mantıklı seçenekler ağırlıktadır.İşte bu bütçenin en çok tercih edilen, yürütme maliyeti düşük ve mantıklı modelleri:Marka / ModelÖne Çıkan ÖzelliğiDikkat Edilmesi GerekenlerFiat Linea (1.3 / 1.6 Dizel, 1.4 Benzinli)C segmenti genişliği, 500 lt bagaj hacmi, parça ucuzluğu.1.3 dizelde zincir değişimine dikkat edilmeli. 1.4 benzinlide yağ yakma sorunu kontrol edilmelidir.Fiat Punto (1.4 Benzinli)Şehir içi çevikliği, Linea ile aynı motor seçenekleri.City modu (elektrikli direksiyon) arızası ve göğüs/airbag kısmındaki çatlamalara dikkat edilmelidir.Opel Astra H (1.3 Dizel / 1.6 Benzinli)Sağlam kasa, sürüş dinamikleri, 1.3 dizelin sorunsuzluğu.Dizelde zincir değişimine, benzinlide LPG uyumuna (subap erimesi) ve genel elektronik/beyin arızalarına dikkat edilmelidir. Otomatik vitesinden uzak durulması önerilir.Chevrolet Aveo (1.3 Dizel - LTZ Paket)Sınıfına göre yüksek donanım (LTZ paket), 1.3 dizelin yaygın parçası.GM/Opel ortak parçaları kullanılsa da bazı Chevrolet'ye özel parçalar pahalı veya zor bulunabilir.Fiat BravoTasarımı, donanımı ve C segmenti hatchback konforu.Punto ile benzer şekilde City modu arızası, göğüs çatlamaları ve nispeten yüksek işçilik maliyetlerine dikkat edilmelidir.Ford Focus 2 (1.6 Benzin/LPG veya 1.6 Dizel)Yol tutuşu, kasa sağlamlığı ve sportif ruh.1.6 TDCi dizelde turbo yağlama sorunlarına, benzinlide LPG ile kullanımda subap arızalarına dikkat edilmelidir.Honda Jazz (1.4 Benzinli)CVT otomatik şanzıman konforu, efsanevi Japon sorunsuzluğu, esnek iç hacim (Magic Seats).CVT şanzımanın bakım geçmişi kontrol edilmelidir. Kaportası incedir, boyasız/hatasız bulmak bu yaşlarda zordur.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:46:21+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h16m37s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+600.000 TL - 700.000 TL Bandı: Açık Oto Pazarı Gerçekleri ve C SegmentiBütçenizi 600.000 - 700.000 TL aralığına çıkarttığınızda, açık oto pazarlarında artık B segmenti küçük araçlardan kurtulup, tok kapı sesine sahip C segmenti sedanlara, geniş ailelere hitap eden 7 koltuklu MPV'lere ve konforuyla öne çıkan modellere ulaşmaya başlarsınız. Ancak bu bütçede "hatasız, boyasız, düşük kilometreli" arayışı, fiyatları hızla 800.000 TL ve üzerine çıkaracağı için ufak tefek boyalara ve 200.000 km üstü rakamlara toleranslı olmanız gerekir.İşte sahada dönen gerçek pazarlıklarla, bu bütçe bandının öne çıkan alternatifleri:Marka / ModelKasa / SegmentOto Pazarından Notlar ve Dikkat Edilmesi GerekenlerRenault Fluence (1.5 dCi)C Segment SedanTürkiye pazarının vazgeçilmezi. Az yakar, parçası çok boldur. Temiz ve az boyalıları bu bütçede mantıklı bir aile aracıdır.Opel Astra J Kasa (1.3 Dizel)C Segment SedanOldukça oturaklı ve yakışıklı bir kasası vardır. Ancak 1.3 dizel motor, bu ağır kasayı çekerken performans olarak biraz hantal kalabilir.Peugeot 301 / Citroen C-ElyseeB+ Segment SedanŞirket çıkması olma ihtimalleri yüksektir. Yalıtım ve malzeme kalitesi düşüktür ancak inanılmaz az yakarlar ve motorları sorunsuzdur.VW Golf 6 (BlueMotion)C Segment HatchbackTasarımı eskimeyen Alman klasiği. BlueMotion serisinin vites aralıkları ekonomi odaklıdır. Kilometresi yüksek olanlarda detaylı motor testi şarttır.Renault Grand Scenic (1.5 dCi)7 Koltuklu MPVKalabalık aileler için oda büyüklüğünde bir iç hacim sunar. Makam perdeleri, tepsileri ve modüler koltuklarıyla tam bir uzun yol aracıdır.Hyundai i20 / Renault Clio 4B Segment HatchbackPiyasası en hızlı olan araçlardandır. 1.2 benzinli veya 1.4 dizel i20'ler gençlerin ve şehir içi kullanıcılarının favorisidir.Mercedes E Serisi (W210 Kompressor)E Segment PremiumMeşhur "Kedi Göz". Günümüzdeki birçok sıfır araçta olmayan konforu ve keyfi sunar. Ancak 30 yaşına merdiven dayamış bu premium aracı alırken korozyona ve elektronik aksama çok dikkat edilmelidir.Otosöz Tavsiyesi: Bu bütçelerde iki farklı yol ayrımı vardır. Eğer tamamen "mantık" diyorsanız ve "kalabalık aileyiz, bagaj lazım" diyorsanız Renault Fluence veya kalitesi bir tık daha yüksek olan Opel Astra J kasa en mantıklı tercihlerdir. Eğer "ben arabadan keyif almak istiyorum, ruhu olsun" diyorsanız ve köşede masraf için ayırdığınız bir bütçeniz varsa Mercedes W210 gibi efsaneler sizi mest edecektir. Peugeot 301 ve C-Elysee gibi modellere yönelirken yalıtım zayıflığını ve rüzgar sesini baştan kabullenmeniz gerekir.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:47:50+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h18m7s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+700.000 TL - 800.000 TL Bandı: Genç, Donanımlı ve Hızlı SatılanlarBütçenizi 700.000 - 800.000 TL aralığına taşıdığınızda, piyasada yaşı daha genç, donanım paketleri (multimedya, güvenlik donanımları vb.) daha zengin ve en önemlisi ikinci el piyasasında satış hızı çok yüksek olan araçları bulabilirsiniz. Bu bütçe, "Sanayiye az gideyim, binerken konforlu olayım, satarken de zarar etmeyeyim" diyenlerin en çok tercih ettiği aralıktır.İşte bu bütçede bulabileceğiniz en mantıklı ve popüler seçenekler:Marka / ModelÖne Çıkan ÖzelliğiDikkat Edilmesi GerekenlerFiat Egea (1.3 / 1.6 Multijet, 1.4 Fire)Türkiye'nin en çok satan araçlarından. Bu bütçede "Easy" veya "Urban" donanım seviyesinde, genç yaşta ve temiz modelleri rahatlıkla bulunabilir.Şirket veya kiralama geçmişi olma ihtimali yüksektir. Ekspertiz geçmişine dikkat edilmeli.Renault Megane 4 (Joy Paket)Şık tasarımı, geniş bagajı ve C segmenti konforu. "Touch" paket olanların bu bütçede genellikle yüksek kilometreli veya hasar kayıtlı (hikayeli) olduğu unutulmamalıdır.EDC şanzımanlı (otomatik) versiyonlarında şanzıman bakımlarının düzenli yapılmış olması önemlidir.Ford Focus MK3 (1.6 TDCi)Sınıfının referans noktası olan efsanevi yol tutuşu ve sürüş dinamikleri.Turbonun ve enjektörlerin kondisyonuna, özellikle yağ kaçağı olup olmadığına dikkat edilmelidir.Volkswagen Jetta & Golf 6Alman mühendisliği, tok sürüş hissi ve yüksek malzeme kalitesi. İkinci eli altın gibidir.DSG şanzımanlı versiyonlarında kavramanın ve mekatroniğin durumu mutlaka alanında uzman bir yerde kontrol edilmelidir.Hyundai Accent BlueÇok canlı motor seçenekleri (özellikle dizeli) ve geniş iç hacmiyle tam bir aile/şirket arabasıdır.Dizel motorların yüksek performansından dolayı yorulmuş olma ihtimaline karşı motor testi detaylı yapılmalıdır.Honda Civic FB7Sorunsuz Japon mühendisliği, fabrika çıkışlı LPG uyumu ve kendine has kitlesi olan tasarımı.Kaportası diğer araçlara göre biraz daha ince olabilir, orijinal boyalı olanlarını bulmak avantajdır.Toyota Corolla (E150 Kasa)Efsanevi dayanıklılık, "sanayi unutturan" Japon sorunsuzluğu ve çok rahat el değiştiren bir ikinci el pazarı.Bu bütçede çok donanımlı olmasalar da sorunsuzlukları ile ön plandadırlar. Klasik periyodik bakımları haricinde genelde masraf çıkarmazlar.Opel Astra J KasaAlman sağlamlığı, ağır ve oturaklı kasası. Bu bütçede donanım (dolular dolusu) açısından zengin modellerini bulmak mümkündür.1.3 dizel motorun kasaya biraz zayıf gelebileceği ve kalkışlarda ağır kalabileceği göz önünde bulundurulmalıdır.Otosöz Tavsiyesi: Bu fiyat bandında iki farklı strateji uygulayabilirsiniz. Birincisi; donanımdan biraz feragat edip Fiat Egea gibi yaşı çok daha genç (2018-2021 arası) araçlara yönelerek sorunsuz ve masrafsız bir kullanım hedeflemektir. İkincisi ise; yaşın biraz daha eskimemesini göze alıp (2012-2015 arası) Honda Civic FB7, VW Golf 6 veya Megane 4 gibi tasarım ve konfor anlamında sizi daha çok tatmin edecek C segmenti araçlara yönelmektir. Bu araçların birçoğunda otomatik şanzıman (DSG, EDC) olabileceği için, ekspertiz sürecinde en büyük önceliği şanzıman sağlığına vermelisiniz.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:50:51+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h21m7s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+tüm fiyat aralıklarının ikincisi 50.000 tl artır 0-150.000 tl 150.000-250.000 tl gibi sonuncu 850 olacak yani
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:54:32+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h24m49s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+850.000 TL - 950.000 TL Bandı: Sıçrama Eşiği ve Yeni Nesil OtomatiklerBu bütçe aralığı, otomobil piyasasında "sıçrama eşiği" olarak adlandırılır. Artık eski ve yorgun araçları geride bırakıp; yaş olarak genç (tercihen 2015 ve üstü), kilometresi 150.000'in altında ve yeni nesil tam otomatik şanzımanlara sahip araçlara ulaşmaya başlarsınız. Amacınız; sizi sanayiye abone etmeyecek, ileride satarken değer kaybettirmeyecek ve bir üst segmente geçerken basamak görevi görecek "mantık" araçlarını seçmektir.İşte bu bütçenin öne çıkan modelleri ve gizli kronik sorunları:Marka / ModelÖne Çıkan ÖzelliğiOtosöz "Kronik Sorun" UyarısıCitroen C4 (2015-2016 / 1.6 BlueHDi)Efsanevi Japon Aisin (EAT6) tam otomatik şanzımanı ve Ford/Volvo ortak üretimi dayanıklı dizel motoru.BSI Modülü ve AdBlue: Aracın elektronik beyni olan BSI modülü arıza yapmaya meyillidir (Ekran kararır, camlar inmez vb.). Ayrıca AdBlue tankı arızası çok sıktır, birçoğu yazılımla iptal edilmiştir.Citroen C3 (2020 / 1.2 Puretech)Bu bütçede alınabilecek en "genç" ve düşük kilometreli tam otomatik (EAT6) B segmenti hatchback seçeneği.Triger Kayışı Sorunu: Triger kayışı yağın içinde çalışır. Zamanla ufalanan kayış çapakları yağ pompasını tıkar ve motor/turbo yer. Kesinlikle 45.000 - 60.000 km aralığında triger seti değişimi yapılmalıdır.Fiat Doblo (2022-2023 / 1.6 Multijet)(Hafif Ticari) Tam bir anadolu arabasıdır. Premium Plus paketiyle doludur, parça fiyatları ucuzdur.Ön Takım: Kronik olarak rot ayarı tutmama (sağa/sola çekme) ve fren disk/balatalarını normalden çok daha hızlı tüketme sorunu vardır.Toyota Auris / Honda (CVT Şanzımanlılar)Düşük bulunabilirse Japon sorunsuzluğu sunar.Şanzıman Yağı: CVT şanzımanların can damarı içindeki sıvıdır. 100.000 km üstünde şanzıman yağı düzenli değişmemiş Japon araçlarından uzak durulmalıdır.Otosöz Tavsiyesi: Bu bütçede 10 yaş civarında bir Fransız aracı (Peugeot/Citroen) alıyorsanız, şanzımanları (EAT6) muazzam sağlam olsa da elektronik sensörlere ve emisyon sistemlerine (EGR, DPF, AdBlue) dikkat etmelisiniz. Eğer 1.2 Puretech motorlu genç bir araca (C3, 208, Corsa) yöneliyorsanız, bütçenizin bir kısmını aracı alır almaz triger kayışı ve yağ pompası süzgeci değişimine ayırmanız, sizi ileride yaşayacağınız yüz binlerce liralık motor masrafından kurtaracaktır.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:55:48+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h26m4s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+1.000.000 TL Bandı: Prestij mi, Yenilik mi, Mantık mı?1 Milyon TL psikolojik sınırına ulaştığınızda, karşınıza çok keskin bir yol ayrımı çıkar: Ya düşük kilometreli, yaşı çok genç ama donanım/kalite olarak mütevazı araçlara (Sandero, C3) bineceksiniz; ya da yaşı biraz daha ilerlemiş ama C segmenti, kaliteli, prestijli modellere (Civic, Jetta, Megane) yöneleceksiniz. Bu bütçede yapılan en büyük hata, gösteriş uğruna ağır hasarlı premium (örneğin dökük bir BMW veya Audi) alarak bütün parayı sanayiye kaptırmaktır.İşte 1 Milyon TL bütçeyle yapılabilecek en zekice seçimler ve ustaların kronik arıza uyarıları:Marka / ModelSizin İçin Neden Mantıklı?Otosöz "Dikkat!" UyarısıHonda Civic (FB7)"Sorunsuzluk İsteyenler İçin"LPG ile mükemmel uyumlu VTEC motor, dayanıklı Japon mühendisliği ve asla değer kaybetmeyen çok güçlü bir ikinci el piyasası.İç mekanda yol sesini fazla alır. VTEC motor atmosferiktir, ani hızlanma veya turbo performansı bekleyenleri üzebilir.Renault Megane 4 (1.5 dCi)"Konfor ve Denge İsteyenler İçin"Taş gibi sağlam 1.5 dCi motor (K9K), hem aile hem gençlere hitap eden güncel tasarım ve ucuz/bol yedek parça.Kesinlikle EDC şanzıman kontrol edilmelidir. Ayrıca 1.6 benzinliler kasayı çekmekte zorlanabilir, 1.5 dizeli tercih edilmelidir.Skoda Scala / VW Jetta"Premium Hissiyat ve Prestij İsteyenler İçin"Jetta (1.6 TDI) tam bir Alman klasiğidir. Scala ise uzun yolda ekonomik, içi oldukça geniş ve kaliteli malzemelere sahiptir.DSG ve Kavrama! DSG şanzımanın bakımları serviste yapılmamışsa, mekatronik arızaları büyük bütçeler gerektirir. Jetta özelinde kalorifer peteği tıkanmaları ve ısıtmama sorunu kroniktir.Dacia Sandero (2022+)"Sıfır Kokusu ve Düşük Risk İsteyenler İçin"Bu bütçeye alınabilecek neredeyse sıfır garantili, çok yeni modelli en mantıklı şehir içi otomobilidir.Prestij, yüksek yalıtım, kaliteli trim veya yüksek performans beklentisi olanları kesinlikle tatmin etmez. Tam bir görev adamıdır.Citroen C3 (1.2 Puretech)"Modern Tasarım İsteyenler İçin"Genç işi, şehir içinde kullanımı çok rahat ve şık bir araçtır.Yeni nesil zincirli motor değilse, yağ içinde çalışan triger kayışı geçmişi mutlaka soruşturulmalıdır. Bakım geçmişi belli olmayan Puretech saatli bomba olabilir.Otosöz Tavsiyesi: 1 Milyon TL bağladığınız bir araçta asla sözlü beyana ("şanzımanı yeni yaptırdım abi") itibar etmeyin. Özellikle EDC veya DSG gibi çift kavramalı otomatik vitesli bir araç alıyorsanız, aracı sadece standart bir ekspertize değil, mutlaka bir "Şanzıman Ustasına" test ettirin. Bütçeniz 1 Milyon TL ise, aracın bütçesini 950.000 TL'de tutup geri kalan 50.000 TL'yi aracı alır almaz yapılacak ağır bakımlar (triger, şanzıman yağı, balatalar) için kenara ayırmak otomobilciliğin altın kuralıdır. bunu ekle
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:58:26+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h28m43s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+1.200.000 TL Bandı: "Sıfıra Yakın" Mantık veya Genç D SegmentiBu bütçeye geldiğinizde (1.150.000 TL - 1.250.000 TL arası), beklentiler doğal olarak yükselir. Bu paraları harcarken temel strateji; size asla yüksek bakım maliyetleri çıkartmayacak, kilometresi 50.000'in altında "sıfıra yakın" yeni nesil araçlara binmek veya yaş olarak biraz (2016-2017) geriye gidip D segmenti konforunu yaşamaktır. Piyasadaki fiyat dengesizlikleri ("köpük") nedeniyle, donanım veya marka takıntısı yapmak yerine, aynı paraya en temiz, en yeni ve en düşük kilometreli olanı seçmek bu bütçenin altın kuralıdır.İşte 1.2 Milyon TL bandında "Paranın Hakkını Veren" en mantıklı seçenekler:Marka / ModelSizin İçin Neden Mantıklı?Otosöz "Önemli Not" UyarısıRenault Clio 5 (1.0 TCe - Icon Paket)"Yeni, Dolu ve Sorunsuz"2022-2023 model, 40.000 km altında, turbo benzinli motoru ve en dolu donanımıyla (Icon) bu bütçenin en rasyonel ve hızlı satılan seçeneklerinden biridir.B segmenti olduğunu ve bagaj/arka yaşam alanının kısıtlı olduğunu unutmamak gerekir.Opel Insignia (1.6 Dizel - 2016)"Bu Bütçenin D Segmenti Kralı"Eğer küçük araba (Clio/Corsa) istemiyorsanız, 60.000 - 75.000 km bandında bulunabilecek 2016 model bir Insignia, Passat B7'ye göre çok daha genç ve doludur. En iyi Insignia, 1.6 dizel olandır.Ekonomik ömrünün son çeyreğine yaklaşan bir D segmenti olduğu için triger ve ağır bakımları titizlikle kontrol edilmelidir.Seat Leon (1.6 TDI - 2017)"Fiyat / Performans C Segmenti"Müthiş bir tasarım, düşük yakıt tüketimi ve DSG şanzıman konforu. Style (standart) paketleri bu bütçede mantıklı bir alternatiftir.LED far veya cam tavan gibi donanımlar bu fiyattaki Style paketlerde bulunmaz. Standart donanımla yetinmek gerekir.Fiat Egea Sedan (1.6 Multijet Lounge - 2022)"Geniş Aile ve Düşük Kilometre"50.000 km altında, otomatik vitesli ve en dolu (Lounge) paketiyle tam bir sorunsuzluk abidesidir. Egea Cross yerine (fiyat/donanım dengesinden dolayı) Sedan kasası daha mantıklıdır.-Honda City (1.5 Executive - 2023)"Japon Yeniliği"Yine 50.000 km altında, atmosferik motor ve CVT şanzımanı ile "beni hiç sanayiye sokma" diyenlerin tercihidir.Atmosferik motorun performansı turbo araçlara göre zayıf hissettirebilir ve yalıtımı segment standartlarındadır.Opel Corsa / Hyundai i20 (1.2T / 1.0T)"Güncel ve Çevik"2024 model Corsa (Edition makyajlı) veya 2022 model i20 (Style Plus) gibi çok genç B segmenti seçenekler de bu bütçenin garanti alternatifleridir.İki modelde de motorun turbolu (1.2T veya 1.0T) olduğuna emin olun. 1.4 atmosferik (i20) bu bütçede tavsiye edilmez.Otosöz Tavsiyesi (Uzman Seçimi): Bu bütçede araç alırken piyasadaki fiyat dengesizliklerine çok dikkat edin. Örneğin 1 Milyon TL'ye alınabilen bir Megane 4 için, sadece birkaç donanım farkı veya biraz daha düşük kilometre için 1.2 Milyon TL vermek rasyonel bir hareket değildir. Videodaki uzmanın da belirttiği gibi; eğer şehir içi, pratik ve sorunsuz bir araç arıyorsanız İlk tercihiniz Clio 5 (1.0 TCe Icon) olmalı. Eğer "ben büyük, güçlü ve prestijli araba istiyorum" diyorsanız, aynı paralara daha eski ve yorgun bir Passat almak yerine 2016 Opel Insignia 1.6 Dizel almak çok daha akıllıca bir "fiyat/performans" tercihidir.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T07:59:53+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h30m10s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+1.300.000 TL Bandı: Otomatik, Az Yakan ve Hatchback ArayışıBütçeniz 1.3 Milyon TL seviyesindeyse ve önceliğiniz "otomatik vites, düşük yakıt tüketimi, az kilometre ve hatchback (veya crossover) kasa" ise, ikinci el piyasasında seçenekleriniz oldukça nettir. Bu bütçede Alman premium markalarına (VW Golf gibi) yönelmek, sizi yüksek kilometreli veya hasar kayıtlı araçlarla karşı karşıya bırakabilir. Bu nedenle odak noktanız, yaşı genç ve motoru kendini kanıtlamış modeller olmalıdır.İşte uzmanların bu spesifik kriterler için önerdiği modeller ve piyasa gerçekleri:Marka / ModelSizin İçin Neden Mantıklı?Otosöz "Piyasa Gerçeği" UyarısıFiat Egea Cross (1.6 Multijet Otomatik)"Uzmanların 1 Numaralı Tercihi"Hem yerden yüksek tasarımı (Crossover hissi) hem güçlü 1.6 Multijet motoru hem de düşük kilometreli bulunabilmesiyle bu bütçenin en mantıklı seçeneğidir.Tasarımı ne kadar şık olsa da, iç mekan kalitesi ve yalıtımı Alman rakiplerinin (Golf, Astra) bir tık gerisinde kalacaktır.Opel Astra K Kasa (1.6 Dizel Otomatik)"C Segmenti Alman Mantığı"Bu bütçede hala düşük kilometreli bulunabilen, donanımlı ve sürüşü oldukça keyifli gerçek bir C segmenti hatchback'tir.1.6 dizel motorlarda kronik olan triger zinciri sesine dikkat edilmeli, zincir değişimi yapılmamışsa bütçeye eklenmelidir.Opel Corsa (1.2 Turbo Otomatik)"Genç ve Çevik"Şehir içi kullanımı pratik, tasarımı güncel ve dinamik bir B segmenti aracıdır.Uzmanlar, aynı paraya daha geniş hacim ve daha kendini kanıtlamış dizel motor sunduğu için Corsa yerine Egea Cross'u tavsiye etmektedir.Volkswagen Golf / Polo"Klasik Alman Kalitesi"Herkesin hayalindeki sorunsuz ve tok kapı sesli Alman efsaneleri.Dikkat! 1.3 Milyon TL'ye alınacak bir Golf'ün kilometresi yüksek veya geçmişi "hikayeli" (hasar kayıtlı, çok el değiştirmiş) olma ihtimali çok yüksektir.Ford Focus (Hatchback)"Sürüş Dinamikleri"Segmentinin en iyi yol tutan aracıdır.Bu bütçeyle otomatik bir Focus almak isterseniz, model yılı rakiplerine göre (Egea veya Corsa) epey düşük kalacaktır.Otosöz Tavsiyesi: Eğer 1.3 Milyon TL nakdiniz varsa ve "başım ağrımasın, aracım yeni olsun, yakıtı da üzmesin" diyorsanız; yaşlı veya hasarlı bir VW Golf hayali kurmak yerine, düşük kilometreli bir Fiat Egea Cross 1.6 Multijet almak piyasanın en rasyonel hareketidir. Motorun gücü, otomatik şanzımanın uyumu ve sorunsuzluğu sizi fazlasıyla tatmin edecektir.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:01:59+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h32m16s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+başlıkta hactback de yer ver 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:03:04+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h33m21s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+1.450.000 TL - 1550000 Bandı: Egea Defteri Kapanıyor, C Segmenti ve Crossover'lar BaşlıyorBütçeniz 1.4 Milyon TL seviyesine (1.350.000 TL - 1.450.000 TL) ulaştığında, piyasada artık daha yüksek donanımlı, otomatik vitesli ve 60.000 - 70.000 kilometreyi aşmamış araçlara odaklanmanız gerekir. Bu bütçelerde Egea satın almak mantığını yitirir; çünkü aynı veya çok yakın paralara C segmentinin çok daha kaliteli araçları (Focus, Astra, Scala) bulunabilmektedir.Piyasadaki fiyat/performans dengesizliklerini de göz önünde bulundurarak, bu bütçenin en mantıklı ve uzman tavsiyeli seçenekleri şunlardır:Marka / ModelSizin İçin Neden Mantıklı?Otosöz "Uzman" UyarısıOpel Astra / Peugeot 308 (1.2 Puretech)"Yeni Nesil C Segmenti"Çok genç, tasarımı güncel ve donanımı zengin gerçek bir C segmenti.1.2 Puretech motorun triger kayışı sorunları bu yeni kasalarda da mevcuttur. 45-50 bin km'de triger ve yağ pompası değişimi yapıp binmek gerekir.Citroen C4X (1.2 Turbo)"Yerden Yüksek Sedan"Bagajı büyük, iç mekanı geniş ve donanımı (Field/Bolt) oldukça iyidir. 10.000 - 25.000 km gibi çok düşük kilometrelerde bulunabilir. Tam elektrikli (e-C4X) versiyonu da şehir içi için harika bir alternatiftir.Benzinli versiyonları yine Puretech motor kullanır, bakım geçmişi ve kronikleri göz önünde bulundurulmalıdır.Ford Focus 4 (1.5 Dizel - Trend X)"Sürüş Dinamikleri"60.000 km civarında bulunabilen, Focus efsanesinin 4. neslidir. Bu bütçede Egea almak yerine C segmentine sağlam bir geçiş yapmaktır.Trend X paketleri genellikle şirket/filo çıkmasıdır. Geçmişi iyi araştırılmalıdır. (Active X donanımları da zorlanarak bulunabilir).Toyota Corolla (1.8 Hybrid - Dream)"Gerçek Sorunsuzluk ve Ekonomi"Normal 1.6 benzinlilerine ("delirmiş" fiyatlar istenen) göre çok daha mantıklıdır. Dream paketiyle dolu ve hibrit teknolojisiyle çok az yakan bir D segmenti hissiyatı sunar.Performansı (122 HP) yüksek değildir, sakin ve konfor odaklı kullanım içindir.Skoda Scala (1.0 TSI - Elite/Premium)"Mantık Arabası"2023 model ve 30-40 bin km bandında, çok geniş iç hacimli, konforlu ve az yakan bir C segmenti alternatifidir.DSG şanzıman konforludur ancak her VAG grubu araçta olduğu gibi garanti veya iyi niyet kapsamı dışında yüksek masraf çıkarma potansiyeli vardır.Chery Omoda 5 (Comfort)"SUV Konforu ve Yüksek Donanım"2023 model, 50.000 km civarında bulunabilen, tasarımı dikkat çekici ve 183 beygirlik performanslı bir SUV seçeneğidir. Uzmanlara göre eski nesil Çin araçlarından çok daha arızasızdır.İkinci el değer kaybı ve yedek parça bekleme süreleri potansiyel handikaplarıdır.Otosöz Tavsiyesi: Bu fiyat bandında ikinci el pazarında büyük bir "köpük" vardır. Özellikle Honda Civic (FC5/FB7) veya standart Toyota Corolla (1.6) gibi "sorunsuz" algısı yüksek olan araçların satıcıları, mantık dışı fiyatlar isteyebilmektedir. 1.4 Milyon TL'ye 10 yaşında ve 100.000 km'de bir Civic almak yerine; Toyota Corolla 1.8 Hybrid, Skoda Scala 1.0 TSI veya yeni nesil bir Opel Astra almak çok daha akılcı, donanımlı ve sizi güncel tutacak bir harekettir.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:11:04+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h41m21s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+1350 değil ama iyi oku 1450 1550
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:12:28+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h42m44s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+1.500.000 TL Bandı: Ekspertiz Gözünden Neredeyse Sıfır veya C SegmentiBütçeniz 1.5 Milyon TL seviyesine ulaştığında, 2. el piyasasında çok farklı ihtiyaçlara hitap eden geniş bir yelpazeyle karşılaşırsınız. Bu bütçede yapılan en büyük tartışma; aynı paraya 10 yaşında D segmenti/gerçek bir SUV mu almak, yoksa 2024-2025 model (garantili) B-SUV'lara binmek mi mantıklıdır sorusudur. Ekspertiz uzmanları, "sanayi ile uğraşmamak" adına bu bütçelerde model yılını yüksek tutmayı tavsiye ediyor.İşte sahada (ekspertizde) en çok karşılaşılan 1.5 Milyon TL bandı araçları ve uzman uyarıları:Marka / ModelSizin İçin Neden Mantıklı?Otosöz "Ekspertiz" UyarısıHyundai Bayon / Kia Stonic (2023-2025)"Küçük Ailelerin Favorisi"Otomatik vitesleri çift kavrama (DSG gibi) değil, sorunsuz tork konvertörlüdür. Şehir içi kullanımı rahat ve neredeyse sıfır ayarında bulunabilirler.Kia ve Hyundai'nin alt takımları Alman araçlarına göre daha serttir, çukurlarda konforu biraz azaltabilir.Dacia Duster / Megane 4 (1.3 TCe - 140/150 HP)"Yüksek Performans ve Sessizlik"Mercedes ile ortak üretilen 1.3 TCe motor inanılmaz atak ve performanslıdır. Megane 4 konfor arayanlara, Duster yerden yüksek isteyenlere hitap eder.Kritik Duster Uyarısı: Duster'da 50.000 - 60.000 km bandına gelindiğinde termostatı mutlaka değiştirin. Hararet görürse motor çöp olur. Ayrıca şehir içi kör noktaları çok fazladır.Seat Arona / VW T-Cross (1.0 TSI 2022-2024)"Premium B-SUV"Özellikle eş/okul aracı olarak bilinen, parkı kolay, güvenliği ve marka algısı (VAG grubu) yüksek, sorunsuz seçeneklerdir.-Fiat Egea Cross (1.6 Multijet GSR'li 2025)"Piyasanın Çeyrek Altını"GSR (Yeni Güvenlik Sistemleri) donanımıyla, asfalta kazıyan 130 beygirlik dizel motoruyla tam bir otoyol canavarıdır. İkinci eli anında nakde döner.Kuru tip çift kavrama şanzımanı vardır. Dik yokuşlarda geri geri çıkarken şanzımanı aşırı ısıtmamaya özen gösterilmelidir.Honda Civic (FC5/FB7) (2020 Model)"Geleneksel Aile Sedanı"100.000 km altında bulunabilirse uzun yıllar sorunsuz hizmet eder, bagajı ve arka diz mesafesi geniştir.1.5 Turbo motorlarında nadir de olsa zincir uzatma/kırma vakaları görülür, alırken motor sesine uzman bir kulak bakmalıdır.Peugeot Rifter / Citroen Berlingo (2025)"Hem Ticaret Hem Aile (Geniş Hacim)"1.5 Milyon TL'ye SUV almak yerine aynı donanımlara (cam tavan, hayalet ekran) sahip sıfır ayarında devasa bir hacim satın alırsınız.Kritik Konfor Uyarısı: Markalar sizi daha pahalı SUV'lara (3008) yönlendirmek için, bu ticari araçların arka koltuklarını ince profilden çok dik ve rahatsız yapmıştır.Otosöz Tavsiyesi: 1.5 Milyon TL bütçeniz varsa ve eski, ağır lüks bir araç (Örneğin 2016 model bir Tucson veya 2014 bir Passat) almak yerine, sıfır ayarında bir Egea Cross 1.6 Multijet veya garantisi devam eden bir Seat Arona / VW T-Cross almanız, hem değer kaybını önleyecek hem de kafa rahatlığı sunacaktır. Dacia Duster alacakların termostat uyarısını, ticari alacakların ise arka koltuk rahatsızlığını mutlaka not alması gerekir.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:16:37+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h46m54s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+1.700.000 TL Bandı: Teknoloji, Lüks ve Tasarım HarikalarıBütçenizi 1.7 Milyon TL seviyesine çıkardığınızda, artık sadece "mantık" değil; prestij, ileri teknoloji ve sokaktan geçerken herkesin dönüp bakacağı "tasarım harikası" araçlar satın almaya başlarsınız. Bu bütçe, klasik Alman sedanlarından sıkılıp, geleceğin teknolojisine veya premium Fransız lüksüne geçiş yapmak isteyenlerin oyun alanıdır.İşte bu bütçede "Ben buradayım!" diyen, tarzıyla öne çıkan o özel otomobiller:Marka / ModelSizin İçin Neden Mantıklı?Otosöz "Piyasa Gerçeği" UyarısıHyundai Ioniq 6"Uzay Mekiği ve Teknoloji Harikası"Elektrikli otomobil devriminin en ikonik tasarımlarından biri. İnanılmaz düşük rüzgar direnci, devasa iç hacmi ve fütüristik teknolojisiyle sizi gelecekte hissettirir.Tam elektrikli olduğu için evinizde veya iş yerinizde şarj altyapısı kurma imkanınız yoksa günlük kullanımı yorucu olabilir.DS 4"Ulaşılabilir Premium Lüks""Bu fiyata böyle lüks araba mı varmış?" dedirten, malzeme kalitesi ve tasarımıyla Audi/BMW gibi rakiplerine ter döktüren Fransız premium seçeneği.İkinci el pazarı geleneksel Alman rakiplerine göre daha yavaştır. "Hemen satıp nakde döneyim" diyen yatırımcı profiline çok uygun değildir.Peugeot 308 (Yeni Kasa)"Herkesin Özendiği Hatchback"Yollardaki en yırtıcı ve dikkat çekici tasarımlardan biri. Yeni nesil i-Cockpit ve zengin donanımıyla C segmentinde bir arzu nesnesidir.Uzmanların "şans vermeye cesaret edemediği" diye nitelendirdiği nokta genellikle 1.2 Puretech motordur. Motorun triger bakım geçmişi şeffaf olmayanlarına yaklaşılmamalıdır.Otosöz Tavsiyesi: 1.7 Milyon TL gibi ciddi bir rakamı harcarken aracın size vereceği hissiyat çok önemlidir. Eğer yenilikçiyseniz ve yakıt maliyetlerini sıfırlamak istiyorsanız Ioniq 6 eşsiz bir deneyimdir. Ancak içten yanmalı motordan vazgeçemiyor ve "arabama bindiğimde lüks hissedeyim, iç mekanı deri ve şık detaylarla dolu olsun" diyorsanız DS 4, bu bütçede bulabileceğiniz en "premium" atmosferi sunacaktır. 1.7 -1.8 yap! fiyat arttı
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:17:54+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h48m11s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+yok o fiyatı 1800-1900 yap sen 1700 - 1800 bandına bunu ekle 1.800.000 TL Bandı: Sıfır Kilometre, Hibritler ve Elektrikli DevrimiBütçenizi 1.8 Milyon TL seviyesine (Ocak 2026 kampanyalı fiyatları baz alınarak) çıkardığınızda, ikinci el piyasasının riskli dünyasından tamamen sıyrılıp, bayi vitrinlerindeki "sıfır kilometre" araçlara yönelebilirsiniz. Bu bantta geleneksel benzinli sedanların yerini hızla yeni nesil hafif hibrit B-SUV'lar ve menzilleri 400 km'yi aşan tam elektrikli (EV) otomobiller almaktadır.İşte 1.8 Milyon TL bütçeyle bayiden anahtar teslim alabileceğiniz en mantıklı 10 araçlık liste:Marka / ModelGövde / Motor TipiSizin İçin Neden Mantıklı?TOGG T10F (Standart Menzil)Tam Elektrikli Fastback"Milli Teknoloji ve Tasarım"Yollara yeni inen T10F, 218 beygir gücü ve fastback tasarımıyla hem çok sportif hem de 350 km menziliyle şehir içi/dışı kullanımına oldukça uygundur.BYD Dolphin (Design Paket)Tam Elektrikli Hatchback"Çinli Teknoloji Devi"204 beygir gücü, 427 km karma menzili ve inanılmaz donanım özellikleriyle bu bütçenin en rasyonel ve ekonomik (yakıt/şarj) araçlarından biridir.Ford Puma (1.0 Titanium)Hafif Hibrit B-SUV"Sürüş Dinamikleri"125 beygirlik hibrit motoru (5.7L tüketim) ve Ford'un efsanevi yol tutuşuyla sınıfının en keyifli B-SUV'udur.Renault Duster (Evolution Turbo)Benzinli C-SUV"Yeni Nesil Efsane"Artık Renault logosuyla gelen Duster, 145 beygirlik güçlü turbo motoru ve otomatik şanzımanıyla dağ/bayır demeden aileleri taşıyacak sağlam bir seçenektir.Toyota Corolla (1.5 Drive/Dream)Benzinli C Sedan"Geleneksel Sorunsuzluk"Sıfır kilometre araç alıp "10 yıl sanayi yüzü görmeyeyim" diyenlerin klasik ve risksiz tercihidir. (Kampanyalı dönemlerde fiyatı bu bütçelere düşmektedir).Skoda Kamiq / Seat AronaBenzinli B-SUV"VAG Grubu Kalitesi"İkisi de aynı altyapıyı kullanan (1.0 TSI / 115 HP), Volkswagen grubunun tok kapı hissini, genişliğini ve DSG konforunu arayanlar için garanti tercihlerdir.Citroen C3 Aircross (1.2 Plus)Hafif Hibrit B-SUV"Konfor ve Hacim"Yenilenen yüzü, 145 beygirlik hibrit motoru ve aileler için sunduğu yüksek tavan/bagaj hacmiyle tam bir uzun yol aracıdır.Hyundai i30 / Kia XCeedBenzinli C-Hatchback/Crossover"Sportif Ruh"SUV istemeyip asfalt üzerinde daha dinamik bir C segmenti arayanlar için (Özellikle i30'un 140 HP'lik turbo motoru) oldukça mantıklı seçeneklerdir.Otosöz Tavsiyesi: 1.8 Milyon TL'niz varsa önünüzde net bir yol ayrımı vardır: Geleceğe mi yatırım yapacaksınız, yoksa geleneksel garantiden mi yana olacaksınız? Eğer evinizde veya iş yerinizde şarj imkanınız varsa; benzin istasyonlarına veda etmek ve inanılmaz bir performans yaşamak için TOGG T10F veya BYD Dolphin gibi elektrikli araçlar rakipsizdir. Ancak "şarj stresi yaşamak istemiyorum, tatillere rahat gideyim" diyorsanız, hibrit teknolojisiyle az yakan bir Ford Puma veya sağlamlığı kanıtlanmış VAG grubu Skoda Kamiq en rasyonel tercihler olacaktır. Bu bütçede (aynı fiyata sıfırı varken) 4-5 yaşında 100.000 kilometrede ikinci el araç almak (premium bir Mercedes/BMW değilse) mantıklı değildir.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:19:14+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h49m31s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+2.000.000 TL Bandı: Premium Sınıf, Geniş Aile ve Sorunsuzluk Arayışı2 Milyon TL barajına ulaştığınızda, otomobil pazarındaki seçenekleriniz lüks segment, devasa iç hacimler ve "sorunsuzluk abidesi" olarak bilinen araçlardan oluşur. Bu bütçelerde sıfır kilometre bir C segmenti yerine, birkaç yaşında ancak donanım ve prestij olarak çok daha üstün olan Alman premium araçlarını veya geniş aile SUV'larını tercih edebilirsiniz.İşte bu bütçenin en çok tercih edilen, "sorunsuz" olarak nitelendirilen popüler modelleri:Marka / ModelSizin İçin Neden Mantıklı?Otosöz "Piyasa Gerçeği" UyarısıToyota Corolla"Sıfır Sorun, Sıfır Baş Ağrısı"Bütçe ne olursa olsun "sorunsuzluk" dendiğinde akla gelen ilk model. Bu bütçede çok düşük kilometreli, hibrit motorlu ve en dolu donanımlı versiyonlarına sahip olabilirsiniz.Lüks hissiyatı ve yalıtım, bu fiyat bandındaki premium Alman rakiplerinin (Mercedes vb.) gerisinde kalacaktır.Mercedes-Benz C Serisi (2018-2019)"Klasik Premium Konforu"D segmentinin referans noktalarından biridir. W205 makyajlı kasalara denk gelen bu yıllar, konfor, prestij ve malzeme kalitesi açısından beklentilerinizi fazlasıyla karşılar.Bakım ve yedek parça maliyetleri "premium" standartlarındadır; yetkili servis geçmişine dikkat edilmelidir.Mercedes-Benz A Serisi"Genç ve Dinamik Premium"C serisi kadar büyük bir araca ihtiyacı olmayan, modern iç tasarımı (MBUX ekranları) ve daha sportif sürüşü tercih edenler için harika bir kompakt lüks seçeneğidir.C segmenti bir hatchback / sedan olduğu için arka yaşam alanı ve bagaj hacmi, C serisine göre daha kısıtlıdır.Skoda Kodiaq"Geniş Ailelerin D-SUV Tercihi"7 koltuk seçeneği, devasa bagajı ve VAG grubu konforuyla tam bir aile ve uzun yol aracıdır. Bu bütçede donanımlı ve nispeten güncel modelleri bulunabilir.Araç oldukça büyük ve ağırdır, şehir içi dar alanlarda park/manevra zorlukları yaşatabilir.Skoda Kamiq"Pratik ve Sorunsuz B-SUV"Daha çok şehir içi odaklı, yerden yüksekliği yeterli ve yakıt tüketimi makul bir araç arayanlar için Kodiaq'ın daha kompakt ve pratik kardeşidir.İç malzeme kalitesi Kodiaq veya premium araçlar kadar yüksek değildir, daha çok işlevsellik ön plandadır.Otosöz Tavsiyesi: 2 Milyon TL bütçeyle araç seçerken kullanım amacınızı netleştirmeniz hayati önem taşır. Eğer gösteriş ve konfor istiyorsanız 2018-2019 model bir Mercedes C Serisi muhteşem bir seçimdir. Ancak kalabalık bir aileniz varsa ve tatillere çıkmayı seviyorsanız, Mercedes'in konforunu aratmayacak kadar geniş ve pratik olan Skoda Kodiaq sizi çok daha mutlu edecektir. "Ben sadece A noktasından B noktasına en sorunsuz şekilde gideyim" diyorsanız da Toyota Corolla'nın en dolu paketleri en risksiz yatırım olacaktır.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:20:19+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h50m36s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+Synthesize Content: The video discusses what cars to buy for 2.1 to 2.3 Million TL (post-tax update 2025).Key constraint by the host: At this price, the focus is on C-segment hatchbacks/sedans/crossovers, mainly looking at 0km or very low km (under 50k-60k) automatics. He skips over standard C-segment like Golf/A3/1 Series if they are barebones or higher km, preferring zero km options or D-segment.Cars Recommended:BYD Seal Sedan (Design): Great double wishbone suspension, 61.4 kWh LFP battery, 218 HP RWD. Drawback: Low charging speed (110 kW DC), annoying for long trips.BYD Sealion 7: (If stretching to ~2.38M) Much better alternative to Seal Sedan. 71 kWh battery, 150 kW DC charging.DS 9 (1.6 Puretech): D-segment luxury, 225 HP. Very unique, but engine has long-term reputation risks (though okay for low km 2022 models).Peugeot 508 GT (1.5 Dizel 2023): D-segment, torque converter auto, very full spec (night vision, etc.). Better value than a barebones A3/1-Series.Skoda Octavia (1.5 e-TEC Premium): C-segment that feels like D-segment. Very comfortable, massage seats, DSG.Tesla Model Y (Long Range, 2023-2024 Legacy): Dual motor 4x4, NMC battery, 250 kW DC fast charging, ~500km range. Best electric alternative if looking for software/charging speed.VW Passat Variant B9 (1.5 eTSI Impression): Huge station wagon, 5 meters long, low km available.Chery Tiggo 8 Pro Max (2025 pre-facelift): 7-seater, gasoline, zero km.DS 7 Crossback (1.5 Dizel): Low km, reliable torque converter, premium alternative to 3008/C5 Aircross.Peugeot E-3008 (GT 2024): Fully loaded EV, NMC battery, heat pump. Much better equipment (massage, cooling) than Tesla/BYD.TOGG T10X: Recommended to buy Zero KM rather than second-hand here due to 1M TL 0% interest loan campaigns.Format Output: Create the markdown template.Title: 2.100.000 TL - 2.300.000 TL Bandı: D Segmentine Geçiş ve Elektrikli RekabetiIntro: Explain that at this budget (2.1M - 2.3M TL), buying a standard second-hand C-segment (like a Golf or A3) is no longer logical when
+<truncated 3389 bytes>
+yonuyla inanılmaz bir yol tutuş sunar. Tasarımı ve 218 beygirlik gücüyle çok dikkat çekicidir.Kritik Uyarı: Seal Sedan modelinin DC şarj hızı (110 kW) bataryasına göre yavaştır. Bütçeyi çok az esnetip 150 kW şarj hızlı Sealion 7 almak uzun yol yapanlar için şarttır.Volkswagen Passat Variant B9"Geniş Ailelerin Efsanesi"5 metreye yakın uzunluğu, devasa bagajı ve yeni nesil 1.5 eTSI (Impression) motoruyla klasik Alman konforunu station wagon formunda sunar.-DS 7 Crossback (1.5 Dizel)"Fransız Haute Couture Lüksü"3008 veya C5 Aircross yerine, çok daha kaliteli materyallerle bezenmiş, özel saat tasarımlı ve 1.5 dizelin ekonomisini sunan premium bir SUV'dur.-Otosöz Tavsiyesi: Bu fiyat bandında elektrikli otomobiller (EV) donanım ve performans olarak içten yanmalı araçları açık ara geride bırakmaktadır. Uzun yol yapıyorsanız şarj hızı (DC) en kritik değerdir; bu yüzden 250 kW hız sunan Tesla Model Y her zaman bir adım öndedir. Ancak "ben şarjla uğraşmam, lüks ve ekonomi isterim" diyorsanız, gırtlak dolu bir Peugeot 508 GT veya geleneksel genişliğiyle Passat Variant sizi fazlasıyla mutlu edecektir. Not: TOGG T10X düşünüyorsanız, markanın sunduğu "sıfır faizli dev kredi" kampanyaları nedeniyle 2. el almak yerine doğrudan sıfırına yönelmeniz finansal olarak çok daha kârlıdır.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:21:13+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\otobutce\[slug]\page.tsx (LANGUAGE_TSX)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h51m30s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+araçlarda yılı kaldır ya yıl eklemek hatalı zaten!
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:22:22+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\data\otobutce-data.ts (LANGUAGE_TYPESCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h52m39s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+vazgeçti,m yılları kaldırma geri al yıllar olsun
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T08:24:25+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\data\otobutce-data.ts (LANGUAGE_TYPESCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 1h54m42s)
+</ADDITIONAL_METADATA>
+
+=========================
+
+<USER_REQUEST>
+950'den itibaren hiçbirinde araç yok gibi hatayı bu ldüzelt
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-23T09:03:12+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+Cursor is on line: 259
+Other open documents:
+- c:\Users\GAMER\Desktop\otoasfalt-web\app\kutuphane\yatirim-kiyaslama-section.tsx (LANGUAGE_TSX)
+- c:\Users\GAMER\Desktop\otoasfalt-web\google-index.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GAMER\Desktop\otoasfalt-web\data\otobutce-data.ts (LANGUAGE_TYPESCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\GAMER\Desktop\otoasfalt-web, running for 2h33m29s)
+</ADDITIONAL_METADATA>

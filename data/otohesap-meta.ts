@@ -73,5 +73,10 @@ export const OTOHESAP_META: Record<string, { title: string; description: string;
     title: 'Yurtdışından Araç Getirme Vergi Hesaplayıcı 2026 | OtoHesap',
     description: 'Almanya, Avrupa veya diğer ülkelerden Türkiye\'ye araç ithal ederken ödeyeceğiniz Gümrük Vergisi, ÖTV ve %20 KDV tutarlarını hesaplayın.',
     keywords: 'yurtdışından araç getirme vergisi, ithal araç vergi hesaplama, gümrük vergisi hesaplama, araç ithalat maliyeti, yurtdışı araba'
+  },
+  'arac-vs-taksi': {
+    title: 'Araç Sahibi Olmak vs Taksi Kiralama Maliyet Hesaplama | OtoHesap',
+    description: 'Yıllık kilometrenize göre otomobil sahibi olmanın masraflarıyla (MTV, Kasko, Bakım) Taksi ve TikTak/Moov gibi kiralama uygulamalarını kıyaslayın.',
+    keywords: 'araç mı taksi mi, araç sahibi olma maliyeti hesaplama, tiktak vs araba almak, moov mu taksi mi, araba alma maliyet kıyaslaması'
   }
 };
