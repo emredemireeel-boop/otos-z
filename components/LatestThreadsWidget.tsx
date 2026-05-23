@@ -26,18 +26,15 @@ export default function LatestThreadsWidget() {
             background: 'var(--card-bg)',
             border: '1px solid var(--card-border)',
             borderRadius: '16px',
-            padding: '12px',
+            padding: '16px',
             overflow: 'hidden'
         }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '12px' }}>
-                <Clock size={14} color="var(--primary)" />
-                <h3 style={{ fontSize: '13px', fontWeight: '500', color: 'var(--foreground)' }}>
-                    Son Açılan Başlıklar
-                </h3>
-            </div>
+            <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Clock size={14} color="var(--primary)" /> Son Açılan Başlıklar
+            </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 {threads.length === 0 ? (
-                    <p style={{ fontSize: '12px', color: 'var(--text-muted)', textAlign: 'center', padding: '8px 0' }}>Henüz başlık yok</p>
+                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '12px 0' }}>Henüz başlık yok</p>
                 ) : (
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                         {threads.map((thread) => (
@@ -47,31 +44,24 @@ export default function LatestThreadsWidget() {
                                     style={{
                                         display: 'flex',
                                         alignItems: 'flex-start',
-                                        gap: '8px',
-                                        padding: '8px 6px',
-                                        borderRadius: '6px',
+                                        gap: '10px',
+                                        padding: '10px 8px',
+                                        borderRadius: '8px',
                                         textDecoration: 'none',
-                                        transition: 'background 0.2s'
                                     }}
-                                    onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--secondary)'; }}
-                                    onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
                                 >
-                                    <div style={{ flex: 1, minWidth: 0 }}>
+                                    <div style={{ flex: 1 }}>
                                         <span style={{ 
                                             color: 'var(--foreground)', 
-                                            fontSize: '12px', 
-                                            fontWeight: '500', 
+                                            fontSize: '13px', 
                                             lineHeight: 1.4, 
-                                            display: 'block',
-                                            whiteSpace: 'nowrap',
-                                            overflow: 'hidden',
-                                            textOverflow: 'ellipsis'
+                                            display: 'block'
                                         }}>
                                             {thread.title}
                                         </span>
                                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '2px' }}>
-                                            <span style={{ color: 'var(--text-muted)', fontSize: '10px' }}>@{thread.authorUsername}</span>
-                                            <span style={{ color: 'var(--primary)', fontSize: '10px', fontWeight: '500' }}>{thread.category}</span>
+                                            <span style={{ color: 'var(--text-muted)', fontSize: '11px' }}>@{thread.authorUsername}</span>
+                                            <span style={{ color: 'var(--primary)', fontSize: '11px', fontWeight: '500' }}>{thread.category}</span>
                                         </div>
                                     </div>
                                 </Link>

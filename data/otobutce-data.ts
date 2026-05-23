@@ -26,12 +26,13 @@ export interface OtoButceCategory {
 export const OTOBUTCE_CATEGORIES: OtoButceCategory[] = [
   {
     id: "150k",
-    title: '150.000 TL Altı: "Ayağımı Yerden Kessin" Arabaları',
     slug: "150-bin-tl-alti-arabalar",
-    priceRange: "0 TL - 150.000 TL",
-    shortDescription:
-      "Otobüste, dolmuşta çile çekmek istemiyorum, kapımın önünde 4 lastik olsun yeter diyenler için.",
-    content: `"Otobüste, dolmuşta çile çekmek istemiyorum, kapımın önünde 4 lastik olsun yeter" diyorsanız, 150.000 TL bandında alabileceğiniz araçlar temel ulaşım ihtiyacınızı karşılamaya yöneliktir.
+    title: '150.000 TL Altı: "Ayağımı Yerden Kessin" Arabaları',
+    minPrice: 0,
+    maxPrice: 150000,
+    seoTitle: "150.000 TL Altı Alınabilecek Arabalar",
+    seoDesc: "150.000 TL altı bütçeyle alınabilecek, az yakan, parçası ucuz ve sanayide kolay tamir edilebilen en iyi otomobil tavsiyeleri.",
+    introText: `"Otobüste, dolmuşta çile çekmek istemiyorum, kapımın önünde 4 lastik olsun yeter" diyorsanız, 150.000 TL bandında alabileceğiniz araçlar temel ulaşım ihtiyacınızı karşılamaya yöneliktir.
 
 Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaporta beklemek gerçekçi olmaz. Bu fiyat bandında alacağınız araçlarda "komple boya" veya "değişen parça" olması son derece doğaldır. Önemli olan motorun yürür durumda olması ve sizi yolda bırakmamasıdır.
 
@@ -48,6 +49,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         sanziman: "Manuel",
         aciklama: "Nostaljik / Temel ulaşım",
         ortalamaFiyat: 120000,
+        imageUrl: "/cars/tofas-murat-131-124.jpg",
       },
       {
         id: "tofas-dogan",
@@ -58,6 +60,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         sanziman: "Manuel",
         aciklama: "Geniş iç hacim, ucuz parça",
         ortalamaFiyat: 140000,
+        imageUrl: "/cars/tofas-dogan.jpg",
       },
       {
         id: "skoda-favorit",
@@ -68,6 +71,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         sanziman: "Manuel",
         aciklama: "Uygun fiyatlı aile kullanımı",
         ortalamaFiyat: 135000,
+        imageUrl: "/cars/skoda-favorit.jpg",
       },
       {
         id: "renault-9",
@@ -78,6 +82,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         sanziman: "Manuel",
         aciklama: "Az yakan, masrafsız klasik",
         ortalamaFiyat: 145000,
+        imageUrl: "/cars/renault-9.jpg",
       },
       {
         id: "ford-escort",
@@ -88,6 +93,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         sanziman: "Manuel",
         aciklama: "Döneminin konforlu seçeneklerinden",
         ortalamaFiyat: 150000,
+        imageUrl: "/cars/ford-escort.jpg",
       },
       {
         id: "ford-taunus",
@@ -98,6 +104,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         sanziman: "Manuel",
         aciklama: "Sağlam kasa, arkadan itiş",
         ortalamaFiyat: 130000,
+        imageUrl: "/cars/ford-taunus.jpg",
       },
       {
         id: "lada-samara",
@@ -108,6 +115,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         sanziman: "Manuel",
         aciklama: "Zorlu şartlara dayanıklı, kemikli yapı",
         ortalamaFiyat: 125000,
+        imageUrl: "/cars/lada-samara.jpg",
       },
       {
         id: "renault-11",
@@ -118,6 +126,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         sanziman: "Manuel",
         aciklama: "Döneminin performanslı modellerinden",
         ortalamaFiyat: 140000,
+        imageUrl: "/cars/renault-11.jpg",
       },
       {
         id: "fiat-uno",
@@ -128,6 +137,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         sanziman: "Manuel",
         aciklama: "Şehir içi kolay park, pratik kullanım",
         ortalamaFiyat: 145000,
+        imageUrl: "/cars/fiat-uno.jpg",
       },
     ],
   },

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { categories, getBrandsForCategory } from '@/data/guvenmetre';
-import { getAdminDb } from '@/lib/firebaseAdmin';
+import { getAdminDb, initError } from '@/lib/firebaseAdmin';
 import { events } from '@/data/events';
 
 // Sitemap'in 15 dakikada bir yeniden oluşturulması — yeni başlık/entry'ler hızla Google'a gider
@@ -78,7 +78,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const engineList = engineDNAData || [];
     const trimList = trimLevelsData || [];
     
-    const uniqueBrands = [...new Set(vehicleList.map((v: any) => v.brand))];
+    const uniqueBrands = [...new Set(vehicleList.map((v: any) => v.brand))] as string[];
     uniqueBrands.forEach(brand => {
         sitemapEntries.push({
             url: `${BASE_URL}/arac-dna/${createSlug(brand)}`,
@@ -370,48 +370,52 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
 
     // 15. Dinamik Forum Konuları (Firestore'dan)
-    try {
-        const db = getAdminDb();
-        const threadsSnapshot = await db.collection('threads')
-            .orderBy('createdAt', 'desc')
-            .limit(2000)
-            .get();
-            
-        threadsSnapshot.forEach(doc => {
-            const threadData = doc.data();
-            const threadSlug = threadData.urlId
-                ? `${createSlug(threadData.title || '')}--${threadData.urlId}`
-                : doc.id;
-            sitemapEntries.push({
-                url: `${BASE_URL}/forum/${threadSlug}`,
-                lastModified: threadData.lastEntryAt
-                    ? new Date(threadData.lastEntryAt.toDate())
-                    : threadData.createdAt
-                        ? new Date(threadData.createdAt.toDate())
-                        : new Date(),
-                changeFrequency: 'hourly',
-                priority: 0.8,
+    if (!initError) {
+        try {
+            const db = getAdminDb();
+            const threadsSnapshot = await db.collection('threads')
+                .orderBy('createdAt', 'desc')
+                .limit(2000)
+                .get();
+                
+            threadsSnapshot.forEach(doc => {
+                const threadData = doc.data();
+                const threadSlug = threadData.urlId
+                    ? `${createSlug(threadData.title || '')}--${threadData.urlId}`
+                    : doc.id;
+                sitemapEntries.push({
+                    url: `${BASE_URL}/forum/${threadSlug}`,
+                    lastModified: threadData.lastEntryAt
+                        ? new Date(threadData.lastEntryAt.toDate())
+                        : threadData.createdAt
+                            ? new Date(threadData.createdAt.toDate())
+                            : new Date(),
+                    changeFrequency: 'hourly',
+                    priority: 0.8,
+                });
             });
-        });
-    } catch (e) {
-        console.error('Sitemap Firestore thread fetching error:', e);
+        } catch (e) {
+            console.error('Sitemap Firestore thread fetching error:', e);
+        }
     }
 
     // 16. Dinamik Sözlük Terimleri (Firestore'dan)
-    try {
-        const db = getAdminDb();
-        const dictSnapshot = await db.collection('dictionary')
-            .limit(500)
-            .get();
-        dictSnapshot.forEach(doc => {
-            sitemapEntries.push({
-                url: `${BASE_URL}/sozluk/${doc.id}`,
-                lastModified: new Date(),
-                changeFrequency: 'monthly',
-                priority: 0.6,
+    if (!initError) {
+        try {
+            const db = getAdminDb();
+            const dictSnapshot = await db.collection('dictionary')
+                .limit(500)
+                .get();
+            dictSnapshot.forEach(doc => {
+                sitemapEntries.push({
+                    url: `${BASE_URL}/sozluk/${doc.id}`,
+                    lastModified: new Date(),
+                    changeFrequency: 'monthly',
+                    priority: 0.6,
+                });
             });
-        });
-    } catch (e) {}
+        } catch (e) {}
+    }
 
     return sitemapEntries;
 }

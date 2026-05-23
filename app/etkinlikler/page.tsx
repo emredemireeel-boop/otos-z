@@ -195,28 +195,7 @@ export default function EtkinliklerPage() {
                             ))}
                         </div>
 
-                        {/* City Pills */}
-                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
-                            {cities.map((city) => (
-                                <button
-                                    key={city}
-                                    onClick={() => setSelectedCity(city)}
-                                    style={{
-                                        padding: '8px 16px',
-                                        borderRadius: '8px',
-                                        fontSize: '13px',
-                                        fontWeight: '500',
-                                        whiteSpace: 'nowrap',
-                                        border: 'none',
-                                        cursor: 'pointer',
-                                        background: selectedCity === city ? 'var(--primary)' : 'var(--secondary)',
-                                        color: selectedCity === city ? 'white' : 'var(--foreground)',
-                                    }}
-                                >
-                                    {city}
-                                </button>
-                            ))}
-                        </div>
+
                     </div>
                 </div>
 
@@ -260,6 +239,49 @@ export default function EtkinliklerPage() {
                                         </li>
                                     ))}
                                 </ul>
+
+                                <div style={{ height: '1px', background: 'var(--card-border)', margin: '16px 0' }} />
+
+                                <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px' }}>
+                                    Şehirler
+                                </h3>
+                                <div style={{ maxHeight: '380px', overflowY: 'auto', paddingRight: '4px' }} className="custom-scrollbar">
+                                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                                        {cities.map((city) => (
+                                            <li key={city} style={{ marginBottom: '4px' }}>
+                                                <button
+                                                    onClick={() => setSelectedCity(city)}
+                                                    style={{
+                                                        width: '100%',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'space-between',
+                                                        padding: '8px 12px',
+                                                        borderRadius: '8px',
+                                                        border: 'none',
+                                                        cursor: 'pointer',
+                                                        background: selectedCity === city ? 'var(--primary)' : 'transparent',
+                                                        color: selectedCity === city ? 'white' : 'var(--foreground)',
+                                                        fontSize: '13px',
+                                                        textAlign: 'left',
+                                                    }}
+                                                >
+                                                    <span>{city}</span>
+                                                    <span style={{ 
+                                                        fontSize: '10px', 
+                                                        padding: '2px 6px',
+                                                        background: selectedCity === city ? 'rgba(255,255,255,0.2)' : 'var(--secondary)',
+                                                        borderRadius: '4px',
+                                                        fontWeight: '600',
+                                                        color: selectedCity === city ? 'white' : 'var(--foreground)'
+                                                    }}>
+                                                        {events.filter(e => city === "Tümü" || e.city === city).length}
+                                                    </span>
+                                                </button>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
 
 

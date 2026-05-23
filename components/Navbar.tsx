@@ -230,12 +230,12 @@ export default function Navbar() {
 
                 {/* Desktop Navigation */}
                 <div style={{
-                    position: 'absolute',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                     gap: '4px',
+                    margin: '0 16px',
                 }} className="desktop-nav">
                     {navLinks.map((item) => {
                         const isActive = pathname === item.href;

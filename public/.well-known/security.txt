@@ -1,0 +1,3 @@
+Contact: mailto:iletisim@otosoz.com
+Preferred-Languages: tr, en
+Canonical: https://www.otosoz.com/.well-known/security.txt

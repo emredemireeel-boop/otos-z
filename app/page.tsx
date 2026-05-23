@@ -867,17 +867,26 @@ export default function Home() {
                                     {topUsers.length === 0 ? (
                                         <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '12px 0' }}>Henüz yazar yok</p>
                                     ) : (
-                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                             {topUsers.map((u, i) => (
-                                                <div key={`${u.username}-${i}`} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px', borderRadius: '8px', background: 'transparent' }}>
-                                                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--secondary)', border: '1px solid var(--card-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '700', color: 'var(--foreground)', flexShrink: 0 }}>{i + 1}</div>
-                                                    <div style={{ flex: 1 }}>
-                                                        <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--foreground)' }}>@{u.username}</span>
-                                                        <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{u.role === 'usta' ? 'Usta' : 'Çırak'}</div>
+                                                <li key={`${u.username}-${i}`}>
+                                                    <div style={{
+                                                        display: 'flex',
+                                                        alignItems: 'flex-start',
+                                                        gap: '10px',
+                                                        padding: '10px 8px',
+                                                        borderRadius: '8px',
+                                                        background: 'transparent'
+                                                    }}>
+                                                        <span style={{ color: 'var(--primary)', fontWeight: '700', fontSize: '14px', flexShrink: 0 }}>{i + 1}</span>
+                                                        <div style={{ flex: 1 }}>
+                                                            <span style={{ color: 'var(--foreground)', fontSize: '13px', lineHeight: 1.4, display: 'block' }}>@{u.username}</span>
+                                                            <span style={{ color: 'var(--text-muted)', fontSize: '11px' }}>{u.role === 'usta' ? 'Usta' : 'Çırak'}</span>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </li>
                                             ))}
-                                        </div>
+                                        </ul>
                                     )}
                                 </div>
 
