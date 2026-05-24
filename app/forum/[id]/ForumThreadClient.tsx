@@ -747,7 +747,7 @@ export default function ForumThreadPage() {
                                                     fontSize: '15px', lineHeight: '1.7',
                                                     color: 'var(--foreground)', marginBottom: vehicles.length > 0 ? '24px' : '16px',
                                                 }}>
-                                                    <AutoLinkText text={description} style={{ whiteSpace: 'pre-wrap' }} />
+                                                    <MarkdownRenderer content={description} />
                                                 </div>
                                             )}
 
@@ -869,27 +869,11 @@ export default function ForumThreadPage() {
                                         Yanit Yaz
                                     </h3>
                                 </div>
-                                <textarea
-                                    ref={textareaRef}
+                                <MarkdownEditor
                                     value={newEntry}
-                                    onChange={(e) => {
-                                        setNewEntry(e.target.value);
-                                        // Auto-resize
-                                        e.target.style.height = 'auto';
-                                        e.target.style.height = e.target.scrollHeight + 'px';
-                                    }}
+                                    onChange={(val) => setNewEntry(val)}
                                     placeholder="Dusuncelerinizi paylasin..."
-                                    style={{
-                                        width: '100%', minHeight: '100px', padding: '16px',
-                                        background: 'var(--secondary)',
-                                        border: '1px solid var(--card-border)',
-                                        borderRadius: '12px', color: 'var(--foreground)',
-                                        fontSize: '15px', resize: 'none', outline: 'none',
-                                        marginBottom: '16px', lineHeight: 1.6,
-                                        transition: 'border-color 0.2s',
-                                    }}
-                                    onFocus={(e) => e.target.style.borderColor = 'var(--primary)'}
-                                    onBlur={(e) => e.target.style.borderColor = 'var(--card-border)'}
+                                    minRows={4}
                                 />
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>

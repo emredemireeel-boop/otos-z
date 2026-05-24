@@ -1,6 +1,200 @@
 {
   "guides": [
     {
+      "id": "guide_kurban_bayrami_2026",
+      "title": "Kurban Bayramı Uzun Yol 'Mega' Rehberi 2026: Kusursuz Yolculuk, Et Taşıma ve İleri Seviye Güvenlik",
+      "description": "Kurban Bayramı için hazırlanmış en kapsamlı 'Masterclass' rehberi: İleri seviye mekanik kontroller, kurban eti taşıma hijyeni, kaza anı hukuki hakları, slipstreaming tasarrufu ve biyolojik saat yönetimi.",
+      "minutes": 20,
+      "difficulty": "Uzman",
+      "tags": [
+        "Uzun Yol",
+        "Kurban Bayramı",
+        "İleri Sürüş",
+        "Yakıt Tasarrufu",
+        "Bakım",
+        "Hukuk"
+      ],
+      "author": "OtoSöz Başuzmanları",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "Kurban Bayramı Tatili: Sadece Yola Çıkmak Değil, Hayatta Kalmak",
+          "content": "Kurban Bayramı tatili, sıradan bir hafta sonu kaçamağı değildir. Milyonlarca aracın kapasitesinin üzerinde yüklendiği, acemi sürücülerin otoyollara çıktığı, hava sıcaklıklarının asfaltı erittiği ve stresin zirve yaptığı bir 'hayatta kalma' mücadelesidir. Sıradan rehberler size sadece 'yağına suyuna bakın' der. Ancak biz bu Mega Rehber'de; aerodinamik sürtünme katsayısından kurban etinin araç klimasını nasıl bozabileceğine, mikro uyku biyolojisinden kaza anındaki hukuki haklarınıza kadar her detayı uzman seviyesinde inceliyoruz."
+        },
+        {
+          "type": "section",
+          "title": "1. İleri Seviye Mekanik ve Elektrik Check-Up (Pro Seviye)",
+          "content": "Aracınız şehir içinde kısa mesafelerde kusursuz görünebilir, ancak uzun yoldaki sürekli yüksek devir ve sıcaklık, gizli arızaları tetikler.",
+          "subsections": [
+            {
+              "subtitle": "V Kayışı, Şarj Dinamosu ve Akü Sağlığı",
+              "text": "Elektrik sistemi, modern araçların sinir sistemidir.",
+              "points": [
+                "Akü Voltaj Ölçümü: Motor kapalıyken akü 12.4V - 12.6V, motor çalışırken şarj dinamosunun etkisiyle 13.7V - 14.4V arasında değer vermelidir. Bu değerlerin altı yolda kalma sebebidir.",
+                "V Kayışı (Alternatör Kayışı): Klimayı, su pompasını ve şarj dinamosunu çevirir. Kayışta en ufak bir kılcal çatlak varsa, dağ başında koptuğunda hararet yapmanız, direksiyonun sertleşmesi ve elektriğin kesilmesi sadece saniyeler sürer."
+              ]
+            },
+            {
+              "subtitle": "Klima Sistemi: Gizli Tehlikeler",
+              "text": "Klimanın soğutması yeterli değildir, nasıl soğuttuğu da önemlidir.",
+              "points": [
+                "Kondenser Petek Temizliği: Aracın ön panjurunun arkasındaki klima radyatörünün (kondenser) içi genellikle sinek, böcek ve toz doludur. Buranın basınçlı hava veya özel kimyasallarla temizlenmesi, klima performansını %50 artırır ve motorun hararet yapmasını engeller.",
+                "Sistem Yağı: Klima gazı basılırken, kompresörün yağlanmasını sağlayan özel yağın da sisteme basıldığından emin olun. Yağsız çalışan klima kompresörü kilitlenir ve 20-30 bin TL masraf açar."
+              ]
+            },
+            {
+              "subtitle": "Fren, Süspansiyon ve Far Optimizasyonu",
+              "text": "Yüklü aracın dinamikleri tamamen değişir.",
+              "points": [
+                "Yüklü Araç Far Ayarı: Bagajı tamamen doldurduğunuzda aracın burnu havaya kalkar. Kısa farlarınız karşıdan gelenin gözünü alır. Yola çıkmadan önce far yükseklik ayar düğmesini (genelde direksiyon solunda) '0' konumundan '2' veya '3' konumuna alın.",
+                "Fren Hidroliği Nem Testi: Fren hidrolik yağı havadaki nemi emer (higroskopik). Nem oranı %3'ü geçerse, fren hidroliği uzun yokuş inişlerinde kaynar, fren pedalı boşa düşer. Fren hidrolik test kalemiyle nem oranını mutlaka ölçtürün."
+              ]
+            }
+          ],
+          "warning": {
+            "title": "⚠️ Triger Kayışı ve Subap Tehlikesi",
+            "text": "Aracınızın triger kayışı/zinciri veya LPG'li araçlarda subap erimesi riski varsa uzun yol öncesi kontrol şarttır. Yolda kopan triger kayışı veya eriyen subaplar, motorun tamamen inmesine (rektefiye) ve devasa masraflara yol açar."
+          }
+        },
+        {
+          "type": "section",
+          "title": "2. Kurban Bayramı Özel: Et Taşıma ve Araç İçi Hijyen",
+          "content": "Kurban Bayramı dönüşlerinin en büyük kabusu, bagaja konan etin kanının araca sızmasıdır.",
+          "subsections": [
+            {
+              "subtitle": "Kurban Eti Nasıl Paketlenmeli ve Taşınmalı?",
+              "text": "Etin kanı döşemeye işlerse, o koku aracı satana kadar çıkmaz.",
+              "points": [
+                "Bagaj Havuzu Zorunluluğu: Bagajınızda mutlaka plastik/kauçuk 3D bagaj havuzu bulunmalıdır. Etleri halı zemine asla temas ettirmeyin.",
+                "Çift Katmanlı Koruma: Etleri sızdırmaz kalın buzdolabı poşetlerine koyduktan sonra, içi buz jelleriyle desteklenmiş strafor (köpük) veya sert plastik soğutucu kutulara yerleştirin. İnce çöp poşetleri kemik sivrilikleriyle anında delinir.",
+                "Sıcak Et Taşınmaz: Kesimden hemen sonra etlerin 'ölüm sertliği'ni (rigor mortis) atması ve soğuması için en az 12 saat dinlendirilmesi gerekir. Sıcak sıcak poşetlenen et, hem aracı kokutur hem de yeşererek bozulur."
+              ]
+            },
+            {
+              "subtitle": "Koku ve Leke Sızarsa Ne Yapılmalı?",
+              "text": "Kan sızması durumunda saniyeler önemlidir.",
+              "points": [
+                "Müdahale: Kan dökülen yere asla sıcak su dökmeyin (proteini pişirir ve kokuyu sabitler). Bol soğuk su ve karbonat-beyaz sirke karışımı ile silip ıslak vakum makinesiyle çektirin.",
+                "Ozon Temizliği: Eğer araçta koku kaldıysa, parfüm veya oda spreyi sıkmak kokuları birbirine karıştırır. Dönüşte detaylı temizlik merkezlerinde profesyonel 'Ozonla Dezenfeksiyon' yaptırarak bakterileri kökünden yok edin."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "3. Cüzdan Dostu: Ekonomik Sürüş ve Aerodinamik Hileleri (Masterclass)",
+          "content": "Yakıt fiyatlarının yüksekliği, ekonomik sürüşü bir zorunluluk kılıyor. İşte ileri seviye teknikler:",
+          "subsections": [
+            {
+              "subtitle": "Aerodinamik Sürtünme ve Roof Box (Port Bagaj) Maliyeti",
+              "text": "Aracın şekli, yakıt tüketimini motordan daha fazla etkiler.",
+              "points": [
+                "Cam Açmak vs Klima: 80 km/s hıza kadar cam açmak daha ekonomiktir. 80 km/s üzerinde camları açık tutmak, aracın içine dolan hava sebebiyle 'paraşüt etkisi' yaratır ve tüketimi %20 artırır. Otoyolda kesinlikle klima kullanın, camları kapatın.",
+                "Port Bagaj (Roof Box) Cezası: Tavan sepetleri ve port bagajlar aerodinamiğin baş düşmanıdır. Sırf port bagaj takılı diye aracınız 100 km'de ekstra 1.5 - 2 litre yakıt tüketir. İçi boşsa yola çıkmadan önce kesinlikle sökün."
+              ]
+            },
+            {
+              "subtitle": "Kinetik Süzülme ve Devir Yönetimi",
+              "text": "Fren lambası yanan araç, para kaybeden araçtır.",
+              "points": [
+                "Cut-Off Stratejisi: Yokuş inerken veya ışıklara yaklaşırken aracı asla boşa almayın. Viteste bırakıp gazdan ayağınızı çektiğinizde, motor tekerleklerin dönüşüyle (kinetik enerjiyle) döner, enjektörler yakıt püskürtmeyi durdurur. Tüketim '0.0 L/100km' olur.",
+                "Tork Bandında Kalmak: Her motorun en verimli çalıştığı bir maksimum tork devri vardır (Genelde dizellerde 1750-2500, benzinlilerde 2500-3500 devir arası). Otoyolda hızınızı bu devir bandında kalacak şekilde ayarlarsanız maksimum verimi alırsınız."
+              ]
+            }
+          ],
+          "tip": {
+            "title": "💡 Slipstreaming (Rüzgar Tüneli) Mantığı",
+            "text": "Yarış pilotlarının kullandığı bu teknik, öndeki büyük bir aracın (Örn: Şehirlerarası otobüs) açtığı rüzgar tünelinden faydalanmaktır. Otobüsün arkasında (ama kesinlikle güvenli takip mesafesini -en az 3 saniye- koruyarak) seyretmek, aracınızın rüzgar direncini kırarak %10'a kadar yakıt tasarrufu sağlar. Ancak çok yaklaşmak ölümcüldür."
+          }
+        },
+        {
+          "type": "section",
+          "title": "4. Trafiğe Takılmadan Yola Çıkma ve Geçiş Stratejileri",
+          "content": "Zamanınızı trafikte değil, sevdiklerinizle harcayın.",
+          "subsections": [
+            {
+              "subtitle": "Altın Saatler ve Kara Delikler",
+              "text": "Biyolojik saatinizle trafiğin ritmini senkronize edin.",
+              "points": [
+                "Arefe Günü Sabahı (04:00 - 06:00): İnsanların büyük kısmı akşam iş çıkışını beklediği için, sabah çok erken saatlerde yola çıkmak en pürüzsüz deneyimi sunar.",
+                "Kara Delik: Arefe günü 16:00 - 23:00 arası otoyollar otoparka döner. Kesinlikle bu saatlerde kontak açmayın.",
+                "Ters Yön Taktikleri: Herkes İstanbul/Ankara'dan Anadolu'ya göç ederken, büyükşehirlere doğru seyahat etmek yolları size özel kılar."
+              ]
+            },
+            {
+              "subtitle": "Gişe ve Köprü Savaşları",
+              "text": "Gişelerde takılmak hem stresi hem harareti artırır.",
+              "points": [
+                "HGS/OGS bakiyenizi yola çıkmadan en az 48 saat önce yükleyin. Son dakika yüklemeleri sisteme geç yansıyabilir.",
+                "Osmangazi Köprüsü veya Kuzey Marmara Otoyolu gibi ücretli yollar, eski devlet yollarına göre bayramlarda daha az dur-kalk trafiği yaşatır. Yakıt, zaman, fren balatası aşınması ve psikolojik yıpranma maliyetini hesaplayarak geçiş ücretini göze alabilirsiniz."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "5. Uzun Yol Sürüş Psikolojisi ve Aile İçi Dinamikler",
+          "content": "Sadece araç değil, insan da yorulur ve hata yapar.",
+          "subsections": [
+            {
+              "subtitle": "Biyolojik Uyku Saati (Sirkadiyen Ritim) ve Mikro-Uyku",
+              "text": "En tehlikeli kaza sebebi, 1 saniyelik göz kapanmasıdır.",
+              "points": [
+                "İnsanın biyolojik olarak en uykulu olduğu saatler gece 03:00-05:00 ve öğleden sonra 14:00-16:00 arasıdır. Bu saatlerde araç kullanıyorsanız ekstra dikkatli olmalı, gerekirse mola verip 20 dakika şekerleme yapmalısınız.",
+                "Araç içi sıcaklığını 21-22 derecede tutun. Kaloriferin ayağa üflediği sıcak hava kan dolaşımını yavaşlatır ve sürücüyü direkt uyutur.",
+                "Ağır, yağlı, karbonhidratlı yiyeceklerden uzak durun. Kuruyemiş, yeşil elma ve bol su uyanık tutar."
+              ]
+            },
+            {
+              "subtitle": "Çocuklar, Bebekler ve Evcil Hayvanlar",
+              "text": "Arka koltuktaki kaos, ön koltukta faciaya yol açar.",
+              "points": [
+                "Bebek ve çocuk koltuklarının ISOFIX bağlantılarını çift kontrol edin. Çocuklara araç içinde sıvı veya ufak parçalı yiyecek verirken boğulma riskine karşı sürekli aynadan kontrol edin.",
+                "Evcil hayvanlarınız mutlaka taşıma çantalarında veya özel emniyet kemerleriyle sabitlenmelidir. 100 km hızla yapılan bir ani frende serbest duran 5 kg'lık bir köpek, 150 kg'lık bir mermiye dönüşerek öndekilerin boynunu kırabilir."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "6. Bayramda Acil Durum Yönetimi ve Hukuki Haklarınız",
+          "content": "Kaza veya arıza anında panik yapmamak, cebinizi ve canınızı korur.",
+          "subsections": [
+            {
+              "subtitle": "100 km/s Hızla Lastik Patlarsa veya Hararet Yaparsa",
+              "text": "Fizik kurallarına karşı gelmeyin.",
+              "points": [
+                "Lastik Patlaması: Kesinlikle ani frene BASMAYIN! Direksiyonu iki elinizle sıkıca tutun, gazdan ayağınızı yavaşça çekip aracın kompresyonla (motor freni) yavaşlamasını bekleyin. Durmaya yakın emniyet şeridine geçin.",
+                "Hararet: Kırmızı hararet ışığı yanarsa motoru HEMEN STOP ETMEYİN. Sağa çekin, kaloriferi en sıcağa ve en yüksek fan ayarına getirip camları açın. Bu, motor ısısını kabine atarak soğumaya yardım eder. Radyatör kapağını ASLA sıcakken açmayın, fışkıran su 3. derece yanıklara sebep olur."
+              ]
+            },
+            {
+              "subtitle": "Kaza Anı ve Yol Yardım Sigorta Hakları",
+              "text": "Bayramda sanayiler ve noterler kapalıdır, hakkınızı bilin.",
+              "points": [
+                "Kaza Tespiti: Maddi hasarlı kazalarda anlaşılırsa polisi beklemeyin. Kaza Tespit Tutanağını imzalayın, araçların darbe alan yerlerini ve yoldaki konumlarını geniş açıyla (plakalar görünecek şekilde) mutlaka videoya çekin.",
+                "Çekici ve İkame Araç: Kaskonuz veya Kredi Kartı/GSM operatörü ayrıcalıklarınız genellikle 'Ücretsiz Çekici' hizmeti içerir. Kaskodaki 'İkame Araç' (yedek araç) maddesini yola çıkmadan teyit edin; aracınız perte çıksa bile bayram tatiline ikame araçla devam edebilirsiniz."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "conclusion",
+          "title": "Sonuç: Sevdiklerinize Kavuşmanın Bedeli",
+          "content": "Otoyolda saatlerce hız sınırlarını zorlayıp, makas atarak, başkalarının hayatını tehlikeye atarak kazanacağınız maksimum zaman sadece 20-30 dakikadır. Bu 30 dakika için aracınızda taşıdığınız eşinizin, çocuklarınızın veya kendi hayatınızı riske atmaya değer mi? Bayramlaşmak için çıktığınız bu yolu, hastane koridorlarında bitirmemek sizin elinizde. Lütfen hız sınırlarına uyun, her yolcunun emniyet kemerini bağladığından emin olun ve sabırlı olun.",
+          "finalChecklist": [
+            "Akü, V kayışı, klima kondenseri ve far ayarı (Pro Seviye) yapıldı",
+            "Lastik basınçları 'Tam Yüklü Araç' seviyesine getirildi (Stepne dahil)",
+            "Et taşımak için bagaj havuzu ve sızdırmaz kutular/buz jelleri ayarlandı",
+            "HGS bakiyesi yüklendi, güzergah ve alternatif rotalar çevrimdışı haritaya indirildi",
+            "İlk yardım çantası, üçgen reflektör (2 adet), yangın söndürücü tam",
+            "Kasko ve Trafik Sigortası çekici/ikame araç poliçe detayları telefona kaydedildi"
+          ]
+        }
+      ],
+      "urlId": 10006
+    },
+    {
       "id": "guide_deger_kaybi",
       "title": "Araç Değer Kaybı Nedir, Nasıl Hesaplanır ve Sigortadan Kesintisiz Nasıl Alınır? (2026 Kapsamlı Rehber)",
       "description": "Trafik kazası sonrası aracınızda oluşan değer kaybını sigorta şirketlerinden eksiksiz geri almanın hukuki ve pratik yolları. 2026 güncel hesaplama tablosu ve e-devlet başvuru adımları.",

@@ -8,8 +8,6 @@ import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/context/AuthContext";
 import AdPlaceholder from "@/components/AdPlaceholder";
-
-
 import { events } from "@/data/events";
 import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, getThreadById, type ForumThread as FirestoreThread } from "@/lib/forumService";
@@ -18,6 +16,7 @@ import { db } from "@/lib/firebase";
 import carModelsData from "@/data/carmodels.json";
 import { mythsData, Myth } from "@/data/efsane-avcilari-data";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
+import MarkdownEditor from "@/components/MarkdownEditor";
 
 // Yazar seviye renkleri
 const levelColors: Record<string, { bg: string; text: string }> = {
@@ -27,9 +26,6 @@ const levelColors: Record<string, { bg: string; text: string }> = {
     "Usta": { bg: "rgba(245, 158, 11, 0.2)", text: "#f59e0b" },
     "Efsane": { bg: "rgba(34, 197, 94, 0.2)", text: "#22c55e" },
 };
-
-
-
 // Kategoriler (statik)
 const FORUM_CATS = ["Genel", "Teknik", "Deneyim", "Marka", "Alım-Satım"];
 const categories = [
@@ -1256,26 +1252,15 @@ export default function Home() {
                                 <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>
                                     İçerik
                                 </label>
-                                <textarea
+                                <MarkdownEditor
                                     value={newTopicData.content}
-                                    onChange={(e) => setNewTopicData({ ...newTopicData, content: e.target.value })}
+                                    onChange={(val) => setNewTopicData({ ...newTopicData, content: val })}
                                     placeholder={
                                         newTopicData.type === 'survey' ? "Anket açıklaması..." :
                                             newTopicData.type === 'expert' ? "Sorununuzu detaylı açıklayın..." :
                                                 "İlk entry'nizi yazın..."
                                     }
-                                    rows={newTopicData.type === 'survey' ? 2 : 4}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        background: 'var(--secondary)',
-                                        border: '1px solid var(--card-border)',
-                                        borderRadius: '10px',
-                                        color: 'var(--foreground)',
-                                        fontSize: '14px',
-                                        outline: 'none',
-                                        resize: 'none',
-                                    }}
+                                    minRows={newTopicData.type === 'survey' ? 2 : 4}
                                 />
                             </div>
 

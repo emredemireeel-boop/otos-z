@@ -49,6 +49,11 @@ export function validateUsername(username: string): { valid: boolean; error?: st
 export function validateThreadTitle(title: string): { valid: boolean; error?: string; sanitized: string } {
     const sanitized = sanitizeText(title);
 
+    const hasEmoji = /\p{Extended_Pictographic}/gu.test(title);
+    if (hasEmoji) {
+        return { valid: false, error: 'Başlıklarda emoji kullanımı yasaktır.', sanitized };
+    }
+
     if (!sanitized || sanitized.length < 5) {
         return { valid: false, error: 'Başlık en az 5 karakter olmalıdır.', sanitized };
     }
@@ -61,6 +66,25 @@ export function validateThreadTitle(title: string): { valid: boolean; error?: st
 // ── Forum entry icerigi dogrulama ──
 export function validateEntryContent(content: string): { valid: boolean; error?: string; sanitized: string } {
     const sanitized = sanitizeText(content);
+
+    const hasEmoji = /\p{Extended_Pictographic}/gu.test(content);
+    if (hasEmoji) {
+        return { valid: false, error: 'Entry içeriklerinde emoji kullanımı yasaktır.', sanitized };
+    }
+
+    // Ham link kontrolü (Reddit kuralları)
+    // Önce geçerli Markdown linkleri temizleyelim: [Köprü](https://...)
+    const textWithoutMarkdownLinks = content.replace(/\[[^\]]+\]\((https?:\/\/[^\s\)]+)\)/g, '');
+    
+    // Geriye kalan metinde hala http:// veya https:// varsa bu ham bir linktir!
+    const rawLinkRegex = /(https?:\/\/[^\s]+)/gi;
+    if (rawLinkRegex.test(textWithoutMarkdownLinks)) {
+        return { 
+            valid: false, 
+            error: 'Lütfen linkleri ham olarak (https://...) paylaşmayın. Editördeki 🔗 (Link) butonunu kullanarak köprü ekleyin.', 
+            sanitized 
+        };
+    }
 
     if (!sanitized || sanitized.length < 3) {
         return { valid: false, error: 'İçerik en az 3 karakter olmalıdır.', sanitized };
