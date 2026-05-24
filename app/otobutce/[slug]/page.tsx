@@ -69,11 +69,11 @@ export default async function OtoButceCategoryPage({ params }: Props) {
             </h1>
             
             {category.introText ? (
-              <p style={{ color: "var(--text-muted)", margin: "0 0 16px 0", fontSize: "15px", lineHeight: "1.6", maxWidth: "800px" }}>
+              <p style={{ color: "var(--text-muted)", margin: "0 0 16px 0", fontSize: "15px", lineHeight: "1.6", width: "100%", textAlign: "justify" }}>
                 {category.introText}
               </p>
             ) : (
-              <p style={{ color: "var(--text-muted)", margin: "0 0 16px 0", fontSize: "15px", maxWidth: "800px" }}>
+              <p style={{ color: "var(--text-muted)", margin: "0 0 16px 0", fontSize: "15px", width: "100%", textAlign: "justify" }}>
                 Uzmanlarımızın bu bütçe için belirlediği en mantıklı {category.cars.length} araç listeleniyor.
               </p>
             )}
@@ -88,10 +88,10 @@ export default async function OtoButceCategoryPage({ params }: Props) {
                 gap: "12px",
                 alignItems: "flex-start",
                 marginTop: "16px",
-                maxWidth: "800px"
+                width: "100%"
               }}>
                 <ShieldCheck size={24} color="#10B981" style={{ flexShrink: 0 }} />
-                <p style={{ color: "var(--foreground)", margin: 0, fontSize: "14px", lineHeight: "1.5", fontWeight: "500" }}>
+                <p style={{ color: "var(--foreground)", margin: 0, fontSize: "14px", lineHeight: "1.5", fontWeight: "500", textAlign: "justify" }}>
                   {category.tavsiyeText}
                 </p>
               </div>
