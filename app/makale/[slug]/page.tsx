@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         const filePath = path.join(process.cwd(), 'public', 'data', 'library_guides.json');
         const fileContents = fs.readFileSync(filePath, 'utf8');
         const data = JSON.parse(fileContents);
-        const article = data.guides.find((g: any) => g.urlId.toString() === id);
+        const article = data.guides.find((g: any) => g.urlId && g.urlId.toString() === id);
 
         if (!article) return { title: 'Makale Bulunamadı | OtoSöz' };
 
@@ -68,7 +68,7 @@ export default async function MakalePage({ params }: PageProps) {
         const filePath = path.join(process.cwd(), 'public', 'data', 'library_guides.json');
         const fileContents = fs.readFileSync(filePath, 'utf8');
         const data = JSON.parse(fileContents);
-        article = data.guides.find((g: any) => g.urlId.toString() === id);
+        article = data.guides.find((g: any) => g.urlId && g.urlId.toString() === id);
     } catch (error) {
         console.error("Error reading guides data", error);
     }

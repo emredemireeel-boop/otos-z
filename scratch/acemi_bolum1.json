@@ -1,0 +1,115 @@
+{
+  "id": "guide_acemi_surucu_gercekler",
+  "title": "Ehliyet Kursunda Öğretilmeyen 8 Hayat Kurtaran Kural: Acemi Sürücü Rehberi (Bölüm 1)",
+  "description": "Ayna kontrolü ve paralel parkı herkes öğretir. Peki ya arkanızdan deli gibi selektör yapan magandalarla başa çıkmayı, kör noktada gizlenen tehlikeleri ve panik frenindeki kilitlenmeyi kim öğretecek? İşte trafiğin acımasız ama yazılı olmayan kuralları.",
+  "minutes": 12,
+  "difficulty": "Başlangıç",
+  "tags": [
+    "Sürüş",
+    "Acemi",
+    "Trafik",
+    "Güvenlik",
+    "Rehber",
+    "Tavsiye"
+  ],
+  "author": "OtoSöz Sürüş Eğitmeni",
+  "sections": [
+    {
+      "type": "intro",
+      "title": "Ehliyeti Aldınız, Şimdi Gerçek Sınav Başlıyor",
+      "content": "Direksiyon sınavını ilk girişte geçmiş olabilirsiniz. Dubaların arasına kusursuzca park etmiş olabilirsiniz. Ancak yanınızda o güven verici eğitmeniniz olmadan tek başınıza trafiğe çıktığınız o ilk gün, yolda hiçbir şeyin kitapta yazdığı gibi olmadığını fark edeceksiniz. Türkiye trafiği, yazılı kurallardan çok 'yazılı olmayan kuralların' işlediği bir kurtlar sofrasıdır. Bu rehber, size araba kullanmayı değil, trafikte 'hayatta kalmayı ve ezilmemeyi' öğretecek."
+    },
+    {
+      "type": "section",
+      "title": "1. Selektör Terörü ve Panik Yönetimi",
+      "content": "Sol şerittesiniz (veya orta şeritte), hız sınırında gidiyorsunuz ve arkanızda beliren bir araç deli gibi selektör yapıyor, tamponunuza kadar giriyor.",
+      "subsections": [
+        {
+          "subtitle": "Asla Aniden Şerit Değiştirmeyin",
+          "text": "Acemi sürücülerin en çok yaptığı hata, arkadaki tacizci araçtan kurtulmak için paniğe kapılıp aynaya bile bakmadan sağa kırmaktır. Sağınızda kör noktanızda olan bir araca çarparsanız, arkadaki suçlu olmaz, siz olursunuz.",
+          "points": [
+            "Derin bir nefes alın. Arkanızdaki kişi acele ediyorsa, bu onun problemidir, sizin değil.",
+            "Hızınızı değiştirmeyin. Fren YAPMAYIN. Sağ şeridiniz tamamen boşalana kadar kendi şeridinizde sabit kalın.",
+            "Müsait olduğunuzda sinyalinizi verip yavaşça sağa geçin. Bırakın geçip gitsin, ego savaşına girmeyin."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "2. Haklı Olmak Kazayı Engellemez (Mezarlıklar Haklı Sürücülerle Dolu)",
+      "content": "Kavşaktasınız ve geçiş üstünlüğü kesinlikle sizde. Hızla geliyorsunuz çünkü 'haklısınız'. Yan yoldan bir araç fırladı...",
+      "subsections": [
+        {
+          "subtitle": "Defansif Sürüşün Altın Kuralı",
+          "text": "Trafikte 'O durmak zorunda, kural böyle' diye düşünmek en büyük ölümcül hatadır. Haklı olmak arabanızın ezilmesini veya sizin yaralanmanızı engellemez.",
+          "points": [
+            "Geçiş üstünlüğü sizde olsa bile, kavşağa yaklaşırken ayağınızı gazdan çekin ve frenin üzerine koyun (hazır bekleyin).",
+            "Karşıdaki aracın duracağından emin olmadan asla burnunuzu kavşağa sokmayın.",
+            "Trafikte herkesin o an mesajlaştığını, sarhoş olduğunu veya kural bilmediğini varsayarak sürün."
+          ]
+        }
+      ],
+      "warning": {
+        "title": "⚠️ Unutmayın",
+        "text": "Mahkemede %100 haklı çıkmak, aylarca sanayide parça bekleyeceğiniz veya hastanede yatacağınız gerçeğini değiştirmez."
+      }
+    },
+    {
+      "type": "section",
+      "title": "3. Bakmak ile Görmek Arasındaki İnce Çizgi: Kör Nokta",
+      "content": "Aynalarınız harika ayarlanmış olabilir. Aynaya baktınız, kimse yok, sola kırdınız ve bir anda acı bir korna sesi!",
+      "subsections": [
+        {
+          "subtitle": "Omuz Üstü Bakış (Shoulder Check)",
+          "text": "Otomobillerin B ve C sütunları, yan aynaların açısının dışında kalan devasa 'kör noktalar' yaratır. Bir motosiklet veya araba orada saklanıyor olabilir.",
+          "points": [
+            "Şerit değiştirmeden önce aynaya bakın, sonra mutlaka çenenizi omuzunuza doğru çevirip göz ucuyla camdan dışarı (kör noktaya) saniyelik bir bakış atın.",
+            "Bunu bir refleks haline getirin. Özellikle sağa dönüşlerde sağ kör noktada bisikletliler ve kuryeler çok sık bulunur."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "4. Fren Yapmayı Aslında Bilmiyorsunuz",
+      "content": "Birçok sürücü hayatı boyunca ABS'yi (Kilitlenmeyi Önleyici Fren Sistemi) devreye sokacak kadar sert fren yapmamıştır.",
+      "subsections": [
+        {
+          "subtitle": "Panik Freninde Titreyen Pedal",
+          "text": "Önünüze bir yaya atladığında fren pedalına tüm gücünüzle basarsınız. O an fren pedalı ayağınızın altında violently (şiddetle) titremeye ve kütür kütür sesler çıkarmaya başlar.",
+          "points": [
+            "Bu ses ve titreme ABS'nin çalıştığını gösterir, araba kırılmıyor! Sakın korkup ayağınızı frenden çekmeyin.",
+            "ABS devreye girdiğinde direksiyon hakimiyetiniz devam eder. Yani hem sonuna kadar frene basıp hem de engelin etrafından direksiyonla kaçabilirsiniz. (Bunu boş bir alanda 40km hızla giderken mutlaka pratik edin)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "5. Yeşil Işık Tuzakları",
+      "content": "Işık kırmızıdan yeşile döndü. Kornalar hemen arkanızdan ötmeye başladı. Gaza basıp fırladınız.",
+      "subsections": [
+        {
+          "subtitle": "Sarayı Bekleyen Taksici Sendromu",
+          "text": "Yeşil ışık yandığı an hareket etmek yerine, 1-2 saniye beklemek hayat kurtarır.",
+          "points": [
+            "Diğer yönden sarı ışıkta 'yetişirim' diye hızlanarak gelen ve kırmızıda geçen ağır tonajlı bir kamyon veya sabırsız bir sürücü olabilir.",
+            "Yeşil yandığında sola ve sağa hızlıca bakın, kavşağın gerçekten boş olduğundan emin olun ve öyle kalkın. Arkanızdaki kişi 2 saniye beklediği için ölmez."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conclusion",
+      "title": "Trafik Bir Savaş Değil, Bir Akıştır",
+      "content": "Yollarda herkesin bir acelesi, bir derdi veya bastırılmış bir öfkesi var. Acemi olarak göreviniz onlara ayak uydurmak veya onlarla yarışmak değil, kendi güvenli balonunuzun içinde A noktasından B noktasına tek parça halinde varmaktır. Zamanla tecrübe kazandıkça, bu kurallar sizin için nefes almak kadar doğal hale gelecek. O zamana kadar sağduyunuzu koruyun ve emniyet kemerinizi asla çıkarmayın.",
+      "finalChecklist": [
+        "Aynalar + Omuz Üstü Bakış rutini oturtuldu mu?",
+        "Arkadaki magandalara karşı sakinlik korunuyor mu?",
+        "Kavşaklarda geçiş üstünlüğüne güvenmek yerine defansif duruş sergileniyor mu?"
+      ]
+    }
+  ],
+  "urlId": 10036
+}

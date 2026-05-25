@@ -186,7 +186,7 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                                     {sub.points.map((pt: string, pIdx: number) => (
                                                         <li key={pIdx}>
                                                             <div className="list-bullet"></div>
-                                                            <span>{pt}</span>
+                                                            <span><AutoLinkText text={pt} /></span>
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -211,7 +211,7 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                             {section.table.rows.map((row: string[], i: number) => (
                                                 <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}>
                                                     {row.map((td: string, j: number) => (
-                                                        <td key={j} style={{ padding: '16px', color: 'var(--text-muted)' }}>{td}</td>
+                                                        <td key={j} style={{ padding: '16px', color: 'var(--text-muted)' }} dangerouslySetInnerHTML={{ __html: td }}></td>
                                                     ))}
                                                 </tr>
                                             ))}
@@ -252,7 +252,7 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                         {section.finalChecklist.map((pt: string, pIdx: number) => (
                                             <li key={pIdx}>
                                                 <div className="list-bullet"></div>
-                                                <span>{pt}</span>
+                                                <span><AutoLinkText text={pt} /></span>
                                             </li>
                                         ))}
                                     </ul>
@@ -271,7 +271,7 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                 {article.finalChecklist.map((item: string, idx: number) => (
                                     <li key={idx}>
                                         <div className="list-bullet" style={{ background: 'var(--foreground)' }}></div>
-                                        <span>{item}</span>
+                                        <span><AutoLinkText text={item} /></span>
                                     </li>
                                 ))}
                             </ul>

@@ -1,0 +1,94 @@
+{
+  "id": "guide_hararet",
+  "title": "Araç Hararet Yaparsa Ne Yapılmalı? Motor Isınması ve Conta Yakma Belirtileri",
+  "description": "Motor neden hararet yapar? Su kaynatan arabaya nasıl müdahale edilir? Conta yakma belirtileri ve çözüm rehberi.",
+  "minutes": 10,
+  "difficulty": "Zor",
+  "tags": [
+    "Motor",
+    "Hararet",
+    "Soğutma",
+    "Arıza",
+    "Kritik"
+  ],
+  "author": "OtoSöz Teknik Ekip",
+  "sections": [
+    {
+      "type": "intro",
+      "title": "Motorun Aşırı Isınması (Hararet)",
+      "content": "Motorun çalışma sıcaklığını ideal seviyede (genellikle 90°C civarı) tutan sistem soğutma sistemidir. Bu sistemdeki herhangi bir aksaklık hararete yol açar. Yüksek ısı metali genleştirir, contaları eritir ve geri dönüşü zor hasarlara sebep olur."
+    },
+    {
+      "type": "section",
+      "title": "1. Kritik Uyarı: Kapağı Kesinlikle Açmayın!",
+      "content": "Radyatör veya genleşme kabı kapağını motor sıcakken ASLA açmayın.",
+      "subsections": [
+        {
+          "subtitle": "Buhar Yanığı Riski",
+          "text": "Aracınız hararet yaptığında içerideki su kaynama noktasındadır ve yüksek basınç altındadır. Kapağı açtığınız anda su ve buhar fışkırarak yüzünüzde ve kollarınızda 3. derece yanıklara sebep olabilir. En az 30-40 dakika soğumasını bekleyin."
+        }
+      ],
+      "warning": {
+        "title": "🚨 Hararet Anında Motoru Hemen Stop Edeyim mi?",
+        "text": "Eğer motorda hiç su kalmamışsa veya buhar tütüyorsa motoru ANINDA stop edin. Ancak sistemde su varsa ve araç yüksek zorlanmadan dolayı ısındıysa, sağa çekip motoru RÖLANTİDE bırakın. Kaloriferi EN SICAK konuma ve en yüksek fana alın. Bu taktik motorun ısısını kabine çekerek anında düşmesine yardımcı olur."
+      }
+    },
+    {
+      "type": "section",
+      "title": "2. Hararetin Ana Nedenleri",
+      "content": "Motorun ısınmasına sebep olan baş şüpheliler şunlardır:",
+      "subsections": [
+        {
+          "subtitle": "Antifriz (Soğutma Sıvısı) Eksikliği",
+          "text": "Hortumlarda, radyatörde veya devirdaimde oluşan bir kaçak nedeniyle sistemde su kalmaması en yaygın nedendir."
+        },
+        {
+          "subtitle": "Termostat Arızası",
+          "text": "Termostat kapalı kalırsa, sıcak su radyatöre gidip soğuyamaz. Su, motorun içinde hapsolur ve saniyeler içinde hararet fırlar."
+        },
+        {
+          "subtitle": "Radyatör Fanı Arızası",
+          "text": "Sıkışık trafikte aracın önden rüzgar alamadığı durumlarda fan devreye girmezse (müşür arızası vb.) hararet yükselir."
+        },
+        {
+          "subtitle": "Devirdaim (Su Pompası) Arızası",
+          "text": "Suyu sirküle eden pompanın kanatçıkları çürümüşse su dönemez ve araç hararet yapar."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "3. Conta Yakmak Nedir? (Hararetin En Kötü Sonucu)",
+      "content": "Araç hararet yaptığında sürücü yola devam ederse, motor bloğu ile silindir kapağı arasındaki conta erir.",
+      "subsections": [
+        {
+          "subtitle": "Yağa Su Karışması",
+          "text": "Yağ çubuğunu çektiğinizde, motor yağı tahin veya sütlü kahve kıvamına gelmişse conta yanmış ve kanallardaki su yağa karışmıştır."
+        },
+        {
+          "subtitle": "Suya Yağ Karışması",
+          "text": "Genleşme (su) kabının kapağını açtığınızda çamur veya tahin kıvamında bir sıvı varsa yine aynı durum geçerlidir."
+        },
+        {
+          "subtitle": "Beyaz Duman Atması",
+          "text": "Su yanma odasına dolduğu için egzozdan sürekli ve yoğun beyaz buhar/duman atılır."
+        }
+      ],
+      "tip": {
+        "title": "💡 Sadece Yazın Değil, Kışın da Antifriz Gerekli",
+        "text": "Antifriz sadece donmayı engellemez, aynı zamanda kaynama noktasını yükseltir ve motorun içini paslanmaya karşı korur. Saf su ile kullanılan motorların içi pas çamuruyla dolarak hararete mahkumdur."
+      }
+    },
+    {
+      "type": "conclusion",
+      "title": "Sonuç",
+      "content": "Hararet yapan araçla inatlaşılmaz. İbre kırmızıyı gördüğünde yola devam etmek, 1.000 TL lik bir hortum masrafını 50.000 TL lik bir motor yenileme masrafına dönüştürür.",
+      "finalChecklist": [
+        "Hararet ibresini sürüş sırasında ara sıra gözlemleyin",
+        "Haftalık soğutma suyu (antifriz) seviyesini kontrol edin",
+        "Motor sıcakken radyatör kapağını asla açmayın"
+      ]
+    }
+  ],
+  "urlId": 10033
+}
