@@ -47,6 +47,7 @@ export default function EngineDetailedPage() {
 
     // Interactive State
     const [issues, setIssues] = useState<any[]>([]);
+    const [votedIssues, setVotedIssues] = useState<Set<number>>(new Set());
     const [experiences, setExperiences] = useState<any[]>([]);
     const [newReviewText, setNewReviewText] = useState("");
     const [newReviewRating, setNewReviewRating] = useState(5);
@@ -136,6 +137,9 @@ export default function EngineDetailedPage() {
             setShowLoginPrompt(true);
             return;
         }
+        if (votedIssues.has(id)) return;
+
+        setVotedIssues(prev => new Set(prev).add(id));
         setIssues(prev => {
             const next = prev.map(issue => 
                 issue.id === id ? { ...issue, reportCount: issue.reportCount + 1 } : issue
@@ -400,14 +404,16 @@ export default function EngineDetailedPage() {
                                             style={{
                                                 display: 'flex', alignItems: 'center', gap: '6px',
                                                 padding: '6px 12px', borderRadius: '8px',
-                                                background: 'var(--card-bg)', border: '1px solid var(--card-border)',
-                                                color: 'var(--foreground)', fontSize: '13px', fontWeight: '600',
-                                                cursor: 'pointer', transition: 'all 0.2s'
+                                                background: votedIssues.has(issue.id) ? 'rgba(239, 68, 68, 0.1)' : 'var(--card-bg)', 
+                                                border: `1px solid ${votedIssues.has(issue.id) ? 'var(--danger)' : 'var(--card-border)'}`,
+                                                color: votedIssues.has(issue.id) ? 'var(--danger)' : 'var(--foreground)', 
+                                                fontSize: '13px', fontWeight: '600',
+                                                cursor: votedIssues.has(issue.id) ? 'default' : 'pointer', transition: 'all 0.2s'
                                             }}
-                                            onMouseOver={(e) => e.currentTarget.style.borderColor = 'var(--primary)'}
-                                            onMouseOut={(e) => e.currentTarget.style.borderColor = 'var(--card-border)'}
+                                            onMouseOver={(e) => { if(!votedIssues.has(issue.id)) e.currentTarget.style.borderColor = 'var(--primary)' }}
+                                            onMouseOut={(e) => { if(!votedIssues.has(issue.id)) e.currentTarget.style.borderColor = 'var(--card-border)' }}
                                         >
-                                            <TrendingUp size={14} /> Ben de yaşadım (+1)
+                                            <TrendingUp size={14} /> Ben de yaşadım
                                         </button>
                                     </div>
                                 </div>

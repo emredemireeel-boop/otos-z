@@ -2,6 +2,13 @@
   "interestingFacts": {
     "dailyTips": [
       {
+        "id": "ilginc-00066",
+        "title": "Klimadan Gelen Kötü Kokuyu Önleme",
+        "tip": "Klimayı kullanırken, varacağınız yere gelmeden 3-4 dakika önce A/C (klima) düğmesini kapatıp sadece fanı çalıştırın. Bu sayede klima sisteminde kalan soğuk nem kuruyacak ve bakteri oluşumuna (dolayısıyla küf kokusuna) engel olacaktır.",
+        "category": "maintenance",
+        "icon": "ac_unit"
+      },
+      {
         "id": "ilginc-00001",
         "title": "Kış Cam Buğusu",
         "tip": "Kışın cam buğusunu hızlı çözmek için iç sirkülasyonu kapat, A/C'yi aç ve hava akışını camlara yönlendir. Klima nem alır, cam hızla açılır.",
@@ -157,6 +164,25 @@
       }
     ],
     "checklists": [
+      {
+        "id": "ilginc-00067",
+        "title": "İkinci El Araç Ekspertiz Öncesi Sırları",
+        "category": "buying",
+        "gradient": [
+          "#F59E0B",
+          "#EF4444"
+        ],
+        "items": [
+          "Motor tamamen soğukken ilk marş sesini dinleyin (zincir veya itici sesi arayın).",
+          "Gaza aniden yüklenin ve egzozdan mavi veya siyah duman atıp atmadığına bakın.",
+          "Kaput altındaki plastik trimlerde ve vida başlarında anahtar izi arayın (sök-tak belirtisi).",
+          "Tüm kapı lastiklerini (fitilleri) hafifçe kaldırıp altındaki sac kıvrımlarına bakın (punto izleri orijinal mi?).",
+          "Direksiyon tam sağ veya sol yapıldığında aks kafalarından tıkırtı geliyor mu dinleyin.",
+          "Rölantide beklerken direksiyonu avuç içiyle hafif tutun, titreme varsa motor takozu bitik olabilir.",
+          "Bütün emniyet kemerlerini sonuna kadar çekip dip kısımlarındaki su izine veya çamura bakın (sel hasarı testi).",
+          "Farlardaki marka logolarının ve üretim tarihlerinin her iki tarafta aynı olup olmadığını kontrol edin."
+        ]
+      },
       {
         "id": "ilginc-00023",
         "title": "Kış Sürüş Seti",

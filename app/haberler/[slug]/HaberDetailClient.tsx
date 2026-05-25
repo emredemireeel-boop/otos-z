@@ -210,6 +210,7 @@ export default function HaberDetailClient({ slug }: { slug: string }) {
                 .blog-content h3 { font-size: 22px; }
                 .blog-content p {
                     margin-bottom: 24px;
+                    text-align: justify;
                 }
                 .blog-content ul, .blog-content ol {
                     margin-bottom: 24px;

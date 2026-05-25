@@ -145,7 +145,7 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                 </div>
                             </div>
                         )}
-                        <AdPlaceholder format="vertical" />
+                        <AdPlaceholder position="sidebar" />
                     </aside>
 
                     {/* Main Content (Centered, High Readability) */}
@@ -308,10 +308,10 @@ export default function MakaleDetailClient({ article }: { article: any }) {
 
                     {/* Right Sidebar */}
                     <aside className="right-sidebar" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                        <PopularThreadsWidget limit={5} />
-                        <LatestThreadsWidget limit={5} />
+                        <PopularThreadsWidget />
+                        <LatestThreadsWidget />
                         <div style={{ position: 'sticky', top: '100px' }}>
-                            <AdPlaceholder format="square" />
+                            <AdPlaceholder position="sidebar" />
                         </div>
                     </aside>
                 </div>
@@ -329,6 +329,7 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                     line-height: 1.8;
                     color: var(--text-article);
                     font-weight: 400;
+                    text-align: justify;
                 }
                 .article-list {
                     display: flex;

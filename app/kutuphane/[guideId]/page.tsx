@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Clock, TrendingUp, AlertTriangle, Lightbulb, CheckCircle2, BookOpen } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Types  
 interface TipWarning {
@@ -140,6 +141,13 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
         );
     }
 
+    const renderMarkdown = (text: string) => {
+        if (!text) return { __html: '' };
+        let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" style="color: var(--primary); text-decoration: underline; font-weight: 600;">$1</a>');
+        return { __html: html };
+    };
+
     const getDifficultyColor = (difficulty: string) => {
         switch (difficulty.toLowerCase()) {
             case 'kolay': return '#34D399';
@@ -174,7 +182,11 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
             )}
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
                 {/* Hero Section */}
-                <div style={{
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    style={{
                     background: 'linear-gradient(135deg, #1e293b, #0f172a)',
                     borderRadius: '0 0 32px 32px',
                     padding: '60px 24px 40px',
@@ -271,7 +283,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                             ))}
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Content */}
                 <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px 40px' }}>
@@ -279,7 +291,14 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                         {/* Main Content */}
                         <div>
                             {guide.sections.map((section, idx) => (
-                                <div key={idx} style={{ marginBottom: '32px' }}>
+                                <motion.div 
+                                    key={idx} 
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+                                    transition={{ duration: 0.6, delay: 0.1 }}
+                                    style={{ marginBottom: '32px' }}
+                                >
                                     {section.type !== 'intro' && section.title && (
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                                             <div style={{
@@ -305,14 +324,17 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                         padding: '24px'
                                     }}>
                                         {section.content && (
-                                            <p style={{
-                                                fontSize: '15px',
-                                                color: 'var(--text-muted)',
-                                                lineHeight: '1.8',
-                                                marginBottom: section.subsections ? '20px' : 0
-                                            }}>
-                                                {section.content}
-                                            </p>
+                                            <div style={{ marginBottom: section.subsections ? '20px' : 0 }}>
+                                                {section.content.split('\n\n').map((paragraph, pIdx) => (
+                                                    <p key={pIdx} style={{
+                                                        fontSize: '15px',
+                                                        color: 'var(--text-muted)',
+                                                        lineHeight: '1.8',
+                                                        textAlign: 'justify',
+                                                        marginBottom: '16px'
+                                                    }} dangerouslySetInnerHTML={renderMarkdown(paragraph)} />
+                                                ))}
+                                            </div>
                                         )}
 
                                         {section.subsections?.map((sub, subIdx) => (
@@ -329,14 +351,17 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                                 }}>
                                                     {sub.subtitle}
                                                 </h4>
-                                                <p style={{
-                                                    fontSize: '14px',
-                                                    color: 'var(--text-muted)',
-                                                    lineHeight: '1.7',
-                                                    marginBottom: sub.points ? '12px' : 0
-                                                }}>
-                                                    {sub.text}
-                                                </p>
+                                                <div style={{ marginBottom: sub.points ? '12px' : 0 }}>
+                                                    {sub.text?.split('\n\n').map((paragraph: string, pIdx: number) => (
+                                                        <p key={pIdx} style={{
+                                                            fontSize: '14px',
+                                                            color: 'var(--text-muted)',
+                                                            lineHeight: '1.7',
+                                                            textAlign: 'justify',
+                                                            marginBottom: pIdx === (sub.text.split('\n\n').length - 1) ? 0 : '16px'
+                                                        }} dangerouslySetInnerHTML={renderMarkdown(paragraph)} />
+                                                    ))}
+                                                </div>
                                                 {sub.points && (
                                                     <ul style={{ margin: 0, paddingLeft: '20px', listStyle: 'none' }}>
                                                         {sub.points.map((point, pointIdx) => (
@@ -346,7 +371,8 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                                                 lineHeight: '1.7',
                                                                 marginBottom: '8px',
                                                                 paddingLeft: '24px',
-                                                                position: 'relative'
+                                                                position: 'relative',
+                                                                textAlign: 'justify'
                                                             }}>
                                                                 <span style={{
                                                                     position: 'absolute',
@@ -356,7 +382,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                                                 }}>
                                                                     →
                                                                 </span>
-                                                                {point}
+                                                                <span dangerouslySetInnerHTML={renderMarkdown(point)} />
                                                             </li>
                                                         ))}
                                                     </ul>
@@ -405,9 +431,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                                 <h5 style={{ fontSize: '14px', fontWeight: '700', color: '#EF4444', marginBottom: '6px' }}>
                                                     {section.warning.title}
                                                 </h5>
-                                                <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-                                                    {section.warning.text}
-                                                </p>
+                                                <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }} dangerouslySetInnerHTML={renderMarkdown(section.warning.text)} />
                                             </div>
                                         </div>
                                     )}
@@ -428,18 +452,21 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                                 <h5 style={{ fontSize: '14px', fontWeight: '700', color: '#10B981', marginBottom: '6px' }}>
                                                     {section.tip.title}
                                                 </h5>
-                                                <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-                                                    {section.tip.text}
-                                                </p>
+                                                <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }} dangerouslySetInnerHTML={renderMarkdown(section.tip.text)} />
                                             </div>
                                         </div>
                                     )}
-                                </div>
+                                </motion.div>
                             ))}
 
                             {/* Final Checklist */}
                             {guide.finalChecklist && (
-                                <div style={{
+                                <motion.div 
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                    style={{
                                     background: 'var(--card-bg)',
                                     border: '1px solid var(--card-border)',
                                     borderRadius: '16px',
@@ -473,13 +500,18 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                             </div>
                                         ))}
                                     </div>
-                                </div>
+                                </motion.div>
                             )}
                         </div>
 
                         {/* Sidebar */}
                         <aside>
-                            <div style={{ position: 'sticky', top: '80px' }}>
+                            <motion.div 
+                                initial={{ opacity: 0, x: 30 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.7, delay: 0.4 }}
+                                style={{ position: 'sticky', top: '80px' }}
+                            >
                                 <div style={{
                                     background: 'var(--card-bg)',
                                     border: '1px solid var(--card-border)',
@@ -535,7 +567,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                         {guide.author}
                                     </p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </aside>
                     </div>
                 </div>
