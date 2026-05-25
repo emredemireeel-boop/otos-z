@@ -277,18 +277,19 @@ export default function ProfilPage() {
     }
 
     const getRoleInfo = (role: string | undefined) => {
-        if (!role) return { label: 'Çaylak', color: { bg: 'rgba(100,100,100,0.2)', text: '#888' } };
+        const defaultColor = { bg: 'var(--secondary)', text: 'var(--foreground)' };
+        if (!role) return { label: 'Çaylak', color: defaultColor };
         
         switch (role.toLowerCase()) {
             case 'admin':
-                return { label: 'Admin', color: { bg: 'rgba(239,68,68,0.2)', text: '#ef4444' } };
+                return { label: 'Admin', color: defaultColor };
             case 'moderator':
-                return { label: 'Moderatör', color: { bg: 'rgba(168,85,247,0.2)', text: '#a855f7' } };
+                return { label: 'Moderatör', color: defaultColor };
             case 'usta':
-                return { label: 'Usta', color: { bg: 'rgba(245,158,11,0.2)', text: '#f59e0b' } };
+                return { label: 'Usta', color: defaultColor };
             case 'caylak':
             default:
-                return { label: 'Çaylak', color: { bg: 'rgba(100,100,100,0.2)', text: '#888' } };
+                return { label: 'Çaylak', color: defaultColor };
         }
     };
 
@@ -300,7 +301,7 @@ export default function ProfilPage() {
         <div>
             <Navbar />
 
-            <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+            <main className="profile-container min-h-screen">
                 {photoToast && (
                     <div style={{ position:'fixed', top:'80px', left:'50%', transform:'translateX(-50%)', zIndex:9999, background:'var(--card-bg)', border:'1px solid var(--card-border)', borderRadius:'12px', padding:'14px 24px', boxShadow:'0 8px 30px rgba(0,0,0,0.3)', display:'flex', alignItems:'center', gap:'10px', animation:'slideDown 0.3s ease' }}>
                         <CheckCircle size={18} style={{color:'#10B981'}} />
@@ -309,15 +310,10 @@ export default function ProfilPage() {
                 )}
 
                 {/* Profile Header */}
-                <div style={{
-                    background: 'var(--card-bg)',
-                    borderBottom: '1px solid var(--card-border)',
-                    padding: '40px 24px',
-                }}>
-                    <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                        <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                <div className="profile-header-wrapper">
+                    <div className="profile-header">
                             {/* Avatar */}
-                            <div style={{ position: 'relative' }}>
+                            <div className="profile-avatar-wrapper">
                                 <input 
                                     type="file" 
                                     accept="image/*" 
@@ -325,64 +321,38 @@ export default function ProfilPage() {
                                     ref={fileInputRef} 
                                     onChange={handleFileChange} 
                                 />
-                                <div style={{
-                                    width: '120px',
-                                    height: '120px',
-                                    borderRadius: '50%',
-                                    background: 'var(--primary)',
-                                    backgroundImage: profileData.photoURL ? `url(${profileData.photoURL})` : 'none',
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    fontSize: '48px',
-                                    fontWeight: '700',
-                                    color: 'white',
-                                    border: '4px solid var(--card-border)',
-                                    overflow: 'hidden'
-                                }}>
+                                <div className="profile-avatar" style={{ backgroundImage: profileData.photoURL ? `url(${profileData.photoURL})` : 'none' }}>
                                     {!profileData.photoURL && profileData.displayUsername.charAt(0).toUpperCase()}
                                 </div>
                                 {isOwnProfile && (
                                     <button 
                                         onClick={() => fileInputRef.current?.click()} 
                                         disabled={uploadingAvatar}
-                                        style={{
-                                        position: 'absolute', bottom: '0', right: '0',
-                                        width: '36px', height: '36px', borderRadius: '50%',
-                                        background: 'var(--primary)', border: '3px solid var(--background)',
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-                                        opacity: uploadingAvatar ? 0.5 : 1
-                                    }}>
+                                        className="profile-avatar-edit-btn"
+                                        style={{ opacity: uploadingAvatar ? 0.5 : 1 }}
+                                    >
                                         {uploadingAvatar ? (
                                             <div style={{ width: '16px', height: '16px', border: '2px solid white', borderTop: '2px solid transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
                                         ) : (
-                                            <Camera style={{ width: '16px', height: '16px', color: 'white' }} />
+                                            <Camera style={{ width: '16px', height: '16px', color: 'var(--text-muted)' }} />
                                         )}
                                     </button>
                                 )}
                             </div>
 
                             {/* User Info */}
-                            <div style={{ flex: 1, minWidth: '280px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '12px', flexWrap: 'wrap' }}>
-                                    <h1 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--foreground)', letterSpacing: '-0.5px' }}>
+                            <div className="profile-info-section">
+                                <div className="profile-username-row">
+                                    <h1 className="profile-username">
                                         @{profileData.displayUsername}
                                     </h1>
-                                    <span style={{
-                                        padding: '6px 14px', borderRadius: '24px', fontSize: '13px', fontWeight: '700',
-                                        background: roleColor.bg, color: roleColor.text,
-                                        border: `1px solid ${roleColor.text}40`,
-                                        boxShadow: `0 2px 10px ${roleColor.bg}`,
-                                        display: 'inline-flex', alignItems: 'center', gap: '6px'
-                                    }}>
+                                    <span className="profile-role-badge">
                                         <Award size={14} /> {roleLabel}
                                     </span>
                                 </div>
                                 
                                 {/* User Rating */}
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                                <div className="profile-rating">
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
                                         {[1, 2, 3, 4, 5].map(star => (
                                             <Star 
@@ -402,35 +372,33 @@ export default function ProfilPage() {
                                 </div>
 
                                 {(profileData.firstName || profileData.lastName) && (
-                                    <p style={{ color: 'var(--text-muted)', fontSize: '13px', marginBottom: '12px', fontStyle: 'italic' }}>
+                                    <p className="profile-fullname">
                                         {maskName(profileData.firstName)} {maskName(profileData.lastName)}
                                     </p>
                                 )}
-                                <p style={{ color: 'var(--text-muted)', fontSize: '14px', marginBottom: '16px', maxWidth: '500px' }}>
+                                <p className="profile-bio">
                                     {profileData.bio}
                                 </p>
-                                <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', fontSize: '13px', color: 'var(--text-muted)' }}>
+                                <div className="profile-meta-row">
                                     {carString && (
-                                        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                        <span className="profile-meta-item">
                                             <Car style={{ width: '14px', height: '14px' }} />
                                             {carString}
                                         </span>
                                     )}
                                     {locationString && (
-                                        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                        <span className="profile-meta-item">
                                             <MapPin style={{ width: '14px', height: '14px' }} />
                                             {locationString}
                                         </span>
                                     )}
-                                    {/* Sahibinden Linki */}
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                    <span className="profile-meta-item">
                                         <ExternalLink style={{ width: '14px', height: '14px' }} />
-                                        <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: '#FFD700', textDecoration: 'none', fontWeight: '600' }}>Sahibinden İlanları</a>
+                                        <a href="#" target="_blank" rel="noopener noreferrer" className="profile-ext-link">Sahibinden</a>
                                     </span>
-                                    {/* Arabam Linki */}
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                    <span className="profile-meta-item">
                                         <ExternalLink style={{ width: '14px', height: '14px' }} />
-                                        <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: '#ef4444', textDecoration: 'none', fontWeight: '600' }}>Arabam.com</a>
+                                        <a href="#" target="_blank" rel="noopener noreferrer" className="profile-ext-link">Arabam.com</a>
                                     </span>
                                 </div>
                             </div>
@@ -439,19 +407,19 @@ export default function ProfilPage() {
                             <div style={{ display:'flex', gap:'10px', flexWrap:'wrap' }}>
                                 {isOwnProfile ? (
                                     <>
-                                        <button onClick={() => setShowEditModal(true)} style={{ display:'flex', alignItems:'center', gap:'8px', padding:'10px 20px', background:'var(--secondary)', border:'1px solid var(--card-border)', borderRadius:'10px', color:'var(--foreground)', fontSize:'14px', fontWeight:'500', cursor:'pointer' }}>
+                                        <button onClick={() => setShowEditModal(true)} className="btn-secondary">
                                             <Edit2 size={16} /> Profili Duzenle
                                         </button>
-                                        <button onClick={() => setShowGarageModal(true)} style={{ display:'flex', alignItems:'center', gap:'8px', padding:'10px 20px', background:'var(--primary)', border:'1px solid var(--primary)', borderRadius:'10px', color:'white', fontSize:'14px', fontWeight:'600', cursor:'pointer', boxShadow:'0 4px 12px rgba(255,107,0,0.3)' }}>
+                                        <button onClick={() => setShowGarageModal(true)} className="btn-primary">
                                             <ShieldCheck size={16} /> Garajı Doğrula
                                         </button>
                                     </>
                                 ) : (
                                     <>
-                                        <button onClick={handleSendMessage} disabled={messageSending} style={{ display:'flex', alignItems:'center', gap:'8px', padding:'10px 20px', background:'var(--primary)', border:'none', borderRadius:'10px', color:'white', fontSize:'14px', fontWeight:'600', cursor:'pointer' }}>
+                                        <button onClick={handleSendMessage} disabled={messageSending} className="btn-primary">
                                             <Send size={16} /> {messageSending ? 'Aciliyor...' : 'Mesaj At'}
                                         </button>
-                                        <button onClick={() => setShowReportModal(true)} style={{ display:'flex', alignItems:'center', gap:'8px', padding:'10px 20px', background:'transparent', border:'1px solid rgba(239,68,68,0.3)', borderRadius:'10px', color:'#ef4444', fontSize:'14px', fontWeight:'500', cursor:'pointer' }}>
+                                        <button onClick={() => setShowReportModal(true)} className="btn-danger-outline">
                                             <Flag size={16} /> Sikayet Et
                                         </button>
                                     </>
@@ -459,7 +427,6 @@ export default function ProfilPage() {
                             </div>
                         </div>
                     </div>
-                </div>
 
                 {/* Stats Bar */}
                 <div style={{
@@ -494,11 +461,11 @@ export default function ProfilPage() {
                         {/* Left - Activity */}
                         <div>
                             {/* Tabs */}
-                            <div style={{ display: 'flex', gap: '16px', marginBottom: '20px', borderBottom: '1px solid var(--card-border)' }}>
-                                <button onClick={() => setActiveTab('posts')} style={{ padding: '10px 4px', background: 'transparent', border: 'none', borderBottom: activeTab === 'posts' ? '2px solid var(--primary)' : '2px solid transparent', color: activeTab === 'posts' ? 'var(--foreground)' : 'var(--text-muted)', fontSize: '15px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}>
+                            <div className="profile-tabs">
+                                <button onClick={() => setActiveTab('posts')} className={`profile-tab ${activeTab === 'posts' ? 'active' : ''}`}>
                                     Başlıklar ({userThreads.length})
                                 </button>
-                                <button onClick={() => setActiveTab('comments')} style={{ padding: '10px 4px', background: 'transparent', border: 'none', borderBottom: activeTab === 'comments' ? '2px solid var(--primary)' : '2px solid transparent', color: activeTab === 'comments' ? 'var(--foreground)' : 'var(--text-muted)', fontSize: '15px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}>
+                                <button onClick={() => setActiveTab('comments')} className={`profile-tab ${activeTab === 'comments' ? 'active' : ''}`}>
                                     Entryler ({userEntries.length})
                                 </button>
                             </div>
@@ -507,24 +474,24 @@ export default function ProfilPage() {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 {activeTab === 'posts' ? (
                                     userThreads.length === 0 ? (
-                                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '32px', textAlign: 'center' }}>
+                                        <div className="profile-card" style={{ textAlign: 'center' }}>
                                             <MessageSquare size={32} style={{ color: 'var(--text-muted)', margin: '0 auto 12px', display: 'block' }} />
                                             <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Henuz baslik acilmamis</p>
                                         </div>
                                     ) : (
                                         userThreads.map((thread) => (
-                                            <div key={thread.id} onClick={() => router.push(`/forum/konu/${thread.id}`)} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '16px', cursor: 'pointer', transition: 'border-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--card-border)'}>
-                                                <h3 style={{ fontSize: '15px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>{thread.title}</h3>
-                                                <div style={{ display: 'flex', gap: '16px', fontSize: '12px', color: 'var(--text-muted)' }}>
-                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Eye size={12} /> {thread.views}</span>
-                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={12} /> {thread.entryCount} entry</span>
+                                            <div key={thread.id} onClick={() => router.push(`/forum/konu/${thread.id}`)} className="profile-feed-item">
+                                                <h3 className="profile-card-title" style={{ marginBottom: '8px' }}>{thread.title}</h3>
+                                                <div className="profile-meta-row" style={{ fontSize: '12px' }}>
+                                                    <span className="profile-meta-item"><Eye size={12} /> {thread.views}</span>
+                                                    <span className="profile-meta-item"><MessageSquare size={12} /> {thread.entryCount} entry</span>
                                                 </div>
                                             </div>
                                         ))
                                     )
                                 ) : (
                                     userEntries.length === 0 ? (
-                                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '32px', textAlign: 'center' }}>
+                                        <div className="profile-card" style={{ textAlign: 'center' }}>
                                             <MessageSquare size={32} style={{ color: 'var(--text-muted)', margin: '0 auto 12px', display: 'block' }} />
                                             <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Henuz entry girilmemis</p>
                                         </div>
@@ -539,7 +506,7 @@ export default function ProfilPage() {
                                                 ? `/forum/${createSlugLocal(entry.threadTitle)}--${entry.threadUrlId}`
                                                 : `/forum/konu/${entry.threadId}`;
                                             return (
-                                            <div key={entry.id} onClick={() => router.push(entryUrl)} style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', padding: '16px', cursor: 'pointer', transition: 'border-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--primary)'} onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--card-border)'}>
+                                            <div key={entry.id} onClick={() => router.push(entryUrl)} className="profile-feed-item">
                                                 {entry.threadTitle && (
                                                     <div style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                                                         <MessageSquare size={12} />
@@ -549,8 +516,8 @@ export default function ProfilPage() {
                                                 <p style={{ fontSize: '14px', color: 'var(--foreground)', marginBottom: '12px', lineHeight: '1.5' }}>
                                                     {entry.content.length > 150 ? entry.content.substring(0, 150) + '...' : entry.content}
                                                 </p>
-                                                <div style={{ display: 'flex', gap: '16px', fontSize: '12px', color: 'var(--text-muted)' }}>
-                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><ThumbsUp size={12} /> {entry.likes || 0} beğeni</span>
+                                                <div className="profile-meta-row" style={{ fontSize: '12px' }}>
+                                                    <span className="profile-meta-item"><ThumbsUp size={12} /> {entry.likes || 0} beğeni</span>
                                                     <span>{new Date(entry.createdAt?.toDate ? entry.createdAt.toDate() : entry.createdAt).toLocaleDateString('tr-TR')}</span>
                                                 </div>
                                             </div>
@@ -564,12 +531,12 @@ export default function ProfilPage() {
                         {/* Right Sidebar */}
                         <aside>
                             {/* Profile Info Card */}
-                            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px', marginBottom: '16px' }}>
-                                <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '16px' }}>Profil Bilgileri</h3>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13px' }}>
+                            <div className="profile-card">
+                                <h3 className="profile-card-title">Profil Bilgileri</h3>
+                                <div className="profile-meta-row" style={{ flexDirection: 'column', gap: '12px', fontSize: '13px' }}>
                                     {carString && (
                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                            <span style={{ color: 'var(--text-muted)' }}>Arac</span>
+                                            <span style={{ color: 'var(--text-muted)' }}>Araç</span>
                                             <span style={{ color: 'var(--foreground)', fontWeight: '500' }}>{carString}</span>
                                         </div>
                                     )}
@@ -580,17 +547,17 @@ export default function ProfilPage() {
                                         </div>
                                     )}
                                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                        <span style={{ color: 'var(--text-muted)' }}>Statu</span>
-                                        <span style={{ color: roleColor.text, fontWeight: '600' }}>{roleLabel}</span>
+                                        <span style={{ color: 'var(--text-muted)' }}>Statü</span>
+                                        <span style={{ color: 'var(--foreground)', fontWeight: '600' }}>{roleLabel}</span>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Bio Card */}
                             {profileData.bio && (
-                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px' }}>
-                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px' }}>Hakkinda</h3>
-                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.6 }}>{profileData.bio}</p>
+                                <div className="profile-card">
+                                    <h3 className="profile-card-title">Hakkinda</h3>
+                                    <p className="profile-bio">{profileData.bio}</p>
                                 </div>
                             )}
                         </aside>
@@ -602,7 +569,7 @@ export default function ProfilPage() {
                     <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '20px' }}>
                         <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', width: '100%', maxWidth: '420px', padding: '24px' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                                <h2 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '8px' }}><AlertTriangle size={20} color="#ef4444" /> Kullaniciyi Sikayet Et</h2>
+                                <h2 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '8px' }}><AlertTriangle size={20} color="var(--text-muted)" /> Kullaniciyi Sikayet Et</h2>
                                 <button onClick={() => setShowReportModal(false)} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}><X size={20} /></button>
                             </div>
                             {reportSent ? (
@@ -613,7 +580,7 @@ export default function ProfilPage() {
                                     <textarea value={reportReason} onChange={(e) => setReportReason(e.target.value)} placeholder="Sikayet nedeninizi yazin..." rows={4} style={{ width: '100%', padding: '12px', borderRadius: '10px', background: 'var(--secondary)', border: '1px solid var(--card-border)', color: 'var(--foreground)', outline: 'none', resize: 'none', fontSize: '14px', marginBottom: '16px' }} />
                                     <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>
                                         <button onClick={() => setShowReportModal(false)} style={{ padding: '10px 20px', borderRadius: '10px', background: 'transparent', border: '1px solid var(--card-border)', color: 'var(--foreground)', cursor: 'pointer', fontWeight: '500' }}>Iptal</button>
-                                        <button onClick={handleReport} disabled={!reportReason.trim()} style={{ padding: '10px 20px', borderRadius: '10px', background: '#ef4444', border: 'none', color: 'white', cursor: 'pointer', fontWeight: '600', opacity: reportReason.trim() ? 1 : 0.5 }}>Sikayet Gonder</button>
+                                        <button onClick={handleReport} disabled={!reportReason.trim()} style={{ padding: '10px 20px', borderRadius: '10px', background: 'var(--foreground)', border: 'none', color: 'var(--background)', cursor: 'pointer', fontWeight: '600', opacity: reportReason.trim() ? 1 : 0.5 }}>Sikayet Gonder</button>
                                     </div>
                                 </>
                             )}
@@ -627,7 +594,7 @@ export default function ProfilPage() {
                         <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', width: '100%', maxWidth: '420px', padding: '24px' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                                 <h2 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <ShieldCheck size={20} color="var(--primary)" /> Garaj Doğrulama (Güvenmetre)
+                                    <ShieldCheck size={20} color="var(--primary)" /> Garaj Doğrulama
                                 </h2>
                                 <button onClick={() => setShowGarageModal(false)} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}><X size={20} /></button>
                             </div>

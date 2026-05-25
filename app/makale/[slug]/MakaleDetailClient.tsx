@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, BookOpen, Clock, Tag, Share2, ChevronRight, CheckCircle2, AlertTriangle, ShieldAlert, List } from "lucide-react";
+import { ArrowLeft, ChevronRight, Share2, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AutoLinkText from "@/components/AutoLinkText";
 import RelatedContent from "@/components/RelatedContent";
 import FloatingActionBar from "@/components/FloatingActionBar";
+import AdPlaceholder from "@/components/AdPlaceholder";
+import LatestThreadsWidget from "@/components/LatestThreadsWidget";
+import PopularThreadsWidget from "@/components/PopularThreadsWidget";
 
 export default function MakaleDetailClient({ article }: { article: any }) {
     const [activeSection, setActiveSection] = useState<string>("");
@@ -46,91 +49,57 @@ export default function MakaleDetailClient({ article }: { article: any }) {
         <>
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
-                {/* Hero Header */}
+                {/* Minimalist Hero Header */}
                 <div style={{
-                    background: 'var(--card-bg)',
-                    borderBottom: '1px solid var(--card-border)',
-                    position: 'relative',
-                    overflow: 'hidden',
+                    background: 'var(--background)',
+                    borderBottom: '1px solid var(--border)',
+                    padding: '48px 24px',
+                    textAlign: 'center',
                 }}>
-                    <div style={{
-                        position: 'absolute', inset: 0, pointerEvents: 'none',
-                        background: `radial-gradient(ellipse 60% 120% at 50% -20%, rgba(59,130,246,0.1), transparent)`,
-                    }} />
-                    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '32px 24px', position: 'relative' }}>
+                    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                         {/* Breadcrumb */}
-                        <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
-                            <Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Ana Sayfa</Link>
+                        <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '24px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
+                            <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Ana Sayfa</Link>
                             <ChevronRight size={14} />
-                            <Link href="/kutuphane?kategori=makaleler" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Makaleler</Link>
+                            <Link href="/kutuphane?kategori=makaleler" style={{ color: 'inherit', textDecoration: 'none' }}>Makaleler</Link>
                             <ChevronRight size={14} />
-                            <span style={{ color: 'var(--primary)', fontWeight: '600' }}>{article.title}</span>
+                            <span style={{ color: 'var(--foreground)', fontWeight: '600' }}>{article.title}</span>
                         </nav>
 
-                        <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
-                            {article.tags?.map((tag: string, idx: number) => (
-                                <span key={idx} style={{
-                                    padding: '4px 10px',
-                                    background: 'rgba(59,130,246,0.1)',
-                                    color: 'var(--primary)',
-                                    fontSize: '12px',
-                                    borderRadius: '6px',
-                                    fontWeight: '600',
-                                }}>
-                                    {tag}
-                                </span>
-                            ))}
-                            {article.difficulty && (
-                                <span style={{
-                                    padding: '4px 10px',
-                                    background: article.difficulty === 'Kritik' ? 'rgba(239,68,68,0.1)' : 'rgba(234,179,8,0.1)',
-                                    color: article.difficulty === 'Kritik' ? '#ef4444' : '#eab308',
-                                    fontSize: '12px',
-                                    borderRadius: '6px',
-                                    fontWeight: '600',
-                                }}>
-                                    {article.difficulty}
-                                </span>
-                            )}
-                        </div>
-
                         <h1 style={{
-                            fontSize: 'clamp(24px, 5vw, 40px)',
+                            fontSize: 'clamp(28px, 5vw, 48px)',
                             fontWeight: '800',
                             color: 'var(--foreground)',
                             lineHeight: '1.2',
-                            marginBottom: '16px',
+                            marginBottom: '24px',
                             letterSpacing: '-0.5px',
                         }}>
                             {article.title}
                         </h1>
 
-                        <AutoLinkText 
-                            text={article.description} 
-                            style={{ fontSize: '16px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '24px' }} 
-                        />
+                        <div style={{ fontSize: '18px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '32px' }}>
+                            {article.description}
+                        </div>
 
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '14px' }}>
-                                    <BookOpen size={16} /> <span>{article.author || 'OtoSöz Uzmanları'}</span>
-                                </div>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '14px' }}>
-                                    <Clock size={16} /> <span>{article.minutes || 5} Dk Okuma</span>
-                                </div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '24px', borderTop: '1px solid var(--border)', paddingTop: '24px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '14px' }}>
+                                <span style={{ fontWeight: '600', color: 'var(--foreground)' }}>{article.author || 'OtoSöz Uzmanları'}</span>
                             </div>
-
+                            <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--border)' }}></div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '14px' }}>
+                                <Clock size={16} /> <span>{article.minutes || 5} Dk Okuma</span>
+                            </div>
+                            <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--border)' }}></div>
                             <button
                                 onClick={handleShare}
                                 style={{
                                     display: 'flex', alignItems: 'center', gap: '6px',
-                                    padding: '8px 16px',
-                                    background: 'var(--secondary)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '8px',
+                                    background: 'transparent',
+                                    border: 'none',
                                     color: 'var(--text-muted)',
                                     cursor: 'pointer',
-                                    fontSize: '13px', fontWeight: '500',
+                                    fontSize: '14px', fontWeight: '500',
+                                    padding: 0
                                 }}
                             >
                                 <Share2 size={16} /> Paylaş
@@ -139,94 +108,85 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                     </div>
                 </div>
 
-                {/* Main Content Layout */}
-                <div className="makale-layout" style={{ maxWidth: '1100px', margin: '0 auto', padding: '40px 24px', display: 'flex', gap: '40px', alignItems: 'flex-start' }}>
+                {/* 3-Column Layout */}
+                <div className="makale-layout" style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px', display: 'grid', gridTemplateColumns: '280px 1fr 300px', gap: '40px', alignItems: 'start' }}>
                     
-                    {/* Table of Contents (Sticky Sidebar) */}
-                    {article.sections && article.sections.length > 0 && (
-                        <aside className="toc-sidebar" style={{
-                            width: '280px',
-                            position: 'sticky',
-                            top: '100px',
-                            background: 'var(--card-bg)',
-                            border: '1px solid var(--card-border)',
-                            borderRadius: '16px',
-                            padding: '24px',
-                            flexShrink: 0,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '12px'
-                        }}>
-                            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: '800', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px' }}>
-                                <List size={16} /> İçindekiler
-                            </h3>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                {article.sections.map((section: any, idx: number) => {
-                                    if (!section.title) return null;
-                                    const sectionId = generateId(section.title);
-                                    const isActive = activeSection === sectionId;
-                                    
-                                    return (
-                                        <a key={idx} href={`#${sectionId}`} style={{
-                                            fontSize: '14px',
-                                            color: isActive ? 'var(--primary)' : 'var(--foreground)',
-                                            fontWeight: isActive ? '700' : '500',
-                                            textDecoration: 'none',
-                                            paddingLeft: isActive ? '12px' : '8px',
-                                            borderLeft: isActive ? '3px solid var(--primary)' : '3px solid transparent',
-                                            transition: 'all 0.2s ease',
-                                            lineHeight: '1.4'
-                                        }} onClick={(e) => {
-                                            e.preventDefault();
-                                            document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-                                        }}>
-                                            {section.title}
-                                        </a>
-                                    );
-                                })}
+                    {/* Left Sidebar */}
+                    <aside className="left-sidebar" style={{ display: 'flex', flexDirection: 'column', gap: '32px', position: 'sticky', top: '100px' }}>
+                        {article.sections && article.sections.length > 0 && (
+                            <div className="toc-container">
+                                <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '16px' }}>
+                                    İçindekiler
+                                </h3>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    {article.sections.map((section: any, idx: number) => {
+                                        if (!section.title) return null;
+                                        const sectionId = generateId(section.title);
+                                        const isActive = activeSection === sectionId;
+                                        
+                                        return (
+                                            <a key={idx} href={`#${sectionId}`} style={{
+                                                fontSize: '14px',
+                                                color: isActive ? 'var(--foreground)' : 'var(--text-muted)',
+                                                fontWeight: isActive ? '700' : '400',
+                                                textDecoration: 'none',
+                                                paddingLeft: '12px',
+                                                borderLeft: isActive ? '2px solid var(--foreground)' : '2px solid var(--border)',
+                                                transition: 'all 0.2s ease',
+                                                lineHeight: '1.4'
+                                            }} onClick={(e) => {
+                                                e.preventDefault();
+                                                document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+                                            }}>
+                                                {section.title}
+                                            </a>
+                                        );
+                                    })}
+                                </div>
                             </div>
-                        </aside>
-                    )}
+                        )}
+                        <AdPlaceholder format="vertical" />
+                    </aside>
 
-                    {/* Article Sections */}
-                    <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                    {/* Main Content (Centered, High Readability) */}
+                    <article className="main-content" style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: '48px', maxWidth: '800px', margin: '0 auto', width: '100%' }}>
                         {article.sections?.map((section: any, idx: number) => (
-                        <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                             {/* Section Title */}
                             {section.title && (
-                                <h2 id={generateId(section.title)} style={{ scrollMarginTop: '100px', fontSize: '24px', fontWeight: '800', color: 'var(--foreground)', borderBottom: '1px solid var(--card-border)', paddingBottom: '12px' }}>
+                                <h2 id={generateId(section.title)} style={{ scrollMarginTop: '100px', fontSize: '28px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '16px', letterSpacing: '-0.3px' }}>
                                     {section.title}
                                 </h2>
                             )}
 
                             {/* Section Content */}
                             {section.content && (
-                                <AutoLinkText 
-                                    text={section.content} 
-                                    style={{ fontSize: '17px', color: 'var(--foreground)' }} 
-                                />
+                                <div className="article-text">
+                                    <AutoLinkText 
+                                        text={section.content} 
+                                    />
+                                </div>
                             )}
 
                             {/* Subsections */}
                             {section.subsections && section.subsections.length > 0 && (
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginTop: '8px' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginTop: '16px' }}>
                                     {section.subsections.map((sub: any, sIdx: number) => (
-                                        <div key={sIdx} style={{ background: 'var(--card-bg)', padding: '24px', borderRadius: '16px', border: '1px solid var(--card-border)' }}>
-                                            <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--primary)', marginBottom: '12px' }}>
+                                        <div key={sIdx}>
+                                            <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '16px' }}>
                                                 {sub.subtitle}
                                             </h3>
                                             {sub.text && (
-                                                <AutoLinkText 
-                                                    text={sub.text} 
-                                                    style={{ fontSize: '16px', color: 'var(--foreground)', marginBottom: sub.points ? '16px' : '0' }} 
-                                                />
+                                                <div className="article-text" style={{ marginBottom: sub.points ? '16px' : '0' }}>
+                                                    <AutoLinkText text={sub.text} />
+                                                </div>
                                             )}
                                             {sub.points && sub.points.length > 0 && (
-                                                <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none', padding: 0, margin: 0 }}>
+                                                <ul className="article-list">
                                                     {sub.points.map((pt: string, pIdx: number) => (
-                                                        <li key={pIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '15px', color: 'var(--foreground)', lineHeight: '1.6' }}>
-                                                            <div style={{ marginTop: '4px', color: 'var(--primary)', flexShrink: 0 }}><CheckCircle2 size={16} /></div>
-                                                            {pt}
+                                                        <li key={pIdx}>
+                                                            <div className="list-bullet"></div>
+                                                            <span>{pt}</span>
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -236,22 +196,22 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                 </div>
                             )}
 
-                            {/* Table Render */}
+                            {/* Table Render (Minimalist) */}
                             {section.table && (
-                                <div style={{ overflowX: 'auto', marginTop: '24px', borderRadius: '12px', border: '1px solid var(--card-border)' }}>
-                                    <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '14px' }}>
-                                        <thead style={{ background: 'var(--secondary)' }}>
+                                <div style={{ overflowX: 'auto', marginTop: '32px', marginBottom: '32px' }}>
+                                    <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '15px' }}>
+                                        <thead>
                                             <tr>
                                                 {section.table.headers.map((th: string, i: number) => (
-                                                    <th key={i} style={{ padding: '14px 16px', fontWeight: '700', color: 'var(--foreground)', borderBottom: '1px solid var(--card-border)' }}>{th}</th>
+                                                    <th key={i} style={{ padding: '16px', fontWeight: '700', color: 'var(--foreground)', borderBottom: '2px solid var(--border)' }}>{th}</th>
                                                 ))}
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {section.table.rows.map((row: string[], i: number) => (
-                                                <tr key={i} style={{ borderBottom: i === section.table.rows.length - 1 ? 'none' : '1px solid var(--card-border)', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
+                                                <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}>
                                                     {row.map((td: string, j: number) => (
-                                                        <td key={j} style={{ padding: '14px 16px', color: 'var(--text-muted)' }}>{td}</td>
+                                                        <td key={j} style={{ padding: '16px', color: 'var(--text-muted)' }}>{td}</td>
                                                     ))}
                                                 </tr>
                                             ))}
@@ -260,41 +220,39 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                 </div>
                             )}
 
-                            {/* Info Boxes */}
+                            {/* Info Boxes (Sleek Typography, No Colors/Emojis) */}
                             {section.tip && (
-                                <div style={{ background: 'rgba(59,130,246,0.05)', border: '1px solid rgba(59,130,246,0.2)', borderLeft: '4px solid #3b82f6', borderRadius: '12px', padding: '20px' }}>
-                                    <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '16px', fontWeight: '700', color: '#3b82f6', marginBottom: '8px' }}>
-                                        {section.tip.title || '💡 İpucu'}
+                                <div style={{ borderLeft: '3px solid var(--foreground)', paddingLeft: '24px', margin: '32px 0' }}>
+                                    <h4 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>
+                                        {section.tip.title.replace(/[^a-zA-ZğüşöçıİĞÜŞÖÇ ]/g, '').trim() || 'İpucu'}
                                     </h4>
-                                    <AutoLinkText 
-                                        text={section.tip.text} 
-                                        style={{ fontSize: '15px', color: 'var(--foreground)' }} 
-                                    />
+                                    <div className="article-text" style={{ fontStyle: 'italic' }}>
+                                        <AutoLinkText text={section.tip.text} />
+                                    </div>
                                 </div>
                             )}
                             {section.warning && (
-                                <div style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)', borderLeft: '4px solid #ef4444', borderRadius: '12px', padding: '20px' }}>
-                                    <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '16px', fontWeight: '700', color: '#ef4444', marginBottom: '8px' }}>
-                                        <AlertTriangle size={18} /> {section.warning.title || '⚠️ Uyarı'}
+                                <div style={{ border: '1px solid var(--border)', padding: '24px', margin: '32px 0' }}>
+                                    <h4 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>
+                                        {section.warning.title.replace(/[^a-zA-ZğüşöçıİĞÜŞÖÇ ]/g, '').trim() || 'Önemli'}
                                     </h4>
-                                    <AutoLinkText 
-                                        text={section.warning.text} 
-                                        style={{ fontSize: '15px', color: 'var(--foreground)' }} 
-                                    />
+                                    <div className="article-text">
+                                        <AutoLinkText text={section.warning.text} />
+                                    </div>
                                 </div>
                             )}
 
-                            {/* Section Final Checklist */}
+                            {/* Section Final Checklist (No Colors) */}
                             {section.finalChecklist && section.finalChecklist.length > 0 && (
-                                <div style={{ background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '28px', marginTop: '20px' }}>
-                                    <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                        <CheckCircle2 size={20} style={{ color: '#22c55e' }} /> Özet Kontrol Listesi
+                                <div style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '32px 0', marginTop: '32px' }}>
+                                    <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '24px' }}>
+                                        Kontrol Listesi
                                     </h3>
-                                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', listStyle: 'none', padding: 0, margin: 0 }}>
+                                    <ul className="article-list">
                                         {section.finalChecklist.map((pt: string, pIdx: number) => (
-                                            <li key={pIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '15px', color: 'var(--foreground)', lineHeight: '1.5' }}>
-                                                <div style={{ marginTop: '2px', color: '#22c55e', flexShrink: 0 }}><CheckCircle2 size={18} /></div>
-                                                {pt}
+                                            <li key={pIdx}>
+                                                <div className="list-bullet"></div>
+                                                <span>{pt}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -305,62 +263,57 @@ export default function MakaleDetailClient({ article }: { article: any }) {
 
                     {/* Root Final Checklist */}
                     {article.finalChecklist && article.finalChecklist.length > 0 && (
-                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '24px', marginTop: '16px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                                <div style={{
-                                    width: '40px',
-                                    height: '40px',
-                                    borderRadius: '10px',
-                                    background: 'rgba(67, 233, 123, 0.15)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <CheckCircle2 style={{ width: '24px', height: '24px', color: '#43E97B' }} />
-                                </div>
-                                <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                    Özet Kontrol Listesi
-                                </h3>
-                            </div>
-                            <div style={{ height: '1px', background: 'var(--card-border)', marginBottom: '20px' }} />
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--border)', padding: '40px', marginTop: '32px' }}>
+                            <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                                Genel Özet ve Kontroller
+                            </h3>
+                            <ul className="article-list">
                                 {article.finalChecklist.map((item: string, idx: number) => (
-                                    <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
-                                        <CheckCircle2 style={{ width: '18px', height: '18px', color: '#43E97B', flexShrink: 0, marginTop: '2px' }} />
-                                        <span style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-                                            {item}
-                                        </span>
-                                    </div>
+                                    <li key={idx}>
+                                        <div className="list-bullet" style={{ background: 'var(--foreground)' }}></div>
+                                        <span>{item}</span>
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
                         </div>
                     )}
 
-                    <div style={{ marginTop: '20px', borderTop: '1px solid var(--card-border)', paddingTop: '32px', display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ marginTop: '48px', display: 'flex', justifyContent: 'center' }}>
                         <Link href="/kutuphane?kategori=makaleler" style={{ textDecoration: 'none' }}>
                             <div style={{
                                 display: 'flex', alignItems: 'center', gap: '10px',
-                                padding: '16px 24px',
-                                background: 'var(--card-bg)',
-                                border: '1px solid var(--card-border)',
-                                borderRadius: '12px',
+                                padding: '16px 32px',
+                                border: '1px solid var(--foreground)',
+                                color: 'var(--foreground)',
                                 cursor: 'pointer',
                                 transition: 'all 0.2s',
+                                fontWeight: '600',
+                                textTransform: 'uppercase',
+                                fontSize: '14px',
+                                letterSpacing: '0.5px'
                             }}
-                                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                                onMouseEnter={e => { e.currentTarget.style.background = 'var(--foreground)'; e.currentTarget.style.color = 'var(--background)'; }}
+                                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--foreground)'; }}
                             >
-                                <ArrowLeft size={18} style={{ color: 'var(--primary)' }} />
-                                <div style={{ fontSize: '15px', fontWeight: '600', color: 'var(--foreground)' }}>Tüm Makalelere Dön</div>
+                                <ArrowLeft size={18} /> Tüm Makalelere Dön
                             </div>
                         </Link>
                     </div>
 
-                    {/* Related Content / Recommendations */}
-                    <div style={{ paddingBottom: '20px' }}>
+                    {/* Related Content / Recommendations (Bottom of main content) */}
+                    <div style={{ paddingTop: '64px', marginTop: '64px', borderTop: '1px solid var(--border)' }}>
                         <RelatedContent currentId={article.id} tags={article.tags || []} titleKeywords={article.title.split(' ')} />
                     </div>
-                </div>
+                    </article>
+
+                    {/* Right Sidebar */}
+                    <aside className="right-sidebar" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                        <PopularThreadsWidget limit={5} />
+                        <LatestThreadsWidget limit={5} />
+                        <div style={{ position: 'sticky', top: '100px' }}>
+                            <AdPlaceholder format="square" />
+                        </div>
+                    </aside>
                 </div>
             </main>
             
@@ -370,15 +323,59 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                 onCommentClick={() => document.getElementById('comments-section')?.scrollIntoView({ behavior: 'smooth' })} 
             />
             <Footer />
-            <style jsx>{`
+            <style jsx global>{`
+                .article-text {
+                    font-size: 18px;
+                    line-height: 1.8;
+                    color: var(--text-article);
+                    font-weight: 400;
+                }
+                .article-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+                .article-list li {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 16px;
+                    font-size: 17px;
+                    line-height: 1.7;
+                    color: var(--text-article);
+                }
+                .list-bullet {
+                    width: 6px;
+                    height: 6px;
+                    background-color: var(--border);
+                    border-radius: 50%;
+                    margin-top: 10px;
+                    flex-shrink: 0;
+                }
+                /* CSS variables mapping to root theme */
+                :root {
+                    --text-article: #333333;
+                }
+                [data-theme="dark"] {
+                    --text-article: #cccccc;
+                }
+
+                @media (max-width: 1100px) {
+                    .makale-layout {
+                        grid-template-columns: 1fr 300px !important;
+                    }
+                    .left-sidebar {
+                        display: none !important;
+                    }
+                }
                 @media (max-width: 900px) {
                     .makale-layout {
-                        flex-direction: column !important;
+                        grid-template-columns: 1fr !important;
                     }
-                    .toc-sidebar {
-                        width: 100% !important;
-                        position: static !important;
-                        margin-bottom: 24px;
+                    .right-sidebar {
+                        display: none !important;
                     }
                 }
             `}</style>

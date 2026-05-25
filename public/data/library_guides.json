@@ -1,6 +1,95 @@
 {
   "guides": [
     {
+      "id": "guide_ucan_araba_2050",
+      "title": "Uçan Arabalar İçin İleri Uçuş-Sürüş Teknikleri: Atmosferik Savrulmayı Önleme Mega Rehberi (2050)",
+      "description": "Anti-yerçekimi motoru arızaları, stratosferik türbülans anında hayatta kalma ve zihin-araç entegrasyonu (Mind-Drive) kopmalarında manuel uçuşa geçiş prosedürleri.",
+      "minutes": 15,
+      "difficulty": "Süper İnsan",
+      "tags": [
+        "Gelecek",
+        "Uçan Araba",
+        "Anti-Yerçekimi",
+        "İleri Uçuş",
+        "Bilim Kurgu",
+        "İlginç"
+      ],
+      "author": "OtoSöz Galaktik Uzmanları",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "Geleceğin Ulaşımı Artık Sadece Asfaltta Değil",
+          "content": "Geleneksel tekerlekli araçların yerini tamamen manyetik levitasyon (MagLev) ve anti-yerçekimi iticilerine bıraktığı 2050 yılında, ehliyet sınavları da üç boyutlu hale geldi. Artık sadece sağa ve sola dönmeyi değil, yukarı ve aşağı hava koridorlarında seyretmeyi bilmek zorundasınız. Otonom yapay zekalar harika çalışsa da, 10.000 fit yükseklikte sistem çöktüğünde manuel uçuşa geçmek bir hayatta kalma meselesidir. Bu rehberde, hover-araçların görünmeyen tehlikelerini inceliyoruz."
+        },
+        {
+          "type": "section",
+          "title": "1. Anti-Yerçekimi İticilerinin Çökmesi Durumunda Serbest Düşüş Yönetimi",
+          "content": "Aracınızın kuantum bataryası bittiğinde veya manyetik dalgalanmalarda iticiler aniden durabilir.",
+          "subsections": [
+            {
+              "subtitle": "Kinetik Sönümleyicilerin Manuel Aktivasyonu",
+              "text": "Havada asılı kalma modundan serbest düşüşe geçtiğinizde panik yapmak ölümü hızlandırır.",
+              "points": [
+                "İlk saniyelerde aracın acil durum paraşüt sistemini (Aero-Para) manuel olarak tetikleyin.",
+                "Acil durum iticilerini patlatarak yere çarpmadan hemen önce yumuşak iniş modunu devreye sokun.",
+                "Yerçekimi ivmesiyle hızlanırken kabin içi oksijen seviyesini maksimuma getirin, bu beyninizin oksijensiz kalıp bayılmanızı önler."
+              ]
+            }
+          ],
+          "warning": {
+            "title": "⚠️ Kritik Çarpışma Uyarısı",
+            "text": "Eğer altınızda yoğun bir hava trafiği varsa, serbest düşüşte rotanızı boş bir gökdelen çatısına veya acil iniş parklarına yöneltmeniz şarttır."
+          }
+        },
+        {
+          "type": "section",
+          "title": "2. Zihin-Araç Entegrasyonu (Mind-Drive) Senkronizasyon Kaybı",
+          "content": "Artık direksiyon yok, araçlarınızı nöral linkler aracılığıyla düşünce gücüyle yönetiyorsunuz.",
+          "subsections": [
+            {
+              "subtitle": "Bilişsel Yorgunluk ve Nöral Kopma",
+              "text": "Beyin dalgalarınızdaki zayıflama, aracın tepki süresini artırır.",
+              "points": [
+                "Uzun hava yolculuklarında odaklanma kaybı yaşarsanız araç Zihinsel Bulanıklık uyarısı verir. Derhal otopilotu devreye alın.",
+                "Başkalarının nöral frekanslarıyla karışma (Hacking) durumunda aracın güvenlik duvarını fiziksel şifreyle (DNA taraması) kapatın."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "3. Atmosferik Türbülans ve Şehir İçi Hava Akımları",
+          "content": "Gökdelenlerin arasında oluşan ani rüzgar tünelleri ve termo-akımlar, aracınızı bir kağıt parçası gibi fırlatabilir.",
+          "subsections": [
+            {
+              "subtitle": "Gökdelen Rüzgarları (Urban-Wind) ile Başa Çıkmak",
+              "text": "Görünmez rüzgar duvarlarına çarptığınızda rotayı korumanız gerekir.",
+              "points": [
+                "Yan rüzgarlarda aracı rüzgarın estiği yöne hafifçe yatırın (Hava-Drifti tekniği).",
+                "Termal hava akımları (ısınan havanın aniden yükselmesi) sizi saniyeler içinde bin fit yukarı fırlatabilir. Anti-termal iticileri anında aktive edin."
+              ]
+            }
+          ],
+          "tip": {
+            "title": "💡 Kuark Tipi Yakıt Tasarrufu",
+            "text": "Güneş yelkenlerini açarak iyonosferden süzülmek, enerji tüketimini sıfıra indirir. Sadece bulutlu havalarda bataryanızı harcayın!"
+          }
+        },
+        {
+          "type": "conclusion",
+          "title": "Sonuç: Gökyüzü Kurallarına Uyun",
+          "content": "Tekerleklerin yere basmaması, kuralların olmadığı anlamına gelmez. 3000 fit irtifada makas atmak veya kırmızı lazer ışıklarında geçmek, sadece sizin değil, altınızda uçan binlerce aracın da sonunu getirebilir. Galaktik trafik kurallarına uyun, kuantum motorunuzun bakımını zamanında yaptırın ve güvenli uçuşlar!",
+          "finalChecklist": [
+            "Nöral link bağlantı kalitesi %99.9 seviyesinde",
+            "Kuantum batarya tam dolu",
+            "Anti-yerçekimi iticilerinin kalibrasyonu yapıldı",
+            "Acil iniş paraşütleri kontrol edildi"
+          ]
+        }
+      ],
+      "urlId": 10034
+    },
+    {
       "id": "guide_kurban_bayrami_2026",
       "title": "Kurban Bayramı Uzun Yol 'Mega' Rehberi 2026: Kusursuz Yolculuk, Et Taşıma ve İleri Seviye Güvenlik",
       "description": "Kurban Bayramı için hazırlanmış en kapsamlı 'Masterclass' rehberi: İleri seviye mekanik kontroller, kurban eti taşıma hijyeni, kaza anı hukuki hakları, slipstreaming tasarrufu ve biyolojik saat yönetimi.",

@@ -251,14 +251,7 @@ export default function Home() {
                 <div style={{ display: 'grid', gap: '16px' }}>
                     {homeSurveys.map((survey: any) => (
                         <Link key={survey.id} href={`/anket/${survey.id}`}>
-                            <div style={{
-                                background: 'var(--card-bg)',
-                                border: '1px solid var(--card-border)',
-                                borderRadius: '16px',
-                                padding: '20px',
-                                transition: 'all 0.2s ease',
-                                cursor: 'pointer',
-                            }}>
+                            <div className="survey-card">
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                                     <h3 style={{ fontSize: '18px', fontWeight: '600', color: 'var(--foreground)' }}>{survey.title}</h3>
                                     <span style={{ fontSize: '12px', padding: '4px 10px', background: 'rgba(34, 197, 94, 0.15)', color: '#22c55e', borderRadius: '6px', fontWeight: '600' }}>
@@ -281,7 +274,7 @@ export default function Home() {
             const expertThreads = liveThreads.filter(t => t.category === 'Uzmana Sor');
             if (expertThreads.length === 0) {
                 return (
-                    <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '60px 24px', textAlign: 'center' }}>
+                    <div className="expert-empty-state">
                         <div style={{ fontSize: '48px', marginBottom: '16px' }}>🔧</div>
                         <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Henuz soru sorulmadi</h3>
                         <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '24px' }}>Otomotiv uzmanlarindan profesyonel cevaplar almak icin ilk soruyu siz sorun!</p>
@@ -293,17 +286,7 @@ export default function Home() {
                 <div style={{ display: 'grid', gap: '16px' }}>
                     {expertThreads.slice(0, 5).map((thread) => (
                         <Link key={thread.id} href={`/uzmana-sor/${thread.id}`} style={{ textDecoration: 'none' }}>
-                            <div style={{
-                                background: 'var(--card-bg)',
-                                border: '1px solid var(--card-border)',
-                                borderRadius: '16px',
-                                padding: '20px',
-                                cursor: 'pointer',
-                                transition: 'all 0.2s ease',
-                            }}
-                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.boxShadow = '0 0 20px var(--primary-glow)'; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.boxShadow = 'none'; }}
-                            >
+                            <div className="expert-card">
                                 <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
                                     <div style={{ flex: 1 }}>
                                         <div style={{ display: 'flex', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
@@ -337,21 +320,7 @@ export default function Home() {
             <div style={{ display: 'grid', gap: '16px' }}>
                 {sortedTopics.map((topic) => (
                     <Link key={topic.id} href={topic.slugUrl}>
-                        <div
-                            style={{
-                                background: 'var(--card-bg)',
-                                border: '1px solid var(--card-border)',
-                                borderRadius: '16px',
-                                padding: '24px',
-                                transition: 'all 0.2s ease',
-                                cursor: 'pointer',
-                                display: 'flex',
-                                alignItems: 'flex-start',
-                                justifyContent: 'space-between',
-                                gap: '20px',
-                            }}
-                            className="topic-card"
-                        >
+                        <div className="topic-card">
                             {/* Topic content */}
                             <div style={{ flex: 1, minWidth: 0 }}>
                                 {/* Category + badges */}

@@ -906,3 +906,484 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== NEW COMPONENT CLASSES FOR PAGE.TSX REFACTORING ===== */
+
+/* ── Survey Card ── */
+.survey-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* ── Expert Card ── */
+.expert-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.expert-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* ── Expert Card Empty State ── */
+.expert-empty-state {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+/* ── Topic Card Layout ── */
+.topic-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.topic-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* ── Subheader Elements ── */
+.subheader-container {
+  background: var(--top-bar-bg);
+  border-bottom: 1px solid var(--card-border);
+  padding: 16px 24px;
+}
+.subheader-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.subheader-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* ── Fuel Ticker Wrapper ── */
+.fuel-ticker-wrapper {
+  flex: 1;
+  margin: 0 32px;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ── Category Pills Container ── */
+.category-pills-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.category-pill-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+.category-pill-active {
+  background: var(--primary);
+  color: white;
+}
+.category-pill-inactive {
+  background: var(--secondary);
+  color: var(--foreground);
+}
+
+/* ── Sort Bar ── */
+.sort-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+.sort-bar-search-input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  background: var(--background);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--foreground);
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s;
+}
+.sort-bar-search-input:focus {
+  border-color: var(--primary);
+}
+
+/* ── Left Sidebar Widgets ── */
+.sidebar-categories-widget {
+  position: sticky;
+  top: 100px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px;
+}
+.sidebar-category-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+}
+.sidebar-category-active {
+  background: var(--primary);
+  color: white;
+}
+.sidebar-category-inactive {
+  background: transparent;
+  color: var(--foreground);
+}
+
+.myth-widget {
+  margin-top: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+/* =========================================
+   PROFILE PAGE STYLES (Sade ve Profesyonel)
+   ========================================= */
+
+.profile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.profile-header-wrapper {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  padding: 60px 24px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-header-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 160px;
+  background: linear-gradient(180deg, var(--secondary) 0%, transparent 100%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.profile-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.profile-avatar-wrapper {
+  position: relative;
+}
+
+.profile-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-muted);
+  border: 4px solid var(--card-bg);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-avatar-edit-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-avatar-edit-btn:hover {
+  background: var(--secondary);
+}
+
+.profile-info-section {
+  flex: 1;
+  min-width: 280px;
+}
+
+.profile-username-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.profile-username {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.5px;
+}
+
+.profile-role-badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--secondary);
+  color: var(--foreground);
+  border: 1px solid var(--card-border);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.profile-fullname {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.profile-bio {
+  color: var(--foreground);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.profile-meta-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.profile-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Link Colors - Neutralized */
+.profile-ext-link {
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.profile-ext-link:hover {
+  color: var(--primary);
+}
+
+.profile-action-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-secondary:hover {
+  background: var(--card-border);
+}
+
+.btn-danger-outline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-danger-outline:hover {
+  background: var(--secondary);
+  color: var(--foreground);
+  border-color: var(--text-muted);
+}
+
+.profile-stats-wrapper {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  padding: 24px;
+}
+
+.profile-stats-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.profile-stat-item {
+  text-align: center;
+}
+
+.profile-stat-val {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+.profile-stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.profile-tabs {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.profile-tab {
+  padding: 12px 4px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.profile-tab:hover {
+  color: var(--foreground);
+}
+.profile-tab.active {
+  border-bottom: 2px solid var(--primary);
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.profile-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.profile-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 16px;
+}
+
+.profile-feed-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.profile-feed-item:hover {
+  border-color: var(--text-muted);
+}
