@@ -8,6 +8,13 @@ import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug } from "
 import { engineDNAData } from "@/data/engine-dna";
 import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle, Package, Zap } from "lucide-react";
 
+const suffixes = {
+    'artilar': '-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri',
+    'kronik': '-kronik-sorunlari',
+    'donanim': '-arac-paketleri',
+    'deneyimler': '-kullanici-deneyimleri'
+};
+
 export default function AracDNALayout({
     children,
 }: {
@@ -45,8 +52,19 @@ export default function AracDNALayout({
         );
     }
 
-    const engineSlug = (params?.engine as string)?.toLowerCase() || "";
-    const specificEngine = engineSlug ? engineDNAData.find(e => e.vehicleId === vehicle.id)?.engines.find(e => e.slug === engineSlug) : null;
+    const engineParam = (params?.engine as string)?.toLowerCase() || "";
+    let baseEngineSlug = engineParam;
+    let currentTab = "genel-bakis";
+
+    for (const [tab, suffix] of Object.entries(suffixes)) {
+        if (engineParam.endsWith(suffix)) {
+            baseEngineSlug = engineParam.replace(suffix, "");
+            currentTab = tab;
+            break;
+        }
+    }
+
+    const specificEngine = baseEngineSlug ? engineDNAData.find(e => e.vehicleId === vehicle.id)?.engines.find(e => e.slug === baseEngineSlug) : null;
 
     // Determine the active score and title
     const activeScore = specificEngine ? specificEngine.score : vehicle.dnaScore;
@@ -54,15 +72,15 @@ export default function AracDNALayout({
     const scoreLabel = getDNAScoreLabel(activeScore);
 
     const basePath = specificEngine 
-        ? `/arac-dna/${brandSlug}/${modelSlug}/${engineSlug}`
+        ? `/arac-dna/${brandSlug}/${modelSlug}/${baseEngineSlug}`
         : `/arac-dna/${brandSlug}/${modelSlug}`;
 
     const tabs = specificEngine ? [
-        { name: "Genel Bakış", path: `${basePath}#genel-bakis`, hash: "#genel-bakis", icon: <FileText size={16} /> },
-        { name: "Artıları & Eksileri", path: `${basePath}#artilar`, hash: "#artilar", icon: <ThumbsUp size={16} /> },
-        { name: "Kronik Sorunlar", path: `${basePath}#kronik`, hash: "#kronik", icon: <Wrench size={16} /> },
-        { name: "Araç Paketleri", path: `${basePath}#donanim`, hash: "#donanim", icon: <Package size={16} /> },
-        { name: "Kullanıcı Deneyimleri", path: `${basePath}#deneyimler`, hash: "#deneyimler", icon: <MessageCircle size={16} /> },
+        { id: "genel-bakis", name: "Genel Bakış", path: `${basePath}`, icon: <FileText size={16} /> },
+        { id: "artilar", name: "Artıları & Eksileri", path: `${basePath}-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri`, icon: <ThumbsUp size={16} /> },
+        { id: "kronik", name: "Kronik Sorunlar", path: `${basePath}-kronik-sorunlari`, icon: <Wrench size={16} /> },
+        { id: "donanim", name: "Araç Paketleri", path: `${basePath}-arac-paketleri`, icon: <Package size={16} /> },
+        { id: "deneyimler", name: "Kullanıcı Deneyimleri", path: `${basePath}-kullanici-deneyimleri`, icon: <MessageCircle size={16} /> },
     ] : [];
 
     return (
@@ -147,7 +165,7 @@ export default function AracDNALayout({
                         {tabs.length > 0 && (
                             <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px', borderTop: '1px solid var(--card-border)', paddingTop: '24px' }} className="hide-scrollbar">
                                 {tabs.map((tab) => {
-                                    const isActive = false;
+                                    const isActive = currentTab === tab.id;
                                     return (
                                         <Link key={tab.path} href={tab.path} style={{ textDecoration: 'none' }}>
                                             <div style={{

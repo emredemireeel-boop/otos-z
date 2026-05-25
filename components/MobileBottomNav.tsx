@@ -18,13 +18,11 @@ export default function MobileBottomNav() {
     return (
         <div className="mobile-bottom-nav">
             <Link href="/" className={`nav-item ${pathname === '/' ? 'active' : ''}`}>
-                <Home size={22} />
-                <span>Ana Sayfa</span>
+                <Home size={24} />
             </Link>
             
             <Link href="/kutuphane" className={`nav-item ${pathname === '/kutuphane' ? 'active' : ''}`}>
-                <Search size={22} />
-                <span>Keşfet</span>
+                <Search size={24} />
             </Link>
 
             <button 
@@ -34,15 +32,13 @@ export default function MobileBottomNav() {
                 <div className="fab" style={{ background: 'var(--card-bg)' }}>
                     <Image src={theme === 'light' ? "/whitemode_logo.svg" : "/dark_logo.svg"} alt="Yeni Başlık" width={36} height={36} style={{ objectFit: 'contain' }} />
                 </div>
-                <span>Paylaş</span>
             </button>
 
             <Link href={user ? "/mesajlar" : "/giris"} className={`nav-item ${pathname === '/mesajlar' ? 'active' : ''}`}>
                 <div className="icon-wrapper">
-                    <MessageCircle size={22} />
+                    <MessageCircle size={24} />
                     {unreadMessages > 0 && <span className="badge"></span>}
                 </div>
-                <span>Mesajlar</span>
             </Link>
 
             <Link href={user ? "/profil" : "/giris"} className={`nav-item ${pathname === '/profil' ? 'active' : ''}`}>
@@ -53,9 +49,8 @@ export default function MobileBottomNav() {
                         <div className="user-avatar-placeholder">{user.username.charAt(0).toUpperCase()}</div>
                     )
                 ) : (
-                    <User size={22} />
+                    <User size={24} />
                 )}
-                <span>{user ? 'Profil' : 'Giriş'}</span>
             </Link>
 
             <style jsx>{`
@@ -71,14 +66,15 @@ export default function MobileBottomNav() {
                     backdrop-filter: blur(20px);
                     border-top: 1px solid var(--card-border);
                     z-index: 999;
-                    justify-content: space-around;
-                    align-items: center;
                     box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
                 }
 
                 @media (max-width: 768px) {
                     .mobile-bottom-nav {
-                        display: flex;
+                        display: grid;
+                        grid-template-columns: repeat(5, 1fr);
+                        align-items: center;
+                        justify-items: center;
                     }
                 }
 
@@ -97,11 +93,10 @@ export default function MobileBottomNav() {
                     transition: color 0.2s;
                     background: none;
                     border: none;
-                    padding: 8px 12px;
+                    padding: 4px;
                     cursor: pointer;
                     font-family: inherit;
                     min-height: 48px;
-                    min-width: 48px;
                 }
 
                 .nav-item.active {

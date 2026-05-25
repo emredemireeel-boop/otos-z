@@ -1,6 +1,309 @@
 {
   "guides": [
     {
+      "id": "guide_esel_mobil_sistemi",
+      "title": "Akaryakıtta Eşel Mobil Sistemi Nedir? (Gizli Vergi Kalkanını Çözüyoruz)",
+      "description": "Haberlerde sürekli duyduğumuz ama pek az kişinin tam anladığı 'Eşel Mobil Sistemi' aslında ne anlama geliyor? Uluslararası petrol fiyatları fırlarken pompa fiyatları neden sabit kalır? Devletin feragat ettiği ÖTV'nin sırrı ve sistemin vatandaşın cebine yansıyan tüm artı ve eksileri.",
+      "minutes": 10,
+      "difficulty": "Orta",
+      "tags": [
+        "Akaryakıt",
+        "Ekonomi",
+        "ÖTV",
+        "Tasarruf",
+        "Bilgi",
+        "Rehber"
+      ],
+      "author": "OtoSöz Ekonomi Masası",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "Pompa Fiyatlarındaki Görünmez Kahraman (Mı?)",
+          "content": "Döviz kuru ve Brent petrol fiyatları dünyada her gün artarken, Türkiye'de akaryakıt istasyonuna gittiğinizde fiyatların bazen haftalarca hiç değişmediğini fark ettiniz mi? İşte bu fiyatları tutan görünmez kalkanın adı 'Eşel Mobil Sistemi'dir. Türkiye'de özellikle kur krizlerinin yaşandığı dönemlerde devreye alınan bu sistem, bir tür 'amortisör' görevi görür. Peki bu sistem gerçekten vatandaşı mı koruyor, yoksa daha büyük bir dalganın habercisi mi?"
+        },
+        {
+          "type": "section",
+          "title": "1. Eşel Mobil Sistemi Nasıl Çalışır? (Basit Hesap)",
+          "content": "Akaryakıt fiyatı temelde 3 ana bileşenden oluşur: Ürün rafineri fiyatı (Döviz + Petrol fiyatlarına bağlıdır), ÖTV (Özel Tüketim Vergisi) ve KDV.",
+          "subsections": [
+            {
+              "subtitle": "Devletin ÖTV'den Feragat Etmesi",
+              "text": "Normal şartlarda döviz kuru arttığında, benzinin rafineri çıkış fiyatı da artar ve bu zam direkt olarak vatandaşa yansıtılır. Ancak Eşel Mobil devredeyken işler değişir:",
+              "points": [
+                "Petrol fiyatı veya döviz arttığı için benzine 1 TL zam gelmesi gerekiyorsa, devlet rafineri çıkış fiyatındaki bu artışı pompaya yansıtmaz.",
+                "Bunun yerine, devlet akaryakıttan litre başına aldığı sabit ÖTV miktarını 1 TL düşürür.",
+                "Sonuç: Sizin istasyonda ödediğiniz pompa fiyatı 0 TL artar (Sabit kalır). Devlet ise litre başına alacağı vergi gelirinden kendi rızasıyla vazgeçmiş olur."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "2. Sistemin Halka ve Piyasaya Yararları Nelerdir?",
+          "content": "Sistem devreye alındığı ilk aylarda vatandaş ve piyasalar için muazzam bir rahatlama ve güvenlik hissi sağlar.",
+          "subsections": [
+            {
+              "subtitle": "Enflasyona Çekilen El Freni",
+              "text": "Akaryakıt, iğneden ipliğe her şeyin nakliye maliyetini belirler.",
+              "points": [
+                "Lojistik ve nakliye maliyetleri artmadığı için marketteki domatesten, inşaattaki demire kadar hiçbir ürüne 'mazot zammı' bahanesiyle zam yapılamaz. Enflasyon yavaşlatılır.",
+                "Vatandaşın Cebini Korur: Depoyu doldururken uluslararası enerji krizlerinden veya ani kur şoklarından anında etkilenmezsiniz.",
+                "Psikolojik Rahatlama: Her gece yarısı değişen fiyat tabelaları yerine sabit kalan fiyatlar, tüketicide ekonomik stabilite ve güven hissi yaratır."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "3. İşin Karanlık Tarafı: Eşel Mobil'in Gizli Zararları",
+          "content": "'Devlet vergiden vazgeçiyorsa bunun neresi kötü? Hep böyle kalsın' diye düşünebilirsiniz. Ancak ekonomi biliminde 'bedava öğle yemeği' yoktur. Bu sistemin çok acı yan etkileri bulunur.",
+          "subsections": [
+            {
+              "subtitle": "Kalkan Kırıldığında Yaşanan Şoklar",
+              "text": "Eşel mobil sistemi sonsuz bir kaynak değildir; ÖTV sıfırlandığı an sistem çöker.",
+              "points": [
+                "Korkunç Bütçe Açığı: Devletin en büyük ve en garanti gelir kalemlerinden biri akaryakıt ÖTV'sidir. Devlet buradan milyarlarca lira gelir kaybeder. Bu açık, eninde sonunda başka vergilerle (Örn: MTV, KDV artışları) yine vatandaştan çıkarılır.",
+                "Kalkanın Kırılması: Uluslararası fiyatlar artmaya devam ederse, devletin indirebileceği ÖTV miktarı kalmaz (ÖTV sıfırlanır). Kalkan kırıldıktan sonra gelen tüm zamlar artık direkt pompaya yansır.",
+                "İndirimlerin Cebe Yansımaması: İşin en sinir bozucu kısmı burasıdır. Küresel piyasalarda petrol fiyatı düştüğünde, normalde benzinin ucuzlaması gerekir. Ancak Eşel Mobil devredeyken, devlet önce 'kaybettiği ÖTV'yi' yerine koymak için indirimi pompaya yansıtmaz. Sadece ÖTV'yi tekrar eski seviyesine yükseltir. Bu da vatandaşın 'Dünyada petrol düştü ama bizde benzin neden düşmüyor?' isyanına sebep olur."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "conclusion",
+          "title": "Sonuç: Eşel Mobil Bir Ağrı Kesicidir, Tedavi Değil",
+          "content": "Eşel Mobil sistemi, ağır bir hastalığa (yüksek enflasyon ve kur artışı) verilen son derece güçlü bir ağrı kesicidir. O an için acınızı dindirir, günlük hayatınıza devam etmenizi sağlar. Ancak altta yatan asıl ekonomik hastalıklar tedavi edilmezse, ağrı kesicinin etkisi geçtiğinde (ÖTV sıfırlandığında) acı çok daha şiddetli ve toplu bir şekilde hissedilir. Bir dahaki sefere haberlerde 'Eşel Mobil devrede' sözünü duyduğunuzda, devletin sizin için bir şok emici görevi üstlendiğini, ancak petrol ucuzladığında pompada indirim göremeyeceğinizi artık biliyorsunuz.",
+          "finalChecklist": [
+            "Zam geldiğinde ÖTV'nin düşerek fiyatı sabit tuttuğu anlaşıldı mı?",
+            "İndirim gelmesi gerektiğinde fiyatın düşmeyip, kaybedilen ÖTV'nin yerine konduğu kavrandı mı?",
+            "Sistemin devlete olan milyarlarca liralık vergi yükü idrak edildi mi?"
+          ]
+        }
+      ],
+      "urlId": 10037
+    },
+    {
+      "id": "guide_acemi_surucu_gercekler",
+      "title": "Ehliyet Kursunda Öğretilmeyen 8 Hayat Kurtaran Kural: Acemi Sürücülerin Acı Gerçekleri",
+      "description": "Ayna kontrolü ve paralel parkı herkes öğretir. Peki ya arkanızdan deli gibi selektör yapan magandalarla başa çıkmayı, kör noktada gizlenen tehlikeleri ve panik frenindeki kilitlenmeyi kim öğretecek? İşte trafiğin acımasız ama yazılı olmayan kuralları.",
+      "minutes": 12,
+      "difficulty": "Başlangıç",
+      "tags": [
+        "Sürüş",
+        "Acemi",
+        "Trafik",
+        "Güvenlik",
+        "Rehber",
+        "Tavsiye"
+      ],
+      "author": "OtoSöz Sürüş Eğitmeni",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "Ehliyeti Aldınız, Şimdi Gerçek Sınav Başlıyor",
+          "content": "Direksiyon sınavını ilk girişte geçmiş olabilirsiniz. Dubaların arasına kusursuzca park etmiş olabilirsiniz. Ancak yanınızda o güven verici eğitmeniniz olmadan tek başınıza trafiğe çıktığınız o ilk gün, yolda hiçbir şeyin kitapta yazdığı gibi olmadığını fark edeceksiniz. Türkiye trafiği, yazılı kurallardan çok 'yazılı olmayan kuralların' işlediği bir kurtlar sofrasıdır. Bu rehber, size araba kullanmayı değil, trafikte 'hayatta kalmayı ve ezilmemeyi' öğretecek."
+        },
+        {
+          "type": "section",
+          "title": "1. Selektör Terörü ve Panik Yönetimi",
+          "content": "Sol şerittesiniz (veya orta şeritte), hız sınırında gidiyorsunuz ve arkanızda beliren bir araç deli gibi selektör yapıyor, tamponunuza kadar giriyor.",
+          "subsections": [
+            {
+              "subtitle": "Asla Aniden Şerit Değiştirmeyin",
+              "text": "Acemi sürücülerin en çok yaptığı hata, arkadaki tacizci araçtan kurtulmak için paniğe kapılıp aynaya bile bakmadan sağa kırmaktır. Sağınızda kör noktanızda olan bir araca çarparsanız, arkadaki suçlu olmaz, siz olursunuz.",
+              "points": [
+                "Derin bir nefes alın. Arkanızdaki kişi acele ediyorsa, bu onun problemidir, sizin değil.",
+                "Hızınızı değiştirmeyin. Fren YAPMAYIN. Sağ şeridiniz tamamen boşalana kadar kendi şeridinizde sabit kalın.",
+                "Müsait olduğunuzda sinyalinizi verip yavaşça sağa geçin. Bırakın geçip gitsin, ego savaşına girmeyin."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "2. Haklı Olmak Kazayı Engellemez (Mezarlıklar Haklı Sürücülerle Dolu)",
+          "content": "Kavşaktasınız ve geçiş üstünlüğü kesinlikle sizde. Hızla geliyorsunuz çünkü 'haklısınız'. Yan yoldan bir araç fırladı...",
+          "subsections": [
+            {
+              "subtitle": "Defansif Sürüşün Altın Kuralı",
+              "text": "Trafikte 'O durmak zorunda, kural böyle' diye düşünmek en büyük ölümcül hatadır. Haklı olmak arabanızın ezilmesini veya sizin yaralanmanızı engellemez.",
+              "points": [
+                "Geçiş üstünlüğü sizde olsa bile, kavşağa yaklaşırken ayağınızı gazdan çekin ve frenin üzerine koyun (hazır bekleyin).",
+                "Karşıdaki aracın duracağından emin olmadan asla burnunuzu kavşağa sokmayın.",
+                "Trafikte herkesin o an mesajlaştığını, sarhoş olduğunu veya kural bilmediğini varsayarak sürün."
+              ]
+            }
+          ],
+          "warning": {
+            "title": "⚠️ Unutmayın",
+            "text": "Mahkemede %100 haklı çıkmak, aylarca sanayide parça bekleyeceğiniz veya hastanede yatacağınız gerçeğini değiştirmez."
+          }
+        },
+        {
+          "type": "section",
+          "title": "3. Bakmak ile Görmek Arasındaki İnce Çizgi: Kör Nokta",
+          "content": "Aynalarınız harika ayarlanmış olabilir. Aynaya baktınız, kimse yok, sola kırdınız ve bir anda acı bir korna sesi!",
+          "subsections": [
+            {
+              "subtitle": "Omuz Üstü Bakış (Shoulder Check)",
+              "text": "Otomobillerin B ve C sütunları, yan aynaların açısının dışında kalan devasa 'kör noktalar' yaratır. Bir motosiklet veya araba orada saklanıyor olabilir.",
+              "points": [
+                "Şerit değiştirmeden önce aynaya bakın, sonra mutlaka çenenizi omuzunuza doğru çevirip göz ucuyla camdan dışarı (kör noktaya) saniyelik bir bakış atın.",
+                "Bunu bir refleks haline getirin. Özellikle sağa dönüşlerde sağ kör noktada bisikletliler ve kuryeler çok sık bulunur."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "4. Fren Yapmayı Aslında Bilmiyorsunuz",
+          "content": "Birçok sürücü hayatı boyunca ABS'yi (Kilitlenmeyi Önleyici Fren Sistemi) devreye sokacak kadar sert fren yapmamıştır.",
+          "subsections": [
+            {
+              "subtitle": "Panik Freninde Titreyen Pedal",
+              "text": "Önünüze bir yaya atladığında fren pedalına tüm gücünüzle basarsınız. O an fren pedalı ayağınızın altında violently (şiddetle) titremeye ve kütür kütür sesler çıkarmaya başlar.",
+              "points": [
+                "Bu ses ve titreme ABS'nin çalıştığını gösterir, araba kırılmıyor! Sakın korkup ayağınızı frenden çekmeyin.",
+                "ABS devreye girdiğinde direksiyon hakimiyetiniz devam eder. Yani hem sonuna kadar frene basıp hem de engelin etrafından direksiyonla kaçabilirsiniz. (Bunu boş bir alanda 40km hızla giderken mutlaka pratik edin)."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "5. Yeşil Işık Tuzakları",
+          "content": "Işık kırmızıdan yeşile döndü. Kornalar hemen arkanızdan ötmeye başladı. Gaza basıp fırladınız.",
+          "subsections": [
+            {
+              "subtitle": "Sarayı Bekleyen Taksici Sendromu",
+              "text": "Yeşil ışık yandığı an hareket etmek yerine, 1-2 saniye beklemek hayat kurtarır.",
+              "points": [
+                "Diğer yönden sarı ışıkta 'yetişirim' diye hızlanarak gelen ve kırmızıda geçen ağır tonajlı bir kamyon veya sabırsız bir sürücü olabilir.",
+                "Yeşil yandığında sola ve sağa hızlıca bakın, kavşağın gerçekten boş olduğundan emin olun ve öyle kalkın. Arkanızdaki kişi 2 saniye beklediği için ölmez."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "conclusion",
+          "title": "Trafik Bir Savaş Değil, Bir Akıştır",
+          "content": "Yollarda herkesin bir acelesi, bir derdi veya bastırılmış bir öfkesi var. Acemi olarak göreviniz onlara ayak uydurmak veya onlarla yarışmak değil, kendi güvenli balonunuzun içinde A noktasından B noktasına tek parça halinde varmaktır. Zamanla tecrübe kazandıkça, bu kurallar sizin için nefes almak kadar doğal hale gelecek. O zamana kadar sağduyunuzu koruyun ve emniyet kemerinizi asla çıkarmayın.",
+          "finalChecklist": [
+            "Aynalar + Omuz Üstü Bakış rutini oturtuldu mu?",
+            "Arkadaki magandalara karşı sakinlik korunuyor mu?",
+            "Kavşaklarda geçiş üstünlüğüne güvenmek yerine defansif duruş sergileniyor mu?"
+          ]
+        }
+      ],
+      "urlId": 10036
+    },
+    {
+      "id": "guide_sanayi_ustalari_sirlar",
+      "title": "Sanayide Ustaların Gizlediği 7 Kritik Sır: Aracınızın Ömrünü (ve Cüzdanınızı) Nasıl Kurtarırsınız?",
+      "description": "Yetkili servislerin ve sanayi ustalarının genellikle size söylemediği, basit ama hayati önem taşıyan bakım sırları. Motor yağınızın gerçek ömründen, şanzıman kurtaran basit alışkanlıklara kadar detaylı hayatta kalma rehberi.",
+      "minutes": 10,
+      "difficulty": "Başlangıç/Orta",
+      "tags": [
+        "Bakım",
+        "Tasarruf",
+        "Sanayi",
+        "Tavsiye",
+        "Pratik Bilgi",
+        "Motor"
+      ],
+      "author": "OtoSöz Baş Usta",
+      "sections": [
+        {
+          "type": "intro",
+          "title": "Kimse Sizin Cebinizi Sizin Kadar Düşünmez",
+          "content": "Aracınızı servise her götürdüğünüzde değişen parçalar, kabaran faturalar ve bir türlü bitmeyen 'abi şu da değişse iyi olur' cümleleri... Otomobil endüstrisi, kullanıcıların bilgisizliğinden beslenen devasa bir çarktır. Peki bu çarkın dişlileri arasında ezilmemek için ne yapmalısınız? İşte ustaların bilmenizi pek de istemediği, arabanızın ömrünü iki katına çıkarırken cebinizi koruyacak altın değerinde sırlar."
+        },
+        {
+          "type": "section",
+          "title": "1. 10.000 KM Yalanı ve Yağın Gerçek Ömrü",
+          "content": "Pek çok servis, sentetik yağ kullansanız bile ısrarla 10.000 km'de bir bakıma gelmenizi ister.",
+          "subsections": [
+            {
+              "subtitle": "Kullanım Şartlarına Göre Yağ Değişimi",
+              "text": "Bugün tam sentetik yağlar kolaylıkla 15.000 ile 20.000 km arası dayanacak kapasitededir. Ancak burada asıl hile 'zaman' faktöründedir.",
+              "points": [
+                "Eğer sürekli uzun yol yapıyorsanız, tam sentetik bir yağ ile 15.000 km'yi rahatlıkla görebilirsiniz.",
+                "Ancak aracınız sürekli dur-kalk İstanbul trafiğindeyse, motor çalışma saati (rölanti) çok yüksek olduğu için kilometreniz az bile olsa yağınız çoktan özelliğini yitirmiş olabilir.",
+                "Ustaların söylemediği: Sadece kilometreye değil, kontak açık geçen süreye ve ortalama hıza bakın."
+              ]
+            }
+          ],
+          "tip": {
+            "title": "💡 Altın Kural",
+            "text": "Eğer göstergedeki ortalama hızınız 25 km/s altındaysa (yoğun trafik aracı), yağınızı 10.000 km olmadan (örneğin 8.000'de) değiştirin. Eğer 50 km/s üzerindeyse 15.000 km'yi güvenle bekleyebilirsiniz."
+          }
+        },
+        {
+          "type": "section",
+          "title": "2. Otomatik Şanzıman Katili: 'P' Vitesi Tuzağı",
+          "content": "Türkiye'deki otomatik vites arızalarının yarısından fazlası tamamen yanlış kullanım kaynaklıdır.",
+          "subsections": [
+            {
+              "subtitle": "Yokuşta Park Ederken Yapılan Ölümcül Hata",
+              "text": "Aracı yokuşta park ettiğinizde önce 'P' (Park) konumuna alıp sonra el frenini çekiyorsanız, aracın tüm ağırlığını şanzımanın içindeki serçe parmağı büyüklüğündeki 'Park Mandalı'na bindiriyorsunuz demektir.",
+              "points": [
+                "Doğru sıralama: Aracı durdurun > Vitesi 'N' (Boş) konumuna alın > El frenini çekin > Fren pedalından ayağınızı çekip aracın yükünü el frenine bindirin > Son olarak vitesi 'P' konumuna alın."
+              ]
+            }
+          ],
+          "warning": {
+            "title": "⚠️ Kritik Uyarı",
+            "text": "Aracı çalıştırıp vitesi 'P'den çıkarırken 'TAK' diye sert bir vuruntu sesi duyuyorsanız, şanzıman dişlilerinize ciddi zarar veriyorsunuz demektir. Bu alışkanlık 100.000 TL'lik şanzıman revizyonlarına yol açar."
+          }
+        },
+        {
+          "type": "section",
+          "title": "3. Klima Bakımında Sadece Gaz Basmak Yeterli Mi?",
+          "content": "Yaz aylarında klimanız soğutmuyorsa sanayideki ilk teşhis her zaman 'gazı bitmiş, gaz basalım' olur.",
+          "subsections": [
+            {
+              "subtitle": "Klima Gazı Kendi Kendine Bitmez",
+              "text": "Klima sistemi kapalı bir devredir. Eğer gaz bitmişse, bir yerde sızıntı var demektir. Sızıntıyı bulmadan sadece gaz basmak, delik bir kovaya su doldurmaktan farksızdır.",
+              "points": [
+                "Gaz basılmadan önce sisteme mutlaka azot veya renkli (fosforlu) boya basılarak kaçak testi yapılmalıdır.",
+                "Polen filtresini değiştirmek için servise tonla para vermeyin; pek çok modelde torpido gözünün arkasından 2 dakikada kendiniz değiştirebilirsiniz."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "4. Turboyu Sessizce Öldüren Sabırsızlık",
+          "content": "Turbolu (TSI, TCe, TDI, dCi vb.) araç sahiplerinin en büyük hatası motoru çalıştırır çalıştırmaz gaza yüklenmek ve varış noktasında aniden motoru kapatmaktır.",
+          "subsections": [
+            {
+              "subtitle": "Turbo Mili ve Yağlama Prensibi",
+              "text": "Turbo pervaneleri dakikada 150.000 - 200.000 devirle döner. Bu inanılmaz hıza dayanabilmelerinin tek sebebi yağ basıncıyla mil etrafında oluşturulan yağ filmidir.",
+              "points": [
+                "Sabah motoru çalıştırdığınızda yağın turboya ulaşması yaklaşık 30-40 saniye sürer. Hemen gaza basarsanız turbo yağsız döner ve aşınır.",
+                "Uzun yoldan veya sıkıştırmalı bir sürüşten sonra motoru hemen kapatırsanız, yağ akışı aniden kesilir ancak turbo devirli dönmeye devam eder. Bu durum turbo milini yakar."
+              ]
+            }
+          ],
+          "tip": {
+            "title": "💡 1 Dakika Kuralı",
+            "text": "Motoru çalıştırdığınızda yola çıkmadan önce en az 30 saniye bekleyin. Sürüşünüz bittiğinde motoru stop etmeden önce rölantide en az 45-60 saniye bekleyip turbonun yavaşlamasını ve soğumasını sağlayın."
+          }
+        },
+        {
+          "type": "conclusion",
+          "title": "Özetle: Bilgi En İyi Tasarruftur",
+          "content": "Arabanızın kullanım kılavuzunu okumak, kulaktan dolma sanayi efsanelerinden yüz kat daha değerlidir. Unutmayın; doğru kullanım alışkanlıkları, en iyi tamirciden bile daha etkilidir.",
+          "finalChecklist": [
+            "Park ederken önce N, sonra el freni, en son P kuralı uygulandı mı?",
+            "Motoru çalıştırırken ve kapatırken 1 dakika kuralına uyuluyor mu?",
+            "Yağ değişimi kilometreye değil, çalışma şartlarına göre yapılıyor mu?"
+          ]
+        }
+      ],
+      "urlId": 10035
+    },
+    {
       "id": "guide_ucan_araba_2050",
       "title": "Uçan Arabalar İçin İleri Uçuş-Sürüş Teknikleri: Atmosferik Savrulmayı Önleme Mega Rehberi (2050)",
       "description": "Anti-yerçekimi motoru arızaları, stratosferik türbülans anında hayatta kalma ve zihin-araç entegrasyonu (Mind-Drive) kopmalarında manuel uçuşa geçiş prosedürleri.",

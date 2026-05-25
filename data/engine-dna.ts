@@ -84,21 +84,39 @@ export const engineDNAData: VehicleEngineData[] = [
         name: "1.3 TCe 140 HP",
         fuelType: "Benzin",
         transmission: "EDC",
-        score: 88,
+        score: 92,
+        description: "B segmentinde bir araca göre 'ateşli hatchback' hissiyatı veren, 140 beygir gücü ve 260 Nm torkuyla öne çıkan oldukça seri bir motordur. Islak kavramalı (Wet-Clutch) 7 ileri EDC şanzımanla gelmesi, eski nesil kuru tip şanzımanlara göre daha dayanıklı olmasını sağlar. Doğru kullanıldığında şaşırtıcı derecede tutumludur ancak performansı zorlandığında yakıt tüketimi artar.",
+        pros: [
+          "Sınıfının çok üzerinde hızlanma ve esneklik (260 Nm tork)",
+          "Islak kavramalı 7 ileri EDC şanzımanın artan dayanıklılığı",
+          "Sakin kullanımda (şehir dışı 5-6L) ekonomik olabilmesi"
+        ],
+        cons: [
+          "Agresif ve şehir içi yoğun kullanımda yakıt tüketiminin (8-9L) artması",
+          "Zamanla termostat bloğunda oluşabilen soğutma sıvısı kaçakları",
+          "Dur-kalk trafikte veya 1-2 vites geçişlerinde hafif kararsızlık hissi"
+        ],
         chronicIssues: [
           {
-            title: "Kavrama ısınması (Şehir içi)",
+            title: "Termostat Bloğu Su Kaçağı",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "Genellikle 80.000 - 100.000 km bandında termostat gövdesinden soğutma sıvısı (antifriz) kaçağı yaşanabilmektedir. Düzenli sıvı kontrolü yapılmalı, eksiltme varsa gövde değiştirilmelidir.",
             severity: "medium",
-            reportCount: 9,
+            reportCount: 12,
           },
           {
-            title: "Yağ eksiltme",
+            title: "EDC Şanzıman Düşük Hız Kararsızlığı",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "Yoğun dur-kalk trafikte ve özellikle 1. ile 2. vites geçişlerinde sarsıntı veya kararsızlık yaşatabilir. Yazılım güncellemesi ve adaptasyon işlemi ile genellikle hafifletilir.",
+            severity: "low",
+            reportCount: 15,
+          },
+          {
+            title: "Devirdaim Pompası Aşınması",
+            description:
+              "Kullanım koşullarına ve kayış gerginliğine bağlı olarak bazı serilerde devirdaim pompası erken aşınma gösterebilir. Ağır bakımlarda mutlaka kontrol edilmelidir.",
             severity: "medium",
-            reportCount: 6,
+            reportCount: 8,
           },
         ],
       },
