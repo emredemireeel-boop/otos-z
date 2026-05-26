@@ -9,6 +9,7 @@ const tabSlugs = [
     { slug: 'makaleler', name: 'Makale', title: 'Otomotiv Makaleleri | OtoSöz Kütüphane', description: 'Otomotiv dünyasına dair detaylı makaleler, bakım rehberleri ve uzman önerileri.' },
     { slug: 'ilginc-bilgiler', name: 'İlginç', title: 'İlginç Otomotiv Bilgileri | OtoSöz', description: 'Otomobil dünyasından ilginç bilgiler, ipucları, kontrol listeleri.' },
     { slug: 'otomotiv-sozluk', name: 'Sözlük', title: 'Otomotiv Sözlüğü - Türkçe Araç Terimleri | OtoSöz', description: 'A\'dan Z\'ye tüm otomotiv terimlerinin Türkçe açıklamaları. ABS, ESP, Tramer, Ekspertiz ve daha fazlası.' },
+    { slug: 'trafik-isaretleri', name: 'Trafik İşaretleri', title: 'Türkiye Trafik İşaretleri ve Anlamları | OtoSöz', description: 'Tüm trafik tanzim, tehlike uyarı, bilgi ve park etme levhalarının resimleri ve detaylı açıklamaları.' },
     { slug: 'obd-ariza-kodlari', name: 'OBD', title: 'OBD Arıza Kodları Sorgulama | OtoSöz', description: 'P0, P1, P2 ve tüm OBD arıza kodlarının Türkçe açıklamaları, nedenleri ve çözüm önerileri.' },
     { slug: 'gosterge-isiklari', name: 'Göstergeler', title: 'Araç Gösterge Işıkları ve Anlamları | OtoSöz', description: 'Arabadaki tüm ikaz lambalarının anlamları: motor arıza, ABS, yağ basıncı, hararet ve daha fazlası.' },
     { slug: 'trafik-cezalari', name: 'Trafik Cezaları', title: '2026 Trafik Ceza Tablosu - Güncel Tutarlar | OtoSöz', description: '2026 yılı güncel trafik ceza tutarları, ehliyet ceza puanları, alkol sınırları ve araç men süreleri.' },

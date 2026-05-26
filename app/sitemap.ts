@@ -206,6 +206,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     }
 
+    // 4.5 Nasıl Yapılır Rehberleri
+    const nasilYapilirData = safeReadFile('nasil-yapilir.json');
+    if (nasilYapilirData && nasilYapilirData.categories) {
+        nasilYapilirData.categories.forEach((cat: any) => {
+            if (cat.guides) {
+                cat.guides.forEach((guide: any) => {
+                    sitemapEntries.push({
+                        url: `${BASE_URL}/nasil-yapilir/${guide.slug || createSlug(guide.title)}`,
+                        lastModified: new Date(),
+                        changeFrequency: 'monthly',
+                        priority: 0.7,
+                    });
+                });
+            }
+        });
+    }
+
     // 5. İlginç Bilgiler
     const interestingData = safeReadFile('interesting_information.json');
     if (interestingData && interestingData.interestingFacts) {

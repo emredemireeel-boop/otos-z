@@ -1,0 +1,704 @@
+{
+  "categories": [
+    {
+      "id": "acil-durum",
+      "name": "Acil Durum",
+      "icon": "alert-triangle",
+      "color": "#EF4444",
+      "gradient": [
+        "#EF4444",
+        "#DC2626"
+      ],
+      "guides": [
+        {
+          "id": "patlak-lastik-degistirme",
+          "title": "Patlak Lastik Nasıl Değiştirilir?",
+          "description": "Yolda lastik patladığında panik yapmayın. Bu adım adım rehberle 15 dakikada lastik değiştirebilirsiniz.",
+          "difficulty": "Orta",
+          "duration": "15-20 dk",
+          "tools": [
+            "Stepne (Yedek Lastik)",
+            "Kriko",
+            "Bijon Anahtarı",
+            "Reflektif Yelek",
+            "Üçgen Reflektör"
+          ],
+          "warning": "Aracı eğimli veya yumuşak zeminde kesinlikle krikoya kaldırmayın. Düz ve sert zemin seçin.",
+          "steps": [
+            {
+              "title": "Güvenli Yere Çekin",
+              "detail": "Dörtlü flaşörü açın. Aracı trafikten uzak, düz ve sert bir zemine (asfalt veya beton) çekin. Vitesi 1'e veya P'ye alıp el frenini çekin.",
+              "tip": "Otoyoldaysa en yakın cep noktasına veya banket dışına çekin."
+            },
+            {
+              "title": "Güvenlik Önlemleri",
+              "detail": "Reflektif yelekleri giyin. Üçgen reflektörü aracın 30 metre (otoyolda 150 metre) arkasına koyun. Tüm yolcuları araçtan indirip bariyerin arkasına alın.",
+              "tip": "Gece görüş mesafesi düşüktür, reflektörü daha uzağa koyun."
+            },
+            {
+              "title": "Malzemeleri Çıkarın",
+              "detail": "Bagajdan stepneyi, krikoyu ve bijon anahtarını çıkarın. Krikonun düzgün çalıştığını kontrol edin.",
+              "tip": "Stepnenin havasının dolu olduğundan emin olun (yılda 1 kez kontrol edin)."
+            },
+            {
+              "title": "Bijon Somunlarını Gevşetin",
+              "detail": "Aracı krikoya kaldırmadan ÖNCE bijon somunlarını bijon anahtarıyla saat yönünün tersine çevirerek sadece gevşetin. Tamamen çıkarmayın!",
+              "tip": "Somunlar çok sıkıysa anahtarın ucuna ayağınızla basarak gevşetebilirsiniz."
+            },
+            {
+              "title": "Aracı Krikoya Kaldırın",
+              "detail": "Krikoyu aracınızın kapı eşiğindeki kriko noktasına (kullanım kılavuzunda gösterilir) yerleştirin. Lastik yerden 2-3 cm havaya kalkana kadar kaldırın.",
+              "tip": "Krikoyu asla arabanın altına uzanmak için kullanmayın!"
+            },
+            {
+              "title": "Patlak Lastiği Çıkarın",
+              "detail": "Bijon somunlarını tamamen sökerek güvenli bir yere koyun. Patlak lastiği janttan çekerek çıkarın ve aracın altına yatırın (ek güvenlik için).",
+              "tip": "Somunları kaybetmemek için araba kapağını ters çevirip içine koyun."
+            },
+            {
+              "title": "Stepneyi Takın",
+              "detail": "Stepneyi jant deliklerine hizalayarak yerleştirin. Bijon somunlarını elle sıkıyabildiğiniz kadar çapraz sırayla (karşılıklı) sıkın.",
+              "tip": "Çapraz sıkım: Saat 12 → Saat 6 → Saat 3 → Saat 9 şeklinde ilerleyin."
+            },
+            {
+              "title": "Aracı İndirin ve Son Sıkım",
+              "detail": "Krikoyu yavaşça indirin. Lastik yere değince bijon somunlarını bijon anahtarıyla tam güçle, yine çapraz sırayla son kez sıkın.",
+              "tip": "50 km sonra somunların sıkılığını tekrar kontrol edin."
+            },
+            {
+              "title": "Stepne Uyarıları",
+              "detail": "Stepne ile 80 km/s'yi geçmeyin. En kısa sürede tam ebat lastik taktırın. Stepne maksimum 70-100 km için tasarlanmıştır.",
+              "tip": "Bazı araçlarda stepne yerine tamir kiti bulunur, kullanım kılavuzunu kontrol edin."
+            }
+          ],
+          "slug": "patlak-lastik-nasil-degistirilir"
+        },
+        {
+          "id": "aku-takviye-vurdurma",
+          "title": "Akü Takviyesi (Araç Vurdurma) Nasıl Yapılır?",
+          "description": "Arabanız çalışmıyorsa ve akü bitmiş olabilir. Takviye kablosuyla başka bir araçtan nasıl enerji alacağınızı öğrenin.",
+          "difficulty": "Kolay",
+          "duration": "10-15 dk",
+          "tools": [
+            "Takviye Kablosu (en az 16mm²)",
+            "Çalışan bir araç"
+          ],
+          "warning": "Kabloları kesinlikle yanlış kutuplara bağlamayın! Akülerin üzerindeki + ve − işaretlerini mutlaka kontrol edin.",
+          "steps": [
+            {
+              "title": "Araçları Konumlandırın",
+              "detail": "Çalışan aracı, bozuk aracın önüne veya yanına getirin. Araçlar birbirine değmemeli. Her iki aracın da kontağını kapatın ve vitesi boşa / P'ye alın.",
+              "tip": "Kabloların her iki akküye de rahatça ulaşabileceğinden emin olun."
+            },
+            {
+              "title": "Kırmızı Kabloyu Bağlayın (+)",
+              "detail": "Kırmızı kablonun bir ucunu bozuk aracın aküsünün (+) kutbuna sıkıca bağlayın. Diğer ucunu çalışan aracın aküsünün (+) kutbuna bağlayın.",
+              "tip": "Önce her zaman (+) kırmızı kablo bağlanır."
+            },
+            {
+              "title": "Siyah Kabloyu Bağlayın (−)",
+              "detail": "Siyah kablonun bir ucunu çalışan aracın aküsünün (−) kutbuna bağlayın. Diğer ucunu bozuk aracın motor bloğundaki boyasız metal bir noktaya (toprak noktası) bağlayın.",
+              "tip": "Siyah kabloyu bozuk aracın akü (−) kutbuna DEĞİL, motor bloğuna bağlayın. Kıvılcım oluşumunu önler."
+            },
+            {
+              "title": "Çalışan Aracı Çalıştırın",
+              "detail": "Çalışan aracın motorunu çalıştırın ve 2-3 dakika rölantide bekletin. Biraz gaza basarak şarjı artırabilirsiniz.",
+              "tip": "Motor devri 1500-2000 RPM arasında olursa şarj daha hızlı olur."
+            },
+            {
+              "title": "Bozuk Aracı Çalıştırın",
+              "detail": "Bozuk aracın kontağını açıp motoru çalıştırmayı deneyin. İlk denemede çalışmazsa 30 saniye bekleyip tekrar deneyin (marşı 10 saniyeden fazla çevirmeyin).",
+              "tip": "3 denemede çalışmazsa sorun akü değil, marş motoru veya yakıt sistemi olabilir."
+            },
+            {
+              "title": "Kabloları Sökmek",
+              "detail": "Motor çalıştıktan sonra kabloları ters sırayla çıkarın: Önce siyah (−) kabloyu bozuk araçtan, sonra siyah kabloyu çalışan araçtan, sonra kırmızı (+) kabloyu çalışan araçtan, en son kırmızı kabloyu bozuk araçtan çıkarın.",
+              "tip": "Sırayı karıştırmamak için: 'Son bağlanan → İlk çıkar' kuralını uygulayın."
+            },
+            {
+              "title": "Aracı Şarj Edin",
+              "detail": "Takviye yapılan aracı en az 20-30 dakika motor çalışır durumda bırakın veya bir süre sürün. Bu sürede alternatör aküyü şarj edecektir.",
+              "tip": "Akü 3 yaşından büyükse veya sık takviye gerekiyorsa yenisiyle değiştirin."
+            }
+          ],
+          "slug": "aku-takviyesi-arac-vurdurma-nasil-yapilir"
+        },
+        {
+          "id": "motor-isiniyor-hararet",
+          "title": "Motor Hararet Yapınca Ne Yapılır?",
+          "description": "Göstergede hararet lambası yandığında doğru müdahale hayati önem taşır. Yanlış yaparsanız motor bloğu çatlayabilir.",
+          "difficulty": "Kritik",
+          "duration": "Acil müdahale",
+          "tools": [
+            "Antifriz (soğutma sıvısı)",
+            "Temiz su",
+            "Bez veya havlu"
+          ],
+          "warning": "Motor aşırı ısınmışken kesinlikle radyatör kapağını açmayın! Kaynar buhar ciddi yanıklara neden olur.",
+          "steps": [
+            {
+              "title": "Klimayı Kapatın, Kalorifer Açın",
+              "detail": "Klimayı kapatarak motor yükünü azaltın. Kaloriferinizi açın ve fan hızını son kademeye getirin. Bu şekilde motor ısısının bir kısmı kabine aktarılır.",
+              "tip": "Evet, kalorifer aslında aracın 'ikinci radyatörü' gibi çalışır."
+            },
+            {
+              "title": "Güvenli Bir Yere Çekin",
+              "detail": "En kısa sürede güvenli bir yere çekin. Motoru kapatmayın, rölantide birkaç dakika bekletin (aniden kapatmak ısı şokuna neden olabilir). Gösterge düşmezse motoru kapatın.",
+              "tip": "Trafikte kaldıysanız aracı boşa alıp biraz gaza basarak fan ve su pompasını çalıştırın."
+            },
+            {
+              "title": "Motor Soğumasını Bekleyin",
+              "detail": "Motor tamamen soğuyana kadar (en az 30-45 dakika) kaputu açmayın. Kaputu sadece yarım açık bırakarak hava sirkülasyonunu artırabilirsiniz.",
+              "tip": "Kaputa elinizi değdirin, yakamıyorsanız açabilirsiniz."
+            },
+            {
+              "title": "Soğutma Sıvısını Kontrol Edin",
+              "detail": "Motor soğuduktan sonra genleşme kabını kontrol edin. MIN çizgisinin altındaysa kapağını yavaşça (bez yardımıyla) açın ve antifrizli su ekleyin.",
+              "tip": "Acil durumda saf su da kullanılabilir, ancak en kısa sürede antifriz yaptırın."
+            },
+            {
+              "title": "Kaçak Kontrolü",
+              "detail": "Aracın altına ve motor bölmesine bakın. Yeşilimsi veya pembe sıvı sızıntısı varsa radyatör hortumu veya su pompası kaçırıyor olabilir.",
+              "tip": "Sızıntı varsa aracı çalıştırıp sürmeyin, çekici çağırın."
+            },
+            {
+              "title": "Servise Gidin veya Çekici Çağırın",
+              "detail": "Soğutma sıvısı eksikliği giderilse bile en kısa sürede servise gidin. Termostat arızası, su pompası, fan motoru veya conta sorunları olabilir.",
+              "tip": "İşi hafife almayın: Motor bloğu çatlarsa onarım maliyeti aracın değerini geçebilir."
+            }
+          ],
+          "slug": "motor-hararet-yapinca-ne-yapilir"
+        },
+        {
+          "id": "fren-patlamasi",
+          "title": "Seyir Halinde Fren Patlarsa (Tutmazsa) Ne Yapılır?",
+          "description": "Araç kullanırken başınıza gelebilecek en korkutucu senaryolardan biri. Panik yapmadan aracı nasıl durduracağınızı adım adım öğrenin.",
+          "difficulty": "Kritik",
+          "duration": "Saniyeler içinde",
+          "tools": [
+            "Soğukkanlılık",
+            "El Freni",
+            "Vites"
+          ],
+          "warning": "Kontağı KESİNLİKLE KAPATMAYIN! Direksiyon kilitlenir ve hiçbir manevra yapamazsınız.",
+          "steps": [
+            {
+              "title": "Panik Yapmayın ve Dörtlüleri Yakın",
+              "detail": "Derin bir nefes alın. Dörtlü flaşörleri yakıp kornaya basarak etraftaki sürücüleri tehlikeye karşı uyarın.",
+              "tip": "Fren pedalının altına paspas vb. bir şeyin sıkışmadığından emin olmak için ayak ucuyla hızlıca kontrol edin."
+            },
+            {
+              "title": "Freni Pompalamayı Deneyin",
+              "detail": "Fren hidroliğinde basınç kaybı varsa, frene hızlı hızlı ve sertçe arka arkaya basın (pompalayın). Bu, sistemdeki kalan az miktarda basıncı devreye sokup frenlerin kısmen tutmasını sağlayabilir.",
+              "tip": "Araçta ABS varsa normalde pompalamak önerilmez, ancak fren hiç tutmuyorsa basınç yaratmak için denemelisiniz."
+            },
+            {
+              "title": "Motor Freni (Vites Küçültme)",
+              "detail": "Hemen vitesi küçülterek motor kompresörünün aracı yavaşlatmasını sağlayın. Manuel vitesteyseniz sırayla (5->4->3->2) küçültün. Otomatik vitesliyseniz manuel moda (M/-) veya (L) konumuna alıp vites düşürün.",
+              "tip": "Bir anda 5. vitesten 1. vitese atmayın! Motor çok yüksek devire çıkıp kilitlenirse aracın kontrolünü kaybedersiniz."
+            },
+            {
+              "title": "El Frenini Kademeli Çekin",
+              "detail": "Hızınız 40-50 km/s civarına düştüğünde el frenini devreye sokun. ANCAK el frenini aniden sonuna kadar ÇEKMEYİN, arka tekerler kilitlenip araç spin atabilir. Mandalına basılı tutarak yavaş yavaş, hafifçe çekerek sürtünme yaratın.",
+              "tip": "Elektronik (düğmeli) el freniniz varsa, düğmeyi yukarı doğru uzun süre basılı tutun; modern sistemler otomatik olarak güvenli acil frenleme yapacaktır."
+            },
+            {
+              "title": "Zikzak (Slalom) Yaparak Sürtünmeyi Artırın",
+              "detail": "Eğer yol uygunsa, şerit içinde direksiyonu yumuşak hareketlerle sağa sola çevirerek zikzak çizin. Lastiklerin yola sürtünmesi aracın hızını doğal yollarla kesecektir.",
+              "tip": "Bu manevrayı sadece hızınız düştüğünde (60 km/s altında) yapın."
+            },
+            {
+              "title": "Son Çare: Yanal Çarpışma",
+              "detail": "Hiçbir şey işe yaramadıysa ve önünüzde tehlike (uçurum, yaya vb.) varsa, aracın yan tarafını bariyerlere, tepeye veya çalılıklara hafifçe sürterek hızı kesin.",
+              "tip": "Kesinlikle sert ve dik açılı objelere (duvar, ağaç, araç arkası) doğrudan çarpmayın. Sıyırarak sürtünmeyi tercih edin."
+            }
+          ],
+          "slug": "seyir-halinde-fren-patlarsa-tutmazsa-ne-yapilir"
+        },
+        {
+          "id": "arac-yangini",
+          "title": "Seyir Halinde Araçta Yangın Çıkarsa Ne Yapılmalı?",
+          "description": "Kaputtan duman veya alev gelmesi durumunda hayatta kalmak ve aracı kurtarmak için yapılması gereken hayati adımlar.",
+          "difficulty": "Kritik",
+          "duration": "Acil müdahale",
+          "tools": [
+            "Yangın Söndürücü (1-2 kg)",
+            "Reflektif Yelek",
+            "112 Acil"
+          ],
+          "warning": "KAPUTU ASLA TAMAMEN AÇMAYIN! Kaputu tamamen açarsanız içeri giren temiz hava (oksijen) ateşi bir anda parlatarak yüzünüze doğru patlatır (Backdraft etkisi).",
+          "steps": [
+            {
+              "title": "Güvenli Şekilde Durun ve Motoru Kapatın",
+              "detail": "Yanık kablo, benzin kokusu alırsanız veya duman görürseniz anında sağa çekin. Dörtlüleri yakın, kontağı tamamen kapatıp anahtarı üzerinde bırakın (direksiyon kilitlenmesin diye).",
+              "tip": "Aracı asla benzin istasyonu, kuru otluk veya diğer araçların dibine park etmeyin."
+            },
+            {
+              "title": "Aracı Hemen Tahliye Edin",
+              "detail": "Tüm yolcuları hızla araçtan indirin ve aracın en az 30-40 metre uzağına, rüzgarı arkanıza alacak şekilde (duman üzerinize gelmesin diye) güvenli bir noktaya götürün.",
+              "tip": "Bagajdaki veya torpidodaki değerli eşyaları kurtarmaya çalışarak vakit kaybetmeyin, 10 saniye bile çok kritiktir."
+            },
+            {
+              "title": "İtfaiyeyi Arayın (112)",
+              "detail": "Yangına müdahale etmeden ÖNCE mutlaka 112'yi arayarak araç yangını ihbarı verin ve tam konumunuzu bildirin.",
+              "tip": "Otoyollardaysanız hangi yönde olduğunuzu (örn: Ankara'dan İstanbul'a gidiş yönü) mutlaka belirtin."
+            },
+            {
+              "title": "Yangın Söndürücüyü Hazırlayın",
+              "detail": "Bagajdaki veya koltuk altındaki Kuru Kimyevi Toz (KKT) yangın söndürücüyü alın. Pimini çekip hortumunu ateşe doğru yönlendirmeye hazır olun.",
+              "tip": "Araçlarda en az 1 kg (tercihen 2 kg) ABC sınıfı söndürücü bulundurmak yasal zorunluluktur."
+            },
+            {
+              "title": "Kaputu SADECE Aralık Bırakın",
+              "detail": "Kaput açma kolunu çekerek kaputu sadece 5-10 cm kadar (ilk tıkında) aralayın. Yangın söndürücünün ucunu bu aralıktan içeri sokun.",
+              "tip": "Kaput aşırı sıcak olabilir, elinizi yakmamak için bir bez veya eldiven kullanın."
+            },
+            {
+              "title": "Ateşin Köküne Doğru Sıkın",
+              "detail": "Söndürücüyü dumanın/alevlerin üstüne değil, ateşin kaynağına (köküne) doğru sağa sola gezdirerek süpürme hareketiyle sıkın.",
+              "tip": "1 kg'lık bir söndürücü aralıksız basarsanız ortalama 8-12 saniyede biter. Kısa ve kesik atışlar yapın."
+            },
+            {
+              "title": "Su Kesinlikle Kullanmayın",
+              "detail": "Alevler sönse bile yangın yeniden başlayabilir. İtfaiye gelene kadar bekleyin. Asla motora su dökmeyin!",
+              "tip": "Akaryakıt ve elektrik donanımı yangınlarında su dökmek, yanan benzinin yayılmasına veya çarpılmaya neden olur."
+            }
+          ],
+          "slug": "seyir-halinde-aracta-yangin-cikarsa-ne-yapilmali"
+        }
+      ]
+    },
+    {
+      "id": "bakim-onarim",
+      "name": "Bakım & Onarım",
+      "icon": "wrench",
+      "color": "#3B82F6",
+      "gradient": [
+        "#3B82F6",
+        "#1D4ED8"
+      ],
+      "guides": [
+        {
+          "id": "cam-suyu-nasil-eklenir",
+          "title": "Cam Suyu Nasıl Eklenir?",
+          "description": "Cam suyu bittiğinde değiştirmek en kolay araç bakımıdır. Hiçbir alet gerektirmez!",
+          "difficulty": "Kolay",
+          "duration": "2-3 dk",
+          "tools": [
+            "Cam suyu (hazır veya konsantre)",
+            "Huni (opsiyonel)"
+          ],
+          "warning": "Cam suyu yerine çeşme suyu kullanmayın. Kış aylarında donar ve haznesi çatlayabilir.",
+          "steps": [
+            {
+              "title": "Kaputu Açın",
+              "detail": "Aracın kaputunu açın. Kapağı destekle sabitleyin.",
+              "tip": "Kaput açma kolu genellikle sürücü tarafı alt panelindedir."
+            },
+            {
+              "title": "Cam Suyu Haznesini Bulun",
+              "detail": "Genellikle mavi veya sarı kapaklı, ön cam silecek simgeli haznedir. Motor bölmesinin sağ veya sol köşesinde bulunur.",
+              "tip": "Kapağın üzerindeki fıskiye simgesi sizi doğru hazneye yönlendirir."
+            },
+            {
+              "title": "Cam Suyunu Doldurun",
+              "detail": "Kapağı açın ve cam suyunu MAX çizgisine kadar doldurun. Dökülmesini önlemek için huni kullanabilirsiniz.",
+              "tip": "Kış aylarında -25°C'ye kadar dayanıklı cam suyu tercih edin."
+            },
+            {
+              "title": "Kapağı Kapatın ve Test Edin",
+              "detail": "Kapağı sıkıca kapatın, kaputu indirin. Motoru çalıştırıp cam silecek kolunu çekin ve fıskiyeyi test edin.",
+              "tip": "Su gelene kadar birkaç saniye beklemeniz gerekebilir (hortumlar boşsa)."
+            }
+          ],
+          "slug": "cam-suyu-nasil-eklenir"
+        },
+        {
+          "id": "lastik-havasi-kontrolu",
+          "title": "Lastik Basıncı Nasıl Kontrol Edilir?",
+          "description": "Doğru lastik basıncı hem güvenliğinizi hem de yakıt tasarrufunuzu doğrudan etkiler.",
+          "difficulty": "Kolay",
+          "duration": "5-10 dk",
+          "tools": [
+            "Lastik basınç ölçer (manometre)",
+            "Hava kompresörü veya benzin istasyonu"
+          ],
+          "warning": "Lastik basıncını mutlaka soğuk lastikle ölçün (en az 30 dk sürmemiş araç).",
+          "steps": [
+            {
+              "title": "Doğru Basınç Değerini Öğrenin",
+              "detail": "Sürücü kapısı eşiğindeki etikette veya araç kullanım kılavuzunda önerilen basınç değerini bulun. Genellikle ön ve arka tekerlekler için farklı değerler vardır (örn: Ön 2.3 bar, Arka 2.1 bar).",
+              "tip": "Lastik yan duvarındaki değer MAKSİMUM basınçtır, ÖNERİLEN değil!"
+            },
+            {
+              "title": "Sibop Kapağını Çıkarın",
+              "detail": "Lastiğin sibop (hava valfi) kapağını saat yönünün tersine çevirerek çıkarın ve güvenli bir yere koyun.",
+              "tip": "Sibop kapakları küçüktür, kaybetmemeye dikkat edin."
+            },
+            {
+              "title": "Basıncı Ölçün",
+              "detail": "Basınç ölçeri sibopa sıkıca bastırın. Hışırtı sesi duymamalısınız; duyuyorsanız daha sıkı bastırın. Ekrandaki değeri okuyun.",
+              "tip": "Dijital manometreler daha hassas sonuç verir."
+            },
+            {
+              "title": "Hava Ekleyin veya Boşaltın",
+              "detail": "Basınç düşükse kompresörle belirlenen değere kadar hava ekleyin. Fazlaysa sibop ortasındaki pime ince bir cisimle basarak hava boşaltın.",
+              "tip": "Her 1 ay ve uzun yola çıkmadan önce lastik basıncını kontrol edin."
+            },
+            {
+              "title": "Stepneyi de Kontrol Edin",
+              "detail": "Stepne lastiği de aynı şekilde kontrol edilmeli. Genellikle 4.2 bar civarında bir basınç önerilir.",
+              "tip": "Kullanılmayan stepne yıllar içinde hava kaybeder, 6 ayda bir kontrol edin."
+            }
+          ],
+          "slug": "lastik-basinci-nasil-kontrol-edilir"
+        },
+        {
+          "id": "motor-yagi-kontrol",
+          "title": "Motor Yağı Seviyesi Nasıl Kontrol Edilir?",
+          "description": "Motor yağı aracınızın kalbidir. Yetersiz yağ motor hasarına neden olur. Kontrolü çok kolaydır.",
+          "difficulty": "Kolay",
+          "duration": "3-5 dk",
+          "tools": [
+            "Temiz bez veya kağıt havlu"
+          ],
+          "warning": "Sıcak motor üzerinde çalışmayın. Motoru kapatıp en az 5 dakika bekleyin.",
+          "steps": [
+            {
+              "title": "Aracı Düz Zemine Park Edin",
+              "detail": "Aracı düz bir zemine park edin ve motoru kapatın. En az 5 dakika bekleyerek yağın kartere dönmesini sağlayın.",
+              "tip": "Eğimli zeminde yağ çubuğu yanlış seviye gösterir."
+            },
+            {
+              "title": "Kaputu Açın ve Çubuğu Bulun",
+              "detail": "Kaputu açın. Yağ seviye çubuğu (dipstick) genellikle sarı veya turuncu halkalı bir kulpdur.",
+              "tip": "Çubuk motor bloğunun yan tarafında, genellikle kolay görülebilir yerdedir."
+            },
+            {
+              "title": "Çubuğu Çıkarıp Silin",
+              "detail": "Çubuğu çekerek çıkarın ve temiz bir bezle silin. Bu ilk ölçüm için referans yüzeyini temizler.",
+              "tip": "İlk çıkardığınızda gördüğünüz seviye doğru değildir, mutlaka silin."
+            },
+            {
+              "title": "Tekrar Daldırıp Ölçün",
+              "detail": "Temizlenen çubuğu tekrar yerine tam olarak itin. 2-3 saniye bekleyip tekrar çıkarın. Yağ seviyesi MIN ve MAX çizgileri arasında olmalıdır.",
+              "tip": "MAX'ın yarısının üstündeyse idealdir. MIN'e yakınsa acilen yağ ekleyin."
+            },
+            {
+              "title": "Yağ Rengini Kontrol Edin",
+              "detail": "Sağlıklı yağ bal rengi - açık kahverengidir. Siyah ve parçacıklı ise yağ değişim zamanı gelmiş demektir. Süt rengi (beyazımsı) ise motor suyu karışmış olabilir — derhal servise gidin!",
+              "tip": "Yağ kokusunun yanık olup olmadığını da kontrol edin."
+            }
+          ],
+          "slug": "motor-yagi-seviyesi-nasil-kontrol-edilir"
+        }
+      ]
+    },
+    {
+      "id": "guvenlik-surus",
+      "name": "Güvenlik & Sürüş",
+      "icon": "shield",
+      "color": "#10B981",
+      "gradient": [
+        "#10B981",
+        "#059669"
+      ],
+      "guides": [
+        {
+          "id": "kis-surusi-teknikleri",
+          "title": "Kış Sürüşü ve Buzlu Yolda Ne Yapılır?",
+          "description": "Buzlu, karlı ve sisli yollarda güvenli sürüş için bilinmesi gereken kritik teknikler.",
+          "difficulty": "Zor",
+          "duration": "Bilgi rehberi",
+          "tools": [
+            "Kış lastiği (zorunlu)",
+            "Zincir",
+            "Buz kazıyıcı"
+          ],
+          "warning": "ABS fren sistemi buzda frenleme mesafesini kısaltmaz, sadece direksiyon kontrolünü korur.",
+          "steps": [
+            {
+              "title": "Kış Lastiği Şart",
+              "detail": "1 Aralık - 1 Nisan arası kış lastiği yasal zorunluluktur. M+S veya 3PMSF (3 dağ kar tanesi) işaretli olmalıdır. Diş derinliği minimum 4mm olmalıdır.",
+              "tip": "Kış lastiği 7°C'nin altında yaz lastiğinden %30 daha kısa fren mesafesi sağlar."
+            },
+            {
+              "title": "Yumuşak ve Sakin Kullanın",
+              "detail": "Ani gaz, ani fren ve ani direksiyon hareketlerinden kaçının. Tüm hareketleriniz yumuşak ve kademeli olsun. Virajlara yavaş girin.",
+              "tip": "Kışın araç kullanmanın altın kuralı: 'Her şeyi yaz aylarına göre %50 daha yavaş yapın.'"
+            },
+            {
+              "title": "Takip Mesafesini Artırın",
+              "detail": "Normal koşullarda 3 saniyelik olan takip mesafesini, kışın en az 6-8 saniyeye çıkarın. Buzlu yolda frenleme mesafesi 10 kata kadar uzayabilir.",
+              "tip": "Bir sabit cismi (direk, ağaç) karşı araç geçtikten sonra saymaya başlayın."
+            },
+            {
+              "title": "Buzda Kayma (Drift) Kontrolü",
+              "detail": "Arka tekerlekler kayarsa: Kayma yönüne hafifçe direksiyon çevirin, gazı ve freni bırakın. Ön tekerlekler kayarsa: Direksiyonu biraz düzeltin ve hafifçe gaz kesin.",
+              "tip": "ABS varsa frene tam basıp direksiyonu çevirebilirsiniz. ABS yoksa pompaj freni uygulayın."
+            },
+            {
+              "title": "Sis Farı Kullanımı",
+              "detail": "Yoğun sis ve kar yağışında sis farlarını açın. Sis farı yoksa kısa far kullanın. Uzun far kullanmayın — ışık kar/sis taneciklerinden yansıyarak görüşü daha da bozar.",
+              "tip": "Sis çok yoğunsa 20 km/s altında sürün ve sağ şeridi takip edin."
+            },
+            {
+              "title": "Yokuş İnme/Çıkma",
+              "detail": "Yokuşta düşük vitesle inin (2. veya 3. vites). Yokuş çıkışında patinaj yapmamak için 2. viteste sakin kalkın. El freni yardımıyla kalkış yapabilirsiniz.",
+              "tip": "Otomatik viteste yokuş inişte manuel moda geçip 2. veya L konumunu kullanın."
+            }
+          ],
+          "slug": "kis-surusu-ve-buzlu-yolda-ne-yapilir"
+        },
+        {
+          "id": "uzun-yol-hazirligi",
+          "title": "Uzun Yola Çıkmadan Önce Kontrol Listesi",
+          "description": "500+ km yola çıkmadan önce yapmanız gereken tüm kontroller. Hem güvenliğiniz hem de konforunuz için.",
+          "difficulty": "Kolay",
+          "duration": "30-45 dk",
+          "tools": [
+            "Lastik basınç ölçer",
+            "Temiz bez"
+          ],
+          "warning": "Yorgun ve uykusuz araç kullanmayın. Her 2 saatte 15 dakika mola verin.",
+          "steps": [
+            {
+              "title": "Lastik Kontrolü",
+              "detail": "Tüm lastiklerin basınçlarını kontrol edin (soğuk lastikle). Diş derinliklerini kontrol edin (minimum 1.6mm, ideal 3mm+). Yanakları çatlak ve şişlik açısından inceleyin. Stepneyi de kontrol edin!",
+              "tip": "1 TL'lik bozuk parayı lastik dişine yerleştirin, yazı tamamen kapanmıyorsa lastik değişim zamanı."
+            },
+            {
+              "title": "Sıvı Seviyeleri",
+              "detail": "Motor yağı, soğutma sıvısı, fren hidroliği, cam suyu ve direksiyon hidroliği (varsa) seviyelerini kontrol edin. Hepsi MIN-MAX arasında olmalıdır.",
+              "tip": "Sıvıları eklerken farklı markaları karıştırmamaya çalışın."
+            },
+            {
+              "title": "Aydınlatma Kontrolü",
+              "detail": "Kısa far, uzun far, sinyal, sis, fren lambası, geri vites lambası ve plaka aydınlatmasının hepsini test edin.",
+              "tip": "Birinden yardım isteyin veya aracı camlı bir mağazanın önüne park edip yansımadan kontrol edin."
+            },
+            {
+              "title": "Fren Kontrolü",
+              "detail": "Aracı çalıştırıp düz yolda fren test edin. Titreşim, ses veya çekme hissediyorsanız servise gidin. Fren pedalının sertliğini kontrol edin.",
+              "tip": "Pedal yumuşak ve dibe gidiyorsa fren hidroliği kaçırıyor olabilir."
+            },
+            {
+              "title": "Acil Durum Çantası",
+              "detail": "İlk yardım çantası, reflektif yelek (2 adet), üçgen reflektör, yangın söndürücü, takviye kablosu, el feneri, şarj kablosu ve kaza tespit tutanağını araca koyun.",
+              "tip": "Uzun yolda yanınızda 2L içme suyu ve atıştırmalık bulundurun."
+            },
+            {
+              "title": "Navigasyon ve Yol Planlama",
+              "detail": "Rotanızı önceden planlayın. Alternatif güzergahları işaretleyin. Mola noktalarını belirleyin. Telefonunuzu tam şarj edin veya araç şarj kablosu alın.",
+              "tip": "Google Maps'te rotayı çevrimdışı indirin — kapsama alanı olmayan bölgelerde işe yarar."
+            }
+          ],
+          "slug": "uzun-yola-cikmadan-once-kontrol-listesi"
+        },
+        {
+          "id": "otomatik-vites-kullanimi",
+          "title": "Otomatik Vites Kullanım Rehberi (Acemiler İçin)",
+          "description": "Hayatında ilk kez otomatik vites bir araba kullanacaklar için P, R, N, D harflerinin anlamları ve doğru park etme tekniği.",
+          "difficulty": "Kolay",
+          "duration": "5 dk (Okuma)",
+          "tools": [
+            "Otomatik vitesli araç"
+          ],
+          "warning": "Sol ayağınızı ASLA kullanmayın! Sol ayağınızı ayak dayama yerine sabitleyin. Fren ve gaza sadece sağ ayağınızla basın.",
+          "steps": [
+            {
+              "title": "Harflerin Anlamı (P, R, N, D)",
+              "detail": "P (Park): Araç park halindeyken. R (Reverse): Geri vites. N (Neutral): Boş vites. D (Drive): İleri sürüş vitesi.",
+              "tip": "Bazı araçlarda S (Sport) veya L/B (Düşük vites/Motor freni) seçenekleri de bulunur."
+            },
+            {
+              "title": "Aracı Çalıştırma",
+              "detail": "Vitesin P (Park) veya N (Boş) konumunda olduğundan emin olun. Sağ ayağınızla frene tam basın ve kontak anahtarını çevirin (veya Start düğmesine basın).",
+              "tip": "Frene basmadan çoğu otomatik vitesli araç çalışmaz."
+            },
+            {
+              "title": "Harekete Geçme",
+              "detail": "Ayağınız hala frendeyken, vites kolundaki mandala (varsa) basarak vitesi D (İleri) konumuna alın. El frenini indirin. Ayağınızı yavaşça frenden çektiğinizde araç kendiliğinden yavaşça hareket etmeye başlar (buna 'creep' denir).",
+              "tip": "Gaza basmadan önce sadece frenden ayağınızı çekerek aracı park yerinden çıkarabilirsiniz."
+            },
+            {
+              "title": "Sürüş Halinde",
+              "detail": "Sadece sağ ayağınızı kullanın. Hızlanmak için gaza, yavaşlamak için frene basın. Vites değiştirmeyi araç kendi kendine yapacaktır.",
+              "tip": "Hareket halindeyken vitesi kesinlikle P veya R konumuna almaya çalışmayın, şanzımanı dağıtabilirsiniz."
+            },
+            {
+              "title": "Kısa Süreli Beklemeler (Kırmızı Işık)",
+              "detail": "Kırmızı ışıkta beklerken vitesi D'de bırakıp ayağınızı frende tutmanız yeterlidir. Vitesi N'ye almanıza gerek yoktur.",
+              "tip": "Bekleme süresi 2-3 dakikayı geçecekse veya tren yolundaysanız N'ye alıp el frenini çekebilirsiniz."
+            },
+            {
+              "title": "Doğru Park Etme Tekniği (Çok Önemli)",
+              "detail": "Şanzımana yük bindirmemek için sırasıyla yapın: 1- Aracı tamamen durdurun (ayak frende). 2- Vitesi N (Boş) konumuna alın. 3- El frenini çekin. 4- Ayak frenini bırakıp aracın yükünün el frenine binmesini sağlayın. 5- Tekrar frene basıp vitesi P (Park) konumuna alın.",
+              "tip": "Önce P'ye alıp sonra el frenini çekerseniz yokuşta aracın tüm ağırlığı şanzıman dişlisine biner. Sonraki çalıştırışta 'tak' diye sert bir ses duyarsınız."
+            }
+          ],
+          "slug": "otomatik-vites-kullanim-rehberi-acemiler-icin"
+        }
+      ]
+    },
+    {
+      "id": "pratik-bilgiler",
+      "name": "Pratik Bilgiler",
+      "icon": "lightbulb",
+      "color": "#F59E0B",
+      "gradient": [
+        "#F59E0B",
+        "#D97706"
+      ],
+      "guides": [
+        {
+          "id": "kaza-tutanagi-doldurma",
+          "title": "Kaza Tespit Tutanağı Nasıl Doldurulur?",
+          "description": "Maddi hasarlı kazada polis gelmeden tutanak doldurmak hakkınızdır. İşte adım adım doldurma rehberi.",
+          "difficulty": "Orta",
+          "duration": "10-15 dk",
+          "tools": [
+            "Kaza Tespit Tutanağı Formu",
+            "Tükenmez Kalem",
+            "Telefon (fotoğraf için)"
+          ],
+          "warning": "Karşı tarafın sizi tehdit etmesine veya tutanağı imzalamamanız yönünde baskı yapmasına izin vermeyin.",
+          "steps": [
+            {
+              "title": "Formun Üst Kısmını Doldurun",
+              "detail": "Kaza tarihi, saati, yeri (il, ilçe, cadde/sokak adı, yakınındaki bina numarası), yaralı olup olmadığı bilgilerini yazın.",
+              "tip": "Google Maps'ten konum paylaşarak tam adres bilgisi alabilirsiniz."
+            },
+            {
+              "title": "A ve B Sürücü Bilgileri",
+              "detail": "Her iki sürücünün ad-soyad, TC kimlik no, ehliyet bilgileri, sigorta poliçe no ve telefon numaralarını eksiksiz yazın.",
+              "tip": "Karşı tarafın ehliyetini ve sigorta poliçesini fotoğraflayın."
+            },
+            {
+              "title": "Araç Bilgileri",
+              "detail": "Her iki aracın plakası, markası, modeli, rengi ve hasar gören bölgeleri yazın.",
+              "tip": "Hasar bölgesini tutanaktaki araç çizimi üzerinde işaretleyin."
+            },
+            {
+              "title": "Çarpışma Noktası Krokisi",
+              "detail": "Tutanağın alt kısmındaki alana kazanın nasıl olduğunu basitçe çizin: Yol şeritleri, araçların konumları, geliş yönleri ve çarpışma noktasını ok ile gösterin.",
+              "tip": "Kusur belirlemede en önemli bölüm krokidir. Net ve anlaşılır çizin."
+            },
+            {
+              "title": "İmza ve Kopya",
+              "detail": "Her iki sürücü de tutanağı imzalar. A ve B olmak üzere 2 kopya vardır, birer tane alın. 3 gün içinde sigorta şirketinize tutanağı teslim edin.",
+              "tip": "Tutanağı imzalamak kusuru kabul etmek değildir, sadece kazayı beyan etmektir."
+            }
+          ],
+          "slug": "kaza-tespit-tutanagi-nasil-doldurulur"
+        },
+        {
+          "id": "arac-yikama-dogru-teknik",
+          "title": "Arabayı Çizmeden Doğru Yıkama Tekniği",
+          "description": "Yanlış yıkama boyayı çizer! Profesyonel detaycıların uyguladığı iki kova tekniğini öğrenin.",
+          "difficulty": "Kolay",
+          "duration": "30-45 dk",
+          "tools": [
+            "2 adet kova",
+            "Araç şampuanı (pH nötr)",
+            "Mikrofiber bez (en az 2 adet)",
+            "Araç kurutma havlusu"
+          ],
+          "warning": "Bulaşık deterjanı asla kullanmayın! Boya koruma tabakasını (wax/seramik) söker.",
+          "steps": [
+            {
+              "title": "İki Kova Hazırlayın",
+              "detail": "Bir kovaya araç şampuanlı su, diğerine sadece temiz su koyun. Şampuanlı kova yıkama, temiz su kovası bezinizi durulama içindir.",
+              "tip": "Kova dipine ızgara (grit guard) koyarsanız kum taneleri dipte kalır ve beze yapışmaz."
+            },
+            {
+              "title": "Önce Durulayın",
+              "detail": "Aracı yüksek basınçlı su veya hortumla yukarıdan aşağıya doğru tamamen durulayın. Bu adım kaba kir ve kum tanelerini temizler.",
+              "tip": "Direk süngerle başlarsanız kum taneleri boyayı çizer!"
+            },
+            {
+              "title": "Yukarıdan Aşağıya Yıkayın",
+              "detail": "Şampuanlı bezle aracı tavan → kapı → kapot → çamurluk → tampon sırasıyla, düz çizgilerle silin. Her panelden sonra bezi durulama kovasında yıkayın.",
+              "tip": "Dairesel hareketler çizi oluşturur. Her zaman düz çizgilerle silin."
+            },
+            {
+              "title": "Son Durulama",
+              "detail": "Tüm şampuanı bol suyla yukarıdan aşağı durulayın. Şampuan kalıntısı bırakmayın.",
+              "tip": "Son durulamada hortumu açarak (basınçsız) tabaka halinde su akıtın — su izleri azalır."
+            },
+            {
+              "title": "Kurulama",
+              "detail": "Büyük bir mikrofiber kurulama havlusuyla aracı üstten alta doğru nazikçe kurulayın. Havluyu sürüklemeden, üzerine bastırarak nemi alın.",
+              "tip": "Güneş altında asla kurutmayın — su izleri kalır. Gölgede veya kapalı garajda kurutun."
+            }
+          ],
+          "slug": "arabayi-cizmeden-dogru-yikama-teknigi"
+        }
+      ]
+    },
+    {
+      "id": "alim-satim",
+      "name": "Alım & Satım",
+      "icon": "tag",
+      "color": "#8B5CF6",
+      "gradient": [
+        "#8B5CF6",
+        "#6D28D9"
+      ],
+      "guides": [
+        {
+          "id": "ikinci-el-arac-alma-rehberi",
+          "title": "İkinci El Araç Alırken Kontrol Rehberi",
+          "description": "Dolandırılmadan ve masraflı araç almadan önce kendi kendinize yapabileceğiniz 10 dakikalık ilk ekspertiz kontrolü.",
+          "difficulty": "Orta",
+          "duration": "15-20 dk",
+          "tools": [
+            "El Feneri",
+            "Boya Ölçüm Cihazı (Opsiyonel)",
+            "Kağıt Havlu",
+            "OBD2 Cihazı (Opsiyonel)"
+          ],
+          "warning": "Kapora dolandırıcılığına dikkat! Aracı fiziki olarak görmeden ve ruhsat sahibiyle görüşmeden asla kimseye para göndermeyin.",
+          "steps": [
+            {
+              "title": "Evrak ve Tramer Kontrolü",
+              "detail": "Araç başına gitmeden önce şasi no veya plaka ile 5664'e mesaj atarak hasar kaydını sorgulayın. Ruhsat sahibi ile aracı satan kişinin aynı olup olmadığını sorun.",
+              "tip": "Ağır hasar kayıtlı (pert) araçlar piyasa değerinin %20-30 altındadır, satarken zorlanabilirsiniz."
+            },
+            {
+              "title": "Dış Kaporta ve Boya İncelemesi",
+              "detail": "Aracı mutlaka gündüz gözüyle inceleyin. Kapı, çamurluk ve kaput birleşim yerlerindeki aralıklara (derzlere) bakın; asimetrikse değişen parça olabilir.",
+              "tip": "Farklı açılardan güneşe karşı bakarak boya tonu farklarını daha rahat görebilirsiniz."
+            },
+            {
+              "title": "Motor Bölmesi Kontrolü",
+              "detail": "Kaputu açın. Yağ veya su sızıntısı var mı bakın. Motor soğukken yağ çubuğunu çekin, su karışmış (süt kahvesi) ise almayın. Şasi kollarında kaynak veya düzeltme izi arayın.",
+              "tip": "Önden kazalı araçlarda şasi kollarındaki fabrika puntoları (nokta kaynakları) kaybolur."
+            },
+            {
+              "title": "Lastik ve Jant Durumu",
+              "detail": "Dört lastiğin üretim tarihine (DOT koduna) bakın (örn: 2223 = 2023'ün 22. haftası). Düzensiz aşınma varsa rot ayarı veya süspansiyon arızası olabilir.",
+              "tip": "Kaliteli marka lastikler, eski sahibinin araca iyi baktığının bir göstergesidir."
+            },
+            {
+              "title": "İç Mekan ve Elektronik Testi",
+              "detail": "Klimayı en soğuk ve en sıcakta deneyin. Tüm camları indirip kaldırın, silecekleri, farları, radyoyu ve kornayı kontrol edin. Direksiyon ve vites topuzu aşınması kilometreyle uyumlu mu bakın.",
+              "tip": "Düşük kilometreli bir aracın direksiyonu ve pedalları çok aşınmışsa, kilometresi düşürülmüş olabilir."
+            },
+            {
+              "title": "Test Sürüşü (Ekspertiz Öncesi)",
+              "detail": "Motor soğukken çalışmasını dinleyin (titreme veya vuruntu var mı). Düz yolda giderken direksiyonu hafifçe bırakın, araç sağa/sola çekiyor mu kontrol edin. Vites geçişlerinde vuruntu olup olmadığını test edin.",
+              "tip": "Kasislerden geçerken alttan gelen 'lok lok' sesleri alt takım masrafına işarettir."
+            },
+            {
+              "title": "Profesyonel Ekspertize Götürün",
+              "detail": "Kendi kontrollerinizden geçse bile, aracı mutlaka bağımsız (tarafsız) ve TSE belgeli bir oto ekspertiz merkezine sokun.",
+              "tip": "Satıcının tanıdığı veya ısrarla önerdiği ekspertize değil, kendi seçtiğiniz yere gidin."
+            }
+          ],
+          "slug": "ikinci-el-arac-alirken-kontrol-rehberi"
+        }
+      ]
+    }
+  ]
+}

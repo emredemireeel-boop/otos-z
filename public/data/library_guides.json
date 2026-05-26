@@ -446,7 +446,8 @@
             }
           ]
         }
-      ]
+      ],
+      "urlId": "10043"
     },
     {
       "id": "guide_nasil_galerici_olunur",
@@ -1775,10 +1776,10 @@
     {
       "id": "guide_sanayi_ustalari_sirlar",
       "urlId": 10035,
-      "title": "Sanayide Ustaların Gizlediği 7 Kritik Sır: Aracınızın Ömrünü ve Cüzdanınızı Nasıl Kurtarırsınız?",
-      "description": "Yetkili servislerin ve sanayi ustalarının genellikle size söylemediği, basit ama hayati önem taşıyan 7 kritik bakım sırrı. Motor yağınızın gerçek ömründen, şanzıman kurtaran basit alışkanlıklara ve gizli fren hatalarına kadar detaylı bir hayatta kalma rehberi.",
-      "minutes": 20,
-      "difficulty": "Başlangıç/Orta",
+      "title": "Sanayide Ustaların Gizlediği 14 Kritik Sır: Aracınızın Ömrünü ve Cüzdanınızı Nasıl Kurtarırsınız? (Derin Analiz)",
+      "description": "Sanayi sitelerinde ve yetkili servislerde size söylenmeyen acı gerçekler. Parça değiştiriciliğinden sensör sömürüsüne, 'ömür boyu' yağ efsanesinden klima gazı yalanına kadar cebinizi boşaltan 7 büyük sırrın mühendislik düzeyinde ifşası.",
+      "minutes": 70,
+      "difficulty": "İleri Düzey",
       "tags": [
         "Bakım",
         "Tasarruf",
@@ -1792,143 +1793,220 @@
       "sections": [
         {
           "type": "intro",
-          "title": "Kimse Sizin Cebinizi Sizin Kadar Düşünmez",
-          "content": "Aracınızı servise her götürdüğünüzde değişen parçalar, gittikçe kabaran faturalar ve bir türlü bitmeyen \"Abi şu parçayı da değiştirsek iyi olur\" cümleleri... Otomotiv endüstrisi ve bakım sektörü, genellikle kullanıcıların bilgisizliğinden ve korkularından beslenen devasa bir çarktır. Peki bu çarkın dişlileri arasında ezilmemek, servise servet ödememek için ne yapmalısınız?\n\nİşte ustaların bilmenizi pek de istemediği, size söylemeye gerek duymadığı veya sizin alışkanlıklarınızı düzeltmek için vakit harcamadığı 7 kritik sır. Bu sırlar, arabanızın ömrünü iki katına çıkarırken cüzdanınızı ağır hasarlardan koruyacak."
-        },
-        {
-          "type": "section",
-          "title": "1. 10.000 KM Yalanı ve Yağın Gerçek Ömrü",
-          "content": "Pek çok özel servis ve usta, aracınıza en pahalı tam sentetik yağı koysa bile ısrarla 10.000 km'de bir (hatta bazıları 8.000'de bir) bakıma gelmenizi ister.",
-          "subsections": [
-            {
-              "subtitle": "Kullanım Şartlarına Göre Yağ Değişimi",
-              "text": "Bugün modern tam sentetik yağlar kolaylıkla 15.000 ile 20.000 km arası dayanacak kimyasal kapasitededir. Ancak burada asıl hile 'kilometre' değil, 'motor çalışma saati' faktöründedir.",
-              "points": [
-                "**Uzun Yol Aracı:** Eğer sürekli otobanda veya uzun yolda sabit hızla gidiyorsanız, tam sentetik bir yağ ile 15.000 km'yi rahatlıkla görebilirsiniz. Motorunuz az yorulmuştur.",
-                "**Şehir İçi İşkencesi:** Ancak aracınız sürekli dur-kalk İstanbul/Ankara trafiğindeyse, kilometreniz az bile olsa motorunuz saatlerce rölantide çalışmıştır. Motor yağı mesafe katetmeseniz bile ısıdan ve sürtünmeden dolayı özelliğini yitirir.",
-                "**Ustaların Söylemediği:** Sadece kilometre sayacına bakmayın, yol bilgisayarındaki ortalama hızınıza bakın."
-              ]
-            }
-          ],
-          "tip": {
-            "title": "💡 Altın Formül",
-            "text": "Eğer yol bilgisayarınızdaki ortalama hızınız 25 km/s altındaysa (yoğun trafik), yağınızı 10.000 km dolmadan (örneğin 8.000'de) değiştirin. Eğer ortalama hızınız 50 km/s ve üzerindeyse, 15.000 km'yi güvenle bekleyebilirsiniz. Fazla bakım israftır."
-          }
-        },
-        {
-          "type": "section",
-          "title": "2. Otomatik Şanzıman Katili: 'P' Vitesi Tuzağı",
-          "content": "Türkiye'deki otomatik vites arızalarının yarısından fazlası donanım kaynaklı değil, tamamen yanlış kullanıcı alışkanlığı kaynaklıdır.",
-          "subsections": [
-            {
-              "subtitle": "Yokuşta Park Ederken Yapılan Ölümcül Hata",
-              "text": "Aracı yokuşta veya hafif eğimli bir yerde park ettiğinizde önce vitesi 'P' (Park) konumuna alıp, sonra el frenini çekiyor veya motoru kapatıyorsanız, 1.5 tonluk aracın tüm ağırlığını şanzımanın içindeki serçe parmağı büyüklüğündeki incecik bir demir çubuğa ('Park Mandalı') bindiriyorsunuz demektir.",
-              "points": [
-                "**Vuruntu Sesi:** Bu şekilde park ettikten sonra aracı çalıştırıp vitesi 'P'den 'D'ye veya 'R'ye alırken şanzımandan \"TAK\" veya \"KÜT\" diye sert bir vuruntu sesi duyarsınız. Bu ses, sıkışan park mandalının zorla yerinden çıkma sesidir.",
-                "**Doğru Sıralama (Hayat Kurtarır):** Aracı frenle durdurun > Vitesi **'N' (Boş)** konumuna alın > El frenini sonuna kadar çekin > Ayak frenini yavaşça bırakıp **aracın tüm yükünün el frenine (arka tekerleklere) binmesini sağlayın** > Araç esneyip oturduktan sonra vitesi son olarak **'P'** konumuna alın."
-              ]
-            }
-          ],
+          "content": "Otomobil endüstrisi ve satış sonrası servis (aftermarket) sektörü, araç sahiplerinin bilgi asimetrisinden (teknik bilgisizliğinden) beslenen devasa bir ekosistemdir. Aracınız arıza yaptığında veya periyodik bakıma girdiğinde, kaputun altında dönen fiziksel ve kimyasal gerçekler ile size kesilen faturadaki hikaye çoğu zaman birbirini tutmaz. Ustaların veya yetkili servis danışmanlarının size kötü niyetle yaklaştığını iddia etmek yanlış olur; ancak otomotiv sektörünün 'tamir etmek' yerine 'parça değiştirmek' (parts replacer) üzerine evrildiği bir çağda yaşıyoruz. Çünkü parça değiştirmek ustaya hem yedek parçadan komisyon kazandırır hem de zaman kazandırır. Sizin cüzdanınızdaki erimenin ise onlar için bir önemi yoktur. Bu kapsamlı analizde, sektörün perde arkasında konuşulmayan 7 kritik sırrı, termodinamik, mekanik ve ekonomik veriler ışığında masaya yatırıyoruz.",
           "warning": {
-            "title": "⚠️ Şanzıman Revizyonu Faturası",
-            "text": "Basit bir sıralama hatası yüzünden o küçük mandal kırılırsa veya şanzıman dişlileri aşınırsa, günümüzde otomatik şanzıman revizyonları 50.000 TL ile 150.000 TL arasında dudak uçuklatan rakamlara mal olmaktadır."
+            "title": "Altın Kural: Elçiyi Vurmayın",
+            "text": "Ustaların en çok sevdiği şey bilgisayarın gösterdiği arızalı sensörü hemen yenisiyle değiştirmektir. Unutmayın: Sensörler genelde arıza yapmaz, sadece sistemdeki başka bir mekanik kaçaktan dolayı 'yanlış değerler' okuyarak sizi uyarır. Sensör, kötülüğü haber veren elçidir!"
           }
         },
         {
-          "type": "section",
-          "title": "3. Klima Bakımında 'Sadece Gaz Basmak' Yeterli Mi?",
-          "content": "Yaz aylarında klimanız eskisi gibi soğutmuyorsa veya hiç soğuk üflemiyorsa, sanayideki ilk teşhis her zaman şudur: 'Abi gazı bitmiş, 500 lira ver gaz basalım düzelir.'",
+          "type": "step",
+          "title": "Sır 1: Periyodik Bakım ve '15.000 km' Yanılgısı",
+          "content": "Üreticiler araçlarını satarken, işletme maliyetini düşük göstermek ve filolara cazip kılmak için periyodik bakım aralığını (Long-Life yağlarla birlikte) 15.000 km, hatta bazı markalarda 30.000 km veya 1 yıl olarak sunarlar.",
           "subsections": [
             {
-              "subtitle": "Klima Gazı Kendi Kendine Asla Bitmez",
-              "text": "Otomobil klimaları, tıpkı evinizdeki buzdolapları gibi 'kapalı devre' basınçlı bir sistemdir. Evinizdeki buzdolabına her yaz gaz bastırıyor musunuz? Hayır. Peki arabanıza neden bastırasınız?",
-              "points": [
-                "**Sızıntı (Kaçak) Gerçeği:** Eğer klimanızın gazı eksilmişse veya bitmişse, borularda, contalarda veya kompresörde çatlak/sızıntı var demektir. Sızıntıyı bulmadan sadece yeni gaz basmak, delik bir kovaya su doldurmaktan farksızdır. Birkaç hafta sonra o gaz da uçup gidecektir.",
-                "**Test Şartı:** Ustadan gaz basmadan önce sisteme mutlaka azot veya UV ışıklı (fosforlu) renkli boya basarak kaçak testi yapmasını isteyin.",
-                "**Polen Filtresi:** Klimanız soğutuyor ama üflemesi zayıfsa sorun gaz değil, tıkanmış polen filtresidir. Servise tonla para vermeyin; pek çok modelde torpido gözünün arkasından 2 dakikada klipssiz kendiniz değiştirebilirsiniz."
-              ]
+              "subtitle": "Motor Saati (Engine Hours) Gerçeği",
+              "text": "Motor yağının ömrü, aracın tekerleğinin döndüğü 'kilometre' ile değil, motorun çalıştığı 'saat' ve maruz kaldığı 'ısı döngüsü' (heat cycle) ile ölçülür. İstanbul veya Ankara gibi büyükşehirlerin dur-kalk (stop & go) trafiğinde her gün 2 saat geçiren bir araç, kilometre yapmasa bile motor yağı rölantide kavrulmaya devam eder. Rölanti, yağ basıncının en düşük olduğu ve motorun en çok aşındığı andır. Trafikte 15.000 km yapan bir araç, aslında otobanda 45.000 km yapmış bir araçla aynı motor saatine ulaşır."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Eğer aracınızı yoğun şehir içi trafiğinde kullanıyorsanız, 15.000 km kuralını çöpe atın. Motor bloğunuzun, turboşarj ünitenizin (çok yüksek ısı ve devir) ve eksantrik zincirinizin uzun yıllar dayanmasını istiyorsanız yağı en geç 7.500 km ile 10.000 km arasında mutlaka tam sentetik kaliteli bir yağ ile değiştirin. Senede vereceğiniz ekstra 2.000 TL bakım parası, sizi 100.000 TL'lik motor revizyonundan kurtarır."
             }
           ]
         },
         {
-          "type": "section",
-          "title": "4. Turboyu Sessizce Öldüren Sabırsızlık",
-          "content": "Günümüzde neredeyse tüm araçlar turboludur (TSI, TCe, TDI, dCi, mHawk vb.). Turbolu araç sahiplerinin en büyük hatası, motoru çalıştırır çalıştırmaz gaza yüklenmek ve varış noktasında motoru aniden kapatmaktır.",
+          "type": "step",
+          "title": "Sır 2: 'Parça Değiştiricilik' Hastalığı vs Gerçek Tamir",
+          "content": "Eskiden sanayideki ustalar alternatör (şarj dinamosu), marş motoru veya direksiyon pompası bozulduğunda içini açar, sargıları yeniler ve küçük parçaları tamir ederlerdi. Bugün ise tablo tamamen değişti.",
           "subsections": [
             {
-              "subtitle": "Turbo Mili ve Yağlama Prensibi",
-              "text": "Turbo pervaneleri, egzoz gazının itmesiyle dakikada 150.000 - 250.000 gibi inanılmaz devirlerle döner. Bu korkunç hıza ve ısıya dayanabilmelerinin tek sebebi, karterden gelen motor yağının turbo mili etrafında oluşturduğu sürtünmesiz \"yağ filmidir\".",
-              "points": [
-                "**Kalkışta Acele Etmek:** Sabah soğuk motoru çalıştırdığınızda karterdeki yağın yukarı tırmanıp turboya ulaşması yaklaşık 20-30 saniye sürer. Eğer motoru çalıştırır çalıştırmaz gaza basıp hareket ederseniz, turbo pervanesi yağsız (kuru kuruya) döner ve metal metale sürterek aşınır.",
-                "**Kapatırken Acele Etmek:** Uzun yoldan, rampadan veya sıkıştırmalı bir otoban sürüşünden sonra motoru hemen kapatırsanız (kontak kapatırsanız), motordaki yağ akışı aniden kesilir. Ancak ivme kazanmış olan turbo mili içeride 100.000 devirle dönmeye devam etmektedir! Yağsız dönen bu mil aşırı ısınır ve zamanla keser."
-              ]
-            }
-          ],
-          "tip": {
-            "title": "💡 1 Dakika Kuralı (Turbonun Can Simidi)",
-            "text": "Motoru ilk çalıştırdığınızda yola çıkmadan önce en az 30-40 saniye rölantide bekleyin. Sürüşünüz bittiğinde motoru stop etmeden önce (özellikle uzun yoldan gelmişseniz) mutlaka 1 dakika boyunca aracı rölantide çalışır vaziyette bekletin ki turbo pervanesi yavaşlasın ve yağlanarak soğusun."
-          }
-        },
-        {
-          "type": "section",
-          "title": "5. Motor Suyu (Antifriz) Sadece Kışın Konmaz!",
-          "content": "Çoğu sürücü yaz aylarında radyatör suyu eksildiğinde üzerine normal musluk suyu (veya içme suyu) ekler. Antifrizin sadece kışın suların donmasını engellemek için konulduğunu sanır.",
-          "subsections": [
+              "subtitle": "Modüler Sömürü Sistemi",
+              "text": "Aracınızın alternatörü aküyü şarj etmeyi kestiğinde, servis size 'Alternatör ölmüş, yenisi takılacak, 15.000 TL' der. Oysa alternatörün bozulması demek, genellikle sadece içinde bulunan ve rotora sürten 100 TL'lik karbon fırçaların (kömürlerin) bitmesi veya voltaj regülatörü diyotunun yanması demektir. Aynı durum elektrikli direksiyon (EPS) kutularında da geçerlidir; sistemin içindeki 1 dolarlık plastik burç aşındığında usta tüm kutuyu 25.000 TL'ye değiştirmek ister, çünkü içiyle uğraşmak ona 'hamallık' gibi gelir ve parça karı alamaz."
+            },
             {
-              "subtitle": "Pas, Korozyon ve Contalar",
-              "text": "Antifriz (Soğutma Sıvısı), sadece donmayı engellemez; aynı zamanda motor bloğunun içindeki su kanallarının paslanmasını, kireçlenmesini ve çürümesini (korozyonu) engeller. Ayrıca kaynama noktasını 100 dereceden 120-130 derecelere çıkararak harareti önler.",
-              "points": [
-                "**Musluk Suyu Cinayettir:** Yaz aylarında saf su veya antifriz yerine musluk suyu eklerseniz, içindeki kireç zamanla devirdaim pompasını kilitler, incecik radyatör kanallarını tıkar ve silindir kapak contanızı çürütür.",
-                "**4 Mevsim Kuralı:** Antifriz yaz-kış motorda bulunmak zorundadır. Soğutma suyuna ekleme yapacaksanız her zaman antifriz + saf su (veya önceden karıştırılmış hazır soğutma sıvısı) kullanın."
-              ]
+              "subtitle": "Kritik Müdahale",
+              "text": "Pahalı ve büyük bir mekanik ünite (şanzıman beyni (mekatronik), direksiyon kutusu, marş motoru, alternatör vb.) için değişim kararı verildiğinde asla ilk ustada aracı bırakmayın. Sadece o ünite üzerine uzmanlaşmış 'revizyon/tamir' servislerine gidin. Çoğu devasa parça, içindeki ufak bir milin veya sensörün değişimiyle orijinal haliyle kurtarılabilir."
             }
           ]
         },
         {
-          "type": "section",
-          "title": "6. Fren Disklerinin En Büyük Düşmanı: 'Sıcak Su'",
-          "content": "Özellikle yazın uzun bir yoldan veya dağ inişinden geldiğinizde, aracınızı hemen bir yıkamacıya çeker veya kendiniz yıkamaya başlarsınız. Balatalardaki siyah tozları çıkarmak için o kızgın jantlara ve fren disklerine tazyikli soğuk suyu tuttuğunuz an \"Cıssss\" diye bir buhar yükselir.",
+          "type": "step",
+          "title": "Sır 3: Fren Balataları ve Disklerindeki Psikolojik Oyun",
+          "content": "Fren sistemi aracın en kritik güvenlik ekipmanıdır ve ustalar bu argümanı 'psikolojik bir baskı' aracı olarak kullanmaya bayılırlar.",
           "subsections": [
             {
-              "subtitle": "Disk Eğriltme ve Balata Camlaşması",
-              "text": "Ağır frenlemeden sonra fren disklerinizin sıcaklığı 400-500 derecelere kadar ulaşabilir. Kızgın bir demire aniden soğuk su çarparsa ne olur? Metal aniden büzülür ve şekli bozulur (yamulur).",
-              "points": [
-                "**Direksiyon Titremesi:** Yıkamadan çıktıktan sonra yüksek hızda frene bastığınızda direksiyonunuz sağa sola şiddetle titriyorsa, tebrikler; fren disklerinizi soğuk su sıkarak eğdiniz. Artık tornalanması veya değiştirilmesi gerekir.",
-                "**Balata Spreyi Tuzağı:** Sanayide bazı ustalar frenlerden ses geliyor diye balataları sökmeden bolca \"Balata Spreyi\" sıkar ve yollar. O sprey sadece yüzeydeki tozu uçurur. Balata camlaşmışsa (sertleşmişse) sprey işe yaramaz, balatanın zımparalanması veya değişmesi şarttır."
-              ]
-            }
-          ],
-          "warning": {
-            "title": "⚠️ Yıkama Öncesi Bekleyin",
-            "text": "Uzun yoldan veya sert frenlemeli bir sürüşten sonra aracınızı yıkamaya sokmadan önce gölgede en az 15-20 dakika bekleyip fren disklerinin doğal yollarla soğumasına izin verin."
-          }
-        },
-        {
-          "type": "section",
-          "title": "7. Akü Ömrü: Kısa Mesafeler Aküyü Neden Öldürür?",
-          "content": "Yeni bir akü aldınız ama 1.5 yıl içinde \"Akü Zayıf\" uyarısı vermeye başladı. Sanayiye gidip ölçtürdüğünüzde akünün ömrünün bittiğini söylüyorlar.",
-          "subsections": [
+              "subtitle": "Akustik İkaz ve Balata Sensörü",
+              "text": "Frenlere bastığınızda ince bir 'ciyaklama' (squeal) sesi duyarsanız ustaya gidersiniz. Usta 'Balata tamamen bitmiş, demire sürtmüş, diskleri de mahvetmiş komple değişecek' der. Oysa fren balatalarının üzerinde 'Wear Indicator' (Aşınma Göstergesi) adı verilen küçük metal bir pim vardır. Balatanın ömrü %15-20'ye düştüğünde bu pim bilerek diske hafifçe sürter ve sadece sizi uyarmak için o sinir bozucu ince sesi çıkarır. Yani balata aslında bitmemiş, demire sürtmemiştir; sizi zamanında uyaran bir güvenlik mekanizması devreye girmiştir."
+            },
             {
-              "subtitle": "Marş Motorunun Bedeli ve Şarj (Alternatör) Süresi",
-              "text": "Aracınızı her çalıştırdığınızda (marş bastığınızda), aküden devasa bir anlık akım çekilir. Alternatörün (şarj dinamosunun) marş basarken kaybedilen bu enerjiyi aküye geri yükleyebilmesi için aracın en az 15-20 dakika kesintisiz çalışması gerekir.",
-              "points": [
-                "**Bakkala Arabayla Gitmek:** Aracınızı sadece sabah 5 dakika işe gitmek, akşam 5 dakika dönmek veya markete gitmek için kullanıyorsanız, akü hiçbir zaman harcadığı enerjiyi tam olarak geri kazanamaz.",
-                "**Kapasite Düşüşü:** Sürekli yarım şarjda kalan bir akünün içindeki kurşun plakalar sülfatlaşır (kristalleşir) ve akü bir daha tam kapasite şarj tutamaz hale gelir.",
-                "**Çözüm:** Eğer aracınızı hep çok kısa mesafelerde kullanıyorsanız, ayda en az 1-2 kez aracı otoyola çıkarıp 30-40 dakika devirli ve kesintisiz kullanarak akünün \"derin şarj\" (deep cycle) yapmasına olanak tanıyın."
-              ]
+              "subtitle": "Disk Değişim Yanılgısı",
+              "text": "Modern fren diskleri devasa termal toleranslara sahip karbon-döküm demirlerden üretilir. Çoğu disk 2 veya 3 takım balata eskitecek kadar kalınlığa (minimum thickness toleransına) sahiptir. Usta ufak bir çizik gördüğü için diski değiştirmek isterse reddedin, diskin milimetrik ölçümünü (kumpasla) isteyin. Gerekiyorsa tornada (resurfacing) yüzeyi saniyeler içinde sıfırlanabilir."
             }
           ]
         },
         {
-          "type": "conclusion",
-          "title": "Özetle: Bilgi En İyi Tasarruftur, Kulaktan Dolma Bilgi İse En Pahalı Faturadır",
-          "content": "Yukarıdaki 7 sırrın hiçbiri uzay bilimi değildir, tamamen temel mekanik ve fizik kurallarına dayanır. Ancak bu basit kuralları göz ardı etmek, sizi on binlerce liralık servis faturalarıyla baş başa bırakabilir. \n\nArabanızın torpido gözündeki kullanım kılavuzunu açıp okumak, sanayideki çırakların kulaktan dolma efsanelerini dinlemekten yüz kat daha değerlidir. Unutmayın; iyi ve doğru kullanım alışkanlıkları, en iyi tamirciden bile daha etkilidir. Aracınıza iyi davranın, o da sizi yolda bırakmasın.",
-          "finalChecklist": [
-            "Park ederken sıralamaya dikkat ediliyor mu? (Önce N, sonra el freni, yükü bindir ve en son P)",
-            "Turbolu araçlarda motoru çalıştırırken ve kapatırken '1 dakika bekleme' kuralına uyuluyor mu?",
-            "Yağ değişimi sadece kilometreye değil, ortalama çalışma saatine ve hızına göre planlanıyor mu?",
-            "Yaz aylarında radyotöre musluk suyu yerine mutlaka Antifriz eklendiğinden emin olundu mu?",
-            "Sıcak fren disklerine tazyikli soğuk su tutulmasından kaçınılıyor mu?"
+          "type": "step",
+          "title": "Sır 4: Şanzıman Yağı 'Ömür Boyudur' (Sealed for Life) Efsanesi",
+          "content": "Birçok Alman (BMW, Audi) ve Japon (Toyota, Honda) otomobil üreticisi, araçların kullanım kılavuzlarına otomatik şanzıman sıvısının (ATF) 'Ömür Boyu' (Lifetime) dolum olduğunu ve değiştirilmesine gerek olmadığını yazar. Yetkili servise gidersiniz, 'Buna dokunmuyoruz, ömür boyu yağdır' derler.",
+          "subsections": [
+            {
+              "subtitle": "Pazarlama Stratejisi ve Gerçek 'Ömür'",
+              "text": "Mühendislik yasalarında sıvı olan, 120°C ısıya çıkan, binlerce metal dişlinin arasından sürtünmeyle geçen hiçbir sıvı 'ömür boyu' kalamaz. Sıvının vizkozitesi (akışkanlığı) bozulur, balata tozları sıvıyı çamurlaştırır. Üreticilerin 'Ömür Boyu' dediği şey aslında aracın garanti süresi veya tahmini ilk sahibindeki süresidir (Yani 5 yıl veya 100.000 km). Araç garantiyi bitirip 150.000 km'de şanzıman beynini patlattığında (yaklaşık 100.000 TL masraf) üretici veya servis bu faturayı size seve seve çıkaracaktır."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Eğer tam otomatik (Tork konvertörlü), CVT veya çift kavramalı (DSG, EDC) bir şanzımanınız varsa, üretici ne derse desin sıvı (yağ) ve filtre değişimini her 60.000 km veya 80.000 km'de bir (maksimum 4-5 yıl) mutlak suretle yetkili şanzımancılarda makine ile yaptırın. Eski yağı temizlemek şanzımanınızın ömrünü yüzbinlerce kilometre uzatır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 5: Klima Gazı 'Bitiyor' Yalanı (Haraca Bağlanmak)",
+          "content": "Yaz aylarında klimanız soğutmamaya başladığında sanayiye gidersiniz. Ustanın ilk cümlesi şudur: 'Klima gazı bitmiş abi, hemen 500 gram gaz basıp hallediyorum.' Siz serin serin eve dönersiniz, ancak 8 ay sonra sonraki yaz başı klima yine sıcak üfler.",
+          "subsections": [
+            {
+              "subtitle": "Sistem Kapalı Devredir",
+              "text": "Otomobillerin iklimlendirme (klima/A-C) sistemleri tıpkı evinizdeki buzdolapları gibi 'tamamen kapalı devre' (hermetically sealed) bir sistemdir. Klima gazı (freon) araba çalıştıkça motor yağı veya benzin gibi yanarak 'biten' veya tükenen bir şey değildir. Eğer klima gazı sistemden eksiliyorsa, sistemde kesinlikle fiziksel bir kaçak (delik, yırtık O-ring, çatlak hortum, patlak kondansatör) var demektir."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Sistemin neresinden kaçırdığını bulmadan (ki bu zahmetli bir iştir) sadece gaz basıp yollayan usta, aslında kaçağı bildiği halde sizi her yaz kendisine gelmeye mecbur bırakır (haraca bağlar). Ustanıza gaz basarken sisteme 'UV Boya' (Fosforlu Kaçak Tespit Boyası) eklemesini ve bir hafta sonra UV feneriyle kaçak noktasını (O-ring contaları, radyatör petekleri) tespit edip asıl onarımı yapmasını emredin."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 6: Akü Testleri ve Sülfatlaşma Tuzağı",
+          "content": "Sabah marşa bastınız, araba 'tık' edip kaldı ve çalışmadı. Oto elektrikçiye gittiniz, akü test cihazını bağladı. Ekranda 'Değiştir (Replace)' veya kırmızı bir ışık yandı. Anında 3.000 TL verip yeni akü alırsınız.",
+          "subsections": [
+            {
+              "subtitle": "Kaçak Akım (Parasitic Draw) ve Sülfatlaşma",
+              "text": "Akünün marş basmaması her zaman akünün tamamen öldüğü (plakaların eridiği) anlamına gelmez. Akü sadece 'derin deşarj' olmuş olabilir. Siz uyurken aracın içindeki sonradan takılan bir multimedya ekranı, kısa devre yapan bir bagaj lambası veya hatalı takılmış bir araç kamerası sürekli düşük amper çekerek (parasitic draw) aküyü bitirmiş olabilir. Veya kutup başlarındaki (terminallerdeki) beyaz oksitlenme akımın marş motoruna geçmesini engelliyordur."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Akü test cihazları akü derin deşarj olduğunda iç direnci yüksek okuduğu için 'Değiştir' uyarısı verir. Yeni akü almadan önce akünüzün saf dışarıdan profesyonel bir akü şarj aletiyle (desülfatör özellikli) yavaş (trickle) şarj edilmesini isteyin. Akünüz büyük ihtimalle dirilecektir. Daha önemlisi, aracı kapattıktan sonra multimetre ile 'Kaçak Akım' testi yaptırıp aküyü boşaltan asıl paraziti bulun; yoksa yeni aldığınız akü de bir hafta içinde yine bitecektir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 7: Arıza Tespit Cihazı (OBD) Sömürüsü (Elçiyi Öldürmek)",
+          "content": "Gösterge panelinde Sarı Motor Arıza Lambası (Check Engine Light) yandığında usta bilgisayara (OBD tarayıcıya) bağlar. Ekranda örneğin 'P0420 - Katalizör Sistemi Verimi Eşik Değerin Altında' veya 'P0171 - Sistem Çok Fakir' gibi kodlar çıkar. Usta kodu gördüğü an 'Katalizörü değiştireceğiz (30.000 TL)' veya 'Oksijen Sensörü bozuk, değişecek (5.000 TL)' der.",
+          "subsections": [
+            {
+              "subtitle": "Teşhis Bilgisizliği",
+              "text": "En büyük ustalık hatası (veya hilesi) bilgisayarın ekrana yansıttığı parçayı 'bozuk parça' sanmaktır. Oysa Oksijen (Lambda) sensörü veya MAP/MAF sensörleri birer 'haberci/ölçümcü'dür. Eğer hava emiş hortumunda parmak ucu kadar bir delik varsa (vakum kaçağı), motora ölçülmemiş fazla hava girer. Oksijen sensörü bu fazla havayı egzozda okur ve beyne 'Sistem çok fakir yanıyor!' diye hata kodu gönderir. Burada oksijen sensörü bozuk değildir, görevini mükemmel yapıyordur!"
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Kodu okuyup sensörü veya katalizörü doğrudan çöpe atan ustalardan uzak durun. Arızanın kaynağı genellikle motorun dış çevresindeki çok daha ucuz mekanik bir sorundur (Kirli hava filtresi, yırtık vakum hortumu, tıkanmış yakıt enjektörü, kaçıran bir conta). Bilgisayar size sorunun 'nerede' olduğunu değil, sorunun 'hangi sistemde yankılandığını' söyler. Doğru teşhis, duman testi (smoke test) ve canlı veri okumasıyla (live data analysis) yapılır. Elçiyi vurmalarına asla izin vermeyin!"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 8: Motor Temizliği (Basınçlı Su) Ticarileşmesi",
+          "content": "Araç satılacağı zaman veya detaylı temizliklerde kaputun altı köpüklenir ve oto yıkamacılarda tazyikli basınçlı suyla yıkanır. Çıkan pırıl pırıl sonuç göze harika görünse de aslında kaputun altında bir felaket senaryosu başlamıştır.",
+          "subsections": [
+            {
+              "subtitle": "Elektronik İntihar",
+              "text": "Modern otomobillerin kaputunun altı sadece demir yığınından ibaret değildir. ECU (Motor Beyni), ABS beyni, sigorta kutuları, hassas ateşleme bobinleri ve sayısız sensör soketi bulunur. Basınçlı su, soketlerin yalıtım (conta) sınırlarını aşarak kılcal kabloların içine nüfuz eder. O an araba çalışsa bile, suyun yarattığı oksitlenme birkaç ay sonra aracın yolda teklemesine, beynin yanmasına veya anlamsız arıza lambalarının yanmasına sebep olur."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Motor asla tazyikli suyla yıkanmamalıdır! Sanayide 'Ben yıkıyorum abi bir şey olmuyor' diyenlere itibar etmeyin. Motor temizliği, nemli bir mikrofiber bez, yağ sökücü sprey ve detay fırçalarıyla (su tutulmadan) tamamen 'kuru/nemli temizlik' yöntemiyle yapılmalıdır. Görüntü için binlerce liralık elektrik tesisatını riske atmayın."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 9: Yedek Parçada 'Logolu Orijinal' vs 'OEM' Yanılgısı",
+          "content": "Yetkili servise gittiğinizde size bir fren balatası veya filtre için dışarıdaki fiyatın üç katı fatura çıkarılır ve 'Biz sadece orijinal logolu parça takıyoruz, yan sanayi kullanmıyoruz' denir.",
+          "subsections": [
+            {
+              "subtitle": "Orijinal Ekipman Üreticisi (OEM) Gerçeği",
+              "text": "Otomobil markaları (BMW, VW, Renault vb.) fren balatası, filtre veya buji üretmezler. Bu parçaları Bosch, Valeo, Mann, Mahle, NGK gibi dev tedarikçilere ürettirirler. Üretici, bu parçanın üzerine sadece 'Araba Markasının Logosunu' bastırır ve kendi kutusuna koyar. İşte o logoyu sildiğinizde, aynı Bosch markalı balatayı dışarıdaki parçacıdan OEM (Original Equipment Manufacturer) olarak üçte biri fiyatına alabilirsiniz."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Aracınıza parça alırken 'Yan Sanayi' (merdiven altı, Çin malı) almayın; ancak fahiş fiyatlı 'Logolu Orijinal' almak zorunda da değilsiniz. Aracınızın fabrika çıkışında o parçayı üreten OEM markasını (örneğin debriyaj için LUK veya Sachs, far için Hella) öğrenin ve doğrudan o markanın kutusuyla satın alın. Kalite %100 aynı, fiyat %60 daha ucuzdur."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 10: Turbo Arızalarında 'Türbin Değişimi' Aceleciliği",
+          "content": "Turbodan ıslık sesi gelmeye başladığında veya aracın egzozundan mavi duman (yağ yakma) çıktığında usta direkt 'Turbo yemiş, türbin değişecek, 25.000 TL' teşhisini koyar.",
+          "subsections": [
+            {
+              "subtitle": "PCV Valfi ve Basınç Körlüğü",
+              "text": "Turbonun yağ sızdırması her zaman turbonun mekanik olarak dağıldığı anlamına gelmez. Çoğu zaman motorun Karter Havalandırma Valfi (PCV Valfi - 500 TL'lik plastik bir parça) tıkanmıştır. PCV tıkanınca karterde oluşan yüksek basınç gidecek yer bulamaz ve motor yağını zorla turbonun keçelerinden dışarı iter. Turbo sadece yüksek basıncın kurbanı olmuştur."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Turbonuz ıslık çalıyor veya yağ veriyorsa, turboyu söktürmeden önce kesinlikle PCV (Karter Havalandırma) valfini, yağ geri dönüş borularını ve hava filtresini kontrol ettirin. Basit bir tıkanıklığı açmak, sizi devasa turbo revizyon faturalarından kurtarabilir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 11: Triger Değişiminde 'Sahte Ekonomi' (Su Pompası İhmali)",
+          "content": "Araçların ağır bakımı olan Triger (Zamanlama) kayışı değişiminde, usta sadece kayışı ve bilyaları (gergileri) değiştirir. Müşteri 'Su pompasını (devridaimi) da değiştirelim mi?' dediğinde, usta maliyeti düşürmek ve şirin görünmek için 'Gerek yok abi, su pompası daha iyi durumda, akıtmıyor' der.",
+          "subsections": [
+            {
+              "subtitle": "Zaman Ayarlı Bomba",
+              "text": "Triger kayışı değiştiğinde, kayışın geçtiği güzergahtaki en önemli dönen parça devridaim (su) pompasıdır. Eski su pompası, üzerine takılan yepyeni ve çok gergin triger kayışının yarattığı yanal kuvvete dayanamaz. 10.000 km sonra eski su pompası rulmanı kilitlenir. Pompa kilitlendiğinde üstünden geçen yeni triger kayışını da anında koparır ve motorun sibopları pistonlara vurarak motoru tamamen yok eder (150.000 TL zarar)."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Triger bakımı bir bütündür! Triger kayışı değişiyorsa, üzerinden geçtiği su pompası da (isterse sıfır gibi görünsün) tartışmasız olarak değiştirilmelidir. 1.000 TL'lik pompadan kaçmak (sahte ekonomi yapmak), motorunuzun intihar fermanını imzalamaktır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 12: Antifriz Eklerken Yapılan 'Saf Antifriz' Katliamı",
+          "content": "Kış gelirken veya soğutma suyu eksildiğinde, marketten veya benzinlikten konsantre (saf) antifriz alınır ve 'Ne kadar koyu olursa o kadar iyi korur' mantığıyla direkt radyatöre dökülür.",
+          "subsections": [
+            {
+              "subtitle": "Asit Etkisi ve Donma Noktası Paradoksu",
+              "text": "Saf konsantre antifriz son derece korozif bir kimyasaldır. Eğer suyla karıştırılmazsa sistemdeki kauçuk hortumları, O-ringleri ve ince alüminyum contaları asit gibi eritmeye başlar ve araca her yerden su kaçırtır. Daha da ilginci, termodinamik bir paradoks olarak; saf antifrizin donma noktası -12°C iken, %50 saf su ile karıştırılmış antifrizin donma noktası -37°C'ye düşer! Yani saf antifriz koymak soğuğa karşı daha korumasızdır."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Aracınıza asla direkt şişeden saf antifriz boşaltmayın. Etiketinde 'Pre-Mixed' veya 'Ready to Use' (Hazır Karışım) yazmıyorsa, mutlaka bidonun dışında %50 oranında saf su (çeşme suyu veya pet şişe suyu asla değil, saf distile akü suyu) ile karışım hazırlayıp öyle ekleyin."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 13: 4x4 (AWD) Araçların 'Kış Lastiği' Efsanesi",
+          "content": "4x4 (Dört tekerlekten çekişli) veya lüks SUV araç sahiplerinin en büyük argümanı şudur: 'Benim aracım çok güçlü ve 4 çeker, kış lastiğine ihtiyacım yok, karı buzu yarar geçerim.' Bu yüzden yazlık veya dört mevsim lastiklerle karlı yollara çıkarlar.",
+          "subsections": [
+            {
+              "subtitle": "Frenleme Dinamikleri ve Traksiyon Farkı",
+              "text": "Fizik kuralları acımasızdır. 4x4 (AWD) sistemi sadece aracın 'kalkışında (traksiyon)' ve hızlanmasında işe yarar; gücü tekerleklere dağıtarak patinajı önler. Ancak frene bastığınız anda, aracınız ister 4x4 ister önden çekişli olsun, hepsi eşit şartlarda '4 tekerlekten frenleyen' bir demir yığınına dönüşür. Fren mesafesini AWD sistemi değil, sadece lastik hamurunun yere ne kadar tutunduğu (sürtünme katsayısı) belirler."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Karda yaz lastiği takılı bir 4x4 araç kolayca hızlanabilir (bu da sürücüye sahte bir özgüven verir), ancak durması gerektiğinde kızaklayarak felakete sürüklenir. Gerçek kış güvenliği çekiş sisteminde değil, 7 derecenin altında sertleşmeyen silika bazlı kış lastiği hamurundadır. 4x4 bir jip yaz lastiğiyle duramazken, kış lastiği takılı önden çekişli ucuz bir hatchback güvenle durur."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Sır 14: Ekspertiz Firmalarının 'Boya Takıntısı' Manipülasyonu",
+          "content": "İkinci el araba alırken ekspertize gidilir ve raporda 'Sağ arka çamurluk boyalı, kapı ucu lokal boyalı' çıkar. Alıcı anında paniğe kapılır, aracın değerini 50.000 TL kırmaya çalışır veya almaktan vazgeçer. Piyasada kozmetik boya bir 'tabu' haline getirilmiştir.",
+          "subsections": [
+            {
+              "subtitle": "Mekanik Sağlık vs Kozmetik Takıntı",
+              "text": "Avrupa ve Amerika'da aracın kaportasındaki boya bir değer kaybı sebebi değil, araca yapılan bir 'bakım' olarak görülür. Aracın iskeletini (şasi uçları, podyeler, kuleler), hava yastıklarını (airbag) ve motor sağlığını (kompresyon testi) mükemmel çıkmışsa, kapıya sürtmeden dolayı atılan mikronluk yüzeysel boyanın aracın dinamiklerine veya güvenliğine sıfır (0) etkisi vardır. Aksine o çiziğin boyanmaması zamanla sacın paslanıp çürümesine yol açar."
+            },
+            {
+              "subtitle": "Kritik Müdahale",
+              "text": "Araç alırken 'Hatasız, Boyasız' saplantısı yüzünden şanzımanı vuruntulu, motoru yağ yakan bitik arabaları yüksek fiyata almayın. Boyalı ama mekaniği saat gibi, tüm ağır bakımları yetkili serviste yapılmış bir araç her zaman binici için çok daha güvenli ve akıllıca bir yatırımdır. Arabanın kaportası değil, motoru ve şasisi sizi yolda tutar!"
+            }
           ]
         }
       ]
@@ -2825,174 +2903,202 @@
     {
       "id": "guide_005",
       "title": "Araç Dolandırıcılık Yöntemleri ve Korunma Yolları",
-      "description": "Sazan sarmalı, kapora tuzağı, km düşürme ve diğer popüler dolandırıcılık yöntemlerini tanıyın, paranızı kaptırmayın.",
-      "minutes": 9,
+      "description": "Sazan sarmalı, sahte dekont, km düşürme, pert gizleme ve dijital dolandırıcılık yöntemlerini tanıyın. Gerçek mağdur hikayeleri ve adım adım korunma rehberiyle paranızı güvene alın.",
+      "minutes": 18,
       "difficulty": "Kritik",
       "tags": [
         "Dolandırıcılık",
         "Güvenlik",
         "Sazan Sarmalı",
-        "Hukuk"
+        "Hukuk",
+        "Korunma"
       ],
-      "author": "Otosöz Güvenlik Ekibi",
+      "author": "Otosöz Güvenlik Uzmanları",
       "sections": [
         {
           "type": "intro",
-          "title": "Giriş",
-          "content": "Araç piyasasında dönen paranın büyüklüğü, dolandırıcıların iştahını kabartır. Yöntemler sürekli değişse de temel mantık aynıdır: Alıcının veya satıcının dikkatsizliğinden faydalanmak. Bu rehberde en yaygın senaryoları ve bunlara karşı nasıl savunma yapacağınızı anlatacağız."
+          "title": "Türkiye'de İkinci El Araç Piyasasındaki Acı Gerçekler",
+          "content": "Türkiye'de ikinci el araç piyasasında dönen paranın büyüklüğü, her seviyeden dolandırıcının iştahını kabartmaktadır. Emniyet verilerine göre siber suçlardan sonra en çok şikayet alan kategori araç dolandırıcılığıdır. Yöntemler sürekli evrilip dijitalleşse de temel mantık hep aynıdır: Sizin dikkatsizliğiniz, heyecanınız veya 'fırsatı kaçırma' korkunuzdan faydalanmak. Bu rehberde, basit hilelerden organize şebeke işlerine kadar en yaygın dolandırıcılık yöntemlerini ve bunlara karşı kurşun geçirmez savunma tekniklerini bulacaksınız."
         },
         {
           "type": "section",
           "title": "1. Sazan Sarmalı (Üçgen Dolandırıcılığı)",
-          "content": "En tehlikeli ve en sık karşılaşılan yöntemdir. Hem alıcıyı hem satıcıyı aynı anda kandırırlar.",
+          "content": "Türkiye'de en çok para kaybettiren, polis kayıtlarında yılda binlerce kez rastlanan en organize dolandırıcılık türüdür.",
           "subsections": [
             {
-              "subtitle": "Nasıl İşler?",
+              "subtitle": "Nasıl İşler? (Adım Adım)",
               "text": "Dolandırıcı, gerçek bir ilanı kopyalar ve daha ucuza kendi ilanıymış gibi koyar.",
               "points": [
-                "Dolandırıcı (B), Gerçek Satıcıyı (A) arar, 'Aracı alacağım ama şirketten/borçtan dolayı kuzenim/çalışanım gelecek, fiyattan bahsetme' der.",
-                "Dolandırıcı (B), Alıcıyı (C) arar, 'Aracı satıyorum ama işim çıktı, kuzenim/ortağım devri verecek, parayı bana (B'ye) atın' der.",
-                "Noterde A ve C buluşur. Birbirleriyle fiyat konuşmazlar (Dolandırıcı tembihlemiştir).",
-                "C, parayı B'ye gönderir. A parasını almadığı için imzayı atmaz. B parayı alıp kayıplara karışır."
+                "Dolandırıcı (B), Gerçek Satıcıyı (A) arar: 'Aracı alacağım ama şirketten/borçtan dolayı kuzenim gelecek, aramızda anlaştığımız fiyattan bahsetme' der.",
+                "Dolandırıcı (B), Alıcıyı (C) arar: 'Aracı satıyorum ama işim çıktı, vekaleti olan kuzenim/ortağım devri verecek, parayı bana (B'ye) atın' der.",
+                "Noterde Gerçek Satıcı (A) ve Alıcı (C) buluşur. Birbirleriyle fiyat konuşmazlar çünkü dolandırıcı ikisini de 'ayrı ayrı' tembihlemiştir.",
+                "Alıcı (C), parayı Dolandırıcıya (B'ye) gönderir. Satıcı (A) hesabında para görmediği için imzayı atmaz.",
+                "Dolandırıcı (B) parayı kripto paraya çevirir veya çeker ve kayıplara karışır. C parasını kaybeder, A aracını satamaz."
               ]
             },
             {
-              "subtitle": "Nasıl Korunursunuz?",
-              "text": "Basit bir kural hayat kurtarır:",
+              "subtitle": "Korunma Yolu",
+              "text": "Bu tuzağı bozmanın çok basit ama kesin bir kuralı vardır:",
               "points": [
-                "Ruhsat sahibi (Noterde imzayı atacak kişi) ile parayı gönderdiğiniz banka hesabı sahibi AYNI KİŞİ (TC Kimlik) olmak zorundadır.",
-                "Asla 'Aracı dayım verecek parayı bana at' hikayesine inanmayın.",
-                "Noterde satıcıyla açıkça fiyatı ve kime ödeme yapılacağını konuşun."
+                "ALTIN KURAL: Parayı gönderdiğiniz IBAN sahibi ile Noterde ruhsatı devreden kişinin TC Kimlik numarası / İsmi BİREBİR AYNI olmak zorundadır.",
+                "Asla 'Aracı dayım verecek parayı bana at' diyen birine para göndermeyin.",
+                "Noterde satıcıyla açıkça 'Fiyatta anlaştık mı, parayı kime gönderiyorum?' diye teyit edin. 'Aramızda ayıp olur' diye bir şey ticarette yoktur."
               ]
             }
           ],
           "warning": {
             "title": "🚨 Kırmızı Alarm",
-            "text": "Birisi size 'Noterde fiyattan bahsetme, aramızda ayıp olur' veya 'Borcum var duyulmasın' diyorsa %100 dolandırılıyorsunuz."
+            "text": "Birisi size 'Noterde fiyattan bahsetme, aramızda ayıp olur' veya 'Borcum var duyulmasın' diyorsa %100 dolandırılıyorsunuz. Hemen işlemi iptal edin."
           }
         },
         {
           "type": "section",
-          "title": "2. Kapora Dolandırıcılığı",
-          "content": "Düşük rakamlarla çok sayıda kişiyi dolandırma yöntemidir.",
+          "title": "2. Sahte Dekont ve İleri Tarihli EFT Tuzağı",
+          "content": "Özellikle araç satan kişileri hedef alan, teknoloji destekli bir hırsızlık.",
           "subsections": [
             {
-              "subtitle": "Senaryo",
-              "text": "Piyasa değerinin çok altında, hatasız, mükemmel bir araç ilanı açılır.",
+              "subtitle": "Photoshop veya Sahte Uygulama",
+              "text": "Alıcı size telefonundan 'Para gönderildi' ekranını gösterir. Oysa bu ekran Photoshop ile hazırlanmış veya sahte bir bankacılık uygulaması (APK) üzerinden oluşturulmuştur.",
               "points": [
-                "Satıcı genellikle 'Askerim/Polisim/Doktorum, tayinim çıktı acil satılık' der.",
-                "Arayanlara 'Çok talep var, 2-3 bin TL kapora atarsan ilanı sana ayırırım' denir.",
-                "Para gönderildikten sonra telefon kapanır ve ilan silinir."
+                "Gösterilen 'Gönderildi' ekranı tamamen sahtedir.",
+                "1 TL gönderilip, dekont üzerindeki miktar 1.000.000 TL olarak değiştirilmiş olabilir."
+              ]
+            },
+            {
+              "subtitle": "İleri Tarihli EFT/FAST İptali",
+              "text": "Alıcı bankadan EFT talimatını verir ancak 'ileri tarihli' (örn: yarın sabah) ayarlar.",
+              "points": [
+                "Size bankadan 'Talimat verilmiştir' mesajı gelir. Siz imzayı atarsınız.",
+                "Alıcı noterden çıkar çıkmaz mobil bankacılıktan talimatı iptal eder. Para hesabınıza asla geçmez."
               ]
             },
             {
               "subtitle": "Korunma Yolu",
-              "text": "Aracı görmeden para göndermeyin:",
+              "text": "Parayı garantiye almadan imza atmayın:",
               "points": [
-                "Piyasa fiyatının %20-30 altındaki 'kusursuz' araçlar gerçek değildir.",
-                "Aracı fiziksel olarak görüp ruhsatını kontrol etmeden 1 TL bile kapora göndermeyin.",
-                "Görüntülü arama ile aracı görmek istemek caydırıcı olabilir."
+                "KENDİ mobil bankacılığınızı açın ve bakiyenizde artışı GÖZÜNÜZLE görün. Karşı tarafın telefonuna veya SMS'lere güvenmeyin.",
+                "Ticaret Bakanlığı'nın zorunlu kıldığı 'Güvenli Ödeme Sistemi'ni kullanın. Para önce devletin havuzuna (escrow) düşer, noter onayıyla anında hesabınıza geçer."
               ]
             }
           ]
         },
         {
           "type": "section",
-          "title": "3. Ekspertiz ve Parça Değişimi Hileleri",
-          "content": "Araç satın alındıktan sonra fark edilen mekanik dolandırıcılıklar.",
+          "title": "3. Kapora Dolandırıcılığı",
+          "content": "Düşük rakamlarla binlerce kişiyi aynı anda dolandırma yöntemidir.",
           "subsections": [
             {
-              "subtitle": "Anlaşmalı Ekspertiz",
-              "text": "Satıcı 'Benim tanıdık ekspertiz var, oraya gidelim' diye ısrar eder.",
+              "subtitle": "Klasik Senaryo",
+              "text": "Piyasa değerinin %20 altında, kusursuz bir araç ilanı açılır.",
               "points": [
-                "O ekspertiz, aracın ağır kusurlarını (şasi işlemi, airbag patlaklığı) rapora yazmaz.",
-                "Çözüm: Ekspertiz firmasını her zaman ALICI seçmelidir. Satıcının önerdiği yere gitmeyin."
+                "Satıcı genellikle güven telkin etmek için 'Askerim, polisim, doktorum, tayinim çıktı acil satılık' yalanını söyler.",
+                "Arayanlara 'İlgi çok büyük, bana hemen 5-10 bin TL kapora atarsan ilanı sana ayırırım' denir.",
+                "Para gönderildikten 1 saat sonra telefon kapanır, ilan silinir."
               ]
             },
             {
-              "subtitle": "Parça Sökme (Swap)",
-              "text": "Ekspertiz yapıldıktan sonra satışa kadar geçen sürede yapılan hırsızlık.",
+              "subtitle": "Korunma Yolu",
+              "text": "Kural çok basit:",
               "points": [
-                "Ekspertizden sonra araç satıcıda kalırsa; iyi lastikleri söküp eski takabilirler.",
-                "Katalitik konvertörü söküp boş boru takabilirler.",
-                "Orijinal aküyü veya yedek anahtarı vermeyebilirler.",
-                "Çözüm: Ekspertizden hemen sonra notere gidin, aracı gözünüzün önünden ayırmayın."
+                "Aracı FİZİKSEL olarak görmeden, ruhsat ile satıcının kimliğini eşleştirmeden KİMSEYE 1 TL DAHİ KAPORA GÖNDERMEYİN.",
+                "Çok ucuz ilanlar fırsat değil, tuzaktır."
               ]
             }
           ]
         },
         {
           "type": "section",
-          "title": "4. Kilometre Düşürme ve Hasar Gizleme",
-          "content": "Aracın değerini suni olarak artırma yöntemleri.",
+          "title": "4. Ağır Hasarlı / Pert Kayıtlı Aracı Gizleme",
+          "content": "Aracın şasi ve güvenlik geçmişini gizleyerek değerini yapay olarak artırmak.",
           "subsections": [
             {
-              "subtitle": "KM Düşürme",
-              "text": "Dijital sayaçlar bile yazılımla geri çekilebilir.",
+              "subtitle": "Sigorta Şişirmesi Yalanı",
+              "text": "Satıcı size 'Araçta sadece tampon değişti ama sigorta şişirmesi yüzünden ağır hasar işlendi' der. Bu, ikinci el piyasasının en büyük yalanıdır.",
               "points": [
-                "TÜVTÜRK muayene kayıtlarını (PTT HGS uygulaması veya 5664) mutlaka sorgulayın.",
-                "Direksiyon, vites topuzu ve pedal aşınmaları ile KM uyumlu mu bakın.",
-                "Servis kayıtlarını sorgulayın; son bakımı 180.000'de yapılmış araç ilanda 120.000 olamaz."
+                "Hiçbir sigorta şirketi sadece tamponu değişen aracı pert (ağır hasar) ayırmaz. Ağır hasarlı araçların %90'ında şasi, direk, podye veya tavan hasarı vardır.",
+                "Ekleme araç: İki farklı aracın ön ve arka kısmının kaynakla birleştirilmesi. Kaza anında araç ikiye bölünür.",
+                "Airbag lambası söndürme: Patlayan hava yastıklarının yerine yenisi takılmaz, araya 2 liralık direnç lehimlenir ve kadrandaki uyarı lambası söndürülür. Kaza anında airbag açılmaz."
               ]
             },
             {
-              "subtitle": "Ağır Hasarlı / Pert Kayıtlı Araç",
-              "text": "Sigorta şişirmesi yalanı.",
+              "subtitle": "Korunma Yolu",
+              "text": "Geçmişi didik didik edin:",
               "points": [
-                "Satıcı 'Sigorta şişirmesi ağır hasar var, aslında sadece tampon değişti' der.",
-                "Genelde bu araçlar iki farklı aracın birleştirilmesiyle (ekleme) veya sel hasarlı olabilir.",
-                "Airbag kontrolü şarttır; direnç atılarak airbag lambası söndürülmüş olabilir."
+                "Tramer sorgulamasını SMS (5664) ve e-Devlet üzerinden mutlaka yapın.",
+                "Ekspertiz firmasını SİZ seçin. Satıcının önerdiği yere gitmeyin.",
+                "Ekspertizde mutlaka 'Airbag Kontrolü' ve 'Şasi Ölçümü' isteyin."
               ]
             }
-          ],
-          "tip": {
-            "title": "💡 İpucu",
-            "text": "OBD cihazı ile beyin kontrolü yaptırın. Göstergede 100 bin yazsa da, ABS beyni veya şanzıman beyni gerçek kilometreyi (örn: 300 bin) hafızasında tutabilir."
-          }
+          ]
         },
         {
           "type": "section",
-          "title": "5. Sahte Dekont ve Para Transferi Hileleri",
-          "content": "Özellikle araç satarken dikkat etmeniz gereken finansal tuzaklar.",
+          "title": "5. Kilometre (KM) Düşürme Hilesi",
+          "content": "Aracın daha az kullanılmış gibi gösterilerek 50-100 bin TL daha pahalıya satılmasıdır.",
           "subsections": [
             {
-              "subtitle": "Sahte Dekont / EFT",
-              "text": "Para hesabınıza geçmeden inanmayın.",
+              "subtitle": "Nasıl Yapılıyor?",
+              "text": "Modern araçlarda bile OBD portuna takılan yazılımlarla kadran kmsi dakikalar içinde düşürülebilir.",
               "points": [
-                "Alıcı size telefonundan 'Gönderildi' ekranını gösterir, bu Photoshop olabilir.",
-                "Veya 'İleri tarihli EFT' talimatı verir, siz imzayı atınca talimatı iptal eder.",
-                "Kural: Banka uygulamanızı açıp, bakiyenizde parayı görmeden ASLA imza atmayın."
+                "280.000 km'deki bir ticari geçmişli araç 120.000 km'ye çekilir.",
+                "Fiziksel aşınmayı gizlemek için direksiyon simidi, pedallar ve vites topuzu yenilenir veya kılıf takılır."
               ]
             },
             {
-              "subtitle": "Açıklama Kısmı Oyunu",
-              "text": "Parayı gönderirken açıklama kısmı boş bırakılmaz.",
+              "subtitle": "Korunma Yolu",
+              "text": "Dedektiflik yapmalısınız:",
               "points": [
-                "Alıcı parayı gönderirken açıklamaya '34 ABC 12 plakalı araç satış bedeli' yazmalıdır.",
-                "Aksi takdirde, kötü niyetli kişiler satıştan sonra 'Ben ona borç vermiştim, araba parası değildi' diyerek dava açabilir."
+                "TÜVTÜRK muayene kilometre geçmişini HGS uygulamasından sorgulayın.",
+                "Yetkili servis kayıtlarına ulaşın. Bakımda 180.000 yazan araç ilanda 100.000 olamaz.",
+                "Gelişmiş OBD testleriyle aracın ABS beyni, Şanzıman beyni veya Klima beynindeki gerçek km okunabilir. (Kadran sıfırlansa bile diğer beyinler unutmaz)."
               ]
             }
-          ],
-          "warning": {
-            "title": "⚠️ Kesin Çözüm",
-            "text": "Tüm bu para risklerini sıfırlamak için Bankaların veya Noterler Birliği'nin 'Güvenli Ödeme Sistemi'ni kullanmak zorunludur ve en güvenli yoldur."
-          }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "6. Galeri / Anlaşmalı Ekspertiz Kumpası",
+          "content": "Satış sürecinde aracı gözden ayırdığınızda başınıza gelebilecekler.",
+          "subsections": [
+            {
+              "subtitle": "Parça Değişimi (Swap)",
+              "text": "Aracı ekspertize sokup 'temiz' raporu alırsınız. Ancak noter satışına kadar geçen 1-2 saatte:",
+              "points": [
+                "Araçtaki sıfır lastikler sökülüp kabak lastikler takılır.",
+                "Katalitik konvertör (çok değerli bir parçadır) sökülüp içi boşaltılır.",
+                "Orijinal akü sökülüp bitik akü konur."
+              ]
+            },
+            {
+              "subtitle": "Korunma Yolu",
+              "text": "Aracı ekspertizden sonra GÖZÜNÜZÜN ÖNÜNDEN AYIRMAYIN. Ekspertiz biter bitmez araca binip notere doğrudan birlikte gidin. Akü ve lastik markalarının fotoğraflarını çekin."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "7. Kiralık Araç ve Vekalet Dolandırıcılığı",
+          "content": "Ruhsat sahibinin dışında yapılan satış işlemlerinde dönen oyunlar.",
+          "subsections": [
+            {
+              "subtitle": "Kiralık Aracı Satmak",
+              "text": "Dolandırıcı aracı Rent A Car firmasından kiralar. Sahte kimlik ve belgelerle sanki şirket aracıymış gibi ucuz fiyata satışa sunar. Sizi inandırmak için sahte vekaletname bile ayarlarlar.",
+              "points": [
+                "Satışı noterde yapamazlar, size 'Vekaletle verelim' derler."
+              ]
+            },
+            {
+              "subtitle": "Korunma Yolu",
+              "text": "Araç devrini NOTERDE resmi olarak üzerinize geçirmeden para ÖDEMEYİN. Genel vekalet ile araç kullanılmaz. Aracın tescil belgesinde (Ruhsat) yazan isim haricinde kimseyle ticaret yapmayın."
+            }
+          ]
         },
         {
           "type": "conclusion",
-          "title": "Sonuç: Güvenlik Kontrol Listesi",
-          "content": "Dolandırıcılar acele ettirmeyi ve panik havası yaratmayı severler. Sakin olun, mantıksız gelen hiçbir işlemi yapmayın.",
-          "finalChecklist": [
-            "Ruhsat sahibi ile Para gönderilen kişi AYNI (TC Kontrolü)",
-            "Ekspertiz firmasını ben seçtim (Satıcınınki değil)",
-            "Kapora göndermedim, aracı canlı gördüm",
-            "Tramer, Muayene ve KM sorgusu yapıldı",
-            "Güvenli Ödeme Sistemi kullanıldı",
-            "Noterde imza öncesi para hesapta teyit edildi"
-          ]
+          "title": "Sonuç: Tedbir, Güvenden Üstündür",
+          "content": "Araç alım-satımında 'ayıp olur', 'kırmayayım', 'fırsatı kaçırmayayım' gibi duygusal tepkiler dolandırıcıların en sevdiği zayıflıklardır. Şüpheci olun, tüm kontrolleri (Tramer, Ekspertiz, Noter Güvenli Ödeme) harfiyen uygulayın. Unutmayın, hiçbir dürüst satıcı sizin bu kontrolleri yapmanızdan rahatsız olmaz; rahatsız olan kişinin mutlaka gizlediği bir şey vardır."
         }
-      ],
-      "urlId": 10002
+      ]
     },
     {
       "id": "guide_006",

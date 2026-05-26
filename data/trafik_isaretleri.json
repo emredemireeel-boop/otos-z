@@ -1,0 +1,343 @@
+{
+  "categories": [
+    {
+      "id": "tehlike_uyari",
+      "name": "Tehlike Uyarı İşaretleri (T Serisi)",
+      "description": "Sürücüleri yol üzerindeki tehlikeler konusunda uyarır. Genellikle eşkenar üçgen şeklindedir ve kırmızı vişne çürüğü çerçevesi vardır.",
+      "signs": [
+        {
+          "id": "T-1a",
+          "name": "Sağa Tehlikeli Viraj",
+          "image": "/signs/T-1a.svg?v=1779808179711",
+          "description": "İleride sağa dönen tehlikeli bir viraj olduğunu bildirir."
+        },
+        {
+          "id": "T-1b",
+          "name": "Sola Tehlikeli Viraj",
+          "image": "/signs/T-1b.svg?v=1779808179711",
+          "description": "İleride sola dönen tehlikeli bir viraj olduğunu bildirir."
+        },
+        {
+          "id": "T-2a",
+          "name": "Sağa Tehlikeli Devamlı Virajlar",
+          "image": "/signs/T-2a.svg?v=1779808179711",
+          "description": "İlki sağa olmak üzere ardı ardına devam eden tehlikeli virajları bildirir."
+        },
+        {
+          "id": "T-2b",
+          "name": "Sola Tehlikeli Devamlı Virajlar",
+          "image": "/signs/T-2b.svg?v=1779808179711",
+          "description": "İlki sola olmak üzere ardı ardına devam eden tehlikeli virajları bildirir."
+        },
+        {
+          "id": "T-3a",
+          "name": "Tehlikeli Eğim (İniş)",
+          "image": "/signs/T-3a.svg?v=1779808179711",
+          "description": "İleride %10 veya daha fazla iniş eğimli bir yol kesimi olduğunu bildirir."
+        },
+        {
+          "id": "T-3b",
+          "name": "Tehlikeli Eğim (Çıkış)",
+          "image": "/signs/T-3b.svg?v=1779808179711",
+          "description": "İleride %10 veya daha fazla çıkış eğimli bir yol kesimi olduğunu bildirir."
+        },
+        {
+          "id": "T-4a",
+          "name": "Her İki Taraftan Daralan Kaplama",
+          "image": "/signs/T-4a.svg?v=1779808179711",
+          "description": "İleride yolun her iki taraftan daralacağını bildirir."
+        },
+        {
+          "id": "T-4b",
+          "name": "Sağdan Daralan Kaplama",
+          "image": "/signs/T-4b.svg?v=1779808179711",
+          "description": "İleride yolun sağ taraftan daralacağını bildirir."
+        },
+        {
+          "id": "T-7",
+          "name": "Kasisli Yol",
+          "image": "/signs/T-7.svg?v=1779808179711",
+          "description": "İleride kasis bulunduğunu bildirir."
+        },
+        {
+          "id": "T-8",
+          "name": "Kaygan Yol",
+          "image": "/signs/T-8.svg?v=1779808179711",
+          "description": "Yolun kaygan olabileceğini bildirir."
+        },
+        {
+          "id": "T-9",
+          "name": "Gevşek Malzemeli Zemin",
+          "image": "/signs/T-9.svg?v=1779808179711",
+          "description": "Yol üzerinde gevşek malzeme bulunduğunu bildirir."
+        },
+        {
+          "id": "T-10",
+          "name": "Gevşek Şev",
+          "image": "/signs/T-10.svg?v=1779808179711",
+          "description": "Yarma şevlerinden yola taş veya kaya düşebileceğini bildirir."
+        },
+        {
+          "id": "T-11",
+          "name": "Yaya Geçidi",
+          "image": "/signs/T-11.svg?v=1779808179711",
+          "description": "İleride yaya geçidi bulunduğunu bildirir."
+        },
+        {
+          "id": "T-12",
+          "name": "Okul Geçidi",
+          "image": "/signs/T-12.svg?v=1779808179711",
+          "description": "İleride okul geçidi bulunduğunu bildirir."
+        },
+        {
+          "id": "T-14a",
+          "name": "Ehli Hayvan Geçebilir",
+          "image": "/signs/T-14a.svg?v=1779808179711",
+          "description": "Yola ehli hayvan çıkabileceğini bildirir."
+        },
+        {
+          "id": "T-14b",
+          "name": "Vahşi Hayvan Geçebilir",
+          "image": "/signs/T-14b.svg?v=1779808179711",
+          "description": "Yola vahşi hayvan çıkabileceğini bildirir."
+        },
+        {
+          "id": "T-15",
+          "name": "Yolda Çalışma Var",
+          "image": "/signs/T-15.svg?v=1779808179711",
+          "description": "İleride yapım, bakım veya onarım çalışması olduğunu bildirir."
+        },
+        {
+          "id": "T-16",
+          "name": "Işıklı İşaret Cihazı",
+          "image": "/signs/T-16.svg?v=1779808179711",
+          "description": "İleride trafik ışıkları olduğunu bildirir."
+        },
+        {
+          "id": "T-18",
+          "name": "İki Yönlü Trafik",
+          "image": "/signs/T-18.svg?v=1779808179711",
+          "description": "İki yönlü trafiğin olduğu yola girileceğini bildirir."
+        },
+        {
+          "id": "T-19",
+          "name": "Dikkat",
+          "image": "/signs/T-19.svg?v=1779808179711",
+          "description": "Tanımlanmamış tehlikelerin olabileceğini bildirir."
+        },
+        {
+          "id": "T-21",
+          "name": "Kontrolsüz Kavşak",
+          "image": "/signs/T-21.svg?v=1779808179711",
+          "description": "İleride kontrolsüz kavşak bulunduğunu bildirir."
+        },
+        {
+          "id": "T-22a",
+          "name": "Ana Yol Tali Yol Kavşağı",
+          "image": "/signs/T-22a.svg?v=1779808179711",
+          "description": "Ana yola tali yolların bağlanacağı bir kavşak olduğunu bildirir."
+        },
+        {
+          "id": "T-23a",
+          "name": "Dönel Kavşak Yaklaşımı",
+          "image": "/signs/T-23a.svg?v=1779808179711",
+          "description": "İleride dönel kavşak bulunduğunu bildirir."
+        },
+        {
+          "id": "T-25",
+          "name": "Kontrollü Demiryolu Geçidi",
+          "image": "/signs/T-25.svg?v=1779808179711",
+          "description": "Bariyerli hemzemin geçit olduğunu bildirir."
+        },
+        {
+          "id": "T-26",
+          "name": "Kontrolsüz Demiryolu Geçidi",
+          "image": "/signs/T-26.svg?v=1779808179711",
+          "description": "Bariyersiz hemzemin geçit olduğunu bildirir."
+        }
+      ]
+    },
+    {
+      "id": "trafik_tanzim",
+      "name": "Trafik Tanzim İşaretleri (TT Serisi)",
+      "description": "Trafik akışını düzenler, yasaklar ve kısıtlamalar getirir. Genellikle yuvarlaktır ve uymamak asli kusur/ceza sebebidir.",
+      "signs": [
+        {
+          "id": "TT-1",
+          "name": "Yol Ver",
+          "image": "/signs/TT-1.svg?v=1779808179711",
+          "description": "Kavşağa yaklaşan araçların geçiş hakkı vermesi gerektiğini bildirir."
+        },
+        {
+          "id": "TT-2",
+          "name": "Dur",
+          "image": "/signs/TT-2.svg?v=1779808179711",
+          "description": "Kavşağa girmeden önce tamamen durulması gerektiğini bildirir."
+        },
+        {
+          "id": "TT-3",
+          "name": "Karşıdan Gelene Yol Ver",
+          "image": "/signs/TT-3.svg?v=1779808179711",
+          "description": "Karşı yönden gelen araçlara öncelik verilmesi gerektiğini bildirir."
+        },
+        {
+          "id": "TT-4",
+          "name": "Taşıt Trafiğine Kapalı Yol",
+          "image": "/signs/TT-4.svg?v=1779808179711",
+          "description": "Yolun araç trafiğine kapalı olduğunu bildirir."
+        },
+        {
+          "id": "TT-5",
+          "name": "Girişi Olmayan Yol",
+          "image": "/signs/TT-5.svg?v=1779808179711",
+          "description": "Ters yön girişini belirtir."
+        },
+        {
+          "id": "TT-6",
+          "name": "Motorlu Taşıt Giremez",
+          "image": "/signs/TT-6.svg?v=1779808179711",
+          "description": "Motosikletler hariç motorlu taşıtların girmesinin yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-8",
+          "name": "Motosiklet Giremez",
+          "image": "/signs/TT-8.svg?v=1779808179711",
+          "description": "Motosikletlerin girmesinin yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-9",
+          "name": "Bisiklet Giremez",
+          "image": "/signs/TT-9.svg?v=1779808179711",
+          "description": "Bisikletlerin girmesinin yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-13",
+          "name": "Yaya Giremez",
+          "image": "/signs/TT-13.svg?v=1779808179711",
+          "description": "Yayaların girmesinin yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-17",
+          "name": "Genişliği Fazla Olan Taşıt Giremez",
+          "image": "/signs/TT-17.svg?v=1779808179711",
+          "description": "Geniş araçların girmesinin yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-18",
+          "name": "Yüksekliği Fazla Olan Taşıt Giremez",
+          "image": "/signs/TT-18.svg?v=1779808179711",
+          "description": "Yüksek araçların girmesinin yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-26a",
+          "name": "Sağa Dönülmez",
+          "image": "/signs/TT-26a.svg?v=1779808179711",
+          "description": "Sağa dönmenin yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-26b",
+          "name": "Sola Dönülmez",
+          "image": "/signs/TT-26b.svg?v=1779808179711",
+          "description": "Sola dönmenin yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-27",
+          "name": "U Dönüşü Yapılmaz",
+          "image": "/signs/TT-27.svg?v=1779808179711",
+          "description": "U dönüşü yapmanın yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-28",
+          "name": "Öndeki Taşıtı Geçmek Yasaktır",
+          "image": "/signs/TT-28.svg?v=1779808179711",
+          "description": "Sollama yapmanın yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-29",
+          "name": "Kamyonlar İçin Öndeki Taşıtı Geçmek Yasaktır",
+          "image": "/signs/TT-29.svg?v=1779808179711",
+          "description": "Kamyonların sollama yapmasının yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-30",
+          "name": "Azami Hız Sınırlaması",
+          "image": "/signs/TT-30.svg?v=1779808179711",
+          "description": "Azami hız kısıtlamasını bildirir."
+        },
+        {
+          "id": "TT-31",
+          "name": "Sesli İkaz Cihazları Yasaktır",
+          "image": "/signs/TT-31.svg?v=1779808179711",
+          "description": "Korna çalınmasının yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-32",
+          "name": "Bütün Yasaklamaların Sonu",
+          "image": "/signs/TT-32.svg?v=1779808179711",
+          "description": "Daha önceki tüm yasaklamaların sona erdiğini bildirir."
+        },
+        {
+          "id": "TT-33",
+          "name": "Hız Sınırlaması Sonu",
+          "image": "/signs/TT-33.svg?v=1779808179711",
+          "description": "Hız kısıtlamasının sona erdiğini bildirir."
+        },
+        {
+          "id": "TT-34a",
+          "name": "Geçme Yasağı Sonu",
+          "image": "/signs/TT-34a.svg?v=1779808179711",
+          "description": "Sollama yasağının bittiğini bildirir."
+        },
+        {
+          "id": "TT-35a",
+          "name": "İleri Mecburi Yön",
+          "image": "/signs/TT-35a.svg?v=1779808179711",
+          "description": "Sadece düz gidilebileceğini bildirir."
+        },
+        {
+          "id": "TT-35b",
+          "name": "Sağa Mecburi Yön",
+          "image": "/signs/TT-35b.svg?v=1779808179711",
+          "description": "Sadece sağa dönülebileceğini bildirir."
+        },
+        {
+          "id": "TT-35c",
+          "name": "Sola Mecburi Yön",
+          "image": "/signs/TT-35c.svg?v=1779808179711",
+          "description": "Sadece sola dönülebileceğini bildirir."
+        },
+        {
+          "id": "TT-38",
+          "name": "Park Yasaktır",
+          "image": "/signs/TT-38.svg?v=1779808179711",
+          "description": "Park etmenin yasak olduğunu bildirir."
+        },
+        {
+          "id": "TT-39",
+          "name": "Duraklamak ve Park Etmek Yasaktır",
+          "image": "/signs/TT-39.svg?v=1779808179711",
+          "description": "Duraklama ve park etmenin kesinlikle yasak olduğunu bildirir."
+        }
+      ]
+    },
+    {
+      "id": "bilgi_isaretleri",
+      "name": "Bilgi İşaretleri (B Serisi)",
+      "description": "Sürücülere yol, yerleşim yerleri, hizmet tesisleri ve kurallar hakkında bilgi verir.",
+      "signs": [
+        {
+          "id": "B-14a",
+          "name": "Yaya Geçidi",
+          "image": "/signs/B-14a.svg?v=1779808179711",
+          "description": "Yaya geçidi olduğunu bildirir."
+        },
+        {
+          "id": "B-14b",
+          "name": "Okul Geçidi",
+          "image": "/signs/B-14b.svg?v=1779808179711",
+          "description": "Okul geçidi olduğunu bildirir."
+        }
+      ]
+    }
+  ]
+}

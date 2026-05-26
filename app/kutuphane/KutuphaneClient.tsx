@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
-import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield, CreditCard, FileText, Fingerprint, Compass, MessageSquare } from "lucide-react";
+import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield, CreditCard, FileText, Fingerprint, Compass, MessageSquare, Signpost } from "lucide-react";
 import Link from "next/link";
 import ObdSection from "./obd-section";
 import GostergeSection from "./gosterge-section";
@@ -26,6 +26,8 @@ import DolandiricilikRehberiSection from "./dolandiricilik-rehberi-section";
 import NereyeGitmeliSection from "./nereye-gitmeli-section";
 import HasarSorgulamaSection from "./hasar-sorgulama-section";
 import EfsaneAvcilariSection from "./efsane-avcilari-section";
+import TrafikIsaretleriSection from "./trafik-isaretleri-section";
+import NasilYapilirSection from "./nasil-yapilir-section";
 import trafikCezalariData from "@/data/trafik_cezalari.json";
 import obdCodes from "@/data/obd-codes.json";
 
@@ -130,6 +132,7 @@ export default function LibraryPage() {
         { slug: 'makaleler', name: 'Makale', icon: BookOpen, title: 'Otomotiv Makaleleri | OtoSöz Kütüphane', description: 'Otomotiv dünyasına dair detaylı makaleler, bakım rehberleri ve uzman önerileri.' },
         { slug: 'ilginc-bilgiler', name: 'İlginç', icon: Lightbulb, title: 'İlginç Otomotiv Bilgileri | OtoSöz', description: 'Otomobil dünyasından ilginç bilgiler, ipucları, kontrol listeleri.' },
         { slug: 'otomotiv-sozluk', name: 'Sözlük', icon: BookMarked, title: 'Otomotiv Sözlüğü - Türkçe Araç Terimleri | OtoSöz', description: 'A\'dan Z\'ye tüm otomotiv terimlerinin Türkçe açıklamaları. ABS, ESP, Tramer, Ekspertiz ve daha fazlası.' },
+        { slug: 'trafik-isaretleri', name: 'Trafik İşaretleri', icon: Signpost, title: 'Türkiye Trafik İşaretleri ve Anlamları | OtoSöz', description: 'Tüm trafik tanzim, tehlike uyarı, bilgi ve park etme levhalarının resimleri ve detaylı açıklamaları.' },
         { slug: 'obd-ariza-kodlari', name: 'OBD', icon: Wrench, title: 'OBD Arıza Kodları Sorgulama | OtoSöz', description: 'P0, P1, P2 ve tüm OBD arıza kodlarının Türkçe açıklamaları, nedenleri ve çözüm önerileri.' },
         { slug: 'gosterge-isiklari', name: 'Göstergeler', icon: AlertTriangle, title: 'Araç Gösterge Işıkları ve Anlamları | OtoSöz', description: 'Arabadaki tüm ikaz lambalarının anlamları: motor arıza, ABS, yağ basıncı, hararet ve daha fazlası.' },
         { slug: 'trafik-cezalari', name: 'Trafik Cezaları', icon: ShieldAlert, title: '2026 Trafik Ceza Tablosu - Güncel Tutarlar | OtoSöz', description: '2026 yılı güncel trafik ceza tutarları, ehliyet ceza puanları, alkol sınırları ve araç men süreleri.' },
@@ -151,6 +154,7 @@ export default function LibraryPage() {
         { slug: 'nereye-gitmeli', name: 'Nereye Gitmeli?', icon: Compass, title: 'Araç Arızasında Nereye Gitmeli? | OtoSöz', description: 'Klima, motor, şanzıman, fren arızasında hangi uzmana gitmelisiniz? Doğru servis rehberi, tahmini maliyet ve süreler.' },
         { slug: 'hasar-sorgulama', name: 'Hasar Sorgulama', icon: MessageSquare, title: '5664 Hasar (Tramer) Sorgulama Rehberi | OtoSöz', description: 'İkinci el araç almadan önce 5664 SMS tramer sorgulama nasıl yapılır? ERP nedir ve bedelsiz hasarın tehlikeleri nelerdir?' },
         { slug: 'efsane-avcilari', name: 'Efsane Avcıları', icon: Zap, title: 'Oto Efsane Avcıları - Doğru Bilinen Yanlışlar | OtoSöz', description: 'Otomotiv dünyasında doğru bilinen yanlışlar. Yokuş aşağı boşa atmak, motor ısıtmak, kalın yağ kullanmak gibi sanayi efsanelerinin mühendislik gerçekleri.' },
+        { slug: 'nasil-yapilir', name: 'Nasıl Yapılır?', icon: Wrench, title: 'Nasıl Yapılır? Adım Adım Araç Bakım Rehberleri | OtoSöz', description: 'Patlak lastik değiştirme, akü takviyesi, motor yağı kontrolü ve daha fazlası. Adım adım fotoğraflı araç bakım ve acil durum rehberleri.' },
     ];
 
     // Determine active tab from URL
@@ -161,9 +165,10 @@ export default function LibraryPage() {
         return idx >= 0 ? idx : 0;
     }, [sekmeParam]);
 
+    const currentTab = tabSlugs[activeTab] || tabSlugs[0];
+
     // Dynamic page title & meta description for SEO
     useEffect(() => {
-        const currentTab = tabSlugs[activeTab];
         document.title = currentTab.title;
 
         // Update meta description
@@ -364,7 +369,7 @@ export default function LibraryPage() {
     const getDynamicSchema = () => {
         let schema: any = null;
 
-        if (activeTab === 5 && (trafikCezalariData as any)?.categories) {
+        if (currentTab.slug === 'trafik-cezalari' && (trafikCezalariData as any)?.categories) {
             // Trafik Cezaları FAQ
             const faqs = (trafikCezalariData as any).categories.flatMap((cat: any) => cat.rows).slice(0, 20);
             schema = {
@@ -379,11 +384,11 @@ export default function LibraryPage() {
                     }
                 }))
             };
-        } else if (activeTab === 3 && obdCodes) {
+        } else if (currentTab.slug === 'obd-ariza-kodlari' && obdCodes) {
             return getOBDSchema();
-        } else if (activeTab === 1 && filteredInteresting?.mythBusters) {
+        } else if (currentTab.slug === 'ilginc-bilgiler' && filteredInteresting?.mythBusters) {
             return getMythBustersSchema();
-        } else if (activeTab === 0 && filteredGuides) {
+        } else if (currentTab.slug === 'makaleler' && filteredGuides) {
             schema = {
                  "@context": "https://schema.org",
                  "@type": "CollectionPage",
@@ -397,7 +402,7 @@ export default function LibraryPage() {
              };
         } else {
             // Generic SSS for dictionary terms if looking at Sözlük (activeTab === 2)
-            if (activeTab === 2 && filteredDictionary) {
+            if (currentTab.slug === 'otomotiv-sozluk' && filteredDictionary) {
                 schema = {
                     "@context": "https://schema.org",
                     "@type": "FAQPage",
@@ -573,7 +578,7 @@ export default function LibraryPage() {
                 {/* Content */}
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
                     {/* Tab 1: Makale (Guides) */}
-                    {activeTab === 0 && (
+                    {currentTab.slug === 'makaleler' && (
                         <div>
                             {/* Sayfa bilgisi */}
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
@@ -586,7 +591,7 @@ export default function LibraryPage() {
 
                             <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
                                 {paginatedGuides.map((guide) => (
-                                    <Link key={guide.id} href={`/makale/${createSlug(guide.title)}--${(guide as any).urlId}`} style={{ textDecoration: 'none' }}>
+                                    <Link key={guide.id} href={`/makale/${createSlug(guide.title)}--${(guide as any).urlId || guide.id}`} style={{ textDecoration: 'none' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
@@ -747,7 +752,7 @@ export default function LibraryPage() {
                         </div>
                     )}
 
-                    {activeTab === 1 && filteredInteresting && (
+                    {currentTab.slug === 'ilginc-bilgiler' && filteredInteresting && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
                             {/* Daily Tips */}
                             {filteredInteresting.dailyTips.length > 0 && <SectionCarousel title="Günlük İpuçları" icon={<Lightbulb color="#F59E0B" />}>
@@ -891,7 +896,7 @@ export default function LibraryPage() {
                     )}
 
                     {/* Tab 3: Sözlük */}
-                    {activeTab === 2 && (
+                    {currentTab.slug === 'otomotiv-sozluk' && (
                         <div>
                             {/* Dictionary Search Box */}
                             <div style={{ marginBottom: '24px' }}>
@@ -1016,17 +1021,22 @@ export default function LibraryPage() {
                     )}
 
                     {/* Tab 4: OBD */}
-                    {activeTab === 3 && (
+                    
+                    {/* Tab 3.5: Trafik İşaretleri */}
+                    {currentTab.slug === 'trafik-isaretleri' && (
+                        <TrafikIsaretleriSection />
+                    )}
+                    {currentTab.slug === 'obd-ariza-kodlari' && (
                         <ObdSection />
                     )}
 
                     {/* Tab 5: Göstergeler */}
-                    {activeTab === 4 && (
+                    {currentTab.slug === 'gosterge-isiklari' && (
                         <GostergeSection />
                     )}
 
                     {/* Tab 6: Trafik Cezaları */}
-                    {activeTab === 5 && (
+                    {currentTab.slug === 'trafik-cezalari' && (
                         <div
                             onCopy={(e: React.SyntheticEvent) => { e.preventDefault(); }}
                             onContextMenu={(e: React.SyntheticEvent) => { e.preventDefault(); }}
@@ -1113,66 +1123,66 @@ export default function LibraryPage() {
                     )}
 
                     {/* Tab 7: Lastik Rehberi */}
-                    {activeTab === 6 && (
+                    {currentTab.slug === 'lastik-rehberi' && (
                         <LastikRehberiSection />
                     )}
 
                     {/* Tab 8: İkinci El */}
-                    {activeTab === 7 && (
+                    {currentTab.slug === 'ikinci-el-rehberi' && (
                         <IkinciElSection />
                     )}
 
                     {/* Tab 9: Kaza & İlk Yardım */}
-                    {activeTab === 8 && (
+                    {currentTab.slug === 'kaza-ilkyardim' && (
                         <KazaIlkYardimSection />
                     )}
 
                     {/* Tab 10: Mevsimsel Bakım */}
-                    {activeTab === 9 && (
+                    {currentTab.slug === 'mevsimsel-bakim' && (
                         <MevsimselBakimSection />
                     )}
 
                     {/* Tab 11: Sigorta Rehberi */}
-                    {activeTab === 10 && (
+                    {currentTab.slug === 'sigorta-rehberi' && (
                         <SigortaRehberiSection />
                     )}
 
                     {/* Tab 12: Otoyol Ücretleri */}
-                    {activeTab === 11 && (
+                    {currentTab.slug === 'otoyol-ve-kopru-ucretleri' && (
                         <OtoyolUcretleriSection />
                     )}
 
                     {/* Tab 13: Bakım Zamanları */}
-                    {activeTab === 12 && (
+                    {currentTab.slug === 'bakim-zamanlari' && (
                         <BakimZamanlariSection />
                     )}
 
                     {/* Tab 14: TÜVTÜRK Araç Muayenesi */}
-                    {activeTab === 13 && (
+                    {currentTab.slug === 'tuvturk-muayene' && (
                         <TuvturkMuayeneSection />
                     )}
 
                     {/* Tab 15: Kasa ve Segmentler */}
-                    {activeTab === 14 && (
+                    {currentTab.slug === 'arac-segmentleri' && (
                         <AracSegmentleriSection />
                     )}
 
                     {/* Tab 16: Plaka Kodları */}
-                    {activeTab === 15 && (
+                    {currentTab.slug === 'plaka-kodlari' && (
                         <PlakaKodlariSection />
                     )}
 
                     {/* Tab 17: Noter İşlemleri */}
-                    {activeTab === 16 && (
+                    {currentTab.slug === 'noter-islemleri' && (
                         <NoterIslemleriSection />
                     )}
 
                     {/* Tab 18: Ehliyet Sınıfları */}
-                    {activeTab === 17 && (
+                    {currentTab.slug === 'ehliyet-siniflari' && (
                         <EhliyetSiniflariSection />
                     )}
 
-                    {activeTab === 18 && (
+                    {currentTab.slug === 'kasko-deger' && (
                         <div style={{ animation: 'fadeIn 0.3s ease' }}>
                             <div style={{ background: 'linear-gradient(135deg, #1E3A5F, #0EA5E9)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '24px', marginBottom: '32px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 30px rgba(14,165,233,0.2)' }}>
                                 <div style={{ width: '60px', height: '60px', borderRadius: '14px', background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: '1px solid rgba(255,255,255,0.3)' }}>
@@ -1195,28 +1205,33 @@ export default function LibraryPage() {
                     )}
 
                     {/* Tab 20: HGS Sınıfları */}
-                    {activeTab === 19 && (
+                    {currentTab.slug === 'hgs-siniflari' && (
                         <HgsSiniflariSection />
                     )}
 
                     {/* Tab 21: Dolandırıcılık Rehberi */}
-                    {activeTab === 20 && (
+                    {currentTab.slug === 'dolandiricilik-rehberi' && (
                         <DolandiricilikRehberiSection />
                     )}
 
                     {/* Tab 22: Nereye Gitmeli? */}
-                    {activeTab === 21 && (
+                    {currentTab.slug === 'nereye-gitmeli' && (
                         <NereyeGitmeliSection />
                     )}
 
                     {/* Tab 23: Hasar Sorgulama */}
-                    {activeTab === 22 && (
+                    {currentTab.slug === 'hasar-sorgulama' && (
                         <HasarSorgulamaSection />
                     )}
 
                     {/* Tab 24: Efsane Avcıları */}
-                    {activeTab === 23 && (
+                    {currentTab.slug === 'efsane-avcilari' && (
                         <EfsaneAvcilariSection />
+                    )}
+
+                    {/* Tab 25: Nasıl Yapılır? */}
+                    {currentTab.slug === 'nasil-yapilir' && (
+                        <NasilYapilirSection />
                     )}
                 </div>
             </main>

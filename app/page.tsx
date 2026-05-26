@@ -45,6 +45,8 @@ export default function Home() {
     const [newTopicData, setNewTopicData] = useState({ title: "", content: "", category: "", type: "topic", carBrand: "", carModel: "", carYear: "", carKm: "" });
     const [newSurveyOptions, setNewSurveyOptions] = useState(["Evet", "Hayır"]);
     const [searchQuery, setSearchQuery] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const ITEMS_PER_PAGE = 20;
     const [randomGuide, setRandomGuide] = useState<any>(null);
     const [randomMyth, setRandomMyth] = useState<Myth | null>(null);
 
@@ -296,6 +298,14 @@ export default function Home() {
         return 0;
     });
 
+    // Pagination
+    const totalPages = Math.max(1, Math.ceil(sortedTopics.length / ITEMS_PER_PAGE));
+    const safePage = Math.min(currentPage, totalPages);
+    const paginatedTopics = sortedTopics.slice((safePage - 1) * ITEMS_PER_PAGE, safePage * ITEMS_PER_PAGE);
+
+    // Reset page on filter change
+    useEffect(() => { setCurrentPage(1); }, [selectedCategory, searchQuery]);
+
 
     const renderContent = () => {
         if (currentCat?.type === 'survey') {
@@ -370,7 +380,7 @@ export default function Home() {
 
         return (
             <div style={{ display: 'grid', gap: '16px' }}>
-                {sortedTopics.map((topic) => (
+                {paginatedTopics.map((topic) => (
                     <Link key={topic.id} href={topic.slugUrl}>
                         <div className="topic-card">
                             {/* Topic content */}
@@ -702,13 +712,15 @@ export default function Home() {
                                 alignItems: 'center',
                                 justifyContent: 'space-between',
                                 marginBottom: '16px',
-                                padding: '12px 16px',
+                                padding: '10px 16px',
                                 background: 'var(--card-bg)',
                                 border: '1px solid var(--card-border)',
                                 borderRadius: '12px',
+                                gap: '12px',
+                                flexWrap: 'wrap',
                             }}>
                                 {/* Search Bar */}
-                                <div className="sort-bar-search" style={{ position: 'relative', width: '300px' }}>
+                                <div className="sort-bar-search" style={{ position: 'relative', width: '220px', flexShrink: 0 }}>
                                     <input
                                         type="text"
                                         placeholder="Başlık ara..."
@@ -716,52 +728,105 @@ export default function Home() {
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                         style={{
                                             width: '100%',
-                                            padding: '8px 12px 8px 36px',
+                                            padding: '7px 12px 7px 32px',
                                             background: 'var(--background)',
                                             border: '1px solid var(--card-border)',
-                                            borderRadius: '12px',
+                                            borderRadius: '8px',
                                             color: 'var(--foreground)',
                                             fontSize: '13px',
                                             outline: 'none',
-                                            transition: 'all 0.2s',
+                                            transition: 'border-color 0.2s',
                                         }}
-                                        onFocus={(e) => {
-                                            e.currentTarget.style.borderColor = 'var(--primary)';
-                                        }}
-                                        onBlur={(e) => {
-                                            e.currentTarget.style.borderColor = 'var(--card-border)';
-                                        }}
+                                        onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
+                                        onBlur={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
                                     />
                                     <span style={{
-                                        position: 'absolute',
-                                        left: '10px',
-                                        top: '50%',
-                                        transform: 'translateY(-50%)',
-                                        fontSize: '14px',
-                                    }}>
-                                        
-                                    </span>
+                                        position: 'absolute', left: '10px', top: '50%',
+                                        transform: 'translateY(-50%)', fontSize: '13px', color: 'var(--text-muted)', pointerEvents: 'none',
+                                    }}>🔍</span>
                                     {searchQuery && (
                                         <button
                                             onClick={() => setSearchQuery("")}
                                             style={{
-                                                position: 'absolute',
-                                                right: '8px',
-                                                top: '50%',
-                                                transform: 'translateY(-50%)',
-                                                background: 'transparent',
-                                                border: 'none',
-                                                color: 'var(--text-muted)',
-                                                cursor: 'pointer',
-                                                fontSize: '14px',
-                                                padding: '4px',
+                                                position: 'absolute', right: '6px', top: '50%', transform: 'translateY(-50%)',
+                                                background: 'transparent', border: 'none', color: 'var(--text-muted)',
+                                                cursor: 'pointer', fontSize: '12px', padding: '4px', lineHeight: 1,
                                             }}
-                                        >
-                                            ✤
-                                        </button>
+                                        >✕</button>
                                     )}
                                 </div>
-                                {/* Removed sort tabs */}
+
+                                {/* Ekşi Sözlük-style Pagination */}
+                                {totalPages > 1 && (
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
+                                        {(() => {
+                                            const pBtn = (label: string, page: number, disabled: boolean, isActive?: boolean) => (
+                                                <button
+                                                    key={label + page}
+                                                    onClick={() => !disabled && setCurrentPage(page)}
+                                                    disabled={disabled}
+                                                    style={{
+                                                        minWidth: isActive !== undefined ? '28px' : '26px',
+                                                        height: '28px',
+                                                        padding: '0 6px',
+                                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                        border: isActive ? '1px solid var(--primary)' : '1px solid var(--card-border)',
+                                                        borderRadius: '6px',
+                                                        background: isActive ? 'var(--primary)' : 'var(--background)',
+                                                        color: isActive ? '#fff' : disabled ? 'var(--text-muted)' : 'var(--foreground)',
+                                                        fontSize: '12px', fontWeight: isActive ? '700' : '500',
+                                                        cursor: disabled ? 'default' : 'pointer',
+                                                        opacity: disabled && !isActive ? 0.4 : 1,
+                                                        transition: 'all 0.15s',
+                                                    }}
+                                                >{label}</button>
+                                            );
+
+                                            const pages: React.ReactNode[] = [];
+
+                                            // << and < buttons
+                                            pages.push(pBtn('«', 1, safePage === 1));
+                                            pages.push(pBtn('‹', safePage - 1, safePage === 1));
+
+                                            // Page numbers with ellipsis
+                                            const range: number[] = [];
+                                            if (totalPages <= 7) {
+                                                for (let i = 1; i <= totalPages; i++) range.push(i);
+                                            } else {
+                                                range.push(1);
+                                                if (safePage > 4) range.push(-1); // ellipsis
+                                                const start = Math.max(2, safePage - 1);
+                                                const end = Math.min(totalPages - 1, safePage + 1);
+                                                for (let i = start; i <= end; i++) range.push(i);
+                                                if (safePage < totalPages - 3) range.push(-2); // ellipsis
+                                                range.push(totalPages);
+                                            }
+
+                                            range.forEach((p, idx) => {
+                                                if (p < 0) {
+                                                    pages.push(
+                                                        <span key={`dots-${idx}`} style={{ fontSize: '12px', color: 'var(--text-muted)', padding: '0 2px' }}>…</span>
+                                                    );
+                                                } else {
+                                                    pages.push(pBtn(String(p), p, false, p === safePage));
+                                                }
+                                            });
+
+                                            // > and >> buttons
+                                            pages.push(pBtn('›', safePage + 1, safePage === totalPages));
+                                            pages.push(pBtn('»', totalPages, safePage === totalPages));
+
+                                            return pages;
+                                        })()}
+
+                                        <span style={{
+                                            fontSize: '11px', color: 'var(--text-muted)', marginLeft: '8px',
+                                            whiteSpace: 'nowrap',
+                                        }}>
+                                            {safePage}/{totalPages}
+                                        </span>
+                                    </div>
+                                )}
                             </div>
 
                             {selectedCategory !== "Anket" && homeSurveys.length > 0 && (
@@ -810,21 +875,66 @@ export default function Home() {
                             {/* Content List */}
                             {renderContent()}
 
-                            {/* Load More */}
-                            <div style={{ textAlign: 'center', marginTop: '24px' }}>
-                                <button style={{
-                                    padding: '14px 36px',
-                                    background: 'var(--secondary)',
-                                    color: 'var(--foreground)',
-                                    fontWeight: '500',
-                                    borderRadius: '12px',
-                                    border: '1px solid var(--card-border)',
-                                    cursor: 'pointer',
-                                    fontSize: '14px',
+                            {/* Bottom Pagination */}
+                            {totalPages > 1 && (
+                                <div style={{
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    marginTop: '20px', padding: '12px 16px',
+                                    background: 'var(--card-bg)', border: '1px solid var(--card-border)',
+                                    borderRadius: '12px', gap: '4px', flexWrap: 'wrap',
                                 }}>
-                                    Daha Fazla Başlık Yükle
-                                </button>
-                            </div>
+                                    {(() => {
+                                        const pBtn = (label: string, page: number, disabled: boolean, isActive?: boolean) => (
+                                            <button
+                                                key={`btm-${label}-${page}`}
+                                                onClick={() => { if (!disabled) { setCurrentPage(page); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}
+                                                disabled={disabled}
+                                                style={{
+                                                    minWidth: isActive !== undefined ? '32px' : '28px',
+                                                    height: '32px', padding: '0 8px',
+                                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                    border: isActive ? '1px solid var(--primary)' : '1px solid var(--card-border)',
+                                                    borderRadius: '6px',
+                                                    background: isActive ? 'var(--primary)' : 'var(--background)',
+                                                    color: isActive ? '#fff' : disabled ? 'var(--text-muted)' : 'var(--foreground)',
+                                                    fontSize: '13px', fontWeight: isActive ? '700' : '500',
+                                                    cursor: disabled ? 'default' : 'pointer',
+                                                    opacity: disabled && !isActive ? 0.4 : 1,
+                                                    transition: 'all 0.15s',
+                                                }}
+                                            >{label}</button>
+                                        );
+                                        const pages: React.ReactNode[] = [];
+                                        pages.push(pBtn('«', 1, safePage === 1));
+                                        pages.push(pBtn('‹', safePage - 1, safePage === 1));
+                                        const range: number[] = [];
+                                        if (totalPages <= 7) {
+                                            for (let i = 1; i <= totalPages; i++) range.push(i);
+                                        } else {
+                                            range.push(1);
+                                            if (safePage > 4) range.push(-1);
+                                            const start = Math.max(2, safePage - 1);
+                                            const end = Math.min(totalPages - 1, safePage + 1);
+                                            for (let i = start; i <= end; i++) range.push(i);
+                                            if (safePage < totalPages - 3) range.push(-2);
+                                            range.push(totalPages);
+                                        }
+                                        range.forEach((p, idx) => {
+                                            if (p < 0) {
+                                                pages.push(<span key={`btm-dots-${idx}`} style={{ fontSize: '13px', color: 'var(--text-muted)', padding: '0 2px' }}>…</span>);
+                                            } else {
+                                                pages.push(pBtn(String(p), p, false, p === safePage));
+                                            }
+                                        });
+                                        pages.push(pBtn('›', safePage + 1, safePage === totalPages));
+                                        pages.push(pBtn('»', totalPages, safePage === totalPages));
+                                        return pages;
+                                    })()}
+                                    <span style={{ fontSize: '12px', color: 'var(--text-muted)', marginLeft: '12px' }}>
+                                        sayfa {safePage} / {totalPages}
+                                    </span>
+                                </div>
+                            )}
                         </div>
 
                         {/* Right Sidebar */}
@@ -838,74 +948,69 @@ export default function Home() {
                                     padding: '16px',
                                     marginBottom: '16px',
                                 }}>
-                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                        <Flame size={14} color="var(--primary)" /> Bugün Gündemde
-                                    </h3>
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                                        <h3 style={{
+                                            fontSize: '13px', fontWeight: '700', color: 'var(--foreground)',
+                                            margin: 0, display: 'flex', alignItems: 'center', gap: '6px',
+                                        }}>
+                                            <Flame size={14} color="var(--text-muted)" />
+                                            Bugün Gündemde
+                                        </h3>
+                                        <Link href="/forum" style={{
+                                            fontSize: '11px', color: 'var(--text-muted)', fontWeight: '500',
+                                            textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '2px',
+                                        }}>
+                                            tümü <ChevronRight size={11} />
+                                        </Link>
+                                    </div>
+
                                     {liveThreads.length === 0 ? (
-                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '12px 0' }}>Henüz gündem yok</p>
+                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '16px 0', margin: 0 }}>Henüz gündem yok</p>
                                     ) : (
-                                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
                                             {[...liveThreads].sort((a, b) => b.views - a.views).slice(0, 5).map((thread, index) => (
-                                                <li key={thread.id}>
-                                                    <Link
-                                                        href={getThreadSlugUrl(thread)}
+                                                <Link key={thread.id} href={getThreadSlugUrl(thread)} style={{ textDecoration: 'none' }}>
+                                                    <div
                                                         style={{
-                                                            display: 'flex',
-                                                            alignItems: 'flex-start',
-                                                            gap: '10px',
-                                                            padding: '10px 8px',
-                                                            borderRadius: '8px',
-                                                            textDecoration: 'none',
+                                                            display: 'flex', alignItems: 'flex-start', gap: '10px',
+                                                            padding: '9px 6px',
+                                                            borderBottom: index < 4 ? '1px solid var(--card-border)' : 'none',
+                                                            transition: 'background 0.15s',
+                                                            borderRadius: '4px',
                                                         }}
+                                                        onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--secondary)'; }}
+                                                        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
                                                     >
-                                                        <span style={{ color: 'var(--primary)', fontWeight: '700', fontSize: '14px', flexShrink: 0 }}>{index + 1}</span>
-                                                        <div style={{ flex: 1 }}>
-                                                            <span style={{ color: 'var(--foreground)', fontSize: '13px', lineHeight: 1.4, display: 'block' }}>{thread.title}</span>
-                                                            <span style={{ color: 'var(--text-muted)', fontSize: '11px' }}>{thread.views} görüntülenme</span>
+                                                        <span style={{
+                                                            fontSize: '12px', fontWeight: '700',
+                                                            color: index < 3 ? 'var(--primary)' : 'var(--text-muted)',
+                                                            minWidth: '16px', textAlign: 'center', flexShrink: 0,
+                                                            lineHeight: '18px',
+                                                        }}>
+                                                            {index + 1}
+                                                        </span>
+                                                        <div style={{ flex: 1, minWidth: 0 }}>
+                                                            <span style={{
+                                                                color: 'var(--foreground)', fontSize: '12.5px',
+                                                                fontWeight: '500', lineHeight: 1.45,
+                                                                display: '-webkit-box', WebkitLineClamp: 2,
+                                                                WebkitBoxOrient: 'vertical', overflow: 'hidden',
+                                                            }}>
+                                                                {thread.title}
+                                                            </span>
+                                                            <span style={{ fontSize: '10.5px', color: 'var(--text-muted)', marginTop: '2px', display: 'block' }}>
+                                                                {thread.views >= 1000 ? `${(thread.views / 1000).toFixed(1)}K` : thread.views} görüntülenme
+                                                                {thread.entryCount > 0 && ` · ${thread.entryCount} entry`}
+                                                            </span>
                                                         </div>
-                                                    </Link>
-                                                </li>
+                                                    </div>
+                                                </Link>
                                             ))}
-                                        </ul>
+                                        </div>
                                     )}
                                 </div>
 
-                                {/* Top Yazarlar */}
-                                <div style={{
-                                    background: 'var(--card-bg)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '16px',
-                                    padding: '16px',
-                                    marginBottom: '16px',
-                                }}>
-                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                        <Crown size={14} color="var(--primary)" /> Top Yazarlar
-                                    </h3>
-                                    {topUsers.length === 0 ? (
-                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '12px 0' }}>Henüz yazar yok</p>
-                                    ) : (
-                                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                                            {topUsers.map((u, i) => (
-                                                <li key={`${u.username}-${i}`}>
-                                                    <div style={{
-                                                        display: 'flex',
-                                                        alignItems: 'flex-start',
-                                                        gap: '10px',
-                                                        padding: '10px 8px',
-                                                        borderRadius: '8px',
-                                                        background: 'transparent'
-                                                    }}>
-                                                        <span style={{ color: 'var(--primary)', fontWeight: '700', fontSize: '14px', flexShrink: 0 }}>{i + 1}</span>
-                                                        <div style={{ flex: 1 }}>
-                                                            <span style={{ color: 'var(--foreground)', fontSize: '13px', lineHeight: 1.4, display: 'block' }}>@{u.username}</span>
-                                                            <span style={{ color: 'var(--text-muted)', fontSize: '11px' }}>{u.role === 'usta' ? 'Usta' : 'Çırak'}</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                </div>
+
 
                                 {/* İstatistikler */}
                                 <div style={{
@@ -1004,7 +1109,7 @@ export default function Home() {
                                                 {randomGuide.description}
                                             </p>
 
-                                            <Link href={randomGuide.urlId ? `/makale/${randomGuide.title.toLowerCase().replace(/[^a-z0-9ğüşöçı]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}--${randomGuide.urlId}` : `/kutuphane/${randomGuide.id}`} style={{ textDecoration: 'none' }}>
+                                            <Link href={`/makale/${randomGuide.title.toLowerCase().replace(/[^a-z0-9ğüşöçı]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}--${randomGuide.urlId || randomGuide.id}`} style={{ textDecoration: 'none' }}>
                                                 <button style={{
                                                     width: '100%',
                                                     padding: '12px',
