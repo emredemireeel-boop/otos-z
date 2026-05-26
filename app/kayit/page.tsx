@@ -374,25 +374,54 @@ export default function KayitPage() {
                     transform: translateY(-4px);
                     box-shadow: 0 8px 30px var(--primary-glow);
                 }
+                .reg-container {
+                    min-height: 100vh;
+                    background: var(--background);
+                    display: flex;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .left-panel {
+                    flex: 1 1 52%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 60px 70px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .right-panel {
+                    flex: 1 1 48%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 40px;
+                    position: relative;
+                }
+                @media (max-width: 900px) {
+                    .reg-container {
+                        flex-direction: column;
+                        overflow-y: auto;
+                    }
+                    .left-panel {
+                        flex: none;
+                        padding: 40px 24px 20px;
+                    }
+                    .left-panel h1 {
+                        font-size: 36px !important;
+                    }
+                    .right-panel {
+                        flex: none;
+                        padding: 24px;
+                        align-items: flex-start;
+                    }
+                }
             `}</style>
 
-            <div style={{
-                minHeight: '100vh',
-                background: 'var(--background)',
-                display: 'flex',
-                position: 'relative',
-                overflow: 'hidden',
-            }}>
+            <div className="reg-container">
 
                 {/* LEFT PANEL — Social Proof & Brand */}
-                <div style={{
-                    flex: '1 1 52%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    padding: '60px 70px',
-                    position: 'relative',
-                    overflow: 'hidden',
+                <div className="left-panel" style={{
                     animation: mounted ? 'slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1)' : 'none',
                 }}>
                     {/* Gradient orbs */}
@@ -575,13 +604,7 @@ export default function KayitPage() {
                 </div>
 
                 {/* RIGHT PANEL — Registration Form */}
-                <div style={{
-                    flex: '1 1 48%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '40px',
-                    position: 'relative',
+                <div className="right-panel" style={{
                     animation: mounted ? 'slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1)' : 'none',
                 }}>
                     {/* Subtle divider */}

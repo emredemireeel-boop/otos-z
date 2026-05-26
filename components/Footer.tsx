@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Youtube, Instagram } from "lucide-react";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -63,9 +64,18 @@ export default function Footer() {
                             fontWeight: '600',
                             fontStyle: 'italic',
                             opacity: 0.9,
+                            marginBottom: '16px',
                         }}>
                             "Tek renk değil çok renk"
                         </p>
+                        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                            <a href="https://www.youtube.com/@otosoz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#FF0000'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
+                                <Youtube size={24} />
+                            </a>
+                            <a href="https://instagram.com/otosoz.tr" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#E1306C'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
+                                <Instagram size={24} />
+                            </a>
+                        </div>
                     </div>
 
                     {/* Links - Forum */}

@@ -1,6 +1,454 @@
 {
   "guides": [
     {
+      "id": "guide_kendin_yap_cozumler",
+      "title": "Hayat Kurtaran Yaratıcı 'Kendin Yap' (DIY) Oto Çözümleri",
+      "description": "Arabanızda karşılaştığınız ufak tefek ama can sıkıcı sorunları, sanayiye gitmeden evdeki basit malzemelerle çözebileceğiniz inanılmaz pratik ve yaratıcı DIY taktikleri.",
+      "minutes": 65,
+      "difficulty": "Başlangıç",
+      "tags": [
+        "DIY",
+        "Pratik Çözümler",
+        "Bakım",
+        "Tasarruf",
+        "İpuçları"
+      ],
+      "author": "OtoSöz Pratik Zeka Ekibi",
+      "sections": [
+        {
+          "type": "intro",
+          "content": "Otomotiv sistemleri artık basit mekaniklerden çıkıp mekatronik ve yazılımla dolu bir hale gelse de, 'Kendin Yap' (DIY) çözümleri malzeme bilimi ve termodinamik yasaları kullanılarak hala hayat kurtarabiliyor. Arabanızda karşılaştığınız ufak tefek sorunları, evdeki basit malzemelerle, kimyasal reaksiyonları ve fiziği kendi lehinize kullanarak çözebileceğiniz inanılmaz pratik taktikler derledik. İşte yüzey biliminden elektromekaniğe kadar uzanan, ustalara taş çıkartan DIY oto taktikleri!",
+          "tip": {
+            "title": "Önce Ufak Bir Alanda Deneyin",
+            "text": "Ev yapımı karışımları veya kimyasalları aracınızın kaportasında veya döşemesinde uygulamadan önce her zaman görünmeyen küçük bir köşede test edin."
+          }
+        },
+        {
+          "type": "step",
+          "title": "1. Farlar İçin Diş Macunu Mucizesi",
+          "content": "Zamanla güneşin UV ışınları ve yoldaki tozlar nedeniyle aracınızın farları sararır ve matlaşır. Bu durum sadece kötü görünmekle kalmaz, gece görüşünüzü de tehlikeye atar. Pahalı far temizleme kitleri yerine banyonuzdaki diş macununu kullanabilirsiniz.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Uygulanır?",
+              "text": "Özellikle 'karbonatlı' veya 'beyazlatıcı' özellikli bir diş macununu matlaşmış farın üzerine sıkın. Eski bir diş fırçası veya mikrofiber bez yardımıyla dairesel hareketlerle 5-10 dakika boyunca farı ovalayın. Diş macununun içindeki hafif aşındırıcı mikro partiküller, tıpkı dişlerinizdeki plakları temizlediği gibi fardaki oksitlenmiş sarı tabakayı da söküp alacaktır. Son olarak ıslak bir bezle silin ve durulayın. Sonuca inanamayacaksınız!"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "2. Koltuk Lekelerine Karşı Tıraş Köpüğü",
+          "content": "Kumaş koltuklara dökülen kahve, meyve suyu veya yağ lekeleri kabusunuz olmasın. Oto kuaförlere yüzlerce lira vermeden önce tıraş köpüğü yöntemini deneyin.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Uygulanır?",
+              "text": "Lekeli bölgeye bolca tıraş köpüğü (jel değil, bildiğimiz beyaz köpük) sıkın ve köpüğü elinizle lekenin üzerine yayın. Yaklaşık 10-15 dakika köpüğün kumaşa işlemesini ve lekeyi yumuşatmasını bekleyin. Ardından yumuşak uçlu bir fırça (veya eski bir diş fırçası) ile bölgeyi nazikçe fırçalayın. Son olarak nemli ve temiz bir mikrofiber bezle bölgeyi silerek durulayın. Tıraş köpüğünün içindeki aktif temizleyiciler lekeleri hızla çözer."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "3. Kışın Buzlanan Camlara 'Sirke ve Soğan' Kalkanı",
+          "content": "Soğuk kış sabahlarında işe yetişmeye çalışırken camlardaki kalın buz tabakasını kazımak eziyettir. Bu durumu yaşanmadan önlemek tamamen sizin elinizde.",
+          "subsections": [
+            {
+              "subtitle": "Soğan Taktiği",
+              "text": "Akşam arabanızı park ettikten sonra, ortadan ikiye kestiğiniz çiğ bir soğanı ön camınıza iyice sürün. Soğanın içindeki yağlı ve asidik yapı, gece boyunca camın üzerinde mikroskobik bir kalkan oluşturarak sabah camın buz tutmasını engeller."
+            },
+            {
+              "subtitle": "Sirke-Su Karışımı",
+              "text": "Bir sprey şişesine 3 ölçü elma sirkesi, 1 ölçü su koyun. Bu karışımı akşamdan camlarınıza sıkın. Sirkedeki asetik asit, suyun donma noktasını ciddi şekilde düşürdüğü için sabah kalktığınızda camlarınızda buzlanma olmadığını göreceksiniz."
+            }
+          ],
+          "warning": {
+            "title": "Sıcak Su Tehlikesi",
+            "text": "Buz tutmuş cama asla sıcak su dökmeyin! Ani sıcaklık değişimi camın saniyeler içinde tuzla buz olmasına (çatlamasına) neden olur."
+          }
+        },
+        {
+          "type": "step",
+          "title": "4. İnce Çizikleri Oje ile Gizleme",
+          "content": "Kaportadaki veya jantlardaki derin olmayan, astar boyaya inmemiş kılcal çizikler için mini bir makyaj yapabilirsiniz.",
+          "subsections": [
+            {
+              "subtitle": "Renkli ve Şeffaf Oje",
+              "text": "Aracınızın rengine birebir uyan bir oje bulursanız (özellikle siyah veya beyaz araçlarda çok kolaydır), ince uçlu oje fırçasıyla çiziğin içini nazikçe doldurun. Eğer renk tutturamıyorsanız, sadece 'şeffaf cila oje' sürerek çiziğin içinin dolmasını ve güneş ışığında parlayarak belli olmamasını sağlayabilirsiniz. Oje kuruduktan sonra üzerine hafif bir pasta-cila geçerek yüzeyi eşitleyebilirsiniz."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "5. Plastik Aksamlar İçin Ayakkabı Boyası",
+          "content": "Eski model araçların siyah plastik tamponları veya yan çıtaları zamanla güneşe maruz kalarak grileşir ve çirkin bir hal alır.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Uygulanır?",
+              "text": "Siyah ve süngerli likit ayakkabı boyasını alın. Grileşmiş plastik tamponunuzu güzelce yıkayıp kuruladıktan sonra, ayakkabı boyasını tampona yedirerek sürün. Kuruması için 1 saat bekleyin. Plastik aksamlar ilk günkü gibi simsiyah ve parlak görünecektir. Etkisi yıkama sıklığına göre 1-2 ay sürer ve yenilemesi saniyeler alır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "6. Kötü Kokulara Karşı Mangal Kömürü ve Kahve",
+          "content": "Arabanıza dökülen süt, nemli kalan paspaslar veya sigara dumanı ağır ve kalıcı kokular bırakabilir. Kimyasal oto parfümleri sadece bu kokuyu bastırır, sorunu çözmez.",
+          "subsections": [
+            {
+              "subtitle": "Doğal Koku Emiciler",
+              "text": "Aracınızın koltuk altına veya bagajına, hava alan bir bez kese içerisinde birkaç parça 'mangal kömürü' (aktif karbon) veya 1 kase 'kavrulmuş Türk kahvesi' koyun. Kömür, havadaki nemi ve kötü koku partiküllerini sünger gibi içine çekerken; kahve çekirdekleri arabanın içine harika ve doğal bir aroma yayar. Birkaç gün içinde o ağır kokuların tamamen kaybolduğunu fark edeceksiniz."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "7. Acil Durumlar İçin Paket Lastiğinden Telefon Tutucu",
+          "content": "Araba kiraladığınızda veya telefon tutucunuz kırıldığında navigasyona bakmak büyük bir çiledir.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Uygulanır?",
+              "text": "Kalın bir paket lastiğini alın. Lastiğin bir ucunu havalandırma ızgarasının bir kanadından içeri sokun ve diğer kanadından çıkarın. Çıkan iki uca telefonunuzu üstten ve alttan tutturun. İşte size saniyeler içinde hazırlanan, sıfır maliyetli ve telefonu sapasağlam tutan bir tutucu!"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "8. Jant Temizliğinde Kola ve Alüminyum Folyo",
+          "content": "Pahalı jant temizleyicileri almak yerine, inatçı fren tozu ve pas lekeleri için mutfağınızdaki asitli içecekleri kullanabilirsiniz.",
+          "subsections": [
+            {
+              "subtitle": "Kola ve Folyo Etkisi",
+              "text": "Kararmış jantlarınıza veya paslı krom aksamlara bolca Kola dökün (içindeki fosforik asit mükemmel bir pas sökücüdür). Ardından top haline getirdiğiniz bir parça alüminyum folyo ile jantı hafifçe ovalayın. Alüminyum ve kolanın asidi reaksiyona girerek pası anında çözer ve jantlarınızı ayna gibi parlatır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "9. Evcil Hayvan Tüyleri İçin Cam Çekçeği",
+          "content": "Eğer arabanızda kedi veya köpek taşıyorsanız, koltuklara iğne gibi saplanan tüyleri elektrikli süpürgeyle bile almak imkansız gibidir.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Uygulanır?",
+              "text": "Banyolarda veya cam silerken kullandığınız saplı, plastik uçlu cam çekçeğini alın. Sileceğin ucunu hafifçe suyla nemlendirin ve kumaş koltukların üzerinde yukarıdan aşağıya doğru süpürür gibi çekin. Çekçeğin lastik ucu statik elektrik yaratarak tüm tüyleri rulo halinde toplayıp tek bir noktada biriktirecektir. (Aynı işlem mutfaklarda kullanılan kalın sarı bulaşık eldivenleriyle de yapılabilir.)"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "10. Silecek Ömrünü Uzatan Vazelin Taktikleri",
+          "content": "Silecekleriniz camı çizerken 'gıcırtı' sesi yapıyor veya suyu iz bırakarak siliyorsa hemen yenisini almayın. Sorun lastiklerin kurumasıdır.",
+          "subsections": [
+            {
+              "subtitle": "Yumuşatma İşlemi",
+              "text": "Silecek lastiklerini yerinden sökün ve sıcak su dolu bir kovanın içinde 10 dakika bekletip yumuşatın. Ardından bir pamuğa veya beze az miktarda 'Vazelin' (veya bebek yağı) sürerek lastiklerin uçlarına masaj yaparak yedirin. Kuruduktan sonra camı eskisinden bile daha pürüzsüz ve sessiz sildiklerini göreceksiniz."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "11. Dar Garajlar İçin Havuz Makarnası Tamponu",
+          "content": "Arabanızı dar bir garaja park ederken kapıyı açtığınızda duvarın boyasını veya kendi aracınızın kapısını çizmek en can sıkıcı durumlardan biridir.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Uygulanır?",
+              "text": "Yazın denizde kullandığınız silindir şeklindeki uzun sünger 'havuz makarnalarından' birini alın. Makarnayı uzunlamasına tam ortadan ikiye kesin. Düz tarafını garajınızın duvarına, aracınızın kapısının denk geldiği hizaya çift taraflı bant veya silikonla yapıştırın. Artık kapıyı ne kadar hızlı açarsanız açın, yumuşak bir süngere çarpacak ve asla çizilmeyecek."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "12. Çıkmayan Yapışkan ve Etiket İzlerine Fıstık Ezmesi",
+          "content": "Arabanızın camındaki eski HGS/OGS etiketleri, park izin çıkartmaları veya tamponda çocukların yapıştırdığı sticker'lar çıkarıldığında arkasında iğrenç bir yapışkan tabaka bırakır.",
+          "subsections": [
+            {
+              "subtitle": "Fıstık Ezmesi Gücü",
+              "text": "Çıkmayan o yapışkanlı bölgenin üzerine kalın bir tabaka halinde yağlı fıstık ezmesi (veya mayonez) sürün. Yaklaşık 15-20 dakika bekletin. İçlerindeki doğal yağlar, kimyasal yapışkanı tamamen çözer. Sürenin sonunda kuru bir kağıt havluyla sildiğinizde yapışkanın tamamen kayıp gittiğini göreceksiniz. (Alternatif olarak WD-40 da aynı işlevi görür)."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "13. Bardaklık Temizliği İçin Muffin Kalıpları",
+          "content": "Orta konsoldaki bardaklıklara dökülen yapışkan kahveler, aralara giren tozlar ve kırıntıları temizlemek çok zordur.",
+          "subsections": [
+            {
+              "subtitle": "Akıllı Tasarım",
+              "text": "Evinizdeki silikon kek/muffin kalıplarından iki tanesini aracınızın bardaklık yuvalarına yerleştirin. İçecekleriniz taştığında veya toz biriktiğinde, bu kalıpları tek bir hareketle yerinden çıkarıp yıkayın ve geri koyun. Dip köşe bezle uğraşma devrine son!"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "14. Cam Buğulanmasına Karşı Tıraş Köpüğü Kalkanı",
+          "content": "Kışın araca bindiğinizde nefesinizle birlikte ön camın saniyeler içinde buğulanması görüşü tamamen kapatır. Camı bezle silmek ise iz bırakır.",
+          "subsections": [
+            {
+              "subtitle": "Köpük Mucizesi",
+              "text": "Temiz ve kuru ön camın iç yüzeyine bir miktar tıraş köpüğü sıkın (tıpkı koltuk temizliğinde olduğu gibi beyaz köpük). Kuru bir mikrofiber bezle köpüğü camda hiç iz kalmayacak şekilde tamamen silin. Tıraş köpüğü, cam yüzeyinde görünmez bir film tabakası oluşturarak su buharının cama tutunmasını (buğulanmayı) haftalarca engeller."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "15. Donan Kapı Kilitleri İçin El Dezenfektanı",
+          "content": "Çok soğuk gecelerde manuel kapı kilitlerinin içine su sızıp donduğunda anahtar deliğe girmez veya dönmez. Zorlarsanız anahtarı kırabilirsiniz.",
+          "subsections": [
+            {
+              "subtitle": "Alkolün Gücü",
+              "text": "Anahtarınızın ucuna bolca alkol bazlı el dezenfektanı sıkın ve kilide sokun. Dezenfektanın içindeki yüksek orandaki izopropil alkol, saniyeler içinde buzları eriterek kilidin şak diye açılmasını sağlar."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "16. Doğal Torpido Parlatıcı: Zeytinyağı",
+          "content": "Güneşte kuruyan, matlaşan ve çatlama riski taşıyan torpidolar (konsollar) için piyasadaki silikonlu spreyler bazen parlamayı aşırı abartarak ön cama yansıma yapar.",
+          "subsections": [
+            {
+              "subtitle": "Mutfaktan Gelen Bakım",
+              "text": "Eski bir pamuklu beze veya temiz bir kahve filtresine sadece birkaç damla hakiki zeytinyağı (veya hindistancevizi yağı) damlatın. Torpidoyu bu bezle dairesel hareketlerle silin. Yağ, plastiği besleyerek doğal ve şık bir matlıkta parlatır, aynı zamanda tozu uzun süre iter."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "17. Deri Koltuk Çatlaklarına Karşı Vücut Losyonu",
+          "content": "Eğer aracınızda deri koltuklar varsa, yaz güneşinin altında kuruyup çatlamaları an meselesidir. Özel deri bakım kremleri oldukça pahalı olabilir.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Uygulanır?",
+              "text": "Evinizdeki kokusuz, renksiz ve katkısız standart bir vücut nemlendirici losyonunu alın. Temizlediğiniz deri koltuklara elinizle hafifçe masaj yaparak yedirin ve birkaç saat emmesini bekleyin. İnsan tenini nemlendiren losyon, doğal deri üzerinde de aynı etkiyi yaratarak koltukların yumuşacık kalmasını sağlar."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "18. Tıkırdayan Emniyet Kemeri Tokalarına Kadife Bant",
+          "content": "Aracınızla çukurlara veya kasislere girdiğinizde, kullanılmayan yolcu emniyet kemeri tokasının yandaki sert plastiğe vurarak 'tıkır tıkır' ses yapması sinir bozucudur.",
+          "subsections": [
+            {
+              "subtitle": "Sesi Kesen Detay",
+              "text": "Metal tokanın arkasına, sert plastiğe değen yüzeyine küçük bir parça yapışkanlı sünger, keçe veya kadife bant yapıştırın. Bu sayede toka ne kadar sallanırsa sallansın, sadece yumuşak bir temas olacağı için kabin içindeki o sinir bozucu tıkırtı tamamen yok olacaktır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "19. Klima Izgaraları İçin Köpük Fırça",
+          "content": "Klima menfezlerinin ince aralıkları ne mikrofiber bezle silinebilir ne de elektrik süpürgesiyle tam olarak temizlenebilir. O aralıklardaki toz, klimayı açtığınızda doğrudan yüzünüze çarpar.",
+          "subsections": [
+            {
+              "subtitle": "Pratik Çözüm",
+              "text": "Nalburlarda çok ucuza satılan, ucu sünger (köpük) şeklindeki boya fırçalarından alın. Bu sünger fırçanın üzerine çok hafif cam sil sıkın ve klima ızgaralarının arasına sokup çekin. Sünger, o dar aralıktaki tüm yapışmış tozları tek hamlede mıknatıs gibi toplayacaktır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "20. İnatçı Böcek Lekelerine Karşı Kurutma Makinesi Mendili",
+          "content": "Uzun yolculuklardan sonra ön tampon ve dikiz aynaları yüzlerce ölü sinek ve böcekle kaplanır. Güneşte kuruyan bu lekeleri süngerle kazımak arabanın boyasını çizer.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Uygulanır?",
+              "text": "Çamaşır kurutma makinelerinde kullanılan 'kokulu yumuşatıcı kağıt mendillerinden' birini suyla iyice ıslatın. Islak mendille tamponu yavaşça silin. Mendilin içindeki kimyasallar böcek kalıntılarını tereyağı gibi yumuşatarak boyaya sıfır zarar verecek şekilde kolayca akıp gitmesini sağlar."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "21. Boyaya Sıçrayan Zift Lekeleri İçin Margarin",
+          "content": "Yazın eriyen veya yeni dökülen asfalt yollardan geçtiğinizde, kaportanın alt kısımlarına ve çamurluklara zift (katran) sıçrar. Bunları kazımak boyayı mahveder.",
+          "subsections": [
+            {
+              "subtitle": "Tereyağı veya Margarin Mucizesi",
+              "text": "Sertleşmiş siyah zift lekelerinin üzerine mutfağınızdaki margarini veya tereyağını bolca sürün. Yağın katranı yumuşatması için aracı 15 dakika güneşte bırakın. Margarindeki hayvansal/bitkisel yağlar, petrol bazlı ziftin moleküler yapısını bozar. Süre sonunda mikrofiber bir bezle sildiğinizde ziftin çamur gibi eriyip aktığını göreceksiniz."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "22. Ulaşılamayan Boşluklar İçin 'Slime' (Oyun Hamuru)",
+          "content": "Vites topuzunun dipleri, el freni körüğü, cam açma düğmelerinin kenarları... Bu kılcal boşluklara hiçbir bez veya fırça giremez.",
+          "subsections": [
+            {
+              "subtitle": "Eğlenceli Temizlik",
+              "text": "Çocukların oynadığı yapışkan, jölemsi 'Slime' hamurundan (veya internette satılan temizlik hamurlarından) bir topak alın. Bu hamuru düğmelerin ve dar boşlukların üzerine bastırın ve geri çekin. Hamur, araya giren tüm tozu, kumu ve bisküvi kırıntılarını kendi içine hapsederek o bölgeyi steril hale getirecektir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "23. Titreşimden Gevşeyen Vidalar İçin Şeffaf Oje",
+          "content": "Özellikle eski arabalarda kapı döşemelerindeki, plakalardaki veya hoparlör kapaklarındaki vidalar yol titreşimi nedeniyle sürekli gevşer ve ses yapar.",
+          "subsections": [
+            {
+              "subtitle": "Doğal Vida Sabitleyici",
+              "text": "Gevşeyen vidayı tamamen çıkarın. Yivlerine (dişlerine) sadece bir damla şeffaf oje damlatın ve hemen yerine geri vidalayın. Oje kuruduğunda kauçuksu ama sıkı bir yapı oluşturarak tıpkı profesyonel bir vida sabitleyici (Loctite) gibi vidanın titreşimden gevşemesini sonsuza dek engeller."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "24. Koltuk Gıcırtılarına Karşı Bebek Pudrası",
+          "content": "Arabanız esnedikçe koltukların deri veya kumaş birleşim yerlerinden, plastik aksamlara sürtünmesinden dolayı gıcır gıcır sesler geliyorsa çözüm çok basittir.",
+          "subsections": [
+            {
+              "subtitle": "Kuru Yağlama",
+              "text": "Sesin geldiği birleşim yerlerine (özellikle emniyet kemeri tokasının koltuğa değdiği yerlere veya deri minder aralarına) biraz bebek pudrası serpin. Pudra, sıvı yağların aksine leke bırakmayan mükemmel bir 'kuru yağlayıcıdır'. Sürtünmeyi sıfıra indirerek gıcırtıları anında keser."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "25. Yanan Direksiyon İçin 180 Derece Taktiği",
+          "content": "Yazın arabanızı güneşe park ettiğinizde döndüğünüzde direksiyon simidi elinizi yakacak kadar ısınmış olur.",
+          "subsections": [
+            {
+              "subtitle": "Zekice Bir Park Hamlesi",
+              "text": "Aracınızı park edip motoru kapatmadan hemen önce direksiyonu tam yarım tur (180 derece) çevirin ve o şekilde bırakın. Siz döndüğünüzde güneş direksiyonun sadece alt kısmını ısıtmış olacaktır. Arabaya binip direksiyonu düzelttiğinizde ellerinizi koyduğunuz üst kısım gölgede kaldığı için buz gibi serin olacaktır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "26. Savrulan Bagaj Poşetleri İçin Karabina",
+          "content": "Market alışverişinden sonra eve dönerken ilk virajda tüm poşetlerin devrilip domateslerin bagaja saçılması bir klasiktir.",
+          "subsections": [
+            {
+              "subtitle": "Dağcı Kancası",
+              "text": "Aracınızın bagajında veya arka koltuk başlıklarının demirlerinde bulunan ufak kancalara birer tane büyük 'dağcı karabinası' (kancası) takın. Market poşetlerinin saplarını bu kancadan geçirin. Poşetler ne kadar ağır olursa olsun veya ne kadar sert viraj alırsanız alın, havada asılı kalacak ve asla devrilmeyecektir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "27. Sarkan Tavan Kumaşına Estetik 'Raptiye' Çözümü",
+          "content": "Eski model araçlarda tavan döşemesi yapışkanını bırakıp sarkarak kafanıza değmeye başlar. Döşemeciler bu iş için ciddi paralar ister.",
+          "subsections": [
+            {
+              "subtitle": "Geometrik Tasarım",
+              "text": "Eğer tavanı tamamen yeniletecek bütçeniz o an yoksa, kırtasiyeden şeffaf veya aracın tavan rengine uygun yuvarlak başlıklı 'harita raptiyeleri' (veya burgulu döşeme iğneleri) alın. Sarkan kumaşı bu raptiyelerle eşit aralıklarla ve baklava (kapitone) deseni oluşturacak şekilde tavandaki kartona saplayın. Sarkmayı çözdüğünüz gibi arabaya VIP, deri koltuk deseni havası katarsınız."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "28. Ekran Çiziklerine Karşı Tüy Toplayıcı Rulo (Lint Roller)",
+          "content": "Kabin içindeki tozlar sadece kötü görünmekle kalmaz, mikroskobik silika ve kum partikülleri içerdiği için bezle silindiğinde dokunmatik ekranları ve parlak trimleri 'zımpara' gibi çizer.",
+          "subsections": [
+            {
+              "subtitle": "Kaldırma (Lifting) Kuvveti",
+              "text": "Bezle yatay sürtünme yaratmak yerine, elbiseleriniz için kullandığınız yapışkanlı 'tüy toplayıcı ruloyu' ekranlarda ve konsolda yuvarlayın. Rulo, viskoelastik yapısı sayesinde toz partiküllerini yüzeye sürtmeden, dikey bir kuvvetle (lifting) yukarı çeker. Çizilme riski tamamen sıfırlanır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "29. Göçük Düzeltmede Termal Şok (Saç Kurutma Makinesi + Basınçlı Hava)",
+          "content": "Kaportada boyanın kalkmadığı yumuşak göçüklerde, metalin 'hafızasını' kullanarak fizik yasalarıyla düzeltme yapılabilir.",
+          "subsections": [
+            {
+              "subtitle": "Isı ve Ani Soğutma Reaksiyonu",
+              "text": "Göçüğün olduğu bölgeyi saç kurutma makinesiyle 1-2 dakika iyice ısıtıp genleşmesini sağlayın. Ardından, bilgisayar temizliğinde kullanılan 'basınçlı hava spreyi (air duster)' tüpünü baş aşağı çevirerek göçüğe sıkın. Baş aşağı sıkılan sıvılaştırılmış gaz, saniyeler içinde donma noktasına inerek (endotermik tepkime) metali aniden büzülmeye zorlar. Bu şiddetli gerilim, göçüğün 'pop' sesiyle orijinal formuna geri atmasını sağlar."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "30. Acil Radyatör Sızıntılarına Karabiber ve Çiğ Yumurta",
+          "content": "Dağ başında radyatörünüz delindiğinde ve motor hararet yapmaya başladığında, sistemi geçici olarak tıkamak için organik malzemeler kullanılabilir.",
+          "subsections": [
+            {
+              "subtitle": "Protein ve Şişme Dinamiği",
+              "text": "Radyatör kapağından içeri dökülen karabiber taneleri, sıcak su akıntısıyla sızıntı deliğine sürüklenir ve orada şişerek mikro-delikleri tıkar. Alternatif olarak atılan çiğ yumurtanın akındaki proteinler ise 100°C sıcak suya değdiği an denatüre olup katılaşır ve deliği kapatan esnek bir biyolojik yama oluşturur."
+            }
+          ],
+          "warning": {
+            "title": "Kıyamet Günü Çözümü",
+            "text": "Bu taktikler sadece hayatta kalma modunda uygulanmalıdır! Organik parçalar ince soğutma kanallarını tıkayabilir veya plastik radyatör tankının aşırı basınçtan tamamen patlamasına yol açabilir."
+          }
+        },
+        {
+          "type": "step",
+          "title": "31. Kopan Kayış İçin 'Külotlu Çorap' Efsanesi",
+          "content": "Seyir halindeyken kopan alternatör veya su pompası kayışının yerine külotlu çorap bağlayıp yola devam etme hikayesini duymuşsunuzdur.",
+          "subsections": [
+            {
+              "subtitle": "Modern Araçlarda Asla Denemeyin",
+              "text": "Bu efsane, 1990 öncesi eski araçların derin oluklu 'V-kayış' kasnaklarında işe yarardı. Ancak günümüz araçları geniş, pürüzsüz ve devasa gerilimle çalışan 'Serpentine' (çok kanallı) kayışlar kullanır. Modern pürüzsüz kasnaklara bağlayacağınız bir çorap veya ip anında kayacak, eriyecek veya motor bloğuna sarılarak felaket yaratacaktır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "32. Çamura ve Kara Saplanmalarda Kauçuk Paspas",
+          "content": "Aracınız çamura veya derin kara saplandığında lastikler dönerken yüzeyi buza çevirip sürtünmeyi sıfırlar.",
+          "subsections": [
+            {
+              "subtitle": "Doğru Paspas Seçimi",
+              "text": "Tekerleğin altına 'kumaş/halı' paspas koymak işe yaramaz, suyu emip kayganlaşarak mermi gibi fırlatılır. Ancak suyu iten ve derin olukları olan 'kauçuk (rubber)' paspaslar, dönen lastiğin dişlerine kenetlenip araca muazzam bir statik sürtünme sağlayarak saplandığı yerden çıkarır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "33. Radikal Saplanmalar İçin 'Ahşap Takoz' (Paddle-Wheel) Yöntemi",
+          "content": "Paspasın bile işe yaramadığı felaket durumlarında, aracı bir nehir vapuru (paddle-wheel) gibi hareket ettirmek mümkündür.",
+          "subsections": [
+            {
+              "subtitle": "Nasıl Uygulanır?",
+              "text": "Kalın bir odun veya tahta parçasını, güçlü bir cırcırlı yük kayışıyla jant boşluklarından geçirerek lastiğin sırtına dikey olarak bağlayın. Dönen odun yere saplanarak aracı kaldırıp çamurdan dışarı iter."
+            }
+          ],
+          "warning": {
+            "title": "Diferansiyel Patlaması Riski",
+            "text": "Odun yere vurduğunda boşta dönen tekerlek aniden muazzam bir tutunma kazanır. Bu ani kinetik şok, aks millerini burkabilir veya diferansiyel dişlilerini patlatabilir. Çok yavaş ve çaresiz kalınan durumlarda denenmelidir."
+          }
+        },
+        {
+          "type": "step",
+          "title": "34. Güvenli LED Ambiyansı İçin 'Sigorta Çoğaltıcı' (Add-A-Circuit)",
+          "content": "Kabin içine kendi başınıza yapacağınız LED aydınlatmalarda, kabloları kesip bantlamak yangın riskidir.",
+          "subsections": [
+            {
+              "subtitle": "Elektromekanik Zarafet",
+              "text": "Bunun yerine sigorta kutusundaki silecek veya radyo sigortasını çıkarıp 'Add-a-Circuit (Sigorta Çoğaltıcı)' aparatını takın. Bu aparat, mevcut devreyi bozmadan size güvenli, ayrı bir hat (ve ayrı bir düşük amperli sigorta yuvası) sunar. Böylece kısa devre anında aracın ana sistemleri değil, sadece LED'in sigortası atar."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "35. Oto Hırsızlığına Karşı 'Gizli Şalter' (Kill Switch)",
+          "content": "Anahtarı kopyalasalar veya düz kontak yapsalar bile aracınızın çalınmasını engelleyecek donanımsal en üst düzey güvenlik önlemidir.",
+          "subsections": [
+            {
+              "subtitle": "Kusursuz Mülkiyet Koruması",
+              "text": "Aracın 'Yakıt Pompası'na giden röle kablosunu kesip, araya ucuz bir 12V bas-çek (toggle) düğme bağlayın. Bu düğmeyi vites körüğünün altına veya bardaklığın içine gizleyin. Yakıt pompasının elektriği kesildiğinde hırsız ne yaparsa yapsın motor çalışmayacaktır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "36. Termodinamik Yemek Isıtıcısı: Koltuk Isıtma",
+          "content": "Restorandan aldığınız sıcak paket (takeout) yiyecekleri evinize soğumadan götürmek istiyorsanız enerjiyi akıllıca kullanın.",
+          "subsections": [
+            {
+              "subtitle": "Joule Etkisi",
+              "text": "Yemeği yan yolcu koltuğuna koyun ve 'koltuk ısıtma' (seat warmer) sistemini son kademede açın. Koltuk içindeki termal rezistansların ürettiği ısı, yemeğin dış atmosfere ısı kaybını (konveksiyon) durdurarak mükemmel bir benmari/servis ısıtıcısı görevi görecektir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "37. Mısır Gevreği Kabından Sabit Çöp Kutusu",
+          "content": "Kabin içindeki poşet çöpler virajlarda devrilir ve sıvı dökülmelerine yol açar.",
+          "subsections": [
+            {
+              "subtitle": "Modüler Tasarım",
+              "text": "Plastik, kapaklı ve kilitli 'mısır gevreği / bakliyat saklama kaplarının' içine bir poşet geçirin ve koltuğun arkasına veya altına sabitleyin. Sızdırmaz yapısı, devrilmeyen sert gövdesi ve kilitli kapağı sayesinde aracınızda asla koku veya dökülme yaşatmayan premium bir çöp üniteniz olacaktır."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "guide_nasil_galerici_olunur",
       "title": "Sıfırdan Zirveye: Nasıl Profesyonel Bir Galerici (Oto Alım-Satım Uzmanı) Olunur? (19 Adımlık Mega Rehber)",
       "description": "Sadece araba sevgisiyle galerici olunmaz! Ticaret zekası, yasal prosedürler, ekspertiz hileleri ve ikna sanatını kapsayan, sıfırdan kendi oto galerinizi kurmanın 19 altın kuralı. Bu rehber her adımda sizi profesyonelliğe taşıyacak detaylarla doludur.",
@@ -4408,7 +4856,7 @@
       "urlId": 10013
     },
     {
-      "id": "guide_008",
+      "id": "guide_014",
       "title": "Otomobil Dünyasından İlginç Bilgiler",
       "description": "Araba tutkunlarının bilmesi gereken şaşırtıcı gerçekler ve ilginç istatistikler.",
       "minutes": 5,
@@ -4469,7 +4917,7 @@
       "urlId": 10014
     },
     {
-      "id": "guide_009",
+      "id": "guide_015",
       "title": "Uzun Yol Öncesi Hazırlık ve Kontrol Listesi",
       "description": "Yola çıkmadan önce yapılması gereken hayati kontroller, konfor önerileri ve acil durum hazırlıkları.",
       "minutes": 15,
@@ -6513,114 +6961,144 @@
     {
       "id": "guide_seo_014",
       "title": "Sıfır Araç Alırken Bayide Kurulan 7 Tuzak",
-      "description": "Sıfır kilometre araç alırken bayilerin ekstra aksesuar dayatması, kredi oyunları ve seramik kaplama tuzaklarına düşmeyin.",
-      "minutes": 10,
+      "description": "Sıfır kilometre bir otomobil almak harika bir his! Ama o parlak showroom'a adım attığınız andan itibaren cüzdanınızı korumanız gereken profesyonel bir satranç maçı başlıyor. Gelin, bayilerin sıkça başvurduğu 7 klasik tuzağı detaylarıyla deşifre edelim.",
+      "minutes": 15,
       "difficulty": "Kritik",
       "tags": [
         "Satın Alma",
         "Dolandırıcılık",
-        "Finans"
+        "Finans",
+        "Bütçe",
+        "İpuçları"
       ],
-      "author": "OtoSöz Güvenlik",
+      "author": "OtoSöz Cüzdan Koruyucuları",
       "sections": [
         {
           "type": "intro",
-          "title": "Bayi Her Zaman Sizin Tarafınızda Değildir",
-          "content": "Sıfır kilometre bir araç alma fikri oldukça heyecan vericidir. Ancak showroom'a adım attığınız andan itibaren, profesyonel bir satış stratejisiyle karşı karşıya olduğunuzu unutmamalısınız. Müşteri temsilcilerinin sıcak kahveleri ve güler yüzlerinin ardında, bayi kârlılığını maksimize etme hedefleri yatar. Peki, heyecanınızın kurbanı olmadan, cüzdanınızı nasıl koruyabilirsiniz? İşte Türkiye şartlarında bayilerin en sık başvurduğu 7 psikolojik ve finansal tuzak."
-        },
-        {
-          "type": "warning",
-          "title": "Altın Kural",
-          "content": "Hiçbir bayinin size piyasa değerinin altında bir iyilik yapmayacağını kabul edin. İmza atmadan önce her sözleşmeyi, her paketi ve her faiz oranını mutlaka yazılı olarak talep edin ve inceleyin."
+          "title": "Bayi Her Zaman Sizin Tarafınızda Değildir: Satranç Masasına Hoş Geldiniz!",
+          "content": "Sıfır kilometre bir otomobilin o kendine has 'yeni araba kokusunu' içinize çekmek harika bir duygudur, değil mi? O parlak ışıklar altında pırıl pırıl parlayan araçlar, size güler yüzle ikram edilen sıcak kahveler ve bir anda kendinizi çok özel hissetmeniz... Evet, harika bir his ama unutmayın; showroom'a adım attığınız andan itibaren çok profesyonelce kurgulanmış bir satış stratejisinin tam merkezindesiniz.\n\nMüşteri temsilciniz ne kadar tatlı dilli ve yardımcı olursa olsun, günün sonunda bayi kârlılığını maksimize etmekle görevlidir. Onların amacı size en iyi arabayı en ucuza vermek değil, size o arabayı olabilecek en kârlı (kendi açılarından) şekilde satmaktır. Peki, o tatlı heyecanınızın kurbanı olmadan, yıllarca biriktirdiğiniz emeğinizi nasıl koruyabilirsiniz? Türkiye şartlarında bayilerin en sık başvurduğu 7 psikolojik ve finansal tuzağı hep birlikte inceleyelim!"
         },
         {
           "type": "section",
-          "title": "1. 'Zorunlu' Aksesuar Paketi Dayatması",
-          "content": "Özellikle çip krizi ve stok sıkıntısı dönemlerinde türeyen ve günümüzde de devam eden en büyük tuzak.",
+          "title": "1. 'Zorunlu' Aksesuar Paketi Dayatması: Krom Çıtaya 50 Bin TL Vermek?",
+          "content": "Özellikle araç stoklarının az olduğu dönemlerde hortlayan ve maalesef günümüzde de inatla devam eden en büyük bayi tuzağı budur.",
           "subsections": [
             {
-              "subtitle": "Seramik Kaplama ve Cam Filmi Yalanı",
-              "text": "Dışarıda kaliteli bir merkezde 10.000 TL'ye yaptırabileceğiniz seramik kaplama, PPF (Şeffaf film) ve cam filmi paketleri, bayide size 50.000 TL gibi fahiş rakamlarla satılmak istenir. 'Bu paketi almazsanız aracı size veremeyiz' veya 'Sırada bekleyen başka müşteri var' söylemleri tamamen yasadışıdır. Bu dayatmayı Ticaret Bakanlığı'na şikayet edeceğinizi kibarca ama kararlı bir şekilde belirtirseniz geri adım atacaklardır."
+              "subtitle": "Seramik Kaplama, Cam Filmi ve Bagaj Havuzu Üçgeni",
+              "text": "Bayi size şöyle der: 'Beyefendi/Hanımefendi, araç geldi ancak üzerinde seramik kaplama, cam filmi ve yan basamak var. Bu paket zorunlu, fiyatı da 60.000 TL. Almazsanız aracı sırada bekleyen diğer müşteriye vereceğiz.'\n\nBurada çok dikkatli olmalısınız. Dışarıda, profesyonel bir detailing merkezinde, çok daha kaliteli malzemelerle 15-20 bin TL'ye yaptırabileceğiniz bir işlem için sizden 3-4 katı para istenir. Üstelik bayide atılan seramik kaplama çoğu zaman sadece basit bir hızlı ciladan ibarettir.",
+              "points": [
+                "**Nasıl Karşı Çıkılır?**: Türkiye Cumhuriyeti kanunlarına göre, bir malın satışı başka bir malın veya hizmetin satın alınmasına bağlanamaz (Tüketicinin Korunması Hakkında Kanun). Bu durum yasadışıdır.",
+                "**Sihirli Cümle**: 'Bu zorunlu dayatmayı bana yazılı, kaşeli ve imzalı olarak verebilir misiniz? Ticaret Bakanlığı ve Rekabet Kurumu'na durumu bildirmem gerekiyor.' Bu cümleyi kibar ama net bir şekilde söylediğinizde, genellikle 'Müdürüme bir sorayım' diyerek arka odaya gidecekler ve o zorunlu paket bir anda 'sizin için' iptal edilecektir."
+              ]
             }
-          ]
+          ],
+          "tip": {
+            "title": "💡 Aksesuar İstiyorsanız Dışarıya Bakın",
+            "text": "Bayinin sunduğu orijinal kauçuk paspaslar harika olabilir ama internette birebir uyumlu çok daha kaliteli 3D havuzlu paspasları üçte bir fiyatına alabilirsiniz."
+          }
         },
         {
           "type": "section",
-          "title": "2. Kredi ve '0 Faiz' Oyunları",
-          "content": "Reklamlarda gördüğünüz 'Sıfır Faiz' kampanyalarının her zaman görünmeyen bir bedeli vardır.",
+          "title": "2. Kredi ve '0 Faiz' Oyunları: Sihirbazlık Gösterisi",
+          "content": "TV'de, gazetede devasa puntolarla yazan '0 Faiz' veya 'Şimdi Al Seneye Öde' kampanyalarının her zaman görünmeyen, küçük puntolarla yazılmış bir bedeli vardır. Bedava peynir sadece fare kapanında bulunur dostlar.",
           "subsections": [
             {
               "subtitle": "Peşin İndirimini Yakma Tuzağı",
-              "text": "Bayi size 300.000 TL için 12 ay %0 faiz sunabilir. Ancak bu krediyi kullandığınızda, aracın nakit alımdaki (örneğin) 150.000 TL'lik liste indirimi iptal olur. Oysa o 150.000 TL'lik indirimi alıp, parayı bankadan kredi çekseniz cebinizden daha az para çıkacaktır. Mutlaka hesap makinesiyle kredi maliyeti vs. nakit indirimi karşılaştırması yapın."
+              "text": "Diyelim ki aracın liste fiyatı 1.500.000 TL. Bayi size '300.000 TL için 12 ay %0 faiz' sunuyor. Kulağa harika geliyor, değil mi? Ancak satış danışmanına 'Tamam, ben bu aracı kredili değil de tamamen nakit almak istiyorum' dediğinizde, aracın fiyatının 1.350.000 TL'ye düştüğünü görebilirsiniz!\n\nİşte tuzak burada: O %0 faizli krediyi kullandığınızda, bayi aslında cebinizden çıkması gerekmeyen 150.000 TL'lik o muazzam peşin indirimini iptal eder. Bankadan o parayı %5 faizle çekseniz bile cebinizden çıkacak toplam para daha az olabilir."
             },
             {
-              "subtitle": "Fahiş Hayat Sigortası",
-              "text": "Bayi üzerinden kredi kullandığınızda, size bankanın sunduğundan çok daha pahalı bir 'Kredi Koruma Sigortası' veya 'Hayat Sigortası' dayatılabilir. Yasal olarak hayat sigortasını dilediğiniz şirketten yaptırıp poliçeyi bankaya sunma hakkınız vardır."
+              "subtitle": "Kredi Koruma ve Fahiş Hayat Sigortası",
+              "text": "Bayi üzerinden anlaşmalı bankadan kredi kullandığınızda, size bankanın dışarıda sunduğundan çok daha pahalı bir 'Kredi Koruma Sigortası' veya 'Hayat Sigortası' dayatılabilir. Size sanki bu zorunluymuş gibi sunulur.",
+              "points": [
+                "Yasal olarak hayat sigortasını dilediğiniz şirketten kendiniz yaptırıp, bu poliçeyi bankaya sunma hakkınız vardır.",
+                "Banka bunu kabul etmemezlik yapamaz. Dışarıdan yaptıracağınız sigorta %50-60 daha ucuz olabilir."
+              ]
             }
-          ]
+          ],
+          "warning": {
+            "title": "⚠️ Hesap Makinesi Sırdaşınız Olsun",
+            "text": "Bayiye giderken telefonunuzun hesap makinesi mutlaka elinizin altında olsun. Kredili toplam ödeme vs Nakit alım toplam ödemesini her zaman karşılaştırın."
+          }
         },
         {
           "type": "section",
-          "title": "3. Takas (Trade-in) Tuzağı",
-          "content": "Eski aracınızı verip yenisini almak çok pratik görünse de, bayi bu rahatlığın bedelini size ağır ödetir.",
+          "title": "3. Takas (Trade-in) Tuzağı: Rahatlığın Ağır Bedeli",
+          "content": "Eski aracınızı getirip anahtarını masaya bırakmak ve yeni aracınızın anahtarını alıp gitmek... Çok karizmatik ve pratik bir yöntem, değil mi? Ama bayi, bu rahatlığın bedelini size oldukça ağır ödetir.",
           "subsections": [
             {
-              "subtitle": "Aracınızın Değerini Öldürme",
-              "text": "Bayi, ikinci el aracınıza piyasa değerinin en az %15-20 altında bir fiyat biçecektir. Üstelik sıfır araç için size liste fiyatı üzerinden hiçbir indirim yapmayabilir. 'Takas desteğimiz var' derler ancak o destek, aslında sizin eski aracınızdan kırdıkları fiyatın sadece bir kısmıdır. Aracınızı sarı sitede veya açık artırma platformlarında satmak her zaman daha kârlıdır."
+              "subtitle": "Aracınızın Değerini Öldürme Politikası",
+              "text": "Bayinin ikinci el departmanı, aracınıza piyasa değerinin en az %15-20 altında bir fiyat biçecektir. Çünkü o aracı alıp, temizleyip, kâr koyup tekrar satacaklar.\n\nBazen size 'Takas desteğimiz var, aracınıza piyasa fiyatını vereceğiz' derler. Ama bu durumda da sıfır araç için size liste fiyatı üzerinden yapabilecekleri 50.000 TL'lik indirimi asla yapmazlar. Yani cebinize girmesi gereken parayı takas desteği adıyla size satarlar."
             }
-          ]
+          ],
+          "tip": {
+            "title": "💡 Ne Yapmalısınız?",
+            "text": "Aracınızı sarı sitede veya son zamanlarda popüler olan açık artırma / anında alım platformlarında satmak her zaman bayiye vermekten çok daha kârlıdır. 3-4 gün uğraşır ama cebinizde 80-100 bin TL fazladan parayla yeni aracınızı alırsınız."
+          }
         },
         {
           "type": "section",
-          "title": "4. 'Stokta Son 1 Araç' Psikolojik Baskısı",
-          "content": "FOMO (Fırsatı Kaçırma Korkusu) satış temsilcilerinin en güçlü silahıdır.",
+          "title": "4. 'Stokta Son 1 Araç' Psikolojik Baskısı (FOMO)",
+          "content": "FOMO (Fear Of Missing Out - Fırsatı Kaçırma Korkusu), tüm dünyada satış temsilcilerinin en sık kullandığı ve en etkili psikolojik silahtır.",
           "subsections": [
             {
-              "subtitle": "Hemen Kapora Verin!",
-              "text": "Satış temsilcisi, sistemde o araca bakan 'başka bayideki başka bir müşteri' olduğunu ve hemen kapora vermezseniz aracı kaçıracağınızı söyler. Bu senaryo %90 oranında uydurmadır. Sizi düşünmekten ve diğer markaları gezmekten alıkoymak için yapılır."
+              "subtitle": "Acele Edin, Diğer Müşteri Kaporayı Gönderiyor!",
+              "text": "Siz tam fiyatı düşünürken satış temsilcisi bilgisayarına bakar, kaşlarını çatar ve şöyle der: 'Şu an sistemde bu araca bakan ve kredi onayı bekleyen başka bir müşteri daha var. Hemen kapora vermezseniz aracı kaçırabilirsiniz.'\n\nBu senaryo büyük ihtimalle (%90 oranında) tamamen uydurmadır. Amacı, sizin düşünme payınızı elinizden almak, sizi başka bayileri aramaktan veya başka markaları gezmekten alıkoymaktır."
             }
-          ]
+          ],
+          "warning": {
+            "title": "⚠️ Sakin Kalın",
+            "text": "Bu numara karşısında asla paniklemeyin. 'Nasip kısmetmiş, o müşteri alırsa biz de başka renklere veya başka markalara bakarız' deyip gülümsediğinizde, o 'hayalet müşterinin' bir anda kredisinin onaylanmadığını ve aracın size kaldığını görebilirsiniz."
+          }
         },
         {
           "type": "section",
           "title": "5. Uzatılmış Garanti ve Kasko Şartı",
-          "content": "Araç satışı sırasında size sunulan ek hizmetlerin çoğu bayi için çok yüksek kâr marjlı ürünlerdir.",
+          "content": "Araç satışı sırasında size sunulan ek hizmetlerin çoğu bayi için çok yüksek kâr marjlı 'tatlı' ürünlerdir.",
           "subsections": [
             {
               "subtitle": "Gereksiz Uzatılmış Garanti",
-              "text": "Mevcut 3 yıllık garantiye ek olarak 2 yıl uzatılmış garanti satmaya çalışırlar. Ancak uzatılmış garanti sözleşmelerinin ince puntolarını okuduğunuzda (örneğin baskı balata, amortisör gibi aşınan parçaların dahil olmaması) aslında çok kısıtlı bir koruma satın aldığınızı görürsünüz. Kaskoyu bayiden yaptırma zorunluluğu ise tamamen asılsızdır."
+              "text": "Mevcut 3 yıllık garantiye ek olarak size 'Sadece bugün için çok avantajlı' diyerek 2 yıl uzatılmış garanti satmaya çalışırlar. Ancak uzatılmış garanti sözleşmelerinin o minicik puntolarını okuduğunuzda (örneğin baskı balata, amortisör, elektronik birçok aksam gibi aşınan veya pahalı parçaların kapsama dahil olmaması) aslında çok kısıtlı bir koruma satın aldığınızı görürsünüz.\n\nEğer garanti uzatmayı düşünüyorsanız, sözleşmede nelerin garanti dışında olduğunu satır satır okumadan asla imza atmayın."
+            },
+            {
+              "subtitle": "Kaskoyu Buradan Yapma Zorunluluğu",
+              "text": "Bazı bayiler 'Kredi kullandığınız için kasko ve trafik sigortasını bizden yaptırmak zorundasınız' derler. Bu kesinlikle doğru değildir. İstediğiniz sigorta acentesinden teklif alıp, en uygununu bankaya dain-i mürtehin (rehinli) olarak sunabilirsiniz."
             }
           ]
         },
         {
           "type": "section",
           "title": "6. Fiyat Sabitleme Yalanı",
-          "content": "Araç yokken sipariş verdiğinizde karşılaştığınız en büyük risk.",
+          "content": "Türkiye gibi kurun ve vergilerin hareketli olduğu bir ülkede araç yokken sipariş verdiğinizde karşılaştığınız en büyük risktir.",
           "subsections": [
             {
               "subtitle": "Kapora Yanılgısı",
-              "text": "Aracın gelmesi 2 ay sürecekse ve siz kapora verdiyseniz, aracın fiyatını sabitlediğinizi düşünebilirsiniz. Hayır! Gümrükten çekildiği günkü kur ve liste fiyatı geçerli olacaktır. Bayi size 'Zam gelmeden bağladık' diyorsa, bunu mutlaka yazılı ve kaşeli sözleşmeye dökmelerini isteyin. Çoğu bunu yapmayı reddedecektir."
+              "text": "Aracın gelmesi 2 ay sürecekse ve siz 50.000 TL kapora verdiyseniz, aracın fiyatını o günkü fiyattan (örneğin 1.200.000 TL) sabitlediğinizi düşünebilirsiniz. Maalesef bu büyük bir yanılgıdır!\n\nAraç gümrükten çekildiği günkü kur ve o gün geçerli olan liste fiyatı geçerli olacaktır. Eğer bayi size sözlü olarak 'Merak etmeyin, zam gelmeden fiyatı bağladık' diyorsa, bu lafa asla güvenmeyin. Bunu mutlaka yazılı, kaşeli ve imzalı bir sözleşmeye dökmelerini isteyin. Çoğu bunu yapmayı kibarca reddedecektir, çünkü risk almak istemezler."
             }
           ]
         },
         {
           "type": "section",
           "title": "7. Tescil ve Dosya Masrafı Şişirmeleri",
-          "content": "Anahtar teslim fiyatına dahil olan veya olmayan ücretlerdeki karmaşa.",
+          "content": "Fatura kesim aşamasına geldiğinizde, anahtar teslim fiyatına dahil olan veya olmayan ücretlerdeki karmaşa kafanızı karıştırabilir.",
           "subsections": [
             {
-              "subtitle": "Şişirilmiş Ruhsat ve Plaka Masrafları",
-              "text": "Satış temsilcisi size 'Trafik tescil, ruhsat, MTV ve dosya masrafları için ekstra 15.000 TL' der. Oysa o yılın MTV'si, ruhsat yaprağı ve noter masrafı kalem kalem toplandığında bu rakamın çok altında çıkabilir. Sizden alınan ekstra tutar 'Hizmet Bedeli' veya 'Takipçi Ücreti' adı altında bayinin cebine gider. Faturalandırılmayan hiçbir ekstra ücreti ödemeyin."
+              "subtitle": "Görünmeyen 'Takipçi' Ücretleri",
+              "text": "Satış temsilcisi size 'Trafik tescil, ruhsat, plaka basımı ve dosya masrafları için ekstra 15.000 TL vermeniz gerekiyor' diyebilir.\n\nOysa o yılın MTV (Motorlu Taşıtlar Vergisi) tutarı, ruhsat yaprağı bedeli ve noter masrafı kalem kalem internetten araştırılıp toplandığında, bu rakamın çok altında bir sonuçla karşılaşabilirsiniz. Aradaki devasa fark, 'Hizmet Bedeli' veya 'Trafik Takipçi Ücreti' adı altında bayinin cebine gider.\n\nUnutmayın; size resmi faturası, makbuzu veya dekontu verilemeyen hiçbir ekstra ücreti ödemek zorunda değilsiniz."
             }
           ]
         },
         {
           "type": "conclusion",
-          "title": "Özetle Nasıl Korunursunuz?",
-          "content": "Sıfır araç alırken en az 3 farklı bayiden yazılı teklif alın. İnternet forumlarında o bayinin şikayetlerini okuyun. 'Zorunlu' denilen hiçbir şeyin kanuni dayanağı olmadığını bilin ve en önemlisi; pazarlık masasından kalkabilme cesaretini gösterin. Çoğu zaman masadan kalkan müşteri, ertesi gün çok daha iyi bir teklifle aranır."
+          "title": "Özetle: Oyunu Kurallarına Göre Oynayın!",
+          "content": "Sıfır araç alma süreci duygusal değil, tamamen mantıksal ve finansal bir süreç olmalıdır. Bu tuzaklara düşmemek için:\n\n* En az 3 farklı bayiden mutlaka yazılı teklif alın. Telefonla verilen fiyatlara değil, PDF veya kağıt üzerindeki tekliflere güvenin.\n* İnternet forumlarında o bayinin şikayetlerini okuyun.\n* 'Zorunlu' denilen hiçbir şeyin kanuni dayanağı olmadığını bilin.\n* Ve en önemlisi; pazarlık masasından kalkabilme cesaretini gösterin.\n\nUnutmayın, o kapıdan arkanıza bakmadan çıktığınızda, çoğu zaman o bayi sizi ertesi gün çok daha gerçekçi ve iyi bir teklifle tekrar arayacaktır. Aklınızı ve cüzdanınızı koruduğunuz, keyifli sürüşler dileriz!",
+          "finalChecklist": [
+            "Kredili ve nakit alım senaryolarını hesap makinesiyle karşılaştırın.",
+            "Dayatılan aksesuarları Ticaret Bakanlığı kurallarını hatırlatarak reddedin.",
+            "Sözlü verilen 'Fiyat sabittir' sözlerine güvenmeyin, yazılı sözleşme talep edin.",
+            "Sigorta ve kasko için mutlaka dışarıdaki acentelerden alternatif teklif alın."
+          ]
         }
-      ],
-      "urlId": 10030
+      ]
     },
     {
       "id": "guide_dolandirici_koruma",

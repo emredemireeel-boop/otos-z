@@ -11,7 +11,7 @@ import AdPlaceholder from "@/components/AdPlaceholder";
 import { events } from "@/data/events";
 import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, getThreadById, type ForumThread as FirestoreThread } from "@/lib/forumService";
-import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, limit, getCountFromServer, where } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import carModelsData from "@/data/carmodels.json";
 import { mythsData, Myth } from "@/data/efsane-avcilari-data";
@@ -169,35 +169,87 @@ export default function Home() {
         return () => unsub();
     }, []);
 
-    // ── Firestore Top Users ──────────────────────────────────────────────────
+    // ── Firestore Top Users & Stats ──────────────────────────────────────────
     useEffect(() => {
-        const fetchUsers = async () => {
+        const fetchTopUsersAndStats = async () => {
             try {
                 const usersRef = collection(db, 'users');
-                const snap = await getDocs(usersRef);
-                const userMap: Record<string, { photoURL: string | null }> = {};
-                const allUsers = snap.docs.map(d => {
+                // Toplam kullanici sayisini sunucudan say
+                const countSnap = await getCountFromServer(usersRef);
+                setPlatformStats(prev => ({ ...prev, totalUsers: countSnap.data().count }));
+
+                // Sadece Top 5 kullaniciyi getir
+                const topUsersQuery = query(usersRef, orderBy('entryCount', 'desc'), limit(5));
+                const topUsersSnap = await getDocs(topUsersQuery);
+                const top5 = topUsersSnap.docs.map(d => {
                     const data = d.data();
-                    if (data.username) {
-                        userMap[data.username] = { photoURL: data.photoURL || null };
-                    }
                     return {
                         username: data.username || 'anonim',
                         role: data.role || 'caylak',
                         entryCount: data.entryCount || 0,
                     };
                 });
-                setGlobalUserMap(userMap);
-                setPlatformStats(prev => ({ ...prev, totalUsers: allUsers.length }));
-                // En aktif yazarlari sirala
-                allUsers.sort((a, b) => (b.entryCount || 0) - (a.entryCount || 0));
-                setTopUsers(allUsers.slice(0, 5));
+                setTopUsers(top5);
             } catch (e) {
-                console.error('Top users cekilemedi:', e);
+                console.error('Top users veya stats cekilemedi:', e);
             }
         };
-        fetchUsers();
+        fetchTopUsersAndStats();
     }, []);
+
+    // ── Lazy load avatars for threads ──────────────────────────────────────────
+    useEffect(() => {
+        if (liveThreads.length === 0) return;
+        
+        setGlobalUserMap(prev => {
+            const usernamesToFetch = new Set<string>();
+            liveThreads.forEach(t => {
+                if (t.authorUsername && prev[t.authorUsername] === undefined) {
+                    usernamesToFetch.add(t.authorUsername);
+                }
+            });
+            
+            const missing = Array.from(usernamesToFetch);
+            if (missing.length === 0) return prev;
+            
+            const next = { ...prev };
+            // Hemen null olarak isaretle ki tekrar fetch yapmaya calismasin
+            missing.forEach(u => next[u] = { photoURL: null });
+            
+            const doFetch = async () => {
+                const chunks = [];
+                for (let i = 0; i < missing.length; i += 10) {
+                    chunks.push(missing.slice(i, i + 10));
+                }
+                
+                let hasUpdates = false;
+                const fetchedMap: Record<string, { photoURL: string | null }> = {};
+                
+                for (const chunk of chunks) {
+                    try {
+                        const q = query(collection(db, 'users'), where('username', 'in', chunk));
+                        const snap = await getDocs(q);
+                        snap.docs.forEach(d => {
+                            const data = d.data();
+                            if (data.username && data.photoURL) {
+                                fetchedMap[data.username] = { photoURL: data.photoURL };
+                                hasUpdates = true;
+                            }
+                        });
+                    } catch (e) {
+                        console.error('Avatar chunk error:', e);
+                    }
+                }
+                
+                if (hasUpdates) {
+                    setGlobalUserMap(current => ({ ...current, ...fetchedMap }));
+                }
+            };
+            doFetch();
+            
+            return next;
+        });
+    }, [liveThreads]);
 
     // Derive allTopics from liveThreads for compatibility
     const allTopics = liveThreads.map(thread => ({
@@ -952,7 +1004,7 @@ export default function Home() {
                                                 {randomGuide.description}
                                             </p>
 
-                                            <Link href={`/kutuphane/${randomGuide.id}`} style={{ textDecoration: 'none' }}>
+                                            <Link href={randomGuide.urlId ? `/makale/${randomGuide.title.toLowerCase().replace(/[^a-z0-9ğüşöçı]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}--${randomGuide.urlId}` : `/kutuphane/${randomGuide.id}`} style={{ textDecoration: 'none' }}>
                                                 <button style={{
                                                     width: '100%',
                                                     padding: '12px',

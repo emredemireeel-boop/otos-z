@@ -179,25 +179,68 @@ export default function GirisPage() {
                     transform: translateX(4px);
                     box-shadow: 0 4px 20px var(--primary-glow);
                 }
+                .login-container {
+                    min-height: 100vh;
+                    background: var(--background);
+                    display: flex;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .left-panel {
+                    flex: 1 1 55%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 60px 80px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .right-panel {
+                    flex: 1 1 45%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 40px;
+                    position: relative;
+                }
+                .trust-badges {
+                    margin-top: 32px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 24px;
+                    opacity: 0.5;
+                }
+                @media (max-width: 900px) {
+                    .login-container {
+                        flex-direction: column;
+                        overflow-y: auto;
+                    }
+                    .left-panel {
+                        flex: none;
+                        padding: 40px 24px 20px;
+                    }
+                    .left-panel h1 {
+                        font-size: 36px !important;
+                    }
+                    .right-panel {
+                        flex: none;
+                        padding: 24px;
+                        align-items: flex-start;
+                    }
+                    .trust-badges {
+                        flex-wrap: wrap;
+                        gap: 12px;
+                    }
+                    .feature-pill {
+                        padding: 12px 16px;
+                    }
+                }
             `}</style>
 
-            <div style={{
-                minHeight: '100vh',
-                background: 'var(--background)',
-                display: 'flex',
-                position: 'relative',
-                overflow: 'hidden',
-            }}>
+            <div className="login-container">
 
                 {/* LEFT PANEL — Brand / Illustration */}
-                <div style={{
-                    flex: '1 1 55%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    padding: '60px 80px',
-                    position: 'relative',
-                    overflow: 'hidden',
+                <div className="left-panel" style={{
                     animation: mounted ? 'slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1)' : 'none',
                 }}>
                     {/* Decorative gradient orbs */}
@@ -341,13 +384,7 @@ export default function GirisPage() {
                 </div>
 
                 {/* RIGHT PANEL — Login Form */}
-                <div style={{
-                    flex: '1 1 45%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '40px',
-                    position: 'relative',
+                <div className="right-panel" style={{
                     animation: mounted ? 'slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1)' : 'none',
                 }}>
                     {/* Subtle border */}
@@ -639,13 +676,7 @@ export default function GirisPage() {
                         </div>
 
                         {/* Trust Badges */}
-                        <div style={{
-                            marginTop: '32px',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            gap: '24px',
-                            opacity: 0.5,
-                        }}>
+                        <div className="trust-badges">
                             {['AES-256 Şifreleme', 'KVKK Uyumlu', 'SSL Korumalı'].map((badge, i) => (
                                 <span key={i} style={{
                                     fontSize: '11px',
