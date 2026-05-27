@@ -12,9 +12,15 @@ interface FloatingActionBarProps {
 export default function FloatingActionBar({ title, url, onCommentClick }: FloatingActionBarProps) {
     const [isSaved, setIsSaved] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
-    const [likeCount, setLikeCount] = useState(Math.floor(Math.random() * 50) + 12);
+    const [likeCount, setLikeCount] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setLikeCount(Math.floor(Math.random() * 50) + 12);
+        setMounted(true);
+    }, []);
 
     // Hide/show based on scroll direction for better UX
     useEffect(() => {
@@ -89,7 +95,7 @@ export default function FloatingActionBar({ title, url, onCommentClick }: Floati
                 {/* Like Button */}
                 <button onClick={handleLike} style={actionBtn(isLiked ? "#ef4444" : "var(--foreground)")}>
                     <Heart size={22} fill={isLiked ? "#ef4444" : "none"} color={isLiked ? "#ef4444" : "var(--foreground)"} />
-                    <span style={{ fontSize: '12px', fontWeight: '600', color: isLiked ? "#ef4444" : "var(--foreground)" }}>{likeCount}</span>
+                    <span style={{ fontSize: '12px', fontWeight: '600', color: isLiked ? "#ef4444" : "var(--foreground)" }}>{mounted ? likeCount : 0}</span>
                 </button>
 
                 {/* Comment Button (if applicable) */}

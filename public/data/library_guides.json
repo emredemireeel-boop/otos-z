@@ -1,6 +1,322 @@
 {
   "guides": [
     {
+      "id": "guide_gunluk_modifiye",
+      "title": "Nihai Otomotiv Mühendisliği Manifestosu: Günlük Araçlar İçin 20 Adımlık Hiper-Modifiye Ansiklopedisi",
+      "description": "Bir otomobili baştan yaratmanın kutsal kitabı! Aerodinamikten kilitli diferansiyele, intercooler termodinamiğinden motor kulaklarına kadar uzanan bu 20 adımlık manifesto, aracınızı hiper-spor bir otomobilin mühendislik seviyesine çıkarırken konforunuzu asla bozmayacak.",
+      "minutes": 120,
+      "difficulty": "Profesyonel Seviye",
+      "tags": [
+        "Modifiye",
+        "Günlük Kullanım",
+        "Performans",
+        "Konfor",
+        "Tasarruf"
+      ],
+      "author": "OtoAsfalt Uzmanları",
+      "sections": [
+        {
+          "type": "intro",
+          "content": "Sıradan modifiye rehberlerini çöpe atın. Bir otomobili modifiye etmek, fabrikada üretilmiş bir makinenin limitlerini mekanik, termodinamik ve akışkanlar dinamiği yasaları çerçevesinde yeniden programlamaktır. 'Daily Driven' yani her gün bindiğiniz bir aracın şasisini, motorunu ve aerodinamiğini kusursuzlaştırırken; ailenizi bindirdiğinizde lüks bir araç konforunu sunmak, gaza bastığınızda ise süper-spor bir otomobil gibi yola tutunmasını sağlamak 'OEM+' felsefesinin nihai zirvesidir. Bu 20 adımlık ansiklopedi, kulaktan dolma efsanelerle değil; laboratuvar verileriyle, malzeme bilimiyle ve profesyonel motor sporları mühendisliğiyle donatılmıştır. Hazırsanız, aracınızın genetik kodunu (DNA) atomlarına kadar parçalayıp yeniden inşa ediyoruz."
+        },
+        {
+          "type": "step",
+          "title": "1. Motor Elektroniği ve Termal Verimlilik (Profesyonel ECU Remapping)",
+          "content": "Fabrikadan çıkan bir motor, Volumetrik Verimlilik (VE) ve Fren Özgül Yakıt Tüketimi (BSFC) açısından optimum değil, 'en güvenli ve en ucuz' skalada ayarlanır. Motorunuz Afrika'da kalitesiz yakıtla da, Sibirya'da -40 derecede de çalışması için ECU (Motor Kontrol Ünitesi) tarafından 'Tork Sınırlandırıcılar' (Torque Limiters) ile boğulmuştur.",
+          "subsections": [
+            {
+              "subtitle": "Knock Retard (Vuruntu Engelleme) ve AFR Stratejisi",
+              "text": "Gerçek bir yazılım, sadece turbo basıncını açmak değildir. Silindir içine giren havanın ısısı (IAT) arttıkça, vuruntu (Pre-ignition) riski başlar. Profesyonel bir tuner, Dyno üzerinde Ateşleme Avansını (Ignition Timing) derece derece ayarlar. Eğer motor vuruntu (Knock) algılarsa, ECU anında 'Knock Retard' yaparak avansı kısar ve gücü keser. Doğru yazılımda AFR (Hava-Yakıt Oranı) tam yükte 12.5:1 gibi güvenli (hafif zengin) bir seviyeye çekilerek silindir içi sıcaklıklar (EGT - Exhaust Gas Temperature) düşürülür. EGT'nin 900°C'yi aşmaması, turbonun egzoz pallerinin (Turbine Wheel) erimemesi için hayati önem taşır."
+            },
+            {
+              "subtitle": "Piggyback Cihazların Motoru Yıkaması (Cylinder Wash)",
+              "text": "Ucuz 'Tuning Box' cihazları sadece basınç sensörlerini yanıltır. ECU daha az hava girdiğini sanıp enjektörleri körlemesine açık bırakır. Sonuç: Zengin karışım. Yanmayan çiğ yakıt, silindir duvarlarındaki yağ filmini yıkar (Cylinder Wash), segmanların aşınmasına ve motorun kompresyon kaybetmesine neden olur. Kesinlikle uzak durulmalıdır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "2. Şanzıman Dinamikleri (TCU): Mekatronik ve Tork Transfer Eğrisi",
+          "content": "Motorunuz 500 Nm tork üretiyor olabilir, ancak şanzımanınız bu torku taşıyamıyorsa enerjiniz debriyaj disklerinde ısıya dönüşüp kaybolur. Özellikle çift kavramalı (DCT, DSG, EDC) ve tork konvertörlü (ZF) şanzımanların kendi beyni (TCU) vardır.",
+          "subsections": [
+            {
+              "subtitle": "Clamping Force (Sıkıştırma Kuvveti) ve Basınç Artışı",
+              "text": "Şanzıman beyni (TCU), motorun beyan ettiği torka göre debriyaj paketlerine hidrolik basınç (Bar) uygular. Örneğin stok DQ200 DSG, kavramayı 40-50 Bar basınçla sıkar. Siz motoru 350 Nm torka çıkardığınızda bu basınç yetersiz kalır ve debriyaj 'Mikro-kaydırma' (Micro-slip) yapar. TCU yazılımı atıldığında, şanzımanın Line Pressure (Hat basıncı) artırılarak kavramalar 60-70 Bar ile sıkıştırılır. Bu, disklerin kaçırmasını ve yanmasını engeller."
+            },
+            {
+              "subtitle": "Launch Control ve Vites Geçiş Milisaniyeleri",
+              "text": "TCU yazılımı ile vites atış hızları 200 ms'den 50 ms seviyesine indirilir. Ayrıca kalkış kontrol (Launch Control) devri, aracın lastik tutunma karakterine göre ayarlanır (Örn: 3000 RPM yerine 4200 RPM). Şehir içi dur-kalklarda şanzımanın gereksiz yere 1'den 2'ye atıp kavramayı yormaması için 1. vitesin devir tutma bandı uzatılır (Drivability modifikasyonu)."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "3. İleri Seviye Yağlama Bilimi: HTHS Viskozitesi ve NOACK Testleri",
+          "content": "Market rafından alınan 5W-30 bir yağ, modifiyeli ve yüksek sıcaklıklarda çalışan bir motor için su kadar incedir. Motor yağı sadece kaydırıcı değil, aynı zamanda motorun içini soğutan ana sıvıdır.",
+          "subsections": [
+            {
+              "subtitle": "Grup 4 PAO ve Grup 5 Ester Teknolojisi",
+              "text": "Standart sentetik yağlar Grup 3 (Hydrocracked) rafine petroldür. Modifiyeli araçlarda Grup 4 (Polialfaolefin - PAO) ve Grup 5 (Ester) bazlı yağlar (Örn: Motul 300V, Redline) kullanılmalıdır. Ester molekülleri elektrostatik olarak eksi yüklüdür ve metal yüzeylere mıknatıs gibi tutunur. Sabah motoru ilk çalıştırdığınız (Cold Start) kuru saniyelerde silindirler zaten yağlıdır. Ayrıca HTHS (High Temp High Shear) değeri 3.5'in üzerinde olan yağlar, 150°C'de bile yağ filminin yırtılmamasını (Yatak sarmayı engellemeyi) garanti eder."
+            },
+            {
+              "subtitle": "NOACK Uçuculuğu ve ZDDP (Çinko) Katkısı",
+              "text": "NOACK testinde yağın ne kadarının buharlaştığı ölçülür. Buharlaşan yağ, emme manifolduna gidip supaplarda karbon birikimi yapar. Premium yağların uçuculuğu %8'in altındadır. Ayrıca yarış yağlarındaki yüksek ZDDP (Çinko-Fosfor) oranı, eksantrik millerinin aşınmasını imkansız hale getirir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "4. Termodinamik Kusursuzluk: Bar-and-Plate Intercooler ve Su Enjeksiyonu",
+          "content": "Turbo, havayı sıkıştırırken fizik yasaları (Gay-Lussac) gereği korkunç bir ısı üretir. Isınan havanın yoğunluğu düşer (Oksijen molekülleri birbirinden uzaklaşır). Bu, motorun gücünü doğrudan baltalayan Heat Soak (Isı Yığılması) sorunudur.",
+          "subsections": [
+            {
+              "subtitle": "Tube-and-Fin vs. Bar-and-Plate Soğutucular",
+              "text": "Fabrikasyon Intercooler'lar hafif ve ucuz olan 'Tube-and-Fin' (Boru ve yaprak) yapısındadır. Yazın birkaç kez tam gaz yaptığınızda şişerler. Doğru modifiye, %100 alüminyum ve çok daha yoğun bir iç yapıya sahip 'Bar-and-Plate' (Çubuk ve plaka) intercooler takmaktır. Bu tasarım çok daha ağır ve rijit olup, devasa bir termal kütleye (Thermal Mass) sahiptir. Havayı 120 dereceden 30 dereceye anında düşürür."
+            },
+            {
+              "subtitle": "Pressure Drop (Basınç Düşüşü) Hesabı",
+              "text": "Ancak intercooler çok büyük olursa, hava soğur ama içinden geçerken basıncı düşer (Pressure Drop) ve turbo gecikmesi (Lag) yaşanır. Mühendislik tam burada başlar; hacmi artırırken iç akışkan (Flow) tasarımını da mükemmelleştiren markalar (Örn: Wagner Tuning) tercih edilmelidir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "5. Ateşleme Bilimi: Buji Boşluğu (Gap), Isı Değeri ve Coil Dwell Time",
+          "content": "Yüksek basınçlı (Boost) turbo motorlarda ateşleme sistemi çok büyük stres altındadır. Silindirdeki yoğun basınç, kıvılcımın buji tırnakları arasından atlamasını zorlaştırır (Spark Blowout - Kıvılcım sönmesi).",
+          "subsections": [
+            {
+              "subtitle": "Soğuk Buji (Colder Plugs) ve Gap (Aralık) Ayarı",
+              "text": "Orijinal bujilerin seramik izolatörü ısıyı yavaş tahliye eder. Bu uç kırmızı kora dönüşürse, yakıtı buji çakmadan patlatır (Vuruntu). Modifiyeli araçta ısıyı çabuk silindir kapağına ileten '1 veya 2 derece Soğuk (Colder)' Rutenyum/İridyum bujiler kullanılır. Ayrıca yüksek basınçta kıvılcımın sönmemesi için buji tırnak aralığı (Gap) orijinalden daha dar ayarlanmalıdır (Örn: 0.032 inç'ten 0.024 inç'e düşürülür)."
+            },
+            {
+              "subtitle": "Yüksek Kapasiteli Bobinler ve Dwell Time",
+              "text": "Daha dar aralıkta daha güçlü kıvılcım yaratmak için bobinlerin milijoule kapasitesi artırılmalıdır (Audi R8 Bobinleri). ECU yazılımından bobinlerin 'Dwell Time' (Şarj olma süresi) milisaniye bazında artırılarak, kıvılcımın patlama gücü maksimize edilir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "6. Aktarma Organları: Kilitli Diferansiyel (LSD) ve Sürtünme Çarpanları",
+          "content": "Açık diferansiyelli bir araçla virajdan çıkarken gaza bastığınızda, içte kalan ve yükü hafifleyen tekerlek patinaja düşer, gücün tamamı boşa gider. Araba burnunu dışarı açar (Understeer). Gerçek yol tutuşu diferansiyel modifiyesinde yatar.",
+          "subsections": [
+            {
+              "subtitle": "Torsen (Helisel) vs. Clutch Pack (Plakalı) LSD",
+              "text": "Günlük kullanım için bakım gerektirmeyen ve mekanik dişlilerle çalışan Torsen tipi (Quaife, Wavetrac) kilitli diferansiyeller (LSD) mükemmeldir. Virajda iç tekerlek boşa dönmeye başladığında, Torsen dişlileri kilitlenir ve torkun (Gücün) %80'e kadarını yere sıkıca basan DIŞ tekerleğe aktarır. (Torque Vectoring). Bu aracı virajın içine doğru adeta bir rayda gibi çeker."
+            },
+            {
+              "subtitle": "1.5 Way vs 2 Way ve Dişli Yağı",
+              "text": "Pist odaklı 1.5 Way diferansiyeller gaza basıldığında (hızlanmada) %100, frenlemede %50 kilitlenir. Kilitli diferansiyel takıldığında şanzıman/diferansiyel yağına mutlaka 'Friction Modifier' (Sürtünme düzenleyici) katkılar eklenmelidir, aksi takdirde dönüşlerde 'çat-çut' kilit sesleri duyulur."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "7. Titreşim Analizi: Poliüretan Kulaklar (Engine/Transmission Mounts)",
+          "content": "Kalkışta veya vites değişimlerinde motor kaputun altında 5-10 cm ileri geri esner (Engine Rocking). Bu hareket, aktarma organlarına giden gücün kauçuk kulaklarda (Engine mounts) emilip kaybolmasına (Drivetrain Power Loss) yol açar.",
+          "subsections": [
+            {
+              "subtitle": "Shore A Sertlik Dereceleri ve Pitch Stop Mount",
+              "text": "Motor ve şanzıman kulaklarını Poliüretan malzemeyle değiştirmek (Örn: Powerflex) şarttır. Ancak mühendislik 'Shore A Durometer' (Sertlik derecesi) seçimidir. Günlük kullanım için 65A (Sarı) veya 70A (Mor) sertlik seçilmelidir; 85A ve üzeri (Siyah/Track) kulaklar, motorun tüm titreşimini (NVH) kabine yansıtarak direksiyonu zangır zangır titretir. Özellikle üst tork kolu (Pitch Stop Mount) değiştirildiğinde, kalkışlardaki tekerlek zıplaması (Wheel Hop) tamamen ortadan kalkar, araç ok gibi fırlar."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "8. Yaysız Kütle Fiziği (Unsprung Mass): Forged Jant ve Eylemsizlik Momenti",
+          "content": "Jantları sadece 'güzel görünüyor' diye büyütmek, bir otomobile yapılabilecek en büyük sabotajdır. Yaysız kütle (Süspansiyonun altındaki, tekerlek, disk, fren), süspansiyon sisteminin sönümleyemediği doğrudan yola basan ağırlıktır.",
+          "subsections": [
+            {
+              "subtitle": "I = mr² (Eylemsizlik Momenti)",
+              "text": "Dönen bir cismin kütlesi merkeze ne kadar uzaksa, onu döndürmek ve durdurmak o kadar zordur. 15 kg'lık ucuz döküm (Cast) jantlar yerine 8 kg'lık Dövme Alüminyum (Forged) jantlar takmak (Örn: BBS FI-R), tekerlek başına 7 kg, toplamda 28 kg yaysız kütle atar. Dönme eylemsizliği çarpanı (x4) hesaba katıldığında, bu arabadan 110 kg sabit yük atmaya denktir. Direksiyon tepkileri jiletleşir, fren mesafesi metrelerce kısalır, amortisörler çukurlara anında tepki verir."
+            },
+            {
+              "subtitle": "Jiroskopik Etki",
+              "text": "Ağır jantlar yüksek hızda devasa bir jiroskop yaratır, direksiyonu çevirmenize karşı koyar. Forged jantlar ise jiroskopik direnci kırdığı için aracın slalom yeteneğini (turn-in response) zirveye taşır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "9. İleri Fren Dinamikleri: Brake Bias (Fren Dağılımı) ve Sürtünme Katsayıları",
+          "content": "Modifiyeli aracı durdurmak için 'en büyük kaliperi' takmak (Örn: 8 piston) genellikle fren dengesini (Brake Bias) mahvederek aracı dengesizleştirir.",
+          "subsections": [
+            {
+              "subtitle": "Piston Çapları ve Merkez Silindir (Master Cylinder)",
+              "text": "Aracın önüne devasa pistonlu kaliperler takarsanız, fren ana merkezi yetersiz kalır, pedal süngere döner ve önler çok erken kilitlenerek (ABS'yi erken devreye sokarak) aracı durduramaz. Doğru modifiye OEM uyumlu, 4 veya 6 pistonlu rijit kaliperler kullanmaktır. Kaliperlerin 'Radial Mount' (Radyal bağlantılı) olması esnemeyi önler."
+            },
+            {
+              "subtitle": "Sürtünme Katsayısı (Mu - µ) ve Çalışma Sıcaklıkları",
+              "text": "Günlük kullanımda pist balatası takılmaz; çünkü soğukken tutmazlar! Sokak-Pist hibriti (Örn: Ferodo DS2500, EBC Yellowstuff) balataların sürtünme katsayısı (Mu) 0'dan 500°C'ye kadar stabil 0.45 civarındadır. Oluklu (Slotted) disklerle birleştiğinde, balatanın ısınıp salgıladığı gaz oluklardan tahliye edilir ve 'Fading' (fren şişmesi) yok edilir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "10. Moleküler Kauçuk Bilimi: Slip Angle ve Lastik Karkas Mimarisi",
+          "content": "Lastikler siyah ve yuvarlak kauçuk parçaları değildir; birer polimer kimyası ve tekstil mühendisliği harikasıdır.",
+          "subsections": [
+            {
+              "subtitle": "Karkas Katmanları (Rayon ve Aramid)",
+              "text": "UHP (Ultra Yüksek Performans) lastiklerin (Michelin PS4S, Conti SC7) yanakları Rayon ve Aramid (Çelik yelek malzemesi) lifleriyle örülmüştür. Bu lifler, viraja girildiğinde lastiğin jantın altına katlanmasını engeller. Lastik tabanı yola tam basmaya devam eder (Camber Thrust - Kamber İtmesi)."
+            },
+            {
+              "subtitle": "Slip Angle (Kayma Açısı) ve Heat Cycle",
+              "text": "Direksiyonu 5 derece çevirdiğinizde lastik anında 5 derece dönmez; kauçuk esner ve tekerlek aslında 3-4 derecelik bir açıyla (Slip Angle) ilerler. Premium UHP lastiklerin rijit yapısı Slip Angle'ı minimize ederek direksiyon tepkilerini (Steering Feel) mükemmelleştirir. Ayrıca silika zengini hamurları sayesinde lastik defalarca ısınıp soğusa bile (Heat Cycle) sertleşip taşlaşmaz."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "11. Süspansiyon Geometrisi: Dinamik Sönümleme ve Valf Eğrileri (Valving)",
+          "content": "Amortisörler sadece yayı tutan borular değildir; içlerinde mikroskobik deliklerden yağ geçiren hassas hidrolik valfler bulunur. Spor yay takıp orijinal amortisör kullanmak bu valfleri patlatır.",
+          "subsections": [
+            {
+              "subtitle": "Digressive Valving (Azalan Sönümleme Eğrisi)",
+              "text": "Kaliteli Coilover sistemlerinde (Örn: KW, Bilstein) 'Digressive' valf teknolojisi vardır. Bu valfler, düşük hızlarda (viraja girerken, şerit değiştirirken) yağı zor geçirerek aracı kütük gibi sertleştirip yatmamasını (Body roll) sağlar. Ancak yüksek şaft hızlarında (çukur, kasis) aniden açılarak tekerleğin hızlıca esnemesini sağlar. Yani virajda yarış arabası, çukurda Mercedes gibi davranır."
+            },
+            {
+              "subtitle": "Rebound ve Compression Ayarları",
+              "text": "Üst düzey Coilover'larda Rebound (Açılma) ve Compression (Sıkışma) ayarları birbirinden bağımsızdır. Günlük kullanımda Compression ayarı yumuşak tutulup kasisleri emmesi sağlanır, Rebound ayarı sertleştirilerek dalgalı yollarda arabanın 'yaylanıp yüzmesi' engellenir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "12. Şasi Torsiyonu ve Rijitlik: Strut Bar, Seam Welding, Underbrace",
+          "content": "Şasiler çeliktir ancak lastik ve viraj yükü altında milimetrelerce esnerler. Şasi esnediğinde, süspansiyon görevini yapamaz.",
+          "subsections": [
+            {
+              "subtitle": "Torsional Rigidity (Burulma Direnci)",
+              "text": "Aracın virajda kulelerden (Amortisör kuleleri) içeri doğru esnemesini kesmek için alüminyum 'Strut Bar' (Kule Gergisi) takılır. Alt şasi tünelini birbirine bağlayan X veya H şeklindeki 'Underbrace' çubukları, kasanın torsiyonel direncini (Nm/deg) ciddi oranda artırır. Şasi esnemediği için tüm viraj yükü lastiklere ve Coilover'a biner, bu da limitleri inanılmaz yukarı çeker."
+            },
+            {
+              "subtitle": "Gündelik Uygulama Toleransı",
+              "text": "Yarış araçlarındaki gibi kafes (Roll-cage) veya şasi dikiş kaynağı (Seam Welding) günlük aracı taş arabasına çevirir. Doğru OEM+ nokta sadece Kule ve Alt gövde barlarıdır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "13. Hidrolik Mükemmellik: DOT 5.1 Sıvısı ve Çelik Hortum Genleşmesi",
+          "content": "Fren sistemi hidrolik basınçla çalışır. Basıncı ileten sıvı ve hortumların genleşmesi, durma mesafesini ve pedal hissiyatını mahveder.",
+          "subsections": [
+            {
+              "subtitle": "Higroskopik Etki ve Kaynama Noktaları",
+              "text": "Glikol bazlı fren sıvıları (DOT 4) havadaki nemi emme (Higroskopik) eğilimindedir. Sıvının içine su karıştığında 'Islak Kaynama Noktası' (Wet Boiling Point) 150°C'ye düşer. Frenler ısındığında bu su kaynar, hava kabarcığı yapar ve pedal dibe düşer. Kaynama noktası çok daha yüksek (Kuru 260°C+) olan DOT 5.1 sıvı kullanımı şarttır."
+            },
+            {
+              "subtitle": "Teflon İç Yapılı Çelik Örgü (Braided Lines)",
+              "text": "Orijinal kauçuk hortumlar basınca dayanamayıp şişer. İçinde teflon (PTFE) hortum bulunan, dışı paslanmaz çelik örgülü performans hortumları sıfır genleşme ile hidroliği iletir. Fren pedalı 'On/Off' anahtarı gibi milimetrik ve sert bir hissiyata kavuşur."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "14. İleri Akustik ve Ses İzolasyonu: STC (Ses Geçiş Sınıfı) ve Constrained Layer Damping",
+          "content": "Performans artarken, günlük konforu korumak kabin izolasyonuyla sağlanır. Ses izolasyonu pazarındaki 'yapışkan sünger' yalanlarına kanmayın.",
+          "subsections": [
+            {
+              "subtitle": "Constrained Layer Damping (CLD)",
+              "text": "Kapı saclarına yapıştırılan ağır alüminyum folyolu bütil levhalar sesi KESMEZ, sadece sacın titreşim (rezonans) frekansını aşağı çekerek 'tok' bir ses verir (CLD prensibi). Asıl dış hava ve lastik sesini kesen (STC değerini yükselten) katman, düşük frekanslı dalgaları yutan ultra yoğun MLV (Mass Loaded Vinyl) bariyerleridir."
+            },
+            {
+              "subtitle": "Akustik Sünger ve Infinite Baffle Kabin",
+              "text": "Kapı içindeki saç deliklerini CLD ile tamamen kapatıp sızdırmaz hale getirdiğinizde, hoparlör için mükemmel bir kabin (Infinite Baffle) oluşturursunuz. Bunun üzerine yapıştırılacak kapalı hücreli (Closed-cell) kauçuk süngerler ise tiz ve orta sesleri yutar. Sonuç: 150 km/s hızda bile fısıltıyla konuşabileceğiniz, müzik sisteminin gücünü 3'e katlayan bir stüdyo ortamı."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "15. Akışkanlar Mekaniği (Intake/Exhaust): Scavenging Etkisi ve Karşı Basınç (Backpressure)",
+          "content": "Egzoz sistemi, motorun nefes verme organıdır. Sadece 'ses çıksın' diye kalın bir düz boru (Straight Pipe) çekmek, gaz hızını yavaşlatır ve motorun alt devirlerdeki torkunu öldürür.",
+          "subsections": [
+            {
+              "subtitle": "Scavenging (Süpürme) Etkisi ve Boru Çapı",
+              "text": "Egzoz gazı darbeler (Pulses) halinde ilerler. Doğru çapta (Örn: 2.0L motor için 2.5 veya 2.75 inç) bir boru tasarımı, egzoz gazının hızını (Velocity) yüksek tutarak arkadan gelen egzoz gazını vakum etkisiyle silindirden dışarı emer (Scavenging). Çap çok büyük (Örn: 3.5 inç) olursa gaz hızı düşer, vakum biter, tork ölür."
+            },
+            {
+              "subtitle": "Helmholtz Rezonatörü ve Anti-Drone",
+              "text": "Kabin içindeki o iğrenç uğultuyu (Drone) kesmek için egzoza 'Helmholtz Rezonatörü' veya 'J-Pipe' adı verilen, ucu kapalı bir boru eklenir. Bu borunun uzunluğu, uğultuyu yapan frekansa göre milimetrik hesaplanır. Ses dalgası borunun dibine çarpıp 180 derece ters fazda geri döner ve ana borudaki uğultuyu fiziksel olarak yutarak (Anti-Noise Cancellation) sıfırlar."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "16. Yakıt Basınç Stratejisi: HPFP, Piezo Enjektörler ve WMI Karışımı",
+          "content": "Silindire bastığınız devasa havayı yakmak için yakıta ihtiyaç vardır. Yüksek devirlerde orijinal pompa (LPFP) ve yüksek basınç pompası (HPFP) yetersiz kaldığında motor anında fakire (Lean) düşer.",
+          "subsections": [
+            {
+              "subtitle": "HPFP Cam Follower ve Piston Çapı",
+              "text": "Modifiyeli TFSI, TSI veya THP motorlarda Yüksek Basınçlı Yakıt Pompası (HPFP) iç piston çapı daha büyük olan (Örn: Autotech, Loba) kitlerle değiştirilir. Bu sayede pompa eksantrik milinden (Cam lobe) aldığı her darbede ray (Rail) içerisine çok daha fazla yakıt basar, basınç (Bar) stabil kalır."
+            },
+            {
+              "subtitle": "Metanol (WMI) ile Oktan ve IAT Yönetimi",
+              "text": "Günlük kullanımda yüksek güç istiyorsanız Su/Metanol Enjeksiyonu (WMI) kullanılır. Genelde %50 Su (Silindir içi soğutma ve buharla güç üretimi) ve %50 Metanol (Oktan sayısını 105+ seviyesine çıkarma) karışımı basılır. WMI, hava giriş sıcaklığını (IAT) anında buz gibi seviyelere düşürür. Güvenlik için, metanol deposu bittiğinde ECU'nun turboyu otomatik kısması (Failsafe) sağlanır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "17. İleri Seviye Telemetri: CAN-BUS, PID Okumaları ve AFR Monitörü",
+          "content": "Modifiyeli bir araçta, gösterge panelindeki 'hararet saati' sadece su sıcaklığını gösterir ve genellikle 90 derecede sabit kalacak şekilde uyuşturulmuştur. Motor yağı 130 dereceye çıksa bile ruhunuz duymaz.",
+          "subsections": [
+            {
+              "subtitle": "OBD2 Dijital Entegrasyon (Awron, P3 Gauges)",
+              "text": "Havalandırma ızgarasına entegre edilen OEM+ görünümlü dijital ekranlar (P3 Gauges vb.), aracın CAN-BUS (Beyin iletişim ağı) sistemine doğrudan bağlanır. Yüksek hızlı PID okumalarıyla (Saniyede 20+ kez); Yağ Sıcaklığı, Egzoz Gazı Sıcaklığı (EGT), Hava/Yakıt Oranı (Wideband AFR) ve Turbo Basıncını (Boost) canlı izlemenizi sağlar. Pistte veya otobanda gazlarken motorun sınırda (Örn: EGT 950°C) olduğunu görüp ayağınızı gazdan çekmenizi sağlayarak motoru kurtarır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "18. Sürücü Arayüzü (HMI): Vites Geometrisi ve Yönlendirme Ağırlık Merkezi",
+          "content": "Aracın içindeki temas noktalarının (Direksiyon, Vites, Pedallar) kalitesi, tüm aracın kalite algısını belirler.",
+          "subsections": [
+            {
+              "subtitle": "Short Shifter Linkage ve Ağırlık Merkezi Değişimi",
+              "text": "Manuel araçlarda vites kolunun bağlantı mekanizmasını (Linkage geometry) değiştiren Short Shifter kitleri, atış mesafesini %40 kısaltır. Vites topuzunu 500 gramlık çelik 'Weighted Knob' ile değiştirmek, topuzun ağırlık merkezini (Center of Gravity) yukarı taşıdığı için kaldıraç etkisiyle senkromeçlerin direncini kolayca kırar, vitesler tüfek mekanizması gibi geçer."
+            },
+            {
+              "subtitle": "Direksiyon Atalet Momentinin Optimize Edilmesi",
+              "text": "Direksiyon simidi kalınlaştırılarak kavrama yüzeyi artırılır (Alcantara). Spor pedallarda ise gaz pedalına tabandan destekli mafsallı pedal tasarımı eklenerek ayak tabanı yorgunluğu sıfırlanır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "19. Optik Kusursuzluk: Foton Dinamikleri (Lümen vs Lux) ve CRI, Cut-Off",
+          "content": "Orijinal halojen (Sarı) veya eski tip Xenon farlar karanlıkta güvenliği tehlikeye atar. Piyasadan alınan kalitesiz LED ampuller ise Lümen değeri yüksek olsa da odaklamayı (Lux) yapamadığı için yola değil gökyüzüne ışık saçar.",
+          "subsections": [
+            {
+              "subtitle": "Bi-LED / Lazer Projektör ve Kelvin (Renk) Seçimi",
+              "text": "Orijinal tasın içine Bi-LED projektör merceği (Örn: Morimoto) entegre edilir. Mercek içindeki elektromanyetik perde (Shield), ufukta jilet gibi mavi-mor yansımalı bir kesme çizgisi (Cut-off) yaratır. Işık ısısı olarak 6000K (Bembeyaz) yerine, insan gözünün detayları en iyi seçtiği ve yağmurda kaybolmayan 4300K - 5000K (Günışığı/OEM White) tercih edilmelidir. Renk İletim İndeksi (CRI) yüksek olan bu LED'ler nesneleri gerçek rengiyle gösterir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "20. Dış Yüzey Dinamikleri: Aerodinamik Sınır Tabakası (Boundary Layer) ve TPU Kaplama",
+          "content": "Mükemmelleştirdiğiniz bu sanat eserini, asfalttan seken taşlardan, asit yağmurlarından ve aerodinamik sürtünmeden korumak final adımıdır.",
+          "subsections": [
+            {
+              "subtitle": "Bernoulli Prensibi, Splitter ve Aerodinamik Direnç (Cd)",
+              "text": "Büyük bagaj rüzgarlıkları hava direncini (Cd) korkunç derecede artırır. Oysa ön tampon altına takılan ince bir Splitter, Bernoulli Prensibi'ne göre aracın altından geçen havanın hızını artırıp basıncını düşürerek, aracı bedavadan yere yapıştıran (Downforce) bir vakum etkisi yaratır. Görsel olarak agresif ama sürtünmesizdir."
+            },
+            {
+              "subtitle": "Termoplastik Poliüretan (PPF) Mikron Kalınlığı",
+              "text": "Boya koruma için seramik veya cila değil; 8 mil (yaklaşık 200 mikron) kalınlığında TPU (Termoplastik Poliüretan) Şeffaf PPF kaplama kullanılır. Bu malzeme elastiktir, taş çarptığında darbeyi emip geri iter (boya kalkmaz). Üzerinde çizik oluşursa güneş ışığında veya 60°C sıcak suda polimer zincirleri hareket ederek kendi kendini saniyeler içinde onarır (Self-healing). Yıllar sonra bile aracınız fabrikadan bugün çıkmış gibi parlar."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "Nihai Özeti: Otomotiv Tanrısı Olmak!",
+          "content": "Bu 20 devasa adım; bir otomobilin DNA'sına moleküler düzeyde, termodinamik yasalarla ve akışkanlar dinamiğiyle nasıl hükmedeceğinizin kutsal kitabıdır. Parçaları tak-çıkar yapan sıradan biri olmaktan çıkıp, aracınızın sönümleme frekanslarına, dönme eylemsizlik momentine ve hava-yakıt oranına bir mühendis gibi yön verdiniz. Orijinal ('OEM+') felsefesinden şaşmadan inşa ettiğiniz bu makine, günlük trafikte size Mercedes sessizliği sunarken, gaza bastığınızda pist rekoru kıran bir canavara dönüşecek. Anahtarınızı çevirin ve yola hükmedin!",
+          "subsections": []
+        }
+      ],
+      "urlId": "10045"
+    },
+    {
       "id": "guide_kendin_yap_cozumler",
       "title": "Hayat Kurtaran Yaratıcı 'Kendin Yap' (DIY) Oto Çözümleri",
       "description": "Arabanızda karşılaştığınız ufak tefek ama can sıkıcı sorunları, sanayiye gitmeden evdeki basit malzemelerle çözebileceğiniz inanılmaz pratik ve yaratıcı DIY taktikleri.",
