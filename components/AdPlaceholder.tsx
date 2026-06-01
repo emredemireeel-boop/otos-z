@@ -87,7 +87,7 @@ export default function AdPlaceholder({
     if (ads.length === 0) {
         // Fallback: Buraya Reklam Ver
         return (
-            <Link href="/iletisim" style={{ textDecoration: 'none', display: 'block', width: '100%', aspectRatio: '1 / 1' }}>
+            <Link href="/iletisim" className="ad-placeholder-mobile" style={{ textDecoration: 'none', display: 'block', width: '100%', aspectRatio: '1 / 1' }}>
                 <div style={{
                     background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
                     height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
@@ -111,7 +111,7 @@ export default function AdPlaceholder({
     const currentAd = ads[currentIndex];
 
     return (
-        <div style={{ position: 'relative', width: '100%', aspectRatio: '1 / 1', ...style }} className={className}>
+        <div className="ad-placeholder-mobile" style={{ position: 'relative', width: '100%', aspectRatio: '1 / 1', ...style }}>
             <a href={currentAd.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
                 <div style={{
                     background: 'var(--card-bg)', border: '1px solid var(--primary)', borderRadius: '16px', padding: '16px',

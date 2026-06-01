@@ -108,7 +108,12 @@ export function validateUsername(raw: string): UsernameValidationResult {
     }
 
     // ─── Kısmen yasaklı pattern kontrolü (admin123 gibi) ───
-    const partialBanPatterns = ["admin", "moderator", "otosoz", "support", "system"];
+    const partialBanPatterns = [
+        "admin", "moderator", "otosoz", "support", "system",
+        "orospu", "amcik", "amcık", "yarrak", "yarak", "siktir",
+        "siken", "sikici", "siker", "pezevenk", "gavat", "kahpe",
+        "kaltak", "ibne", "pust", "puşt", "amk", "aq", "oc"
+    ];
     for (const pattern of partialBanPatterns) {
         if (username.includes(pattern) && username !== pattern) {
             errors.push(`"${pattern}" içeren kullanıcı adları kullanılamaz`);

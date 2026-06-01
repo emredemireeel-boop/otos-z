@@ -10,6 +10,7 @@ import {
 import { db } from "@/lib/firebase";
 import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
 import { adminPost } from "@/lib/adminFetch";
+import { deleteAllUserEntries } from "@/lib/forumService";
 
 type Role = string;
 type FilterType = "hepsi" | "usta" | "caylak" | "silik";
@@ -135,14 +136,21 @@ export default function AdminUsersPage() {
 
     const applyBan = async () => {
         if (!modal || modal.type !== "ban") return;
+        const bannedUsername = modal.user.username;
         const ok = await apiAction('ban_user', modal.user.id, banReason, banDuration);
         if (ok) {
+            // Banlanan kullanıcının tüm entry'lerini sil
+            try {
+                await deleteAllUserEntries(bannedUsername);
+            } catch (e) {
+                console.error('Entry silme hatasi:', e);
+            }
             setModal(null);
             setBanReason(""); setBanDuration("1h");
             setSelectedUser(null);
             showToast(banDuration === "kalici"
-                ? `@${modal.user.username} kalici olarak ucuruldu.`
-                : `@${modal.user.username} ${BAN_DURATIONS.find(d => d.value === banDuration)?.label} banlandi.`, "error");
+                ? `@${bannedUsername} kalıcı olarak uçuruldu ve tüm entry'leri silindi.`
+                : `@${bannedUsername} ${BAN_DURATIONS.find(d => d.value === banDuration)?.label} banlandı ve tüm entry'leri silindi.`, "error");
         }
     };
 

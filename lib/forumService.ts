@@ -456,6 +456,24 @@ export async function deleteEntry(threadId: string, entryId: string): Promise<vo
     });
 }
 
+/** Kullanıcının Tüm Entry'lerini Sil (Ban İçin) */
+export async function deleteAllUserEntries(username: string): Promise<void> {
+    const allThreadsSnap = await getDocs(collection(db, "threads"));
+    for (const tDoc of allThreadsSnap.docs) {
+        const entriesSnap = await getDocs(query(collection(db, "threads", tDoc.id, "entries"), where("username", "==", username)));
+        const deletePromises = entriesSnap.docs.map(async (eDoc) => {
+            await deleteDoc(doc(db, "threads", tDoc.id, "entries", eDoc.id));
+        });
+        
+        if (deletePromises.length > 0) {
+            await Promise.all(deletePromises);
+            await updateDoc(doc(db, "threads", tDoc.id), {
+                entryCount: increment(-deletePromises.length)
+            });
+        }
+    }
+}
+
 /** Realtime listener for threads */
 export function subscribeToThreads(
     callback: (threads: ForumThread[]) => void,

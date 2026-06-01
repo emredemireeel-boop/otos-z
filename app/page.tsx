@@ -57,6 +57,7 @@ export default function Home() {
 
 
     const [liveThreads, setLiveThreads] = useState<FirestoreThread[]>([]);
+    const [loadingThreads, setLoadingThreads] = useState(true);
     const [topUsers, setTopUsers] = useState<{username: string; role: string; entryCount?: number}[]>([]);
     const [platformStats, setPlatformStats] = useState({ totalThreads: 0, totalEntries: 0, totalUsers: 0, todayThreads: 0 });
     const [homeSurveys, setHomeSurveys] = useState<any[]>([]);
@@ -158,6 +159,7 @@ export default function Home() {
     useEffect(() => {
         const unsub = subscribeToThreads((threads) => {
             setLiveThreads(threads);
+            setLoadingThreads(false);
             // İstatistikleri canlı thread'lerden hesapla
             const totalEntries = threads.reduce((sum, t) => sum + (t.entryCount || 0), 0);
             const now = Date.now();
@@ -380,8 +382,29 @@ export default function Home() {
 
         return (
             <div style={{ display: 'grid', gap: '16px' }}>
-                {paginatedTopics.map((topic) => (
-                    <Link key={topic.id} href={topic.slugUrl}>
+                {loadingThreads ? (
+                    [...Array(10)].map((_, i) => (
+                        <div key={i} className="topic-card" style={{ display: 'flex', gap: '16px', opacity: 0.7 }}>
+                            <div style={{ flex: 1 }}>
+                                <div className="skeleton-pulse" style={{ width: '80px', height: '24px', borderRadius: '6px', marginBottom: '12px' }} />
+                                <div className="skeleton-pulse" style={{ width: '80%', height: '20px', borderRadius: '4px', marginBottom: '8px' }} />
+                                <div className="skeleton-pulse" style={{ width: '100%', height: '16px', borderRadius: '4px', marginBottom: '12px' }} />
+                                <div className="skeleton-pulse" style={{ width: '40%', height: '16px', borderRadius: '4px' }} />
+                            </div>
+                            <div style={{ width: '60px', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center' }}>
+                                <div className="skeleton-pulse" style={{ width: '40px', height: '32px', borderRadius: '4px', marginBottom: '4px' }} />
+                                <div className="skeleton-pulse" style={{ width: '30px', height: '12px', borderRadius: '4px' }} />
+                            </div>
+                        </div>
+                    ))
+                ) : paginatedTopics.length === 0 ? (
+                    <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
+                        <MessageSquare size={48} style={{ margin: '0 auto 16px', opacity: 0.5 }} />
+                        <p>Bu kategoride henüz başlık bulunmuyor.</p>
+                    </div>
+                ) : (
+                    paginatedTopics.map((topic) => (
+                        <Link key={topic.id} href={topic.slugUrl}>
                         <div className="topic-card">
                             {/* Topic content */}
                             <div style={{ flex: 1, minWidth: 0 }}>
@@ -467,7 +490,7 @@ export default function Home() {
                             </div>
                         </div>
                     </Link>
-                ))}
+                )))}
             </div>
         );
     };
@@ -964,7 +987,19 @@ export default function Home() {
                                         </Link>
                                     </div>
 
-                                    {liveThreads.length === 0 ? (
+                                    {loadingThreads ? (
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                            {[...Array(5)].map((_, i) => (
+                                                <div key={i} style={{ display: 'flex', gap: '10px', padding: '9px 6px', borderBottom: i < 4 ? '1px solid var(--card-border)' : 'none' }}>
+                                                    <div className="skeleton-pulse" style={{ width: '16px', height: '16px', borderRadius: '4px', flexShrink: 0 }} />
+                                                    <div style={{ flex: 1 }}>
+                                                        <div className="skeleton-pulse" style={{ width: '100%', height: '14px', borderRadius: '4px', marginBottom: '6px' }} />
+                                                        <div className="skeleton-pulse" style={{ width: '60%', height: '10px', borderRadius: '4px' }} />
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : liveThreads.length === 0 ? (
                                         <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '16px 0', margin: 0 }}>Henüz gündem yok</p>
                                     ) : (
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
@@ -1013,7 +1048,7 @@ export default function Home() {
 
 
                                 {/* İstatistikler */}
-                                <div style={{
+                                <div className="home-sidebar-extra" style={{
                                     background: 'var(--card-bg)',
                                     border: '1px solid var(--card-border)',
                                     borderRadius: '16px',
@@ -1039,7 +1074,7 @@ export default function Home() {
 
                                 {/* Random Guide Card - UPDATED BLACK */}
                                 {randomGuide && (
-                                    <div style={{
+                                    <div className="home-sidebar-extra" style={{
                                         marginTop: '16px',
                                         background: 'var(--card-bg)',
                                         borderRadius: '16px',

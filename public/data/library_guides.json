@@ -8165,6 +8165,270 @@
           ]
         }
       ]
+    },
+    {
+      "id": "guide_en_az_yakan_arabalar",
+      "title": "Türkiye'nin En Az Yakan 10 Arabası (2025 Güncel Liste)",
+      "description": "Akaryakıt fiyatlarının zirve yaptığı bugünlerde, cüzdanınızın dostu olacak Türkiye'nin en az yakan 10 otomobilini inceledik. Hibrit teknolojilerinden efsane dizellere kadar en ekonomik araçlar bu listede.",
+      "minutes": 45,
+      "difficulty": "Tüm Sürücüler",
+      "tags": [
+        "Yakıt Tüketimi",
+        "Hibrit",
+        "Ekonomi",
+        "Top 10",
+        "Dizel"
+      ],
+      "author": "OtoAsfalt Veri Ekibi",
+      "sections": [
+        {
+          "type": "intro",
+          "content": "Akaryakıt maliyetleri araç sahiplerinin en büyük gider kalemlerinden biri haline geldi. Yeni bir araç alırken veya mevcut aracınızı değiştirirken 'Şehir içinde az yakan araba' arayışı hiç bu kadar popüler olmamıştı. OtoAsfalt veritabanından çektiğimiz gerçek kullanıcı verileri ve fabrika verilerini harmanlayarak, Türkiye pazarında satılan en cimri 10 otomobili sizler için sıraladık. (Sıralama karma yapılmıştır)"
+        },
+        {
+          "type": "step",
+          "title": "1. Renault Clio 1.5 dCi & 1.6 E-Tech",
+          "content": "Yılların efsanesi 1.5 dCi motor, uzun yolda 3.5 - 4 litre bandında gezmesiyle bilinirken, yeni nesil 1.6 E-Tech Hibrit motoru şehir içi dur-kalk trafikte elektrik motorunun gücüyle inanılmaz rakamlara ulaşıyor.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "Şehir içi ortalama 4.0 - 4.5 Litre. Özellikle hibrit versiyonu trafikte fren geri kazanımı ile bataryayı doldurarak yakıt ibresini adeta donduruyor."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "2. Toyota Corolla 1.8 Hybrid",
+          "content": "Hibrit denilince akla gelen ilk marka olan Toyota'nın 12. nesil Corolla'sı, özellikle şehir içi taksicilerinin ve filoların da gözdesi.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "Şehir içi ortalama 3.8 - 4.5 Litre. Sürekli dur-kalk trafiğinde e-CVT şanzımanı ve elektrik motoruyla en ekonomik C-Sedan konumunda."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "3. Peugeot 208 & Opel Corsa 1.5 BlueHDi",
+          "content": "Stellantis grubunun iki kardeşi, aerodinamik yapıları ve verimli 1.5 litrelik dizel motorlarıyla uzun yolda yakıtı kokluyor.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "Şehir içi 4.5 - 5.0 Litre, Şehir dışı 3.5 Litre civarlarında. EAT8 şanzıman ile devri düşük tutarak tasarrufu maksimize ediyorlar."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "4. Fiat Egea 1.3 Multijet",
+          "content": "Türkiye'nin en çok satan otomobili Egea, 1.3 Multijet motorunun rüştünü ispatlamış dayanıklılığı ve ekonomisiyle listemizde.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "Şehir içi 5.0 - 5.5 Litre. Yedek parça ve bakım ucuzluğu da hesaba katıldığında yürütme maliyeti en düşük araçlardan biri."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "5. Honda Civic 1.5 e:HEV Hibrit",
+          "content": "Yeni nesil Civic, hibrit teknolojisiyle performanstan ödün vermeden tasarruf sunmayı başaran nadir araçlardan.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "Şehir içi 4.5 - 5.2 Litre. Geniş bir araç olmasına rağmen hibrit sistemi sayesinde D segmentine yaklaşan konforunu ucuza sunuyor."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "6. Volkswagen Golf 1.0 eTSI",
+          "content": "Hafif hibrit (Mild Hybrid) teknolojisi sayesinde yelken modunda süzülürken motoru tamamen kapatabilen Golf, benzinli bir araç için çok tutumlu.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "Şehir içi 5.5 - 6.0 Litre. DSG'nin hızlı vites büyütmesi ve start-stop sisteminin kusursuzluğu sayesinde benzinli araçlar arasında öne çıkıyor."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "7. Dacia Sandero Stepway 1.0 ECO-G (LPG)",
+          "content": "Fabrika çıkışlı LPG (ECO-G) motoruyla gelen Sandero, litre bazında fazla yaksa da, LPG'nin litre fiyatı sayesinde maliyet anlamında zirveye oynuyor.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "100 km'de maliyet hesabı yapıldığında (LPG fiyatı avantajıyla) eşdeğer 4 litre benzin yakan bir araca denk maliyet sunuyor."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "8. Citroen C3 1.2 PureTech",
+          "content": "Hafif kasası ve 3 silindirli motorunun esnekliği sayesinde özellikle şehir içi kısa mesafe kullanımlarında çok başarılı.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "Şehir içi 5.5 - 6.2 Litre."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "9. Skoda Octavia 1.0 TSI e-TEC",
+          "content": "Devasa iç hacmi ve bagajına rağmen, aerodinamik yapısı ve e-TEC hafif hibrit motoruyla adeta bir B segmenti araba gibi yakıyor.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "Şehir içi 5.2 - 5.8 Litre. Yüksek hızlarda (110-120 km/h) bile rüzgar direnci düşük olduğu için tüketim artmıyor."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "10. Hyundai i10 1.0 MPI",
+          "content": "A segmentinin lideri i10, atmosferik motorunun sadeliği ve çok hafif kasası sayesinde trafikte yakıtı sadece kokluyor.",
+          "subsections": [
+            {
+              "subtitle": "Gerçek Tüketim",
+              "text": "Şehir içi 5.5 Litre. Özellikle manuel şanzımanlı versiyonu tam bir şehir içi ulaşım kapsülü."
+            }
+          ]
+        }
+      ],
+      "urlId": "top_10_az_yakan_arabalar"
+    },
+    {
+      "id": "guide_en_hizli_arabalar",
+      "title": "Türkiye Yollarının En Hızlı 10 Arabası (0-100 Rekortmenleri)",
+      "description": "Sadece A noktasından B noktasına gitmek değil, bunu yaparken koltuğa yapışmak isteyenler için Türkiye pazarında bulunabilen, adrenalin yüklü en hızlı 10 seri üretim aracı derledik.",
+      "minutes": 35,
+      "difficulty": "Performans Tutkunları",
+      "tags": [
+        "Performans",
+        "Hız",
+        "Top 10",
+        "Spor Otomobil",
+        "0-100"
+      ],
+      "author": "OtoAsfalt Veri Ekibi",
+      "sections": [
+        {
+          "type": "intro",
+          "content": "Elektrik motorlarının anında sunduğu devasa tork ve benzinli motorların kusursuz mühendisliği birleştiğinde ortaya çıkan hızlanma değerleri artık hiper otomobil seviyesinde. Türkiye pazarında yollarda görebileceğiniz, trafik ışıklarından kalktığında yakalanması imkansız olan en hızlı 10 otomobili sizler için sıraladık."
+        },
+        {
+          "type": "step",
+          "title": "1. Porsche Taycan Turbo S",
+          "content": "Elektrikli otomobil devriminin performans ayağı. İki ileri şanzımanı ve inanılmaz kalkış kontrol sistemiyle fizyolojik sınırları zorluyor.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 2.8 saniye. Toplam Güç: 761 HP. (Overboost ile)"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "2. Tesla Model S Plaid",
+          "content": "Bir aile sedanı görünümünde olan Model S Plaid, içindeki üç elektrik motoruyla dünyanın en seri hızlanan otomobillerinden biri.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 2.1 saniye (Rollout ile). Toplam Güç: 1020 HP."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "3. BMW M8 Competition",
+          "content": "İçten yanmalı motorların (ICE) son şaheserlerinden. 4.4 litrelik çift turbolu V8 motoru ve xDrive sistemi gücü yere kusursuz aktarıyor.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 3.2 saniye. Toplam Güç: 625 HP."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "4. Audi RS e-tron GT",
+          "content": "Taycan'ın kuzeni olan RS e-tron GT, Audi'nin Quattro mirasından aldığı ilhamla elektrik gücünü yere müthiş bir kararlılıkla basıyor.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 3.3 saniye. Toplam Güç: 646 HP."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "5. Mercedes-AMG GT 63 S 4MATIC+",
+          "content": "Hem devasa bir lüks sedan hem de bir pist canavarı. 4.0 litrelik V8 Biturbo motoruyla adeta asfaltı ağlatıyor.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 3.2 saniye. Toplam Güç: 639 HP."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "6. Nissan GT-R Nismo (R35)",
+          "content": "Godzilla lakabını sonuna kadar hak eden R35, yıllara meydan okuyan kalkış performansı ve efsanevi AWD sistemiyle hala zirvede.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 2.8 saniye. Toplam Güç: 600 HP."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "7. Ferrari F8 Tributo",
+          "content": "Ortadan motorlu bir İtalyan aygırı. Maranello'nun ürettiği en güçlü V8 motorlardan birini taşıyor.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 2.9 saniye. Toplam Güç: 720 HP."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "8. Lamborghini Huracan Evo",
+          "content": "Atmosferik V10 motorun çığlık çığlığa hızlandığı Huracan Evo, hisleri ve sesiyle performansın zirvelerini yaşatıyor.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 2.9 saniye. Toplam Güç: 640 HP."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "9. Togg T10X AWD (Çift Motorlu)",
+          "content": "Yerli gururumuz Togg'un dört çeker, çift motorlu versiyonu, ani tork iletimiyle birçok spor otomobili geride bırakıyor.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 4.8 saniye. Toplam Güç: 435 HP."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "10. Volkswagen Golf R",
+          "content": "Günlük kullanılabilen 'Hot Hatch' efsanesi. Yeni nesil 4MOTION sistemi ve drift moduyla 2.0 litrelik motordan mucize yaratıyor.",
+          "subsections": [
+            {
+              "subtitle": "Performans Verileri",
+              "text": "0-100 km/s hızlanma: 4.7 saniye. Toplam Güç: 320 HP."
+            }
+          ]
+        }
+      ],
+      "urlId": "top_10_en_hizli_arabalar"
     }
   ]
 }

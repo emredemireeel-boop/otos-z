@@ -692,6 +692,12 @@ a {
     display: none !important;
   }
   .home-right-sidebar {
+    order: -1 !important;
+  }
+  .home-right-sidebar > div {
+    position: static !important;
+  }
+  .home-sidebar-extra {
     display: none !important;
   }
 
@@ -762,9 +768,86 @@ a {
   /* ── Forum layout: stack main + sidebar ── */
   .forum-layout {
     flex-direction: column !important;
+    padding: 16px 12px !important;
+    gap: 16px !important;
   }
   .forum-sidebar {
     max-width: 100% !important;
+    width: 100% !important;
+  }
+  .forum-sidebar-left {
+    display: none !important;
+  }
+
+  /* ── Forum thread: entry card upvote bar ── */
+  .forum-entry-upvote {
+    display: none !important;
+  }
+  .forum-entry-content {
+    padding: 16px !important;
+  }
+  .forum-entry-card {
+    border-radius: 12px !important;
+  }
+
+  /* ── Forum thread: sort bar ── */
+  .forum-sort-bar {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    padding: 8px 10px !important;
+  }
+  .forum-sort-bar button {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
+  .forum-sort-count {
+    width: 100% !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    border-top: 1px solid var(--card-border);
+    padding-top: 6px;
+    margin-top: 2px;
+  }
+
+  /* ── Forum thread: header ── */
+  .forum-thread-header {
+    padding: 20px 16px !important;
+  }
+  .forum-thread-header h1 {
+    font-size: 20px !important;
+  }
+  .forum-thread-meta {
+    gap: 12px !important;
+    font-size: 12px !important;
+  }
+
+  /* ── Forum thread: pagination ── */
+  .forum-pagination {
+    gap: 4px !important;
+  }
+  .forum-pagination button {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 12px !important;
+  }
+
+  /* ── Forum thread: entry form ── */
+  .forum-entry-form {
+    padding: 16px !important;
+    border-radius: 12px !important;
+  }
+
+  /* ── Forum & general: modal width ── */
+  .forum-report-modal,
+  .forum-rating-modal {
+    width: calc(100vw - 32px) !important;
+    max-width: 400px !important;
+  }
+
+  /* ── AdPlaceholder: reduce aspect ratio on mobile ── */
+  .ad-placeholder-mobile {
+    aspect-ratio: auto !important;
+    min-height: 200px;
   }
 
   /* ── Pazar page: filters stacking ── */
@@ -1386,4 +1469,168 @@ a {
 }
 .profile-feed-item:hover {
   border-color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════ */
+/* Profile — Mobile Responsive                     */
+/* ═══════════════════════════════════════════════ */
+
+.profile-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .profile-header-wrapper {
+    padding: 32px 16px 28px;
+  }
+  .profile-header-wrapper::before {
+    height: 100px;
+  }
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .profile-avatar {
+    width: 90px;
+    height: 90px;
+    font-size: 36px;
+    border-width: 3px;
+  }
+  .profile-avatar-edit-btn {
+    width: 30px;
+    height: 30px;
+  }
+  .profile-info-section {
+    min-width: unset;
+    width: 100%;
+  }
+  .profile-username-row {
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .profile-username {
+    font-size: 22px;
+  }
+  .profile-role-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .profile-rating {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .profile-fullname {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .profile-bio {
+    text-align: center;
+    margin: 0 auto 16px;
+    font-size: 13px;
+  }
+  .profile-meta-row {
+    justify-content: center;
+    gap: 12px;
+    font-size: 12px;
+  }
+  .profile-meta-item {
+    gap: 4px;
+  }
+  /* Action Buttons — full width on mobile */
+  .profile-header > div:last-child {
+    width: 100%;
+    justify-content: center;
+  }
+  .btn-primary, .btn-secondary, .btn-danger-outline {
+    padding: 10px 16px;
+    font-size: 13px;
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+  /* Stats */
+  .profile-stats-bar {
+    padding: 16px !important;
+  }
+  .profile-stats-grid {
+    gap: 20px;
+  }
+  .profile-stat-val {
+    font-size: 20px;
+  }
+  .profile-stat-label {
+    font-size: 11px;
+  }
+  /* Main content grid → single column */
+  .profile-main-content {
+    padding: 16px !important;
+  }
+  .profile-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+  /* Sidebar goes under the activity */
+  .profile-content-grid > aside {
+    order: 2;
+  }
+  /* Tabs */
+  .profile-tabs {
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .profile-tabs::-webkit-scrollbar { display: none; }
+  .profile-tab {
+    flex: 1;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px 4px;
+    white-space: nowrap;
+  }
+  /* Feed items */
+  .profile-feed-item {
+    padding: 14px;
+  }
+  .profile-card {
+    padding: 14px;
+  }
+  /* Edit Profile Modal */
+  .profile-edit-overlay {
+    padding: 0 !important;
+    align-items: flex-end !important;
+  }
+  .profile-edit-modal {
+    max-width: 100% !important;
+    max-height: 95vh !important;
+    border-radius: 20px 20px 0 0 !important;
+    animation: slideUpModal 0.3s ease;
+  }
+  .profile-edit-modal form {
+    padding: 16px !important;
+  }
+  .profile-edit-modal form > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@keyframes slideUpModal {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Skeleton Loading */
+.skeleton-pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+  background-color: var(--secondary);
+}
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.6; }
 }

@@ -131,7 +131,11 @@ export default function KayitPage() {
         setRegisterError("");
         const result = await loginWithGoogle();
         if (result.success) {
-            router.push("/profil-tamamla");
+            if (result.isNewUser) {
+                router.push("/profil-tamamla");
+            } else {
+                router.push("/");
+            }
         } else {
             setIsLoading(false);
         }
@@ -233,7 +237,7 @@ export default function KayitPage() {
                             Hesabınız başarıyla oluşturuldu ve giriş yapıldı.<br />
                             Otosöz dünyasını keşfetmeye hazırsınız!
                         </p>
-                        <Link href="/profil-tamamla" style={{
+                        <Link href="/" style={{
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '10px',

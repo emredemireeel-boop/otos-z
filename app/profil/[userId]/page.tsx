@@ -429,7 +429,7 @@ export default function ProfilPage() {
                     </div>
 
                 {/* Stats Bar */}
-                <div style={{
+                <div className="profile-stats-bar" style={{
                     background: 'var(--card-bg)',
                     borderBottom: '1px solid var(--card-border)',
                     padding: '20px 24px',
@@ -456,8 +456,8 @@ export default function ProfilPage() {
                 </div>
 
                 {/* Main Content */}
-                <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '24px' }}>
+                <div className="profile-main-content" style={{ maxWidth: '1200px', margin: '0 auto', padding: '24px' }}>
+                    <div className="profile-content-grid">
                         {/* Left - Activity */}
                         <div>
                             {/* Tabs */}
@@ -707,7 +707,7 @@ function EditProfileModal({
     };
 
     return (
-        <div style={{
+        <div className="profile-edit-overlay" style={{
             position: 'fixed',
             inset: 0,
             background: 'var(--overlay-bg)',
@@ -716,13 +716,17 @@ function EditProfileModal({
             justifyContent: 'center',
             zIndex: 1000,
             padding: '20px',
+            overflow: 'auto',
         }}>
-            <div style={{
+            <div className="profile-edit-modal" style={{
                 background: 'var(--card-bg)',
                 border: '1px solid var(--card-border)',
                 borderRadius: '20px',
                 width: '100%',
                 maxWidth: '500px',
+                maxHeight: '90vh',
+                display: 'flex',
+                flexDirection: 'column',
             }}>
                 <div style={{
                     padding: '20px 24px',

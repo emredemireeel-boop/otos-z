@@ -405,7 +405,7 @@ export default function ForumThreadPage() {
 
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
                 {/* Header */}
-                <div style={{
+                <div className="forum-thread-header" style={{
                     background: catStyle.gradient,
                     borderBottom: '1px solid var(--card-border)',
                     padding: '32px 24px'
@@ -462,7 +462,7 @@ export default function ForumThreadPage() {
                             </div>
                         )}
 
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', fontSize: '14px', color: 'rgba(255, 255, 255, 0.7)', flexWrap: 'wrap' }}>
+                        <div className="forum-thread-meta" style={{ display: 'flex', alignItems: 'center', gap: '20px', fontSize: '14px', color: 'rgba(255, 255, 255, 0.7)', flexWrap: 'wrap' }}>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                                 <User size={15} />
                                 {thread.authorUsername}
@@ -539,7 +539,7 @@ export default function ForumThreadPage() {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                 {/* Reddit tarzı sıralama sekmeleri */}
                                 {entries.length > 1 && (
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px' }}>
+                                    <div className="forum-sort-bar" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px' }}>
                                         <span style={{ fontSize: '13px', color: 'var(--text-muted)', marginRight: '4px' }}>Sırala:</span>
                                         {([
                                             { key: 'old' as const, label: 'Eskiden Yeniye', icon: <Clock size={14} /> },
@@ -562,7 +562,7 @@ export default function ForumThreadPage() {
                                                 {tab.icon} {tab.label}
                                             </button>
                                         ))}
-                                        <span style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--text-muted)' }}>{entries.length} cevap</span>
+                                        <span className="forum-sort-count" style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--text-muted)' }}>{entries.length} cevap</span>
                                     </div>
                                 )}
                                 {(() => {
@@ -584,7 +584,7 @@ export default function ForumThreadPage() {
                                     const entryBorderLeft = !isFirstEntry ? (isOp ? '3px solid var(--primary)' : '3px solid var(--card-border)') : undefined;
 
                                     return (
-                                        <div key={entry.id} style={{
+                                        <div key={entry.id} className="forum-entry-card" style={{
                                             background: entryBg,
                                             border: isExpert ? '1px solid rgba(234, 179, 8, 0.4)' : (isBestAnswer ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid var(--card-border)'),
                                             borderLeft: entryBorderLeft || (isExpert ? '1px solid rgba(234, 179, 8, 0.4)' : (isBestAnswer ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid var(--card-border)')),
@@ -592,12 +592,15 @@ export default function ForumThreadPage() {
                                             transition: 'border-color 0.2s',
                                             boxShadow: isExpert ? '0 4px 20px rgba(234,179,8,0.08)' : (isBestAnswer ? '0 4px 20px rgba(34,197,94,0.08)' : ((isFirstEntry && isKarsilastirma) ? '0 8px 30px rgba(0,0,0,0.04)' : 'none')),
                                             display: 'flex',
+                                            flexDirection: 'column',
                                             overflow: 'visible',
                                             position: 'relative',
                                             zIndex: activeUserMenu === entry.id ? 100 : 1,
                                         }}>
+                                            {/* Desktop: Reddit tarzı sol upvote bar + Sağ içerik flex row */}
+                                            <div style={{ display: 'flex', width: '100%' }}>
                                             {/* Reddit tarzı sol upvote bar */}
-                                            <div style={{
+                                            <div className="forum-entry-upvote" style={{
                                                 display: 'flex', flexDirection: 'column', alignItems: 'center',
                                                 padding: '16px 10px', gap: '4px',
                                                 background: 'transparent',
@@ -636,7 +639,7 @@ export default function ForumThreadPage() {
                                             </div>
 
                                             {/* Sağ taraf: içerik */}
-                                            <div style={{ flex: 1, padding: '24px', minWidth: 0 }}>
+                                            <div className="forum-entry-content" style={{ flex: 1, padding: '24px', minWidth: 0 }}>
                                                 {/* Badges: OP / Best Answer */}
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', position: 'absolute', top: '16px', right: '16px' }}>
                                                     {isFirstEntry && (
@@ -804,6 +807,59 @@ export default function ForumThreadPage() {
                                         </div>
                                         )}
                                     </div>
+                                    </div>{/* end desktop flex row */}
+
+                                    {/* Mobile: bottom action bar (upvote + report) - shown when sidebar upvote is hidden */}
+                                    {!isFirstEntry && (
+                                        <div className="forum-entry-mobile-actions" style={{
+                                            display: 'none',
+                                            alignItems: 'center',
+                                            gap: '12px',
+                                            padding: '10px 16px',
+                                            borderTop: '1px solid var(--card-border)',
+                                        }}>
+                                            <button
+                                                onClick={() => handleLike(entry.id)}
+                                                disabled={!user || likingEntry === entry.id}
+                                                style={{
+                                                    display: 'flex', alignItems: 'center', gap: '6px',
+                                                    padding: '6px 14px',
+                                                    background: isLiked ? 'rgba(34, 197, 94, 0.1)' : 'var(--secondary)',
+                                                    border: isLiked ? '1px solid rgba(34, 197, 94, 0.3)' : '1px solid var(--card-border)',
+                                                    borderRadius: '8px',
+                                                    color: isLiked ? '#22c55e' : 'var(--text-muted)',
+                                                    fontSize: '13px', fontWeight: '600',
+                                                    cursor: user ? 'pointer' : 'not-allowed',
+                                                    transition: 'all 0.2s',
+                                                    opacity: !user ? 0.5 : 1,
+                                                }}
+                                            >
+                                                <ArrowUp size={14} strokeWidth={isLiked ? 3 : 2} />
+                                                {entry.likes}
+                                            </button>
+                                            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                                                {formatTimestamp(entry.createdAt)}
+                                            </span>
+                                            {user && user.id !== entry.authorId && (
+                                                <button
+                                                    onClick={() => { setReportModal({ entry, threadTitle: thread.title }); }}
+                                                    style={{
+                                                        marginLeft: 'auto',
+                                                        display: 'flex', alignItems: 'center', gap: '4px',
+                                                        padding: '5px 10px',
+                                                        background: 'transparent',
+                                                        border: '1px solid var(--card-border)',
+                                                        borderRadius: '6px',
+                                                        color: 'var(--text-muted)',
+                                                        fontSize: '11px', fontWeight: '600',
+                                                        cursor: 'pointer',
+                                                    }}
+                                                >
+                                                    <Flag size={12} />
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
                                     </div>
                                 );
                             });
@@ -844,7 +900,7 @@ export default function ForumThreadPage() {
                     )}
 
                     {/* New Entry Form */}
-                    <div style={{
+                    <div className="forum-entry-form" style={{
                         marginTop: '32px',
                         background: 'var(--card-bg)',
                         border: '1px solid var(--card-border)',
@@ -956,7 +1012,7 @@ export default function ForumThreadPage() {
             {reportModal && (
                 <>
                     <div onClick={() => setReportModal(null)} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 1100, backdropFilter: 'blur(2px)' }} />
-                    <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '400px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', zIndex: 1200, padding: '28px', animation: 'popIn 0.2s ease' }}>
+                    <div className="forum-report-modal" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '400px', maxWidth: 'calc(100vw - 32px)', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', zIndex: 1200, padding: '28px', animation: 'popIn 0.2s ease' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                             <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(239,68,68,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <Flag size={22} color="#EF4444" />
@@ -1001,7 +1057,7 @@ export default function ForumThreadPage() {
             {ratingModal && (
                 <>
                     <div onClick={() => setRatingModal(null)} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 1100, backdropFilter: 'blur(2px)' }} />
-                    <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '400px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', zIndex: 1200, padding: '28px', animation: 'popIn 0.2s ease', textAlign: 'center' }}>
+                    <div className="forum-rating-modal" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '400px', maxWidth: 'calc(100vw - 32px)', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', zIndex: 1200, padding: '28px', animation: 'popIn 0.2s ease', textAlign: 'center' }}>
                         <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(245, 158, 11, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
                             <Star size={24} color="#F59E0B" fill="#F59E0B" />
                         </div>
@@ -1078,6 +1134,60 @@ export default function ForumThreadPage() {
                     }
                     .forum-sidebar {
                         max-width: 100% !important;
+                    }
+                    .forum-sidebar-left {
+                        display: none !important;
+                    }
+                }
+                @media (max-width: 768px) {
+                    .forum-entry-mobile-actions {
+                        display: flex !important;
+                    }
+                    .forum-entry-upvote {
+                        display: none !important;
+                    }
+                    .forum-entry-content {
+                        padding: 16px !important;
+                    }
+                    .forum-entry-card {
+                        border-radius: 12px !important;
+                    }
+                    .forum-thread-header {
+                        padding: 20px 16px !important;
+                    }
+                    .forum-thread-header h1 {
+                        font-size: 20px !important;
+                        line-height: 1.35 !important;
+                    }
+                    .forum-thread-meta {
+                        gap: 10px !important;
+                        font-size: 12px !important;
+                    }
+                    .forum-sort-bar {
+                        flex-wrap: wrap !important;
+                        gap: 6px !important;
+                        padding: 8px 10px !important;
+                    }
+                    .forum-sort-bar button {
+                        padding: 5px 10px !important;
+                        font-size: 12px !important;
+                    }
+                    .forum-sort-count {
+                        width: 100% !important;
+                        text-align: center !important;
+                        margin-left: 0 !important;
+                        border-top: 1px solid var(--card-border);
+                        padding-top: 6px;
+                        margin-top: 2px;
+                    }
+                    .forum-entry-form {
+                        padding: 16px !important;
+                        border-radius: 12px !important;
+                    }
+                    .forum-report-modal,
+                    .forum-rating-modal {
+                        width: calc(100vw - 32px) !important;
+                        padding: 20px !important;
                     }
                 }
             `}</style>
