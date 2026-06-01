@@ -1470,6 +1470,166 @@ export const dictionaryTerms: DictionaryTerm[] = [
         why: 'Balansı bozulduğunda veya istavroz mafsalları aşındığında, araç hızlandıkça aracın altından gelen ve koltukları titreten ciddi bir vibrasyon oluşturur.',
         category: 'Mekanik',
         letter: 'Ş'
+    },
+    {
+        id: 'vvt_vtec',
+        term: 'Değişken Supap Zamanlaması (VVT / VTEC)',
+        description: 'Motorun devrine göre emme ve egzoz supaplarının açılma süresini ve miktarını değiştiren sistem. Düşük devirde yakıt ekonomisi, yüksek devirde maksimum güç sağlar.',
+        why: 'Motorun her devirde en verimli şekilde nefes almasını sağlar. Honda\'nın "VTEC açtı" efsanesi bu teknolojinin bir sonucudur.',
+        category: 'Mekanik',
+        letter: 'D'
+    },
+    {
+        id: 'mhev',
+        term: 'MHEV (Yarı/Hafif Hibrit)',
+        description: 'Aracın kendi başına elektrikle gitmesini sağlamayan, ancak küçük bir 48V batarya ve entegre marş jeneratörü ile içten yanmalı motora kalkışlarda destek olan sistem.',
+        why: 'Tam hibritlere göre çok daha ucuzdur, ancak şehir içi yakıt tüketimini ve emisyonu %10 civarında düşürebilir.',
+        category: 'Elektronik/OBD',
+        letter: 'M'
+    },
+    {
+        id: 'tpms',
+        term: 'TPMS (Lastik Basınç Takip Sistemi)',
+        description: 'Her bir tekerleğin içindeki hava basıncını anlık olarak ölçüp gösterge paneline yansıtan veya azaldığında uyarı veren sensör ağı.',
+        why: 'Gizli inen lastiği fark etmenizi sağlayarak hem güvenliği artırır hem de yakıt israfını ve lastik aşınmasını önler.',
+        category: 'Lastik/Jant',
+        letter: 'T'
+    },
+    {
+        id: 'haldex',
+        term: 'Haldex Kavrama',
+        description: 'Normalde aracı önden çekişli kullanan, ancak ön tekerlekler kaydığında veya ihtiyaç duyulduğunda gücün bir kısmını arka tekerleklere ileten elektronik kontrollü 4 çeker (AWD) sistemi.',
+        why: 'Sürekli 4 çeker sistemlerin aksine yakıt tüketimini düşük tutar. VW grubunun 4Motion modellerinde sıklıkla kullanılır.',
+        category: 'Mekanik',
+        letter: 'H'
+    },
+    {
+        id: 'can_bus',
+        term: 'CAN-BUS (Araç İçi Ağ)',
+        description: 'Aracın içindeki onlarca farklı beyin (ECU, ABS, Airbag, Multimedya) arasında saniyede binlerce veri aktarımını sağlayan dijital iletişim ve kablolama hattı.',
+        why: 'Eskiden her parça için ayrı kablo çekilirken, CAN-BUS sayesinde kablo karmaşası biter. Ancak hatta yapılacak hatalı bir ekleme (örn: yan sanayi led takmak) tüm beyni çökertebilir.',
+        category: 'Elektronik/OBD',
+        letter: 'C'
+    },
+    {
+        id: 'amortisor_takozu',
+        term: 'Amortisör Takozu',
+        description: 'Amortisörün araç şasisine bağlandığı en üst noktadaki kauçuk-metal bileşimli esnek yastık. Ön takozlarda direksiyonun dönmesini sağlayan bir rulman da bulunur.',
+        why: 'Bozulduğunda araç esnedikçe "gıcç gıcç" sesi gelir. Özellikle direksiyonu çevirirken takılma hissi ve "kütürtü" varsa sebebi ön takoz rulmanıdır.',
+        category: 'Mekanik',
+        letter: 'A'
+    },
+    {
+        id: 'fren_merkezi',
+        term: 'Fren Ana Merkezi',
+        description: 'Fren pedalına bastığınızda oluşan fiziksel gücü hidrolik sıvı basıncına çevirerek tekerleklere dağıtan hidrolik tulumbadır.',
+        why: 'İçindeki contalar aşındığında, frene bastıkça pedal yavaşça zemine doğru çöker (fren boşalır) ve araç durmaz.',
+        category: 'Mekanik',
+        letter: 'F'
+    },
+    {
+        id: 'egzoz_spirali',
+        term: 'Egzoz Spirali',
+        description: 'Motor ile egzoz borusu arasına takılan, üzeri çelik örgü ile kaplı esnek hortum parçası. Motorun sarsıntısının egzoz sistemine geçmesini engeller.',
+        why: 'Yırtıldığında gaza basınca aracın altından "şırıltı" veya "pat pat" sesleri gelir, kabin içine çiğ egzoz kokusu dolar.',
+        category: 'Mekanik',
+        letter: 'E'
+    },
+    {
+        id: 'mcpherson',
+        term: 'MacPherson Süspansiyon',
+        description: 'Günümüz otomobillerinin neredeyse tamamında ön tekerleklerde kullanılan, amortisörün direksiyon pimi görevini de üstlendiği yer kazandıran bağımsız süspansiyon tasarımı.',
+        why: 'Çok az parça içerir, hafiftir ve motor bölümünde yer açar. Ancak sportif yol tutuş konusunda "Çift Salıncaklı" sistemler kadar başarılı değildir.',
+        category: 'Mekanik',
+        letter: 'M'
+    },
+    {
+        id: 'isg',
+        term: 'ISG (Entegre Marş Jeneratörü)',
+        description: 'Klasik marş motoru ile alternatörü (şarj dinamosu) tek bir ünitede birleştiren, kayışla motora bağlı olan dev elektrik motoru.',
+        why: 'Start-Stop sisteminin çok daha sarsıntısız ve sessiz çalışmasını sağlar. MHEV (hafif hibrit) sistemlerin kalbidir.',
+        category: 'Elektrik',
+        letter: 'I'
+    },
+    {
+        id: 'phev',
+        term: 'PHEV (Şarj Edilebilir Hibrit)',
+        description: 'Hem güçlü bir elektrik motoru ve büyük bir bataryası hem de içten yanmalı motoru olan, dışarıdan prize takılarak şarj edilebilen hibrit araç türü (Plug-in Hybrid).',
+        why: 'Tam elektrikli araçların menzil endişesi (range anxiety) olmadan, günlük 50-60 km şehir içi kullanımlarda hiç benzin yakmamanızı sağlar.',
+        category: 'Elektronik/OBD',
+        letter: 'P'
+    },
+    {
+        id: 'torsen',
+        term: 'Torsen Diferansiyel',
+        description: 'Tork algılamalı (Torque-Sensing) tamamen mekanik çalışan, elektronik beyni olmayan ve gücü anında kaymayan tekerleklere ileten efsanevi 4 çeker sistemi diferansiyeli.',
+        why: 'Audi Quattro sisteminin kalbidir. Haldex sistemlere göre tepkime süresi sıfırdır, çok dayanıklıdır ancak sürekli devrede olduğu için yakıt tüketimi daha yüksektir.',
+        category: 'Mekanik',
+        letter: 'T'
+    },
+    {
+        id: 'gaz_kelebegi',
+        term: 'Gaz Kelebeği (Boğaz Kelebeği)',
+        description: 'Siz gaz pedalına bastıkça açılarak motorun içine girecek hava miktarını (ve dolayısıyla yanmayı) ayarlayan, motorun nefes borusundaki kapak.',
+        why: 'Zamanla kurum bağlar ve kirlenir. Kirlendiğinde rölantide dalgalanma (devir saatinin inip kalkması) ve stop etme sorunlarına neden olur.',
+        category: 'Mekanik',
+        letter: 'G'
+    },
+    {
+        id: 'aks_korugu',
+        term: 'Aks Körüğü',
+        description: 'Şanzımandan tekerleklere dönme hareketini ileten mafsalların (aks kafası) içindeki yağı (gresi) tutan ve dışarıdan toz/su girmesini engelleyen akordeon şeklindeki kauçuk parça.',
+        why: 'Çok ucuz bir parçadır ama yırtılıp içindeki gres biterse, sürtünmeden dolayı binlerce liralık aks kafasını ve poryayı parçalar.',
+        category: 'Mekanik',
+        letter: 'A'
+    },
+    {
+        id: 'rot_kolu',
+        term: 'Rot Kolu (İç Rot)',
+        description: 'Direksiyon kutusundan gelen itme-çekme hareketini tekerleğin arkasındaki rot başına (ve dolayısıyla tekerleğe) aktaran metal kol.',
+        why: 'Eğildiğinde veya rot başıyla arasındaki boşluk arttığında araç sağa/sola çeker, direksiyonda "boşluk" hissi oluşur ve lastiklerin içten/dıştan yenmesine sebep olur.',
+        category: 'Mekanik',
+        letter: 'R'
+    },
+    {
+        id: 'map_sensoru',
+        term: 'MAP Sensörü (Manifold Mutlak Basınç)',
+        description: 'Motorun emme manifoldunun içindeki hava basıncını (vakumu) ölçerek motor beynine ileten sensör. Motor beyni bu veriye göre enjekte edilecek yakıt miktarını ayarlar.',
+        why: 'Bozulduğunda motor aşırı zengin (çok yakıt) veya aşırı fakir (az yakıt) karışım yapar. Çiğ gaz kokusu, kara duman ve ciddi çekiş kaybı yaşanır.',
+        category: 'Elektronik/OBD',
+        letter: 'M'
+    },
+    {
+        id: 'rolanti_motoru',
+        term: 'Rölanti Motoru (Rölanti Valfi)',
+        description: 'Siz gaz pedalına basmadığınız zamanlarda (araç dururken), motorun stop etmemesi için gaz kelebeğini baypas ederek içeriye hava alan küçük elektronik valf.',
+        why: 'Kirlendiğinde veya bozulduğunda araç kırmızı ışıkta dururken devir saati aniden dibe vurur ve motor stop eder.',
+        category: 'Elektronik/OBD',
+        letter: 'R'
+    },
+    {
+        id: 'buji_kablosu',
+        term: 'Buji Kablosu',
+        description: 'Ateşleme bobininde üretilen yüksek voltajlı (yaklaşık 30.000 volt) elektriği bujilere taşıyan çok kalın yalıtımlı özel iletken kablolar.',
+        why: 'Zamanla izolasyonu çatladığında kıvılcım motor bloğuna atlar (kaçak yapar). Yağmurlu ve nemli havalarda aracın teklemesine ve çiğ yakıt atmasına neden olur.',
+        category: 'Elektrik',
+        letter: 'B'
+    },
+    {
+        id: 'viraj_demiri',
+        term: 'Viraj Demiri (Stabilizatör)',
+        description: 'Aracın sol ve sağ süspansiyon sistemlerini birbirine bağlayan U şeklindeki kalın yay çeliği. Bir tekerlek tümseğe girdiğinde diğer tekerleğe de baskı uygular.',
+        why: 'Aracın virajda yana yatmasını (savrulmasını) engeller. Viraj demiri lastikleri (orta lastikler) aşındığında çukurlarda alttan "gacur gucur" lastik esneme sesi gelir.',
+        category: 'Mekanik',
+        letter: 'V'
+    },
+    {
+        id: 'fren_hortumu',
+        term: 'Fren Hortumu (Fleks Hortum)',
+        description: 'Metal fren borularının bittiği yerden başlayıp kaliperlere hidrolik sıvıyı taşıyan, tekerlekle birlikte hareket edebilen esnek çelik örgülü veya kauçuk yüksek basınç hortumu.',
+        why: 'Sürekli büküldüğü için zamanla çatlar veya balon yapar. Fren patlaması denen ölümcül kazaların %90\'ı bu hortumların yırtılmasıyla fren hidroliğinin boşalması sonucu yaşanır.',
+        category: 'Sıvılar', // Fren hidroliği kategorisi veya mekanik olabilir
+        letter: 'F'
     }
 ];
 

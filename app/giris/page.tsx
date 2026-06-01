@@ -213,26 +213,25 @@ export default function GirisPage() {
                 @media (max-width: 900px) {
                     .login-container {
                         flex-direction: column;
-                        overflow-y: auto;
+                        min-height: 100vh;
+                        height: 100%;
+                        overflow-y: visible;
                     }
                     .left-panel {
-                        flex: none;
-                        padding: 40px 24px 20px;
-                    }
-                    .left-panel h1 {
-                        font-size: 36px !important;
+                        display: none;
                     }
                     .right-panel {
-                        flex: none;
+                        flex: 1;
                         padding: 24px;
-                        align-items: flex-start;
+                        align-items: center;
+                        justify-content: center;
                     }
                     .trust-badges {
                         flex-wrap: wrap;
                         gap: 12px;
                     }
-                    .feature-pill {
-                        padding: 12px 16px;
+                    .mobile-logo {
+                        display: flex !important;
                     }
                 }
             `}</style>
@@ -401,6 +400,33 @@ export default function GirisPage() {
                         width: '100%',
                         maxWidth: '420px',
                     }}>
+                        {/* Mobile Logo */}
+                        <div className="mobile-logo" style={{ display: 'none', justifyContent: 'center', marginBottom: '32px' }}>
+                            <Link href="/" style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px',
+                                textDecoration: 'none',
+                            }}>
+                                <div style={{ position: 'relative', width: '36px', height: '36px' }}>
+                                    <Image
+                                        src={isDark ? "/dark_logo.svg" : "/whitemode_logo.svg"}
+                                        alt="Otosöz"
+                                        fill
+                                        style={{ objectFit: 'contain' }}
+                                    />
+                                </div>
+                                <span style={{
+                                    fontSize: '20px',
+                                    fontWeight: '900',
+                                    color: 'var(--foreground)',
+                                    letterSpacing: '0.5px',
+                                }}>
+                                    OTO SÖZ
+                                </span>
+                            </Link>
+                        </div>
+
                         {/* Form Header */}
                         <div style={{ marginBottom: '36px' }}>
                             <h2 style={{

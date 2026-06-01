@@ -31,11 +31,25 @@ function getTypeLabel(type: string) {
     }
 }
 
+function createSlug(text: string) {
+    if (!text) return '';
+    const map: Record<string, string> = {
+        'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u', 'ë': 'e',
+        'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u', 'Ë': 'e',
+    };
+    return text.replace(/[çğıöşüëÇĞİÖŞÜË]/g, m => map[m] || m)
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim();
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug: brand, code } = await params;
     
     // Validate Brand
-    const brandName = Object.keys(carModelsData).find(k => k.toLowerCase() === brand.toLowerCase());
+    const brandName = Object.keys(carModelsData).find(k => createSlug(k) === brand.toLowerCase());
     if (!brandName) return { title: "Marka Bulunamadı" };
 
     const upperCode = code.toUpperCase();
@@ -73,7 +87,7 @@ export default async function BrandOBDCodePage({ params }: PageProps) {
     const { slug: brand, code } = await params;
     
     // Validate Brand
-    const brandName = Object.keys(carModelsData).find(k => k.toLowerCase() === brand.toLowerCase());
+    const brandName = Object.keys(carModelsData).find(k => createSlug(k) === brand.toLowerCase());
     if (!brandName) notFound();
 
     // Validate Code

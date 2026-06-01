@@ -35,11 +35,25 @@ function getTypeLabel(type: string) {
     }
 }
 
+function createSlug(text: string) {
+    if (!text) return '';
+    const map: Record<string, string> = {
+        'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u', 'ë': 'e',
+        'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u', 'Ë': 'e',
+    };
+    return text.replace(/[çğıöşüëÇĞİÖŞÜË]/g, m => map[m] || m)
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim();
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
     
     // Check if it's a brand
-    const brandName = Object.keys(carModelsData).find(k => k.toLowerCase() === slug.toLowerCase());
+    const brandName = Object.keys(carModelsData).find(k => createSlug(k) === slug.toLowerCase());
     if (brandName) {
         return {
             title: `${brandName} Arıza Kodları ve Çözümleri | OtoSöz`,
@@ -97,7 +111,7 @@ export default async function OBDSlugPage({ params }: PageProps) {
     const { slug } = await params;
     
     // 1. Check if slug is a Brand
-    const brandName = Object.keys(carModelsData).find(k => k.toLowerCase() === slug.toLowerCase());
+    const brandName = Object.keys(carModelsData).find(k => createSlug(k) === slug.toLowerCase());
     if (brandName) {
         return <BrandHubClient brandName={brandName} obdCodes={obdCodes as ObdCode[]} />;
     }

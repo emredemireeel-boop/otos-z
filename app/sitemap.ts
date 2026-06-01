@@ -14,10 +14,10 @@ const BASE_URL = 'https://www.otosoz.com';
 function createSlug(text: string) {
     if (!text) return '';
     const trMap: Record<string, string> = {
-        'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
-        'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u',
+        'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u', 'ë': 'e',
+        'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u', 'Ë': 'e',
     };
-    return text.replace(/[çğıöşüÇĞİÖŞÜ]/g, m => trMap[m] || m)
+    return text.replace(/[çğıöşüëÇĞİÖŞÜË]/g, m => trMap[m] || m)
         .toLowerCase()
         .replace(/[^a-z0-9\s-]/g, '')
         .replace(/\s+/g, '-')
@@ -365,9 +365,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
 
     // 13. OtoHesap Modülleri
-    const otohesapModules = [
-        'yakit-hesaplama', 'mtv-hesaplama', 'kasko-deger', 'elektrikli-sarf-hesaplama',
-    ];
+    const { OTOHESAP_META } = require('@/data/otohesap-meta');
+    const otohesapModules = Object.keys(OTOHESAP_META || {});
     otohesapModules.forEach(mod => {
         sitemapEntries.push({
             url: `${BASE_URL}/otohesap/${mod}`,
