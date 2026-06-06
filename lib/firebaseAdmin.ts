@@ -122,5 +122,8 @@ export function getAdminDb(): Firestore {
     return adminDb;
 }
 
+// Admin SDK FieldValue (serverTimestamp, increment vb.) — server-side helper
+export { FieldValue } from 'firebase-admin/firestore';
+
 // Backward compat — doğrudan kullanım için
 export { adminAuth, adminDb, initError };

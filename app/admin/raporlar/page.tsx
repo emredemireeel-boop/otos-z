@@ -135,6 +135,20 @@ export default function AdminRaporlarPage() {
             await adminPost({ action: 'ban_user', target: report.targetAuthor, detail: apiDetail.note });
         } else if (type === "delete") {
             apiDetail.note = note || "İçerik silindi.";
+            // İçeriği gerçekten sil (entry veya başlık)
+            try {
+                if (report.type === "entry" && report.targetId) {
+                    // targetId formatı "threadId/entryId" veya sadece entryId olabilir
+                    const parts = report.targetId.split("/");
+                    if (parts.length === 2) {
+                        await adminPost({ action: "delete_entry", detail: JSON.stringify({ threadId: parts[0], entryId: parts[1] }) });
+                    }
+                } else if (report.type === "baslik" && report.targetId) {
+                    await adminPost({ action: "delete_thread", target: report.targetId });
+                }
+            } catch (e) {
+                console.warn("İçerik silme hatası:", e);
+            }
         }
 
         try {

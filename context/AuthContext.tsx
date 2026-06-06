@@ -14,6 +14,7 @@ import {
 import { doc, setDoc, getDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { auth, db, googleProvider } from "@/lib/firebase";
 import { validateUsername } from "@/lib/usernameValidation";
+import { validatePassword } from "@/lib/validation";
 
 export type UserRole = "caylak" | "usta" | "admin" | "moderator";
 
@@ -263,6 +264,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             setNeedsProfileCompletion(false);
             localStorage.setItem("Otosoz_user", JSON.stringify(updatedUser));
 
+            // Görev tetikle: profil tamamlandı
+            try {
+                const { markQuestComplete } = await import("@/lib/questService");
+                await markQuestComplete(firebaseUser.uid, "profileCompleted");
+            } catch { /* sessiz */ }
+
             setIsLoading(false);
             return true;
         } catch (err: unknown) {
@@ -298,8 +305,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setIsLoading(true);
         setError(null);
         try {
+            // Username'i normalize et (kontrol ile kayıt tutarlı olsun: hep küçük harf)
+            const normalizedUsername = username.trim().toLowerCase();
+
             // Önce username format doğrulaması
-            const validation = validateUsername(username);
+            const validation = validateUsername(normalizedUsername);
             if (!validation.isValid) {
                 setError(validation.message);
                 setIsLoading(false);
@@ -307,9 +317,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             }
 
             // Sonra benzersizlik kontrolü
-            const isAvailable = await checkUsernameAvailability(username);
+            const isAvailable = await checkUsernameAvailability(normalizedUsername);
             if (!isAvailable) {
                 setError("Bu kullanıcı adı zaten alınmış. Lütfen başka bir kullanıcı adı seçin.");
+                setIsLoading(false);
+                return false;
+            }
+
+            // Şifre güvenlik politikası (min 8 karakter, harf + rakam)
+            const passCheck = validatePassword(password);
+            if (!passCheck.valid) {
+                setError(passCheck.error || 'Şifre güvenlik kurallarına uymuyor.');
                 setIsLoading(false);
                 return false;
             }
@@ -317,11 +335,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             const cred = await createUserWithEmailAndPassword(auth, email, password);
             const fbUser = cred.user;
 
-            await updateProfile(fbUser, { displayName: username });
+            await updateProfile(fbUser, { displayName: normalizedUsername });
 
             await saveProfile(fbUser.uid, {
-                username,
-                displayName: username,
+                username: normalizedUsername,
+                displayName: normalizedUsername,
                 email,
                 role: "caylak",
                 level: "Cirak",

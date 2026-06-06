@@ -27,14 +27,14 @@ export interface Level {
 }
 
 export const LEVELS: Level[] = [
-    { name: 'Çaylak', minXP: 0, icon: '🌱', color: '#888888' },
-    { name: 'Sürücü', minXP: 100, icon: '🚗', color: '#3b82f6' },
-    { name: 'Tutkun', minXP: 500, icon: '💜', color: '#a855f7' },
-    { name: 'Mekanik', minXP: 1500, icon: '🔧', color: '#f59e0b' },
-    { name: 'Usta', minXP: 5000, icon: '⭐', color: '#22c55e' },
-    { name: 'Uzman', minXP: 15000, icon: '🏆', color: '#ef4444' },
-    { name: 'Efsane', minXP: 50000, icon: '👑', color: '#ffd700' },
-    { name: 'Elçi', minXP: 100000, icon: '🌟', color: '#00d4ff' }
+    { name: 'Çaylak', minXP: 0, icon: 'Sprout', color: '#888888' },
+    { name: 'Sürücü', minXP: 100, icon: 'Car', color: '#3b82f6' },
+    { name: 'Tutkun', minXP: 500, icon: 'Heart', color: '#a855f7' },
+    { name: 'Mekanik', minXP: 1500, icon: 'Wrench', color: '#f59e0b' },
+    { name: 'Usta', minXP: 5000, icon: 'Star', color: '#22c55e' },
+    { name: 'Uzman', minXP: 15000, icon: 'Award', color: '#ef4444' },
+    { name: 'Efsane', minXP: 50000, icon: 'Crown', color: '#ffd700' },
+    { name: 'Elçi', minXP: 100000, icon: 'Sparkles', color: '#00d4ff' }
 ];
 
 export function getLevelForXP(xp: number): Level {

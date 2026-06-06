@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { User, Settings, Bell, Car, MessageSquare, Heart, Award, Calendar, MapPin, Edit2, Camera, TrendingUp, Eye, ThumbsUp, X, Flag, Send, AlertTriangle, ShieldCheck, CheckCircle, ExternalLink } from "lucide-react";
+import { User, Settings, Bell, Car, MessageSquare, Heart, Award, Calendar, MapPin, Edit2, Camera, TrendingUp, Eye, ThumbsUp, X, Flag, Send, AlertTriangle, ShieldCheck, CheckCircle, ExternalLink, Sprout, Wrench, Crown, Sparkles } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter, useParams } from "next/navigation";
 import { getAllCities, getDistrictsForCity } from "@/data/locations";
@@ -13,7 +13,24 @@ import { db, storage } from "@/lib/firebase";
 import { ref, uploadString, getDownloadURL } from "firebase/storage";
 import { startConversation } from "@/lib/messageService";
 import { getUserRating } from "@/lib/userService";
+import { getLevelForXP, getNextLevel, getXPProgress } from "@/lib/xpService";
 import { Star } from "lucide-react";
+
+// Seviye ikonu adı → lucide bileşeni (profesyonel, emoji yok)
+const LEVEL_ICON_MAP: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
+    Sprout, Car, Heart, Wrench, Star, Award, Crown, Sparkles,
+};
+
+// Rol → renk + etiket (profesyonel, tutarlı)
+const ROLE_STYLES: Record<string, { label: string; bg: string; color: string }> = {
+    admin: { label: "Yönetici", bg: "rgba(239,68,68,0.12)", color: "#EF4444" },
+    moderator: { label: "Moderatör", bg: "rgba(139,92,246,0.12)", color: "#8B5CF6" },
+    uzman: { label: "Onaylı Uzman", bg: "rgba(16,185,129,0.12)", color: "#10B981" },
+    usta: { label: "Usta", bg: "rgba(245,158,11,0.12)", color: "#F59E0B" },
+    premium: { label: "Premium Üye", bg: "rgba(245,158,11,0.12)", color: "#F59E0B" },
+    caylak: { label: "Çaylak", bg: "var(--secondary)", color: "var(--text-muted)" },
+    standard: { label: "Üye", bg: "var(--secondary)", color: "var(--text-muted)" },
+};
 
 // Yazar seviye renkleri
 const levelColors: Record<string, { bg: string; text: string }> = {
@@ -83,7 +100,7 @@ export default function ProfilPage() {
         photoURL: ""
     });
     const [profileLoaded, setProfileLoaded] = useState(false);
-    const [otherUserData, setOtherUserData] = useState<{id:string; role:string; entryCount:number; createdAt?:any} | null>(null);
+    const [otherUserData, setOtherUserData] = useState<{id:string; role:string; entryCount:number; createdAt?:any; xp?:number; level?:string; badges?:string[]; likesReceived?:number} | null>(null);
     const [userThreads, setUserThreads] = useState<{id:string;title:string;views:number;entryCount:number}[]>([]);
     const [userEntries, setUserEntries] = useState<any[]>([]);
     const [userRating, setUserRating] = useState({ average: 0, count: 0 });
@@ -115,6 +132,10 @@ export default function ProfilPage() {
                         role: data.role || "caylak",
                         entryCount: data.entryCount || 0,
                         createdAt: data.createdAt || null,
+                        xp: data.xp || 0,
+                        level: data.level || "Çaylak",
+                        badges: Array.isArray(data.badges) ? data.badges : [],
+                        likesReceived: data.likesReceived || 0,
                     });
                     // Fetch user rating
                     const ratingData = await getUserRating(userDoc.id);
@@ -277,20 +298,9 @@ export default function ProfilPage() {
     }
 
     const getRoleInfo = (role: string | undefined) => {
-        const defaultColor = { bg: 'var(--secondary)', text: 'var(--foreground)' };
-        if (!role) return { label: 'Çaylak', color: defaultColor };
-        
-        switch (role.toLowerCase()) {
-            case 'admin':
-                return { label: 'Admin', color: defaultColor };
-            case 'moderator':
-                return { label: 'Moderatör', color: defaultColor };
-            case 'usta':
-                return { label: 'Usta', color: defaultColor };
-            case 'caylak':
-            default:
-                return { label: 'Çaylak', color: defaultColor };
-        }
+        const key = (role || "caylak").toLowerCase();
+        const style = ROLE_STYLES[key] || ROLE_STYLES.caylak;
+        return { label: style.label, color: { bg: style.bg, text: style.color } };
     };
 
     const { label: roleLabel, color: roleColor } = getRoleInfo(otherUserData?.role);
@@ -346,7 +356,7 @@ export default function ProfilPage() {
                                     <h1 className="profile-username">
                                         @{profileData.displayUsername}
                                     </h1>
-                                    <span className="profile-role-badge">
+                                    <span className="profile-role-badge" style={{ background: roleColor.bg, color: roleColor.text, borderColor: 'transparent' }}>
                                         <Award size={14} /> {roleLabel}
                                     </span>
                                 </div>
@@ -392,14 +402,17 @@ export default function ProfilPage() {
                                             {locationString}
                                         </span>
                                     )}
-                                    <span className="profile-meta-item">
-                                        <ExternalLink style={{ width: '14px', height: '14px' }} />
-                                        <a href="#" target="_blank" rel="noopener noreferrer" className="profile-ext-link">Sahibinden</a>
-                                    </span>
-                                    <span className="profile-meta-item">
-                                        <ExternalLink style={{ width: '14px', height: '14px' }} />
-                                        <a href="#" target="_blank" rel="noopener noreferrer" className="profile-ext-link">Arabam.com</a>
-                                    </span>
+                                    {otherUserData?.createdAt && (
+                                        <span className="profile-meta-item">
+                                            <Calendar style={{ width: '14px', height: '14px' }} />
+                                            {(() => {
+                                                const d = otherUserData.createdAt?.toDate
+                                                    ? otherUserData.createdAt.toDate()
+                                                    : (typeof otherUserData.createdAt === 'string' ? new Date(otherUserData.createdAt) : null);
+                                                return d ? `${d.toLocaleDateString('tr-TR', { month: 'long', year: 'numeric' })} tarihinde katıldı` : '';
+                                            })()}
+                                        </span>
+                                    )}
                                 </div>
                             </div>
 
@@ -439,7 +452,8 @@ export default function ProfilPage() {
                             {[
                                 { label: 'Baslik', value: userThreads.length, icon: MessageSquare },
                                 { label: 'Entry', value: Math.max(otherUserData?.entryCount || 0, userEntries.length), icon: MessageSquare },
-                                { label: 'Goruntuleme', value: userThreads.reduce((s,t) => s + t.views, 0), icon: Eye },
+                                { label: 'Görüntüleme', value: userThreads.reduce((s,t) => s + t.views, 0), icon: Eye },
+                                { label: 'Beğeni', value: otherUserData?.likesReceived || 0, icon: ThumbsUp },
                             ].map((stat, i) => (
                                 <div key={i} style={{ textAlign: 'center' }}>
                                     <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>
@@ -530,9 +544,61 @@ export default function ProfilPage() {
 
                         {/* Right Sidebar */}
                         <aside>
+                            {/* Seviye & XP Kartı */}
+                            {(() => {
+                                const xp = otherUserData?.xp || 0;
+                                const levelInfo = getLevelForXP(xp);
+                                const nextLevel = getNextLevel(xp);
+                                const prog = getXPProgress(xp);
+                                const LevelIcon = LEVEL_ICON_MAP[levelInfo.icon] || Sprout;
+                                return (
+                                    <div className="profile-card">
+                                        <h3 className="profile-section-title">Seviye</h3>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                                            <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: `${levelInfo.color}1A`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                                <LevelIcon size={22} color={levelInfo.color} />
+                                            </div>
+                                            <div style={{ flex: 1, minWidth: 0 }}>
+                                                <div style={{ fontSize: '16px', fontWeight: '800', color: levelInfo.color }}>{levelInfo.name}</div>
+                                                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{xp.toLocaleString('tr-TR')} XP</div>
+                                            </div>
+                                        </div>
+                                        {nextLevel ? (
+                                            <>
+                                                <div style={{ height: '8px', borderRadius: '4px', background: 'var(--secondary)', overflow: 'hidden', marginBottom: '8px' }}>
+                                                    <div style={{ height: '100%', borderRadius: '4px', background: levelInfo.color, width: `${prog.percentage}%`, transition: 'width 0.6s ease' }} />
+                                                </div>
+                                                <div style={{ fontSize: '12px', color: 'var(--text-muted)', textAlign: 'center' }}>
+                                                    <strong style={{ color: 'var(--foreground)' }}>{nextLevel.name}</strong> seviyesine {(nextLevel.minXP - xp).toLocaleString('tr-TR')} XP kaldı
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <div style={{ fontSize: '12px', color: 'var(--text-muted)', textAlign: 'center', padding: '4px 0' }}>
+                                                🎉 En yüksek seviyeye ulaşıldı
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })()}
+
+                            {/* Rozetler Kartı */}
+                            {otherUserData?.badges && otherUserData.badges.length > 0 && (
+                                <div className="profile-card">
+                                    <h3 className="profile-section-title">Rozetler ({otherUserData.badges.length})</h3>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                        {otherUserData.badges.map((badge, i) => (
+                                            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '6px 12px', borderRadius: '8px', background: 'var(--secondary)', border: '1px solid var(--card-border)', fontSize: '13px', fontWeight: '600', color: 'var(--foreground)' }}>
+                                                <Award size={13} style={{ color: 'var(--text-muted)' }} />
+                                                {badge}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
                             {/* Profile Info Card */}
                             <div className="profile-card">
-                                <h3 className="profile-card-title">Profil Bilgileri</h3>
+                                <h3 className="profile-section-title">Profil Bilgileri</h3>
                                 <div className="profile-meta-row" style={{ flexDirection: 'column', gap: '12px', fontSize: '13px' }}>
                                     {carString && (
                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -556,7 +622,7 @@ export default function ProfilPage() {
                             {/* Bio Card */}
                             {profileData.bio && (
                                 <div className="profile-card">
-                                    <h3 className="profile-card-title">Hakkinda</h3>
+                                    <h3 className="profile-section-title">Hakkında</h3>
                                     <p className="profile-bio">{profileData.bio}</p>
                                 </div>
                             )}

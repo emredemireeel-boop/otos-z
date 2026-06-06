@@ -9,6 +9,16 @@ import {
     CheckCircle, XCircle, Info, ShieldCheck, ShieldAlert,
     QrCode
 } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
+import { auth } from "@/lib/firebase";
+import {
+    updateProfile as fbUpdateProfile,
+    updatePassword as fbUpdatePassword,
+    EmailAuthProvider,
+    reauthenticateWithCredential,
+} from "firebase/auth";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 //  Tipler 
 interface Session {
@@ -42,6 +52,7 @@ const ACTIVITY_LOG = [
 type SectionType = "profil" | "sifre" | "2fa" | "oturumlar" | "bildirimler" | "api" | "gizlilik";
 
 export default function AdminHesapAyarlariPage() {
+    const { user } = useAuth();
     const [section, setSection] = useState<SectionType>("profil");
     const [toast, setToast] = useState<{ msg: string; type: "success" | "error" | "warning" } | null>(null);
     const showToast = (msg: string, type: "success" | "error" | "warning" = "success") => {
@@ -49,11 +60,19 @@ export default function AdminHesapAyarlariPage() {
         setTimeout(() => setToast(null), 3500);
     };
 
-    // Profil state
-    const [displayName, setDisplayName] = useState("Otosöz Admin");
-    const [email, setEmail] = useState("admin@Otosöz.com");
-    const [phone, setPhone] = useState("+90 5xx xxx xx xx");
+    // Profil state — gerçek kullanıcıdan
+    const [displayName, setDisplayName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [profileSaving, setProfileSaving] = useState(false);
+
+    useEffect(() => {
+        if (user) {
+            setDisplayName(user.displayName || user.username || "");
+            setEmail((user as any).email || auth.currentUser?.email || "");
+            setPhone((user as any).phone || "");
+        }
+    }, [user]);
 
     // Şifre state
     const [currentPw, setCurrentPw] = useState("");
@@ -107,10 +126,25 @@ export default function AdminHesapAyarlariPage() {
     })();
 
     const handleProfileSave = async () => {
+        if (!auth.currentUser) { showToast("Oturum bulunamadı.", "error"); return; }
         setProfileSaving(true);
-        await new Promise(r => setTimeout(r, 800));
-        setProfileSaving(false);
-        showToast("✓ Profil bilgileri güncellendi.");
+        try {
+            // Firebase Auth displayName
+            if (displayName.trim()) {
+                await fbUpdateProfile(auth.currentUser, { displayName: displayName.trim() });
+            }
+            // Firestore users dokümanı
+            await updateDoc(doc(db, "users", auth.currentUser.uid), {
+                displayName: displayName.trim(),
+                ...(phone ? { phone } : {}),
+            });
+            showToast("✓ Profil bilgileri güncellendi.");
+        } catch (e: any) {
+            console.error("Profil güncelleme hatası:", e);
+            showToast("Profil güncellenemedi.", "error");
+        } finally {
+            setProfileSaving(false);
+        }
     };
 
     const handlePasswordChange = async () => {
@@ -118,11 +152,30 @@ export default function AdminHesapAyarlariPage() {
         if (newPw !== confirmPw) return showToast("Yeni Şifreler eşleşmiyor.", "error");
         if (newPw.length < 8) return showToast("Şifre en az 8 karakter olmalı.", "error");
         if (pwStrength.score < 3) return showToast("Daha güçlü bir Şifre seçin.", "warning");
+        if (!auth.currentUser || !auth.currentUser.email) { showToast("Oturum bulunamadı.", "error"); return; }
+
         setPwSaving(true);
-        await new Promise(r => setTimeout(r, 1000));
-        setPwSaving(false);
-        setCurrentPw(""); setNewPw(""); setConfirmPw("");
-        showToast("✓ Şifre başarıyla değiştirildi!");
+        try {
+            // Önce mevcut şifre ile yeniden kimlik doğrula (Firebase güvenlik gereği)
+            const cred = EmailAuthProvider.credential(auth.currentUser.email, currentPw);
+            await reauthenticateWithCredential(auth.currentUser, cred);
+            // Sonra şifreyi güncelle
+            await fbUpdatePassword(auth.currentUser, newPw);
+            setCurrentPw(""); setNewPw(""); setConfirmPw("");
+            showToast("✓ Şifre başarıyla değiştirildi!");
+        } catch (e: any) {
+            const code = e?.code || "";
+            if (code === "auth/wrong-password" || code === "auth/invalid-credential") {
+                showToast("Mevcut şifre hatalı.", "error");
+            } else if (code === "auth/weak-password") {
+                showToast("Yeni şifre çok zayıf.", "error");
+            } else {
+                showToast("Şifre değiştirilemedi.", "error");
+            }
+            console.error("Şifre değiştirme hatası:", e);
+        } finally {
+            setPwSaving(false);
+        }
     };
 
     const handleTerminateSession = async (id: string) => {

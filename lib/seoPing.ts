@@ -4,9 +4,12 @@
  * Yeni içerik oluşturulduğunda arka planda Google'a bildirim gönderir.
  * Bu fonksiyon client-side'da çalışır ve sunucudaki /api/seo/ping endpoint'ine istek atar.
  * Hata durumunda sessizce devam eder (kullanıcı deneyimini etkilemez).
+ *
+ * NOT: Burada secret TUTULMAZ. İstemci bundle'ına gömülen secret herkese görünür
+ * olacağından koruma sağlamaz. Endpoint sunucu tarafında same-origin + rate limit
+ * ile korunur.
  */
 
-const SEO_PING_SECRET = 'OtoSozSecretPing2026';
 const BASE_URL = 'https://www.otosoz.com';
 
 /**
@@ -27,7 +30,7 @@ export async function pingGoogle(path: string): Promise<boolean> {
         const res = await fetch('/api/seo/ping', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url: fullUrl, secret: SEO_PING_SECRET }),
+            body: JSON.stringify({ url: fullUrl }),
         });
 
         if (res.ok) {

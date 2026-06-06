@@ -98,10 +98,11 @@ export default function AdminDashboardPage() {
         try {
             const threadsDocs = await getDocs(collection(db, 'threads'));
             const usersDocs = await getDocs(collection(db, 'users'));
-            
+
             let totalEntries = 0;
             let pinnedThreads = 0;
             let lockedThreads = 0;
+            let trendingCount = 0;
             const categoryMap = new Map<string, number>();
 
             threadsDocs.forEach(d => {
@@ -109,9 +110,29 @@ export default function AdminDashboardPage() {
                 totalEntries += data.entryCount || 0;
                 if (data.pinned) pinnedThreads++;
                 if (data.locked) lockedThreads++;
+                if (data.trending) trendingCount++;
                 const cat = data.category || 'Genel';
                 categoryMap.set(cat, (categoryMap.get(cat) || 0) + 1);
             });
+
+            // Banlı kullanıcı sayısı
+            let bannedUsers = 0;
+            usersDocs.forEach(d => { if (d.data().banned) bannedUsers++; });
+
+            // İlan sayıları (varsa)
+            let totalListings = 0, pendingListings = 0;
+            try {
+                const listingsDocs = await getDocs(collection(db, 'listings'));
+                totalListings = listingsDocs.size;
+                listingsDocs.forEach(d => { if (d.data().status === 'pending') pendingListings++; });
+            } catch { /* listings koleksiyonu yoksa */ }
+
+            // Güvenmetre bekleyen
+            let pendingGuvenmetre = 0;
+            try {
+                const gmDocs = await getDocs(collection(db, 'guvenmetre'));
+                gmDocs.forEach(d => { if (d.data().status === 'pending' || !d.data().status) pendingGuvenmetre++; });
+            } catch { /* yoksa */ }
 
             // Son admin loglari
             let recentLogs: Array<{ action: string; target: string; detail: string; time: string }> = [];
@@ -133,18 +154,18 @@ export default function AdminDashboardPage() {
 
             setStats({
                 totalUsers: usersDocs.size,
-                bannedUsers: 0,
+                bannedUsers,
                 totalThreads: threadsDocs.size,
                 deletedThreads: 0,
                 pinnedThreads,
                 lockedThreads,
-                trendingCount: 0,
-                totalListings: 0,
-                pendingListings: 0,
+                trendingCount,
+                totalListings,
+                pendingListings,
                 approvedListings: 0,
                 rejectedListings: 0,
                 totalEntries,
-                pendingGuvenmetre: 0,
+                pendingGuvenmetre,
                 announcementCount: 0,
                 recentLogs,
                 categories: Array.from(categoryMap.entries()).map(([name, count]) => ({ name, count })),

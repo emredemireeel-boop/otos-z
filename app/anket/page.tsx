@@ -120,6 +120,11 @@ export default function AnketPage() {
                 totalVotes: newTotalVotes,
             });
             showToast("Oyunuz kaydedildi!", "success");
+            // Görev tetikle: ankete oy verildi
+            try {
+                const { markQuestComplete } = await import("@/lib/questService");
+                await markQuestComplete(user.id as string, "surveyVoted");
+            } catch { /* sessiz */ }
         } catch (e) {
             console.error("Oy kaydedilemedi:", e);
             showToast("Oy kaydedilemedi, tekrar deneyin.", "error");

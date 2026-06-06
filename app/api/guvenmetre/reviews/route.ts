@@ -1,16 +1,15 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/lib/firebase';
-import {
-    collection, getDocs, addDoc, query, orderBy, where, limit,
-    serverTimestamp, Timestamp, doc, updateDoc, deleteDoc, getDoc
-} from 'firebase/firestore';
+import { getAdminDb, FieldValue } from '@/lib/firebaseAdmin';
+import { Timestamp } from 'firebase-admin/firestore';
 import { requireAuth, type AuthResult } from '@/lib/authGuard';
-import { checkRateLimit, RATE_LIMITS, getClientIP } from '@/lib/rateLimit';
+import { checkRateLimit, getClientIP } from '@/lib/rateLimit';
 
 /**
  * GüvenMetre Reviews API
  * GET  /api/guvenmetre/reviews?brandId=xxx&categoryId=yyy
  * POST /api/guvenmetre/reviews  { categoryId, brandId, rating, comment }
+ *
+ * ✅ GÜVENLİK: Firebase Admin SDK (server-side). POST icin requireAuth + rate limit.
  */
 
 // GET — Belirli bir marka/kişi için yorumları getir
@@ -24,15 +23,15 @@ export async function GET(request: Request) {
     }
 
     try {
-        const reviewsQuery = query(
-            collection(db, 'guvenmetre_reviews'),
-            where('categoryId', '==', categoryId),
-            where('brandId', '==', brandId),
-            where('status', '==', 'approved'),
-            orderBy('createdAt', 'desc'),
-            limit(50)
-        );
-        const snap = await getDocs(reviewsQuery);
+        const db = getAdminDb();
+        const snap = await db.collection('guvenmetre_reviews')
+            .where('categoryId', '==', categoryId)
+            .where('brandId', '==', brandId)
+            .where('status', '==', 'approved')
+            .orderBy('createdAt', 'desc')
+            .limit(50)
+            .get();
+
         const reviews = snap.docs.map(d => {
             const data = d.data();
             return {
@@ -72,6 +71,8 @@ export async function POST(request: Request) {
     if (authResult instanceof NextResponse) return authResult;
     const authedUser = authResult as AuthResult;
 
+    const db = getAdminDb();
+
     try {
         const body = await request.json();
         const { categoryId, brandId, rating, comment } = body;
@@ -80,19 +81,18 @@ export async function POST(request: Request) {
         if (!categoryId || !brandId) {
             return NextResponse.json({ success: false, message: 'Kategori ve marka gerekli.' }, { status: 400 });
         }
-        if (!rating || rating < 1 || rating > 5) {
+        const numRating = Number(rating);
+        if (!numRating || numRating < 1 || numRating > 5) {
             return NextResponse.json({ success: false, message: 'Puan 1-5 arası olmalıdır.' }, { status: 400 });
         }
-        const cleanComment = (comment || '').trim().slice(0, 500);
+        const cleanComment = String(comment || '').trim().slice(0, 500);
 
         // Aynı kullanıcının aynı markayı tekrar değerlendirmesini engelle
-        const existingQuery = query(
-            collection(db, 'guvenmetre_reviews'),
-            where('userId', '==', authedUser.uid),
-            where('categoryId', '==', categoryId),
-            where('brandId', '==', brandId)
-        );
-        const existingSnap = await getDocs(existingQuery);
+        const existingSnap = await db.collection('guvenmetre_reviews')
+            .where('userId', '==', authedUser.uid)
+            .where('categoryId', '==', categoryId)
+            .where('brandId', '==', brandId)
+            .get();
         if (!existingSnap.empty) {
             return NextResponse.json(
                 { success: false, message: 'Bu marka/kişi için zaten bir değerlendirmeniz mevcut.' },
@@ -104,41 +104,41 @@ export async function POST(request: Request) {
         let userName = 'Anonim';
         let userAvatar = '';
         try {
-            const userDoc = await getDoc(doc(db, 'users', authedUser.uid!));
-            if (userDoc.exists()) {
-                const userData = userDoc.data();
+            const userDoc = await db.collection('users').doc(authedUser.uid!).get();
+            if (userDoc.exists) {
+                const userData = userDoc.data()!;
                 userName = userData.username || userData.displayName || 'Anonim';
                 userAvatar = userData.avatar || userData.photoURL || '';
             }
         } catch { /* fallback to default */ }
 
         // Kaydet
-        const reviewRef = await addDoc(collection(db, 'guvenmetre_reviews'), {
+        const reviewRef = await db.collection('guvenmetre_reviews').add({
             categoryId,
             brandId,
             userId: authedUser.uid,
             userEmail: authedUser.email || '',
             userName,
             userAvatar,
-            rating: Number(rating),
+            rating: numRating,
             comment: cleanComment,
-            status: 'approved', // otomatik onay (admin isterse pending yapabilir)
+            status: 'approved',
             likes: 0,
             isVerified: false,
-            createdAt: serverTimestamp(),
+            createdAt: FieldValue.serverTimestamp(),
         });
 
-        // 🚀 Google'a güncelleme bildirimi (GüvenMetre marka sayfası güncellendi)
+        // 🚀 Google'a güncelleme bildirimi (best-effort)
         try {
             const { google } = await import('googleapis');
             const path = await import('path');
             const KEY_FILE = 'otosozindex-7a4ca5cb2331.json';
             const keyFilePath = path.join(process.cwd(), KEY_FILE);
-            const auth = new google.auth.GoogleAuth({
+            const gauth = new google.auth.GoogleAuth({
                 keyFile: keyFilePath,
                 scopes: ['https://www.googleapis.com/auth/indexing'],
             });
-            const client = await auth.getClient();
+            const client = await gauth.getClient();
             const indexing = google.indexing({ version: 'v3', auth: client as any });
             await indexing.urlNotifications.publish({
                 requestBody: {
@@ -146,9 +146,15 @@ export async function POST(request: Request) {
                     type: 'URL_UPDATED',
                 },
             });
-            console.log(`✅ SEO Ping: /guvenmetre/${categoryId}/${brandId}`);
         } catch (seoErr) {
-            console.warn('SEO ping başarısız (devam ediliyor):', seoErr);
+            console.warn('SEO ping başarısız (devam ediliyor)');
+        }
+
+        // 🎯 Görev tetikle: GüvenMetre değerlendirmesi yapıldı (Admin SDK ile)
+        try {
+            await db.collection('userQuests').doc(authedUser.uid!).set({ guvenmetreDone: true }, { merge: true });
+        } catch (qErr) {
+            console.warn('Guvenmetre quest tetiklenemedi:', qErr);
         }
 
         return NextResponse.json({
@@ -168,6 +174,8 @@ function formatTimeAgo(ts: any): string {
     if (!ts) return 'Az önce';
     let date: Date;
     if (ts instanceof Timestamp) {
+        date = ts.toDate();
+    } else if (ts?.toDate && typeof ts.toDate === 'function') {
         date = ts.toDate();
     } else if (ts?.seconds) {
         date = new Date(ts.seconds * 1000);

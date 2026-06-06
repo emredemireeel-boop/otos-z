@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
     Shield, Plus, Trash2, Search, X, AlertTriangle,
     Eye, EyeOff, Check, RefreshCw, Filter, Star,
     ChevronRight, Edit2, Save, ToggleLeft, ToggleRight
 } from "lucide-react";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 //  Tipler 
 type FilterMode = "engelle" | "yildizla" | "uyar";
@@ -21,40 +22,32 @@ interface BannedWord {
     matchCount: number;
     active: boolean;
     regex: boolean;
-    whitelist: string[]; // bu kelimeyi içerip de pass geçen baÃ„şlamlar
+    whitelist: string[]; // bu kelimeyi içerip de pass geçen baglamlar
 }
 
-const INITIAL_WORDS: BannedWord[] = [
-    { id: "w-001", word: "salak", mode: "yildizla", category: "hakaret", addedBy: "Admin", addedAt: "01.01.2026", matchCount: 142, active: true, regex: false, whitelist: [] },
-    { id: "w-002", word: "idiot", mode: "yildizla", category: "hakaret", addedBy: "Admin", addedAt: "01.01.2026", matchCount: 87, active: true, regex: false, whitelist: [] },
-    { id: "w-003", word: "spam-link\\.com", mode: "engelle", category: "spam", addedBy: "Admin", addedAt: "05.02.2026", matchCount: 23, active: true, regex: true, whitelist: [] },
-    { id: "w-004", word: "satın al hemen", mode: "engelle", category: "spam", addedBy: "Admin", addedAt: "10.02.2026", matchCount: 55, active: true, regex: false, whitelist: [] },
-    { id: "w-005", word: "aptal", mode: "yildizla", category: "hakaret", addedBy: "Moderatör1", addedAt: "15.02.2026", matchCount: 201, active: true, regex: false, whitelist: ["aptal soru yok"] },
-    { id: "w-006", word: "gerizekalı", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "20.02.2026", matchCount: 64, active: true, regex: false, whitelist: [] },
-    { id: "w-007", word: "whatsapp.com\\/.*reklam", mode: "engelle", category: "spam", addedBy: "Admin", addedAt: "01.03.2026", matchCount: 12, active: true, regex: true, whitelist: [] },
-    { id: "w-008", word: "bedava para", mode: "uyar", category: "spam", addedBy: "Admin", addedAt: "05.03.2026", matchCount: 38, active: true, regex: false, whitelist: [] },
-    { id: "w-009", word: "mal", mode: "uyar", category: "hakaret", addedBy: "Moderatör2", addedAt: "10.03.2026", matchCount: 312, active: true, regex: false, whitelist: ["makine malı", "hammadde", "malı"] },
-    { id: "w-010", word: "amk", mode: "yildizla", category: "kufur", addedBy: "Admin", addedAt: "15.03.2026", matchCount: 1250, active: true, regex: false, whitelist: [] },
-    { id: "w-011", word: "aq", mode: "yildizla", category: "kufur", addedBy: "Admin", addedAt: "15.03.2026", matchCount: 980, active: true, regex: false, whitelist: ["Irak", "fakir", "bırak"] },
-    { id: "w-012", word: "amq", mode: "yildizla", category: "kufur", addedBy: "Admin", addedAt: "15.03.2026", matchCount: 430, active: true, regex: false, whitelist: [] },
-    { id: "w-013", word: "orospu", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "16.03.2026", matchCount: 215, active: true, regex: false, whitelist: [] },
-    { id: "w-014", word: "oç", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "16.03.2026", matchCount: 890, active: true, regex: false, whitelist: ["koç", "borçoç"] },
-    { id: "w-015", word: "piç", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "16.03.2026", matchCount: 340, active: true, regex: false, whitelist: ["piliç", "kerpiç"] },
-    { id: "w-016", word: "pic", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "16.03.2026", matchCount: 120, active: true, regex: false, whitelist: ["picture", "epic"] },
-    { id: "w-017", word: "yarrak", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "17.03.2026", matchCount: 560, active: true, regex: false, whitelist: [] },
-    { id: "w-018", word: "yarak", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "17.03.2026", matchCount: 230, active: true, regex: false, whitelist: [] },
-    { id: "w-019", word: "sik", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "17.03.2026", matchCount: 1450, active: true, regex: false, whitelist: ["müzik", "eksik", "fizik", "klasik", "kesik", "ışık", "aşık", "beşik", "kaşık"] },
-    { id: "w-020", word: "sikerim", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "17.03.2026", matchCount: 320, active: true, regex: false, whitelist: [] },
-    { id: "w-021", word: "siktir", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "17.03.2026", matchCount: 890, active: true, regex: false, whitelist: [] },
-    { id: "w-022", word: "göt", mode: "yildizla", category: "kufur", addedBy: "Admin", addedAt: "18.03.2026", matchCount: 670, active: true, regex: false, whitelist: ["götür", "göster"] },
-    { id: "w-023", word: "got", mode: "yildizla", category: "kufur", addedBy: "Admin", addedAt: "18.03.2026", matchCount: 210, active: true, regex: false, whitelist: ["gotik", "forgot"] },
-    { id: "w-024", word: "amcık", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "18.03.2026", matchCount: 150, active: true, regex: false, whitelist: [] },
-    { id: "w-025", word: "amcik", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "18.03.2026", matchCount: 90, active: true, regex: false, whitelist: [] },
-    { id: "w-026", word: "ibne", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "19.03.2026", matchCount: 280, active: true, regex: false, whitelist: [] },
-    { id: "w-027", word: "pezevenk", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "19.03.2026", matchCount: 110, active: true, regex: false, whitelist: [] },
-    { id: "w-028", word: "kahpe", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "19.03.2026", matchCount: 75, active: true, regex: false, whitelist: [] },
-    { id: "w-029", word: "yavşak", mode: "yildizla", category: "hakaret", addedBy: "Admin", addedAt: "19.03.2026", matchCount: 340, active: true, regex: false, whitelist: [] },
-    { id: "w-030", word: "orospu çocuğu", mode: "engelle", category: "kufur", addedBy: "Admin", addedAt: "19.03.2026", matchCount: 185, active: true, regex: false, whitelist: [] },
+// Varsayılan Türkçe küfür/hakaret/spam tohum listesi — DB boşsa "Varsayılanları Yükle" ile eklenir
+const SEED_WORDS: { word: string; mode: FilterMode; category: WordCategory; regex: boolean; whitelist: string[] }[] = [
+    { word: "salak", mode: "yildizla", category: "hakaret", regex: false, whitelist: [] },
+    { word: "aptal", mode: "yildizla", category: "hakaret", regex: false, whitelist: ["aptal soru yok"] },
+    { word: "gerizekalı", mode: "engelle", category: "hakaret", regex: false, whitelist: [] },
+    { word: "yavşak", mode: "yildizla", category: "hakaret", regex: false, whitelist: [] },
+    { word: "mal", mode: "uyar", category: "hakaret", regex: false, whitelist: ["makine malı", "hammadde", "malı"] },
+    { word: "amk", mode: "yildizla", category: "kufur", regex: false, whitelist: [] },
+    { word: "aq", mode: "yildizla", category: "kufur", regex: false, whitelist: ["Irak", "fakir", "bırak"] },
+    { word: "orospu", mode: "engelle", category: "kufur", regex: false, whitelist: [] },
+    { word: "orospu çocuğu", mode: "engelle", category: "kufur", regex: false, whitelist: [] },
+    { word: "oç", mode: "engelle", category: "kufur", regex: false, whitelist: ["koç"] },
+    { word: "piç", mode: "engelle", category: "kufur", regex: false, whitelist: ["piliç", "kerpiç"] },
+    { word: "yarrak", mode: "engelle", category: "kufur", regex: false, whitelist: [] },
+    { word: "sik", mode: "engelle", category: "kufur", regex: false, whitelist: ["müzik", "eksik", "fizik", "klasik", "kesik", "ışık", "aşık", "beşik", "kaşık"] },
+    { word: "siktir", mode: "engelle", category: "kufur", regex: false, whitelist: [] },
+    { word: "göt", mode: "yildizla", category: "kufur", regex: false, whitelist: ["götür", "göster"] },
+    { word: "amcık", mode: "engelle", category: "kufur", regex: false, whitelist: [] },
+    { word: "ibne", mode: "engelle", category: "kufur", regex: false, whitelist: [] },
+    { word: "pezevenk", mode: "engelle", category: "kufur", regex: false, whitelist: [] },
+    { word: "kahpe", mode: "engelle", category: "kufur", regex: false, whitelist: [] },
+    { word: "bedava para", mode: "uyar", category: "spam", regex: false, whitelist: [] },
+    { word: "satın al hemen", mode: "engelle", category: "spam", regex: false, whitelist: [] },
 ];
 
 const CATEGORIES: { key: WordCategory | "hepsi"; label: string; color: string }[] = [
@@ -138,11 +131,39 @@ function TestSimulator({ words }: { words: BannedWord[] }) {
 }
 
 export default function AdminKelimeFiltresiPage() {
-    const [words, setWords] = useState<BannedWord[]>(INITIAL_WORDS);
+    const [words, setWords] = useState<BannedWord[]>([]);
+    const [loading, setLoading] = useState(true);
     const [catFilter, setCatFilter] = useState<WordCategory | "hepsi">("hepsi");
     const [search, setSearch] = useState("");
     const [showInactive, setShowInactive] = useState(false);
     const [toast, setToast] = useState<{ msg: string; type?: string } | null>(null);
+
+    const fetchWords = useCallback(async () => {
+        setLoading(true);
+        try {
+            const res = await adminGet("bad_words");
+            if (res.success) {
+                setWords((res.words || []).map((w: any) => ({
+                    id: w.id,
+                    word: w.word || "",
+                    mode: w.mode || "yildizla",
+                    category: w.category || "hakaret",
+                    addedBy: w.addedBy || "Admin",
+                    addedAt: w.addedAt || "-",
+                    matchCount: w.matchCount || 0,
+                    active: w.active !== false,
+                    regex: !!w.regex,
+                    whitelist: Array.isArray(w.whitelist) ? w.whitelist : [],
+                })));
+            }
+        } catch (e) {
+            console.error("Kelime listesi yuklenemedi:", e);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => { fetchWords(); }, [fetchWords]);
 
     // Yeni kelime form
     const [newWord, setNewWord] = useState("");
@@ -156,32 +177,68 @@ export default function AdminKelimeFiltresiPage() {
         setTimeout(() => setToast(null), 3000);
     };
 
-    const addWord = () => {
+    const [seeding, setSeeding] = useState(false);
+    const seedDefaults = async () => {
+        if (seeding) return;
+        setSeeding(true);
+        try {
+            let added = 0;
+            for (const sw of SEED_WORDS) {
+                if (words.some(w => w.word.toLowerCase() === sw.word.toLowerCase())) continue;
+                const res = await adminPost({ action: "add_bad_word", detail: JSON.stringify(sw) });
+                if (res.success) added++;
+            }
+            showToast(`✓ ${added} varsayılan kelime eklendi.`);
+            await fetchWords();
+        } catch {
+            showToast("Yükleme başarısız.", "error");
+        } finally {
+            setSeeding(false);
+        }
+    };
+
+    const addWord = async () => {
         if (!newWord.trim()) return;
         const exists = words.some(w => w.word === newWord.trim());
         if (exists) { showToast("Bu kelime zaten listede!", "error"); return; }
-        const w: BannedWord = {
-            id: `w-${Date.now()}`, word: newWord.trim(), mode: newMode,
-            category: newCat, addedBy: "Admin", addedAt: new Date().toLocaleDateString("tr-TR"),
-            matchCount: 0, active: true, regex: newRegex, whitelist: [],
-        };
-        setWords(prev => [w, ...prev]);
-        setNewWord(""); setNewRegex(false); setShowAdd(false);
-        showToast(`✓ "${w.word}" filtre listesine eklendi.`);
+        try {
+            const res = await adminPost({
+                action: "add_bad_word",
+                detail: JSON.stringify({ word: newWord.trim(), mode: newMode, category: newCat, regex: newRegex, whitelist: [] }),
+            });
+            if (res.success) {
+                setNewWord(""); setNewRegex(false); setShowAdd(false);
+                showToast(`✓ "${newWord.trim()}" filtre listesine eklendi.`);
+                await fetchWords();
+            } else {
+                showToast(res.message || "Eklenemedi.", "error");
+            }
+        } catch { showToast("Eklenemedi.", "error"); }
     };
 
-    const toggleWord = (id: string) => {
-        setWords(prev => prev.map(w => w.id === id ? { ...w, active: !w.active } : w));
+    const toggleWord = async (id: string) => {
+        const w = words.find(x => x.id === id);
+        if (!w) return;
+        setWords(prev => prev.map(x => x.id === id ? { ...x, active: !x.active } : x));
+        try {
+            await adminPost({ action: "update_bad_word", target: id, detail: JSON.stringify({ active: !w.active }) });
+        } catch { fetchWords(); }
     };
 
-    const deleteWord = (id: string, word: string) => {
+    const deleteWord = async (id: string, word: string) => {
         setWords(prev => prev.filter(w => w.id !== id));
         showToast(`"${word}" listeden kaldırıldı.`, "error");
+        try {
+            await adminPost({ action: "delete_bad_word", target: id });
+        } catch { fetchWords(); }
     };
 
-    const changeModeFor = (id: string, mode: FilterMode) => {
+    const changeModeFor = async (id: string, mode: FilterMode) => {
         setWords(prev => prev.map(w => w.id === id ? { ...w, mode } : w));
         showToast("Filtre modu güncellendi.");
+        try {
+            await adminPost({ action: "update_bad_word", target: id, detail: JSON.stringify({ mode }) });
+        } catch { fetchWords(); }
     };
 
     const filtered = words
@@ -203,9 +260,16 @@ export default function AdminKelimeFiltresiPage() {
                         Yasaklı kelimeler · {words.filter(w => w.active).length} aktif kural · {totalMatches.toLocaleString("tr-TR")} toplam eşleşme
                     </p>
                 </div>
-                <button onClick={() => setShowAdd(v => !v)} style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--primary)", border: "none", color: "white", padding: "10px 18px", borderRadius: "10px", cursor: "pointer", fontSize: "13px", fontWeight: "700" }}>
-                    <Plus size={15} /> Kelime Ekle
-                </button>
+                <div style={{ display: "flex", gap: "10px" }}>
+                    {words.length === 0 && !loading && (
+                        <button onClick={seedDefaults} disabled={seeding} style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--card-bg)", border: "1px solid var(--card-border)", color: "var(--foreground)", padding: "10px 18px", borderRadius: "10px", cursor: "pointer", fontSize: "13px", fontWeight: "700" }}>
+                        <RefreshCw size={15} style={{ animation: seeding ? "spin 0.8s linear infinite" : "none" }} /> {seeding ? "Yükleniyor..." : "Varsayılanları Yükle"}
+                    </button>
+                    )}
+                    <button onClick={() => setShowAdd(v => !v)} style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--primary)", border: "none", color: "white", padding: "10px 18px", borderRadius: "10px", cursor: "pointer", fontSize: "13px", fontWeight: "700" }}>
+                        <Plus size={15} /> Kelime Ekle
+                    </button>
+                </div>
             </div>
 
             {/* Yeni Kelime Formu */}
@@ -337,7 +401,7 @@ export default function AdminKelimeFiltresiPage() {
                     {toast.msg}
                 </div>
             )}
-            <style>{`@keyframes slideUp { from { transform: translateY(80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }`}</style>
+            <style>{`@keyframes slideUp { from { transform: translateY(80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } } @keyframes spin { to { transform: rotate(360deg); } }`}</style>
         </div>
     );
 }

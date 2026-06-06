@@ -67,6 +67,11 @@ export default function SurveyDetailPage() {
 
         try {
             await updateDoc(doc(db, "surveys", surveyData.id), { voters: newVoters, totalVotes: newTotalVotes, nominees: newNominees });
+            // Görev tetikle: ankete oy verildi
+            try {
+                const { markQuestComplete } = await import("@/lib/questService");
+                await markQuestComplete(user.id as string, "surveyVoted");
+            } catch { /* sessiz */ }
         } catch (e) {
             console.error("Oy kaydedilemedi:", e);
         }

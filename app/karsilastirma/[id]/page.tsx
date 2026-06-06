@@ -84,6 +84,11 @@ export default function ComparisonDetailPage() {
         setVotingVehicle(vehicleName);
         try {
             await toggleVehicleVote(threadId, vehicleName, user.id as string);
+            // Görev tetikle: karşılaştırma tercihi yapıldı
+            try {
+                const { markQuestComplete } = await import("@/lib/questService");
+                await markQuestComplete(user.id as string, "ekspertizDone");
+            } catch { /* sessiz */ }
         } catch (e) {
             console.error(e);
         }

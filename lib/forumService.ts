@@ -1,13 +1,15 @@
 import {
     collection, doc, addDoc, getDoc, getDocs, updateDoc, setDoc, deleteDoc,
     query, orderBy, limit, onSnapshot, serverTimestamp, increment,
-    arrayUnion, arrayRemove, Timestamp, where,
+    Timestamp, where, runTransaction,
     type DocumentData, type QuerySnapshot
 } from "firebase/firestore";
 import { db } from "./firebase";
 import { sanitizeText, validateThreadTitle, validateEntryContent, validateTags } from "./validation";
+import { applyWordFilter } from "./wordFilterService";
 import { pingGoogle } from "./seoPing";
 import { awardXP, updateDailyContentStreak } from "./xpService";
+import { markQuestComplete } from "./questService";
 
 /* ── Types ── */
 export interface ChronicIssue {
@@ -266,6 +268,14 @@ export async function createThread(data: {
     const contentCheck = validateEntryContent(data.content);
     if (!contentCheck.valid) throw new Error(contentCheck.error);
 
+    // Kelime filtresi (başlık + içerik)
+    const titleFilter = await applyWordFilter(titleCheck.sanitized);
+    if (titleFilter.blocked) throw new Error("Başlık yasaklı kelime içeriyor.");
+    const contentFilter = await applyWordFilter(contentCheck.sanitized);
+    if (contentFilter.blocked) throw new Error("İçerik yasaklı kelime içeriyor ve gönderilemedi.");
+    const filteredTitle = titleFilter.clean;
+    const filteredContent = contentFilter.clean;
+
     const safeTags = validateTags(data.tags);
     const safeUsername = sanitizeText(data.authorUsername).slice(0, 30);
     const safeDescription = sanitizeText(data.description || '').slice(0, 500);
@@ -276,7 +286,7 @@ export async function createThread(data: {
 
     // Thread olustur
     const threadRef = await addDoc(collection(db, "threads"), {
-        title: titleCheck.sanitized,
+        title: filteredTitle,
         category: safeCategory,
         description: safeDescription,
         authorId: data.authorId,
@@ -297,7 +307,7 @@ export async function createThread(data: {
     await addDoc(collection(db, "threads", threadRef.id, "entries"), {
         authorId: data.authorId,
         username: safeUsername,
-        content: contentCheck.sanitized,
+        content: filteredContent,
         createdAt: now,
         likes: 0,
         likedBy: [],
@@ -314,6 +324,12 @@ export async function createThread(data: {
             window.dispatchEvent(new CustomEvent('daily_login_reward', { 
                 detail: { xpGained: streakRes.xpGained, streak: streakRes.currentStreak } 
             }));
+        }
+        // Görev tetikle: başlık açma + entry yazma (+ 3 günlük seri)
+        await markQuestComplete(data.authorId, "threadCreated");
+        await markQuestComplete(data.authorId, "entryWritten");
+        if (streakRes && streakRes.currentStreak >= 3) {
+            await markQuestComplete(data.authorId, "streak3");
         }
     } catch (e) { console.warn("Gamification error on create thread:", e); }
 
@@ -333,6 +349,10 @@ export async function addEntry(threadId: string, data: {
     const contentCheck = validateEntryContent(data.content);
     if (!contentCheck.valid) throw new Error(contentCheck.error);
 
+    // Kelime filtresi
+    const contentFilter = await applyWordFilter(contentCheck.sanitized);
+    if (contentFilter.blocked) throw new Error("İçerik yasaklı kelime içeriyor ve gönderilemedi.");
+
     const safeUsername = sanitizeText(data.username).slice(0, 30);
     const now = serverTimestamp();
 
@@ -340,7 +360,7 @@ export async function addEntry(threadId: string, data: {
     const entryRef = await addDoc(collection(db, "threads", threadId, "entries"), {
         authorId: data.authorId,
         username: safeUsername,
-        content: contentCheck.sanitized,
+        content: contentFilter.clean,
         createdAt: now,
         likes: 0,
         likedBy: [],
@@ -361,6 +381,11 @@ export async function addEntry(threadId: string, data: {
                 detail: { xpGained: streakRes.xpGained, streak: streakRes.currentStreak } 
             }));
         }
+        // Görev tetikle: entry yazma (+ 3 günlük seri)
+        await markQuestComplete(data.authorId, "entryWritten");
+        if (streakRes && streakRes.currentStreak >= 3) {
+            await markQuestComplete(data.authorId, "streak3");
+        }
     } catch (e) { console.warn("Gamification error on add entry:", e); }
 
     // 🚀 Google'a güncelleme bildirimi gönder (yeni entry = sayfa güncellendi)
@@ -380,50 +405,86 @@ export async function addEntry(threadId: string, data: {
 /** Begeni toggle */
 export async function toggleLike(threadId: string, entryId: string, userId: string): Promise<boolean> {
     const entryRef = doc(db, "threads", threadId, "entries", entryId);
-    const entrySnap = await getDoc(entryRef);
-    if (!entrySnap.exists()) return false;
 
-    const likedBy: string[] = entrySnap.data().likedBy || [];
-    const isLiked = likedBy.includes(userId);
+    // ✅ Atomik transaction: likes sayacı ile likedBy dizisi her zaman tutarlı kalır
+    //    (hızlı çift tıklamada sayaç sapması önlenir).
+    try {
+        const result = await runTransaction(db, async (tx) => {
+            const entrySnap = await tx.get(entryRef);
+            if (!entrySnap.exists()) return { changed: false, nowLiked: false, authorId: "" as string };
 
-    await updateDoc(entryRef, {
-        likedBy: isLiked ? arrayRemove(userId) : arrayUnion(userId),
-        likes: increment(isLiked ? -1 : 1),
-    });
+            const data = entrySnap.data();
+            const likedBy: string[] = data.likedBy || [];
+            const isLiked = likedBy.includes(userId);
 
-    return !isLiked;
+            const newLikedBy = isLiked
+                ? likedBy.filter(id => id !== userId)
+                : [...likedBy, userId];
+
+            tx.update(entryRef, {
+                likedBy: newLikedBy,
+                likes: newLikedBy.length, // sayacı diziden türet → her zaman tutarlı
+            });
+
+            return { changed: true, nowLiked: !isLiked, authorId: data.authorId || "" };
+        });
+
+        // Beğeni EKLENDİYSE ve kendi entry'si değilse: yazarın toplam beğeni sayacını artır
+        if (result.nowLiked && result.authorId && result.authorId !== userId) {
+            try {
+                const authorRef = doc(db, "users", result.authorId);
+                await updateDoc(authorRef, { likesReceived: increment(1) });
+                await awardXP(result.authorId, "RECEIVE_LIKE");
+                // 10 beğeni eşiğinde "receivedLikes" görevini tetikle
+                const authorSnap = await getDoc(authorRef);
+                if ((authorSnap.data()?.likesReceived || 0) >= 10) {
+                    await markQuestComplete(result.authorId, "receivedLikes");
+                }
+            } catch (e) { console.warn("Like quest error:", e); }
+        }
+
+        return result.nowLiked;
+    } catch (e) {
+        console.error("Begeni hatasi:", e);
+        return false;
+    }
 }
 
 /** Tek araca oy verme (Karsilastirma icin) */
 export async function toggleVehicleVote(threadId: string, vehicleName: string, userId: string): Promise<boolean> {
     const threadRef = doc(db, "threads", threadId);
-    const snap = await getDoc(threadRef);
-    if (!snap.exists()) return false;
 
-    const currentVotes: Record<string, string[]> = snap.data().vehicleVotes || {};
-    
-    // Check if user already voted for this specific vehicle
-    const hasVotedForThis = currentVotes[vehicleName]?.includes(userId);
+    // ✅ Atomik transaction: eşzamanlı oylarda kayıp güncelleme (lost update) önlenir.
+    try {
+        return await runTransaction(db, async (tx) => {
+            const snap = await tx.get(threadRef);
+            if (!snap.exists()) return false;
 
-    // Remove user's vote from ALL vehicles to ensure single vote
-    const updatedVotes: Record<string, string[]> = {};
-    for (const [vName, voters] of Object.entries(currentVotes)) {
-        updatedVotes[vName] = (voters as string[]).filter(id => id !== userId);
+            const currentVotes: Record<string, string[]> = snap.data().vehicleVotes || {};
+
+            // Kullanıcı bu araca daha önce oy vermiş mi?
+            const hasVotedForThis = currentVotes[vehicleName]?.includes(userId);
+
+            // Tek oy garantisi: kullanıcının oyunu TÜM araçlardan kaldır
+            const updatedVotes: Record<string, string[]> = {};
+            for (const [vName, voters] of Object.entries(currentVotes)) {
+                updatedVotes[vName] = (voters as string[]).filter(id => id !== userId);
+            }
+
+            let isNowVoted = false;
+            if (!hasVotedForThis) {
+                if (!updatedVotes[vehicleName]) updatedVotes[vehicleName] = [];
+                updatedVotes[vehicleName].push(userId);
+                isNowVoted = true;
+            }
+
+            tx.update(threadRef, { vehicleVotes: updatedVotes });
+            return isNowVoted;
+        });
+    } catch (e) {
+        console.error("Error toggling vehicle vote:", e);
+        return false;
     }
-
-    let isNowVoted = false;
-    // If they didn't already vote for this vehicle, add their vote to this vehicle
-    if (!hasVotedForThis) {
-        if (!updatedVotes[vehicleName]) updatedVotes[vehicleName] = [];
-        updatedVotes[vehicleName].push(userId);
-        isNowVoted = true;
-    }
-
-    await updateDoc(threadRef, {
-        vehicleVotes: updatedVotes
-    });
-
-    return isNowVoted;
 }
 
 /** Goruntuleme sayisini artir */

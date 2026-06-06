@@ -2,18 +2,49 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-  
+
+    // ── Yardımcı fonksiyonlar ──────────────────────────────────────────────
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    function userRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+    function isAdmin() {
+      return isSignedIn() && userRole() == 'admin';
+    }
+    function isAdminOrMod() {
+      return isSignedIn() && userRole() in ['admin', 'moderator'];
+    }
+
     // Kullanıcılar
+    // ✅ GÜVENLİK: Kullanıcı kendi profilini düzenleyebilir ANCAK role/banned gibi
+    //    ayrıcalık alanlarını DEĞİŞTİREMEZ (privilege escalation engellendi).
+    //    Rol/ban değişikliği yalnızca admin/moderatör tarafından yapılabilir.
     match /users/{userId} {
       allow read: if true;
-      // Kendi profilini tamamen yazabilir
-      // Admin ve Moderatörler her kullanıcıyı güncelleyebilir, kendi profilini yazabilir
-      allow write: if request.auth != null && request.auth.uid == userId;
-      allow update: if request.auth != null && (
-        request.auth.uid == userId ||
-        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator'] ||
-        (request.auth.uid != userId && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['ratingTotalScore', 'ratingCount', 'ratingAverage']))
+
+      // Oluşturma: sadece kendi dokümanını, ayrıcalıksız bir rolle
+      allow create: if isSignedIn() && request.auth.uid == userId
+        && (!('role' in request.resource.data) || request.resource.data.role in ['caylak', 'standard'])
+        && (!('banned' in request.resource.data) || request.resource.data.banned == false);
+
+      // Güncelleme
+      allow update: if isSignedIn() && (
+        // Admin/moderatör her alanı güncelleyebilir
+        isAdminOrMod() ||
+        // Kullanıcı kendi profilini günceller AMA role/banned/rating alanlarına dokunamaz
+        (request.auth.uid == userId
+          && !request.resource.data.diff(resource.data).affectedKeys()
+              .hasAny(['role', 'banned', 'ratingTotalScore', 'ratingCount', 'ratingAverage'])) ||
+        // Başka kullanıcılar yalnızca puanlama alanlarını güncelleyebilir
+        (request.auth.uid != userId
+          && request.resource.data.diff(resource.data).affectedKeys()
+              .hasOnly(['ratingTotalScore', 'ratingCount', 'ratingAverage']))
       );
+
+      // Silme: yalnızca admin
+      allow delete: if isAdmin();
     }
                           
     // Konu Başlıkları (Threads) ve Altındaki Girdiler (Entries)
@@ -21,7 +52,9 @@ service cloud.firestore {
     //    içerik değişikliği ve silme sadece sahip veya admin/moderatör
     match /threads/{threadId} {
       allow read: if true;
-      allow create: if request.auth != null;
+      // Oluşturma: authorId istek sahibinin kendisi olmalı (kimlik sahteciliği önlenir)
+      allow create: if request.auth != null
+        && request.resource.data.authorId == request.auth.uid;
       allow update: if request.auth != null && (
         // Topluluk etkileşim alanları: görüntüleme, entry sayısı, oylar, kronik sorunlar
         request.resource.data.diff(resource.data).affectedKeys().hasOnly(
@@ -29,16 +62,18 @@ service cloud.firestore {
         ) ||
         // İçerik düzenleme: sadece yazar veya admin/moderatör
         resource.data.authorId == request.auth.uid ||
-        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator']
+        isAdminOrMod()
       );
       allow delete: if request.auth != null && (
         resource.data.authorId == request.auth.uid ||
-        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator']
+        isAdminOrMod()
       );
       
       match /entries/{entryId} {
         allow read: if true;
-        allow create: if request.auth != null;
+        // Oluşturma: authorId istek sahibinin kendisi olmalı
+        allow create: if request.auth != null
+          && request.resource.data.authorId == request.auth.uid;
         allow update: if request.auth != null && (
           // Beğeni alanları: herkes beğenebilir
           request.resource.data.diff(resource.data).affectedKeys().hasOnly(
@@ -46,11 +81,11 @@ service cloud.firestore {
           ) ||
           // İçerik düzenleme: sadece yazar veya admin/moderatör
           resource.data.authorId == request.auth.uid ||
-          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator']
+          isAdminOrMod()
         );
         allow delete: if request.auth != null && (
           resource.data.authorId == request.auth.uid ||
-          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator']
+          isAdminOrMod()
         );
       }
     }
@@ -76,107 +111,115 @@ service cloud.firestore {
     }
 
     // Bildirimler
-    // ✅ GÜVENLİK: Sadece kendi bildirimlerini okuyabilir/güncelleyebilir
+    // ✅ GÜVENLİK: Sadece kendi bildirimlerini okuyabilir/güncelleyebilir.
+    //    Oluştururken hedef userId, oluşturanın kendisi olmayabilir (başka birine
+    //    bildirim gönderme), ancak bildirim içeriği gönderenin kimliğiyle damgalanır.
     match /notifications/{notifId} {
       allow read: if request.auth != null
         && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null;
+      allow create: if request.auth != null && (
+        // Kendi kendine sistem bildirimi (başarı, seviye vb.)
+        request.resource.data.userId == request.auth.uid ||
+        // Başka kullanıcıya bildirim: gönderen kimliğiyle damgalanmalı
+        request.resource.data.fromUserId == request.auth.uid
+      );
+      // Güncelleme yalnızca okundu/işaretleme alanları için (içerik değiştirilemez)
       allow update: if request.auth != null
-        && resource.data.userId == request.auth.uid;
+        && resource.data.userId == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read', 'readAt', 'seen']);
       allow delete: if false;
     }
 
     // Anketler (Surveys)
-    // ✅ GÜVENLİK: Anket oluşturma/silme sadece admin, oy verme (update) üyeler
+    // ✅ GÜVENLİK: Anket oluşturma/silme sadece admin, oy verme (update) üyeler.
+    //    Oy verme sırasında sadece oy alanları değiştirilebilir.
     match /surveys/{surveyId} {
       allow read: if true;
-      allow create, delete: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin'];
-      allow update: if request.auth != null;
+      allow create, delete: if isAdmin();
+      allow update: if request.auth != null && (
+        isAdmin() ||
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(
+          ['nominees', 'totalVotes', 'voters']
+        )
+      );
     }
 
     // Karşılaştırmalar (Comparisons)
     // ✅ GÜVENLİK: Yazma sadece admin
     match /comparisons/{compId} {
       allow read: if true;
-      allow write: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin'];
+      allow write: if isAdmin();
     }
 
     // Araç DNA Kronik Sorunlar & Oylar
+    // ✅ GÜVENLİK: Giriş yapmış kullanıcılar oy/sorun ekleyebilir, silme sadece admin
     match /vehicle_chronic_issues/{vehicleId} {
       allow read: if true;
       allow write: if request.auth != null;
+      allow delete: if isAdmin();
     }
 
     // DNA Kronik Sorun Bildirimleri (Admin Onay Kuyruğu)
     // ✅ GÜVENLİK: Okuma/güncelleme/silme sadece admin
     match /dna_chronic_reports/{reportId} {
-      allow read: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator'];
+      allow read: if isAdminOrMod();
       allow create: if request.auth != null;
-      allow update, delete: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator'];
+      allow update, delete: if isAdminOrMod();
     }
 
     // Kullanıcı Puanları
-    // ✅ GÜVENLİK: Herkes okuyabilir (profilde gösterilir), oluşturma üyeler, güncelleme yok
+    // ✅ GÜVENLİK: Oluştururken raterId istek sahibinin kendisi olmalı (sahtecilik önlenir)
     match /userRatings/{ratingId} {
       allow read: if request.auth != null;
-      allow create: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.raterId == request.auth.uid;
       allow update: if request.auth != null
         && resource.data.raterId == request.auth.uid;
       allow delete: if false;
     }
 
     // Raporlar / Şikayetler
-    // ✅ GÜVENLİK: Oluşturma herkes, okuma/güncelleme sadece admin
+    // ✅ GÜVENLİK: Oluşturma herkes, okuma/güncelleme sadece admin/moderatör
     match /reports/{reportId} {
       allow create: if request.auth != null;
-      allow read, update: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator'];
+      allow read, update: if isAdminOrMod();
       allow delete: if false;
     }
 
     // Admin Logları
     // ✅ GÜVENLİK: Sadece admin okuyup yazabilir
     match /admin_logs/{logId} {
-      allow read, write: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin'];
+      allow read, write: if isAdmin();
     }
 
     // Sözlük
     // ✅ GÜVENLİK: Yazma sadece admin/moderatör
     match /dictionary/{termId} {
       allow read: if true;
-      allow write: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator'];
+      allow write: if isAdminOrMod();
     }
 
     // Reklamlar
     // ✅ GÜVENLİK: Yazma sadece admin
     match /advertisements/{adId} {
       allow read: if true;
-      allow write: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin'];
+      allow write: if isAdmin();
     }
 
     // İşletme Başvuruları
-    // ✅ GÜVENLİK: Onaylama/silme sadece admin
+    // ✅ GÜVENLİK: Onaylama/silme sadece admin/moderatör
     match /businesses/{businessId} {
       allow read: if true;
       allow create: if request.auth != null;
-      allow update, delete: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator'];
+      allow update, delete: if isAdminOrMod();
     }
 
     // Etkinlik Önerileri
-    // ✅ GÜVENLİK: Onaylama/silme sadece admin
+    // ✅ GÜVENLİK: Onaylama/silme sadece admin/moderatör
     match /pending_events/{eventId} {
       allow read: if true;
       allow create: if request.auth != null;
-      allow update, delete: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator'];
+      allow update, delete: if isAdminOrMod();
     }
 
     // Kullanıcı Görevleri (Quests)
@@ -192,12 +235,53 @@ service cloud.firestore {
     }
 
     // GüvenMetre Değerlendirmeleri
-    // ✅ GÜVENLİK: Güncelleme/silme sadece admin
+    // ✅ GÜVENLİK: Güncelleme/silme sadece admin/moderatör
     match /guvenmetre_reviews/{reviewId} {
       allow read: if true;
-      allow create: if request.auth != null;
-      allow update, delete: if request.auth != null
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'moderator'];
+      allow create: if request.auth != null
+        && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAdminOrMod();
+    }
+
+    // Kelime Filtresi
+    // ✅ Okuma herkese açık (içerik filtresi istemcide de uygulanır),
+    //    yazma yalnızca admin/moderatör. (Asıl yazma Admin SDK ile yapılır.)
+    match /bad_words/{wordId} {
+      allow read: if true;
+      allow write: if isAdminOrMod();
+    }
+
+    // Sistem Ayarları
+    // ✅ Okuma herkese açık (özellik bayrakları), yazma sadece admin.
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Rozetler (tanımlar)
+    // ✅ Okuma herkese açık, yazma sadece admin/moderatör.
+    match /badges/{badgeId} {
+      allow read: if true;
+      allow write: if isAdminOrMod();
+    }
+
+    // Toplu Mesaj / Yayın kayıtları
+    // ✅ Yalnızca admin erişebilir (asıl yazma Admin SDK ile).
+    match /broadcasts/{bcId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Uzman Başvuruları
+    // ✅ GÜVENLİK: Kullanıcı kendi başvurusunu oluşturur ve okur (status'u kendi
+    //    değiştiremez). Onay/red yalnızca admin/moderatör (Admin SDK ile).
+    match /expert_applications/{appId} {
+      allow read: if request.auth != null && (
+        resource.data.userId == request.auth.uid || isAdminOrMod()
+      );
+      allow create: if request.auth != null
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.status == 'bekliyor';
+      allow update, delete: if isAdminOrMod();
     }
 
   }

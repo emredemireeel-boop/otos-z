@@ -101,6 +101,24 @@ export function validateEmail(email: string): boolean {
     return emailRegex.test(email) && email.length <= 254;
 }
 
+// ── Sifre gucu dogrulama ──
+// En az 8 karakter, en az bir harf ve bir rakam icermeli.
+export function validatePassword(password: string): { valid: boolean; error?: string } {
+    if (!password || password.length < 8) {
+        return { valid: false, error: 'Şifre en az 8 karakter olmalıdır.' };
+    }
+    if (password.length > 128) {
+        return { valid: false, error: 'Şifre en fazla 128 karakter olabilir.' };
+    }
+    if (!/[A-Za-zçğıöşüÇĞİÖŞÜ]/.test(password)) {
+        return { valid: false, error: 'Şifre en az bir harf içermelidir.' };
+    }
+    if (!/[0-9]/.test(password)) {
+        return { valid: false, error: 'Şifre en az bir rakam içermelidir.' };
+    }
+    return { valid: true };
+}
+
 // ── Tag'leri dogrula ve temizle ──
 export function validateTags(tags: string[]): string[] {
     return tags

@@ -5,6 +5,11 @@ import { getLeaderboard, LeaderboardEntry, getLevelForXP } from "@/lib/xpService
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
 import Image from "next/image";
+import { Sprout, Car, Heart, Wrench, Star, Award, Crown, Sparkles } from "lucide-react";
+
+const LEVEL_ICON_MAP: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
+    Sprout, Car, Heart, Wrench, Star, Award, Crown, Sparkles,
+};
 
 export default function Leaderboard() {
     const [timeframe, setTimeframe] = useState<'weekly' | 'monthly' | 'alltime'>('weekly');
@@ -26,7 +31,7 @@ export default function Leaderboard() {
 
     return (
         <div className="leaderboard-card">
-            <h3 className="leaderboard-title">Liderlik Tablosu 🏆</h3>
+            <h3 className="leaderboard-title">Liderlik Tablosu</h3>
             
             <div className="timeframe-tabs">
                 <button 
@@ -61,6 +66,7 @@ export default function Leaderboard() {
                 ) : (
                     entries.map((entry) => {
                         const levelInfo = getLevelForXP(entry.xp);
+                        const LevelIcon = LEVEL_ICON_MAP[levelInfo.icon] || Sprout;
                         const isTop1 = entry.rank === 1;
                         const isTop2 = entry.rank === 2;
                         const isTop3 = entry.rank === 3;
@@ -68,7 +74,7 @@ export default function Leaderboard() {
                         return (
                             <div key={entry.id} className={`entry-row ${entry.id === user?.id ? 'is-me' : ''} rank-${entry.rank}`}>
                                 <div className="rank">
-                                    {isTop1 ? '👑' : entry.rank}
+                                    {isTop1 ? <Crown size={16} color="#ffd700" /> : entry.rank}
                                 </div>
                                 <div className="avatar">
                                     {entry.photoURL ? (
@@ -79,8 +85,8 @@ export default function Leaderboard() {
                                 </div>
                                 <div className="user-info">
                                     <div className="username">{entry.username}</div>
-                                    <div className="level-badge" style={{color: levelInfo.color}}>
-                                        {levelInfo.icon} {levelInfo.name}
+                                    <div className="level-badge" style={{color: levelInfo.color, display: 'inline-flex', alignItems: 'center', gap: '5px'}}>
+                                        <LevelIcon size={13} color={levelInfo.color} /> {levelInfo.name}
                                     </div>
                                 </div>
                                 <div className="xp-score">{entry.xp} XP</div>

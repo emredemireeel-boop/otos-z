@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
     Settings, Shield, Globe, Database, Save, CheckCircle,
     RefreshCcw, Bell, Eye, Lock, Users, Zap, AlertTriangle,
     ToggleLeft, ToggleRight, Server, Mail, MessageSquare,
     Palette, Code, Key, Trash2, Upload, Download, ChevronRight
 } from "lucide-react";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 //  Tipler 
 interface Toggle {
@@ -74,7 +75,6 @@ const INITIAL_TOGGLES: Record<string, Toggle[]> = {
     gelisim: [
         { id: "d1", title: "Debug Modu", description: "Hata ayıklama logları konsola ve admin paneline yazar.", active: false, danger: true },
         { id: "d2", title: "API Sandbox Modu", description: "Ödeme ve SMS entegrasyonları test modunda çalışır.", active: true },
-        { id: "d3", title: "Mock Data (Demo)", description: "Gerçek DB yerine sahte veri kaynakları kullanılır.", active: true },
         { id: "d4", title: "Error Tracking (Sentry)", description: "Üretim hataları Sentry'ye raporlanır.", active: false },
     ],
 };
@@ -98,6 +98,32 @@ export default function AdminAyarlarPage() {
     const [toast, setToast] = useState<{ msg: string; type?: string } | null>(null);
     const [saving, setSaving] = useState(false);
 
+    // Kayıtlı ayarları Firestore'dan yükle
+    useEffect(() => {
+        (async () => {
+            try {
+                const res = await adminGet("settings");
+                if (res.success && res.settings) {
+                    if (res.settings.config) setConfig(c => ({ ...c, ...res.settings.config }));
+                    if (res.settings.toggles) {
+                        setToggles(prev => {
+                            const merged: typeof prev = { ...prev };
+                            for (const sec of Object.keys(merged)) {
+                                merged[sec] = merged[sec].map(t => ({
+                                    ...t,
+                                    active: res.settings.toggles?.[t.id] ?? t.active,
+                                }));
+                            }
+                            return merged;
+                        });
+                    }
+                }
+            } catch (e) {
+                console.error("Ayarlar yüklenemedi:", e);
+            }
+        })();
+    }, []);
+
     const showToast = (msg: string, type = "success") => {
         setToast({ msg, type });
         setTimeout(() => setToast(null), 3000);
@@ -112,16 +138,28 @@ export default function AdminAyarlarPage() {
 
     const handleSave = async () => {
         setSaving(true);
-        await new Promise(r => setTimeout(r, 800));
-        setSaving(false);
-        showToast("✓ Tüm ayarlar başarıyla güncellendi!");
+        try {
+            // Tüm toggle'ları düz bir { id: bool } haritasına çevir
+            const toggleMap: Record<string, boolean> = {};
+            Object.values(toggles).forEach(arr => arr.forEach(t => { toggleMap[t.id] = t.active; }));
+            const res = await adminPost({
+                action: "save_settings",
+                detail: JSON.stringify({ config, toggles: toggleMap }),
+            });
+            if (res.success) showToast("✓ Tüm ayarlar başarıyla kaydedildi!");
+            else showToast(res.message || "Kaydedilemedi.", "error");
+        } catch {
+            showToast("Kaydedilemedi.", "error");
+        } finally {
+            setSaving(false);
+        }
     };
 
     const handleClearCache = async () => {
         setSaving(true);
         await new Promise(r => setTimeout(r, 600));
         setSaving(false);
-        showToast(" Önbellek (Cache) temizlendi!");
+        showToast("Önbellek (Cache) temizlendi!");
     };
 
     const curToggles = toggles[activeSection] || [];

@@ -65,23 +65,6 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
                                 Ana Sayfaya Don
                             </button>
                         </Link>
-                        {process.env.NODE_ENV === "development" && (
-                            <button 
-                                onClick={async () => {
-                                    try {
-                                        const { doc, updateDoc } = await import("firebase/firestore");
-                                        const { db } = await import("@/lib/firebase");
-                                        await updateDoc(doc(db, "users", user.id.toString()), { role: "admin", level: "Yönetici" });
-                                        window.location.reload();
-                                    } catch (e) {
-                                        alert("Hata: " + e);
-                                    }
-                                }}
-                                style={{ padding: '14px 32px', background: 'transparent', color: '#EF4444', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '12px', fontSize: '14px', fontWeight: '600', cursor: 'pointer', width: '100%' }}
-                            >
-                                [Geliştirici] Hesabımı Admin Yap
-                            </button>
-                        )}
                     </div>
                 </div>
             </div>

@@ -7,12 +7,15 @@ import {
     Bell, Lock, Globe, Trash2, ArrowRight, Moon, Sun, Award,
     MessageSquare, Store, BarChart3, Dna, ClipboardCheck, Shield,
     CheckCircle, ExternalLink, Loader2, MapPin, Phone, Building2, Plus, X,
-    Briefcase, ShieldCheck, Sparkles
+    Briefcase, ShieldCheck, Sparkles, PlusCircle, ThumbsUp, UserCheck, Flame,
+    AlertTriangle, KeyRound
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
 import { getQuestProgress, QUEST_DEFINITIONS, type QuestProgress } from "@/lib/questService";
 import { addBusiness, BUSINESS_TYPES, type BusinessType } from "@/lib/businessService";
+import { auth } from "@/lib/firebase";
+import { updatePassword as fbUpdatePassword, EmailAuthProvider, reauthenticateWithCredential } from "firebase/auth";
 
 const QUEST_ICONS: Record<string, React.ReactNode> = {
     MessageSquare: <MessageSquare size={20} />,
@@ -21,6 +24,10 @@ const QUEST_ICONS: Record<string, React.ReactNode> = {
     Dna: <Dna size={20} />,
     ClipboardCheck: <ClipboardCheck size={20} />,
     Shield: <Shield size={20} />,
+    PlusCircle: <PlusCircle size={20} />,
+    ThumbsUp: <ThumbsUp size={20} />,
+    UserCheck: <UserCheck size={20} />,
+    Flame: <Flame size={20} />,
 };
 
 export default function SettingsPage() {
@@ -35,6 +42,37 @@ export default function SettingsPage() {
         pushNotifications: true,
         messageNotifications: true,
     });
+    const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
+    const showToast = (msg: string, type: "success" | "error" = "success") => {
+        setToast({ msg, type });
+        setTimeout(() => setToast(null), 3500);
+    };
+
+    // Şifre değiştirme state
+    const [currentPw, setCurrentPw] = useState("");
+    const [newPw, setNewPw] = useState("");
+    const [pwSaving, setPwSaving] = useState(false);
+
+    const handlePasswordChange = async () => {
+        if (!currentPw || !newPw) { showToast("Tüm alanları doldurun.", "error"); return; }
+        if (newPw.length < 8) { showToast("Yeni şifre en az 8 karakter olmalı.", "error"); return; }
+        if (!auth.currentUser?.email) { showToast("Oturum bulunamadı.", "error"); return; }
+        setPwSaving(true);
+        try {
+            const cred = EmailAuthProvider.credential(auth.currentUser.email, currentPw);
+            await reauthenticateWithCredential(auth.currentUser, cred);
+            await fbUpdatePassword(auth.currentUser, newPw);
+            setCurrentPw(""); setNewPw("");
+            showToast("Şifreniz başarıyla güncellendi.");
+        } catch (e: any) {
+            const code = e?.code || "";
+            if (code === "auth/wrong-password" || code === "auth/invalid-credential") showToast("Mevcut şifre hatalı.", "error");
+            else if (code === "auth/weak-password") showToast("Yeni şifre çok zayıf.", "error");
+            else showToast("Şifre değiştirilemedi.", "error");
+        } finally {
+            setPwSaving(false);
+        }
+    };
 
     // Quest state
     const [questProgress, setQuestProgress] = useState<QuestProgress | null>(null);
@@ -88,15 +126,16 @@ export default function SettingsPage() {
             paddingTop: '60px',
         }}>
             <div style={{
-                maxWidth: '1000px',
+                maxWidth: '1040px',
                 margin: '0 auto',
-                padding: '40px 20px',
+                padding: '40px 20px 60px',
             }}>
                 <h1 style={{
-                    fontSize: '28px',
+                    fontSize: '30px',
                     fontWeight: '800',
                     color: 'var(--foreground)',
-                    marginBottom: '8px',
+                    marginBottom: '6px',
+                    letterSpacing: '-0.5px',
                 }}>Ayarlar</h1>
                 <p style={{
                     fontSize: '14px',
@@ -104,45 +143,51 @@ export default function SettingsPage() {
                     marginBottom: '32px',
                 }}>Hesap ayarlarınızı ve tercihlerinizi yönetin</p>
 
-                <div style={{
+                <div className="settings-grid" style={{
                     display: 'grid',
-                    gridTemplateColumns: '250px 1fr',
-                    gap: '32px',
+                    gridTemplateColumns: '240px 1fr',
+                    gap: '28px',
+                    alignItems: 'start',
                 }}>
                     {/* Tabs */}
-                    <div style={{
+                    <div className="settings-sidebar" style={{
                         background: 'var(--card-bg)',
                         border: '1px solid var(--card-border)',
-                        borderRadius: '12px',
-                        padding: '12px',
+                        borderRadius: '16px',
+                        padding: '10px',
                         height: 'fit-content',
+                        position: 'sticky',
+                        top: '80px',
                     }}>
                         {tabs.map((tab) => {
                             const Icon = tab.icon;
+                            const active = activeTab === tab.id;
                             return (
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
                                     style={{
                                         width: '100%',
-                                        padding: '12px 16px',
+                                        padding: '11px 14px',
                                         display: 'flex',
                                         alignItems: 'center',
                                         gap: '12px',
-                                        background: activeTab === tab.id ? 'rgba(59, 130, 246, 0.15)' : 'transparent',
+                                        background: active ? 'var(--secondary)' : 'transparent',
                                         border: 'none',
-                                        borderRadius: '8px',
-                                        color: activeTab === tab.id ? '#3B82F6' : 'var(--foreground)',
+                                        borderRadius: '10px',
+                                        color: active ? 'var(--foreground)' : 'var(--text-muted)',
                                         fontSize: '14px',
-                                        fontWeight: '600',
+                                        fontWeight: active ? '700' : '500',
                                         cursor: 'pointer',
-                                        transition: 'all 0.2s',
-                                        marginBottom: '4px',
+                                        transition: 'all 0.15s',
+                                        marginBottom: '2px',
+                                        position: 'relative',
                                     }}
-                                    onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(59, 130, 246, 0.15)'}
-                                    onMouseLeave={(e) => e.currentTarget.style.background = activeTab === tab.id ? 'rgba(59, 130, 246, 0.15)' : 'transparent'}
+                                    onMouseEnter={(e) => { if (!active) e.currentTarget.style.background = 'var(--secondary)'; }}
+                                    onMouseLeave={(e) => { if (!active) e.currentTarget.style.background = 'transparent'; }}
                                 >
-                                    <Icon size={18} />
+                                    {active && <span style={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', width: '3px', height: '20px', borderRadius: '0 3px 3px 0', background: 'var(--primary)' }} />}
+                                    <Icon size={18} style={{ color: active ? 'var(--primary)' : 'var(--text-muted)' }} />
                                     {tab.name}
                                 </button>
                             );
@@ -150,11 +195,12 @@ export default function SettingsPage() {
                     </div>
 
                     {/* Content */}
-                    <div style={{
+                    <div className="settings-content" style={{
                         background: 'var(--card-bg)',
                         border: '1px solid var(--card-border)',
-                        borderRadius: '12px',
+                        borderRadius: '16px',
                         padding: '32px',
+                        minHeight: '400px',
                     }}>
                         {activeTab === "notifications" && (
                             <div>
@@ -162,96 +208,48 @@ export default function SettingsPage() {
                                     fontSize: '20px',
                                     fontWeight: '700',
                                     color: 'var(--foreground)',
-                                    marginBottom: '24px',
+                                    marginBottom: '6px',
                                 }}>Bildirim Tercihleri</h2>
+                                <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '24px' }}>Hangi durumlarda bildirim almak istediğinizi seçin.</p>
 
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                                    <label style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                        padding: '16px',
-                                        background: 'var(--secondary)',
-                                        borderRadius: '8px',
-                                        cursor: 'pointer',
-                                    }}>
-                                        <div>
-                                            <div style={{
-                                                fontSize: '14px',
-                                                fontWeight: '600',
-                                                color: 'var(--foreground)',
-                                                marginBottom: '4px',
-                                            }}>E-posta Bildirimleri</div>
-                                            <div style={{
-                                                fontSize: '12px',
-                                                color: 'var(--text-muted)',
-                                            }}>Önemli güncellemeler için e-posta alın</div>
-                                        </div>
-                                        <input
-                                            type="checkbox"
-                                            checked={settings.emailNotifications}
-                                            onChange={(e) => setSettings({ ...settings, emailNotifications: e.target.checked })}
-                                            style={{ width: '20px', height: '20px', cursor: 'pointer' }}
-                                        />
-                                    </label>
-
-                                    <label style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                        padding: '16px',
-                                        background: 'var(--secondary)',
-                                        borderRadius: '8px',
-                                        cursor: 'pointer',
-                                    }}>
-                                        <div>
-                                            <div style={{
-                                                fontSize: '14px',
-                                                fontWeight: '600',
-                                                color: 'var(--foreground)',
-                                                marginBottom: '4px',
-                                            }}>Push Bildirimleri</div>
-                                            <div style={{
-                                                fontSize: '12px',
-                                                color: 'var(--text-muted)',
-                                            }}>Tarayıcı üzerinden bildirim alın</div>
-                                        </div>
-                                        <input
-                                            type="checkbox"
-                                            checked={settings.pushNotifications}
-                                            onChange={(e) => setSettings({ ...settings, pushNotifications: e.target.checked })}
-                                            style={{ width: '20px', height: '20px', cursor: 'pointer' }}
-                                        />
-                                    </label>
-
-                                    <label style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                        padding: '16px',
-                                        background: 'var(--secondary)',
-                                        borderRadius: '8px',
-                                        cursor: 'pointer',
-                                    }}>
-                                        <div>
-                                            <div style={{
-                                                fontSize: '14px',
-                                                fontWeight: '600',
-                                                color: 'var(--foreground)',
-                                                marginBottom: '4px',
-                                            }}>Mesaj Bildirimleri</div>
-                                            <div style={{
-                                                fontSize: '12px',
-                                                color: 'var(--text-muted)',
-                                            }}>Yeni mesajlar için bildirim alın</div>
-                                        </div>
-                                        <input
-                                            type="checkbox"
-                                            checked={settings.messageNotifications}
-                                            onChange={(e) => setSettings({ ...settings, messageNotifications: e.target.checked })}
-                                            style={{ width: '20px', height: '20px', cursor: 'pointer' }}
-                                        />
-                                    </label>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    {([
+                                        { key: 'emailNotifications', icon: Bell, title: 'E-posta Bildirimleri', desc: 'Önemli güncellemeler için e-posta alın' },
+                                        { key: 'pushNotifications', icon: Globe, title: 'Push Bildirimleri', desc: 'Tarayıcı üzerinden anlık bildirim alın' },
+                                        { key: 'messageNotifications', icon: MessageSquare, title: 'Mesaj Bildirimleri', desc: 'Yeni mesajlar için bildirim alın' },
+                                    ] as const).map(item => {
+                                        const Icon = item.icon;
+                                        const checked = settings[item.key];
+                                        return (
+                                            <div key={item.key} onClick={() => setSettings({ ...settings, [item.key]: !checked })} style={{
+                                                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px',
+                                                padding: '16px 18px', background: 'var(--secondary)', borderRadius: '12px',
+                                                cursor: 'pointer', border: '1px solid transparent', transition: 'border-color 0.15s',
+                                            }}>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                                                    <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'var(--card-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', flexShrink: 0 }}>
+                                                        <Icon size={18} />
+                                                    </div>
+                                                    <div>
+                                                        <div style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '2px' }}>{item.title}</div>
+                                                        <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{item.desc}</div>
+                                                    </div>
+                                                </div>
+                                                <div style={{
+                                                    width: '44px', height: '26px', borderRadius: '13px', flexShrink: 0,
+                                                    background: checked ? 'var(--primary)' : 'var(--card-border)',
+                                                    padding: '3px', display: 'flex', transition: 'background 0.2s',
+                                                }}>
+                                                    <div style={{
+                                                        width: '20px', height: '20px', borderRadius: '50%', background: 'white',
+                                                        transform: checked ? 'translateX(18px)' : 'translateX(0)',
+                                                        transition: 'transform 0.2s cubic-bezier(0.34,1.56,0.64,1)',
+                                                        boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+                                                    }} />
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}
@@ -280,8 +278,10 @@ export default function SettingsPage() {
                                     </div>
                                 ) : isUsta && !questProgress ? (
                                     <div style={{ textAlign: 'center', padding: '40px', background: 'rgba(139,92,246,0.06)', borderRadius: '16px', border: '1px solid rgba(139,92,246,0.2)' }}>
-                                        <div style={{ fontSize: '48px', marginBottom: '12px' }}>🏆</div>
-                                        <h3 style={{ fontSize: '20px', fontWeight: '700', color: '#8B5CF6', marginBottom: '8px' }}>Zaten Usta Statüsündesiniz!</h3>
+                                        <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(139,92,246,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                                            <Award size={28} color="#8B5CF6" />
+                                        </div>
+                                        <h3 style={{ fontSize: '20px', fontWeight: '700', color: '#8B5CF6', marginBottom: '8px' }}>Zaten Usta Statüsündesiniz</h3>
                                         <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Tüm forum özelliklerini kullanabilirsiniz.</p>
                                     </div>
                                 ) : (
@@ -290,10 +290,10 @@ export default function SettingsPage() {
                                         <div style={{ marginBottom: '24px', background: 'var(--secondary)', borderRadius: '12px', padding: '16px' }}>
                                             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
                                                 <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>İlerleme</span>
-                                                <span style={{ fontSize: '13px', fontWeight: '800', color: 'var(--primary)' }}>{questProgress?.completedCount || 0}/6</span>
+                                                <span style={{ fontSize: '13px', fontWeight: '800', color: 'var(--primary)' }}>{questProgress?.completedCount || 0}/{questProgress?.totalQuests || 10}</span>
                                             </div>
                                             <div style={{ height: '8px', borderRadius: '4px', background: 'rgba(255,255,255,0.1)', overflow: 'hidden' }}>
-                                                <div style={{ height: '100%', borderRadius: '4px', background: 'linear-gradient(90deg, var(--primary), #8B5CF6)', width: `${((questProgress?.completedCount || 0) / 6) * 100}%`, transition: 'width 0.5s ease' }} />
+                                                <div style={{ height: '100%', borderRadius: '4px', background: 'linear-gradient(90deg, var(--primary), #8B5CF6)', width: `${((questProgress?.completedCount || 0) / (questProgress?.totalQuests || 10)) * 100}%`, transition: 'width 0.5s ease' }} />
                                             </div>
                                         </div>
 
@@ -392,7 +392,7 @@ export default function SettingsPage() {
                                         {/* Info Box */}
                                         <div style={{ padding: '14px 16px', background: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: '10px', fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.6 }}>
                                             <strong style={{ color: 'var(--foreground)' }}>Nasıl çalışır?</strong><br />
-                                            6 görevi tamamlayın ve otomatik olarak Usta statüsüne yükselin. Usta olunca tüm forum özelliklerine erişebilirsiniz.
+                                            Tüm görevleri tamamlayın ve otomatik olarak Usta statüsüne yükselin. Usta olunca başlık açma dahil tüm forum özelliklerine erişebilirsiniz.
                                         </div>
                                     </>
                                 )}
@@ -463,153 +463,55 @@ export default function SettingsPage() {
 
                         {activeTab === "account" && (
                             <div>
-                                <h2 style={{
-                                    fontSize: '20px',
-                                    fontWeight: '700',
-                                    color: 'var(--foreground)',
-                                    marginBottom: '24px',
-                                }}>Hesap Ayarları</h2>
+                                <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px' }}>Hesap Ayarları</h2>
+                                <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '28px' }}>Güvenlik ve hesap bilgilerinizi yönetin.</p>
 
-                                <div style={{ marginBottom: '32px' }}>
-                                    <h3 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '16px' }}>Harici İlan Profilleri</h3>
-                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px' }}>Profilinizde gösterilecek mağaza veya ilan sayfası linklerinizi buraya ekleyebilirsiniz.</p>
-
-                                    <div style={{ marginBottom: '16px' }}>
-                                        <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>Sahibinden.com Mağaza / İlan Linki</label>
-                                        <input
-                                            type="url"
-                                            placeholder="https://ikinciel.sahibinden.com/..."
-                                            style={{
-                                                width: '100%', padding: '12px 16px', background: 'var(--secondary)',
-                                                border: '1px solid var(--card-border)', borderRadius: '8px',
-                                                color: 'var(--foreground)', fontSize: '14px',
-                                            }}
-                                        />
-                                    </div>
-                                    <div style={{ marginBottom: '16px' }}>
-                                        <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>Arabam.com Mağaza / İlan Linki</label>
-                                        <input
-                                            type="url"
-                                            placeholder="https://www.arabam.com/galeri/..."
-                                            style={{
-                                                width: '100%', padding: '12px 16px', background: 'var(--secondary)',
-                                                border: '1px solid var(--card-border)', borderRadius: '8px',
-                                                color: 'var(--foreground)', fontSize: '14px',
-                                            }}
-                                        />
-                                    </div>
-                                    <button style={{
-                                        padding: '10px 20px', background: 'var(--foreground)', border: 'none',
-                                        borderRadius: '8px', color: 'var(--background)', fontSize: '13px',
-                                        fontWeight: '600', cursor: 'pointer',
-                                    }}>
-                                        Linkleri Kaydet
-                                    </button>
-                                </div>
-
-                                <div style={{ marginBottom: '32px' }}>
-                                    <h3 style={{
-                                        fontSize: '16px',
-                                        fontWeight: '600',
-                                        color: 'var(--foreground)',
-                                        marginBottom: '16px',
-                                    }}>Şifre Değiştir</h3>
-
-                                    <div style={{ marginBottom: '16px' }}>
-                                        <label style={{
-                                            display: 'block',
-                                            fontSize: '13px',
-                                            fontWeight: '600',
-                                            color: 'var(--foreground)',
-                                            marginBottom: '8px',
-                                        }}>Mevcut Şifre</label>
-                                        <input
-                                            type="password"
-                                            style={{
-                                                width: '100%',
-                                                padding: '12px 16px',
-                                                background: 'var(--secondary)',
-                                                border: '1px solid var(--card-border)',
-                                                borderRadius: '8px',
-                                                color: 'var(--foreground)',
-                                                fontSize: '14px',
-                                            }}
-                                        />
-                                    </div>
-
-                                    <div style={{ marginBottom: '16px' }}>
-                                        <label style={{
-                                            display: 'block',
-                                            fontSize: '13px',
-                                            fontWeight: '600',
-                                            color: 'var(--foreground)',
-                                            marginBottom: '8px',
-                                        }}>Yeni Şifre</label>
-                                        <input
-                                            type="password"
-                                            style={{
-                                                width: '100%',
-                                                padding: '12px 16px',
-                                                background: 'var(--secondary)',
-                                                border: '1px solid var(--card-border)',
-                                                borderRadius: '8px',
-                                                color: 'var(--foreground)',
-                                                fontSize: '14px',
-                                            }}
-                                        />
-                                    </div>
-
-                                    <button style={{
-                                        padding: '10px 20px',
-                                        background: 'var(--primary)',
-                                        border: 'none',
-                                        borderRadius: '8px',
-                                        color: 'white',
-                                        fontSize: '13px',
-                                        fontWeight: '600',
-                                        cursor: 'pointer',
-                                    }}>
-                                        Şifreyi Güncelle
-                                    </button>
-                                </div>
-
-                                <div style={{
-                                    padding: '24px',
-                                    background: 'rgba(255, 68, 68, 0.1)',
-                                    border: '1px solid rgba(255, 68, 68, 0.3)',
-                                    borderRadius: '12px',
-                                }}>
-                                    <h3 style={{
-                                        fontSize: '16px',
-                                        fontWeight: '600',
-                                        color: '#ff4444',
-                                        marginBottom: '8px',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '8px',
-                                    }}>
-                                        <Trash2 size={18} />
-                                        Tehlikeli Bölge
+                                {/* Şifre Değiştir */}
+                                <div style={{ marginBottom: '28px', padding: '24px', background: 'var(--secondary)', borderRadius: '14px', border: '1px solid var(--card-border)' }}>
+                                    <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <KeyRound size={17} color="var(--text-muted)" /> Şifre Değiştir
                                     </h3>
-                                    <p style={{
-                                        fontSize: '13px',
-                                        color: 'var(--text-muted)',
-                                        marginBottom: '16px',
-                                    }}>
+                                    <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '18px' }}>Güvenliğiniz için güçlü bir şifre seçin (en az 8 karakter).</p>
+
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '380px' }}>
+                                        <div>
+                                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '6px' }}>Mevcut Şifre</label>
+                                            <input type="password" value={currentPw} onChange={e => setCurrentPw(e.target.value)} placeholder="••••••••"
+                                                style={{ width: '100%', padding: '11px 14px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }} />
+                                        </div>
+                                        <div>
+                                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '6px' }}>Yeni Şifre</label>
+                                            <input type="password" value={newPw} onChange={e => setNewPw(e.target.value)} placeholder="En az 8 karakter"
+                                                style={{ width: '100%', padding: '11px 14px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }} />
+                                        </div>
+                                        <button onClick={handlePasswordChange} disabled={pwSaving} style={{
+                                            padding: '11px 22px', background: 'var(--primary)', border: 'none', borderRadius: '10px',
+                                            color: 'white', fontSize: '13px', fontWeight: '700', cursor: 'pointer', alignSelf: 'flex-start',
+                                            display: 'inline-flex', alignItems: 'center', gap: '8px', opacity: pwSaving ? 0.7 : 1,
+                                        }}>
+                                            {pwSaving ? <><Loader2 size={15} style={{ animation: 'spin 0.8s linear infinite' }} /> Güncelleniyor...</> : 'Şifreyi Güncelle'}
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Tehlikeli Bölge */}
+                                <div style={{ padding: '24px', background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: '14px' }}>
+                                    <h3 style={{ fontSize: '15px', fontWeight: '700', color: '#EF4444', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <AlertTriangle size={17} /> Tehlikeli Bölge
+                                    </h3>
+                                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: 1.6 }}>
                                         Hesabınızı silmek tüm verilerinizin kalıcı olarak silinmesine neden olur. Bu işlem geri alınamaz.
+                                        Hesap silme talebi için lütfen <strong style={{ color: 'var(--foreground)' }}>iletisim@otosoz.com</strong> adresine yazın.
                                     </p>
-                                    <button style={{
-                                        padding: '10px 20px',
-                                        background: 'transparent',
-                                        border: '1px solid #ff4444',
-                                        borderRadius: '8px',
-                                        color: '#ff4444',
-                                        fontSize: '13px',
-                                        fontWeight: '600',
-                                        cursor: 'pointer',
-                                    }}>
-                                        Hesabı Sil
-                                    </button>
+                                    <a href="mailto:iletisim@otosoz.com?subject=Hesap%20Silme%20Talebi" style={{ textDecoration: 'none' }}>
+                                        <button style={{
+                                            padding: '10px 20px', background: 'transparent', border: '1px solid #EF4444',
+                                            borderRadius: '10px', color: '#EF4444', fontSize: '13px', fontWeight: '700', cursor: 'pointer',
+                                            display: 'inline-flex', alignItems: 'center', gap: '8px',
+                                        }}>
+                                            <Trash2 size={15} /> Hesap Silme Talebi Gönder
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         )}
@@ -755,6 +657,31 @@ export default function SettingsPage() {
                     </div>
                 </div>
             </div>
+
+            {/* Toast */}
+            {toast && (
+                <div style={{
+                    position: 'fixed', bottom: '32px', right: '32px', zIndex: 9999,
+                    background: toast.type === 'error' ? '#EF4444' : '#10B981', color: 'white',
+                    padding: '14px 20px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.25)',
+                    fontWeight: '600', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '8px',
+                    animation: 'settingsSlideUp 0.3s ease',
+                }}>
+                    {toast.type === 'error' ? <AlertTriangle size={16} /> : <CheckCircle size={16} />}
+                    {toast.msg}
+                </div>
+            )}
+
+            <style>{`
+                @keyframes spin { to { transform: rotate(360deg); } }
+                @keyframes settingsSlideUp { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+                @media (max-width: 768px) {
+                    .settings-grid { grid-template-columns: 1fr !important; }
+                    .settings-sidebar { position: static !important; display: flex; flex-wrap: wrap; gap: 4px; }
+                    .settings-sidebar button { width: auto !important; flex: 1; min-width: 110px; justify-content: center; }
+                    .settings-content { padding: 20px !important; }
+                }
+            `}</style>
         </div>
     );
 }

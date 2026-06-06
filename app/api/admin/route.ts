@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/lib/firebase';
-import {
-    collection, getDocs, doc, updateDoc, deleteDoc, addDoc,
-    query, orderBy, limit, where, serverTimestamp,
-    Timestamp
-} from 'firebase/firestore';
+import { getAdminDb, FieldValue } from '@/lib/firebaseAdmin';
+import { Timestamp } from 'firebase-admin/firestore';
 import { requireAdmin, type AuthResult } from '@/lib/authGuard';
 import { checkRateLimit, RATE_LIMITS, getClientIP } from '@/lib/rateLimit';
-import { sanitizeText, isValidDocId } from '@/lib/validation';
+import { isValidDocId } from '@/lib/validation';
 
 /**
  * Admin API - Firestore uzerinden gercek platform verilerini yonetir
  * GET /api/admin?section=stats|threads|users|logs|dictionary
  * POST /api/admin -> action islemleri
+ *
+ * ✅ GÜVENLİK: Firebase Admin SDK (server-side, tam yetki) kullanir.
+ *    Erisim requireAdmin token dogrulamasi ile kontrol edilir.
+ *    Firestore kurallari bypass edilir cunku kimlik sunucuda dogrulanmistir.
  */
 
 // Helper: Firestore timestamp'i string'e cevir (guvenli)
@@ -40,16 +40,15 @@ export async function GET(request: Request) {
     // ── Yetkilendirme kontrolu ──
     const authResult = await requireAdmin(request);
     if (authResult instanceof NextResponse) return authResult;
-    const adminUser = authResult as AuthResult;
 
+    const db = getAdminDb();
     const { searchParams } = new URL(request.url);
     const section = searchParams.get('section') || 'stats';
 
     try {
         if (section === 'stats') {
-            // Gercek Firestore istatistikleri
-            const threadsDocs = await getDocs(collection(db, 'threads'));
-            const usersSnap = await getDocs(collection(db, 'users'));
+            const threadsDocs = await db.collection('threads').get();
+            const usersSnap = await db.collection('users').get();
             let totalEntries = 0;
             let pinnedThreads = 0;
             let lockedThreads = 0;
@@ -64,9 +63,7 @@ export async function GET(request: Request) {
                 categoryMap.set(cat, (categoryMap.get(cat) || 0) + 1);
             });
 
-            // Son admin loglari
-            const logsQuery = query(collection(db, 'admin_logs'), orderBy('createdAt', 'desc'), limit(8));
-            const logsDocs = await getDocs(logsQuery);
+            const logsDocs = await db.collection('admin_logs').orderBy('createdAt', 'desc').limit(8).get();
             const recentLogs = logsDocs.docs.map(d => {
                 const data = d.data();
                 return {
@@ -102,7 +99,7 @@ export async function GET(request: Request) {
 
         if (section === 'threads') {
             const search = searchParams.get('q') || '';
-            const threadsDocs = await getDocs(query(collection(db, 'threads'), orderBy('createdAt', 'desc'), limit(100)));
+            const threadsDocs = await db.collection('threads').orderBy('createdAt', 'desc').limit(100).get();
             const threads = threadsDocs.docs.map(d => {
                 const data = d.data();
                 return {
@@ -125,7 +122,7 @@ export async function GET(request: Request) {
 
         if (section === 'users') {
             const search = searchParams.get('q') || '';
-            const usersDocs = await getDocs(query(collection(db, 'users'), limit(200)));
+            const usersDocs = await db.collection('users').limit(200).get();
             const users = usersDocs.docs.map(d => {
                 const data = d.data();
                 return {
@@ -145,8 +142,7 @@ export async function GET(request: Request) {
         }
 
         if (section === 'logs') {
-            const logsQuery = query(collection(db, 'admin_logs'), orderBy('createdAt', 'desc'), limit(50));
-            const logsDocs = await getDocs(logsQuery);
+            const logsDocs = await db.collection('admin_logs').orderBy('createdAt', 'desc').limit(50).get();
             const logs = logsDocs.docs.map(d => {
                 const data = d.data();
                 return { action: data.action, target: data.target, admin: data.admin || 'Admin', detail: data.detail, time: tsToStr(data.createdAt) };
@@ -155,14 +151,14 @@ export async function GET(request: Request) {
         }
 
         if (section === 'dictionary') {
-            const dictDocs = await getDocs(query(collection(db, 'dictionary'), orderBy('term')));
+            const dictDocs = await db.collection('dictionary').orderBy('term').get();
             const terms = dictDocs.docs.map(d => ({ id: d.id, ...d.data() }));
             return NextResponse.json({ success: true, terms });
         }
 
         if (section === 'guvenmetre_reviews') {
             const search = searchParams.get('q') || '';
-            const reviewsDocs = await getDocs(query(collection(db, 'guvenmetre_reviews'), orderBy('createdAt', 'desc'), limit(100)));
+            const reviewsDocs = await db.collection('guvenmetre_reviews').orderBy('createdAt', 'desc').limit(100).get();
             const reviews = reviewsDocs.docs.map(d => {
                 const data = d.data();
                 return {
@@ -190,9 +186,9 @@ export async function GET(request: Request) {
 
         if (section === 'advertisements') {
             const search = searchParams.get('q') || '';
-            const adsDocs = await getDocs(query(collection(db, 'advertisements'), orderBy('createdAt', 'desc')));
+            const adsDocs = await db.collection('advertisements').orderBy('createdAt', 'desc').get();
             const ads = adsDocs.docs.map(d => ({ id: d.id, ...d.data() })).filter((a: any) => !search || a.title?.toLowerCase().includes(search.toLowerCase()) || a.advertiser?.toLowerCase().includes(search.toLowerCase()));
-            
+
             let active = 0, paused = 0, ended = 0, totalImpressions = 0, totalClicks = 0, totalBudget = 0;
             ads.forEach((a: any) => {
                 if (a.status === 'active') active++;
@@ -203,21 +199,21 @@ export async function GET(request: Request) {
                 totalBudget += a.budget || 0;
             });
             const avgCtr = totalImpressions > 0 ? ((totalClicks / totalImpressions) * 100).toFixed(2) : '0.00';
-            
-            return NextResponse.json({ 
-                success: true, 
-                ads, 
-                summary: { total: ads.length, active, paused, ended, totalImpressions, totalClicks, totalBudget, avgCtr } 
+
+            return NextResponse.json({
+                success: true,
+                ads,
+                summary: { total: ads.length, active, paused, ended, totalImpressions, totalClicks, totalBudget, avgCtr }
             });
         }
 
         if (section === 'reports') {
             const statusFilter = searchParams.get('status') || 'all';
-            const reportsRef = collection(db, 'reports');
+            const reportsRef = db.collection('reports');
             const reportsQuery = statusFilter === 'all'
-                ? query(reportsRef, orderBy('createdAt', 'desc'))
-                : query(reportsRef, where('status', '==', statusFilter), orderBy('createdAt', 'desc'));
-            const reportsDocs = await getDocs(reportsQuery);
+                ? reportsRef.orderBy('createdAt', 'desc')
+                : reportsRef.where('status', '==', statusFilter).orderBy('createdAt', 'desc');
+            const reportsDocs = await reportsQuery.get();
             const reports = reportsDocs.docs.map(d => ({ id: d.id, ...d.data(), createdAt: tsToStr(d.data().createdAt) }));
             const counts = {
                 total: reports.length,
@@ -231,7 +227,7 @@ export async function GET(request: Request) {
 
         if (section === 'listings') {
             const search = searchParams.get('q') || '';
-            const listingsDocs = await getDocs(query(collection(db, 'listings'), orderBy('createdAt', 'desc')));
+            const listingsDocs = await db.collection('listings').orderBy('createdAt', 'desc').get();
             const listings = listingsDocs.docs.map(d => ({ id: d.id, ...d.data(), createdAt: tsToStr(d.data().createdAt) }))
                 .filter((l: any) => !search || l.brand?.toLowerCase().includes(search.toLowerCase()) || l.model?.toLowerCase().includes(search.toLowerCase()) || l.userName?.toLowerCase().includes(search.toLowerCase()));
             return NextResponse.json({ success: true, listings });
@@ -239,33 +235,31 @@ export async function GET(request: Request) {
 
         if (section === 'guvenmetre') {
             const search = searchParams.get('q') || '';
-            const docs = await getDocs(query(collection(db, 'guvenmetre'), orderBy('createdAt', 'desc')));
+            const docs = await db.collection('guvenmetre').orderBy('createdAt', 'desc').get();
             const requests = docs.docs.map(d => ({ id: d.id, ...d.data(), createdAt: tsToStr(d.data().createdAt) }))
                 .filter((r: any) => !search || r.userName?.toLowerCase().includes(search.toLowerCase()) || r.plateNumber?.toLowerCase().includes(search.toLowerCase()));
             return NextResponse.json({ success: true, requests });
         }
 
         if (section === 'trending') {
-            const docs = await getDocs(query(collection(db, 'threads'), where('trending', '==', true)));
+            const docs = await db.collection('threads').where('trending', '==', true).get();
             const trendingThreads = docs.docs.map(d => ({ id: d.id, ...d.data() }));
             return NextResponse.json({ success: true, trendingThreads });
         }
 
         if (section === 'announcements') {
-            const docs = await getDocs(query(collection(db, 'announcements'), orderBy('createdAt', 'desc')));
+            const docs = await db.collection('announcements').orderBy('createdAt', 'desc').get();
             const announcements = docs.docs.map(d => ({ id: d.id, ...d.data(), createdAt: tsToStr(d.data().createdAt) }));
             return NextResponse.json({ success: true, announcements });
         }
 
         if (section === 'finances') {
             const search = searchParams.get('q') || '';
-            // 1. İşlemler
-            const txDocs = await getDocs(query(collection(db, 'transactions'), orderBy('createdAt', 'desc')));
+            const txDocs = await db.collection('transactions').orderBy('createdAt', 'desc').get();
             const transactions = txDocs.docs.map(d => ({ id: d.id, ...d.data(), date: tsToStr(d.data().createdAt) }))
                 .filter((t: any) => !search || t.user?.toLowerCase().includes(search.toLowerCase()) || t.displayName?.toLowerCase().includes(search.toLowerCase()));
 
-            // 2. Premium Üyeler (role === 'premium' veya isPremium === true)
-            const usersDocs = await getDocs(query(collection(db, 'users')));
+            const usersDocs = await db.collection('users').get();
             const premiumUsers = usersDocs.docs.map(d => {
                 const u = d.data();
                 return {
@@ -281,6 +275,87 @@ export async function GET(request: Request) {
             }).filter((u: any) => u.active);
 
             return NextResponse.json({ success: true, transactions, premiumUsers });
+        }
+
+        if (section === 'bad_words') {
+            const docs = await db.collection('bad_words').orderBy('createdAt', 'desc').get();
+            const words = docs.docs.map(d => ({ id: d.id, ...d.data(), addedAt: tsToStr(d.data().createdAt) }));
+            return NextResponse.json({ success: true, words });
+        }
+
+        if (section === 'settings') {
+            const snap = await db.collection('settings').doc('platform').get();
+            const settings = snap.exists ? snap.data() : null;
+            return NextResponse.json({ success: true, settings });
+        }
+
+        if (section === 'badges') {
+            const docs = await db.collection('badges').orderBy('createdAt', 'desc').get();
+            const badges = docs.docs.map(d => ({ id: d.id, ...d.data() }));
+            return NextResponse.json({ success: true, badges });
+        }
+
+        if (section === 'broadcasts') {
+            const docs = await db.collection('broadcasts').orderBy('createdAt', 'desc').limit(100).get();
+            const broadcasts = docs.docs.map(d => ({ id: d.id, ...d.data(), createdAt: tsToStr(d.data().createdAt) }));
+            return NextResponse.json({ success: true, broadcasts });
+        }
+
+        if (section === 'expert_applications') {
+            const statusFilter = searchParams.get('status') || 'all';
+            const appsRef = db.collection('expert_applications');
+            const appsQuery = statusFilter === 'all'
+                ? appsRef.orderBy('createdAt', 'desc')
+                : appsRef.where('status', '==', statusFilter).orderBy('createdAt', 'desc');
+            const appsDocs = await appsQuery.get();
+            const applications = appsDocs.docs.map(d => ({ id: d.id, ...d.data(), createdAt: tsToStr(d.data().createdAt) }));
+            const counts = {
+                total: applications.length,
+                bekliyor: applications.filter((a: any) => a.status === 'bekliyor').length,
+                onaylandi: applications.filter((a: any) => a.status === 'onaylandi').length,
+                reddedildi: applications.filter((a: any) => a.status === 'reddedildi').length,
+            };
+            return NextResponse.json({ success: true, applications, counts });
+        }
+
+        if (section === 'moderators') {
+            const docs = await db.collection('users').where('role', 'in', ['moderator', 'admin']).get();
+            const moderators = docs.docs.map(d => {
+                const data = d.data();
+                return {
+                    id: d.id,
+                    username: data.username || '',
+                    displayName: data.displayName || '',
+                    email: data.email || '',
+                    role: data.role || 'moderator',
+                    banned: data.banned || false,
+                    createdAt: tsToStr(data.createdAt),
+                };
+            });
+            return NextResponse.json({ success: true, moderators });
+        }
+
+        if (section === 'badge_users') {
+            // Rozet yönetimi için kullanıcı listesi (rozetler + seviye dahil)
+            const search = searchParams.get('q') || '';
+            const usersDocs = await db.collection('users').limit(300).get();
+            const users = usersDocs.docs.map(d => {
+                const data = d.data();
+                return {
+                    id: d.id,
+                    username: data.username || '',
+                    displayName: data.displayName || data.username || 'İsimsiz',
+                    city: data.city || '',
+                    carBrand: data.carBrand || '',
+                    level: data.level || 'Çaylak',
+                    role: data.role || 'standard',
+                    xp: data.xp || 0,
+                    reputation: data.ratingTotalScore || 0,
+                    entryCount: data.entryCount || 0,
+                    badges: Array.isArray(data.badges) ? data.badges : [],
+                };
+            }).filter(u => !search || u.username.toLowerCase().includes(search.toLowerCase()) || u.displayName.toLowerCase().includes(search.toLowerCase()));
+            return NextResponse.json({ success: true, users });
         }
 
         return NextResponse.json({ success: false, message: 'Gecersiz section.' }, { status: 400 });
@@ -307,6 +382,8 @@ export async function POST(request: Request) {
     if (authResult instanceof NextResponse) return authResult;
     const adminUser = authResult as AuthResult;
 
+    const db = getAdminDb();
+
     try {
         const body = await request.json();
         const { action, target, detail } = body;
@@ -316,46 +393,45 @@ export async function POST(request: Request) {
             return NextResponse.json({ success: false, message: 'Geçersiz hedef ID formatı.' }, { status: 400 });
         }
 
-        // Actor bilgisi artik token'dan geliyor, client'a guvenme
+        // Actor bilgisi token'dan geliyor, client'a guvenme
         const logActor = adminUser.email || adminUser.uid || 'Admin';
 
         // Log yaz helper
         async function writeLog(act: string, tgt: string, det: string) {
-            await addDoc(collection(db, 'admin_logs'), {
+            await db.collection('admin_logs').add({
                 action: act, target: tgt, detail: det, admin: logActor,
-                createdAt: serverTimestamp(),
+                createdAt: FieldValue.serverTimestamp(),
             });
         }
 
         switch (action) {
             // Thread islemleri
             case 'pin_thread':
-                await updateDoc(doc(db, 'threads', target), { pinned: true });
+                await db.collection('threads').doc(target).update({ pinned: true });
                 await writeLog('PIN', target, 'Sabitlendi');
                 return NextResponse.json({ success: true });
 
             case 'unpin_thread':
-                await updateDoc(doc(db, 'threads', target), { pinned: false });
+                await db.collection('threads').doc(target).update({ pinned: false });
                 await writeLog('UNPIN', target, 'Sabitleme kaldirildi');
                 return NextResponse.json({ success: true });
 
             case 'lock_thread':
-                await updateDoc(doc(db, 'threads', target), { locked: true });
+                await db.collection('threads').doc(target).update({ locked: true });
                 await writeLog('LOCK', target, detail || 'Kilitlendi');
                 return NextResponse.json({ success: true });
 
             case 'unlock_thread':
-                await updateDoc(doc(db, 'threads', target), { locked: false });
+                await db.collection('threads').doc(target).update({ locked: false });
                 await writeLog('UNLOCK', target, 'Kilit acildi');
                 return NextResponse.json({ success: true });
 
             case 'delete_thread':
             case 'delete_thread_with_entries': {
-                // Sub-koleksiyonu (entries) once sil
-                const entriesSnap = await getDocs(collection(db, 'threads', target, 'entries'));
-                const delPromises = entriesSnap.docs.map(e => deleteDoc(doc(db, 'threads', target, 'entries', e.id)));
+                const entriesSnap = await db.collection('threads').doc(target).collection('entries').get();
+                const delPromises = entriesSnap.docs.map(e => e.ref.delete());
                 await Promise.all(delPromises);
-                await deleteDoc(doc(db, 'threads', target));
+                await db.collection('threads').doc(target).delete();
                 await writeLog('DELETE_THREAD', target, `Baslik ve ${entriesSnap.size} entry silindi`);
                 return NextResponse.json({ success: true });
             }
@@ -363,58 +439,69 @@ export async function POST(request: Request) {
             case 'delete_entry': {
                 // detail = JSON { threadId, entryId }
                 const { threadId, entryId } = JSON.parse(detail);
-                await deleteDoc(doc(db, 'threads', threadId, 'entries', entryId));
-                // entryCount'u azalt
+                if (!isValidDocId(threadId) || !isValidDocId(entryId)) {
+                    return NextResponse.json({ success: false, message: 'Geçersiz ID.' }, { status: 400 });
+                }
+                await db.collection('threads').doc(threadId).collection('entries').doc(entryId).delete();
                 try {
-                    const { increment: inc } = await import('firebase/firestore');
-                    await updateDoc(doc(db, 'threads', threadId), { entryCount: inc(-1) });
+                    await db.collection('threads').doc(threadId).update({ entryCount: FieldValue.increment(-1) });
                 } catch (_) {}
                 await writeLog('DELETE_ENTRY', entryId, `Thread: ${threadId}`);
                 return NextResponse.json({ success: true });
             }
 
             case 'change_category':
-                await updateDoc(doc(db, 'threads', target), { category: detail });
+                await db.collection('threads').doc(target).update({ category: detail });
                 await writeLog('CHANGE_CAT', target, `Kategori -> ${detail}`);
                 return NextResponse.json({ success: true });
 
             // Kullanici islemleri
-            case 'ban_user':
-                await updateDoc(doc(db, 'users', target), { banned: true, role: 'banned' });
-                await writeLog('BAN', target, detail || 'Ban uygulandi');
+            case 'ban_user': {
+                // target doc ID olabilir veya (rapor akışından) username olabilir.
+                let banUid = target;
+                const directSnap = await db.collection('users').doc(target).get();
+                if (!directSnap.exists) {
+                    // username olarak dene
+                    const uq = await db.collection('users').where('username', '==', String(target).replace('@', '').toLowerCase()).limit(1).get();
+                    if (!uq.empty) banUid = uq.docs[0].id;
+                    else return NextResponse.json({ success: false, message: 'Kullanıcı bulunamadı.' }, { status: 404 });
+                }
+                await db.collection('users').doc(banUid).update({ banned: true, role: 'banned' });
+                await writeLog('BAN', banUid, detail || 'Ban uygulandi');
                 return NextResponse.json({ success: true });
+            }
 
             case 'unban_user':
-                await updateDoc(doc(db, 'users', target), { banned: false, role: 'standard' });
+                await db.collection('users').doc(target).update({ banned: false, role: 'standard' });
                 await writeLog('UNBAN', target, 'Ban kaldirildi');
                 return NextResponse.json({ success: true });
 
             case 'set_role':
-                await updateDoc(doc(db, 'users', target), { role: detail });
+                await db.collection('users').doc(target).update({ role: detail });
                 await writeLog('ROLE', target, `Rol -> ${detail}`);
                 return NextResponse.json({ success: true });
 
             // GüvenMetre yorum islemleri
             case 'delete_review':
-                await deleteDoc(doc(db, 'guvenmetre_reviews', target));
+                await db.collection('guvenmetre_reviews').doc(target).delete();
                 await writeLog('DELETE_REVIEW', target, 'GüvenMetre yorumu silindi');
                 return NextResponse.json({ success: true });
 
             case 'approve_review':
-                await updateDoc(doc(db, 'guvenmetre_reviews', target), { status: 'approved' });
+                await db.collection('guvenmetre_reviews').doc(target).update({ status: 'approved' });
                 await writeLog('APPROVE_REVIEW', target, 'GüvenMetre yorumu onaylandı');
                 return NextResponse.json({ success: true });
 
             case 'reject_review':
-                await updateDoc(doc(db, 'guvenmetre_reviews', target), { status: 'rejected' });
+                await db.collection('guvenmetre_reviews').doc(target).update({ status: 'rejected' });
                 await writeLog('REJECT_REVIEW', target, 'GüvenMetre yorumu reddedildi');
                 return NextResponse.json({ success: true });
 
             // Sozluk islemleri
             case 'add_term': {
                 const termData = JSON.parse(detail);
-                const ref = await addDoc(collection(db, 'dictionary'), {
-                    ...termData, createdAt: serverTimestamp(),
+                const ref = await db.collection('dictionary').add({
+                    ...termData, createdAt: FieldValue.serverTimestamp(),
                 });
                 await writeLog('DICT_ADD', termData.term, 'Sozluk terimi eklendi');
                 return NextResponse.json({ success: true, id: ref.id });
@@ -422,80 +509,79 @@ export async function POST(request: Request) {
 
             case 'update_term': {
                 const updateData = JSON.parse(detail);
-                await updateDoc(doc(db, 'dictionary', target), updateData);
+                await db.collection('dictionary').doc(target).update(updateData);
                 await writeLog('DICT_UPDATE', target, 'Sozluk terimi guncellendi');
                 return NextResponse.json({ success: true });
             }
 
             case 'delete_term':
-                await deleteDoc(doc(db, 'dictionary', target));
+                await db.collection('dictionary').doc(target).delete();
                 await writeLog('DICT_DELETE', target, 'Sozluk terimi silindi');
                 return NextResponse.json({ success: true });
 
             // Sikayet / Rapor islemleri
             case 'submit_report': {
                 const reportData = JSON.parse(detail);
-                await addDoc(collection(db, 'reports'), {
+                await db.collection('reports').add({
                     ...reportData,
                     status: 'bekliyor',
                     priority: reportData.category === 'yasadisi' ? 'kritik' : reportData.category === 'taciz' || reportData.category === 'spam' ? 'yuksek' : 'orta',
                     notes: '',
                     adminNote: '',
                     count: 1,
-                    createdAt: serverTimestamp(),
+                    createdAt: FieldValue.serverTimestamp(),
                 });
                 return NextResponse.json({ success: true });
             }
 
             case 'update_report_status':
-                await updateDoc(doc(db, 'reports', target), { status: detail, updatedAt: serverTimestamp() });
+                await db.collection('reports').doc(target).update({ status: detail, updatedAt: FieldValue.serverTimestamp() });
                 await writeLog('REPORT_STATUS', target, `Rapor durumu -> ${detail}`);
                 return NextResponse.json({ success: true });
 
             case 'resolve_report': {
                 const resolveData = JSON.parse(detail);
-                await updateDoc(doc(db, 'reports', target), {
+                await db.collection('reports').doc(target).update({
                     status: resolveData.status,
                     adminNote: resolveData.note || '',
-                    resolvedAt: serverTimestamp(),
+                    resolvedAt: FieldValue.serverTimestamp(),
                 });
                 await writeLog('REPORT_RESOLVE', target, `Rapor cozumlendi: ${resolveData.status}`);
                 return NextResponse.json({ success: true });
             }
 
             case 'delete_report':
-                await deleteDoc(doc(db, 'reports', target));
+                await db.collection('reports').doc(target).delete();
                 await writeLog('REPORT_DELETE', target, 'Rapor silindi');
                 return NextResponse.json({ success: true });
 
             // Reklam islemleri
             case 'create_ad': {
                 const adData = JSON.parse(detail);
-                const ref = await addDoc(collection(db, 'advertisements'), {
-                    ...adData, status: 'active', impressions: 0, clicks: 0, createdAt: serverTimestamp(),
+                const ref = await db.collection('advertisements').add({
+                    ...adData, status: 'active', impressions: 0, clicks: 0, createdAt: FieldValue.serverTimestamp(),
                 });
                 await writeLog('AD_CREATE', adData.title, 'Yeni reklam kampanyasi eklendi');
                 return NextResponse.json({ success: true, id: ref.id });
             }
 
             case 'update_ad_status':
-                await updateDoc(doc(db, 'advertisements', target), { status: detail });
+                await db.collection('advertisements').doc(target).update({ status: detail });
                 await writeLog('AD_STATUS', target, `Reklam durumu -> ${detail}`);
                 return NextResponse.json({ success: true });
 
             case 'delete_ad':
-                await deleteDoc(doc(db, 'advertisements', target));
+                await db.collection('advertisements').doc(target).delete();
                 await writeLog('AD_DELETE', target, 'Reklam silindi');
                 return NextResponse.json({ success: true });
 
             case 'simulate_impression': {
-                const adRef = doc(db, 'advertisements', target);
-                const adDoc = await getDocs(query(collection(db, 'advertisements')));
-                const ad = adDoc.docs.find(d => d.id === target)?.data();
+                const adSnap = await db.collection('advertisements').doc(target).get();
+                const ad = adSnap.data();
                 if (ad) {
                     const newImp = (ad.impressions || 0) + Math.floor(Math.random() * 500) + 100;
                     const newClicks = (ad.clicks || 0) + Math.floor(Math.random() * 15) + 2;
-                    await updateDoc(adRef, { impressions: newImp, clicks: newClicks });
+                    await db.collection('advertisements').doc(target).update({ impressions: newImp, clicks: newClicks });
                 }
                 return NextResponse.json({ success: true });
             }
@@ -511,57 +597,297 @@ export async function POST(request: Request) {
 
             // Pazar Ilan
             case 'approve_listing':
-                await updateDoc(doc(db, 'listings', target), { status: 'approved' });
+                await db.collection('listings').doc(target).update({ status: 'approved' });
                 await writeLog('APPROVE_LISTING', target, 'Ilan onaylandi');
                 return NextResponse.json({ success: true });
-            
+
             case 'reject_listing':
-                await updateDoc(doc(db, 'listings', target), { status: 'rejected', rejectReason: detail });
+                await db.collection('listings').doc(target).update({ status: 'rejected', rejectReason: detail });
                 await writeLog('REJECT_LISTING', target, `Ilan reddedildi: ${detail}`);
                 return NextResponse.json({ success: true });
 
             // Guvenmetre
             case 'approve_guvenmetre':
-                await updateDoc(doc(db, 'guvenmetre', target), { status: 'approved' });
+                await db.collection('guvenmetre').doc(target).update({ status: 'approved' });
                 await writeLog('GUVENMETRE_APPROVE', target, 'Guvenmetre istegi onaylandi');
                 return NextResponse.json({ success: true });
 
             case 'reject_guvenmetre':
-                await updateDoc(doc(db, 'guvenmetre', target), { status: 'rejected', rejectReason: detail });
+                await db.collection('guvenmetre').doc(target).update({ status: 'rejected', rejectReason: detail });
                 await writeLog('GUVENMETRE_REJECT', target, 'Guvenmetre istegi reddedildi');
                 return NextResponse.json({ success: true });
 
             // Trending & Icerik
             case 'set_trending':
-                await updateDoc(doc(db, 'threads', target), { trending: true });
+                await db.collection('threads').doc(target).update({ trending: true });
                 await writeLog('TRENDING_ADD', target, 'Trendlere eklendi');
                 return NextResponse.json({ success: true });
 
             case 'remove_trending':
-                await updateDoc(doc(db, 'threads', target), { trending: false });
+                await db.collection('threads').doc(target).update({ trending: false });
                 await writeLog('TRENDING_REMOVE', target, 'Trendlerden kaldirildi');
                 return NextResponse.json({ success: true });
 
             case 'add_announcement': {
                 const annData = JSON.parse(detail);
-                await addDoc(collection(db, 'announcements'), {
-                    ...annData, author: logActor, createdAt: serverTimestamp(),
+                await db.collection('announcements').add({
+                    ...annData, author: logActor, createdAt: FieldValue.serverTimestamp(),
                 });
                 await writeLog('ANNOUNCE', annData.title, 'Duyuru eklendi');
                 return NextResponse.json({ success: true });
             }
 
             case 'delete_announcement':
-                await deleteDoc(doc(db, 'announcements', target));
+                await db.collection('announcements').doc(target).delete();
                 await writeLog('ANNOUNCE', target, 'Duyuru silindi');
                 return NextResponse.json({ success: true });
-            
+
             case 'toggle_announcement_pin': {
-                const annRef = doc(db, 'announcements', target);
-                const annSnap = (await getDocs(query(collection(db, 'announcements')))).docs.find(d => d.id === target);
-                if (annSnap) {
-                    await updateDoc(annRef, { pinned: !annSnap.data().pinned });
+                const annSnap = await db.collection('announcements').doc(target).get();
+                if (annSnap.exists) {
+                    await db.collection('announcements').doc(target).update({ pinned: !annSnap.data()?.pinned });
                 }
+                return NextResponse.json({ success: true });
+            }
+
+            // ── Kullanıcı uyarısı (warn) ──
+            case 'warn_user': {
+                const userSnap = await db.collection('users').doc(target).get();
+                const current = userSnap.exists ? (userSnap.data()?.warnings || 0) : 0;
+                await db.collection('users').doc(target).update({ warnings: current + 1 });
+                await writeLog('WARN', target, detail || 'Kullanıcı uyarıldı');
+                return NextResponse.json({ success: true, warnings: current + 1 });
+            }
+
+            // ── Kelime Filtresi (bad_words) ──
+            case 'add_bad_word': {
+                const wordData = JSON.parse(detail);
+                if (!wordData.word || typeof wordData.word !== 'string') {
+                    return NextResponse.json({ success: false, message: 'Kelime gerekli.' }, { status: 400 });
+                }
+                const ref = await db.collection('bad_words').add({
+                    word: String(wordData.word).trim(),
+                    mode: wordData.mode || 'yildizla',
+                    category: wordData.category || 'hakaret',
+                    regex: !!wordData.regex,
+                    whitelist: Array.isArray(wordData.whitelist) ? wordData.whitelist : [],
+                    active: true,
+                    matchCount: 0,
+                    addedBy: logActor,
+                    createdAt: FieldValue.serverTimestamp(),
+                });
+                await writeLog('WORD_ADD', wordData.word, 'Yasaklı kelime eklendi');
+                return NextResponse.json({ success: true, id: ref.id });
+            }
+
+            case 'update_bad_word': {
+                const updateData = JSON.parse(detail);
+                await db.collection('bad_words').doc(target).update(updateData);
+                await writeLog('WORD_UPDATE', target, 'Yasaklı kelime güncellendi');
+                return NextResponse.json({ success: true });
+            }
+
+            case 'delete_bad_word':
+                await db.collection('bad_words').doc(target).delete();
+                await writeLog('WORD_DELETE', target, 'Yasaklı kelime silindi');
+                return NextResponse.json({ success: true });
+
+            // ── Sistem Ayarları (settings/platform) ──
+            case 'save_settings': {
+                const settingsData = JSON.parse(detail);
+                await db.collection('settings').doc('platform').set({
+                    ...settingsData,
+                    updatedAt: FieldValue.serverTimestamp(),
+                    updatedBy: logActor,
+                }, { merge: true });
+                await writeLog('SETTINGS', 'platform', 'Sistem ayarları güncellendi');
+                return NextResponse.json({ success: true });
+            }
+
+            // ── Rozetler (badges) ──
+            case 'create_badge': {
+                const badgeData = JSON.parse(detail);
+                const ref = await db.collection('badges').add({
+                    name: badgeData.name,
+                    emoji: badgeData.emoji || '🏆',
+                    description: badgeData.description || '',
+                    color: badgeData.color || '#3B82F6',
+                    type: badgeData.type || 'manuel',
+                    createdAt: FieldValue.serverTimestamp(),
+                });
+                await writeLog('BADGE_CREATE', badgeData.name, 'Yeni rozet oluşturuldu');
+                return NextResponse.json({ success: true, id: ref.id });
+            }
+
+            case 'delete_badge':
+                await db.collection('badges').doc(target).delete();
+                await writeLog('BADGE_DELETE', target, 'Rozet silindi');
+                return NextResponse.json({ success: true });
+
+            case 'assign_badge': {
+                // detail = JSON { badgeName }
+                const { badgeName } = JSON.parse(detail);
+                await db.collection('users').doc(target).update({
+                    badges: FieldValue.arrayUnion(badgeName),
+                });
+                await writeLog('BADGE_ASSIGN', target, `Rozet verildi: ${badgeName}`);
+                return NextResponse.json({ success: true });
+            }
+
+            case 'remove_badge': {
+                const { badgeName } = JSON.parse(detail);
+                await db.collection('users').doc(target).update({
+                    badges: FieldValue.arrayRemove(badgeName),
+                });
+                await writeLog('BADGE_REMOVE', target, `Rozet kaldırıldı: ${badgeName}`);
+                return NextResponse.json({ success: true });
+            }
+
+            case 'set_level':
+                await db.collection('users').doc(target).update({ level: detail });
+                await writeLog('LEVEL', target, `Seviye -> ${detail}`);
+                return NextResponse.json({ success: true });
+
+            // ── Moderatör Yönetimi ──
+            case 'add_moderator':
+                await db.collection('users').doc(target).update({ role: 'moderator' });
+                await writeLog('MOD_ADD', target, 'Moderatör atandı');
+                return NextResponse.json({ success: true });
+
+            case 'remove_moderator':
+                await db.collection('users').doc(target).update({ role: 'standard' });
+                await writeLog('MOD_REMOVE', target, 'Moderatörlük kaldırıldı');
+                return NextResponse.json({ success: true });
+
+            // ── Toplu Mesaj / Bildirim Yayını ──
+            case 'send_broadcast': {
+                const bc = JSON.parse(detail);
+                const { title, body: msgBody, target: audience, type, targetUsername } = bc;
+                if (!title || !msgBody) {
+                    return NextResponse.json({ success: false, message: 'Başlık ve mesaj gerekli.' }, { status: 400 });
+                }
+
+                // Hedef kullanıcıları belirle
+                let recipients: string[] = [];
+                if (audience === 'tek_kullanici' && targetUsername) {
+                    const uq = await db.collection('users').where('username', '==', String(targetUsername).replace('@', '').toLowerCase()).limit(1).get();
+                    recipients = uq.docs.map(d => d.id);
+                } else {
+                    let q: FirebaseFirestore.Query = db.collection('users');
+                    if (audience === 'premium') {
+                        q = q.where('role', '==', 'premium');
+                    } else if (audience === 'yazarlar') {
+                        q = q.where('role', 'in', ['usta', 'yazar']);
+                    } else if (audience === 'caylakar') {
+                        q = q.where('role', '==', 'caylak');
+                    }
+                    const usnap = await q.get();
+                    recipients = usnap.docs.map(d => d.id);
+                }
+
+                // Broadcast kaydı
+                const bcRef = await db.collection('broadcasts').add({
+                    title, body: msgBody, target: audience, type: type || 'duyuru',
+                    status: 'gonderildi', recipientCount: recipients.length,
+                    sentBy: logActor, createdAt: FieldValue.serverTimestamp(),
+                });
+
+                // Her alıcıya bildirim oluştur (batch ile, 450'lik gruplar)
+                const typeMap: Record<string, string> = { bilgi: 'info', uyari: 'warning', duyuru: 'system', odul: 'achievement' };
+                let written = 0;
+                for (let i = 0; i < recipients.length; i += 450) {
+                    const batch = db.batch();
+                    const slice = recipients.slice(i, i + 450);
+                    slice.forEach(uid => {
+                        const nRef = db.collection('notifications').doc();
+                        batch.set(nRef, {
+                            userId: uid,
+                            fromUserId: 'system',
+                            type: typeMap[type] || 'system',
+                            title,
+                            message: msgBody,
+                            read: false,
+                            broadcastId: bcRef.id,
+                            createdAt: FieldValue.serverTimestamp(),
+                        });
+                    });
+                    await batch.commit();
+                    written += slice.length;
+                }
+
+                await writeLog('BROADCAST', title, `${written} kullanıcıya gönderildi`);
+                return NextResponse.json({ success: true, id: bcRef.id, recipientCount: written });
+            }
+
+            case 'save_broadcast_draft': {
+                const bc = JSON.parse(detail);
+                const ref = await db.collection('broadcasts').add({
+                    title: bc.title || '', body: bc.body || '', target: bc.target || 'hepsi',
+                    type: bc.type || 'duyuru', status: 'taslak', recipientCount: 0,
+                    sentBy: logActor, createdAt: FieldValue.serverTimestamp(),
+                });
+                return NextResponse.json({ success: true, id: ref.id });
+            }
+
+            case 'delete_broadcast':
+                await db.collection('broadcasts').doc(target).delete();
+                await writeLog('BROADCAST_DELETE', target, 'Mesaj silindi');
+                return NextResponse.json({ success: true });
+
+            // ── Uzman Başvuruları ──
+            case 'approve_expert': {
+                // detail = JSON { userId, note? }
+                const ex = JSON.parse(detail);
+                if (!ex.userId || !isValidDocId(ex.userId)) {
+                    return NextResponse.json({ success: false, message: 'Geçersiz kullanıcı.' }, { status: 400 });
+                }
+                // Başvuruyu onayla
+                await db.collection('expert_applications').doc(target).update({
+                    status: 'onaylandi',
+                    adminNote: ex.note || '',
+                    resolvedAt: FieldValue.serverTimestamp(),
+                });
+                // Kullanıcıyı uzman yap
+                await db.collection('users').doc(ex.userId).update({
+                    role: 'uzman',
+                    level: 'Uzman',
+                    expertVerifiedAt: FieldValue.serverTimestamp(),
+                });
+                // Kullanıcıya bildirim
+                await db.collection('notifications').add({
+                    userId: ex.userId,
+                    fromUserId: 'system',
+                    type: 'achievement',
+                    title: 'Tebrikler! Uzman Oldunuz',
+                    message: 'Uzman başvurunuz onaylandı. Artık Onaylı Uzman rozetine sahipsiniz!',
+                    read: false,
+                    createdAt: FieldValue.serverTimestamp(),
+                });
+                await writeLog('EXPERT_APPROVE', ex.userId, 'Uzman başvurusu onaylandı');
+                return NextResponse.json({ success: true });
+            }
+
+            case 'reject_expert': {
+                const ex = JSON.parse(detail);
+                await db.collection('expert_applications').doc(target).update({
+                    status: 'reddedildi',
+                    adminNote: ex.note || '',
+                    resolvedAt: FieldValue.serverTimestamp(),
+                });
+                if (ex.userId && isValidDocId(ex.userId)) {
+                    await db.collection('notifications').add({
+                        userId: ex.userId,
+                        fromUserId: 'system',
+                        type: 'warning',
+                        title: 'Uzman Başvurusu Sonucu',
+                        message: ex.note
+                            ? `Uzman başvurunuz onaylanmadı: ${ex.note}`
+                            : 'Uzman başvurunuz bu sefer onaylanmadı. Daha sonra tekrar başvurabilirsiniz.',
+                        read: false,
+                        createdAt: FieldValue.serverTimestamp(),
+                    });
+                }
+                await writeLog('EXPERT_REJECT', target, 'Uzman başvurusu reddedildi');
                 return NextResponse.json({ success: true });
             }
 

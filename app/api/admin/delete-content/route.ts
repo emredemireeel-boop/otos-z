@@ -1,52 +1,63 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/lib/firebase';
-import {
-    collection, doc, getDocs, deleteDoc, updateDoc, addDoc,
-    serverTimestamp, increment,
-} from 'firebase/firestore';
+import { getAdminDb, FieldValue } from '@/lib/firebaseAdmin';
+import { requireModOrAdmin, type AuthResult } from '@/lib/authGuard';
+import { checkRateLimit, RATE_LIMITS, getClientIP } from '@/lib/rateLimit';
+import { isValidDocId } from '@/lib/validation';
 
 /**
- * Admin Entry/Thread Delete API (Client SDK — Firestore rules ile yetkilendirilir)
+ * Admin Entry/Thread Delete API
  * POST /api/admin/delete-content
  * Body: { action: 'delete_entry'|'delete_thread', threadId, entryId? }
- * 
- * Bu endpoint admin panelinden gelecek silme isteklerini
- * Client-side Firestore SDK ile isler.
- * Firestore rules'da authenticated user'a delete izni verilmis oldugu icin calısır.
+ *
+ * ✅ GÜVENLİK: Firebase Admin SDK (server-side) + requireModOrAdmin token dogrulamasi.
+ *    Yalnizca admin/moderator rolune sahip dogrulanmis kullanicilar erisebilir.
  */
 
 export async function POST(request: Request) {
+    // ── Rate limit ──
+    const ip = getClientIP(request);
+    const rl = checkRateLimit(`delete-content:${ip}`, RATE_LIMITS.admin);
+    if (!rl.allowed) {
+        return NextResponse.json(
+            { success: false, message: 'Çok fazla istek. Lütfen bekleyin.' },
+            { status: 429, headers: { 'Retry-After': String(Math.ceil((rl.retryAfterMs || 60000) / 1000)) } }
+        );
+    }
+
+    // ── Yetkilendirme ──
+    const authResult = await requireModOrAdmin(request);
+    if (authResult instanceof NextResponse) return authResult;
+    const actor = authResult as AuthResult;
+    const logActor = actor.email || actor.uid || 'admin-panel';
+
+    const db = getAdminDb();
+
     try {
         const body = await request.json();
         const { action, threadId, entryId } = body;
 
-        if (!threadId || typeof threadId !== 'string' || threadId.length > 200) {
+        if (!threadId || !isValidDocId(threadId)) {
             return NextResponse.json({ success: false, message: 'Geçersiz threadId.' }, { status: 400 });
         }
 
         if (action === 'delete_entry') {
-            if (!entryId || typeof entryId !== 'string') {
+            if (!entryId || !isValidDocId(entryId)) {
                 return NextResponse.json({ success: false, message: 'Geçersiz entryId.' }, { status: 400 });
             }
 
-            // Entry'yi sil
-            await deleteDoc(doc(db, 'threads', threadId, 'entries', entryId));
+            await db.collection('threads').doc(threadId).collection('entries').doc(entryId).delete();
 
-            // Thread'in entryCount'unu azalt
             try {
-                await updateDoc(doc(db, 'threads', threadId), {
-                    entryCount: increment(-1),
-                });
+                await db.collection('threads').doc(threadId).update({ entryCount: FieldValue.increment(-1) });
             } catch (_) {}
 
-            // Log
             try {
-                await addDoc(collection(db, 'admin_logs'), {
+                await db.collection('admin_logs').add({
                     action: 'DELETE_ENTRY',
                     target: entryId,
                     detail: `Thread: ${threadId}`,
-                    admin: 'admin-panel',
-                    createdAt: serverTimestamp(),
+                    admin: logActor,
+                    createdAt: FieldValue.serverTimestamp(),
                 });
             } catch (_) {}
 
@@ -54,25 +65,21 @@ export async function POST(request: Request) {
         }
 
         if (action === 'delete_thread') {
-            // Alt koleksiyon (entries) önce sil
-            const entriesRef = collection(db, 'threads', threadId, 'entries');
-            const snap = await getDocs(entriesRef);
-            const deletePromises = snap.docs.map(d => deleteDoc(d.ref));
+            const entriesSnap = await db.collection('threads').doc(threadId).collection('entries').get();
+            const deletePromises = entriesSnap.docs.map(d => d.ref.delete());
             if (deletePromises.length > 0) {
                 await Promise.all(deletePromises);
             }
 
-            // Thread'i sil
-            await deleteDoc(doc(db, 'threads', threadId));
+            await db.collection('threads').doc(threadId).delete();
 
-            // Log
             try {
-                await addDoc(collection(db, 'admin_logs'), {
+                await db.collection('admin_logs').add({
                     action: 'DELETE_THREAD',
                     target: threadId,
-                    detail: `Başlık ve ${snap.size} entry silindi`,
-                    admin: 'admin-panel',
-                    createdAt: serverTimestamp(),
+                    detail: `Başlık ve ${entriesSnap.size} entry silindi`,
+                    admin: logActor,
+                    createdAt: FieldValue.serverTimestamp(),
                 });
             } catch (_) {}
 
@@ -83,7 +90,7 @@ export async function POST(request: Request) {
     } catch (err: any) {
         console.error('Delete content error:', err?.message || err);
         return NextResponse.json(
-            { success: false, message: err?.message || 'Silme işlemi başarısız.' },
+            { success: false, message: 'Silme işlemi başarısız.' },
             { status: 500 }
         );
     }

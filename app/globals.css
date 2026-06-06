@@ -1001,6 +1001,11 @@ a {
   transition: all 0.2s ease;
   cursor: pointer;
 }
+.survey-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
 
 /* ── Expert Card ── */
 .expert-card {
@@ -1041,6 +1046,7 @@ a {
 .topic-card:hover {
   border-color: var(--primary);
   box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
 }
 
 /* ── Subheader Elements ── */
@@ -1451,12 +1457,22 @@ a {
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 16px;
+  transition: border-color 0.2s ease;
 }
 .profile-card-title {
   font-size: 15px;
   font-weight: 600;
   color: var(--foreground);
   margin-bottom: 16px;
+}
+/* Sidebar kart başlıkları — daha rafine, uppercase */
+.profile-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .profile-feed-item {
@@ -1633,4 +1649,133 @@ a {
   0% { opacity: 0.6; }
   50% { opacity: 0.3; }
   100% { opacity: 0.6; }
+}
+
+
+/* ═══════════════════════════════════════════════ */
+/* Ana Sayfa — Hero (ziyaretçi karşılama)          */
+/* ═══════════════════════════════════════════════ */
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--card-border);
+  background:
+    radial-gradient(900px 400px at 15% -10%, var(--hover-primary) 0%, transparent 60%),
+    radial-gradient(700px 350px at 100% 0%, rgba(59,130,246,0.06) 0%, transparent 55%),
+    var(--top-bar-bg);
+}
+.home-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px 56px;
+  text-align: center;
+}
+.home-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.home-hero-title {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: var(--foreground);
+  margin: 0 auto 18px;
+  max-width: 760px;
+}
+.home-hero-subtitle {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto 32px;
+}
+.home-hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.home-hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 8px 24px rgba(59,130,246,0.25);
+}
+.home-hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(59,130,246,0.35);
+}
+.home-hero-btn-ghost {
+  padding: 14px 28px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--foreground);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.home-hero-btn-ghost:hover {
+  border-color: var(--text-muted);
+  background: var(--secondary);
+}
+.home-hero-stats {
+  display: inline-flex;
+  gap: 40px;
+  padding: 22px 36px;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.home-hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.home-hero-stat-icon {
+  color: var(--primary);
+}
+.home-hero-stat-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--foreground);
+  line-height: 1.1;
+}
+.home-hero-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .home-hero-inner { padding: 44px 20px 40px; }
+  .home-hero-title { font-size: 32px; letter-spacing: -1px; }
+  .home-hero-subtitle { font-size: 15px; margin-bottom: 26px; }
+  .home-hero-actions { margin-bottom: 32px; }
+  .home-hero-btn-primary, .home-hero-btn-ghost { flex: 1; min-width: 140px; justify-content: center; }
+  .home-hero-stats { gap: 24px; padding: 18px 24px; width: 100%; }
+  .home-hero-stat-val { font-size: 19px; }
 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { BookOpen, ArrowRight, MessageSquare, TrendingUp, Users, BarChart3, Star, Clock, Eye, ThumbsUp, Award, Crown, Flame, ChevronRight, Zap, Sparkles, Plus, Car, AlertTriangle, CheckCircle } from "lucide-react";
+import { BookOpen, ArrowRight, MessageSquare, TrendingUp, Users, BarChart3, Star, Clock, Eye, ThumbsUp, Award, Crown, Flame, ChevronRight, Zap, Sparkles, Plus, Car, AlertTriangle, CheckCircle, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
@@ -28,6 +28,19 @@ const levelColors: Record<string, { bg: string; text: string }> = {
 };
 // Kategoriler (statik)
 const FORUM_CATS = ["Genel", "Teknik", "Deneyim", "Marka", "Alım-Satım"];
+
+// Kategori meta verisi — ikon, renk ve kısa açıklama (kullanışlı kategori sistemi)
+const CATEGORY_META: Record<string, { icon: any; color: string; desc: string }> = {
+    "Tümü": { icon: Layers, color: "#6B7280", desc: "Tüm başlıklar" },
+    "Genel": { icon: MessageSquare, color: "#3B82F6", desc: "Genel sohbet ve gündem" },
+    "Teknik": { icon: Wrench, color: "#F59E0B", desc: "Arıza, bakım, motor" },
+    "Deneyim": { icon: Star, color: "#8B5CF6", desc: "Kullanıcı deneyimleri" },
+    "Marka": { icon: Car, color: "#10B981", desc: "Marka ve model tartışmaları" },
+    "Alım-Satım": { icon: Tag, color: "#EF4444", desc: "İkinci el ve fiyat" },
+    "Anket": { icon: BarChart3, color: "#06B6D4", desc: "Topluluk anketleri" },
+    "Uzmana Sor": { icon: Sparkles, color: "#EC4899", desc: "Uzmana danış" },
+};
+
 const categories = [
     { name: "Tümü", count: 0, type: "topic" },
     ...FORUM_CATS.map(cat => ({ name: cat, count: 0, type: "topic" })),
@@ -339,10 +352,10 @@ export default function Home() {
             if (expertThreads.length === 0) {
                 return (
                     <div className="expert-empty-state">
-                        <div style={{ fontSize: '48px', marginBottom: '16px' }}>🔧</div>
-                        <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Henuz soru sorulmadi</h3>
-                        <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '24px' }}>Otomotiv uzmanlarindan profesyonel cevaplar almak icin ilk soruyu siz sorun!</p>
-                        <Link href="/uzmana-sor" style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none', display: 'inline-block' }}>Uzmana Sor Sayfasina Git</Link>
+                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px', color: 'var(--text-muted)' }}><MessageSquare size={44} /></div>
+                        <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Henüz soru sorulmadı</h3>
+                        <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '24px' }}>Otomotiv uzmanlarından profesyonel cevaplar almak için ilk soruyu siz sorun!</p>
+                        <Link href="/uzmana-sor" style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none', display: 'inline-block' }}>Uzmana Sor Sayfasına Git</Link>
                     </div>
                 );
             }
@@ -455,7 +468,7 @@ export default function Home() {
 
                                 {/* Footer */}
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
-                                    <span style={{ whiteSpace: 'nowrap' }}>💬 {topic.entryCount} Entry</span>
+                                    <span style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '5px' }}><MessageSquare size={13} /> {topic.entryCount} Entry</span>
                                     <span style={{ opacity: 0.5 }}>•</span>
                                     <span style={{ whiteSpace: 'nowrap' }}>{topic.lastActivity}</span>
                                     <span style={{ opacity: 0.5 }}>•</span>
@@ -514,6 +527,54 @@ export default function Home() {
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+                {/* ─── Hero (sadece giriş yapmamış ziyaretçiler) ─── */}
+                {!user && (
+                    <section className="home-hero">
+                        <div className="home-hero-inner">
+                            <div className="home-hero-badge">
+                                <Sparkles size={14} /> Türkiye'nin otomobil topluluğu
+                            </div>
+                            <h1 className="home-hero-title">
+                                Aracını tanı, doğru kararı ver.
+                            </h1>
+                            <p className="home-hero-subtitle">
+                                Binlerce sürücünün deneyimi, uzman görüşleri ve gerçek veriler tek çatı altında.
+                                Arıza kodlarından araç DNA'sına, fiyat analizinden topluluk tartışmalarına kadar her şey OtoSöz'de.
+                            </p>
+                            <div className="home-hero-actions">
+                                <Link href="/kayit" style={{ textDecoration: 'none' }}>
+                                    <button className="home-hero-btn-primary">
+                                        Ücretsiz Katıl <ArrowRight size={17} />
+                                    </button>
+                                </Link>
+                                <Link href="/forum" style={{ textDecoration: 'none' }}>
+                                    <button className="home-hero-btn-ghost">
+                                        Forumu Keşfet
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className="home-hero-stats">
+                                {[
+                                    { icon: MessageSquare, value: platformStats.totalThreads, label: 'Başlık' },
+                                    { icon: BarChart3, value: platformStats.totalEntries, label: 'Entry' },
+                                    { icon: Users, value: platformStats.totalUsers, label: 'Üye' },
+                                ].map((s, i) => {
+                                    const Icon = s.icon;
+                                    return (
+                                        <div key={i} className="home-hero-stat">
+                                            <Icon size={18} className="home-hero-stat-icon" />
+                                            <div>
+                                                <div className="home-hero-stat-val">{s.value > 0 ? s.value.toLocaleString('tr-TR') : '—'}</div>
+                                                <div className="home-hero-stat-label">{s.label}</div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </section>
+                )}
+
                 {/* Sub Header */}
                 <div style={{
                     background: 'var(--top-bar-bg)',
@@ -573,8 +634,8 @@ export default function Home() {
                                 <div className="ticker-track">
                                     {/* Şehir etiketi */}
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
-                                        <span style={{ fontSize: '11px', color: 'var(--primary)', fontWeight: '700', fontFamily: 'monospace', padding: '4px 8px', background: 'var(--hover-primary)', borderRadius: '6px' }}>
-                                            📍 {tickerCity.toUpperCase()}
+                                        <span style={{ fontSize: '11px', color: 'var(--primary)', fontWeight: '700', fontFamily: 'monospace', padding: '4px 8px', background: 'var(--hover-primary)', borderRadius: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                                            <MapPin size={11} /> {tickerCity.toUpperCase()}
                                         </span>
                                         <span style={{ width: '1px', height: '18px', background: 'var(--card-border)', display: 'inline-block', margin: '0 8px' }} />
                                     </div>
@@ -610,6 +671,7 @@ export default function Home() {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     gap: '8px',
+                                    boxShadow: '0 6px 18px rgba(59,130,246,0.25)',
                                 }}
                             >
                                 <Plus size={16} strokeWidth={3} /> Yeni Başlık
@@ -620,25 +682,31 @@ export default function Home() {
 
                         {/* Category Pills */}
                         <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
-                            {categories.map((cat) => (
-                                <button
-                                    key={cat.name}
-                                    onClick={() => setSelectedCategory(cat.name)}
-                                    style={{
-                                        padding: '8px 16px',
-                                        borderRadius: '8px',
-                                        fontSize: '13px',
-                                        fontWeight: '500',
-                                        whiteSpace: 'nowrap',
-                                        border: 'none',
-                                        cursor: 'pointer',
-                                        background: selectedCategory === cat.name ? 'var(--primary)' : 'var(--secondary)',
-                                        color: selectedCategory === cat.name ? 'white' : 'var(--foreground)',
-                                    }}
-                                >
-                                    {cat.name}
-                                </button>
-                            ))}
+                            {categories.map((cat) => {
+                                const active = selectedCategory === cat.name;
+                                return (
+                                    <button
+                                        key={cat.name}
+                                        onClick={() => setSelectedCategory(cat.name)}
+                                        style={{
+                                            padding: '8px 16px',
+                                            borderRadius: '999px',
+                                            fontSize: '13px',
+                                            fontWeight: active ? '700' : '500',
+                                            whiteSpace: 'nowrap',
+                                            border: `1px solid ${active ? 'var(--primary)' : 'var(--card-border)'}`,
+                                            cursor: 'pointer',
+                                            background: active ? 'var(--primary)' : 'var(--card-bg)',
+                                            color: active ? 'white' : 'var(--text-muted)',
+                                            transition: 'all 0.15s ease',
+                                        }}
+                                        onMouseEnter={(e) => { if (!active) { e.currentTarget.style.borderColor = 'var(--text-muted)'; e.currentTarget.style.color = 'var(--foreground)'; } }}
+                                        onMouseLeave={(e) => { if (!active) { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; } }}
+                                    >
+                                        {cat.name}
+                                    </button>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
@@ -1046,6 +1114,58 @@ export default function Home() {
                                 </div>
 
 
+
+                                {/* En Aktif Üyeler */}
+                                {topUsers.length > 0 && (
+                                    <div className="home-sidebar-extra" style={{
+                                        background: 'var(--card-bg)',
+                                        border: '1px solid var(--card-border)',
+                                        borderRadius: '16px',
+                                        padding: '16px',
+                                        marginBottom: '16px',
+                                    }}>
+                                        <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                            <Award size={16} color="var(--primary)" /> En Aktif Üyeler
+                                        </h3>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                                            {topUsers.map((tu, index) => {
+                                                const rankColors = ['#F59E0B', '#9CA3AF', '#B45309'];
+                                                const rankColor = index < 3 ? rankColors[index] : 'var(--text-muted)';
+                                                return (
+                                                    <Link key={tu.username} href={`/profil/${tu.username}`} style={{ textDecoration: 'none' }}>
+                                                        <div style={{
+                                                            display: 'flex', alignItems: 'center', gap: '10px',
+                                                            padding: '8px 6px', borderRadius: '8px',
+                                                            transition: 'background 0.15s',
+                                                        }}
+                                                            onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--secondary)'; }}
+                                                            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}>
+                                                            <span style={{
+                                                                fontSize: '13px', fontWeight: '800', color: rankColor,
+                                                                minWidth: '18px', textAlign: 'center', flexShrink: 0,
+                                                            }}>{index + 1}</span>
+                                                            <div style={{
+                                                                width: '30px', height: '30px', borderRadius: '50%',
+                                                                background: 'var(--secondary)', border: '1px solid var(--card-border)',
+                                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                                fontSize: '13px', fontWeight: '700', color: 'var(--text-muted)', flexShrink: 0,
+                                                            }}>{tu.username.charAt(0).toUpperCase()}</div>
+                                                            <div style={{ flex: 1, minWidth: 0 }}>
+                                                                <div style={{ fontSize: '13px', fontWeight: '600', color: 'var(--foreground)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                                                    {tu.username}
+                                                                </div>
+                                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                                                                    {(tu.entryCount || 0).toLocaleString('tr-TR')} entry
+                                                                </div>
+                                                            </div>
+                                                            {index === 0 && <Crown size={15} color="#F59E0B" style={{ flexShrink: 0 }} />}
+                                                        </div>
+                                                    </Link>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                )}
 
                                 {/* İstatistikler */}
                                 <div className="home-sidebar-extra" style={{

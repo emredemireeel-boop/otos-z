@@ -33,6 +33,7 @@ const navItems = [
             { name: "GM Yorumları", href: "/admin/guvenmetre/yorumlar", icon: MessageSquareWarning, badge: null },
             { name: "Anket Onayları", href: "/admin/anketler", icon: CheckSquare, badge: null },
             { name: "DNA Raporları", href: "/admin/dna-raporlar", icon: AlertCircle, badge: null },
+            { name: "Uzman Başvuruları", href: "/admin/uzman-basvurulari", icon: Award, badge: null },
         ]
     },
     {

@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
     Star, Award, ChevronRight, Search, X, Plus, Crown,
     Shield, CheckCircle, Clock, User, Trophy, Zap,
     Edit2, Trash2, TrendingUp, ArrowUpRight, ChevronDown
 } from "lucide-react";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 
 //  Tipler 
@@ -22,6 +23,7 @@ interface Badge {
 }
 
 interface UserWithLevel {
+    id: string;
     username: string;
     displayName: string;
     city: string;
@@ -57,6 +59,15 @@ const generateUsers = (): UserWithLevel[] => [];
 
 const MOCK_USERS = generateUsers();
 
+// Varsayılan rozet tohum listesi (DB boşsa "Varsayılanları Yükle" ile eklenir)
+const SEED_BADGES = [
+    { name: "OtoExpert", emoji: "🏆", description: "Teknik konularda güvenilir bilgi üreten yazarlar", color: "#3B82F6", type: "manuel" },
+    { name: "Güvenilir Satıcı", emoji: "🤝", description: "Pazar'da başarılı işlem geçmişi", color: "#10B981", type: "manuel" },
+    { name: "Trend Yapıcı", emoji: "📈", description: "Siteye gündem olan içerik üretmiş", color: "#EF4444", type: "manuel" },
+    { name: "Editör Seçimi", emoji: "🌟", description: "Yönetici tarafından öne çıkarılmış içerik", color: "#F59E0B", type: "manuel" },
+    { name: "Garaj Doğrulandı", emoji: "🛡️", description: "Güvenmetre ile araç sahipliği doğrulanmış", color: "#14B8A6", type: "manuel" },
+];
+
 type Tab = "kullanicilar" | "rozetler" | "seviyeler";
 
 interface AssignModal {
@@ -66,8 +77,9 @@ interface AssignModal {
 
 export default function AdminRozetlerPage() {
     const [tab, setTab] = useState<Tab>("kullanicilar");
-    const [users, setUsers] = useState(MOCK_USERS);
-    const [badges, setBadges] = useState(BADGES);
+    const [users, setUsers] = useState<UserWithLevel[]>([]);
+    const [badges, setBadges] = useState<Badge[]>([]);
+    const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
     const [levelFilter, setLevelFilter] = useState<Level | "hepsi">("hepsi");
     const [assignModal, setAssignModal] = useState<AssignModal | null>(null);
@@ -87,40 +99,120 @@ export default function AdminRozetlerPage() {
         setTimeout(() => setToast(null), 3000);
     };
 
-    const assignBadge = () => {
+    const fetchData = useCallback(async () => {
+        setLoading(true);
+        try {
+            const [uRes, bRes] = await Promise.all([
+                adminGet("badge_users"),
+                adminGet("badges"),
+            ]);
+            if (uRes.success) {
+                setUsers((uRes.users || []).map((u: any) => ({
+                    username: u.username,
+                    displayName: u.displayName,
+                    city: u.city || "",
+                    carBrand: u.carBrand || "",
+                    level: (u.level || "çaylak").toLowerCase() as Level,
+                    entryCount: u.entryCount || 0,
+                    reputation: u.reputation || 0,
+                    badges: Array.isArray(u.badges) ? u.badges : [],
+                    joinDate: "",
+                    id: u.id,
+                })));
+            }
+            if (bRes.success) {
+                const badgeCounts: Record<string, number> = {};
+                (uRes.users || []).forEach((u: any) => (u.badges || []).forEach((b: string) => { badgeCounts[b] = (badgeCounts[b] || 0) + 1; }));
+                setBadges((bRes.badges || []).map((b: any) => ({
+                    id: b.id,
+                    name: b.name,
+                    emoji: b.emoji || "🏆",
+                    description: b.description || "",
+                    color: b.color || "#3B82F6",
+                    type: b.type || "manuel",
+                    count: badgeCounts[b.name] || 0,
+                })));
+            }
+        } catch (e) {
+            console.error("Rozet verisi yuklenemedi:", e);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => { fetchData(); }, [fetchData]);
+
+    const [seeding, setSeeding] = useState(false);
+    const seedBadges = async () => {
+        if (seeding) return;
+        setSeeding(true);
+        try {
+            let added = 0;
+            for (const sb of SEED_BADGES) {
+                if (badges.some(b => b.name === sb.name)) continue;
+                const res = await adminPost({ action: "create_badge", detail: JSON.stringify(sb) });
+                if (res.success) added++;
+            }
+            showToast(`✓ ${added} varsayılan rozet eklendi.`);
+            await fetchData();
+        } catch {
+            showToast("Yükleme başarısız.", "error");
+        } finally {
+            setSeeding(false);
+        }
+    };
+
+    const assignBadge = async () => {
         if (!assignModal || !selectedBadge) return;
-        setUsers(us => us.map(u =>
-            u.username === assignModal.user.username && !u.badges.includes(selectedBadge)
-                ? { ...u, badges: [...u.badges, selectedBadge] } : u
-        ));
-        setBadges(bs => bs.map(b => b.name === selectedBadge ? { ...b, count: b.count + 1 } : b));
-        showToast(`✓ @${assignModal.user.username} → "${selectedBadge}" rozeti verildi.`);
-        setAssignModal(null); setSelectedBadge("");
+        const userId = (assignModal.user as any).id;
+        try {
+            const res = await adminPost({ action: "assign_badge", target: userId, detail: JSON.stringify({ badgeName: selectedBadge }) });
+            if (res.success) {
+                showToast(`✓ @${assignModal.user.username} → "${selectedBadge}" rozeti verildi.`);
+                setAssignModal(null); setSelectedBadge("");
+                await fetchData();
+            } else showToast(res.message || "Atanamadı.", "error");
+        } catch { showToast("Atanamadı.", "error"); }
     };
 
-    const upgradeLevel = () => {
+    const upgradeLevel = async () => {
         if (!assignModal) return;
-        setUsers(us => us.map(u =>
-            u.username === assignModal.user.username ? { ...u, level: selectedLevel } : u
-        ));
-        showToast(`✓ @${assignModal.user.username} seviyesi → ${selectedLevel} yapıldı.`);
-        setAssignModal(null);
+        const userId = (assignModal.user as any).id;
+        try {
+            const res = await adminPost({ action: "set_level", target: userId, detail: selectedLevel });
+            if (res.success) {
+                showToast(`✓ @${assignModal.user.username} seviyesi → ${selectedLevel} yapıldı.`);
+                setAssignModal(null);
+                await fetchData();
+            } else showToast(res.message || "Güncellenemedi.", "error");
+        } catch { showToast("Güncellenemedi.", "error"); }
     };
 
-    const removeBadge = (username: string, badge: string) => {
-        setUsers(us => us.map(u =>
-            u.username === username ? { ...u, badges: u.badges.filter(b => b !== badge) } : u
-        ));
-        setBadges(bs => bs.map(b => b.name === badge ? { ...b, count: Math.max(0, b.count - 1) } : b));
-        showToast(`Rozet kaldırıldı.`, "warning");
+    const removeBadge = async (username: string, badge: string) => {
+        const u = users.find(x => x.username === username) as any;
+        if (!u) return;
+        try {
+            const res = await adminPost({ action: "remove_badge", target: u.id, detail: JSON.stringify({ badgeName: badge }) });
+            if (res.success) {
+                showToast(`Rozet kaldırıldı.`, "warning");
+                await fetchData();
+            }
+        } catch { showToast("Kaldırılamadı.", "error"); }
     };
 
-    const createBadge = () => {
+    const createBadge = async () => {
         if (!newBadgeName.trim()) return;
-        const nb: Badge = { id: `b-${Date.now()}`, name: newBadgeName, emoji: newBadgeEmoji, description: newBadgeDesc, color: newBadgeColor, type: "manuel", count: 0 };
-        setBadges(bs => [nb, ...bs]);
-        setNewBadgeName(""); setNewBadgeDesc(""); setShowNewBadge(false);
-        showToast(`✓ "${nb.emoji} ${nb.name}" rozeti oluşturuldu.`);
+        try {
+            const res = await adminPost({
+                action: "create_badge",
+                detail: JSON.stringify({ name: newBadgeName, emoji: newBadgeEmoji, description: newBadgeDesc, color: newBadgeColor, type: "manuel" }),
+            });
+            if (res.success) {
+                setNewBadgeName(""); setNewBadgeDesc(""); setShowNewBadge(false);
+                showToast(`✓ "${newBadgeEmoji} ${newBadgeName}" rozeti oluşturuldu.`);
+                await fetchData();
+            } else showToast(res.message || "Oluşturulamadı.", "error");
+        } catch { showToast("Oluşturulamadı.", "error"); }
     };
 
     const filteredUsers = users
@@ -226,7 +318,12 @@ export default function AdminRozetlerPage() {
             {/*  ROZETLER  */}
             {tab === "rozetler" && (
                 <>
-                    <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "14px" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px", marginBottom: "14px" }}>
+                        {badges.length === 0 && !loading && (
+                            <button onClick={seedBadges} disabled={seeding} style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--card-bg)", border: "1px solid var(--card-border)", color: "var(--foreground)", padding: "10px 16px", borderRadius: "10px", cursor: "pointer", fontSize: "13px", fontWeight: "700" }}>
+                                <Star size={14} /> {seeding ? "Yükleniyor..." : "Varsayılan Rozetleri Yükle"}
+                            </button>
+                        )}
                         <button onClick={() => setShowNewBadge(v => !v)} style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--primary)", border: "none", color: "white", padding: "10px 16px", borderRadius: "10px", cursor: "pointer", fontSize: "13px", fontWeight: "700" }}>
                             <Plus size={14} /> Yeni Rozet Oluştur
                         </button>
@@ -296,9 +393,9 @@ export default function AdminRozetlerPage() {
                                 </div>
                                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "5px" }}>
                                     <div style={{ width: "120px", height: "8px", background: "var(--border-subtle)", borderRadius: "4px", overflow: "hidden" }}>
-                                        <div style={{ width: `${(count / MOCK_USERS.length) * 100}%`, height: "100%", background: l.color, borderRadius: "4px" }} />
+                                        <div style={{ width: `${users.length ? (count / users.length) * 100 : 0}%`, height: "100%", background: l.color, borderRadius: "4px" }} />
                                     </div>
-                                    <span style={{ fontSize: "11px", color: "var(--text-muted)", fontWeight: "600" }}>%{Math.round((count / MOCK_USERS.length) * 100)}</span>
+                                    <span style={{ fontSize: "11px", color: "var(--text-muted)", fontWeight: "600" }}>%{users.length ? Math.round((count / users.length) * 100) : 0}</span>
                                 </div>
                             </div>
                         );

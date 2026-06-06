@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Briefcase, ShieldCheck, CheckCircle, FileText, Store, Wrench, Car, Shield, Send, Loader2, AlertCircle, ChevronRight, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { submitExpertApplication, type ExpertProfession } from "@/lib/expertService";
 
 /* ── OtoAsfalt.v2'den birebir alınan meslek & belge yapısı ── */
 const PROFESSION_OPTIONS = [
@@ -46,6 +47,7 @@ export default function UzmanOlPage() {
     const [form, setForm] = useState({ fullName: "", phone: "", city: "", experience: "", businessName: "", businessAddress: "", message: "" });
     const [submitting, setSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
     useEffect(() => { setMounted(true); }, []);
     if (!mounted || isLoading) return <div style={{ minHeight: '100vh', background: 'var(--background)' }} />;
@@ -53,29 +55,31 @@ export default function UzmanOlPage() {
     const isAlreadyExpert = (user?.role as string) === "uzman" || (user?.role as string) === "admin" || (user?.role as string) === "moderator";
     const selectedProf = PROFESSION_OPTIONS.find(p => p.id === selectedId);
 
-    const handleSubmit = () => {
-        if (!selectedProf || !form.fullName.trim()) return;
+    const handleSubmit = async () => {
+        if (!selectedProf || !form.fullName.trim() || !user) return;
         setSubmitting(true);
-        const docsText = selectedProf.verificationDocs.map((d, i) => `  ${i + 1}. ${d}`).join("\n");
-        const subject = encodeURIComponent("OtoSöz Uzman Başvurusu - " + selectedProf.title);
-        const body = encodeURIComponent(
-            `=== OTOSÖZ UZMAN BAŞVURUSU ===\n\n` +
-            `Başvuru Alanı: ${selectedProf.title}\n` +
-            `Ad Soyad: ${form.fullName}\n` +
-            `Kullanıcı Adı: ${user?.username || "-"}\n` +
-            `Şehir: ${form.city}\n` +
-            `Deneyim: ${form.experience || "-"} yıl\n` +
-            `İşyeri: ${form.businessName || "-"}\n` +
-            `İşyeri Adresi: ${form.businessAddress || "-"}\n` +
-            `Telefon: ${form.phone || "-"}\n\n` +
-            `--- Ek Not ---\n${form.message || "-"}\n\n` +
-            `=== EKLENMESİ GEREKEN BELGELER ===\n` +
-            `Lütfen aşağıdaki belgeleri bu e-postaya ek (attachment) olarak ekleyiniz:\n\n` +
-            `${docsText}\n\n` +
-            `Not: Belgeleriniz incelendikten sonra 24-48 saat içinde sonuç bildirilecektir.\n`
-        );
-        window.open(`mailto:iletisim@otosoz.com?subject=${subject}&body=${body}`, "_self");
-        setTimeout(() => { setSubmitting(false); setSubmitted(true); }, 1500);
+        setSubmitError(null);
+        try {
+            await submitExpertApplication({
+                userId: user.id as string,
+                username: user.username || "",
+                profession: selectedProf.id as ExpertProfession,
+                professionTitle: selectedProf.title,
+                fullName: form.fullName.trim(),
+                phone: form.phone.trim(),
+                city: form.city.trim(),
+                experience: form.experience.trim(),
+                businessName: form.businessName.trim(),
+                businessAddress: form.businessAddress.trim(),
+                message: form.message.trim(),
+                documents: selectedProf.verificationDocs,
+            });
+            setSubmitted(true);
+        } catch (e: any) {
+            setSubmitError(e?.message || "Başvuru gönderilemedi. Lütfen tekrar deneyin.");
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     /* ── Başarıyla gönderildi ── */
@@ -90,7 +94,7 @@ export default function UzmanOlPage() {
                         </div>
                         <h1 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '10px' }}>Başvurunuz Alındı!</h1>
                         <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '24px' }}>
-                            Başvurunuz incelemeye alındı. Sonuç 24-48 saat içinde e-posta adresinize bildirilecektir.
+                            Başvurunuz sisteme kaydedildi ve yöneticiler tarafından incelenecek. Onaylandığında bildirim alacak ve <strong>Onaylı Uzman</strong> rozetine kavuşacaksınız.
                         </p>
                         <Link href="/" style={{ textDecoration: 'none' }}>
                             <button style={{ width: '100%', padding: '14px', borderRadius: '12px', background: 'var(--foreground)', color: 'var(--background)', fontSize: '14px', fontWeight: '700', border: 'none', cursor: 'pointer' }}>
@@ -262,8 +266,14 @@ export default function UzmanOlPage() {
                             {/* Bilgi notu */}
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', padding: '12px 14px', borderRadius: '8px', border: '1px solid var(--card-border)', marginBottom: '16px', fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>
                                 <AlertCircle size={14} style={{ flexShrink: 0, marginTop: '2px' }} />
-                                <span>Gönder butonuna bastığınızda e-posta uygulamanız açılır. Yukarıdaki belgeleri e-postaya ekleyip gönderin. İnceleme 24-48 saat sürer.</span>
+                                <span>Başvurunuz sisteme kaydedilir ve yöneticiler tarafından incelenir. Onaylandığında bildirim alırsınız. Belgelerinizi yönetici talep ettiğinde iletebilirsiniz.</span>
                             </div>
+
+                            {submitError && (
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 14px', borderRadius: '8px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)', marginBottom: '16px', fontSize: '13px', color: '#EF4444', fontWeight: 600 }}>
+                                    <AlertCircle size={15} /> {submitError}
+                                </div>
+                            )}
 
                             {/* Submit */}
                             <button onClick={handleSubmit} disabled={submitting || !form.fullName.trim() || !form.city.trim()} style={{

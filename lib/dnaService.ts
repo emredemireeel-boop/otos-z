@@ -1,5 +1,5 @@
 import { db } from "@/lib/firebase";
-import { doc, getDoc, setDoc, updateDoc, addDoc, collection, getDocs, query, orderBy, deleteDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, addDoc, collection, getDocs, query, orderBy, deleteDoc, runTransaction } from "firebase/firestore";
 
 export interface DNAChronicIssue {
     id: string;
@@ -72,6 +72,11 @@ export async function addVehicleChronicIssue(brandSlug: string, modelSlug: strin
                 chronicIssues: [newIssue]
             });
         }
+        // Görev tetikle: DNA yorumu yapıldı
+        try {
+            const { markQuestComplete } = await import("./questService");
+            await markQuestComplete(data.authorId, "dnaCommented");
+        } catch (e) { console.warn("DNA quest error:", e); }
         return newIssue;
     } catch (e) {
         console.error("Error adding vehicle chronic issue:", e);
@@ -83,29 +88,34 @@ export async function addVehicleChronicIssue(brandSlug: string, modelSlug: strin
 export async function toggleVehicleChronicVote(brandSlug: string, modelSlug: string, issueId: string, userId: string): Promise<boolean> {
     const docId = getVehicleDocId(brandSlug, modelSlug);
     const docRef = doc(db, "vehicle_chronic_issues", docId);
-    
+
     try {
-        const snap = await getDoc(docRef);
-        if (!snap.exists()) return false;
+        // ✅ Atomik transaction: eşzamanlı oylarda kayıp güncelleme (lost update) önlenir.
+        //    Dönüş değeri: oy şimdi aktif mi (true = eklendi, false = geri alındı/bulunamadı)
+        return await runTransaction(db, async (tx) => {
+            const snap = await tx.get(docRef);
+            if (!snap.exists()) return false;
 
-        const issues: DNAChronicIssue[] = snap.data().chronicIssues || [];
-        let toggled = false;
-        
-        const updated = issues.map(issue => {
-            if (issue.id !== issueId) return issue;
-            const hasVoted = issue.votedBy.includes(userId);
-            toggled = true;
-            return {
-                ...issue,
-                votes: hasVoted ? issue.votes - 1 : issue.votes + 1,
-                votedBy: hasVoted ? issue.votedBy.filter(id => id !== userId) : [...issue.votedBy, userId]
-            };
+            const issues: DNAChronicIssue[] = snap.data().chronicIssues || [];
+            let isNowVoted = false;
+            let found = false;
+
+            const updated = issues.map(issue => {
+                if (issue.id !== issueId) return issue;
+                found = true;
+                const hasVoted = issue.votedBy.includes(userId);
+                isNowVoted = !hasVoted;
+                return {
+                    ...issue,
+                    votes: hasVoted ? Math.max(0, issue.votes - 1) : issue.votes + 1,
+                    votedBy: hasVoted ? issue.votedBy.filter(id => id !== userId) : [...issue.votedBy, userId]
+                };
+            });
+
+            if (!found) return false;
+            tx.update(docRef, { chronicIssues: updated });
+            return isNowVoted;
         });
-
-        if (toggled) {
-            await updateDoc(docRef, { chronicIssues: updated });
-            return true;
-        }
     } catch (e) {
         console.error("Error toggling vehicle chronic issue vote:", e);
     }
@@ -131,32 +141,33 @@ export async function getVehicleStaticVotes(brandSlug: string, modelSlug: string
 export async function toggleVehicleStaticVote(brandSlug: string, modelSlug: string, issueId: string, userId: string): Promise<boolean> {
     const docId = getVehicleDocId(brandSlug, modelSlug);
     const docRef = doc(db, "vehicle_chronic_issues", docId);
-    
+
     try {
-        const snap = await getDoc(docRef);
-        let staticIssueVotes: Record<string, string[]> = {};
-        
-        if (snap.exists()) {
-            staticIssueVotes = snap.data().staticIssueVotes || {};
-        }
+        // ✅ Atomik transaction: eşzamanlı oylarda kayıp güncelleme önlenir.
+        return await runTransaction(db, async (tx) => {
+            const snap = await tx.get(docRef);
+            const staticIssueVotes: Record<string, string[]> = snap.exists()
+                ? (snap.data().staticIssueVotes || {})
+                : {};
 
-        const voters = staticIssueVotes[issueId] || [];
-        const hasVoted = voters.includes(userId);
-        
-        const newVoters = hasVoted ? voters.filter(id => id !== userId) : [...voters, userId];
-        staticIssueVotes[issueId] = newVoters;
+            const voters = staticIssueVotes[issueId] || [];
+            const hasVoted = voters.includes(userId);
+            staticIssueVotes[issueId] = hasVoted
+                ? voters.filter(id => id !== userId)
+                : [...voters, userId];
 
-        if (snap.exists()) {
-            await updateDoc(docRef, { staticIssueVotes });
-        } else {
-            await setDoc(docRef, {
-                brandSlug,
-                modelSlug,
-                chronicIssues: [],
-                staticIssueVotes
-            });
-        }
-        return true;
+            if (snap.exists()) {
+                tx.update(docRef, { staticIssueVotes });
+            } else {
+                tx.set(docRef, {
+                    brandSlug,
+                    modelSlug,
+                    chronicIssues: [],
+                    staticIssueVotes
+                });
+            }
+            return true;
+        });
     } catch (e) {
         console.error("Error toggling static vehicle chronic issue vote:", e);
     }

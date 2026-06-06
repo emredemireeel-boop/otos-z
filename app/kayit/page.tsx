@@ -157,7 +157,11 @@ export default function KayitPage() {
     const passwordsDontMatch = formData.password && formData.confirmPassword && formData.password !== formData.confirmPassword;
 
     const canProceedStep1 = formData.username.length >= USERNAME_RULES.MIN_LENGTH && formData.email.includes('@') && formData.city.length > 0 && acceptTerms && usernameStatus === "available";
-    const canProceedStep2 = formData.password.length >= 6 && passwordsMatch;
+    // Şifre politikası: min 8 karakter + harf + rakam (validatePassword ile uyumlu)
+    const passwordMeetsPolicy = formData.password.length >= 8
+        && /[A-Za-zçğıöşüÇĞİÖŞÜ]/.test(formData.password)
+        && /[0-9]/.test(formData.password);
+    const canProceedStep2 = passwordMeetsPolicy && passwordsMatch;
 
     // Success Screen
     if (success) {

@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
     Send, Users, Crown, User, Bell, CheckCircle, Clock,
     AlertTriangle, Eye, Trash2, Plus, ChevronRight, Search,
     X, Megaphone, Tag, Calendar, BarChart3
 } from "lucide-react";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 
 //  Tipler 
@@ -55,10 +56,12 @@ const STATUS_STYLE: Record<MsgStatus, { bg: string; color: string; label: string
 };
 
 export default function AdminYayinPage() {
-    const [messages, setMessages] = useState<Message[]>(MOCK_MESSAGES);
+    const [messages, setMessages] = useState<Message[]>([]);
+    const [loading, setLoading] = useState(true);
     const [showCompose, setShowCompose] = useState(false);
     const [preview, setPreview] = useState<Message | null>(null);
     const [toast, setToast] = useState<{ msg: string; type?: string } | null>(null);
+    const [sending, setSending] = useState(false);
 
     // Form state
     const [title, setTitle] = useState("");
@@ -73,27 +76,66 @@ export default function AdminYayinPage() {
         setTimeout(() => setToast(null), 3500);
     };
 
+    const fetchBroadcasts = useCallback(async () => {
+        setLoading(true);
+        try {
+            const res = await adminGet("broadcasts");
+            if (res.success) {
+                setMessages((res.broadcasts || []).map((b: any) => ({
+                    id: b.id,
+                    title: b.title || "",
+                    body: b.body || "",
+                    target: b.target || "hepsi",
+                    type: b.type || "duyuru",
+                    status: b.status || "gonderildi",
+                    sentAt: b.status === "gonderildi" ? b.createdAt : undefined,
+                    scheduledFor: b.scheduledFor,
+                    recipientCount: b.recipientCount || 0,
+                    openRate: b.openRate,
+                })));
+            }
+        } catch (e) {
+            console.error("Mesajlar yuklenemedi:", e);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => { fetchBroadcasts(); }, [fetchBroadcasts]);
+
     const targetInfo = TARGETS.find(t => t.key === target)!;
 
-    const sendMessage = (asDraft: boolean = false) => {
+    const sendMessage = async (asDraft: boolean = false) => {
         if (!title.trim() || !body.trim()) { showToast("Başlık ve mesaj gerekli!", "error"); return; }
-        const nm: Message = {
-            id: `m-${Date.now()}`, title, body, target, type: msgType,
-            status: asDraft ? "taslak" : scheduledFor ? "planlandi" : "gonderildi",
-            sentAt: !asDraft && !scheduledFor ? new Date().toLocaleDateString("tr-TR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" }) : undefined,
-            scheduledFor: scheduledFor || undefined,
-            recipientCount: target === "tek_kullanici" ? 1 : targetInfo.count,
-            openRate: !asDraft && !scheduledFor ? 0 : undefined,
-        };
-        setMessages(prev => [nm, ...prev]);
-        setTitle(""); setBody(""); setTarget("hepsi"); setMsgType("duyuru"); setScheduledFor(""); setTargetUser("");
-        setShowCompose(false);
-        showToast(asDraft ? "Taslak kaydedildi." : scheduledFor ? `✓ Mesaj planlandı: ${scheduledFor}` : ` Mesaj ${nm.recipientCount} kişiye gönderildi!`);
+        if (sending) return;
+        setSending(true);
+        try {
+            const payload = { title, body, target, type: msgType, targetUsername: targetUser };
+            const res = await adminPost({
+                action: asDraft ? "save_broadcast_draft" : "send_broadcast",
+                detail: JSON.stringify(payload),
+            });
+            if (res.success) {
+                setTitle(""); setBody(""); setTarget("hepsi"); setMsgType("duyuru"); setScheduledFor(""); setTargetUser("");
+                setShowCompose(false);
+                showToast(asDraft ? "Taslak kaydedildi." : `✓ Mesaj ${res.recipientCount ?? 0} kişiye gönderildi!`);
+                await fetchBroadcasts();
+            } else {
+                showToast(res.message || "Gönderilemedi.", "error");
+            }
+        } catch {
+            showToast("Gönderilemedi.", "error");
+        } finally {
+            setSending(false);
+        }
     };
 
-    const deleteMsg = (id: string) => {
+    const deleteMsg = async (id: string) => {
         setMessages(prev => prev.filter(m => m.id !== id));
         showToast("Mesaj silindi.", "warning");
+        try {
+            await adminPost({ action: "delete_broadcast", target: id });
+        } catch { fetchBroadcasts(); }
     };
 
     const totalSent = messages.filter(m => m.status === "gonderildi").reduce((s, m) => s + m.recipientCount, 0);
@@ -206,9 +248,9 @@ export default function AdminYayinPage() {
                         <button onClick={() => sendMessage(true)} style={{ flex: 1, padding: "12px", borderRadius: "10px", border: "1px solid var(--border-subtle)", background: "var(--background)", color: "var(--foreground)", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}>
                             Taslak Kaydet
                         </button>
-                        <button onClick={() => sendMessage(false)} disabled={!title.trim() || !body.trim()}
-                            style={{ flex: 2, padding: "12px", borderRadius: "10px", background: "var(--primary)", border: "none", color: "white", fontSize: "14px", fontWeight: "700", cursor: "pointer", opacity: title.trim() && body.trim() ? 1 : 0.4, display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-                            <Send size={15} /> {scheduledFor ? "Planla" : `${targetInfo.count} Kişiye Gönder`}
+                        <button onClick={() => sendMessage(false)} disabled={!title.trim() || !body.trim() || sending}
+                            style={{ flex: 2, padding: "12px", borderRadius: "10px", background: "var(--primary)", border: "none", color: "white", fontSize: "14px", fontWeight: "700", cursor: "pointer", opacity: title.trim() && body.trim() && !sending ? 1 : 0.4, display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+                            <Send size={15} /> {sending ? "Gönderiliyor..." : "Gönder"}
                         </button>
                     </div>
                 </div>

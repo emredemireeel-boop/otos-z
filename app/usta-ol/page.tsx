@@ -82,13 +82,26 @@ export default function UstaOlPage() {
                         <Wrench size={40} />
                     </div>
                     <h1 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '12px' }}>
-                        Usta Başvurusu 🛠️
+                        Usta Ol 🛠️
                     </h1>
                     <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '24px' }}>
-                        Sanayi tozu yutmuş, motor sesinden arızayı anlayan ustalardansan doğru yerdesin. 
-                        Başvuru formumuz çok yakında burada olacak!
+                        Usta olmak için belge gerekmez! Topluluğa katkı sağladıkça görevleri tamamla,
+                        hepsini bitirince otomatik olarak <strong>Usta</strong> ol. Entry yaz, başlık aç,
+                        beğeni topla, anketlere katıl ve daha fazlası seni bekliyor.
                     </p>
-                    
+
+                    <Link href="/ayarlar?tab=usta" style={{ textDecoration: 'none' }}>
+                        <button style={{
+                            width: '100%', padding: '14px', borderRadius: '12px',
+                            background: 'var(--primary)', color: 'white',
+                            fontSize: '15px', fontWeight: '700', border: 'none',
+                            cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                            marginBottom: '12px', boxShadow: '0 4px 12px rgba(59,130,246,0.2)'
+                        }}>
+                            <Star size={18} /> Görevlerimi Gör
+                        </button>
+                    </Link>
+
                     <button 
                         onClick={() => window.history.back()}
                         style={{
