@@ -69,7 +69,7 @@ export default function Home() {
     const isDark = theme === 'dark';
     const { user } = useAuth();
     const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
-    const [sortBy, setSortBy] = useState<"popular" | "new">("popular");
+    const [sortBy, setSortBy] = useState<"popular" | "new">("new");
     const [showNewTopicModal, setShowNewTopicModal] = useState(false);
     const [newTopicData, setNewTopicData] = useState({ title: "", content: "", category: "", type: "topic", carBrand: "", carModel: "", carYear: "", carKm: "" });
     const [newSurveyOptions, setNewSurveyOptions] = useState(["Evet", "Hayır"]);
@@ -292,6 +292,7 @@ export default function Home() {
         category: thread.category === "Karsilastirma" ? "Karşılaştırma" : thread.category,
         isHot: thread.views > 50,
         lastActivity: formatTimestamp(thread.createdAt),
+        rawCreatedAt: thread.createdAt, // eklendi
         lastAuthor: thread.authorUsername,
         authorLevel: "Surucu",
         lastEntry: "",
@@ -326,7 +327,10 @@ export default function Home() {
 
     const sortedTopics = [...searchFilteredTopics].sort((a, b) => {
         if (sortBy === "popular") return b.entryCount - a.entryCount;
-        return 0;
+        // Varsayılan: En yeni (en güncel) olan en başta
+        const timeA = a.rawCreatedAt?.toMillis ? a.rawCreatedAt.toMillis() : 0;
+        const timeB = b.rawCreatedAt?.toMillis ? b.rawCreatedAt.toMillis() : 0;
+        return timeB - timeA;
     });
 
     // Pagination
@@ -696,35 +700,10 @@ export default function Home() {
 
 
 
-                        {/* Category Pills */}
-                        <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
-                            {categories.map((cat) => {
-                                const active = selectedCategory === cat.name;
-                                const meta = CATEGORY_META[cat.name];
-                                return (
-                                    <button
-                                        key={cat.name}
-                                        onClick={() => setSelectedCategory(cat.name)}
-                                        title={meta?.desc}
-                                        style={{
-                                            padding: '8px 16px',
-                                            borderRadius: '999px',
-                                            fontSize: '13px',
-                                            fontWeight: active ? '700' : '500',
-                                            whiteSpace: 'nowrap',
-                                            border: `1px solid ${active ? 'var(--text-muted)' : 'var(--card-border)'}`,
-                                            cursor: 'pointer',
-                                            background: active ? 'var(--secondary)' : 'var(--card-bg)',
-                                            color: active ? 'var(--foreground)' : 'var(--text-muted)',
-                                            transition: 'all 0.15s ease',
-                                        }}
-                                        onMouseEnter={(e) => { if (!active) { e.currentTarget.style.borderColor = 'var(--text-muted)'; e.currentTarget.style.color = 'var(--foreground)'; } }}
-                                        onMouseLeave={(e) => { if (!active) { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.color = 'var(--text-muted)'; } }}
-                                    >
-                                        {cat.name}
-                                    </button>
-                                );
-                            })}
+                        {/* Reklam Alanı (Yan Yana) */}
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '8px', marginBottom: '8px' }}>
+                            <AdPlaceholder variant="banner" fallbackTitle="Reklam Alanı" fallbackDesc="Buraya reklam verebilirsiniz." />
+                            <AdPlaceholder variant="banner" fallbackTitle="Reklam Alanı" fallbackDesc="Buraya reklam verebilirsiniz." />
                         </div>
                     </div>
                 </div>
@@ -827,6 +806,9 @@ export default function Home() {
                                     </Link>
                                 </div>
                             )}
+
+                            {/* Reklam Alanı (Rastgele Bilgi Altı) */}
+                            <AdPlaceholder position="sidebar_bottom" style={{ marginTop: '16px' }} />
                         </aside>
 
                         {/* Main Content - BAşLIKLAR LİSTESİ */}
@@ -1328,6 +1310,9 @@ export default function Home() {
                                         </div>
                                     </div>
                                 )}
+
+                                {/* Reklam Alanı (Sağ Sidebar Alt) */}
+                                <AdPlaceholder position="sidebar_right" style={{ marginTop: '16px' }} />
                             </div>
                         </aside>
                     </div>

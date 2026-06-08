@@ -76,7 +76,7 @@ export default function PazarPage() {
     }, [selectedBrand]);
 
     const filteredListings = useMemo(() => {
-        return listings.filter(listing => {
+        let result = listings.filter(listing => {
             const matchesSearch = searchQuery === "" ||
                 listing.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 listing.model.toLowerCase().includes(searchQuery.toLowerCase());
@@ -87,7 +87,16 @@ export default function PazarPage() {
 
             return matchesSearch && matchesBrand && matchesModel && matchesColor;
         });
-    }, [listings, searchQuery, selectedBrand, selectedModel]);
+
+        // En güncel ilanlar en başta olacak şekilde sırala
+        result.sort((a, b) => {
+            const timeA = new Date(a.createdAt).getTime();
+            const timeB = new Date(b.createdAt).getTime();
+            return timeB - timeA;
+        });
+
+        return result;
+    }, [listings, searchQuery, selectedBrand, selectedModel, selectedColor]);
 
     // Pagination logic
     const totalPages = Math.ceil(filteredListings.length / itemsPerPage);
