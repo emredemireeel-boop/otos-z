@@ -37,5 +37,16 @@ export const getThreadsByCategory = (category: string): ForumThread[] => {
 };
 
 export const getForumCategories = (): string[] => {
-    return ["Genel", "Teknik", "Deneyim", "Karsilastirma", "Marka", "Alim-Satim"];
+    return [
+        "Genel",
+        "Teknik & Arıza",
+        "Bakım & Tamir",
+        "Modifiye & Aksesuar",
+        "Elektrikli & Hibrit",
+        "Lastik & Jant",
+        "Sigorta & Hukuk",
+        "Alım-Satım",
+        "Deneyim & İnceleme",
+        "Marka & Model",
+    ];
 };

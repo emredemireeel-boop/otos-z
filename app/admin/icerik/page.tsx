@@ -119,7 +119,18 @@ export default function AdminContentPage() {
     };
 
     const getCategoryColor = (cat: string) => {
-        const map: Record<string, string> = { Teknik: '#3B82F6', Karşılaştırma: '#8B5CF6', Genel: '#10B981', Deneyim: '#F59E0B', Marka: '#EF4444', 'Alım-Satım': '#06B6D4' };
+        const map: Record<string, string> = {
+            'Genel': '#10B981',
+            'Teknik & Arıza': '#3B82F6',
+            'Bakım & Tamir': '#0EA5E9',
+            'Modifiye & Aksesuar': '#8B5CF6',
+            'Elektrikli & Hibrit': '#22C55E',
+            'Lastik & Jant': '#64748B',
+            'Sigorta & Hukuk': '#F59E0B',
+            'Alım-Satım': '#06B6D4',
+            'Deneyim & İnceleme': '#EC4899',
+            'Marka & Model': '#EF4444',
+        };
         return map[cat] || '#6B7280';
     };
 

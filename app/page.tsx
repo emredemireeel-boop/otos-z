@@ -26,19 +26,35 @@ const levelColors: Record<string, { bg: string; text: string }> = {
     "Usta": { bg: "rgba(245, 158, 11, 0.2)", text: "#f59e0b" },
     "Efsane": { bg: "rgba(34, 197, 94, 0.2)", text: "#22c55e" },
 };
-// Kategoriler (statik)
-const FORUM_CATS = ["Genel", "Teknik", "Deneyim", "Marka", "Alım-Satım"];
+// Kategoriler (statik) — otomotiv topluluğu için kapsamlı set
+const FORUM_CATS = [
+    "Genel",
+    "Teknik & Arıza",
+    "Bakım & Tamir",
+    "Modifiye & Aksesuar",
+    "Elektrikli & Hibrit",
+    "Lastik & Jant",
+    "Sigorta & Hukuk",
+    "Alım-Satım",
+    "Deneyim & İnceleme",
+    "Marka & Model",
+];
 
-// Kategori meta verisi — ikon, renk ve kısa açıklama (kullanışlı kategori sistemi)
-const CATEGORY_META: Record<string, { icon: any; color: string; desc: string }> = {
-    "Tümü": { icon: Layers, color: "#6B7280", desc: "Tüm başlıklar" },
-    "Genel": { icon: MessageSquare, color: "#3B82F6", desc: "Genel sohbet ve gündem" },
-    "Teknik": { icon: Wrench, color: "#F59E0B", desc: "Arıza, bakım, motor" },
-    "Deneyim": { icon: Star, color: "#8B5CF6", desc: "Kullanıcı deneyimleri" },
-    "Marka": { icon: Car, color: "#10B981", desc: "Marka ve model tartışmaları" },
-    "Alım-Satım": { icon: Tag, color: "#EF4444", desc: "İkinci el ve fiyat" },
-    "Anket": { icon: BarChart3, color: "#06B6D4", desc: "Topluluk anketleri" },
-    "Uzmana Sor": { icon: Sparkles, color: "#EC4899", desc: "Uzmana danış" },
+// Kategori açıklamaları (tooltip için)
+const CATEGORY_META: Record<string, { desc: string }> = {
+    "Tümü": { desc: "Tüm başlıklar" },
+    "Genel": { desc: "Genel sohbet, gündem ve sorular" },
+    "Teknik & Arıza": { desc: "Arıza kodları, motor, şanzıman sorunları" },
+    "Bakım & Tamir": { desc: "Periyodik bakım, yağ, servis önerileri" },
+    "Modifiye & Aksesuar": { desc: "Donanım, görsel ve performans modifiyeleri" },
+    "Elektrikli & Hibrit": { desc: "EV, hibrit, şarj ve menzil" },
+    "Lastik & Jant": { desc: "Lastik seçimi, ebat, jant ve balans" },
+    "Sigorta & Hukuk": { desc: "Kasko, trafik sigortası, kaza ve mevzuat" },
+    "Alım-Satım": { desc: "İkinci el, fiyat ve ekspertiz" },
+    "Deneyim & İnceleme": { desc: "Kullanıcı deneyimleri ve araç incelemeleri" },
+    "Marka & Model": { desc: "Marka ve model tartışmaları" },
+    "Anket": { desc: "Topluluk anketleri" },
+    "Uzmana Sor": { desc: "Uzmana danış" },
 };
 
 const categories = [
@@ -684,20 +700,22 @@ export default function Home() {
                         <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {categories.map((cat) => {
                                 const active = selectedCategory === cat.name;
+                                const meta = CATEGORY_META[cat.name];
                                 return (
                                     <button
                                         key={cat.name}
                                         onClick={() => setSelectedCategory(cat.name)}
+                                        title={meta?.desc}
                                         style={{
                                             padding: '8px 16px',
                                             borderRadius: '999px',
                                             fontSize: '13px',
                                             fontWeight: active ? '700' : '500',
                                             whiteSpace: 'nowrap',
-                                            border: `1px solid ${active ? 'var(--primary)' : 'var(--card-border)'}`,
+                                            border: `1px solid ${active ? 'var(--text-muted)' : 'var(--card-border)'}`,
                                             cursor: 'pointer',
-                                            background: active ? 'var(--primary)' : 'var(--card-bg)',
-                                            color: active ? 'white' : 'var(--text-muted)',
+                                            background: active ? 'var(--secondary)' : 'var(--card-bg)',
+                                            color: active ? 'var(--foreground)' : 'var(--text-muted)',
                                             transition: 'all 0.15s ease',
                                         }}
                                         onMouseEnter={(e) => { if (!active) { e.currentTarget.style.borderColor = 'var(--text-muted)'; e.currentTarget.style.color = 'var(--foreground)'; } }}
@@ -727,30 +745,46 @@ export default function Home() {
                                     Kategoriler
                                 </h2>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                                    {dynamicCategories.map((cat) => (
-                                        <li key={cat.name} style={{ marginBottom: '4px' }}>
-                                            <button
-                                                onClick={() => setSelectedCategory(cat.name)}
-                                                style={{
-                                                    width: '100%',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'space-between',
-                                                    padding: '10px 12px',
-                                                    borderRadius: '8px',
-                                                    border: 'none',
-                                                    cursor: 'pointer',
-                                                    background: selectedCategory === cat.name ? 'var(--primary)' : 'transparent',
-                                                    color: selectedCategory === cat.name ? 'white' : 'var(--foreground)',
-                                                    fontSize: '14px',
-                                                    textAlign: 'left',
-                                                }}
-                                            >
-                                                <span>{cat.name}</span>
-                                                <span style={{ fontSize: '12px', opacity: 0.6 }}>{cat.count}</span>
-                                            </button>
-                                        </li>
-                                    ))}
+                                    {dynamicCategories.map((cat) => {
+                                        const active = selectedCategory === cat.name;
+                                        const meta = CATEGORY_META[cat.name];
+                                        return (
+                                            <li key={cat.name} style={{ marginBottom: '4px' }}>
+                                                <button
+                                                    onClick={() => setSelectedCategory(cat.name)}
+                                                    title={meta?.desc}
+                                                    style={{
+                                                        width: '100%',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'space-between',
+                                                        gap: '10px',
+                                                        padding: '10px 12px',
+                                                        borderRadius: '10px',
+                                                        border: 'none',
+                                                        cursor: 'pointer',
+                                                        background: active ? 'var(--secondary)' : 'transparent',
+                                                        color: active ? 'var(--foreground)' : 'var(--text-muted)',
+                                                        fontSize: '14px',
+                                                        fontWeight: active ? '700' : '500',
+                                                        textAlign: 'left',
+                                                        transition: 'all 0.15s ease',
+                                                        borderLeft: active ? '3px solid var(--text-muted)' : '3px solid transparent',
+                                                    }}
+                                                    onMouseEnter={(e) => { if (!active) e.currentTarget.style.background = 'var(--secondary)'; }}
+                                                    onMouseLeave={(e) => { if (!active) e.currentTarget.style.background = 'transparent'; }}
+                                                >
+                                                    <span style={{ flex: 1 }}>{cat.name}</span>
+                                                    <span style={{
+                                                        fontSize: '11px', fontWeight: '700',
+                                                        color: 'var(--text-muted)',
+                                                        background: 'var(--secondary)',
+                                                        padding: '2px 8px', borderRadius: '10px', minWidth: '24px', textAlign: 'center',
+                                                    }}>{cat.count}</span>
+                                                </button>
+                                            </li>
+                                        );
+                                    })}
                                 </ul>
                             </div>
                             
