@@ -67,30 +67,30 @@
     "ucretler2026": [
         {
             "sinif": "A, A1, A2 ve F Sınıfı",
-            "harc": "2.239,90 TL",
-            "degerliKagit": "1.690,00 TL",
-            "vakifPayi": "425,00 TL",
-            "toplam": "4.354,90 TL"
+            "harc": "3.135,86 TL",
+            "degerliKagit": "2.366,00 TL",
+            "vakifPayi": "595,00 TL",
+            "toplam": "6.096,86 TL"
         },
         {
             "sinif": "B Sınıfı (Otomobil)",
-            "harc": "6.754,60 TL",
-            "degerliKagit": "1.690,00 TL",
-            "vakifPayi": "425,00 TL",
-            "toplam": "8.869,60 TL"
+            "harc": "9.456,44 TL",
+            "degerliKagit": "2.366,00 TL",
+            "vakifPayi": "595,00 TL",
+            "toplam": "12.417,44 TL"
         },
         {
             "sinif": "B1, BE, C1, C1E, C, CE, D1, D1E, D, DE",
-            "harc": "11.271,20 TL",
-            "degerliKagit": "1.690,00 TL",
-            "vakifPayi": "425,00 TL",
-            "toplam": "13.386,20 TL"
+            "harc": "15.779,68 TL",
+            "degerliKagit": "2.366,00 TL",
+            "vakifPayi": "595,00 TL",
+            "toplam": "18.740,68 TL"
         }
     ],
     "digerUcretler": [
         {
             "islem": "Kayıp / Yenileme / Çalıntı Ehliyet Çıkarma",
-            "ucret": "2.115,00 TL",
+            "ucret": "2.961,00 TL",
             "detay": "Eski tip (2016 öncesi) ehliyetlerin yeni tipe çevrilmesi süresi dolduğu için cezalı tarife (değerli kağıt + vakıf payı tam tutarı) alınmaktadır."
         },
         {
@@ -100,7 +100,7 @@
         },
         {
             "islem": "Milli Eğitim (MEB) Sınav Ücretleri",
-            "ucret": "E-Sınav (Teorik): 900 TL / Direksiyon: 2.000 TL",
+            "ucret": "E-Sınav (Teorik): 1.250 TL / Direksiyon: 2.800 TL",
             "detay": "E-sınav (Teorik) ve Direksiyon sınavlarına her girişinizde MEB'e yatırılan harç tutarı (2026 güncel)."
         }
     ],

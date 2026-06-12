@@ -61,15 +61,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         };
     }
 
-    const title = `${brandName} ${upperCode} Arıza Kodu: ${codeData.title} ve Çözümü`;
-    const description = `${brandName} marka aracınızda ${upperCode} arıza kodu alıyorsanız: ${codeData.symptoms.slice(0, 2).join(', ')}. Nedenleri ve ${brandName} için çözüm önerileri.`;
+    const title = `${brandName} ${upperCode} Arıza Kodu Nedir? Çözümü [2026] | OtoSöz`;
+    const description = `${brandName} ${upperCode} (${codeData.title}) DTC arıza kodu rehberi ✓ Belirtiler: ${codeData.symptoms.slice(0, 2).join(', ')} ✓ ${brandName} araçlara özel çözümler ✓ Tahmini onarım maliyeti ✓ OBD-II/EOBD [2026]`;
 
     const ogUrl = `/api/og?title=${encodeURIComponent(brandName + ' ' + upperCode + ' - ' + codeData.title)}&desc=${encodeURIComponent(description.slice(0, 160))}`;
 
     return {
         title,
         description: description.slice(0, 160),
-        keywords: [`${brandName} ${upperCode}`, `${brandName} arıza kodları`, `${upperCode} nedir`, `${brandName} ${codeData.title}`, 'arıza kodu sorgulama'],
+        keywords: [`${brandName} ${upperCode}`, `${brandName} arıza kodları`, `${upperCode} nedir`, `${brandName} ${codeData.title}`, 'arıza kodu sorgulama', `DTC ${upperCode} ${brandName}`, `${brandName} OBD kodları`, `EOBD ${upperCode}`, `${upperCode} ${brandName.toLowerCase()} çözümü`],
         openGraph: {
             title,
             description: description.slice(0, 160),
@@ -78,7 +78,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             images: [{ url: ogUrl, width: 1200, height: 630, alt: `${brandName} ${upperCode} Arıza Kodu` }],
         },
         alternates: {
-            canonical: `https://www.otosoz.com/obd/${brand.toLowerCase()}/${code.toLowerCase()}`,
+            canonical: `https://www.otosoz.com/obd/${code.toLowerCase()}`,
         },
     };
 }

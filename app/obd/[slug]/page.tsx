@@ -73,14 +73,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         };
     }
 
-    const description = `${upperCode} arıza kodu nedir? ${codeData.title}. Belirtiler: ${codeData.symptoms.slice(0, 2).join(', ')}. Olası nedenler ve çözüm yolları hakkında detaylı rehber.`;
+    const description = `${upperCode} (${codeData.title}) OBD-II/EOBD arıza kodu rehberi ✓ Belirtiler: ${codeData.symptoms.slice(0, 2).join(', ')} ✓ Nedenleri ve çözüm yolları ✓ Tahmini onarım maliyeti ✓ DTC ${upperCode} [2026 Güncel]`;
 
     const ogUrl = `/api/og?title=${encodeURIComponent(upperCode + ' - ' + codeData.title)}&desc=${encodeURIComponent(description.slice(0, 160))}`;
 
     return {
-        title: `${upperCode} Arıza Kodu Nedir? Nedenleri ve Çözümü | OtoSöz`,
+        title: `${upperCode} Arıza Kodu Nedir? Nedenleri ve Çözümü [2026] | OtoSöz`,
         description: description.slice(0, 160),
-        keywords: [`${upperCode}`, `${upperCode} arıza kodu`, `${upperCode} nedir`, `OBD ${upperCode}`, `${codeData.title}`, 'arıza kodu sorgulama', 'OBD kodları'],
+        keywords: [`${upperCode}`, `${upperCode} arıza kodu`, `${upperCode} nedir`, `OBD ${upperCode}`, `DTC ${upperCode}`, `EOBD ${upperCode}`, `${codeData.title}`, 'arıza kodu sorgulama', 'OBD kodları', `${upperCode} çözümü`, `${upperCode} tamiri`, `${upperCode} onarım maliyeti`],
         openGraph: {
             title: `${upperCode} - ${codeData.title} | OtoSöz`,
             description: description.slice(0, 160),
@@ -171,6 +171,22 @@ export default async function OBDSlugPage({ params }: PageProps) {
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": codeData.fixes.join('. ')
+                }
+            },
+            {
+                "@type": "Question",
+                "name": `${codeData.code} arıza kodu ile araç kullanmak güvenli mi?`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": `${codeData.code} arıza kodunun ciddiyeti ${codeData.severity || 'Değişken'} seviyesindedir. Kesin teşhis için yetkili servise başvurmanız önerilir.`
+                }
+            },
+            {
+                "@type": "Question",
+                "name": `${codeData.code} onarımı ne kadar tutar?`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": `${codeData.code} onarım maliyeti araç markasına, model yılına ve servis noktasına göre değişiklik gösterir. Tahmini maliyet bilgisi için sayfamızdaki detaylı rehberi inceleyebilirsiniz.`
                 }
             }
         ]

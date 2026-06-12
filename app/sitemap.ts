@@ -161,9 +161,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     }
 
-    // 2. OBD Arıza Kodları - Marka Hub'ları (Silo Mimarisi)
-    // Binlerce tekil arıza kodunu sitemap'e koyup şişirmek yerine,
-    // Googlebot'u marka hub'larına yönlendirerek organik tarama (crawl) sağlıyoruz.
+    // 2. OBD Arıza Kodları - Marka Hub'ları + Tekil Kodlar
+    // Marka hub'larını ve tüm tekil arıza kodlarını sitemap'e ekliyoruz.
+    // Canonical URL: /obd/{code} (marksız genel sayfa)
     const carModelsData = safeReadFile('carmodels.json');
     if (carModelsData) {
         Object.keys(carModelsData).forEach(brand => {
@@ -173,6 +173,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 changeFrequency: 'weekly',
                 priority: 0.7,
             });
+        });
+    }
+
+    // 2b. Tekil OBD Kodları (genel /obd/{code} URL'leri)
+    const obdCodesData = safeReadFile('obd-codes.json');
+    if (obdCodesData && Array.isArray(obdCodesData)) {
+        obdCodesData.forEach((code: any) => {
+            if (code.code) {
+                sitemapEntries.push({
+                    url: `${BASE_URL}/obd/${code.code.toLowerCase()}`,
+                    lastModified: new Date(),
+                    changeFrequency: 'monthly',
+                    priority: 0.6,
+                });
+            }
         });
     }
 
