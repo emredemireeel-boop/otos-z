@@ -80,8 +80,8 @@ export default function Navbar() {
     const [showStreakModal, setShowStreakModal] = useState(false);
     const [notifications, setNotifications] = useState<NavNotification[]>([]);
     const [messages, setMessages] = useState<NavMessage[]>([]);
-    const prevNotifCount = useRef(0);
-    const prevMsgCount = useRef(0);
+    const prevNotifCount = useRef(-1);
+    const prevMsgCount = useRef(-1);
 
     const { user, logout } = useAuth();
     const { theme, toggleTheme } = useTheme();

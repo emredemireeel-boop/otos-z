@@ -761,6 +761,61 @@
               "text": "Plastik, kapaklı ve kilitli 'mısır gevreği / bakliyat saklama kaplarının' içine bir poşet geçirin ve koltuğun arkasına veya altına sabitleyin. Sızdırmaz yapısı, devrilmeyen sert gövdesi ve kilitli kapağı sayesinde aracınızda asla koku veya dökülme yaşatmayan premium bir çöp üniteniz olacaktır."
             }
           ]
+        },
+        {
+          "type": "step",
+          "title": "38. Far İçi Buğulanmasına Karşı 'Silika Jel' Taktiği",
+          "content": "Yağmurlu havalarda farın içine su alıp buğulanması hem görüşü düşürür hem de far beynini (özellikle LED farlarda) oksitleyerek bozar.",
+          "subsections": [
+            {
+              "subtitle": "Nem Emici Güç",
+              "text": "Ayakkabı veya elektronik eşya kutularından çıkan minik 'Silika Jel' (nem alıcı) paketlerini çöpe atmayın. Farın arka ampul kapağını açın ve 2-3 adet silika jel paketini kapağın iç kısmına (ampule temas etmeyecek bir köşeye) bantlayın. Silika kristalleri farın içindeki havada bulunan tüm su buharını saatler içinde emerek camı pırıl pırıl yapacaktır."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "39. Rüzgar Sesini Kesen 'Serum Hortumu' Modifiyesi",
+          "content": "Eski araçlarda kapı fitilleri (kauçuk contalar) zamanla ezilip sönerek yalıtım özelliğini kaybeder ve yüksek hızda kabin içine ıslık çalar gibi rüzgar sesi alır.",
+          "subsections": [
+            {
+              "subtitle": "Fitil Şişirme İşlemi",
+              "text": "Eczaneden veya akvaryumculardan metrelerce çok ince şeffaf 'serum hortumu' (veya silikon hava hortumu) alın. Aracın kapı fitilini sökün ve hortumun ucuna biraz sabun sürerek fitilin içindeki boydan boya uzanan boşluğa ittirin. Bu hortum fitilin sönmüş gövdesini şişirerek etli ve dolgun bir yapıya kavuşturacak, rüzgar sesini bıçak gibi kesecektir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "40. Paslı Akü Kutuplarına Kola ve Vazelin Kalkanı",
+          "content": "Akü kutup başları oksitlenip beyaz/yeşil bir tozla kaplandığında, akım iletilmez ve araç sabahları marş basmaz.",
+          "subsections": [
+            {
+              "subtitle": "Kimyasal Temizlik ve Koruma",
+              "text": "Oksitlenmiş kutupların üzerine yarım bardak asitli kola dökerek asidin o korozyonu köpürterek çözmesini bekleyin. Ardından sıcak suyla durulayın. Tertemiz olan kutup başlarına bir miktar 'Vazelin' veya katı gres yağı sürün. Yağ, metalin oksijenle temasını tamamen keseceği için akünüz bir daha asla oksitlenmeyecektir."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "41. Çizik Jantları Onarmak İçin 'Epoksi Macun'",
+          "content": "Kaldırıma sürtülen ve derin yaralar açılmış çelik jantların onarımı sanayide oldukça maliyetlidir.",
+          "subsections": [
+            {
+              "subtitle": "Evde Jant Restorasyonu",
+              "text": "Sürtülen oyuk bölgeleri zımparalayıp temizleyin. Çift karışımlı, oyun hamuru gibi yoğrulan 'Epoksi Çelik Macun'dan küçük bir parça koparıp janttaki o çukurlara bastırarak doldurun. Epoksi 10 dakikada kaya gibi sertleşecektir. Ardından ince bir zımpara ile yüzeyi jantın şekline uygun pürüzsüzleştirin ve üzerine sprey jant boyası sıkın. Çiziklerin yerini siz bile bulamayacaksınız."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "title": "42. Kapı İçi Trim Seslerini Kesen 'Bez Bant'",
+          "content": "Özellikle bozuk yollarda konsoldan veya kapı içi plastiklerden (trim) gelen gıcırtılar çok sinir bozucudur.",
+          "subsections": [
+            {
+              "subtitle": "Sürtünmeyi Yok Eden Kadife Yüzey",
+              "text": "Otomotiv elektrikçilerinin kullandığı, dışı kumaş/bez olan siyah 'Kablo Bez Bantlarından' edinin. Ses yapan plastik parçanın birleşim yerini (klips yuvalarını veya plastiğin birbirine sürttüğü aralığı) bu ince bez bantla kaplayın. Bez bant plastiğin plastiğe sürtünmesini engelleyerek tok ve premium bir Alman otomobili sessizliği yaratır."
+            }
+          ]
         }
       ],
       "urlId": "10043"
@@ -2748,22 +2803,114 @@
         {
           "type": "section",
           "title": "1. Yasal Zorunluluk Ne Zaman Başlıyor?",
-          "content": "Ulaştırma ve Altyapı Bakanlığı tarafından belirlenen kurallara göre, Türkiye genelinde kış lastiği zorunluluğu her yıl 1 Aralık ile 1 Nisan tarihleri arasında uygulanmaktadır. Bu kural, valiliklerin hava şartlarına göre alacağı kararlarla il bazında 1 ay erkene alınabilir veya 1 ay uzatılabilir."
+          "content": "Ulaştırma ve Altyapı Bakanlığı tarafından belirlenen kurallara göre, Türkiye genelinde kış lastiği zorunluluğu her yıl 1 Aralık ile 1 Nisan tarihleri arasında uygulanmaktadır.",
+          "subsections": [
+            {
+              "subtitle": "İl Bazında Esneklik",
+              "text": "Bu kural, valiliklerin hava şartlarına göre alacağı kararlarla il bazında 1 ay erkene (1 Kasım) alınabilir veya 1 ay uzatılabilir (1 Mayıs). Özellikle Doğu Anadolu ve İç Anadolu'nun yüksek kesimlerinde zorunluluk süresi valilik onayıyla daha geniş tutulmaktadır."
+            }
+          ],
+          "warning": {
+            "title": "Denetim Noktaları",
+            "text": "1 Aralık sabahı saat 00:00 itibarıyla Emniyet Genel Müdürlüğü ve Jandarma ekipleri otoyol gişelerinde, terminallerde ve şehir giriş-çıkışlarında sıkı denetimlere başlar. Son güne bırakılan lastik değişimleri hem ceza yemenize hem de lastikçilerde saatlerce sıra beklemenize neden olur."
+          }
         },
         {
           "type": "section",
           "title": "2. Hangi Araçlar Zorunlu? Binek Araçlara Ceza Var Mı?",
-          "content": "Şehirler arası yük ve yolcu taşıyan tüm ticari araçlar için kış lastiği takmak yasal bir zorunluluktur. Kamyon, çekici, tanker, otobüs, minibüs ve kamyonetler bu kapsama girer.\\n\\nHususi kullanıma kayıtlı binek otomobiller için ise yasal bir zorunluluk (ve ceza) bulunmamaktadır. Ancak, trafik kazalarını önlemek, can ve mal güvenliğini sağlamak amacıyla binek araç sahiplerinin de kış lastiği kullanması hayati bir gerekliliktir."
+          "content": "Yasa, ticari araçlar ve hususi araçlar arasında keskin bir çizgi çekmektedir.",
+          "subsections": [
+            {
+              "subtitle": "Ticari Araç Kapsamı (Zorunlu)",
+              "text": "Şehirler arası yük ve yolcu taşıyan tüm ticari araçlar için kış lastiği takmak yasal bir zorunluluktur.",
+              "points": [
+                "**Yük Taşıyanlar:** Kamyon, çekici (TIR), tanker ve kamyonetler.",
+                "**Yolcu Taşıyanlar:** Şehirler arası otobüsler, minibüsler, servis araçları ve ticari taksiler.",
+                "Bu araçların tüm tekerleklerinde (çekici araçların dingilleri dahil) kış lastiği bulunmak zorundadır."
+              ]
+            },
+            {
+              "subtitle": "Hususi (Binek) Araç Kapsamı (İsteğe Bağlı)",
+              "text": "Ruhsatında 'Hususi' yazan, ticari taşımacılık yapmayan binek otomobiller için yasal bir zorunluluk (ve trafik cezası) bulunmamaktadır.",
+              "points": [
+                "Binek araçlara trafik polisi tarafından 'kış lastiği takmama cezası' kesilemez.",
+                "Ancak kışın karlı havada yolda kalıp trafiği tıkarsanız 'Trafiği Tehlikeye Düşürmek' maddesinden farklı bir idari para cezası yiyebilirsiniz.",
+                "Kaza anında sigorta eksperleri kış lastiği olmamasını asli kusur sayıp kasko ödemenizi reddedebilir veya rücu edebilir."
+              ]
+            }
+          ]
         },
         {
           "type": "section",
           "title": "3. 2026 Kış Lastiği Takmama Cezası",
-          "content": "Ticari araç sahiplerinin kış lastiği kuralına uymamaları durumunda 2026 yılı için belirlenen idari para cezası tahmini olarak 6.000 TL bandını aşması beklenmektedir. Ayrıca kurala uymayan araçların, yola devam etmelerine izin verilmez ve güvenli bir alana çekilmeleri sağlanır."
+          "content": "Ticari araç sahiplerinin kış lastiği kuralına uymamaları durumunda 2026 yılı için belirlenen idari para cezası ciddi oranda artırılmıştır.",
+          "subsections": [
+            {
+              "subtitle": "Ceza Miktarı ve Yaptırımlar",
+              "text": "2026 yılı yeniden değerleme oranlarına göre kış lastiği takmama cezası tahmini olarak **6.000 TL - 7.500 TL** bandına yükselmiştir.",
+              "points": [
+                "**Men Edilme:** Ceza kesilen araçların karlı yolda ilerlemesine izin verilmez, araç güvenli bir alana (veya en yakın lastikçiye) çekilir.",
+                "**Ehliyet Puanı:** Bu ihlal durumunda sürücünün ehliyetine ceza puanı yansıtılır."
+              ]
+            }
+          ]
         },
         {
           "type": "section",
-          "title": "4. Neden Kış Lastiği Kullanmalıyız?",
-          "content": "Kış lastiklerinin kauçuk yapısı, soğuk havalarda sertleşmez ve yola daha iyi tutunur. Sırt desenleri sayesinde kar ve suyu hızla tahliye ederek kızaklamayı (aquaplaning) önler. Fren mesafesini standart yaz lastiklerine göre ıslak ve karlı zeminde ciddi oranda kısaltır."
+          "title": "4. Termodinamik ve Mühendislik: Neden Kış Lastiği?",
+          "content": "Kış lastiği kullanmak bir 'kar' önlemi değil, bir 'sıcaklık' önlemidir.",
+          "subsections": [
+            {
+              "subtitle": "Silika Karışımı ve +7 Derece Kuralı",
+              "text": "Yaz lastiklerinin kauçuk hamuru +7 derecenin altına inildiğinde plastik gibi sertleşir (camlaşma noktası). Sertleşen lastik asfalta tutunamaz, fren yapıldığında kızak gibi kayar. Kış lastiklerinin hamurundaki yüksek 'Silika' (Silisyum dioksit) oranı, lastiğin eksi derecelerde bile sakız gibi yumuşak kalmasını ve mikro-gözenekleriyle asfalta vakum yapmasını sağlar."
+            },
+            {
+              "subtitle": "Kılcal Kanallar (Sipes) ve Aquaplaning",
+              "text": "Kış lastiklerinin blokları üzerinde binlerce zigzag şeklinde ince kesik (Sipe) bulunur. Bu kesikler tekerlek dönerken açılıp kapanarak karı içine hapseder (Kar kara daha iyi tutunur). Ayrıca suyu hızla tahliye ederek aracın su birikintisi üzerinde yüzmesini (Aquaplaning) engeller."
+            }
+          ],
+          "table": {
+            "headers": ["Özellik", "Yaz Lastiği", "Kış Lastiği", "4 Mevsim Lastik"],
+            "rows": [
+              ["Optimum Sıcaklık", "+7°C ve üzeri", "+7°C ve altı", "-5°C ile +25°C arası"],
+              ["Hamur Yapısı", "Sert ve ısıya dayanıklı", "Yumuşak ve soğuğa dayanıklı", "Orta sertlikte hibrit"],
+              ["Karda Tutunma", "Sıfır (Kayar)", "Mükemmel", "Orta/Yeterli"],
+              ["Yakıt Tüketimi", "Düşük", "Biraz daha yüksek", "Ortalama"],
+              ["Ömür", "Uzun", "Yazın kullanılırsa hızla erir", "Ortalama"]
+            ]
+          },
+          "tip": {
+            "title": "4 Çeker (4x4) Efsanesi",
+            "text": "Dört tekerlekten çekiş sistemleri (AWD/4WD) aracın sadece 'kalkış yapmasını' ve karda ilerlemesini sağlar. Aracın durmasını veya virajı dönmesini sağlayan tek şey lastiktir. Kış lastiği olmayan bir 4x4, kış lastiği olan önden çekişli bir araca göre buzda çok daha geç durur ve yoldan çıkar."
+          }
+        }
+      ],
+      "finalChecklist": [
+        "Aracınızın ticari/hususi durumunu ruhsattan kontrol edin.",
+        "Kış lastiklerinizin diş derinliğini ölçün (Yasal sınır 1.6 mm olsa da kışın güvenlik için minimum 4 mm olmalıdır).",
+        "Lastiklerin yanaklarındaki M+S veya 3PMSF (Kar Tanesi) logolarının olup olmadığını doğrulayın.",
+        "Kasım ayının son haftasını beklemeden lastikçiden randevunuzu erkenden alın."
+      ],
+      "faqs": [
+        {
+          "soru": "Binek (Hususi) araçlara kış lastiği takmamak ceza yazılır mı?",
+          "cevap": "Hayır, Türkiye'deki mevcut yasal düzenlemelere göre sadece ticari araçlara (yük ve yolcu taşıyan) kış lastiği takmama cezası kesilir. Hususi otomobiller için yasal bir ceza olmasa da, kaza anında sigorta ve kasko şirketleri kış lastiği olmamasını 'ağır kusur' sayarak hasarı ödemeyi reddedebilir."
+        },
+        {
+          "soru": "Dört mevsim (4 Mevsim) lastikler kış lastiği yerine geçer mi?",
+          "cevap": "Evet, üzerinde 'M+S' (Mud + Snow) veya 'Kar Tanesi' (3PMSF - Üç Tepeli Kar Tanesi) işareti bulunan dört mevsim lastikleri yasal olarak kış lastiği yerine geçmektedir ve trafik denetimlerinden ceza almadan geçebilirsiniz. Ancak Erzurum, Sivas gibi ağır kış şartlarının yaşandığı bölgelerde saf kış lastiklerinin performansını asla veremezler."
+        },
+        {
+          "soru": "Kış lastiği uygulaması hangi illerde zorunlu?",
+          "cevap": "Ulaştırma Bakanlığı'nın genelgesine göre 1 Aralık - 1 Nisan tarihleri arasında Türkiye genelindeki şehirler arası yollarda ticari araçlar için zorunludur. Şehir içi yollardaki zorunluluk (Hangi illeri kapsadığı) ise her yıl Kasım ayında İl Valilikleri tarafından yerel iklim koşullarına göre açıklanır."
+        },
+        {
+          "soru": "Sadece çekiş olan iki tekere kış lastiği takmak yeterli mi?",
+          "cevap": "Kesinlikle hayır! Bu en tehlikeli hatalardan biridir. Sadece öne takarsanız araç virajda arkadan savrulur (Oversteer), sadece arkaya takarsanız araç virajda dümdüz kayar (Understeer). Hem yasal olarak hem de fizik kuralları gereği kış lastiği aracın 4 tekerleğine birden takılmalıdır."
+        },
+        {
+          "soru": "2026 Kış lastiği cezası ne kadar?",
+          "cevap": "Ticari araç sahiplerinin kış lastiği takmama cezası 2026 yılı için yeniden değerleme oranlarına göre güncellenmekte olup tahmini olarak 6.000 TL ile 7.500 TL arasındadır. Ceza kesildikten sonra aracın yola devam etmesine izin verilmez, çekici çağrılır."
         }
       ],
       "urlId": 10003
@@ -8300,132 +8447,239 @@
     },
     {
       "id": "guide_en_hizli_arabalar",
-      "title": "Türkiye Yollarının En Hızlı 10 Arabası (0-100 Rekortmenleri)",
-      "description": "Sadece A noktasından B noktasına gitmek değil, bunu yaparken koltuğa yapışmak isteyenler için Türkiye pazarında bulunabilen, adrenalin yüklü en hızlı 10 seri üretim aracı derledik.",
-      "minutes": 35,
+      "title": "Türkiye Yollarının En Hızlı 10 Arabası (2026 0-100 Rekortmenleri)",
+      "description": "Sadece A noktasından B noktasına gitmek değil, bunu yaparken koltuğa yapışmak ve G kuvvetini hissetmek isteyenler için Türkiye pazarında bulunabilen, adrenalin yüklü en hızlı 10 seri üretim aracı derledik.",
+      "minutes": 10,
       "difficulty": "Performans Tutkunları",
       "tags": [
         "Performans",
         "Hız",
         "Top 10",
         "Spor Otomobil",
-        "0-100"
+        "0-100",
+        "Hiper Arabalar",
+        "2026"
       ],
       "author": "OtoAsfalt Veri Ekibi",
       "sections": [
         {
           "type": "intro",
-          "content": "Elektrik motorlarının anında sunduğu devasa tork ve benzinli motorların kusursuz mühendisliği birleştiğinde ortaya çıkan hızlanma değerleri artık hiper otomobil seviyesinde. Türkiye pazarında yollarda görebileceğiniz, trafik ışıklarından kalktığında yakalanması imkansız olan en hızlı 10 otomobili sizler için sıraladık."
+          "title": "Giriş: Elektrik ve Benzinin 2026 Savaşı",
+          "content": "2026 yılına geldiğimizde otomotiv endüstrisi, içten yanmalı motorların (ICE) kusursuz mühendisliği ile elektrik motorlarının (EV) anında sunduğu devasa torkun muazzam kapışmasına sahne oluyor. Türkiye yollarında görebileceğiniz, trafik ışıklarından kalktığında yakalanması fiziksel olarak imkansız olan, 0-100 km/s hızlanmasını bir göz kırpma süresinde tamamlayan en hızlı 10 otomobili sizler için sıraladık."
         },
         {
-          "type": "step",
-          "title": "1. Porsche Taycan Turbo S",
-          "content": "Elektrikli otomobil devriminin performans ayağı. İki ileri şanzımanı ve inanılmaz kalkış kontrol sistemiyle fizyolojik sınırları zorluyor.",
+          "type": "section",
+          "title": "1. Rimac Nevera: Fiziğe Meydan Okuyan Hiper Elektrik",
+          "content": "Elektrikli hiper otomobil dünyasının kralı Rimac Nevera, Hırvatistan'dan çıkıp tüm dünyayı şoka sokan rakamlarıyla zirvede. 4 tekerleğinde bulunan 4 ayrı elektrik motoru, tarihin gördüğü en kusursuz kalkış kontrol (Launch Control) sistemine sahip.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 2.8 saniye. Toplam Güç: 761 HP. (Overboost ile)"
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 1.81 saniye",
+                "**Maksimum Güç:** 1914 HP (Beygir)",
+                "**Maksimum Tork:** 2360 Nm",
+                "**Motor Tipi:** 4 Bağımsız Elektrik Motoru"
+              ]
             }
           ]
         },
         {
-          "type": "step",
-          "title": "2. Tesla Model S Plaid",
-          "content": "Bir aile sedanı görünümünde olan Model S Plaid, içindeki üç elektrik motoruyla dünyanın en seri hızlanan otomobillerinden biri.",
+          "type": "section",
+          "title": "2. Lucid Air Sapphire: Geleneksel Markaların Kabusu",
+          "content": "Lüks bir sedanın süper spor otomobilleri utandırması konseptini yeni bir boyuta taşıyan Lucid Air Sapphire, devasa 3 elektrik motorlu yapısıyla adeta asfaltı yerinden söküyor.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 2.1 saniye (Rollout ile). Toplam Güç: 1020 HP."
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 1.89 saniye",
+                "**Maksimum Güç:** 1234 HP",
+                "**Maksimum Tork:** 1939 Nm",
+                "**Motor Tipi:** 3 Elektrik Motoru (Trifaze)"
+              ]
             }
           ]
         },
         {
-          "type": "step",
-          "title": "3. BMW M8 Competition",
-          "content": "İçten yanmalı motorların (ICE) son şaheserlerinden. 4.4 litrelik çift turbolu V8 motoru ve xDrive sistemi gücü yere kusursuz aktarıyor.",
+          "type": "section",
+          "title": "3. Tesla Model S Plaid: Günlük Kullanılabilen Roket",
+          "content": "Bir aile sedanı görünümünde olan Model S Plaid, 'Yoke' direksiyonu ve pist modu (Track Mode) ile yıllardır 0-100 rekorlarının en bilinen ismi olmaya devam ediyor.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 3.2 saniye. Toplam Güç: 625 HP."
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 2.1 saniye",
+                "**Maksimum Güç:** 1020 HP",
+                "**Maksimum Tork:** 1420 Nm",
+                "**Motor Tipi:** 3 Elektrik Motoru"
+              ]
             }
           ]
         },
         {
-          "type": "step",
-          "title": "4. Audi RS e-tron GT",
-          "content": "Taycan'ın kuzeni olan RS e-tron GT, Audi'nin Quattro mirasından aldığı ilhamla elektrik gücünü yere müthiş bir kararlılıkla basıyor.",
+          "type": "section",
+          "title": "4. Porsche Taycan Turbo GT: Weissach Paketinin Gücü",
+          "content": "Porsche, elektrik dünyasındaki en güçlü silahını 2025/2026 sezonu için güncelledi. 'Attack Mode' ile 10 saniyeliğine hiper güce ulaşan araç, pistlerde de inanılmaz tur zamanlarına imza atıyor.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 3.3 saniye. Toplam Güç: 646 HP."
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 2.2 saniye",
+                "**Maksimum Güç:** 1108 HP (Overboost ile)",
+                "**Maksimum Tork:** 1340 Nm",
+                "**Motor Tipi:** 2 Elektrik Motoru"
+              ]
             }
           ]
         },
         {
-          "type": "step",
-          "title": "5. Mercedes-AMG GT 63 S 4MATIC+",
-          "content": "Hem devasa bir lüks sedan hem de bir pist canavarı. 4.0 litrelik V8 Biturbo motoruyla adeta asfaltı ağlatıyor.",
+          "type": "section",
+          "title": "5. Lamborghini Revuelto: V12'nin Hibrit İsyanı",
+          "content": "Aventador'un varisi olan Revuelto, elektrik motorlarının sessiz işgaline karşı efsanevi atmosferik V12 motorunu hibrit teknolojisiyle birleştirip efsane bir çığlık atıyor.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 3.2 saniye. Toplam Güç: 639 HP."
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 2.5 saniye",
+                "**Maksimum Güç:** 1015 HP",
+                "**Maksimum Tork:** 725 Nm (Sadece ICE)",
+                "**Motor Tipi:** 6.5L Atmosferik V12 + 3 Elektrik Motoru (PHEV)"
+              ]
             }
           ]
         },
         {
-          "type": "step",
-          "title": "6. Nissan GT-R Nismo (R35)",
-          "content": "Godzilla lakabını sonuna kadar hak eden R35, yıllara meydan okuyan kalkış performansı ve efsanevi AWD sistemiyle hala zirvede.",
+          "type": "section",
+          "title": "6. Ferrari SF90 Stradale",
+          "content": "Maranello'dan çıkan en yenilikçi mühendislik harikası. V8 Biturbo motoru ve ön akstaki bağımsız elektrik motorları ile yola kusursuz tutunuyor.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 2.8 saniye. Toplam Güç: 600 HP."
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 2.5 saniye",
+                "**Maksimum Güç:** 1000 HP",
+                "**Maksimum Tork:** 800 Nm",
+                "**Motor Tipi:** 4.0L V8 Çift Turbo + 3 Elektrik Motoru"
+              ]
             }
           ]
         },
         {
-          "type": "step",
-          "title": "7. Ferrari F8 Tributo",
-          "content": "Ortadan motorlu bir İtalyan aygırı. Maranello'nun ürettiği en güçlü V8 motorlardan birini taşıyor.",
+          "type": "section",
+          "title": "7. Porsche 911 Turbo S (992)",
+          "content": "İçten yanmalı motor (ICE) krallığının tartışılmaz sadık askeri. PDK şanzımanı ve dört çeker sistemi ile her koşulda mükemmel kalkış sağlıyor.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 2.9 saniye. Toplam Güç: 720 HP."
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 2.7 saniye",
+                "**Maksimum Güç:** 650 HP",
+                "**Maksimum Tork:** 800 Nm",
+                "**Motor Tipi:** 3.8L Boxer 6 Silindir Çift Turbo"
+              ]
             }
           ]
         },
         {
-          "type": "step",
-          "title": "8. Lamborghini Huracan Evo",
-          "content": "Atmosferik V10 motorun çığlık çığlığa hızlandığı Huracan Evo, hisleri ve sesiyle performansın zirvelerini yaşatıyor.",
+          "type": "section",
+          "title": "8. Audi RS e-tron GT Performance",
+          "content": "Taycan'ın daha konforlu ama bir o kadar vahşi kuzeni. Audi'nin Quattro mirasından aldığı ilhamla elektrik gücünü yere müthiş bir kararlılıkla basıyor.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 2.9 saniye. Toplam Güç: 640 HP."
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 2.5 saniye",
+                "**Maksimum Güç:** 925 HP",
+                "**Maksimum Tork:** 1027 Nm",
+                "**Motor Tipi:** 2 Elektrik Motoru"
+              ]
             }
           ]
         },
         {
-          "type": "step",
-          "title": "9. Togg T10X AWD (Çift Motorlu)",
-          "content": "Yerli gururumuz Togg'un dört çeker, çift motorlu versiyonu, ani tork iletimiyle birçok spor otomobili geride bırakıyor.",
+          "type": "section",
+          "title": "9. BMW M8 Competition",
+          "content": "4.4 litrelik devasa çift turbolu V8 motoru ve xDrive sistemi ile bir lüks yattan beklemeyeceğiniz bir çeviklikle hızlanıyor.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 4.8 saniye. Toplam Güç: 435 HP."
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 3.2 saniye",
+                "**Maksimum Güç:** 625 HP",
+                "**Maksimum Tork:** 750 Nm",
+                "**Motor Tipi:** 4.4L V8 Çift Turbo"
+              ]
             }
           ]
         },
         {
-          "type": "step",
-          "title": "10. Volkswagen Golf R",
-          "content": "Günlük kullanılabilen 'Hot Hatch' efsanesi. Yeni nesil 4MOTION sistemi ve drift moduyla 2.0 litrelik motordan mucize yaratıyor.",
+          "type": "section",
+          "title": "10. Togg T10X AWD (Çift Motorlu)",
+          "content": "Listemize yerli gururumuz olan ve fiyat/performans (0-100 maliyeti) olarak inanılmaz bir yerde duran Togg T10X'in dört çeker versiyonunu eklemezsek olmazdı. Ani tork iletimiyle birçok geleneksel spor otomobili trafikte geride bırakıyor.",
           "subsections": [
             {
-              "subtitle": "Performans Verileri",
-              "text": "0-100 km/s hızlanma: 4.7 saniye. Toplam Güç: 320 HP."
+              "subtitle": "Teknik Veriler",
+              "text": "",
+              "points": [
+                "**0-100 km/s:** 4.8 saniye",
+                "**Maksimum Güç:** 435 HP",
+                "**Maksimum Tork:** 700 Nm",
+                "**Motor Tipi:** 2 Elektrik Motoru"
+              ]
             }
           ]
+        },
+        {
+          "type": "section",
+          "title": "Karşılaştırma Tablosu",
+          "content": "Söz konusu hızlanma olduğunda beygir gücünden ziyade aracın motor tipi (Torku anında verme yeteneği) ve ağırlığı ön plana çıkıyor.",
+          "table": {
+            "headers": ["Araç", "Motor Tipi", "Güç (HP)", "0-100 km/s"],
+            "rows": [
+              ["Rimac Nevera", "Tam Elektrik (EV)", "1914 HP", "1.81 sn"],
+              ["Lucid Air Sapphire", "Tam Elektrik (EV)", "1234 HP", "1.89 sn"],
+              ["Tesla Model S Plaid", "Tam Elektrik (EV)", "1020 HP", "2.1 sn"],
+              ["Porsche Taycan Turbo GT", "Tam Elektrik (EV)", "1108 HP", "2.2 sn"],
+              ["Lambo Revuelto", "Hibrit (PHEV)", "1015 HP", "2.5 sn"],
+              ["Ferrari SF90 Stradale", "Hibrit (PHEV)", "1000 HP", "2.5 sn"],
+              ["Porsche 911 Turbo S", "Benzinli (ICE)", "650 HP", "2.7 sn"],
+              ["BMW M8 Competition", "Benzinli (ICE)", "625 HP", "3.2 sn"]
+            ]
+          },
+          "tip": {
+            "title": "Rollout Nedir?",
+            "text": "Birçok Amerikan menşeli araç (Örn: Tesla) kalkış süresini verirken **1 foot rollout** yöntemini kullanır. Yani araç hareket ettikten yaklaşık 30 cm sonrasından itibaren kronometreyi başlatır. Bu sebeple 2.1 saniye olarak açıklanan bir süre, gerçek 0'dan 100'e testinde 2.3-2.4 saniye çıkabilir."
+          },
+          "warning": {
+            "title": "G Kuvveti Uyarısı",
+            "text": "3 saniyenin altında 100 km/s hıza ulaşan araçlar vücudunuza yüksek miktarda G kuvveti (Yerçekimi ivmesi) uygular. Daha önce tecrübesi olmayan sürücülerde veya boyun fıtığı olan yolcularda bu denli ani ivmelenmeler geçici görme kararması (Blackout) veya boyun travmalarına yol açabilir."
+          }
+        }
+      ],
+      "faqs": [
+        {
+          "soru": "0-100 km/s süresi neden eskisinden çok daha hızlı gelişiyor?",
+          "cevap": "Geçmişte içten yanmalı motorlarda turbonun dolması, şanzımanın vites küçültmesi, debriyajın kavraması gibi mekanik kayıplar vardı. Elektrik motorlarında ise gaza bastığınız an gecikme (lag) süresi 0'dır, tork anında tekerleklere aktarılır. Bu yüzden büyük elektrikli sedanlar bile süper spor arabaları geçebilmektedir."
+        },
+        {
+          "soru": "Bu hiper arabalardaki 1000+ Beygir güç yola nasıl aktarılıyor, patinaj çekmiyor mu?",
+          "cevap": "Buradaki asıl mucize 'Launch Control' (Kalkış Kontrol) yazılımlarıdır. Araç saniyede yüzlerce kez tekerleğin kayıp kaymadığını hesaplar, en ufak patinajda o tekerlekteki motorun gücünü saliseler içinde kısar ve maksimum tutunmayı sağlar. Ayrıca bu araçlarda yola yapışan özel 'Ultra High Performance' (Örn: Michelin Cup 2) lastikler kullanılır."
+        },
+        {
+          "soru": "En hızlı araç neden elektrikli?",
+          "cevap": "Elektrik motorları çok daha az hareketli parçaya sahiptir ve maksimum torku 0 devirde dahi (hareketsizken) üretebilir. Benzinli motorların bu torku üretmek için devir çevirmesi (3000-4000 RPM) gerekir."
+        },
+        {
+          "soru": "Türkiye'de trafikte bu araçları nerede görebilirim?",
+          "cevap": "Model S Plaid ve Taycan Turbo S / GT modelleri özellikle İstanbul (Bebek, Etiler) ve İzmir yollarında sıkça görülmektedir. Hiper arabalar (SF90, Revuelto) ise genelde kapalı pist günlerinde veya özel fuarlarda ortaya çıkar."
         }
       ],
       "urlId": "top_10_en_hizli_arabalar"

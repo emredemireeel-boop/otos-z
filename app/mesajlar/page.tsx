@@ -42,7 +42,7 @@ export default function MessagesPage() {
     const [searching, setSearching] = useState(false);
     const [sending, setSending] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    const prevMsgCount = useRef(0);
+    const prevMsgCount = useRef(-1);
 
     // Subscribe to conversations
     useEffect(() => {
@@ -72,7 +72,7 @@ export default function MessagesPage() {
         if (!selectedConv) { setMessages([]); return; }
         const unsub = subscribeToMessages(selectedConv.id, (msgs) => {
             // Play sound for new messages from others
-            if (msgs.length > prevMsgCount.current && prevMsgCount.current > 0) {
+            if (msgs.length > prevMsgCount.current && prevMsgCount.current !== -1) {
                 const lastMsg = msgs[msgs.length - 1];
                 if (lastMsg && lastMsg.senderId !== user?.id) {
                     playNotificationSound();
@@ -81,7 +81,7 @@ export default function MessagesPage() {
             prevMsgCount.current = msgs.length;
             setMessages(msgs);
         });
-        return () => { unsub(); prevMsgCount.current = 0; };
+        return () => { unsub(); prevMsgCount.current = -1; };
     }, [selectedConv?.id, user?.id]);
 
     // Auto-scroll to bottom

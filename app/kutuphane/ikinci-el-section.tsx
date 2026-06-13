@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ClipboardCheck, CheckCircle, RotateCcw, AlertTriangle, ShieldAlert, Check, X, AlertCircle } from "lucide-react";
+import { ClipboardCheck, CheckCircle, RotateCcw, AlertTriangle, ShieldAlert, Check, X, AlertCircle, FileText, Info, Smartphone } from "lucide-react";
 import Link from "next/link";
 
 interface CheckItem {
@@ -85,6 +85,7 @@ const CATEGORIES: CheckCategory[] = [
       { id: "b3", text: "Bakım geçmişi", aciklama: "Kayıtlar, faturalar, km kontrolü.", oncelik: "onemli", hataDetayi: "Belgesi olmayan araçların kilometresi düşürülmüş olabilir veya periyodik bakımları (triger vb.) zamanında yapılmamış olabilir. Risk barındırır.", maliyet: "Belirsiz / Yüksek Risk" },
       { id: "b4", slug: "hasar-tramer-kaydi-sorgulama", text: "Hasar (TRAMER) kaydı", aciklama: "Plaka veya şase no ile SMS sorgusu.", oncelik: "kritik", hataDetayi: "'Ağır Hasar Kayıtlı' (Pert) araçlar şase, direk ve airbag işlemi görmüştür. Yapısal güvenliği düşüktür ve kasko firmaları kasko yapmayı reddedebilir.", maliyet: "Aşırı Değer Kaybı" },
       { id: "b5", text: "Rehin / Haciz / Borç", aciklama: "e-Devlet sorgusu.", oncelik: "onemli", hataDetayi: "Aracın üzerinde banka rehni veya hak mahrumiyeti varsa noter devri yapılamaz. MTV borcu alıcıya geçmez ama satışı engeller.", maliyet: "Borç Miktarı Kadar" },
+      { id: "b6", slug: "gecmis-sahiplik-detay-sorgulamasi", text: "Geçmiş Sahiplik (5664 DETAY)", aciklama: "Aracın kaç kere el değiştirdiğini ve kullanım sürelerini inceleyin.", oncelik: "onemli", hataDetayi: "Kısa süreli el değiştirmeler (1-2 ay) satıcının al-satçı olduğunu veya araçta çözülemeyen kronik bir sorun olduğunu gösterir.", maliyet: "Belirsiz / Riskli Durum" },
     ],
   },
 ];

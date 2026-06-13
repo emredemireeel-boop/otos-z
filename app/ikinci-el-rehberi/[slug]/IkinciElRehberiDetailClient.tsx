@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ArrowLeft, ShieldCheck, AlertOctagon, Info, Activity, AlertCircle, TrendingDown, ClipboardList } from "lucide-react";
+import { ArrowLeft, ShieldCheck, AlertOctagon, Info, Activity, AlertCircle, TrendingDown, ClipboardList, HelpCircle } from "lucide-react";
 import Link from "next/link";
 
 interface IkinciElRehberiDetailClientProps {
@@ -175,6 +175,38 @@ export default function IkinciElRehberiDetailClient({ rehberItem }: IkinciElRehb
                                     {rehberItem.sorunBelirtileri}
                                 </div>
                             </div>
+                            
+                            {/* FAQs */}
+                            {rehberItem.faqs && rehberItem.faqs.length > 0 && (
+                                <div style={{
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '16px',
+                                    padding: '32px'
+                                }}>
+                                    <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <HelpCircle style={{ color: '#8B5CF6' }} />
+                                        Sıkça Sorulan Sorular (SSS)
+                                    </h2>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                                        {rehberItem.faqs.map((faq: any, idx: number) => (
+                                            <div key={idx} style={{
+                                                padding: '20px',
+                                                background: 'var(--secondary)',
+                                                borderRadius: '12px',
+                                                border: '1px solid var(--card-border)'
+                                            }}>
+                                                <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>
+                                                    {faq.soru}
+                                                </h3>
+                                                <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                                                    {faq.cevap}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                             
                             {/* Tags */}
                             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>

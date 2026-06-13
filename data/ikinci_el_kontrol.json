@@ -129,6 +129,33 @@
       "ekspertizTavsiyesi": "Araç motoru tamamen soğukken su kapağını açıp parmağınızı su kabının iç çeperine sürtün. Eğer elinize kalın bir zımpara/çamur tortusu geliyorsa, o aracın hararet sorunu yaşatma ihtimali %90'dır.",
       "oncelik": "onemli",
       "tags": ["antifriz", "radyatör", "hararet", "pas"]
+    },
+    {
+      "id": "b6",
+      "slug": "gecmis-sahiplik-detay-sorgulamasi",
+      "title": "Geçmiş Sahiplik ve 5664 DETAY Sorgulaması",
+      "kategori": "Belgeler & Geçmiş",
+      "description": "Araçların geçmişteki tam sahip sayısını ve kullanım sürelerini 5664 SMS servisi ile nasıl analiz edebileceğinizi öğrenin.",
+      "detayliAciklama": "Araçların geçmişteki tam sahip sayısını (kaç kere el değiştirdiğini) doğrudan öğrenmek KVKK gereği mümkün değildir. Ancak, 5664 SMS servisini kullanarak mevcut sahibinin aracı ne kadar süredir kullandığını öğrenebilir ve aracın el değiştirme sıklığı hakkında net bir analiz yapabilirsiniz. Telefonunuzdan 'DETAY 35ABC123' yazıp 5664'e gönderdiğinizde tescil ve kasko geçmişini görebilirsiniz.",
+      "sorunBelirtileri": "Gelecek mesajdaki en kritik veri 'Son Sahibinin Kullanım Süresi'dir. Eğer satıcı 'araç yıllardır bende' diyorsa ve gelen mesajda son sahiplik süresi çok kısa (örn: 2 ay) çıkıyorsa, satıcı muhtemelen bir al-satçıdır veya aracın kronik/çözülemeyen bir sorunu olduğu için araç hızla elden çıkarılmaya çalışılıyordur.",
+      "olasiMasraflar": "Belirsiz / Riskli Durum. Çok sık el değiştiren veya satıcı profili güven vermeyen araçlarda sonradan büyük masraflar (gizlenmiş motor/mekanik arızaları) çıkma ihtimali yüksektir.",
+      "ekspertizTavsiyesi": "Kesin sahip sayısını öğrenmenin 3 yolu vardır: 1) Noter işlemi sırasında noter görevlisinin ekranından teyit etmek, 2) Tramer entegrasyonlu kurumsal ekspertiz raporu almak, 3) Aracın mevcut sahibinden e-Devlet 'Sahibi Olduğum Araçlar' ekranını göstermesini istemek.",
+      "oncelik": "onemli",
+      "tags": ["5664", "detay sorgulama", "sahip sayısı", "al-satçı", "tescil geçmişi"],
+      "faqs": [
+        {
+          "soru": "İkinci el aracın geçmiş sahip sayısını (kaç kişi kullanmış) SMS veya e-Devlet ile öğrenmek mümkün mü?",
+          "cevap": "Hayır, Kişisel Verilerin Korunması Kanunu (KVKK) nedeniyle aracın toplam sahip sayısı, eski sahiplerinin kimlik bilgileri veya ruhsat geçmişi dışarıdan SMS veya başka bir platform üzerinden sorgulanamaz. Sadece aracın mevcut (son) sahibi kendi e-Devlet şifresiyle bu detayları görebilir."
+        },
+        {
+          "soru": "Kullanıcının 'al-satçı' (galerici) olduğunu nasıl anlarsın?",
+          "cevap": "Satıcının al-sat yapan biri olduğunu anlamanın en pratik yolu 5664 SMS servisidir. Mesaj kısmına DETAY boşluk PLAKA yazarak 5664'e gönderdiğinizde 'Son Sahibinin Kullanım Süresi' ibaresini görürsünüz. Eğer kişi 'araç yıllardır bende, aile aracı' diyorsa ancak mesajda son sahiplik süresi 1-2 ay görünüyorsa, o kişi yüksek ihtimalle aracı kâr amacıyla satan bir al-satçıdır."
+        },
+        {
+          "soru": "Sahip durumu sürekli değişen araçların (kısa süreli el değiştirmeler) riski nedir?",
+          "cevap": "Bir araç son 1-2 yılda 3-4 defadan fazla el değiştiriyorsa, bu durum araçta çözülemeyen kronik bir arıza, yüksek yağ yakma sorunu veya sanayide gizlenmiş ağır bir hasar olabileceğine işaret eder. İnsanlar arızayı fark edince masraf yapmamak için aracı başkasına satarak elden çıkarmaya çalışırlar. Sahip durumu sık değişen araçlardan genellikle uzak durulmalıdır."
+        }
+      ]
     }
   ]
 }

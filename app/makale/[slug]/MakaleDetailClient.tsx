@@ -389,6 +389,44 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                 </motion.div>
                             )})}
 
+                            {/* FAQs */}
+                            {article.faqs && article.faqs.length > 0 && (
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+                                    transition={{ duration: 0.6, delay: 0.1 }}
+                                    style={{
+                                    background: 'var(--card-bg)',
+                                    border: '1px solid var(--card-border)',
+                                    borderRadius: '16px',
+                                    padding: '32px',
+                                    marginTop: '32px'
+                                }}>
+                                    <h2 id="sikca-sorulan-sorular" style={{ scrollMarginTop: '100px', fontSize: '24px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <Lightbulb style={{ color: '#8B5CF6' }} />
+                                        Sıkça Sorulan Sorular (SSS)
+                                    </h2>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                                        {article.faqs.map((faq: any, idx: number) => (
+                                            <div key={idx} style={{
+                                                padding: '20px',
+                                                background: 'var(--secondary)',
+                                                borderRadius: '12px',
+                                                border: '1px solid var(--card-border)'
+                                            }}>
+                                                <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>
+                                                    {faq.soru}
+                                                </h3>
+                                                <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                                                    {faq.cevap}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+
                             {/* Final Checklist */}
                             {article.finalChecklist && (
                                 <motion.div 
@@ -495,6 +533,28 @@ export default function MakaleDetailClient({ article }: { article: any }) {
                                                 {section.title}
                                             </a>
                                         )})}
+                                        {article.faqs && article.faqs.length > 0 && (
+                                            <a
+                                                href="#sikca-sorulan-sorular"
+                                                style={{
+                                                    padding: '10px',
+                                                    background: activeSection === 'sikca-sorulan-sorular' ? 'var(--primary)' : 'var(--secondary)',
+                                                    borderRadius: '8px',
+                                                    fontSize: '13px',
+                                                    color: activeSection === 'sikca-sorulan-sorular' ? 'white' : 'var(--foreground)',
+                                                    textDecoration: 'none',
+                                                    transition: 'all 0.2s ease',
+                                                    border: `1px solid ${activeSection === 'sikca-sorulan-sorular' ? 'var(--primary)' : 'var(--card-border)'}`
+                                                }}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    document.getElementById('sikca-sorulan-sorular')?.scrollIntoView({ behavior: 'smooth' });
+                                                    setActiveSection('sikca-sorulan-sorular');
+                                                }}
+                                            >
+                                                Sıkça Sorulan Sorular
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
 
