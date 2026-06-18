@@ -315,14 +315,9 @@ function buildUrls() {
         console.error('⚠ Sözlük verisi okunamadı:', e.message);
     }
 
-    // Sadece kalan limit (200 - mevcut) kadar ekle
-    const limit = 200 - urls.length;
-    let added = 0;
-    
+    // Kalan tüm URL'leri ekle
     for (const item of remainingUrls) {
-        if (added >= limit) break;
         urls.push(item);
-        added++;
     }
 
     return urls;
