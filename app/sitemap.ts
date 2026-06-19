@@ -80,7 +80,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const trimList = trimLevelsData || [];
     
     const uniqueBrands = [...new Set(vehicleList.map((v: any) => v.brand))] as string[];
-    uniqueBrands.forEach(brand => {
+    // Combined/ortak marka isimlerini filtrele (ör. "Dacia / Renault") — bu slug'lar gerçek marka hub sayfası değil
+    const filteredBrands = uniqueBrands.filter(brand => !brand.includes('/'));
+    filteredBrands.forEach(brand => {
         sitemapEntries.push({
             url: `${BASE_URL}/arac-dna/${createSlug(brand)}`,
             lastModified: new Date(),
@@ -88,6 +90,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.8,
         });
     });
+
 
     vehicleList.forEach((vehicle: any) => {
         const brandSlug = createSlug(vehicle.brand);

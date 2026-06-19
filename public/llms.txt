@@ -1,0 +1,37 @@
+# OtoSöz
+
+> Türkiye'nin en kapsamlı otomotiv bilgi platformu. Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı ve 50.000+ otomotiv verisi.
+
+## Ana Sayfalar
+
+- [Ana Sayfa](https://www.otosoz.com): OtoSöz ana sayfası — otomotiv forum, haberler ve topluluk.
+- [Forum](https://www.otosoz.com/forum): Otomotiv forum, soru-cevap ve tartışmalar.
+- [Araç DNA](https://www.otosoz.com/arac-dna): Araç DNA analizi — kronik sorunlar, artıları/eksileri, motor seçenekleri.
+- [Kütüphane](https://www.otosoz.com/kutuphane): Otomotiv rehberleri, makaleler, sözlük ve referans kaynakları.
+- [Haberler](https://www.otosoz.com/haberler): Otomotiv haberleri ve sektör gelişmeleri.
+- [OBD Kodları](https://www.otosoz.com/obd): OBD-II arıza kodları veritabanı ve açıklamaları.
+- [Karşılaştırma](https://www.otosoz.com/karsilastirma): Araç karşılaştırma aracı.
+- [OtoHesap](https://www.otosoz.com/otohesap): Yakıt hesaplama, MTV, ÖTV, KDV ve diğer otomotiv hesaplayıcılar.
+- [OtoBütçe](https://www.otosoz.com/otobutce): Bütçeye göre araç önerileri.
+- [Piyasalar](https://www.otosoz.com/piyasalar): Otomotiv piyasa verileri, döviz, akaryakıt fiyatları.
+- [GüvenMetre](https://www.otosoz.com/guvenmetre): Marka ve model güvenilirlik değerlendirmesi.
+- [Sözlük](https://www.otosoz.com/sozluk): Otomotiv terimleri sözlüğü.
+- [Uzmana Sor](https://www.otosoz.com/uzmana-sor): Uzman mekanikerlere soru sorma platformu.
+- [Anket](https://www.otosoz.com/anket): Otomotiv anketleri ve kullanıcı oylamaları.
+- [Etkinlikler](https://www.otosoz.com/etkinlikler): Otomotiv etkinlikleri ve buluşmalar.
+- [Altın Anahtar](https://www.otosoz.com/altin-anahtar): Araç bakım ve onarım ipuçları.
+- [Bakım Rehberi](https://www.otosoz.com/bakim-rehberi): Adım adım araç bakım rehberi.
+- [İkinci El Rehberi](https://www.otosoz.com/ikinci-el-rehberi): İkinci el araç alım-satım rehberi.
+- [Trafik Cezaları](https://www.otosoz.com/trafik-cezasi): 2026 güncel trafik cezaları listesi.
+- [Gösterge Işıkları](https://www.otosoz.com/gosterge): Araç gösterge paneli uyarı ışıkları rehberi.
+- [Ajanda](https://www.otosoz.com/ajanda): Otomotiv ajandası — bakım hatırlatıcıları.
+
+## Hakkında
+
+- [Hakkımızda](https://www.otosoz.com/hakkimizda): OtoSöz ekibi ve misyonumuz.
+- [İletişim](https://www.otosoz.com/iletisim): Bize ulaşın.
+
+## Yasal
+
+- [Gizlilik Politikası](https://www.otosoz.com/gizlilik-politikasi)
+- [Kullanım Şartları](https://www.otosoz.com/kullanim-sartlari)

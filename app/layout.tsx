@@ -93,7 +93,7 @@ const jsonLd = {
                 height: 512,
             },
             description: 'Türkiye\'nin en kapsamlı otomotiv bilgi platformu. Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü ve teknik rehberler.',
-            foundingDate: '2024',
+            foundingDate: '2024-01-01',
             sameAs: [
                 'https://www.instagram.com/otosoz',
                 'https://twitter.com/otosoz',
@@ -170,7 +170,7 @@ export default function RootLayout({
                 <meta name="geo.region" content="TR" />
                 <meta name="geo.placename" content="Ankara" />
                 <meta name="language" content="Turkish" />
-                <meta httpEquiv="content-language" content="tr" />
+                {/* content-language artık html lang="tr" ile karşılanıyor */}
 
                 {/* ── Ek SEO Sinyalleri ── */}
                 <meta name="author" content="OtoSöz" />

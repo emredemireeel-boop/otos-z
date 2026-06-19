@@ -47,10 +47,6 @@ export default function robots(): MetadataRoute.Robots {
                     '/para-kazan/',    // Para kazanma
                     '/premium/',       // Premium sayfası
                     '/pazar/',         // Pazar gizli
-                    '/*?query=',       // Arama parametreleri
-                    '/*?sort=',        // Sıralama parametreleri
-                    '/*?tab=',         // Tab parametreleri
-                    '/*?sehir=',       // Şehir filtre parametreleri
                 ],
             },
             {

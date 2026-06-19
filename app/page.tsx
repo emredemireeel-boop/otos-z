@@ -604,7 +604,7 @@ export default function Home() {
                     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
                         <div className="subheader-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>Topluluk</h1>
+                                <h2 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>Topluluk</h2>
                             </div>
 
                             {/* Fuel Widget */}
