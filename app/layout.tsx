@@ -135,14 +135,11 @@ const jsonLd = {
         },
         {
             // BreadcrumbList — Google'da breadcrumb zengin snippet'i tetikler
+            // Ana layout'ta sadece kök öğe; alt sayfalar kendi breadcrumb'larını tanımlar
             '@type': 'BreadcrumbList',
             '@id': 'https://www.otosoz.com/#breadcrumb',
             itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://www.otosoz.com' },
-                { '@type': 'ListItem', position: 2, name: 'Kütüphane', item: 'https://www.otosoz.com/kutuphane' },
-                { '@type': 'ListItem', position: 3, name: 'Forum', item: 'https://www.otosoz.com/forum' },
-                { '@type': 'ListItem', position: 4, name: 'Araç DNA', item: 'https://www.otosoz.com/arac-dna' },
-                { '@type': 'ListItem', position: 5, name: 'OBD Kodları', item: 'https://www.otosoz.com/obd' },
             ],
         },
     ],
