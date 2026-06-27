@@ -10,7 +10,8 @@ export default function robots(): MetadataRoute.Robots {
                     '/',
                     '/etkinlikler/',
                     '/arac-dna/',
-                    '/forum/',
+                    // '/forum/' hub sayfası noindex — izin listesinden çıkarıldı (GSC ceza düzeltmesi)
+                    // Forum thread'leri /forum/[id] hala '/' wildcard ile erişilebilir
                     '/kutuphane/',
                     '/haberler/',
                     '/piyasalar/',

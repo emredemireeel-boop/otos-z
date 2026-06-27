@@ -132,7 +132,7 @@ export default function AdPlaceholder({
 
     return (
         <div className={`ad-placeholder-mobile ${className || ''}`} style={containerStyle}>
-            <Link href={adHref} target={adTarget} rel={currentAd?.url ? "noopener noreferrer" : undefined} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+            <Link href={adHref} target={adTarget} rel={currentAd?.url ? "sponsored noopener noreferrer" : undefined} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
                 <div style={{
                     background: 'var(--card-bg)', border: '1px solid var(--primary)', borderRadius: isBanner ? '12px' : '16px', padding: isBanner ? '8px 12px' : '16px',
                     position: 'relative', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', height: '100%',

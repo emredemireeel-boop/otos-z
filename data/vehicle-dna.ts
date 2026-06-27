@@ -91,6 +91,124 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 7
     },
     {
+        id: 1001,
+        brand: "Renault",
+        model: "Clio 1. Nesil (1990-1998)",
+        year: "1990-1998",
+        ncapStars: 3,
+        ncapYear: "1997",
+        dnaScore: 58,
+        strengths: [
+            "Avrupa'da Yılın Otomobili Ödülü (1991 - Lansmanla gelen prestij)",
+            "Kompakt Boyut ve Çevik Manevra Kabiliyeti (Şehir içi ideal)",
+            "Basit Mekanik Yapı (Tamircide kolay ve ucuz tamir)",
+            "Dönemine Göre Modern Tasarım (Süper 5'e kıyasla devrim)",
+            "Hafif Kasa ile Düşük Yakıt Tüketimi"
+        ],
+        weaknesses: [
+            "Güvenlik Donanımı Yok Denecek Kadar Az (Hava yastığı çoğu pakette yok)",
+            "Kaporta Paslanmaya Çok Müsait (Özellikle çamurluk ve kapı altları)",
+            "Plastik Tamponların Solması ve Kırılganlığı",
+            "Yalıtım Sıfıra Yakın (Motor, yol ve rüzgar sesi direkt kabine girer)",
+            "Klima Çoğu Modelde Bulunmaz"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Kaporta Çürümesi ve Paslanma",
+                severity: "high",
+                reportCount: 9,
+                description: "Özellikle arka çamurluklar, kapı altları, şase kirişleri ve bagaj çevresi yoğun paslanmaya maruz kalır. Galvaniz kaplama olmadığı için nem ve tuz korozyona davetiye çıkarır."
+            },
+            {
+                id: 2,
+                title: "Elektrik Tesisatı Sorunları",
+                severity: "high",
+                reportCount: 8,
+                description: "Kablo izolasyonlarının yaşla birlikte sertleşip çatlaması, sigorta kutusundaki oksitlenme ve topraklama hataları. Far, silecek veya sinyal arızaları genelde tesisat kaynaklıdır."
+            },
+            {
+                id: 3,
+                title: "Soğutma Sistemi Kaçakları",
+                severity: "medium",
+                reportCount: 8,
+                description: "Genleşme kabı, alt hortumlar ve su pompası contasından su sızıntısı. Eski araçlarda antifriz yerine su kullanımı korozyonu hızlandırarak radyatör tıkanmasına yol açar."
+            },
+            {
+                id: 4,
+                title: "Gaz Teli ve Debriyaj Teli Kopması",
+                severity: "medium",
+                reportCount: 7,
+                description: "Tel tahrikli gaz ve debriyaj mekanizmalarında tellerin zamanla uzaması veya kopması. Özellikle kış aylarında soğukta sertleşen teller kopma riski taşır."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 7
+    },
+    {
+        id: 1002,
+        brand: "Renault",
+        model: "Clio 2. Nesil (1998-2012)",
+        year: "1998-2012",
+        ncapStars: 4,
+        ncapYear: "2000",
+        dnaScore: 68,
+        strengths: [
+            "Efsanevi 1.5 dCi Motorun İlk Kullanıldığı Kasa (K9K motor dünya çapında kanıtlanmış güvenilirlik)",
+            "Kompakt Ama Şaşırtıcı Derecede Geniş İç Mekan",
+            "Çok Uzun Üretim Ömrü (Campus olarak 2012'ye kadar - Parça bolluğu)",
+            "Türkiye'de Çok Yaygın Servis ve Yedek Parça Ağı",
+            "Clio V6 Sport Versiyonu ile Efsane Statüsü",
+            "Düşük Sigorta ve İşletme Maliyetleri"
+        ],
+        weaknesses: [
+            "Yaşlanan Kaporta (Özellikle 2005 öncesi modellerde pas riski)",
+            "İç Mekan Malzeme Kalitesi (Sert ve çizilmeye müsait plastikler)",
+            "Güvenlik Donanımı (Baz modellerde sadece sürücü airbag)",
+            "Yalıtım Eksikliği (Motor ve yol sesi kabine fazla gelir)",
+            "Otomatik Şanzıman Seçeneğinin Olmaması (Çoğu versiyonda)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Cam Kriko Motoru Arızası",
+                severity: "high",
+                reportCount: 9,
+                description: "Clio 2'nin en meşhur kronik sorunudur. Özellikle ön kapı cam kriko motorlarının düzenli olarak yanması ve camın yarıda kalması. Piyasada muadil parçalar çok yaygın ve ucuzdur."
+            },
+            {
+                id: 2,
+                title: "Kapak Contası ve Yağ Sızıntısı",
+                severity: "medium",
+                reportCount: 9,
+                description: "Üst kapak contası (kep contası) ve karter contasından yağ sızıntısı. Motor bloğu ile kapak arasından süzülen yağ, zamanla enjektör kuyularına da dolabilir."
+            },
+            {
+                id: 3,
+                title: "Arka Fren Kampana Problemi",
+                severity: "medium",
+                reportCount: 8,
+                description: "Arka kampana fren balatalarının çabuk aşınması ve fren sıkıştığında ayar mekanizmasının kilitlenmesi. El freni ayarı sık sık yapılması gerekir."
+            },
+            {
+                id: 4,
+                title: "Klima Kompresörü ve Gaz Kaçağı",
+                severity: "medium",
+                reportCount: 7,
+                description: "Klima sisteminde gaz kaçağı veya kompresör kavramasının tutmaması. Özellikle yüksek kilometreli araçlarda klimanın hiç soğutmaması şikayeti yaygın."
+            },
+            {
+                id: 5,
+                title: "Direksiyon Hidrolik Pompa Sızıntısı",
+                severity: "medium",
+                reportCount: 7,
+                description: "Hidrolik direksiyonlu modellerde pompa keçelerinden sızıntı ve direksiyon ağırlaşması. Özellikle park manevralarında inleme sesi duyulur."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
+    },
+    {
         id: 2,
         brand: "Fiat",
         model: "Egea 1. Nesil (2015-2025)",
@@ -2495,50 +2613,6 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 7
     },
     {
-        id: 120,
-        brand: "Renault",
-        model: "Clio 4. Nesil (2012-2019)",
-        year: "2012-2019",
-        dnaScore: 80,
-        strengths: [
-            "Şık ve Sportif Dış Tasarım (Gizli arka kapı kolları)",
-            "Çok Düşük Yakıt Tüketimi (1.5 dCi)",
-            "Yaygın Servis Ağı ve Kolay Parça Bulunabilirliği",
-            "İkinci Elde Çok Hızlı Satılabilmesi"
-        ],
-        weaknesses: [
-            "Sınıfına Göre Bile Zayıf Malzeme Kalitesi (Sert plastikler)",
-            "Yol ve Rüzgar Sesi (Özellikle arka tarafta)",
-            "Arka Diz Mesafesi Dar ve Kasvetli",
-            "Klimanın Zayıf Üflemesi"
-        ],
-        chronicIssues: [
-            {
-                id: 1,
-                title: "Kelebek Camından Gelen Rüzgar Sesi",
-                severity: "medium",
-                reportCount: 9,
-                description: "Clio 4'ün en meşhur sorunudur. Ön kapılardaki ufak kelebek camı fitillerinden 90 km/s hızdan sonra yoğun ıslık sesi gelmesi (Fitil arasına silikon sıkarak çözülür)."
-            },
-            {
-                id: 2,
-                title: "EDC Şanzıman Beyni ve Kavrama",
-                severity: "high",
-                reportCount: 9,
-                description: "Kuru kavramalı EDC şanzımanda vites geçişlerinde titreme veya 'Vites Kutusu Kontrol Ettirin' uyarısıyla şanzıman beyninin arızalanması."
-            },
-            {
-                id: 3,
-                title: "Teyp (MediaNav) Çökmesi",
-                severity: "medium",
-                reportCount: 8,
-                description: "Orijinal dokunmatik ekranın logoda takılı kalması veya dokunmatiğinin bozulması."
-            }
-        ],
-        userExperiences: [],
-        totalReports: 9
-    },
-    {
         id: 121,
         brand: "Opel",
         model: "Astra J Kasa (2009-2015)",
@@ -3311,35 +3385,53 @@ export const vehicleDNAData: VehicleDNA[] = [
     {
         id: 156,
         brand: "Renault",
-        model: "Symbol / Clio Symbol",
+        model: "Symbol / Clio Symbol (2000-2012)",
         year: "2000-2012",
-        dnaScore: 60,
+        dnaScore: 63,
         strengths: [
-            "1.5 dCi motorun efsanevi yakıt cimriliği",
-            "Geniş bagaj hacmi",
-            "Şehir içinde kolay park ve manevra",
-            "İkinci elde anında nakite çevrilebilme"
+            "1.5 dCi Motorun Efsanevi Yakıt Cimriliği (Şehir içi 5L, uzun yol 3.8L)",
+            "Sınıfının En Geniş Bagaj Hacmi (510 Litre - Sedan avantajı)",
+            "Çok Düşük Bakım ve İşletme Maliyeti (Parça fiyatları çok ucuz)",
+            "Şehir İçinde Kolay Park ve Manevra (Kompakt boyut)",
+            "İkinci Elde Anında Nakite Çevrilebilme (Taksi/ticari talep)",
+            "Türkiye'de Üretim Avantajı ile Her Yerde Servis Bulunabilirlik"
         ],
         weaknesses: [
-            "Konfor seviyesinin düşük olması",
-            "Yüksek hızlarda rüzgar sesi ve savrulma",
-            "Arka diz mesafesi darlığı",
-            "Malzeme kalitesinin düşük olması"
+            "Konfor Seviyesinin Çok Düşük Olması (Sert süspansiyon, ince koltuk)",
+            "Yüksek Hızlarda Ciddi Rüzgar Sesi ve Savrulma Hissi",
+            "Arka Diz Mesafesinin Yetersizliği (Uzun yolculuk zor)",
+            "İç Mekan Malzeme Kalitesinin Çok Düşük Olması (Sert ve ucuz plastikler)",
+            "Güvenlik Donanımının Yetersizliği (Baz paketlerde ABS bile opsiyonel)",
+            "Otomatik Vites Seçeneğinin Bulunmaması"
         ],
         chronicIssues: [
             {
                 id: 1,
-                title: "Enjektör ve Mazot Pompası (dCi)",
+                title: "Enjektör ve Mazot Pompası Arızası (dCi)",
                 severity: "high",
                 reportCount: 9,
-                description: "Kötü yakıt kullanımı veya yaşa bağlı olarak enjektör tıkanması/bozulması."
+                description: "Kötü yakıt kullanımı veya yaşa bağlı olarak enjektörlerin tıkanması veya sızıntı yapması. Mazot pompası arızası ise aracı çalışmaz hale getirebilir. Kaliteli yakıt filtresi kullanımı önerilir."
             },
             {
                 id: 2,
-                title: "Klima Kompresörü",
+                title: "Klima Kompresörü Arızası",
                 severity: "medium",
                 reportCount: 8,
-                description: "Özellikle eski modellerde klimanın yeterince soğutmaması veya kompresör arızası."
+                description: "Klimanın yeterince soğutmaması veya hiç çalışmaması. Kompresör kavraması veya gaz kaçağı kaynaklı olabiliyor. Orijinal kompresör pahalıdır."
+            },
+            {
+                id: 3,
+                title: "Cam Kriko Motoru Bozulması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Clio/Symbol ailesinin ortak sorunu olan cam kriko motorunun yanması. Özellikle sürücü tarafı camın yarıda kalması veya hiç çalışmaması."
+            },
+            {
+                id: 4,
+                title: "Debriyaj Baskı ve Balata Erken Aşınması",
+                severity: "medium",
+                reportCount: 7,
+                description: "Şehir içi yoğun trafikte debriyaj setinin 70.000-90.000 km'de değişim gerektirmesi. Debriyaj sertleşmesi veya kaçırması belirtileri verir."
             }
         ],
         userExperiences: [],
@@ -4466,36 +4558,61 @@ export const vehicleDNAData: VehicleDNA[] = [
     {
         id: 2017,
         brand: "Renault",
-        model: "Clio 3",
-        year: "2015 - 2024",
-        ncapStars: 4,
-        ncapYear: "2021",
-        dnaScore: 78,
+        model: "Clio 3. Nesil (2005-2014)",
+        year: "2005-2014",
+        ncapStars: 5,
+        ncapYear: "2005",
+        dnaScore: 72,
         strengths: [
-            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
-            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
-            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
-            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+            "5 Yıldız Euro NCAP Güvenlik (2005 testi - Sınıfında ilklerden)",
+            "1.5 dCi Motorun Olgunlaşmış ve Güvenilir Performansı (Ortalama 4.5L/100km)",
+            "Clio RS 197/200 ile Sıcak Hatch Efsanesi (Nürburgring rekortmeni)",
+            "Geniş Ön Yaşam Alanı ve Ergonomik Sürücü Pozisyonu",
+            "Ucuz ve Kolay Bulunan Yedek Parça (Türkiye üretimi avantajı)",
+            "Dönemine Göre Kaliteli İç Mekan Malzemeleri"
         ],
         weaknesses: [
-            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
-            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
-            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+            "Arka Koltuk ve Bagaj Hacminin Rakiplerine Göre Dar Olması",
+            "Otomatik (EDC) Versiyonun Olmaması (Sadece robotize Quickshift var)",
+            "Direksiyon Hissiyatının Yapay ve Hafif Olması",
+            "Yüksek Hızlarda Rüzgar Sesi (Ayna diplerinden)",
+            "Quickshift Robotize Şanzımanın Gecikmeli ve Sarsıntılı Vites Geçişleri"
         ],
         chronicIssues: [
             {
                 id: 1,
-                title: "Trim Sesleri (Konsol ve Kapılar)",
-                severity: "low",
-                reportCount: 6,
-                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+                title: "Ön Yay ve Amortisör Takozu Çökmesi",
+                severity: "medium",
+                reportCount: 9,
+                description: "Ön süspansiyon yaylarının kırılması ve amortisör takozlarının ezilmesi Clio 3'ün en sık karşılaşılan mekanik sorunudur. Bozuk yollarda tok vuruntu sesleri duyulur. Genelde 60.000-80.000 km civarında başlar."
             },
             {
                 id: 2,
-                title: "Süspansiyon Gıcırtısı",
+                title: "Turbo Hortumu Patlaması (1.5 dCi)",
+                severity: "high",
+                reportCount: 8,
+                description: "Turbo intercooler hortumlarının ısı ve basınçla zamanla şişerek patlaması veya kelepçe yerinden çıkması. Araç ani güç kaybı yaşar ve motor arıza lambası yanar. Silikon hortuma geçiş önerilir."
+            },
+            {
+                id: 3,
+                title: "Kart Okuyucu ve İmmobilizer Arızası",
+                severity: "high",
+                reportCount: 8,
+                description: "Anahtarsız giriş kartının algılanmaması veya 'Kart Algılanmadı' uyarısıyla aracın çalışmaması. Kart okuyucu modülü veya kartın pilinin bitmesi olabilir. Yedek kartla denenmelidir."
+            },
+            {
+                id: 4,
+                title: "Egzoz Esnek Boru Kopmesi",
+                severity: "medium",
+                reportCount: 7,
+                description: "Egzoz manifoldu ile katalizör arasındaki esnek boru bağlantısının çürüyerek kopması. Motor altından gelen metalik ses ve egzoz kokusu belirtileridir."
+            },
+            {
+                id: 5,
+                title: "Gösterge Paneli Piksel Bozulması",
                 severity: "low",
-                reportCount: 6,
-                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+                reportCount: 8,
+                description: "Gösterge panelindeki küçük LCD ekranda (kilometre sayacı, trip bilgisi) piksellerin kaybolması veya solması. Özellikle sıcak havalarda belirginleşir. Ekran modülü değişimi gerektirir."
             }
         ],
         userExperiences: [],
@@ -4921,41 +5038,51 @@ export const vehicleDNAData: VehicleDNA[] = [
     },
     {
         id: 2029,
-        brand: "Hyundai / Renault",
-        model: "i20 / Clio 4",
-        year: "2013 - 2017",
+        brand: "Hyundai",
+        model: "i20 1. Nesil PB (2008-2014)",
+        year: "2008-2014",
         ncapStars: 5,
-        ncapYear: "2015",
-        dnaScore: 80,
+        ncapYear: "2009",
+        dnaScore: 74,
         strengths: [
-            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
-            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
-            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
-            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+            "5 Yıl Fabrika Garantisi ile Gönül Rahatlığı",
+            "Sınıfına Göre Geniş İç Mekan ve Bagaj Hacmi (295 Litre)",
+            "Düşük Yakıt Tüketimi (1.4 CRDi ile 4.5L/100km)",
+            "Sessiz ve Konforlu Kabin Yalıtımı (Sınıfının en iyilerinden)",
+            "Sorunsuz ve Güvenilir 1.2/1.4 Atmosferik Benzinli Motorlar"
         ],
         weaknesses: [
-            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
-            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
-            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+            "Sönük ve Sıradan Dış Tasarım (Rakiplerine göre dikkat çekmiyor)",
+            "Direksiyon Hissiyatının Çok Hafif ve Yapay Olması",
+            "Otomatik Şanzıman Seçeneğinin Sınırlı Olması (4 ileri konvansiyonel)",
+            "Düşük Donanımlı Paketlerin Çok Boş Kalması",
+            "Sert Plastik İç Mekan Malzemeleri"
         ],
         chronicIssues: [
             {
                 id: 1,
-                title: "Trim Sesleri (Konsol ve Kapılar)",
-                severity: "low",
+                title: "Direksiyon Kutusu Boşluğu ve Tıkırtı",
+                severity: "medium",
                 reportCount: 8,
-                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+                description: "Kasislerde direksiyondan gelen tıkırtı sesi ve direksiyondaki boşluk hissi. Genellikle direksiyon rot başı veya rotil bilyası kaynaklı."
             },
             {
                 id: 2,
-                title: "Süspansiyon Gıcırtısı",
+                title: "Arka Fren Kampana ve Balata Gıcırtısı",
                 severity: "low",
                 reportCount: 7,
-                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+                description: "Arka kampana frenlerde özellikle nemli havalarda veya sabah ilk kullanımda metal sürtünme sesi ve gıcırtı duyulması."
+            },
+            {
+                id: 3,
+                title: "Klima Kompresörü Kavrama Sesi",
+                severity: "low",
+                reportCount: 6,
+                description: "Klima devreye girerken kompresör kavramasından gelen 'tık' sesi ve hafif sarsıntı. Normal çalışma sesi olup fazla belirginse kavrama kontrolü gerekebilir."
             }
         ],
         userExperiences: [],
-        totalReports: 9
+        totalReports: 7
     },
     {
         id: 2030,
@@ -5569,35 +5696,45 @@ export const vehicleDNAData: VehicleDNA[] = [
         id: 2046,
         brand: "Renault",
         model: "Clio 5 (1.0 TCe - Icon Paket)",
-        year: "2022 - 2023",
-        ncapStars: 4,
-        ncapYear: "2021",
-        dnaScore: 79,
+        year: "2020-2025",
+        ncapStars: 5,
+        ncapYear: "2019",
+        dnaScore: 77,
         strengths: [
-            "Mükemmel Yakıt Ekonomisi (Özellikle dCi & TCe motorlar)",
-            "Yaygın Servis Ağı ve Çok Uygun Yedek Parça Maliyeti",
-            "Yüksek İkinci El Piyasası (Altın gibi kolay satılır)",
-            "Pratik Kabin Kullanımı ve Geniş Bagaj Seçenekleri"
+            "100 HP TCe Motor ile Şehir İçi Yeterli Performans (0-100: 11.8 sn)",
+            "Icon Paket ile Zengin Donanım (7'' Ekran, Geri Görüş Kamerası, Otomatik Klima)",
+            "Mükemmel Yakıt Ekonomisi (Şehir içi 5.5-6L, uzun yol 4.5L)",
+            "5 Yıldız Euro NCAP (Sınıfının en güvenlilerinden)",
+            "İkinci Elde Çok Hızlı Satış (En çok aranan B segmenti)"
         ],
         weaknesses: [
-            "Kabin İçi Sert Plastik Malzeme Yoğunluğu",
-            "Yüksek Hızlarda Yol ve Rüzgar Sesi (Ortalama Yalıtım)",
-            "Bozuk Yollarda Erken Başlayan Trim Sesleri"
+            "1.0 TCe Motorun Otoyolda Zorlanması (Sollama için aşağı vites gerekli)",
+            "X-Tronic CVT ile Motor Gürültüsü (Tam gaza basınca motor bağırır)",
+            "Icon Pakette LED Far Olmaması (Halojen standart)",
+            "Arka Koltuk Diz Mesafesi Dar (Uzun yolculuklar için ideal değil)",
+            "Start-Stop Sisteminin Sık Arıza Vermesi"
         ],
         chronicIssues: [
             {
                 id: 1,
-                title: "Trim Sesleri (Konsol ve Kapılar)",
-                severity: "low",
-                reportCount: 9,
-                description: "Bozuk yollarda plastik parçaların esnemesiyle tıkırtılar gelebilir."
+                title: "X-Tronic CVT Düşük Hız Silkelenmesi",
+                severity: "medium",
+                reportCount: 8,
+                description: "X-Tronic şanzımanlı versiyonlarda özellikle 20-40 km/s aralığında ve yokuş çıkışlarda silkelenme/titreme hissedilmesi. Yazılım güncellemesi kısmen çözer."
             },
             {
                 id: 2,
-                title: "Süspansiyon Gıcırtısı",
+                title: "Multimedya Ekranı Donma ve Resetleme",
+                severity: "low",
+                reportCount: 7,
+                description: "Easy Link multimedya sisteminin kendi kendine kapanıp yeniden başlaması veya dokunmatik ekranın yanıt vermemesi. Yazılım güncellemesi ile düzelir."
+            },
+            {
+                id: 3,
+                title: "Emniyet Kemeri B Sütunu Tıkırtısı",
                 severity: "low",
                 reportCount: 9,
-                description: "Soğuk havalarda ön amortisör takozlarından gıcırtı sesi duyulabilir."
+                description: "B sütunundan gelen ritmik tıkırtı sesi. Emniyet kemeri mekanizmasının plastik kılıfıyla B sütunu arasında boşluk oluşmasından kaynaklanır."
             }
         ],
         userExperiences: [],
@@ -8330,36 +8467,6 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         userExperiences: [],
         totalReports: 7
-    },
-    {
-        id: 3021,
-        brand: "Renault",
-        model: "Clio 5 (1.0 TCe - Icon Paket)",
-        year: "2015-2025",
-        ncapStars: 4,
-        ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
-        strengths: [
-            "Genel kullanıcı memnuniyeti yüksek",
-            "Yakıt ekonomisi tatminkar",
-            "Yedek parça bulunabilirliği iyi"
-        ],
-        weaknesses: [
-            "Bazı donanım eksiklikleri",
-            "İzolasyon sınıf standartlarında",
-            "İkinci el değer kaybı"
-        ],
-        chronicIssues: [
-            {
-                id: 1,
-                title: "Genel Trim Sesleri",
-                severity: "low",
-                reportCount: 7,
-                description: "Özellikle bozuk yollarda konsoldan veya kapılardan gelen tıkırtılar."
-            }
-        ],
-        userExperiences: [],
-        totalReports: 8
     },
     {
         id: 3022,
