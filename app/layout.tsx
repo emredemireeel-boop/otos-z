@@ -186,6 +186,7 @@ export default function RootLayout({
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                 <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
                 <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
+                <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
                 {/* ── JSON-LD Yapılandırılmış Veri — Google Knowledge Graph & Rich Snippets ── */}
@@ -208,6 +209,13 @@ export default function RootLayout({
                         gtag('config', 'G-WBNEVXRYML');
                     `}
                 </Script>
+
+                {/* Google AdSense — Otomatik Reklamlar */}
+                <Script
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6387001035314883"
+                    strategy="afterInteractive"
+                    crossOrigin="anonymous"
+                />
 
                 <ThemeProvider>
                     <AuthProvider>
