@@ -36,7 +36,7 @@
         "seoTitle": "Yavuz Sultan Selim Köprüsü Geçiş Ücreti 2026",
         "seoDescription": "2026 yılı Yavuz Sultan Selim (3. Köprü) güncel geçiş ücretleri. Kamyon, tır, otobüs ve otomobil geçiş fiyatları detaylı tablosu.",
         "desc": "Çift yön ücretlendirilir.",
-        "prices": { "1": 95.00, "2": 125.00, "3": 235.00, "4": 595.00, "5": 740.00, "6": 65.00 },
+        "prices": { "1": 110.00, "2": 145.00, "3": 270.00, "4": 690.00, "5": 860.00, "6": 75.00 },
         "content": "Kuzey Marmara Otoyolu güzergahında bulunan Yavuz Sultan Selim Köprüsü, her iki yönde (Avrupa'dan Asya'ya ve Asya'dan Avrupa'ya) geçişlerde ücretlendirilir. Ağır ticari araçların Boğaz geçişi için zorunlu rotasıdır.",
         "rules": [
             "Çift yönlü ücretlendirme uygulanır.",
@@ -51,7 +51,7 @@
         "seoTitle": "Osmangazi Köprüsü Geçiş Ücreti 2026 (Güncel Liste)",
         "seoDescription": "2026 yılı Osmangazi Köprüsü otomobil, minibüs, motosiklet, tır ve kamyon geçiş ücretleri. Gebze-Orhangazi otoyolu fiyatları.",
         "desc": "Gebze - Orhangazi güzergahı.",
-        "prices": { "1": 995.00, "2": 1590.00, "3": 1890.00, "4": 2505.00, "5": 3165.00, "6": 695.00 },
+        "prices": { "1": 1170.00, "2": 1870.00, "3": 2225.00, "4": 2950.00, "5": 3720.00, "6": 820.00 },
         "content": "İzmit Körfezi'ni geçmek için kullanılan Osmangazi Köprüsü, İstanbul ile İzmir arasındaki yolculuk süresini büyük oranda kısaltır. Türkiye'nin en pahalı geçiş ücretine sahip köprülerinden biridir.",
         "rules": [
             "Geçiş ücreti her iki yönde de alınır.",
@@ -66,7 +66,7 @@
         "seoTitle": "1915 Çanakkale Köprüsü Geçiş Ücreti 2026",
         "seoDescription": "2026 yılı 1915 Çanakkale Köprüsü güncel otomobil, tır, kamyon ve motosiklet geçiş ücretleri. Malkara-Çanakkale güzergahı.",
         "desc": "Malkara - Çanakkale güzergahı.",
-        "prices": { "1": 995.00, "2": 1245.00, "3": 2240.00, "4": 2490.00, "5": 3755.00, "6": 250.00 },
+        "prices": { "1": 1170.00, "2": 1465.00, "3": 2635.00, "4": 2925.00, "5": 5560.00, "6": 295.00 },
         "content": "Çanakkale Boğazı'nı birbirine bağlayan 1915 Çanakkale Köprüsü, feribot bekleme süresini ortadan kaldırmaktadır. Avrupa ve Asya arasındaki en uzun asma köprüdür.",
         "rules": [
             "Her iki yönde de geçiş ücreti tahsil edilir.",
