@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "enrich-obd": "node scripts/enrich-obd-codes.js"
   },
   "dependencies": {
     "@opentelemetry/api": "^1.9.1",

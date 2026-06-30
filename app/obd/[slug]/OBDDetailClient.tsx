@@ -366,7 +366,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #3b82f6, transparent)' }} />
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
                             <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(59,130,246,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(59,130,246,0.2)' }}>
-                                <DollarSign size={18} style={{ color: '#3b82f6' }} />
+                                <span style={{ fontSize: '18px', fontWeight: '800', color: '#3b82f6' }}>₺</span>
                             </div>
                             <h2 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>Tahmini Onarım Bilgileri</h2>
                         </div>
@@ -398,9 +398,6 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                             * Fiyatlar 2026 piyasa koşullarına göre tahminidir. Araç markası, model yılı ve servis noktasına göre değişiklik gösterebilir.
                         </p>
                     </section>
-
-                    {/* ── İçerik Reklam Alanı ── */}
-                    <AdPlaceholder position="content-obd" />
 
                     {/* ── Detaylı Teknik Rehber ── */}
                     <section style={{
@@ -551,8 +548,6 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                         </div>
                     </div>
 
-                    {/* ── Alt İçerik Reklam Alanı ── */}
-                    <AdPlaceholder position="content-obd-bottom" />
 
                 </div>
 

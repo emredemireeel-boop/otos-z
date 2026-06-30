@@ -370,19 +370,28 @@ export default function LibraryPage() {
         let schema: any = null;
 
         if (currentTab.slug === 'trafik-cezalari' && (trafikCezalariData as any)?.categories) {
-            // Trafik Cezaları FAQ
-            const faqs = (trafikCezalariData as any).categories.flatMap((cat: any) => cat.rows).slice(0, 20);
+            // Trafik Cezaları FAQ — gerçek FAQ soruları
+            const allRows = (trafikCezalariData as any).categories.flatMap((cat: any) => cat.rows);
+            const faqItems: any[] = [];
+            for (const row of allRows) {
+                if (row.faq && row.faq.length > 0) {
+                    for (const f of row.faq.slice(0, 2)) {
+                        faqItems.push({
+                            "@type": "Question",
+                            "name": f.soru,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": f.cevap
+                            }
+                        });
+                    }
+                }
+                if (faqItems.length >= 30) break;
+            }
             schema = {
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
-                "mainEntity": faqs.map((madde: any) => ({
-                    "@type": "Question",
-                    "name": `${madde.madde} Trafik Cezası Nedir ve Ne Kadar?`,
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": `${madde.ihlal} 2026 yılı ceza tutarı: ${madde.ceza}.`
-                    }
-                }))
+                "mainEntity": faqItems
             };
         } else if (currentTab.slug === 'obd-ariza-kodlari' && obdCodes) {
             return getOBDSchema();

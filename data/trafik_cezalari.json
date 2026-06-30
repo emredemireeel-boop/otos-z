@@ -2,55 +2,94 @@
   "categories": [
     {
       "id": "hiz",
-      "kategori": "HIZ (Şehir İçi)",
+      "kategori": "HIZ İHLALLERİ",
       "rows": [
         {
           "id": 1,
           "madde": "51/2-a",
-          "ihlal": "6 - 45 km/s arası aşım (Kademeli)",
-          "ceza": "2.000 - 15.000 TL",
+          "ihlal": "Hız Sınırını 6-45 km/s Aşmak (Kademeli)",
+          "ceza": "2.000 - 15.000 ₺",
           "ehliyet": "10 - 20 Ceza Puanı",
           "arac": "Yok",
           "slug": "hiz-sinirini-asmak-51-2-a",
+          "kanunMaddesi": "2918 sayılı KTK Madde 51/2-a",
           "description": "Hız sınırlarını %10'dan %30'a kadar aşmak trafik güvenliğini tehlikeye attığı için cezai işleme tabidir. Kademeli olarak artan ceza sistemiyle, hız limitini aşma oranınıza göre para ve ehliyet ceza puanı uygulanır.",
-          "tags": ["hız", "radar", "hız sınırı", "ceza puanı", "51/2-a"],
-          "neYapilmali": "Hız sınırlarına uymaya özen gösterin. Radar veya hız koridorlarında hızınızı yasal sınırlara düşürün."
+          "detayliAciklama": "2918 sayılı Karayolları Trafik Kanunu'nun 51. maddesi kapsamında, hız sınırlarını aşan sürücülere kademeli bir ceza sistemi uygulanmaktadır. 2026 yılı itibarıyla hız sınırını 6-15 km/s aşan sürücülere 2.000 TL, 16-30 km/s aşanlara 5.000 TL, 31-45 km/s aşanlara ise 15.000 TL para cezası uygulanır. Ceza puanı ise aşım miktarına göre 10 ile 20 puan arasında değişir. Radar veya MOBESE kameralarıyla tespit edilen hız ihlallerinde ceza plakaya yazılır ve araç sahibine tebliğ edilir. Şehir içi yollarda genel hız limiti 50 km/s, şehir dışında 82-90 km/s, otoyollarda ise 120 km/s'dir. Hız sınırlarına uymak, trafik kazalarının önlenmesinde en temel faktördür.",
+          "tags": ["hız cezası 2026", "radar cezası", "hız sınırı", "ceza puanı", "51/2-a", "hız aşımı"],
+          "neYapilmali": "Hız sınırlarına uymaya özen gösterin. Radar veya hız koridorlarında hızınızı yasal sınırlara düşürün. Araç hız sabitleyicisini (cruise control) kullanmak faydalı olabilir.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "Tebliğ tarihinden itibaren 15 gün içinde Sulh Ceza Hakimliğine itiraz edebilirsiniz. Radar kalibrasyonu, trafik işareti eksikliği, plaka tespitinde hata gibi durumlar itiraz gerekçesi olabilir.",
+          "tekrarCezasi": "Aynı yıl içinde 3 kez ve üzeri tekrar durumunda ceza puanı 2 kat uygulanır.",
+          "faq": [
+            {"soru": "2026 yılında hız sınırını aşmanın cezası ne kadar?", "cevap": "2026 yılında hız sınırını 6-15 km/s aşmak 2.000 TL, 16-30 km/s aşmak 5.000 TL, 31-45 km/s aşmak ise 15.000 TL para cezasıyla sonuçlanır."},
+            {"soru": "Hız cezası erken ödeme indirimi var mı?", "cevap": "Evet, tüm trafik cezalarında tebliğ tarihinden itibaren 1 ay içinde ödeme yapılırsa %25 erken ödeme indirimi uygulanır."},
+            {"soru": "Radar cezası nasıl sorgulanır?", "cevap": "e-Devlet üzerinden 'Araç Plakasına Yazılan Ceza Sorgulama' hizmetinden veya Emniyet Genel Müdürlüğü web sitesinden sorgulayabilirsiniz."},
+            {"soru": "Hız cezasına itiraz edebilir miyim?", "cevap": "Evet, tebliğ tarihinden itibaren 15 gün içinde bulunduğunuz yerdeki Sulh Ceza Hakimliğine itiraz dilekçesi verebilirsiniz."}
+          ]
         },
         {
           "id": 2,
           "madde": "51/2-b",
-          "ihlal": "46 - 55 km/s arası aşım",
-          "ceza": "20.000 TL",
+          "ihlal": "Hız Sınırını 46-55 km/s Aşmak",
+          "ceza": "20.000 ₺",
           "ehliyet": "30 Gün El Koyma",
           "arac": "Yok",
           "slug": "hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+          "kanunMaddesi": "2918 sayılı KTK Madde 51/2-b",
           "description": "Hız sınırlarını %30'dan %50'ye kadar aşmak ciddi bir trafik ihlalidir. Sadece yüksek para cezası değil, aynı zamanda sürücü belgesine el konulması gibi yaptırımları bulunur.",
-          "tags": ["hız", "radar", "ehliyet el koyma", "51/2-b"],
-          "neYapilmali": "Hız limitini ciddi şekilde aşmak kazalara davetiye çıkarır. Trafik kurallarına uymak hayati önem taşır."
+          "detayliAciklama": "Hız sınırını 46-55 km/s aşmak, 2918 sayılı KTK'nın 51/2-b maddesi kapsamında ciddi bir trafik suçudur. 2026 yılında 20.000 TL para cezası ve 30 gün süreyle sürücü belgesine el konulması uygulanır. Bu süre zarfında araç kullanırsanız, ehliyeti alınmışken araç kullanma suçunu işlemiş olursunuz ve 200.000 TL ek cezayla karşılaşırsınız. Ehliyetinize el konulduktan sonra, süre bitiminde en yakın emniyet müdürlüğünden belgenizi geri alabilirsiniz.",
+          "tags": ["hız cezası", "ehliyet el koyma", "51/2-b", "ağır hız ihlali"],
+          "neYapilmali": "Hız limitini ciddi şekilde aşmak kazalara davetiye çıkarır. Trafik kurallarına uymak hayati önem taşır.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde Sulh Ceza Hakimliğine itiraz edebilirsiniz. Ehliyet iadesi, ceza süresinin bitiminde emniyetten yapılır.",
+          "tekrarCezasi": "12 ay içinde tekrar durumunda el koyma süresi 2 katına çıkar.",
+          "faq": [
+            {"soru": "Hız sınırını %30-50 aşmanın 2026 cezası nedir?", "cevap": "2026 yılında hız sınırını 46-55 km/s aşmak 20.000 TL para cezası ve 30 gün sürücü belgesine el konulmasıyla sonuçlanır."},
+            {"soru": "Ehliyet el koyma süresi nasıl işler?", "cevap": "El koyma kararının tebliğ edildiği tarihten itibaren 30 gün sürer. Bu süre içinde araç kullanmak yasaktır ve ayrı bir suçtur."},
+            {"soru": "El konulan ehliyeti nasıl geri alırım?", "cevap": "Süre dolduktan sonra, ceza kararını veren Emniyet Müdürlüğü Trafik Tescil Şube Müdürlüğünden belgenizi geri alabilirsiniz."}
+          ]
         },
         {
           "id": 3,
           "madde": "51/2-c",
-          "ihlal": "56 - 65 km/s arası aşım",
-          "ceza": "25.000 TL",
+          "ihlal": "Hız Sınırını 56-65 km/s Aşmak",
+          "ceza": "25.000 ₺",
           "ehliyet": "60 Gün El Koyma",
           "arac": "Yok",
           "slug": "hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
-          "description": "Hız sınırlarını çok yüksek oranlarda aşmak (örn. %50'den fazla), ehliyetin 60 gün süreyle geçici olarak iptal edilmesine yol açar.",
-          "tags": ["aşırı hız", "radar", "60 gün ehliyet iptali", "51/2-c"],
-          "neYapilmali": "Trafikte hız kurallarına uymak sadece cezalardan kaçınmak için değil, hem sizin hem de başkalarının can güvenliği için elzemdir."
+          "kanunMaddesi": "2918 sayılı KTK Madde 51/2-c",
+          "description": "Hız sınırlarını çok yüksek oranlarda aşmak, ehliyetin 60 gün süreyle geçici olarak iptal edilmesine yol açar. Bu seviyedeki hız ihlalleri genellikle otoyollarda meydana gelir.",
+          "detayliAciklama": "2918 sayılı KTK'nın 51/2-c maddesi uyarınca hız sınırını 56-65 km/s arasında aşmak 25.000 TL para cezası ve 60 gün sürücü belgesi el koyma ile sonuçlanır. Örneğin, otoyolda 120 km/s hız sınırı olan bir bölgede 180 km/s hızla tespit edilmek bu kategoriye girer. Bu ceza genellikle radar veya trafik polisi radarıyla tespit edilir. 60 günlük sürede araç kullanılması halinde ayrıca 200.000 TL ceza ve aracın men edilmesi söz konusudur.",
+          "tags": ["aşırı hız", "radar", "60 gün ehliyet iptali", "51/2-c", "otoyol hız cezası"],
+          "neYapilmali": "Trafikte hız kurallarına uymak sadece cezalardan kaçınmak için değil, hem sizin hem de başkalarının can güvenliği için elzemdir.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde Sulh Ceza Hakimliğine itiraz edilebilir.",
+          "tekrarCezasi": "Tekrar halinde el koyma süresi 120 güne çıkabilir.",
+          "faq": [
+            {"soru": "Hız sınırını 56-65 km/s aşmanın cezası nedir?", "cevap": "25.000 TL para cezası ve 60 gün sürücü belgesine el konulması uygulanır."},
+            {"soru": "Otoyolda hız sınırı kaçtır?", "cevap": "Otoyollarda genel hız sınırı binek araçlar için 120 km/s, hafif ticari araçlar için 100 km/s, ağır vasıtalar için 80 km/s'dir."}
+          ]
         },
         {
           "id": 4,
           "madde": "51/2-d",
-          "ihlal": "66 km/s ve üzeri aşım",
-          "ceza": "30.000 TL",
+          "ihlal": "Hız Sınırını 66 km/s ve Üzeri Aşmak",
+          "ceza": "30.000 ₺",
           "ehliyet": "90 Gün El Koyma",
           "arac": "Yok",
           "slug": "hiz-siniri-agir-ihlal-51-2-d",
-          "description": "Hız sınırlarının extrem derecede aşılması durumunda uygulanan en ağır hız cezasıdır. Para cezasının yanında 90 gün boyunca araç kullanamazsınız.",
-          "tags": ["aşırı hız", "ağır kusur", "90 gün el koyma", "51/2-d"],
-          "neYapilmali": "Aşırı hız, ölümlü kazaların bir numaralı sebebidir. Kesinlikle uzak durulmalıdır."
+          "kanunMaddesi": "2918 sayılı KTK Madde 51/2-d",
+          "description": "Hız sınırlarının aşırı derecede aşılması durumunda uygulanan en ağır hız cezasıdır. 30.000 TL para cezası ve 90 gün boyunca araç kullanamazsınız.",
+          "detayliAciklama": "Hız sınırını 66 km/s ve üzeri aşmak, kanundaki en ağır hız ihlali cezasını doğurur. 30.000 TL para cezası ile birlikte 90 gün sürücü belgesi el koyma uygulanır. Ayrıca bu denli yüksek hızlarda yakalanmak, tehlikeli sürüş kapsamında ek yasal işlemlere de yol açabilir. TÜİK verilerine göre ölümlü trafik kazalarının %30'undan fazlasında aşırı hız başlıca etkendir.",
+          "tags": ["aşırı hız", "ağır kusur", "90 gün el koyma", "51/2-d", "en ağır hız cezası"],
+          "neYapilmali": "Aşırı hız, ölümlü kazaların bir numaralı sebebidir. Kesinlikle uzak durulmalıdır.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde Sulh Ceza Hakimliğine itiraz edilebilir.",
+          "tekrarCezasi": "Tekrar halinde ehliyet süresiz iptal edilebilir, psikoteknik değerlendirme zorunluluğu oluşur.",
+          "faq": [
+            {"soru": "En ağır hız cezası ne kadardır?", "cevap": "2026 yılında hız sınırını 66 km/s ve üzeri aşmanın cezası 30.000 TL para cezası ve 90 gün sürücü belgesine el konulmasıdır."},
+            {"soru": "90 gün ehliyet el koyma ne demek?", "cevap": "90 gün boyunca hiçbir şekilde motorlu araç kullanamazsınız. Bu sürede araç kullanırsanız 200.000 TL ek ceza ve aracınız men edilir."}
+          ]
         }
       ]
     },
@@ -62,49 +101,88 @@
           "id": 5,
           "madde": "48/9",
           "ihlal": "Alkol Testini Reddetme",
-          "ceza": "150.000 TL",
+          "ceza": "150.000 ₺",
           "ehliyet": "5 Yıl El Koyma",
           "arac": "Men Edilir",
           "slug": "alkol-testini-reddetme-48-9",
+          "kanunMaddesi": "2918 sayılı KTK Madde 48/9",
           "description": "Trafik çevirmesinde promil ölçüm cihazına üflemeyi reddetmek veya tahlil vermemek, yasal olarak en üst sınırdan alkollü kabul edilmenize neden olur ve çok ağır yaptırımları vardır.",
-          "tags": ["alkol testi", "promil reddi", "5 yıl el koyma", "araç men", "48/9"],
-          "neYapilmali": "Polis veya jandarma kontrol noktalarında kolluk kuvvetlerine yardımcı olun, testten kaçınmak cezayı ağırlaştırır."
+          "detayliAciklama": "2918 sayılı KTK'nın 48/9. maddesi gereği, trafik denetimlerinde görevlilerin talep ettiği alkol testini reddetmek, en üst sınırdan (1.00 promil üzeri) alkollü kabul edilmenize neden olur. Bu durumda 150.000 TL para cezası, 5 yıl sürücü belgesine el konulması ve aracın trafikten men edilmesi uygulanır. Test reddi, mahkemede de aleyhinize değerlendirilir. Alkol testi reddi ayrıca kabahatler kanunu kapsamında da ayrı bir suçtur.",
+          "tags": ["alkol testi reddi", "promil reddi", "5 yıl el koyma", "araç men", "48/9"],
+          "neYapilmali": "Polis veya jandarma kontrol noktalarında kolluk kuvvetlerine yardımcı olun, testten kaçınmak cezayı ağırlaştırır.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz hakkınız bulunmaktadır ancak test reddi durumunda itirazın kabul edilme ihtimali düşüktür.",
+          "tekrarCezasi": "Tekrar durumunda sürücü belgesi süresiz iptal edilir.",
+          "faq": [
+            {"soru": "Alkol testini reddedersem ne olur?", "cevap": "Alkol testini reddetmek, yasal olarak en yüksek promil seviyesinden alkollü kabul edilmenize neden olur: 150.000 TL ceza, 5 yıl ehliyet el koyma ve aracın men edilmesi."},
+            {"soru": "Alkol testi reddi cezasına itiraz edilebilir mi?", "cevap": "Yasal olarak 15 gün içinde itiraz hakkınız vardır, ancak test reddi durumunda mahkemeler genellikle cezayı onaylar."},
+            {"soru": "Alkol testi nasıl yapılır?", "cevap": "Trafik polisi tarafından tutulan nefes alkol ölçüm cihazına (alkolometre) üflemeniz istenir. Sonuç 0.50 promilin altındaysa sorun yoktur."}
+          ]
         },
         {
           "id": 6,
           "madde": "48/5",
-          "ihlal": "Alkollü Araç (1. Kez / 0.50 Promil Üstü)",
-          "ceza": "25.000 TL",
+          "ihlal": "Alkollü Araç Kullanmak (1. Kez, 0.50 Promil Üstü)",
+          "ceza": "25.000 ₺",
           "ehliyet": "6 Ay El Koyma",
           "arac": "Men (Yedek şoför yok)",
           "slug": "alkollu-arac-kullanmak-1-kez-48-5",
+          "kanunMaddesi": "2918 sayılı KTK Madde 48/5",
           "description": "Yasal sınır olan 0.50 promilin üzerinde alkollü olarak araç kullanmanın ilk seferindeki cezasıdır. Araç, alkolsüz bir sürücü bulunmadığı takdirde trafikten men edilir.",
-          "tags": ["alkollü araç", "0.50 promil", "ehliyete el koyma", "48/5"],
-          "neYapilmali": "Alkollü iken kesinlikle direksiyon başına geçmeyin. Taksi veya alternatif ulaşım yöntemlerini kullanın."
+          "detayliAciklama": "Türkiye'de hususi araç sürücüleri için yasal alkol sınırı 0.50 promildir. Bu sınırın üzerinde alkollü olarak araç kullanırken yakalanan sürücülere ilk seferinde 25.000 TL para cezası ve 6 ay sürücü belgesi el koyma uygulanır. Ticari araç sürücüleri için sınır 0.20 promildir. Araçta alkolsüz ve ehliyetli başka bir sürücü yoksa araç trafikten men edilerek yediemin otoparkına çekilir. 0.50 promilin ne anlama geldiğini basitçe ifade etmek gerekirse: ortalama bir yetişkinin 1-2 bira veya 1 kadeh şarap içtikten yaklaşık 1 saat sonra ölçülen değerdir.",
+          "tags": ["alkollü araç", "0.50 promil", "ehliyete el koyma", "48/5", "alkol cezası 2026"],
+          "neYapilmali": "Alkollü iken kesinlikle direksiyon başına geçmeyin. Taksi, toplu taşıma veya yardım çağırma gibi alternatif yöntemleri kullanın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "Alkol ölçüm cihazının kalibrasyonu veya ölçüm hatası gerekçesiyle itiraz edilebilir. 15 gün içinde Sulh Ceza Hakimliğine başvuru yapılmalıdır.",
+          "tekrarCezasi": "2. kez: 2 yıl el koyma ve 50.000 TL. 3. kez: 5 yıl el koyma ve 150.000 TL. Ardından psikoteknik test zorunluluğu.",
+          "faq": [
+            {"soru": "Alkollü araç kullanmanın 2026 cezası nedir?", "cevap": "İlk kez 0.50 promil üzerinde yakalanan sürücülere 25.000 TL para cezası ve 6 ay sürücü belgesine el konulması uygulanır."},
+            {"soru": "Alkol sınırı kaç promildir?", "cevap": "Hususi araç sürücüleri için 0.50 promil, ticari araç sürücüleri için 0.20 promildir. Bu sınırların altındaki değerler ceza gerektirmez."},
+            {"soru": "Alkollü yakalanırsa araç ne olur?", "cevap": "Araçta alkolsüz ve ehliyetli başka bir sürücü varsa araç o kişiye teslim edilir. Yoksa araç trafikten men edilerek yediemin otoparkına çekilir."},
+            {"soru": "Alkol cezasına itiraz edilebilir mi?", "cevap": "Evet, tebliğden itibaren 15 gün içinde Sulh Ceza Hakimliğine itiraz edebilirsiniz. Cihaz kalibrasyonu, ölçüm hatası gibi gerekçeler kullanılabilir."}
+          ]
         },
         {
           "id": 7,
           "madde": "48/5-c",
-          "ihlal": "Alkollü Araç (3. Kez ve Sonrası)",
-          "ceza": "150.000 TL",
+          "ihlal": "Alkollü Araç Kullanmak (3. Kez ve Sonrası)",
+          "ceza": "150.000 ₺",
           "ehliyet": "5 Yıl El Koyma",
           "arac": "Kesin Men",
           "slug": "alkollu-arac-kullanmak-3-kez-48-5-c",
+          "kanunMaddesi": "2918 sayılı KTK Madde 48/5-c",
           "description": "Alkollü araç kullanma suçunun mükerrer (3 veya daha fazla) işlenmesi durumunda uygulanan yaptırımdır. Ayrıca psikoteknik değerlendirmeye girme zorunluluğu bulunur.",
+          "detayliAciklama": "Alkollü araç kullanma suçunu 3. kez veya daha fazla işleyen sürücülere 150.000 TL para cezası, 5 yıl sürücü belgesi el koyma, aracın kesin men edilmesi ve psikoteknik değerlendirme zorunluluğu uygulanır. 5 yıllık süre sonunda ehliyeti geri alabilmek için psikoteknik testten başarılı olmak gerekir. Bu test, sürücünün algı, dikkat, refleks ve karar verme yeteneğini ölçer.",
           "tags": ["alkol", "mükerrer suç", "5 yıl el koyma", "psikoteknik", "48/5-c"],
-          "neYapilmali": "Alkollü araç kullanmak hem suçtur hem de cinayete teşebbüstür."
+          "neYapilmali": "Alkollü araç kullanmak hem yasal suç hem de can güvenliği açısından büyük risk taşır.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde Sulh Ceza Hakimliğine itiraz edilebilir.",
+          "tekrarCezasi": "Daha sonraki tekrarlarda sürücü belgesi süresiz iptal edilebilir.",
+          "faq": [
+            {"soru": "3. kez alkollü yakalanmanın cezası nedir?", "cevap": "150.000 TL para cezası, 5 yıl sürücü belgesine el konulması, aracın kesin men edilmesi ve psikoteknik değerlendirme zorunluluğu."},
+            {"soru": "Psikoteknik test nedir?", "cevap": "Sürücünün algı, dikkat, refleks ve karar verme yeteneğini ölçen bilimsel bir testtir. Belirli suçlardan sonra ehliyet geri alabilmek için başarılı olmak gerekir."}
+          ]
         },
         {
           "id": 8,
           "madde": "48/8",
-          "ihlal": "Uyuşturucu Etkisinde Araç",
-          "ceza": "150.000 TL",
+          "ihlal": "Uyuşturucu Etkisinde Araç Kullanmak",
+          "ceza": "150.000 ₺",
           "ehliyet": "Ehliyet İptali",
           "arac": "Kesin Men",
           "slug": "uyusturucu-etkisinde-arac-kullanmak-48-8",
+          "kanunMaddesi": "2918 sayılı KTK Madde 48/8",
           "description": "Uyuşturucu veya uyarıcı madde alarak araç kullanmak, ehliyetin tamamen iptali ile sonuçlanan ve çok ağır para/hapis cezası olan bir trafik suçudur.",
-          "tags": ["uyuşturucu", "ehliyet iptali", "araç men", "48/8"],
-          "neYapilmali": "Hukuki ve hayati riskleri çok büyüktür. Hiçbir koşulda trafiğe çıkılmamalıdır."
+          "detayliAciklama": "Uyuşturucu veya uyarıcı madde kullanarak araç sürmek, Türk hukuk sisteminde en ağır trafik suçlarından biridir. 150.000 TL para cezası, sürücü belgesinin tamamen iptali ve aracın kesin men edilmesinin yanı sıra TCK kapsamında da ayrıca ceza davası açılır. Yeni ehliyet alabilmek için rehabilitasyon sürecini tamamlamak ve psikoteknik testten başarılı olmak gerekir.",
+          "tags": ["uyuşturucu", "ehliyet iptali", "araç men", "48/8", "uyuşturucu cezası"],
+          "neYapilmali": "Hukuki ve hayati riskleri çok büyüktür. Hiçbir koşulda trafiğe çıkılmamalıdır.",
+          "erkenOdemeIndirimi": "Yok (Ceza indirimi uygulanmaz)",
+          "itirazBilgisi": "İtiraz hakkı bulunsa da, kan tahlili ile kesinleşen sonuçlarda itirazın kabul edilmesi son derece zordur.",
+          "tekrarCezasi": "Hapis cezası uygulanır.",
+          "faq": [
+            {"soru": "Uyuşturucu etkisinde araç kullanmanın cezası nedir?", "cevap": "150.000 TL para cezası, sürücü belgesinin iptali, aracın kesin men edilmesi ve TCK kapsamında ayrıca ceza davası açılır."},
+            {"soru": "Uyuşturucu testi nasıl yapılır?", "cevap": "Trafik polisi tarafından şüphe üzerine idrar veya tükürük testi yapılır. Pozitif çıkması halinde hastanede kan tahlili ile kesinleştirilir."}
+          ]
         }
       ]
     },
@@ -116,49 +194,84 @@
           "id": 9,
           "madde": "73/a",
           "ihlal": "Saldırgan Sürüş / Israrlı Takip",
-          "ceza": "180.000 TL",
+          "ceza": "180.000 ₺",
           "ehliyet": "60 Gün El Koyma",
           "arac": "30-60 Gün Men",
           "slug": "saldirgan-surus-israrli-takip-73-a",
-          "description": "Trafikte diğer sürücüleri taciz etmek, sıkıştırmak, ısrarlı korna çalmak veya takip etmek trafik zorbalığı olarak değerlendirilir. Para ve araç men cezası vardır.",
-          "tags": ["saygısız sürüş", "trafik zorbalığı", "taciz", "73/a"],
-          "neYapilmali": "Trafikte sakin kalmak ve öfke kontrolü sağlamak hayati önem taşır."
+          "kanunMaddesi": "2918 sayılı KTK Madde 73/a",
+          "description": "Trafikte diğer sürücüleri taciz etmek, sıkıştırmak, ısrarlı korna çalmak veya takip etmek trafik zorbalığı olarak değerlendirilir.",
+          "detayliAciklama": "2918 sayılı KTK'ya eklenen trafik zorbalığı maddeleri kapsamında, saldırgan sürüş ve ısrarlı takip 180.000 TL para cezası, 60 gün ehliyet el koyma ve 30-60 gün araç men cezası ile sonuçlanır. Trafik zorbalığı; diğer sürücüleri kasıtlı olarak sıkıştırma, yolunu kesme, ısrarlı korna çalma, saldırgan el-kol hareketleri yapma ve ısrarlı takip gibi davranışları kapsar. Bu davranışlar aynı zamanda TCK kapsamında tehdit ve kişi hürriyetinden yoksun bırakma suçlarını da oluşturabilir.",
+          "tags": ["trafik zorbalığı", "saldırgan sürüş", "taciz", "73/a", "yol saldırganlığı"],
+          "neYapilmali": "Trafikte sakin kalmak ve öfke kontrolü sağlamak hayati önem taşır. Karşılaşırsanız 112 veya 155'i arayın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir. Kamera kaydı veya tanık beyanıyla sonuç değişebilir.",
+          "tekrarCezasi": "Tekrar halinde ehliyet iptali ve TCK kapsamında ceza davası.",
+          "faq": [
+            {"soru": "Trafik zorbalığının cezası ne kadar?", "cevap": "2026 yılında saldırgan sürüş/trafik zorbalığı 180.000 TL, 60 gün ehliyet el koyma ve 30-60 gün araç men cezasıyla sonuçlanır."},
+            {"soru": "Trafik zorbalığına uğrarsam ne yapmalıyım?", "cevap": "Sakin kalın, karşılık vermeyin, araç plakasını not edin ve 112 veya 155'i arayın. Araç kameranız varsa kayıt alın."}
+          ]
         },
         {
           "id": 10,
           "madde": "67/1-d",
           "ihlal": "Drift Yapmak",
-          "ceza": "140.000 TL",
+          "ceza": "140.000 ₺",
           "ehliyet": "60 Gün El Koyma",
           "arac": "60 Gün Men",
           "slug": "drift-yapmak-67-1-d",
+          "kanunMaddesi": "2918 sayılı KTK Madde 67/1-d",
           "description": "Herhangi bir zorunluluk olmaksızın aracın yönünü ani olarak değiştirmek veya kendi etrafında döndürmek (drift yapmak) son derece tehlikeli bir trafik ihlalidir.",
-          "tags": ["drift", "yanlama", "araç men", "67/1-d"],
-          "neYapilmali": "Drift gösterileri sadece trafiğe kapalı özel alanlarda yapılmalıdır."
+          "detayliAciklama": "Drift yapmak, aracı kasıtlı olarak kaydırmak veya etrafında döndürmek eylemidir. 140.000 TL para cezası, 60 gün ehliyet el koyma ve 60 gün araç men cezası uygulanır. Sosyal medyada paylaşılan drift videoları da delil olarak kullanılabilir. Drift sırasında kaza yapılması halinde ek olarak taksirle yaralama/öldürme suçu işlenebilir.",
+          "tags": ["drift", "yanlama", "araç men", "67/1-d", "drift cezası 2026"],
+          "neYapilmali": "Drift gösterileri sadece trafiğe kapalı özel alanlarda yapılmalıdır.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "Video kanıt varsa itiraz başarı şansı düşüktür.",
+          "tekrarCezasi": "Tekrarda ehliyet iptali ve araç müsaderesi söz konusu olabilir.",
+          "faq": [
+            {"soru": "Drift yapmanın cezası ne kadar?", "cevap": "2026 yılında drift yapmanın cezası 140.000 TL, 60 gün ehliyet el koyma ve 60 gün araç men'dir."},
+            {"soru": "Drift videosu paylaşmak suç mu?", "cevap": "Kamuya açık alanda yapılan drift videoları paylaşmak, o suçun kanıtı olarak kullanılabilir ve cezai işlem başlatılabilir."}
+          ]
         },
         {
           "id": 11,
           "madde": "46/2-g",
           "ihlal": "Makas Atmak",
-          "ceza": "90.000 TL",
+          "ceza": "90.000 ₺",
           "ehliyet": "60 Gün El Koyma",
           "arac": "Yok",
           "slug": "makas-atmak-46-2-g",
-          "description": "Aksine bir işaret bulunmadıkça, trafiği aksatacak veya tehlikeye düşürecek şekilde şerit değiştirmek (makas atmak) büyük risk oluşturur ve cezası ağırdır.",
+          "kanunMaddesi": "2918 sayılı KTK Madde 46/2-g",
+          "description": "Trafiği aksatacak veya tehlikeye düşürecek şekilde şerit değiştirmek (makas atmak) büyük risk oluşturur ve cezası ağırdır.",
+          "detayliAciklama": "Makas atmak, art arda ve ani şerit değişiklikleri yaparak diğer sürücüleri tehlikeye düşürme eylemidir. 90.000 TL para cezası ve 60 gün ehliyet el koyma uygulanır. MOBESE ve trafik kameralarıyla tespit edilerek plakaya ceza yazılabilir. Kaza durumunda ağır kusurlu sayılırsınız ve sigorta tazminatı ödemeyi reddedebilir.",
           "tags": ["makas atmak", "şerit ihlali", "tehlikeli sürüş", "46/2-g"],
-          "neYapilmali": "Şerit değiştirirken mutlaka sinyal verin ve ayna kontrolü yapın, trafiği tehlikeye atmayın."
+          "neYapilmali": "Şerit değiştirirken mutlaka sinyal verin ve ayna kontrolü yapın, trafiği tehlikeye atmayın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde Sulh Ceza Hakimliğine itiraz edilebilir.",
+          "tekrarCezasi": "Tekrarda ehliyet iptali söz konusu olabilir.",
+          "faq": [
+            {"soru": "Makas atmanın 2026 cezası nedir?", "cevap": "90.000 TL para cezası ve 60 gün sürücü belgesine el konulmasıdır."},
+            {"soru": "Makas atarken kaza yaparsam ne olur?", "cevap": "Ağır kusurlu sayılırsınız. Sigorta tazminat ödemeyi reddedebilir ve taksirle yaralama/öldürme davası açılabilir."}
+          ]
         },
         {
           "id": 12,
           "madde": "47/1-a",
           "ihlal": "\"Dur\" İhtarına Uymayıp Kaçma",
-          "ceza": "200.000 TL",
+          "ceza": "200.000 ₺",
           "ehliyet": "60 Gün El Koyma",
           "arac": "60 Gün Men",
           "slug": "dur-ihtarina-uymamak-47-1-a",
+          "kanunMaddesi": "2918 sayılı KTK Madde 47/1-a",
           "description": "Polis veya jandarma trafik ekiplerinin 'Dur' ihtarına uymayarak kaçmak, yasal bir suçtur ve çok ciddi sonuçları vardır.",
+          "detayliAciklama": "Trafik çevirmesinde görevlilerin dur ihtarına uymayarak kaçmak, 200.000 TL para cezası, 60 gün ehliyet el koyma ve 60 gün araç men cezası gerektirir. Ayrıca TCK kapsamında 'görevi yaptırmamak için direnme' suçu da oluşabilir. Takip sırasında kaza yapılması halinde ağırlaştırılmış ceza uygulanır.",
           "tags": ["dur ihtarı", "kaçmak", "çevirmeden kaçmak", "47/1-a"],
-          "neYapilmali": "Trafik çevirmelerinde görevlilerin talimatlarına harfiyen uyulmalıdır."
+          "neYapilmali": "Trafik çevirmelerinde görevlilerin talimatlarına harfiyen uyulmalıdır.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "Polis kamera kayıtları delil olarak kullanılır, itiraz başarı şansı düşüktür.",
+          "tekrarCezasi": "Tekrarda ehliyet iptali ve TCK kapsamında ceza davası.",
+          "faq": [
+            {"soru": "Çevirmeden kaçmanın cezası ne kadar?", "cevap": "200.000 TL para cezası, 60 gün ehliyet el koyma ve 60 gün araç men cezası. Ayrıca TCK kapsamında ayrı ceza davası açılabilir."}
+          ]
         }
       ]
     },
@@ -170,211 +283,558 @@
           "id": 13,
           "madde": "23/5-b",
           "ihlal": "Sahte Plaka Kullanma",
-          "ceza": "140.000 TL",
+          "ceza": "140.000 ₺",
           "ehliyet": "Adli Soruşturma",
           "arac": "30 Gün Men",
           "slug": "sahte-plaka-kullanma-23-5-b",
+          "kanunMaddesi": "2918 sayılı KTK Madde 23/5-b",
           "description": "Tescilli araca sahte plaka takmak veya kullanmak resmi belgede sahtecilik suçunu da doğurur. Ağır para cezasının yanında adli soruşturma açılır.",
-          "tags": ["sahte plaka", "resmi belgede sahtecilik", "app plaka", "23/5-b"],
-          "neYapilmali": "Sadece Şoförler Odası tarafından basılan mühürlü standart plakalar kullanılmalıdır."
+          "detayliAciklama": "Sahte plaka kullanmak, 140.000 TL idari para cezası ve 30 gün araç men'in yanında TCK Madde 204 kapsamında 'resmi belgede sahtecilik' suçunu oluşturur. Bu suçun cezası 2-5 yıl hapis cezasıdır. Ayrıca sahte plaka ile işlenen trafik ihlalleri ve suçlar da ayrıca yargılanır.",
+          "tags": ["sahte plaka", "resmi belgede sahtecilik", "23/5-b"],
+          "neYapilmali": "Sadece Şoförler Odası tarafından basılan mühürlü standart plakalar kullanılmalıdır.",
+          "erkenOdemeIndirimi": "İdari ceza için %25, ancak adli süreç ayrıca devam eder.",
+          "itirazBilgisi": "Hem idari hem adli süreç ayrı ayrı işler.",
+          "tekrarCezasi": "TCK kapsamında ağırlaştırılmış ceza.",
+          "faq": [
+            {"soru": "Sahte plaka kullanmanın cezası nedir?", "cevap": "140.000 TL para cezası, 30 gün araç men ve TCK kapsamında 2-5 yıl hapis cezası gerektiren resmi belgede sahtecilik davası."}
+          ]
         },
         {
           "id": 14,
           "madde": "23/3-a",
-          "ihlal": "Plakasını Okunmaz Hale Getirme",
-          "ceza": "140.000 TL",
-          "ehliyet": "Tekerde 280.000 TL",
+          "ihlal": "Plakayı Okunmaz Hale Getirmek",
+          "ceza": "140.000 ₺",
+          "ehliyet": "Tekrarde 280.000 ₺",
           "arac": "30 Gün Men",
           "slug": "plakayi-okunmaz-hale-getirmek-23-3-a",
-          "description": "Flaş, yansıtıcı boya, harf silinmesi veya elektronik kapatıcılar ile plakanın okunmasını engellemek radar ve mobese cezalarından kaçmak maksadıyla yapıldığından ağır cezaya tabidir.",
-          "tags": ["okunmayan plaka", "plaka gizleme", "gizli plaka", "23/3-a"],
-          "neYapilmali": "Plakanızın görünürlüğünü engelleyecek hiçbir aksesuar (örn. kalın çerçeve) kullanmayın."
+          "kanunMaddesi": "2918 sayılı KTK Madde 23/3-a",
+          "description": "Flaş, yansıtıcı boya, harf silinmesi veya elektronik kapatıcılar ile plakanın okunmasını engellemek ağır cezaya tabidir.",
+          "detayliAciklama": "Plakanın kasıtlı olarak okunmaz hale getirilmesi, radar ve MOBESE kameralarından kaçmak amacıyla yapıldığı kabul edilir. 140.000 TL para cezası ve 30 gün araç men uygulanır. Elektronik plaka gizleyiciler kullanmak ayrıca TCK kapsamında suç teşkil eder.",
+          "tags": ["okunmayan plaka", "plaka gizleme", "23/3-a"],
+          "neYapilmali": "Plakanızın görünürlüğünü engelleyecek hiçbir aksesuar kullanmayın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "2. kez yakalanmada 280.000 TL ceza uygulanır.",
+          "faq": [
+            {"soru": "Plaka gizlemenin cezası ne kadar?", "cevap": "İlk seferde 140.000 TL ve 30 gün araç men. Tekrarda 280.000 TL ceza uygulanır."}
+          ]
         },
         {
           "id": 15,
           "madde": "36/3-a",
           "ihlal": "Ehliyetsiz Araç Kullanma",
-          "ceza": "40.000 TL",
+          "ceza": "40.000 ₺",
           "ehliyet": "-",
           "arac": "Araçtan Men",
           "slug": "ehliyetsiz-arac-kullanma-36-3-a",
+          "kanunMaddesi": "2918 sayılı KTK Madde 36/3-a",
           "description": "Sürücü belgesi olmadan araç kullanmak trafik kanunlarına aykırıdır. Aracın ruhsat sahibi farklı biriyse ona da aynı oranda ceza kesilir.",
+          "detayliAciklama": "Sürücü belgesi olmadan araç kullanmak 40.000 TL para cezasına tabidir. Araç başka birine aitse, ruhsat sahibine de aynı tutarda ceza kesilir. Araç trafikten men edilir. Ehliyetsiz sürücünün karıştığı kazalarda sigorta hiçbir tazminat ödemez ve tüm mali sorumluluk sürücüye aittir.",
           "tags": ["ehliyetsiz sürücü", "sürücü belgesiz", "36/3-a"],
-          "neYapilmali": "Gerekli sınıf sürücü belgesini almadan trafiğe çıkmak hem size hem ruhsat sahibine ciddi zarar verir."
+          "neYapilmali": "Gerekli sınıf sürücü belgesini almadan trafiğe çıkmak hem size hem ruhsat sahibine ciddi zarar verir.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her seferinde aynı ceza uygulanır, ayrıca TCK kapsamında işlem yapılabilir.",
+          "faq": [
+            {"soru": "Ehliyetsiz araç kullanmanın cezası nedir?", "cevap": "40.000 TL para cezası, aracın men edilmesi. Araç başkasına aitse ruhsat sahibine de aynı ceza kesilir."},
+            {"soru": "Ehliyetsiz sürücü kaza yaparsa sigorta öder mi?", "cevap": "Hayır, ehliyetsiz sürücünün karıştığı kazalarda kasko ve trafik sigortası tazminat ödemez. Tüm mali sorumluluk sürücüye aittir."}
+          ]
         },
         {
           "id": 16,
           "madde": "36/3-b",
-          "ihlal": "Ehliyeti Alınmışken Araç",
-          "ceza": "200.000 TL",
-          "ehliyet": "+40.000 TL (İşletene)",
+          "ihlal": "Ehliyeti Alınmışken Araç Kullanmak",
+          "ceza": "200.000 ₺",
+          "ehliyet": "+40.000 ₺ (İşletene)",
           "arac": "Kesin Men",
           "slug": "ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+          "kanunMaddesi": "2918 sayılı KTK Madde 36/3-b",
           "description": "Ehliyetine geçici olarak el konulan bir sürücünün araç kullanırken yakalanması durumunda mevcut ceza katlanarak artar.",
+          "detayliAciklama": "Ehliyete el konulduktan sonra araç kullanmak, 200.000 TL para cezası ve aracın kesin men edilmesiyle sonuçlanır. Araç başkasına aitse işletene de 40.000 TL ceza kesilir. Bu suç TCK kapsamında da değerlendirilir ve adli sicile işler.",
           "tags": ["ehliyete el konulması", "men edilmiş sürücü", "36/3-b"],
-          "neYapilmali": "El koyma süresi dolmadan ve belgenizi emniyetten geri almadan kesinlikle trafiğe çıkmayın."
+          "neYapilmali": "El koyma süresi dolmadan ve belgenizi emniyetten geri almadan kesinlikle trafiğe çıkmayın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "TCK kapsamında adli işlem başlatılır.",
+          "faq": [
+            {"soru": "Ehliyeti alınmışken araç kullanmanın cezası nedir?", "cevap": "200.000 TL para cezası, aracın kesin men edilmesi ve araç sahibine ayrıca 40.000 TL ceza uygulanır."}
+          ]
+        },
+        {
+          "id": 29,
+          "madde": "23/1",
+          "ihlal": "Plakasız Araç Kullanma",
+          "ceza": "140.000 ₺",
+          "ehliyet": "Adli Soruşturma",
+          "arac": "Kesin Men",
+          "slug": "plakasiz-arac-kullanma-23-1",
+          "kanunMaddesi": "2918 sayılı KTK Madde 23/1",
+          "description": "Plakası olmayan veya plakası sökülmüş araçla trafiğe çıkmak yasaktır. Aracın tescili ve ruhsatı sorgulanır.",
+          "detayliAciklama": "Tescil plakası bulunmayan araçla karayollarında seyretmek yasaktır. 140.000 TL idari para cezasının yanında adli soruşturma da açılabilir. Araç derhal trafikten men edilerek yediemin otoparkına çekilir. Bu durum özellikle çalıntı araç şüphesi doğurduğundan güvenlik birimleri detaylı inceleme yapar.",
+          "tags": ["plakasız araç", "tescilsiz araç", "23/1", "plakasız araç cezası"],
+          "neYapilmali": "Araçlarınızın plakalarının her iki tarafta eksiksiz ve okunabilir durumda olduğunu kontrol edin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "TCK kapsamında adli işlem.",
+          "faq": [
+            {"soru": "Plakasız araç kullanmanın cezası nedir?", "cevap": "140.000 TL para cezası, aracın kesin men edilmesi ve adli soruşturma."}
+          ]
         }
       ]
     },
     {
       "id": "guvenlik",
-      "kategori": "GÜVENLİK",
+      "kategori": "GÜVENLİK & TRAFİK KURALLARI",
       "rows": [
         {
           "id": 17,
           "madde": "47/1-b",
-          "ihlal": "Kırmızı Işık (6. Tekrar)",
-          "ceza": "80.000 TL",
-          "ehliyet": "Ehliyet İptali",
+          "ihlal": "Kırmızı Işık İhlali",
+          "ceza": "3.000 ₺",
+          "ehliyet": "15 Ceza Puanı",
           "arac": "Yok",
           "slug": "kirmizi-isik-ihlali-47-1-b",
-          "description": "Kırmızı ışık kural ihlalini bir yıl içinde çok kez tekrarlamak sadece yüksek ceza tutarı değil, sürücü belgesinin de iptaline neden olur.",
-          "tags": ["kırmızı ışık", "ışık ihlali", "ehliyet iptali", "47/1-b"],
-          "neYapilmali": "Kavşaklara yaklaşırken hızınızı azaltın ve sarı ışık yandığında geçmeye çalışmak yerine durmaya hazırlanın."
+          "kanunMaddesi": "2918 sayılı KTK Madde 47/1-b",
+          "description": "Kırmızı ışıkta geçmek en yaygın ve en tehlikeli trafik ihlallerinden biridir. Her tekrarda ceza puanı artar ve belirli sayıda tekrarda ehliyet iptali uygulanır.",
+          "detayliAciklama": "Kırmızı ışık ihlali EDS (Elektronik Denetleme Sistemi) veya MOBESE kameralarıyla otomatik olarak tespit edilir. 2026 yılında her kırmızı ışık ihlali 3.000 TL para cezası ve 15 ceza puanı ile sonuçlanır. Kırmızı ışıkta geçerken yaşanan kazalarda tamamen kusurlu sayılırsınız. 1 yıl içinde 100 ceza puanına ulaşan sürücülerin ehliyeti geçici olarak alınır. 6. tekrardan sonra ehliyet iptali uygulanır.",
+          "tags": ["kırmızı ışık", "ışık ihlali", "EDS cezası", "47/1-b", "kırmızı ışık cezası 2026"],
+          "neYapilmali": "Kavşaklara yaklaşırken hızınızı azaltın ve sarı ışık yandığında geçmeye çalışmak yerine durmaya hazırlanın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "EDS kayıtlarına itiraz edilebilir. Fotoğrafta plaka net görünmüyorsa veya trafik lambası arızalıysa itiraz gerekçesi olabilir.",
+          "tekrarCezasi": "6. tekrarda ehliyet iptali (80.000 TL). Yıl içinde 100 ceza puanı dolunca ehliyet geçici el koyma.",
+          "faq": [
+            {"soru": "Kırmızı ışık ihlalinin 2026 cezası ne kadar?", "cevap": "2026 yılında kırmızı ışık ihlali 3.000 TL para cezası ve 15 ceza puanı ile sonuçlanır. 6. tekrarda ise 80.000 TL ve ehliyet iptali uygulanır."},
+            {"soru": "Kırmızı ışık cezası nasıl tespit edilir?", "cevap": "EDS (Elektronik Denetleme Sistemi) veya MOBESE kameraları ile otomatik olarak tespit edilir ve plakaya ceza yazılır."},
+            {"soru": "Kırmızı ışık cezasına itiraz edebilir miyim?", "cevap": "Evet, tebliğden itibaren 15 gün içinde Sulh Ceza Hakimliğine itiraz edebilirsiniz. EDS fotoğrafında plaka net değilse itiraz gerekçesi olabilir."},
+            {"soru": "Ceza puanı 100'e ulaşırsa ne olur?", "cevap": "1 yıl içinde 100 ceza puanına ulaşan sürücülerin ehliyetine geçici olarak el konulur ve psikoteknik değerlendirmeye tabi tutulurlar."}
+          ]
         },
         {
           "id": 18,
           "madde": "73/c",
-          "ihlal": "Cep Telefonu (3. Tekrar+)",
-          "ceza": "20.000 TL",
-          "ehliyet": "30 Gün El Koyma",
+          "ihlal": "Seyir Halinde Cep Telefonu Kullanmak",
+          "ceza": "5.000 ₺",
+          "ehliyet": "20 Ceza Puanı",
           "arac": "Yok",
           "slug": "seyir-halinde-cep-telefonu-73-c",
-          "description": "Araç kullanırken cep telefonu ile konuşmak veya mesajlaşmak dikkati dağıtır. Mükerrer ihlallerde ehliyete el koyma cezası uygulanır.",
-          "tags": ["cep telefonu", "telefonla konuşmak", "dikkatsiz sürüş", "73/c"],
-          "neYapilmali": "Seyir halindeyken telefonunuzu uzak tutun veya mutlaka bluetooth kulaklık/araç kiti kullanın."
+          "kanunMaddesi": "2918 sayılı KTK Madde 73/c",
+          "description": "Araç kullanırken cep telefonu ile konuşmak veya mesajlaşmak dikkati dağıtır. 2026 yılında her seferde artan cezayla yaptırım uygulanır.",
+          "detayliAciklama": "Seyir halindeyken cep telefonu kullanmak (elle tutarak konuşma, mesajlaşma, video izleme vb.) 5.000 TL para cezası ve 20 ceza puanı ile sonuçlanır. 3. tekrarda ceza 20.000 TL'ye çıkar ve 30 gün ehliyet el koyma uygulanır. Bluetooth kulaklık veya araç kiti kullanmak serbesttir. Ancak araç tam durmadan telefon kullanmak her durumda cezaya tabidir.",
+          "tags": ["cep telefonu", "telefonla konuşmak", "dikkatsiz sürüş", "73/c", "telefon cezası 2026"],
+          "neYapilmali": "Seyir halindeyken telefonunuzu uzak tutun veya mutlaka bluetooth kulaklık/araç kiti kullanın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "3. tekrarda 20.000 TL + 30 gün ehliyet el koyma.",
+          "faq": [
+            {"soru": "Araçta telefon kullanmanın cezası ne kadar?", "cevap": "2026 yılında seyir halinde cep telefonu kullanmanın cezası 5.000 TL ve 20 ceza puanıdır. 3. tekrarda 20.000 TL ve 30 gün ehliyet el koyma."},
+            {"soru": "Bluetooth kulaklık ile konuşmak serbest mi?", "cevap": "Evet, bluetooth kulaklık, araç kiti veya hands-free sistemle konuşmak yasaldır. Ancak telefonu elle tutmak her durumda yasaktır."},
+            {"soru": "Kırmızı ışıkta telefon kullanmak ceza mı?", "cevap": "Evet, motor çalışır durumda ve trafikte iken (durmak dahil) telefon kullanmak cezaya tabidir."}
+          ]
         },
         {
           "id": 19,
           "madde": "46/2-f",
           "ihlal": "Emniyet Şeridi İhlali",
-          "ceza": "11.631 TL",
+          "ceza": "11.631 ₺",
           "ehliyet": "20 Ceza Puanı",
           "arac": "Yok",
           "slug": "emniyet-seridi-ihlali-46-2-f",
-          "description": "Acil durumlar haricinde emniyet şeridini kullanmak ambulans ve itfaiyenin geçişini engellediği için ağır para ve ceza puanıyla cezalandırılır.",
+          "kanunMaddesi": "2918 sayılı KTK Madde 46/2-f",
+          "description": "Acil durumlar haricinde emniyet şeridini kullanmak ambulans ve itfaiyenin geçişini engellediği için ağır cezaya tabidir.",
+          "detayliAciklama": "Emniyet şeridi sadece acil durumlarda (ambulans, itfaiye, polis) kullanılmak üzere ayrılmıştır. Normal sürücülerin bu şeridi kullanması 11.631 TL para cezası ve 20 ceza puanı ile sonuçlanır. Emniyet şeridinde kalan araçlar trafik polisi tarafından çekilebilir.",
           "tags": ["emniyet şeridi", "acil şerit", "EDS", "46/2-f"],
-          "neYapilmali": "Emniyet şeritleri hayat kurtarmak içindir, sadece aracınız arıza yaptığında sağa çekmek için kullanın."
+          "neYapilmali": "Emniyet şeritleri hayat kurtarmak içindir, sadece aracınız arıza yaptığında sağa çekmek için kullanın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her seferde aynı ceza tekrar uygulanır.",
+          "faq": [
+            {"soru": "Emniyet şeridi ihlalinin cezası ne kadar?", "cevap": "2026 yılında emniyet şeridi ihlali 11.631 TL para cezası ve 20 ceza puanı ile sonuçlanır."}
+          ]
         },
         {
           "id": 20,
           "madde": "46/2-h",
-          "ihlal": "Ters Yönde Araç (Otoyol)",
-          "ceza": "90.000 TL",
+          "ihlal": "Ters Yönde Araç Kullanmak",
+          "ceza": "90.000 ₺",
           "ehliyet": "60 Gün El Koyma",
           "arac": "Men Edilir",
           "slug": "ters-yonde-arac-kullanmak-46-2-h",
+          "kanunMaddesi": "2918 sayılı KTK Madde 46/2-h",
           "description": "Trafik akışına ters yönde araç kullanmak, özellikle otoyol ve bölünmüş yollarda ölümcül kazalara yol açtığından çok katı yaptırımları vardır.",
+          "detayliAciklama": "Ters yönde araç kullanmak en tehlikeli trafik ihlallerinden biridir. 90.000 TL para cezası, 60 gün ehliyet el koyma ve aracın men edilmesiyle sonuçlanır. Ters yönde kaza yapılması halinde taksirle ölüme sebebiyet vermekten yargılanabilirsiniz.",
           "tags": ["ters yön", "tek yön", "otoyol ihlali", "46/2-h"],
-          "neYapilmali": "Trafik işaretlerine her zaman dikkat edin. Yanlış yola girseniz bile geri geri veya ters yöne gitmeyin, ileriden dönüş yapın."
+          "neYapilmali": "Trafik işaretlerine dikkat edin. Yanlış yola girseniz bile geri gitmek yerine ileriden dönüş yapın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Ehliyet iptali ve TCK kapsamında dava.",
+          "faq": [
+            {"soru": "Ters yönde araç kullanmanın cezası nedir?", "cevap": "90.000 TL para cezası, 60 gün ehliyet el koyma ve aracın men edilmesi."}
+          ]
         },
         {
           "id": 21,
           "madde": "74/b",
           "ihlal": "Yayaya Yol Vermemek",
-          "ceza": "5.661 TL",
+          "ceza": "5.661 ₺",
           "ehliyet": "20 Ceza Puanı",
           "arac": "Yok",
           "slug": "yayaya-yol-vermemek-74-b",
+          "kanunMaddesi": "2918 sayılı KTK Madde 74/b",
           "description": "Yaya geçitlerinde ilk geçiş hakkı yayalarındır. Işıksız yaya veya okul geçitlerine yaklaşırken hız yavaşlatılmalı ve yayalara öncelik tanınmalıdır.",
+          "detayliAciklama": "Yayaya yol vermemek 5.661 TL para cezası ve 20 ceza puanı ile sonuçlanır. Yaya geçidinde yayaya çarpmak halinde ağırlaştırılmış taksirle yaralama/öldürme suçu oluşur. Tüm kavşaklarda ve yaya geçitlerinde yayaların mutlak geçiş önceliği vardır.",
           "tags": ["yaya geçidi", "yaya önceliği", "okul geçidi", "74/b"],
-          "neYapilmali": "Yaya geçitlerine yaklaşırken hızınızı mutlaka düşürün ve yayaların geçmesini bekleyin."
+          "neYapilmali": "Yaya geçitlerine yaklaşırken hızınızı mutlaka düşürün ve yayaların geçmesini bekleyin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her seferde aynı ceza.",
+          "faq": [
+            {"soru": "Yayaya yol vermemenin cezası nedir?", "cevap": "5.661 TL para cezası ve 20 ceza puanı."},
+            {"soru": "Işıksız yaya geçidinde yayaya yol vermek zorunlu mu?", "cevap": "Evet, ışıklı veya ışıksız tüm yaya geçitlerinde yayaya mutlak geçiş önceliği tanınmalıdır."}
+          ]
         },
         {
           "id": 22,
           "madde": "78/1-a",
           "ihlal": "Çocuk Koltuğu Kullanmamak",
-          "ceza": "5.000 TL",
+          "ceza": "5.000 ₺",
           "ehliyet": "10 Ceza Puanı",
           "arac": "Yok",
           "slug": "cocuk-koltugu-kullanmamak-78-1-a",
+          "kanunMaddesi": "2918 sayılı KTK Madde 78/1-a",
           "description": "Belirli yaş ve kilo sınırının altındaki çocukları çocuk koruma sistemleri (oto koltuğu) olmadan seyahat ettirmek yasaktır.",
-          "tags": ["çocuk koltuğu", "bebek koltuğu", "emniyet", "78/1-a"],
-          "neYapilmali": "Çocuklarınızın güvenliği için boy ve kilosuna uygun çocuk oto koltuğu kullanmayı ihmal etmeyin."
+          "detayliAciklama": "150 cm'den kısa veya 36 kg altındaki çocuklar (genellikle 12 yaş altı) için uygun çocuk oto koltuğu kullanmak zorunludur. 5.000 TL para cezası ve 10 ceza puanı uygulanır. Çocuk koltuğu; bebek ana kucağı (0-13 kg), bebek koltuğu (9-18 kg), yükseltici koltuk (15-36 kg) olmak üzere çocuğun yaş ve kilosuna uygun seçilmelidir.",
+          "tags": ["çocuk koltuğu", "bebek koltuğu", "emniyet", "78/1-a", "çocuk koltuğu cezası"],
+          "neYapilmali": "Çocuklarınızın güvenliği için boy ve kilosuna uygun çocuk oto koltuğu kullanmayı ihmal etmeyin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her seferde aynı ceza.",
+          "faq": [
+            {"soru": "Çocuk koltuğu kullanmamak cezası ne kadar?", "cevap": "5.000 TL para cezası ve 10 ceza puanı."},
+            {"soru": "Kaç yaşına kadar çocuk koltuğu zorunlu?", "cevap": "150 cm boyun altında veya 36 kg altında olan tüm çocuklar (genellikle 12 yaşına kadar) için çocuk oto koltuğu zorunludur."}
+          ]
+        },
+        {
+          "id": 30,
+          "madde": "78/1",
+          "ihlal": "Emniyet Kemeri Takmamak",
+          "ceza": "1.504 ₺",
+          "ehliyet": "10 Ceza Puanı",
+          "arac": "Yok",
+          "slug": "emniyet-kemeri-takmamak-78-1",
+          "kanunMaddesi": "2918 sayılı KTK Madde 78/1",
+          "description": "Sürücü ve yolcuların emniyet kemeri takması yasal zorunluluktur. Arka koltuk dahil tüm yolcular emniyet kemeri takmalıdır.",
+          "detayliAciklama": "Emniyet kemeri takmamak 1.504 TL para cezası ve 10 ceza puanı ile sonuçlanır. Bu ceza hem sürücüye hem de emniyet kemeri takmayan her yolcuya ayrı ayrı uygulanır. Arka koltuk yolcuları için de emniyet kemeri zorunluluğu 2014 yılından bu yana mevcuttur. TÜİK verilerine göre trafik kazalarında ölümlerin %40'ı emniyet kemeri takılmadığı için gerçekleşmektedir.",
+          "tags": ["emniyet kemeri", "kemer cezası", "78/1", "kemer takmamak cezası 2026"],
+          "neYapilmali": "Kısa mesafe bile olsa hareket etmeden önce emniyet kemerinizi takın. Arka koltuk yolcularını da uyarın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her seferde aynı ceza. Ceza puanları birikir.",
+          "faq": [
+            {"soru": "Emniyet kemeri takmamanın 2026 cezası ne kadar?", "cevap": "1.504 TL para cezası ve 10 ceza puanıdır. Bu ceza sürücü ve her kemersiz yolcu için ayrı ayrı uygulanır."},
+            {"soru": "Arka koltukta emniyet kemeri zorunlu mu?", "cevap": "Evet, 2014 yılından bu yana arka koltuk yolcuları için de emniyet kemeri takmak zorunludur."},
+            {"soru": "Hamile kadınlar emniyet kemeri takmak zorunda mı?", "cevap": "Evet, hamile kadınlar için özel kemer düzenleyicileri mevcuttur. Doktor raporu ile muafiyet alınabilir."}
+          ]
+        },
+        {
+          "id": 31,
+          "madde": "52/2-a",
+          "ihlal": "Geçme Yasağı İhlali",
+          "ceza": "3.000 ₺",
+          "ehliyet": "15 Ceza Puanı",
+          "arac": "Yok",
+          "slug": "gecme-yasagi-ihlali-52-2-a",
+          "kanunMaddesi": "2918 sayılı KTK Madde 52/2-a",
+          "description": "Geçme yasağı olan yerlerde sollama yapmak, karşı yönden gelen araçlarla kafa kafaya çarpışma riski oluşturur ve ağır cezai yaptırıma tabidir.",
+          "detayliAciklama": "Geçme yasağı işareti bulunan yerlerde (kesik olmayan çizgi, geçme yasak işareti) sollama yapmak 3.000 TL para cezası ve 15 ceza puanı ile sonuçlanır. Geçme yasağı genellikle görüş mesafesinin kısa olduğu virajlarda, tepe noktalarında ve karşıdan gelenlerin görülemeyeceği yerlerde bulunur. Bu ihlal sırasında kaza yapılması halinde tam kusurlu sayılırsınız.",
+          "tags": ["geçme yasağı", "sollama", "çizgi ihlali", "52/2-a"],
+          "neYapilmali": "Geçme yasağı işaretlerine kesinlikle uyun. Karşı şeritten gelen araçları göremiyorsanız sollama yapmayın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Tekrarda ceza puanları birikir.",
+          "faq": [
+            {"soru": "Geçme yasağı ihlalinin cezası ne kadar?", "cevap": "3.000 TL para cezası ve 15 ceza puanıdır."},
+            {"soru": "Geçme yasağı nerelerde uygulanır?", "cevap": "Kesik olmayan çizgiyle belirtilen yerlerde, virajlarda, tepe noktalarında ve geçme yasak işareti olan bölgelerde uygulanır."}
+          ]
+        },
+        {
+          "id": 32,
+          "madde": "78/1-b",
+          "ihlal": "Kask Takmamak (Motosiklet)",
+          "ceza": "1.504 ₺",
+          "ehliyet": "10 Ceza Puanı",
+          "arac": "Yok",
+          "slug": "kask-takmamak-motosiklet-78-1-b",
+          "kanunMaddesi": "2918 sayılı KTK Madde 78/1-b",
+          "description": "Motosiklet ve motorlu bisiklet sürücüleri ile yolcularının TSE onaylı koruyucu kask takması yasal zorunluluktur.",
+          "detayliAciklama": "Motosiklet sürücüsü ve yolcusunun TSE onaylı kask takması zorunludur. Kasksız sürücüye 1.504 TL para cezası ve 10 ceza puanı uygulanır. Yolcunun kasksız olması durumunda da sürücüye ceza yazılır. Kasksız motosiklet kazalarında ölüm oranı kasklı kazalara göre 3 kat daha yüksektir.",
+          "tags": ["kask", "motosiklet", "motor kask cezası", "78/1-b"],
+          "neYapilmali": "TSE onaylı, tam kapalı bir kask kullanın. Yolcunuza da kask sağlayın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her seferde aynı ceza.",
+          "faq": [
+            {"soru": "Kask takmamanın cezası ne kadar?", "cevap": "1.504 TL para cezası ve 10 ceza puanı."},
+            {"soru": "Yolcu kasksızsa kime ceza yazılır?", "cevap": "Yolcunun kasksız olması durumunda ceza sürücüye yazılır."}
+          ]
+        },
+        {
+          "id": 33,
+          "madde": "30/1-b",
+          "ihlal": "Araçta Cam Filmi Kullanmak",
+          "ceza": "3.000 ₺",
+          "ehliyet": "-",
+          "arac": "Muayeneden Geçemez",
+          "slug": "aracta-cam-filmi-kullanmak-30-1-b",
+          "kanunMaddesi": "2918 sayılı KTK Madde 30/1-b",
+          "description": "Ön cam ve ön yan camlarda yasalara aykırı koyulukta cam filmi kullanmak yasaktır. Arka camlarda belirli koşullarda serbesttir.",
+          "detayliAciklama": "Ön cam %70, ön yan camlar %70 ışık geçirgenliğine sahip olmalıdır. Bu oranların altında cam filmi kullanmak 3.000 TL para cezasına tabidir ve araç muayenesinden geçemez. Arka camlar ve arka yan camlarda sınırlama yoktur. Cam filminin söktürülmesi için süre verilir, uymayan araçlar trafikten men edilebilir.",
+          "tags": ["cam filmi", "cam filmi cezası", "30/1-b", "araç cam filmi"],
+          "neYapilmali": "Ön cam ve ön yan camlarda %70 ışık geçirgenliğinin altına düşmeyin. Profesyonel uygulama yaptırın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Söktürülmezse araç trafikten men edilir.",
+          "faq": [
+            {"soru": "Cam filmi takmanın cezası var mı?", "cevap": "Ön cam ve ön yan camlarda yasal sınır olan %70 ışık geçirgenliğinin altında cam filmi kullanmak 3.000 TL para cezasına tabidir."},
+            {"soru": "Arka camlara cam filmi takmak serbest mi?", "cevap": "Evet, arka cam ve arka yan camlara herhangi bir koyulukta cam filmi takmak serbesttir."}
+          ]
+        },
+        {
+          "id": 34,
+          "madde": "28/2",
+          "ihlal": "Çakarlı Işık Kullanmak",
+          "ceza": "20.000 ₺",
+          "ehliyet": "30 Gün El Koyma",
+          "arac": "Yok",
+          "slug": "cakarli-isik-kullanmak-28-2",
+          "kanunMaddesi": "2918 sayılı KTK Madde 28/2",
+          "description": "Yetkisiz olarak araçlara çakar lamba, tepe lambası veya siren takmak ve kullanmak ciddi bir trafik ihlalidir.",
+          "detayliAciklama": "Polis, ambulans, itfaiye gibi acil durum araçları dışında hiçbir araca çakar lamba veya siren takılamaz. İzinsiz çakar kullanımı 20.000 TL para cezası ve 30 gün ehliyet el koyma ile sonuçlanır. Ayrıca çakar lamba aracın ruhsatına uygun değilse araç muayeneden geçemez.",
+          "tags": ["çakar lamba", "tepe lambası", "siren", "28/2", "çakar cezası"],
+          "neYapilmali": "Sadece yasal olarak yetkilendirilmiş araçlar çakar lamba ve siren kullanabilir.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Tekrarda ehliyet iptali ve adli işlem.",
+          "faq": [
+            {"soru": "Çakar lamba kullanmanın cezası nedir?", "cevap": "20.000 TL para cezası ve 30 gün sürücü belgesine el konulmasıdır."},
+            {"soru": "Hangi araçlar çakar lamba kullanabilir?", "cevap": "Sadece yasal olarak yetkilendirilmiş acil durum araçları (polis, ambulans, itfaiye, cenaze aracı) çakar lamba ve siren kullanabilir."}
+          ]
+        },
+        {
+          "id": 35,
+          "madde": "30/1-a",
+          "ihlal": "Egzoz Emisyon Sınırını Aşmak",
+          "ceza": "3.000 ₺",
+          "ehliyet": "-",
+          "arac": "Muayeneden Geçemez",
+          "slug": "egzoz-emisyon-sinirini-asmak-30-1-a",
+          "kanunMaddesi": "2918 sayılı KTK Madde 30/1-a",
+          "description": "Araçların egzoz emisyon değerlerinin yasal sınırları aşması durumunda ceza uygulanır ve araç muayenesinden geçemez.",
+          "detayliAciklama": "Araçların ürettiği egzoz gazı emisyonlarının (CO, HC, NOx) yasal sınırlar içinde olması zorunludur. Sınırları aşan araçlara 3.000 TL para cezası uygulanır ve araç muayenesinden geçemez. Genellikle katalitik konvertör arızası, motor bakımsızlığı veya egzoz sistemindeki değişiklikler emisyon sınırlarının aşılmasına neden olur.",
+          "tags": ["egzoz emisyon", "emisyon cezası", "30/1-a", "egzoz muayene"],
+          "neYapilmali": "Motor bakımını düzenli yaptırın, katalitik konvertörü ve egzoz sistemini kontrol ettirin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Sürekli ihlalde araç trafikten men edilir.",
+          "faq": [
+            {"soru": "Egzoz emisyon cezası ne kadar?", "cevap": "3.000 TL para cezası. Ayrıca araç muayenesinden geçemez."}
+          ]
+        },
+        {
+          "id": 36,
+          "madde": "30/3",
+          "ihlal": "Yangın Söndürücü Bulundurmamak",
+          "ceza": "1.504 ₺",
+          "ehliyet": "-",
+          "arac": "Muayeneden Geçemez",
+          "slug": "yangin-sondurucu-bulundurmamak-30-3",
+          "kanunMaddesi": "2918 sayılı KTK Madde 30/3",
+          "description": "Araçlarda yangın söndürücü bulundurma zorunluluğu vardır. Özellikle ticari araçlar ve toplu taşıma araçlarında mecburidir.",
+          "detayliAciklama": "Tüm motorlu araçlarda en az 1 kg'lık yangın söndürücü bulundurma zorunluluğu vardır. Ticari araçlarda (minibüs, otobüs, kamyon) kapasiteye göre daha büyük söndürücü gerekir. 1.504 TL ceza uygulanır ve araç muayenesinden geçemez. Söndürücünün kullanım süresi dolmuşsa da aynı ceza geçerlidir.",
+          "tags": ["yangın söndürücü", "araç söndürücü", "30/3", "muayene"],
+          "neYapilmali": "Araçta kolayca ulaşılabilir bir yerde minimum 1 kg yangın söndürücü bulundurun ve her yıl kontrolünü yaptırın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her seferde aynı ceza.",
+          "faq": [
+            {"soru": "Araçta yangın söndürücü zorunlu mu?", "cevap": "Evet, tüm motorlu araçlarda en az 1 kg'lık yangın söndürücü bulundurmak zorunludur."},
+            {"soru": "Yangın söndürücü bulundurmamak cezası ne kadar?", "cevap": "1.504 TL para cezası. Ayrıca araç muayenesinden geçemez."}
+          ]
         }
       ]
     },
     {
       "id": "park",
-      "kategori": "PARK & SİGORTA",
+      "kategori": "PARK & SİGORTA & MUAYENE",
       "rows": [
         {
           "id": 23,
           "madde": "85/1",
-          "ihlal": "Trafik Sigortasız Gezmek",
-          "ceza": "1.246 TL",
+          "ihlal": "Trafik Sigortasız Araç Kullanmak",
+          "ceza": "1.246 ₺",
           "ehliyet": "-",
           "arac": "Anında Men",
           "slug": "trafik-sigortasiz-arac-kullanmak-85-1",
-          "description": "Zorunlu Mali Sorumluluk Sigortası (Trafik Sigortası) olmadan trafiğe çıkmak yasaktır. Sigortası olmayan araçlar trafikten men edilerek otoparka çekilir.",
-          "tags": ["trafik sigortası", "sigortasız araç", "yediemin", "85/1"],
-          "neYapilmali": "Sigorta poliçenizin bitiş tarihini takip edin ve bitmeden yeniletin."
+          "kanunMaddesi": "2918 sayılı KTK Madde 85/1",
+          "description": "Zorunlu Mali Sorumluluk Sigortası (Trafik Sigortası) olmadan trafiğe çıkmak yasaktır. Sigortası olmayan araçlar trafikten men edilir.",
+          "detayliAciklama": "Zorunlu trafik sigortası olmadan araç kullanmak 1.246 TL para cezası ve aracın anında men edilmesiyle sonuçlanır. Sigortasız araçla kaza yapılması halinde tüm hasar bedeli sürücüye ait olur ve mağdur tarafın zararını bizzat karşılamak zorunda kalırsınız. Güvence Hesabı sizi mağdura karşı koruyor olsa da, ödediği tutarı size rücu eder.",
+          "tags": ["trafik sigortası", "sigortasız araç", "85/1", "zorunlu sigorta"],
+          "neYapilmali": "Sigorta poliçenizin bitiş tarihini takip edin ve bitmeden yeniletin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her seferde aynı ceza ve araç men.",
+          "faq": [
+            {"soru": "Trafik sigortası yokken araç kullanmanın cezası nedir?", "cevap": "1.246 TL para cezası ve aracın anında trafikten men edilmesidir."},
+            {"soru": "Sigortasız araçla kaza yaparsam ne olur?", "cevap": "Tüm hasar bedeli şahsen size ait olur. Güvence Hesabı karşı tarafın zararını karşılasa bile ödediği tutarı size rücu eder."}
+          ]
         },
         {
           "id": 24,
           "madde": "34/a",
           "ihlal": "Muayenesiz Araçla Trafiğe Çıkma",
-          "ceza": "2.719 TL",
+          "ceza": "2.719 ₺",
           "ehliyet": "10 Ceza Puanı",
           "arac": "İzin Belgesi",
           "slug": "muayenesiz-arac-kullanmak-34-a",
-          "description": "Araç muayene süresini geçirmek cezai işleme tabidir. Yakalandığınızda muayene yaptırmanız için geçici bir süre izin verilir (Ek-33 belgesi).",
+          "kanunMaddesi": "2918 sayılı KTK Madde 34/a",
+          "description": "Araç muayene süresini geçirmek cezai işleme tabidir. Yakalandığınızda muayene yaptırmanız için geçici bir süre izin verilir.",
+          "detayliAciklama": "Araç muayenesi; 0-3 yaş arası araçlarda 3 yılda bir, 3-10 yaş arası araçlarda 2 yılda bir, 10 yaş üstü araçlarda her yıl yapılmalıdır. Muayenesiz araçla trafiğe çıkmak 2.719 TL para cezası ve 10 ceza puanı ile sonuçlanır. TÜVTÜRK istasyonundan en yakın randevu alarak cezadan kurtulabilirsiniz.",
           "tags": ["TÜVTÜRK", "araç muayenesi", "muayene cezası", "34/a"],
-          "neYapilmali": "Muayene geçerlilik süresini ruhsatınızdan veya e-Devlet üzerinden kontrol edip zamanında randevu alın."
+          "neYapilmali": "Muayene tarihini e-Devlet veya ruhsattan kontrol edin ve zamanında randevu alın.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her yakalanışta aynı ceza.",
+          "faq": [
+            {"soru": "Muayenesiz araç kullanmanın cezası ne kadar?", "cevap": "2.719 TL para cezası ve 10 ceza puanı."},
+            {"soru": "Araç muayenesi kaç yılda bir yapılır?", "cevap": "0-3 yaş: 3 yılda bir, 3-10 yaş: 2 yılda bir, 10+ yaş: her yıl."}
+          ]
         },
         {
           "id": 25,
           "madde": "61/1-o",
-          "ihlal": "Engelli Park Yerini İşgal",
-          "ceza": "2.492 TL",
+          "ihlal": "Engelli Park Yerini İşgal Etmek",
+          "ceza": "2.492 ₺",
           "ehliyet": "15 Ceza Puanı",
           "arac": "Anında Çekilir",
           "slug": "engelli-park-yeri-ihlali-61-1-o",
-          "description": "Engelliler için ayrılmış özel park alanlarına park etmek, normal park cezalarına göre 2 kat daha fazla para cezasına tabidir.",
+          "kanunMaddesi": "2918 sayılı KTK Madde 61/1-o",
+          "description": "Engelliler için ayrılmış özel park alanlarına park etmek, normal park cezalarına göre 2 kat daha fazla cezaya tabidir.",
+          "detayliAciklama": "Engelli park yerine izinsiz park etmek 2.492 TL para cezası, 15 ceza puanı ve aracın derhal çekilmesiyle sonuçlanır. Engelli kartı olmadan engelli park yerine park etmek sosyal sorumluluk açısından da son derece yanlıştır.",
           "tags": ["engelli park yeri", "park cezası", "hatalı park", "61/1-o"],
-          "neYapilmali": "Engelli vatandaşlarımızın haklarına saygı gösterin ve onlar için ayrılan alanlara kesinlikle park etmeyin."
+          "neYapilmali": "Engelli vatandaşlarımızın haklarına saygı gösterin ve engelli park yerlerine park etmeyin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Her seferde aynı ceza.",
+          "faq": [
+            {"soru": "Engelli park yerine park etmenin cezası nedir?", "cevap": "2.492 TL para cezası, 15 ceza puanı ve aracın anında çekilmesi."}
+          ]
         },
         {
           "id": 26,
           "madde": "61/1-a",
           "ihlal": "Hatalı Park Etmek",
-          "ceza": "1.246 TL",
+          "ceza": "1.246 ₺",
           "ehliyet": "10 Ceza Puanı",
           "arac": "Engelse Çekilir",
           "slug": "hatali-park-etmek-61-1-a",
-          "description": "Duraklamanın ve park etmenin yasak olduğu yerlere (yaya geçidi, kavşak, otobüs durağı) park etmek hem ceza hem de aracın çekilmesine sebep olur.",
+          "kanunMaddesi": "2918 sayılı KTK Madde 61/1-a",
+          "description": "Duraklamanın ve park etmenin yasak olduğu yerlere park etmek hem ceza hem de aracın çekilmesine sebep olur.",
+          "detayliAciklama": "Yaya geçidi, kavşak, otobüs durağı, yangın musluğu önü gibi yasak yerlere park etmek 1.246 TL para cezası ve 10 ceza puanı ile sonuçlanır. Trafiği engelleyen araçlar çekici ile kaldırılır ve çekici ücreti de sürücüye aittir.",
           "tags": ["park yasağı", "hatalı park", "çekici cezası", "61/1-a"],
-          "neYapilmali": "Aracınızı sadece izin verilen park alanlarına, trafiği engellemeyecek şekilde park edin."
+          "neYapilmali": "Aracınızı sadece izin verilen park alanlarına park edin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir. Park yasağı işareti yoksa itiraz gerekçesi olabilir.",
+          "tekrarCezasi": "Her seferde aynı ceza.",
+          "faq": [
+            {"soru": "Hatalı park etmenin cezası ne kadar?", "cevap": "1.246 TL para cezası ve 10 ceza puanı. Engel oluşturuyorsa araç çekiciyle kaldırılır."},
+            {"soru": "Park yasağı tabelası yoksa ceza geçerli mi?", "cevap": "Kavşak, yaya geçidi, otobüs durağı gibi kanunda belirtilen yerlerde tabela olmasa da park yasağı vardır. Ancak bunların dışındaki yerlerde tabela yoksa itiraz edebilirsiniz."}
+          ]
         }
       ]
     },
     {
       "id": "ticari",
-      "kategori": "TİCARİ",
+      "kategori": "TİCARİ ARAÇLAR",
       "rows": [
         {
           "id": 27,
           "madde": "31/1-b",
           "ihlal": "Takograf Veri Müdahalesi",
-          "ceza": "185.000 TL",
+          "ceza": "185.000 ₺",
           "ehliyet": "30-90 Gün El Koyma",
           "arac": "Yok",
           "slug": "takograf-veri-mudahalesi-31-1-b",
-          "description": "Ticari araçlarda bulunan takograf cihazına müdahale etmek, hız ve dinlenme sürelerini manipüle ettiği için çok ağır idari ve adli cezalar barındırır.",
+          "kanunMaddesi": "2918 sayılı KTK Madde 31/1-b",
+          "description": "Ticari araçlarda bulunan takograf cihazına müdahale etmek çok ağır idari ve adli cezalar barındırır.",
+          "detayliAciklama": "Takograf, ticari araçlarda hız, mesafe ve sürücünün çalışma/dinlenme sürelerini kaydeden zorunlu bir cihazdır. Bu cihaza müdahale etmek 185.000 TL para cezası ve 30-90 gün ehliyet el koyma ile sonuçlanır. Ayrıca TCK kapsamında resmi belgede sahtecilik suçu da oluşabilir.",
           "tags": ["takograf", "kamyon", "tır", "ticari araç", "31/1-b"],
-          "neYapilmali": "Takograf kuralları ticari sürücülerin dinlenmesi ve kaza riskinin azaltılması için vardır, uyulması elzemdir."
+          "neYapilmali": "Takograf kurallarına uyun, yasal dinlenme sürelerine riayet edin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "TCK kapsamında adli işlem.",
+          "faq": [
+            {"soru": "Takograf müdahalesinin cezası ne kadar?", "cevap": "185.000 TL para cezası ve 30-90 gün ehliyet el koyma. Ayrıca adli işlem başlatılabilir."}
+          ]
         },
         {
           "id": 28,
           "madde": "31/1-c",
-          "ihlal": "Taksimetre Bulundurmamak",
-          "ceza": "46.000 TL",
+          "ihlal": "Taksimetre Bulundurmamak/Kullanmamak",
+          "ceza": "46.000 ₺",
           "ehliyet": "-",
           "arac": "Men Edilir",
           "slug": "taksimetre-bulundurmamak-kullanmamak-31-1-c",
-          "description": "Taksi ve benzeri yolcu taşıyan araçlarda taksimetre bulundurmamak veya bozuk taksimetre kullanmak ağır para cezası ve men cezası gerektirir.",
+          "kanunMaddesi": "2918 sayılı KTK Madde 31/1-c",
+          "description": "Taksi ve benzeri yolcu taşıyan araçlarda taksimetre bulundurmamak veya bozuk taksimetre kullanmak ağır ceza gerektirir.",
+          "detayliAciklama": "Ticari yolcu taşıma yapan araçlarda taksimetre bulundurmamak, kullanmamak veya bozuk taksimetre ile çalışmak 46.000 TL para cezası ve aracın men edilmesiyle sonuçlanır. Taksimetre ayarlarıyla oynamak ayrıca dolandırıcılık suçunu oluşturur.",
           "tags": ["taksimetre", "taksi", "ticari ceza", "31/1-c"],
-          "neYapilmali": "Taksimetre her yolculuk başlangıcında usulüne uygun şekilde çalıştırılmalıdır."
+          "neYapilmali": "Taksimetre her yolculuk başlangıcında usulüne uygun şekilde çalıştırılmalıdır.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Tekrarda çalışma ruhsatı iptal edilebilir.",
+          "faq": [
+            {"soru": "Taksimetre bulundurmamak cezası ne kadar?", "cevap": "46.000 TL para cezası ve aracın men edilmesidir."}
+          ]
+        },
+        {
+          "id": 37,
+          "madde": "31/2",
+          "ihlal": "Korsan Taksi (İzinsiz Yolcu Taşıma)",
+          "ceza": "46.000 ₺",
+          "ehliyet": "-",
+          "arac": "60 Gün Men",
+          "slug": "korsan-taksi-izinsiz-yolcu-tasima-31-2",
+          "kanunMaddesi": "2918 sayılı KTK Madde 31/2",
+          "description": "Ticari yolcu taşıma belgesi olmadan ücretli yolcu taşımak (korsan taksi) ağır ceza ve araç men ile sonuçlanır.",
+          "detayliAciklama": "Ticari plaka veya çalışma izni olmadan ücretli yolcu taşımak 46.000 TL para cezası ve 60 gün araç men ile sonuçlanır. Sosyal medya üzerinden organize edilen izinsiz yolcu taşıma faaliyetleri de bu kapsamda değerlendirilir. Ayrıca yolcu sigortası olmadığı için kaza durumunda tüm sorumluluk sürücüye aittir.",
+          "tags": ["korsan taksi", "izinsiz yolcu", "31/2", "korsan taşımacılık"],
+          "neYapilmali": "Ticari yolcu taşımak için gerekli belge ve plakayı edinin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir.",
+          "tekrarCezasi": "Tekrarda araç müsaderesi söz konusu olabilir.",
+          "faq": [
+            {"soru": "Korsan taksi cezası ne kadar?", "cevap": "46.000 TL para cezası ve 60 gün araç men."},
+            {"soru": "Uber veya benzeri uygulamalarla yolcu taşımak korsan taksi mi?", "cevap": "Ticari plaka ve çalışma izni olmadan ücretli yolcu taşımak yasaktır ve korsan taksi kapsamında değerlendirilir."}
+          ]
+        },
+        {
+          "id": 38,
+          "madde": "65/1-a",
+          "ihlal": "Tonaj/Ağırlık Sınırını Aşmak",
+          "ceza": "5.000 - 30.000 ₺",
+          "ehliyet": "-",
+          "arac": "Fazla Yük İndirilir",
+          "slug": "tonaj-sinirini-asmak-65-1-a",
+          "kanunMaddesi": "2918 sayılı KTK Madde 65/1-a",
+          "description": "Ticari araçlarda ruhsatta belirtilen azami yüklü ağırlığı aşmak hem araç güvenliğini tehlikeye atar hem de yolları tahrip eder.",
+          "detayliAciklama": "Ticari araçlarda izin verilen maksimum ağırlığın aşılması kademeli para cezasına tabidir: %10'a kadar aşım 5.000 TL, %10-25 aşım 10.000 TL, %25-50 aşım 20.000 TL, %50 üzeri aşım 30.000 TL. Fazla yük indirilmeden araç yoluna devam edemez. Yükü indirmezse araç men edilir.",
+          "tags": ["tonaj", "ağırlık sınırı", "kamyon", "tır", "65/1-a"],
+          "neYapilmali": "Yükleme yapmadan önce aracınızın azami yüklü ağırlığını kontrol edin.",
+          "erkenOdemeIndirimi": "%25 (İlk 1 ay içinde ödeme)",
+          "itirazBilgisi": "15 gün içinde itiraz edilebilir. Kantar kalibrasyonu itiraz gerekçesi olabilir.",
+          "tekrarCezasi": "Her seferde aynı kademeli ceza.",
+          "faq": [
+            {"soru": "Tonaj aşımı cezası ne kadar?", "cevap": "Aşım oranına göre 5.000 TL ile 30.000 TL arasında değişir. Fazla yük indirilmeden araç yoluna devam edemez."}
+          ]
         }
       ]
     }
