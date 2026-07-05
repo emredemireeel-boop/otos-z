@@ -57,11 +57,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: `${cezaItem.ihlal} - ${cezaItem.ceza} Trafik Cezası`,
                 description,
                 type: 'article',
-                url: `https://www.otosoz.com/trafik-cezasi/${slug}`,
+                url: `https://otosoz.com/trafik-cezasi/${slug}`,
                 siteName: 'OtoSöz',
             },
             alternates: {
-                canonical: `https://www.otosoz.com/trafik-cezasi/${slug}`,
+                canonical: `https://otosoz.com/trafik-cezasi/${slug}`,
             },
             robots: {
                 index: true,
@@ -110,22 +110,22 @@ export default async function TrafikCezasiPage({ params }: PageProps) {
         "@type": "Article",
         "headline": `${cezaItem.ihlal} Cezası - Madde ${cezaItem.madde}`,
         "description": cezaItem.detayliAciklama || cezaItem.description,
-        "url": `https://www.otosoz.com/trafik-cezasi/${slug}`,
+        "url": `https://otosoz.com/trafik-cezasi/${slug}`,
         "datePublished": "2026-01-01T00:00:00+03:00",
         "dateModified": new Date().toISOString(),
         "author": {
             "@type": "Organization",
             "name": "OtoSöz",
-            "url": "https://www.otosoz.com"
+            "url": "https://otosoz.com"
         },
         "publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
-            "url": "https://www.otosoz.com"
+            "url": "https://otosoz.com"
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://www.otosoz.com/trafik-cezasi/${slug}`
+            "@id": `https://otosoz.com/trafik-cezasi/${slug}`
         }
     };
 
@@ -152,25 +152,25 @@ export default async function TrafikCezasiPage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Ana Sayfa",
-                "item": "https://www.otosoz.com"
+                "item": "https://otosoz.com"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Kütüphane",
-                "item": "https://www.otosoz.com/kutuphane"
+                "item": "https://otosoz.com/kutuphane"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Trafik Cezaları",
-                "item": "https://www.otosoz.com/kutuphane?kategori=trafik-cezalari"
+                "item": "https://otosoz.com/kutuphane?kategori=trafik-cezalari"
             },
             {
                 "@type": "ListItem",
                 "position": 4,
                 "name": cezaItem.ihlal,
-                "item": `https://www.otosoz.com/trafik-cezasi/${slug}`
+                "item": `https://otosoz.com/trafik-cezasi/${slug}`
             }
         ]
     };

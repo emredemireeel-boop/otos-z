@@ -28,10 +28,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: `${bakimItem.title} Rehberi`,
                 description: bakimItem.description,
                 type: 'article',
-                url: `https://www.otosoz.com/bakim-rehberi/${slug}`,
+                url: `https://otosoz.com/bakim-rehberi/${slug}`,
             },
             alternates: {
-                canonical: `https://www.otosoz.com/bakim-rehberi/${slug}`,
+                canonical: `https://otosoz.com/bakim-rehberi/${slug}`,
             },
         };
     } catch (error) {
@@ -63,11 +63,11 @@ export default async function BakimRehberiPage({ params }: PageProps) {
         "@type": "Article",
         "headline": bakimItem.title,
         "description": bakimItem.description,
-        "url": `https://www.otosoz.com/bakim-rehberi/${slug}`,
+        "url": `https://otosoz.com/bakim-rehberi/${slug}`,
         "publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
-            "url": "https://www.otosoz.com"
+            "url": "https://otosoz.com"
         }
     };
 
@@ -79,19 +79,19 @@ export default async function BakimRehberiPage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Ana Sayfa",
-                "item": "https://www.otosoz.com/"
+                "item": "https://otosoz.com/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Bakım Zamanları",
-                "item": "https://www.otosoz.com/kutuphane?kategori=bakim-zamanlari"
+                "item": "https://otosoz.com/kutuphane?kategori=bakim-zamanlari"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": bakimItem.title,
-                "item": `https://www.otosoz.com/bakim-rehberi/${slug}`
+                "item": `https://otosoz.com/bakim-rehberi/${slug}`
             }
         ]
     };

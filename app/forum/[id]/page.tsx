@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: thread.title,
                 description: `${thread.authorUsername} tarafından ${thread.category} kategorisinde açılan konu: ${thread.title}. Oku ve tartışmaya katıl.`,
                 type: 'article',
-                url: `https://www.otosoz.com/forum/${slug}`,
+                url: `https://otosoz.com/forum/${slug}`,
                 images: [
                     {
                         url: ogUrl,
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 images: [ogUrl],
             },
             alternates: {
-                canonical: `https://www.otosoz.com/forum/${slug}`,
+                canonical: `https://otosoz.com/forum/${slug}`,
             },
         };
     } catch (error) {

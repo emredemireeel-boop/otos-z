@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: guide.title,
                 description: guide.description,
                 type: 'article',
-                url: `https://www.otosoz.com/nasil-yapilir/${slug}`,
+                url: `https://otosoz.com/nasil-yapilir/${slug}`,
                 images: [
                     {
                         url: ogUrl,
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 images: [ogUrl],
             },
             alternates: {
-                canonical: `https://www.otosoz.com/nasil-yapilir/${slug}`,
+                canonical: `https://otosoz.com/nasil-yapilir/${slug}`,
             },
         };
     } catch (error) {
@@ -113,7 +113,7 @@ export default async function NasilYapilirPage({ params }: PageProps) {
             "@type": "HowToStep",
             "name": s.title,
             "text": s.detail,
-            "url": `https://www.otosoz.com/nasil-yapilir/${slug}#step-${idx + 1}`
+            "url": `https://otosoz.com/nasil-yapilir/${slug}#step-${idx + 1}`
         }))
     };
 
@@ -125,19 +125,19 @@ export default async function NasilYapilirPage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Ana Sayfa",
-                "item": "https://www.otosoz.com/"
+                "item": "https://otosoz.com/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Kütüphane",
-                "item": "https://www.otosoz.com/kutuphane?kategori=nasil-yapilir"
+                "item": "https://otosoz.com/kutuphane?kategori=nasil-yapilir"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": guide.title,
-                "item": `https://www.otosoz.com/nasil-yapilir/${slug}`
+                "item": `https://otosoz.com/nasil-yapilir/${slug}`
             }
         ]
     };

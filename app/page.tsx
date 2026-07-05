@@ -534,7 +534,7 @@ export default function Home() {
         'itemListElement': sortedTopics.slice(0, 10).map((topic, index) => ({
             '@type': 'ListItem',
             'position': index + 1,
-            'url': `https://www.otosoz.com${topic.slugUrl}`
+            'url': `https://otosoz.com${topic.slugUrl}`
         }))
     };
 

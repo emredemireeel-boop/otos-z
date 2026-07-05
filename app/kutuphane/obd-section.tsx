@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Activity, AlertCircle, Wrench, X, ChevronRight, ExternalLink } from "lucide-react";
-import obdCodes from "@/data/obd-codes.json";
 import Link from "next/link";
 
 interface ObdCode {
@@ -32,27 +31,58 @@ export default function ObdSection() {
     const [selectedType, setSelectedType] = useState("ALL");
     const [displayLimit, setDisplayLimit] = useState(30);
     const [selectedCode, setSelectedCode] = useState<ObdCode | null>(null);
+    const [codes, setCodes] = useState<ObdCode[]>([]);
+    const [total, setTotal] = useState(0);
+    const [loading, setLoading] = useState(true);
+    const [stats, setStats] = useState({ total: 0, P: 0, B: 0, C: 0, U: 0 });
 
-    const filteredCodes = useMemo(() => {
-        let result = obdCodes as ObdCode[];
-
-        if (selectedType !== "ALL") {
-            result = result.filter(code => code.type === selectedType);
+    const fetchCodes = useCallback(async (query: string, type: string, offset = 0, limit = 30) => {
+        setLoading(true);
+        try {
+            const params = new URLSearchParams();
+            if (query.length >= 2) params.set('q', query);
+            if (type !== 'ALL') params.set('type', type);
+            params.set('offset', String(offset));
+            params.set('limit', String(limit));
+            const res = await fetch(`/api/obd?${params.toString()}`);
+            const data = await res.json();
+            if (offset === 0) {
+                setCodes(data.items);
+            } else {
+                setCodes(prev => [...prev, ...data.items]);
+            }
+            setTotal(data.total);
+        } catch (e) {
+            console.error('OBD fetch error:', e);
+        } finally {
+            setLoading(false);
         }
+    }, []);
 
-        if (searchQuery.length >= 2) {
-            const q = searchQuery.toLowerCase();
-            result = result.filter(code =>
-                code.code.toLowerCase().includes(q) ||
-                code.title.toLowerCase().includes(q) ||
-                code.description.toLowerCase().includes(q)
-            );
-        }
+    // İlk yükleme — istatistikler için tüm tipleri say
+    useEffect(() => {
+        fetchCodes('', 'ALL');
+        // İstatistikler: her tip için count al
+        Promise.all(['P', 'B', 'C', 'U'].map(t =>
+            fetch(`/api/obd?type=${t}&limit=1`).then(r => r.json())
+        )).then(([pData, bData, cData, uData]) => {
+            setStats({
+                total: pData.total + bData.total + cData.total + uData.total,
+                P: pData.total, B: bData.total, C: cData.total, U: uData.total,
+            });
+        }).catch(() => {});
+    }, [fetchCodes]);
 
-        return result;
-    }, [searchQuery, selectedType]);
+    // Filtre değişince yeniden çek (debounced)
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            fetchCodes(searchQuery, selectedType);
+            setDisplayLimit(30);
+        }, 300);
+        return () => clearTimeout(timeout);
+    }, [searchQuery, selectedType, fetchCodes]);
 
-    const displayedCodes = filteredCodes.slice(0, displayLimit);
+    const displayedCodes = codes;
 
     const getTypeColor = (type: string) => {
         switch (type) {
@@ -194,7 +224,7 @@ export default function ObdSection() {
                         border: '1px solid var(--card-border)',
                         borderRadius: '12px',
                     }}>
-                        <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>{filteredCodes.length} Sonuç</span>
+                        <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>{loading ? 'Aranıyor...' : `${total} Sonuç`}</span>
                     </div>
 
                     {/* OBD Code List */}
@@ -332,10 +362,11 @@ export default function ObdSection() {
                     </div>
 
                     {/* Load More */}
-                    {displayedCodes.length < filteredCodes.length && (
+                    {codes.length < total && (
                         <div style={{ textAlign: 'center', marginTop: '24px' }}>
                             <button
-                                onClick={() => setDisplayLimit(prev => prev + 30)}
+                                onClick={() => fetchCodes(searchQuery, selectedType, codes.length)}
+                                disabled={loading}
                                 style={{
                                     padding: '14px 36px',
                                     background: 'var(--secondary)',
@@ -343,11 +374,12 @@ export default function ObdSection() {
                                     fontWeight: '500',
                                     borderRadius: '12px',
                                     border: '1px solid var(--card-border)',
-                                    cursor: 'pointer',
+                                    cursor: loading ? 'wait' : 'pointer',
                                     fontSize: '14px',
+                                    opacity: loading ? 0.6 : 1,
                                 }}
                             >
-                                Daha Fazla Yükle ({filteredCodes.length - displayedCodes.length} kaldı)
+                                {loading ? 'Yükleniyor...' : `Daha Fazla Yükle (${total - codes.length} kaldı)`}
                             </button>
                         </div>
                     )}
@@ -369,11 +401,11 @@ export default function ObdSection() {
                             </h3>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                 {[
-                                    { label: 'Toplam Kod', value: obdCodes.length.toLocaleString() },
-                                    { label: 'Powertrain (P)', value: (obdCodes as ObdCode[]).filter(c => c.type === 'P').length.toLocaleString() },
-                                    { label: 'Body (B)', value: (obdCodes as ObdCode[]).filter(c => c.type === 'B').length.toLocaleString() },
-                                    { label: 'Chassis (C)', value: (obdCodes as ObdCode[]).filter(c => c.type === 'C').length.toLocaleString() },
-                                    { label: 'Network (U)', value: (obdCodes as ObdCode[]).filter(c => c.type === 'U').length.toLocaleString() },
+                                    { label: 'Toplam Kod', value: stats.total.toLocaleString() },
+                                    { label: 'Powertrain (P)', value: stats.P.toLocaleString() },
+                                    { label: 'Body (B)', value: stats.B.toLocaleString() },
+                                    { label: 'Chassis (C)', value: stats.C.toLocaleString() },
+                                    { label: 'Network (U)', value: stats.U.toLocaleString() },
                                 ].map((stat) => (
                                     <div key={stat.label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px' }}>
                                         <span style={{ color: 'var(--text-muted)' }}>{stat.label}</span>

@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: `${thread.title} | Uzmana Sor`,
                 description: `${thread.authorUsername} tarafından sorulan soru: ${thread.title}. Uzmanların yanıtlarını inceleyin veya siz de yanıtlayın.`,
                 type: 'article',
-                url: `https://www.otosoz.com/uzmana-sor/${threadId}`,
+                url: `https://otosoz.com/uzmana-sor/${threadId}`,
                 images: [
                     {
                         url: ogUrl,
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 images: [ogUrl],
             },
             alternates: {
-                canonical: `https://www.otosoz.com/uzmana-sor/${threadId}`,
+                canonical: `https://otosoz.com/uzmana-sor/${threadId}`,
             },
         };
     } catch (error) {

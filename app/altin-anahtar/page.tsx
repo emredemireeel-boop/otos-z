@@ -8,9 +8,9 @@ export const metadata: Metadata = {
         title: "Altın Anahtar — Türkiye'nin En İyi Oto Ustaları",
         description: "Güvenilir usta bulmak artık çok kolay. Haritadan şehrinizi seçin, Altın Anahtar'lı ustaları keşfedin.",
         type: "website",
-        url: "https://www.otosoz.com/altin-anahtar",
+        url: "https://otosoz.com/altin-anahtar",
     },
-    alternates: { canonical: "https://www.otosoz.com/altin-anahtar" },
+    alternates: { canonical: "https://otosoz.com/altin-anahtar" },
 };
 
 export default function AltinAnahtarPage() {

@@ -28,10 +28,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: `${rehberItem.title} | Araç Alım Rehberi`,
                 description: rehberItem.description,
                 type: 'article',
-                url: `https://www.otosoz.com/ikinci-el-rehberi/${slug}`,
+                url: `https://otosoz.com/ikinci-el-rehberi/${slug}`,
             },
             alternates: {
-                canonical: `https://www.otosoz.com/ikinci-el-rehberi/${slug}`,
+                canonical: `https://otosoz.com/ikinci-el-rehberi/${slug}`,
             },
         };
     } catch (error) {
@@ -63,11 +63,11 @@ export default async function IkinciElRehberiPage({ params }: PageProps) {
         "@type": "Article",
         "headline": rehberItem.title,
         "description": rehberItem.description,
-        "url": `https://www.otosoz.com/ikinci-el-rehberi/${slug}`,
+        "url": `https://otosoz.com/ikinci-el-rehberi/${slug}`,
         "publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
-            "url": "https://www.otosoz.com"
+            "url": "https://otosoz.com"
         }
     };
 

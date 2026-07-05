@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: post.title,
                 description: post.description,
                 type: 'article',
-                url: `https://www.otosoz.com/haberler/${slug}`,
+                url: `https://otosoz.com/haberler/${slug}`,
                 images: [
                     {
                         url: ogUrl, // Can also use post.image if we want the actual image instead of the generic card
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 images: [ogUrl],
             },
             alternates: {
-                canonical: `https://www.otosoz.com/haberler/${slug}`,
+                canonical: `https://otosoz.com/haberler/${slug}`,
             },
         };
     } catch (error) {

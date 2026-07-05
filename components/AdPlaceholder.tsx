@@ -13,6 +13,7 @@ interface Ad {
     url: string;
     imageUrl?: string;
     advertiser: string;
+    createdAt?: any;
 }
 
 interface AdPlaceholderProps {

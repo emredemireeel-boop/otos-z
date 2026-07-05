@@ -488,7 +488,7 @@ export default function OtoHesapClient({ activeModule }: { activeModule: string 
           </button>
           <button onClick={() => {
             const activeTool = TOOLS.find(t => t.key === activeModule);
-            const text = `OtoSöz'de ücretsiz "${activeTool?.label}" aracını kullanarak kendi hesaplamamı yaptım! Sen de hemen dene: https://www.otosoz.com/otohesap/${activeModule}`;
+            const text = `OtoSöz'de ücretsiz "${activeTool?.label}" aracını kullanarak kendi hesaplamamı yaptım! Sen de hemen dene: https://otosoz.com/otohesap/${activeModule}`;
             window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
           }} style={{ padding: "10px 16px", borderRadius: "10px", background: "#25D366", border: "none", color: "white", fontSize: "13px", fontWeight: "700", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", transition: "transform 0.2s" }} onMouseOver={e => e.currentTarget.style.transform = "scale(1.05)"} onMouseOut={e => e.currentTarget.style.transform = "scale(1)"}>
             <MessageCircle size={16} /> WhatsApp'ta Paylaş

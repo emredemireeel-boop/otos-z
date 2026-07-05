@@ -145,7 +145,7 @@ export default function PazarPage() {
                     "@type": "Offer",
                     "price": listing.price,
                     "priceCurrency": "TRY",
-                    "url": listing.externalLink || `https://www.otosoz.com/pazar?arac=${listing.id}`,
+                    "url": listing.externalLink || `https://otosoz.com/pazar?arac=${listing.id}`,
                     "availability": "https://schema.org/InStock"
                 }
             }

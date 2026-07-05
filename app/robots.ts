@@ -10,8 +10,8 @@ export default function robots(): MetadataRoute.Robots {
                     '/',
                     '/etkinlikler/',
                     '/arac-dna/',
-                    // '/forum/' hub sayfası noindex — izin listesinden çıkarıldı (GSC ceza düzeltmesi)
-                    // Forum thread'leri /forum/[id] hala '/' wildcard ile erişilebilir
+                    '/forum',           // Forum hub sayfası (indekslenebilir topluluk sayfası)
+                    '/forum/',          // Forum başlıkları
                     '/kutuphane/',
                     '/haberler/',
                     '/piyasalar/',
@@ -74,7 +74,7 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: '/',
             },
         ],
-        sitemap: 'https://www.otosoz.com/sitemap.xml',
-        host: 'https://www.otosoz.com',
+        sitemap: 'https://otosoz.com/sitemap.xml',
+        host: 'https://otosoz.com',
     };
 }

@@ -8,7 +8,7 @@ import { events } from '@/data/events';
 // Sitemap'in 15 dakikada bir yeniden oluşturulması — yeni başlık/entry'ler hızla Google'a gider
 export const revalidate = 900;
 
-const BASE_URL = 'https://www.otosoz.com';
+const BASE_URL = 'https://otosoz.com';
 
 // Slug oluşturma aracı (google-index.js ile aynı standart)
 function createSlug(text: string) {
@@ -30,9 +30,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Ana Hub Sayfaları
         { url: `${BASE_URL}`, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
         { url: `${BASE_URL}/kutuphane`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+        { url: `${BASE_URL}/forum`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.9 },
+        { url: `${BASE_URL}/forum?kategori=genel`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+        { url: `${BASE_URL}/forum?kategori=teknik`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+        { url: `${BASE_URL}/forum?kategori=deneyim`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+        { url: `${BASE_URL}/forum?kategori=marka`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+        { url: `${BASE_URL}/forum?kategori=alim-satim`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
         { url: `${BASE_URL}/arac-dna`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
         { url: `${BASE_URL}/otobutce`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-        // /forum hub sayfası noindex — sitemap'ten çıkarıldı (GSC ceza düzeltmesi)
         { url: `${BASE_URL}/haberler`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
         { url: `${BASE_URL}/karsilastirma`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
         { url: `${BASE_URL}/uzmana-sor`, lastModified: new Date(), changeFrequency: 'always', priority: 0.8 },
@@ -180,15 +185,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     // 2b. Tekil OBD Kodları (genel /obd/{code} URL'leri)
+    // Crawl budget korumak için: yalnızca generic (standart) kodları ekle, max 500
     const obdCodesData = safeReadFile('obd-codes.json');
     if (obdCodesData && Array.isArray(obdCodesData)) {
-        obdCodesData.forEach((code: any) => {
+        const genericCodes = obdCodesData
+            .filter((c: any) => c.isGeneric !== false) // Generic/standart kodları öncelikle al
+            .slice(0, 500);
+        genericCodes.forEach((code: any) => {
             if (code.code) {
                 sitemapEntries.push({
                     url: `${BASE_URL}/obd/${code.code.toLowerCase()}`,
                     lastModified: new Date(),
                     changeFrequency: 'monthly',
-                    priority: 0.6,
+                    priority: 0.4,
                 });
             }
         });
@@ -364,21 +373,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
     } catch (e) {}
 
-    // 12. Kütüphane Alt Kategorileri (Statik bölümler)
-    const kutuphaneSections = [
-        'trafik-cezalari', 'obd-ariza-kodlari', 'otomotiv-sozluk', 'gosterge-isiklari',
-        'ikinci-el-rehberi', 'lastik-rehberi', 'kaza-ilkyardim', 'mevsimsel-bakim',
-        'sigorta-rehberi', 'ilginc-bilgiler', 'makaleler', 'kasko-deger',
-        'hgs-siniflari', 'bakim-zamanlari', 'tuvturk', 'kasa-segmentler',
-        'plaka-kodlari', 'noter-islemleri', 'ehliyet-siniflari', 'otoyol-ucretleri',
-        'dolandiricilik-rehberi', 'nereye-gitmeli', 'efsane-avcilari',
+    // 12. Kütüphane Kategorileri (server-rendered, benzersiz metadata + JSON-LD)
+    // Not: Bu kategoriler /kutuphane?kategori=<slug> olarak sunulur; her biri
+    // kendi başlığı, açıklaması ve yapılandırılmış verisiyle indekslenir.
+    const kutuphaneCategories = [
+        'ilginc-bilgiler', 'otomotiv-sozluk', 'trafik-isaretleri', 'obd-ariza-kodlari',
+        'gosterge-isiklari', 'trafik-cezalari', 'lastik-rehberi', 'ikinci-el-rehberi',
+        'kaza-ilkyardim', 'mevsimsel-bakim', 'sigorta-rehberi', 'otoyol-ve-kopru-ucretleri',
+        'bakim-zamanlari', 'tuvturk-muayene', 'arac-segmentleri', 'plaka-kodlari',
+        'noter-islemleri', 'ehliyet-siniflari', 'kasko-deger', 'hgs-siniflari',
+        'dolandiricilik-rehberi', 'nereye-gitmeli', 'hasar-sorgulama', 'efsane-avcilari',
+        'nasil-yapilir',
     ];
-    kutuphaneSections.forEach(section => {
+    kutuphaneCategories.forEach(slug => {
         sitemapEntries.push({
-            url: `${BASE_URL}/kutuphane/${section}`,
+            url: `${BASE_URL}/kutuphane?kategori=${slug}`,
             lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.7,
+            changeFrequency: 'weekly',
+            priority: 0.75,
         });
     });
 

@@ -74,11 +74,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             title,
             description: description.slice(0, 160),
             type: 'article',
-            url: `https://www.otosoz.com/obd/${brand.toLowerCase()}/${code.toLowerCase()}`,
+            url: `https://otosoz.com/obd/${brand.toLowerCase()}/${code.toLowerCase()}`,
             images: [{ url: ogUrl, width: 1200, height: 630, alt: `${brandName} ${upperCode} Arıza Kodu` }],
         },
         alternates: {
-            canonical: `https://www.otosoz.com/obd/${code.toLowerCase()}`,
+            canonical: `https://otosoz.com/obd/${code.toLowerCase()}`,
         },
     };
 }
@@ -108,11 +108,11 @@ export default async function BrandOBDCodePage({ params }: PageProps) {
         "@type": "Article",
         "headline": `${brandName} ${codeData.code} Arıza Kodu Nedir? ${codeData.title}`,
         "description": `${brandName} araçlar için ${codeData.description}`,
-        "url": `https://www.otosoz.com/obd/${brand.toLowerCase()}/${codeData.code.toLowerCase()}`,
+        "url": `https://otosoz.com/obd/${brand.toLowerCase()}/${codeData.code.toLowerCase()}`,
         "publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
-            "url": "https://www.otosoz.com"
+            "url": "https://otosoz.com"
         }
     };
 
@@ -142,10 +142,10 @@ export default async function BrandOBDCodePage({ params }: PageProps) {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://www.otosoz.com/" },
-            { "@type": "ListItem", "position": 2, "name": "OBD Arıza Kodları", "item": "https://www.otosoz.com/obd" },
-            { "@type": "ListItem", "position": 3, "name": brandName, "item": `https://www.otosoz.com/obd/${brand.toLowerCase()}` },
-            { "@type": "ListItem", "position": 4, "name": codeData.code, "item": `https://www.otosoz.com/obd/${brand.toLowerCase()}/${codeData.code.toLowerCase()}` }
+            { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://otosoz.com/" },
+            { "@type": "ListItem", "position": 2, "name": "OBD Arıza Kodları", "item": "https://otosoz.com/obd" },
+            { "@type": "ListItem", "position": 3, "name": brandName, "item": `https://otosoz.com/obd/${brand.toLowerCase()}` },
+            { "@type": "ListItem", "position": 4, "name": codeData.code, "item": `https://otosoz.com/obd/${brand.toLowerCase()}/${codeData.code.toLowerCase()}` }
         ]
     };
 

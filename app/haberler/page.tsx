@@ -8,7 +8,7 @@ export const metadata: Metadata = {
         title: 'OtoSöz Haberler | Güncel Otomobil Haberleri',
         description: 'Otomotiv dünyasından en güncel gelişmeler, yasal düzenlemeler, bakım tavsiyeleri ve sürüş rehberleri.',
         type: 'website',
-        url: 'https://www.otosoz.com/haberler',
+        url: 'https://otosoz.com/haberler',
         images: [
             {
                 url: `/api/og?title=${encodeURIComponent('OtoSöz Haberler')}&desc=${encodeURIComponent('Otomotiv dünyasından en güncel gelişmeler.')}`,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         ],
     },
     alternates: {
-        canonical: 'https://www.otosoz.com/haberler',
+        canonical: 'https://otosoz.com/haberler',
     },
 };
 

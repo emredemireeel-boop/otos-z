@@ -142,7 +142,7 @@ export async function POST(request: Request) {
             const indexing = google.indexing({ version: 'v3', auth: client as any });
             await indexing.urlNotifications.publish({
                 requestBody: {
-                    url: `https://www.otosoz.com/guvenmetre/${categoryId}/${brandId}`,
+                    url: `https://otosoz.com/guvenmetre/${categoryId}/${brandId}`,
                     type: 'URL_UPDATED',
                 },
             });

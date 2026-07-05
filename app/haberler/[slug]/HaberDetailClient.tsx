@@ -81,7 +81,7 @@ export default function HaberDetailClient({ slug }: { slug: string }) {
             "name": "OtoSöz",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.otosoz.com/logo.png"
+                "url": "https://otosoz.com/logo.png"
             }
         },
         "datePublished": post.createdAt,
@@ -92,9 +92,9 @@ export default function HaberDetailClient({ slug }: { slug: string }) {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://www.otosoz.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Haberler", "item": "https://www.otosoz.com/haberler" },
-            { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.otosoz.com/haberler/${slug}` }
+            { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://otosoz.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Haberler", "item": "https://otosoz.com/haberler" },
+            { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://otosoz.com/haberler/${slug}` }
         ]
     };
 

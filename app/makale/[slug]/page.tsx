@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: article.title,
                 description: article.description,
                 type: 'article',
-                url: `https://www.otosoz.com/makale/${slug}`,
+                url: `https://otosoz.com/makale/${slug}`,
                 images: [
                     {
                         url: ogUrl,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 images: [ogUrl],
             },
             alternates: {
-                canonical: `https://www.otosoz.com/makale/${slug}`,
+                canonical: `https://otosoz.com/makale/${slug}`,
             },
         };
     } catch (error) {
@@ -86,11 +86,11 @@ export default async function MakalePage({ params }: PageProps) {
             "@type": "Person",
             "name": article.author || "OtoSöz Uzmanları"
         },
-        "url": `https://www.otosoz.com/makale/${slug}`,
+        "url": `https://otosoz.com/makale/${slug}`,
         "publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
-            "url": "https://www.otosoz.com"
+            "url": "https://otosoz.com"
         }
     };
 
@@ -102,19 +102,19 @@ export default async function MakalePage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Ana Sayfa",
-                "item": "https://www.otosoz.com/"
+                "item": "https://otosoz.com/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Makaleler",
-                "item": "https://www.otosoz.com/kutuphane?kategori=makaleler"
+                "item": "https://otosoz.com/kutuphane?kategori=makaleler"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": article.title,
-                "item": `https://www.otosoz.com/makale/${slug}`
+                "item": `https://otosoz.com/makale/${slug}`
             }
         ]
     };

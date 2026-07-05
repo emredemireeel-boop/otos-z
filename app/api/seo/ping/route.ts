@@ -5,7 +5,7 @@ import { checkRateLimit, getClientIP } from '@/lib/rateLimit';
 
 /**
  * 🚀 Google Instant Indexing API (Anında İndeksleme)
- * Kullanım: POST /api/seo/ping { url: "https://www.otosoz.com/..." }
+ * Kullanım: POST /api/seo/ping { url: "https://otosoz.com/..." }
  *
  * ✅ GÜVENLİK: İki koruma katmanı:
  *   1) Same-origin kontrolü (yalnızca kendi sitemizden gelen istekler) VEYA
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
         // a) Same-origin: tarayıcıdan gelen isteklerin Origin'i kendi sitemiz olmalı
         // b) Server-to-server: SEO_PING_SECRET header'ı (opsiyonel, env tanımlıysa)
         const origin = request.headers.get('origin') || '';
-        const allowedOrigins = ['https://www.otosoz.com', 'https://otosoz.com'];
+        const allowedOrigins = ['https://otosoz.com', 'https://www.otosoz.com'];
         const isSameOrigin = allowedOrigins.includes(origin);
 
         const envSecret = process.env.SEO_PING_SECRET;
@@ -43,7 +43,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ success: false, error: 'Yetkisiz erişim.' }, { status: 401 });
         }
 
-        if (!url || typeof url !== 'string' || !url.startsWith('https://www.otosoz.com')) {
+        if (!url || typeof url !== 'string' || !url.startsWith('https://otosoz.com')) {
             return NextResponse.json({ success: false, error: 'Geçerli bir OtoSöz URL\'si gereklidir.' }, { status: 400 });
         }
 

@@ -377,19 +377,19 @@ export default function ForumThreadPage() {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Ana Sayfa",
-                    "item": "https://www.otosoz.com/"
+                    "item": "https://otosoz.com/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Forum",
-                    "item": "https://www.otosoz.com/forum"
+                    "item": "https://otosoz.com/forum"
                 },
                 {
                     "@type": "ListItem",
                     "position": 3,
                     "name": thread.title,
-                    "item": `https://www.otosoz.com/forum/${slugParam}`
+                    "item": `https://otosoz.com/forum/${slugParam}`
                 }
             ]
         }

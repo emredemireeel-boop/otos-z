@@ -3,7 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://www.otosoz.com'),
+    metadataBase: new URL('https://otosoz.com'),
     title: {
         default: "Otosöz - Türkiye'nin En Büyük Otomobil Platformu",
         template: '%s | Otosöz',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     },
     manifest: '/manifest.json',
     alternates: {
-        canonical: 'https://www.otosoz.com',
+        canonical: 'https://otosoz.com',
     },
     robots: {
         index: true,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Otosöz - Türkiye'nin En Büyük Otomobil Platformu",
         description: "Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı ve 50.000+ otomotiv verisi.",
-        url: 'https://www.otosoz.com',
+        url: 'https://otosoz.com',
         siteName: 'OtoSöz',
         locale: 'tr_TR',
         type: 'website',
@@ -83,12 +83,12 @@ const jsonLd = {
     '@graph': [
         {
             '@type': 'Organization',
-            '@id': 'https://www.otosoz.com/#organization',
+            '@id': 'https://otosoz.com/#organization',
             name: 'OtoSöz',
-            url: 'https://www.otosoz.com',
+            url: 'https://otosoz.com',
             logo: {
                 '@type': 'ImageObject',
-                url: 'https://www.otosoz.com/dark_logo.svg',
+                url: 'https://otosoz.com/dark_logo.svg',
                 width: 512,
                 height: 512,
             },
@@ -102,34 +102,34 @@ const jsonLd = {
                 '@type': 'ContactPoint',
                 contactType: 'customer support',
                 availableLanguage: 'Turkish',
-                url: 'https://www.otosoz.com/iletisim',
+                url: 'https://otosoz.com/iletisim',
             },
         },
         {
             '@type': 'WebSite',
-            '@id': 'https://www.otosoz.com/#website',
-            url: 'https://www.otosoz.com',
+            '@id': 'https://otosoz.com/#website',
+            url: 'https://otosoz.com',
             name: 'OtoSöz',
             description: 'Türkiye\'nin #1 Otomotiv Bilgi Platformu',
-            publisher: { '@id': 'https://www.otosoz.com/#organization' },
+            publisher: { '@id': 'https://otosoz.com/#organization' },
             inLanguage: 'tr-TR',
             // Google Sitelinks Search Box — Arama kutusunu doğrudan SERP'e taşır
             potentialAction: {
                 '@type': 'SearchAction',
                 target: {
                     '@type': 'EntryPoint',
-                    urlTemplate: 'https://www.otosoz.com/sozluk?q={search_term_string}',
+                    urlTemplate: 'https://otosoz.com/sozluk?q={search_term_string}',
                 },
                 'query-input': 'required name=search_term_string',
             },
         },
         {
             '@type': 'WebPage',
-            '@id': 'https://www.otosoz.com/#webpage',
-            url: 'https://www.otosoz.com',
+            '@id': 'https://otosoz.com/#webpage',
+            url: 'https://otosoz.com',
             name: 'OtoSöz — Türkiye\'nin #1 Otomotiv Bilgi Platformu',
-            isPartOf: { '@id': 'https://www.otosoz.com/#website' },
-            about: { '@id': 'https://www.otosoz.com/#organization' },
+            isPartOf: { '@id': 'https://otosoz.com/#website' },
+            about: { '@id': 'https://otosoz.com/#organization' },
             description: 'Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı ve 50.000+ otomotiv verisi.',
             inLanguage: 'tr-TR',
         },
@@ -137,9 +137,9 @@ const jsonLd = {
             // BreadcrumbList — Google'da breadcrumb zengin snippet'i tetikler
             // Ana layout'ta sadece kök öğe; alt sayfalar kendi breadcrumb'larını tanımlar
             '@type': 'BreadcrumbList',
-            '@id': 'https://www.otosoz.com/#breadcrumb',
+            '@id': 'https://otosoz.com/#breadcrumb',
             itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://www.otosoz.com' },
+                { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://otosoz.com' },
             ],
         },
     ],

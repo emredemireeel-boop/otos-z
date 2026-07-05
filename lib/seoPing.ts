@@ -10,7 +10,7 @@
  * ile korunur.
  */
 
-const BASE_URL = 'https://www.otosoz.com';
+const BASE_URL = 'https://otosoz.com';
 
 /**
  * Google'a yeni/güncellenen URL bildirimi gönderir.

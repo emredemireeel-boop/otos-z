@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: `${light.title} İkaz Lambası`,
                 description: light.meaning,
                 type: 'article',
-                url: `https://www.otosoz.com/gosterge/${slug}`,
+                url: `https://otosoz.com/gosterge/${slug}`,
                 images: [
                     {
                         url: ogUrl,
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 images: [ogUrl],
             },
             alternates: {
-                canonical: `https://www.otosoz.com/gosterge/${slug}`,
+                canonical: `https://otosoz.com/gosterge/${slug}`,
             },
         };
     } catch (error) {
@@ -80,11 +80,11 @@ export default async function GostergePage({ params }: PageProps) {
         "@type": "Article",
         "headline": `${light.title} İkaz Lambası`,
         "description": light.meaning,
-        "url": `https://www.otosoz.com/gosterge/${slug}`,
+        "url": `https://otosoz.com/gosterge/${slug}`,
         "publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
-            "url": "https://www.otosoz.com"
+            "url": "https://otosoz.com"
         }
     };
 
@@ -96,19 +96,19 @@ export default async function GostergePage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Ana Sayfa",
-                "item": "https://www.otosoz.com/"
+                "item": "https://otosoz.com/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Gösterge Işıkları",
-                "item": "https://www.otosoz.com/kutuphane?kategori=gosterge-isiklari"
+                "item": "https://otosoz.com/kutuphane?kategori=gosterge-isiklari"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": light.title,
-                "item": `https://www.otosoz.com/gosterge/${slug}`
+                "item": `https://otosoz.com/gosterge/${slug}`
             }
         ]
     };

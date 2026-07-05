@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             title: `${brandName} Arıza Kodları ve Çözümleri | OtoSöz`,
             description: `${brandName} marka aracınızda karşılaştığınız tüm OBD-II arıza kodlarının anlamları, belirtileri ve çözüm yolları.`,
             alternates: {
-                canonical: `https://www.otosoz.com/obd/${slug.toLowerCase()}`,
+                canonical: `https://otosoz.com/obd/${slug.toLowerCase()}`,
             },
         };
     }
@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             title: `${upperCode} - ${codeData.title} | OtoSöz`,
             description: description.slice(0, 160),
             type: 'article',
-            url: `https://www.otosoz.com/obd/${slug.toLowerCase()}`,
+            url: `https://otosoz.com/obd/${slug.toLowerCase()}`,
             images: [
                 {
                     url: ogUrl,
@@ -102,7 +102,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             images: [ogUrl],
         },
         alternates: {
-            canonical: `https://www.otosoz.com/obd/${slug.toLowerCase()}`,
+            canonical: `https://otosoz.com/obd/${slug.toLowerCase()}`,
         },
     };
 }
@@ -113,7 +113,9 @@ export default async function OBDSlugPage({ params }: PageProps) {
     // 1. Check if slug is a Brand
     const brandName = Object.keys(carModelsData).find(k => createSlug(k) === slug.toLowerCase());
     if (brandName) {
-        return <BrandHubClient brandName={brandName} obdCodes={obdCodes as ObdCode[]} />;
+        // Sadece ilk 50 kodu gönder — client'ta arama ile geri kalanı API'den çeker
+        const brandCodes = (obdCodes as ObdCode[]).slice(0, 50);
+        return <BrandHubClient brandName={brandName} obdCodes={brandCodes} />;
     }
 
     // 2. Check if slug is a Code
@@ -137,11 +139,11 @@ export default async function OBDSlugPage({ params }: PageProps) {
         "@type": "Article",
         "headline": `${codeData.code} Arıza Kodu Nedir? ${codeData.title}`,
         "description": codeData.description,
-        "url": `https://www.otosoz.com/obd/${codeData.code.toLowerCase()}`,
+        "url": `https://otosoz.com/obd/${codeData.code.toLowerCase()}`,
         "publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
-            "url": "https://www.otosoz.com"
+            "url": "https://otosoz.com"
         }
     };
 
@@ -200,19 +202,19 @@ export default async function OBDSlugPage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Ana Sayfa",
-                "item": "https://www.otosoz.com/"
+                "item": "https://otosoz.com/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "OBD Arıza Kodları",
-                "item": "https://www.otosoz.com/obd"
+                "item": "https://otosoz.com/obd"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": codeData.code,
-                "item": `https://www.otosoz.com/obd/${codeData.code.toLowerCase()}`
+                "item": `https://otosoz.com/obd/${codeData.code.toLowerCase()}`
             }
         ]
     };
