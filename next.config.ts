@@ -76,7 +76,104 @@ const nextConfig: NextConfig = {
             {
                 source: '/arac-dna/:brand/:model/artilari-eksileri',
                 destination: '/arac-dna/:brand/:model/neden-alinir',
-                permanent: true, // 301 Redirect for SEO
+                permanent: true,
+            },
+            {
+                // /obd/{brand}/{code} → /obd/{code} — duplicate content önleme
+                source: '/obd/:brand/:code',
+                destination: '/obd/:code',
+                permanent: true,
+            },
+            // ── Eski /kutuphane/rehber/ URL'leri → /kutuphane/{guideId} ──
+            {
+                source: '/kutuphane/rehber/:guideId',
+                destination: '/kutuphane/:guideId',
+                permanent: true,
+            },
+            // ── Eski /yakit-hesaplama → /otohesap/yakit-hesaplama ──
+            {
+                source: '/yakit-hesaplama',
+                destination: '/otohesap/yakit-hesaplama',
+                permanent: true,
+            },
+            // ── Eski /kullanim-kosullari → /kullanim-sartlari ──
+            {
+                source: '/kullanim-kosullari',
+                destination: '/kullanim-sartlari',
+                permanent: true,
+            },
+            // ── Birleşik marka slug'ları (Opel / Hyundai vb.) → ana markaya yönlendir ──
+            {
+                source: '/arac-dna/opel-hyundai',
+                destination: '/arac-dna/opel',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/opel-peugeot',
+                destination: '/arac-dna/opel',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/toyota-honda',
+                destination: '/arac-dna/toyota',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/hyundai-kia',
+                destination: '/arac-dna/hyundai',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/peugeot-citroen',
+                destination: '/arac-dna/peugeot',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/dacia-renault',
+                destination: '/arac-dna/dacia',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/skoda-seat',
+                destination: '/arac-dna/skoda',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/skoda-vw',
+                destination: '/arac-dna/skoda',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/seat-vw',
+                destination: '/arac-dna/seat',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/hyundai-renault',
+                destination: '/arac-dna/hyundai',
+                permanent: true,
+            },
+            // ── Hub sayfası olmayan eski URL'ler ──
+            {
+                source: '/bakim-rehberi',
+                destination: '/kutuphane?kategori=bakim-zamanlari',
+                permanent: true,
+            },
+            {
+                source: '/ikinci-el-rehberi',
+                destination: '/kutuphane?kategori=ikinci-el-rehberi',
+                permanent: true,
+            },
+            // ── Bozuk URL'ler ──
+            {
+                source: '/\\&',
+                destination: '/',
+                permanent: true,
+            },
+            {
+                source: '/\\$',
+                destination: '/',
+                permanent: true,
             },
         ];
     },

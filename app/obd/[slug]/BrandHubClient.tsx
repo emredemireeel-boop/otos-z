@@ -96,7 +96,7 @@ export default function BrandHubClient({ brandName, obdCodes }: BrandHubClientPr
                             return (
                                 <Link 
                                     key={code.code} 
-                                    href={`/obd/${brandName.toLowerCase()}/${code.code.toLowerCase()}`}
+                                    href={`/obd/${code.code.toLowerCase()}`}
                                     style={{ textDecoration: 'none' }}
                                 >
                                     <div style={{

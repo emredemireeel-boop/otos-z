@@ -3,5 +3,18 @@
     "env": {
       "NODE_OPTIONS": "--max-old-space-size=4096"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.otosoz.com"
+        }
+      ],
+      "destination": "https://otosoz.com/:path",
+      "permanent": true
+    }
+  ]
 }

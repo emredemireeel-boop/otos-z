@@ -40,6 +40,15 @@ function isTokenValid(token: string | undefined): boolean {
 }
 
 export function middleware(request: NextRequest) {
+    const hostname = request.headers.get('host') || '';
+    
+    // ── www → non-www 301 redirect (SEO) ──
+    if (hostname.startsWith('www.')) {
+        const newUrl = new URL(request.url);
+        newUrl.host = hostname.replace('www.', '');
+        return NextResponse.redirect(newUrl, 301);
+    }
+
     const path = request.nextUrl.pathname;
     const token = request.cookies.get('auth_token')?.value;
     const role = request.cookies.get('user_role')?.value;
@@ -75,5 +84,9 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/admin/:path*', '/moderator/:path*'],
+    matcher: [
+        // www redirect için tüm sayfaları yakala (statik dosyalar hariç)
+        '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|css|js|woff|woff2|ttf|eot|json|xml|txt|map)).*)',
+    ],
 };
+
