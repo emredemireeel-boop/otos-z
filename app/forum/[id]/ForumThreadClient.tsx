@@ -13,7 +13,7 @@ import {
 } from "@/lib/forumService";
 import { startConversation } from "@/lib/messageService";
 import { rateUser, getMyRatingForUser } from "@/lib/userService";
-import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star, ChevronLeft, ChevronRight, TrendingUp, ArrowUp, Flame, AlertTriangle, Plus, X, ShieldCheck } from "lucide-react";
+import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star, ChevronLeft, ChevronRight, TrendingUp, ArrowUp, Flame, AlertTriangle, Plus, X, ShieldCheck, Share2, Reply, Link2 } from "lucide-react";
 import { sampleListings, formatListingPrice } from "@/data/listings";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import MarkdownEditor from "@/components/MarkdownEditor";
@@ -76,6 +76,56 @@ export default function ForumThreadPage() {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const viewCounted = useRef(false);
 
+    const showToast = (message: string) => {
+        setReportToast(message);
+        window.setTimeout(() => setReportToast(null), 3000);
+    };
+
+    const copyText = async (value: string) => {
+        if (navigator.clipboard?.writeText) {
+            await navigator.clipboard.writeText(value);
+            return;
+        }
+        const input = document.createElement('textarea');
+        input.value = value;
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        input.remove();
+    };
+
+    const handleShare = async () => {
+        const url = window.location.href;
+        try {
+            if (navigator.share) {
+                await navigator.share({ title: thread?.title || 'OtoSöz Forum', url });
+                return;
+            }
+            await copyText(url);
+            showToast('Konu bağlantısı kopyalandı.');
+        } catch (error) {
+            if (error instanceof DOMException && error.name === 'AbortError') return;
+            showToast('Bağlantı kopyalanamadı.');
+        }
+    };
+
+    const copyEntryLink = async (entryId: string, entryNumber: number) => {
+        const url = `${window.location.origin}${window.location.pathname}#entry-${entryId}`;
+        try {
+            await copyText(url);
+            window.history.replaceState(null, '', `#entry-${entryId}`);
+            showToast(`${entryNumber}. mesajın bağlantısı kopyalandı.`);
+        } catch {
+            showToast('Mesaj bağlantısı kopyalanamadı.');
+        }
+    };
+
+    const jumpToReply = () => {
+        document.getElementById('yanit-yaz')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
     // Thread yukle (slug--urlId veya eski ID formatini destekler)
     useEffect(() => {
         async function load() {
@@ -105,6 +155,14 @@ export default function ForumThreadPage() {
         });
         return () => unsub();
     }, [thread?.id]);
+
+    useEffect(() => {
+        if (entries.length === 0 || !window.location.hash.startsWith('#entry-')) return;
+        const frame = window.requestAnimationFrame(() => {
+            document.querySelector(window.location.hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+        return () => window.cancelAnimationFrame(frame);
+    }, [entries]);
 
     // Popular threads (left sidebar)
     useEffect(() => {
@@ -403,7 +461,7 @@ export default function ForumThreadPage() {
             />
             <Navbar />
 
-            <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
+            <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
                 {/* Header */}
                 <div className="forum-thread-header" style={{
                     background: catStyle.gradient,
@@ -473,11 +531,11 @@ export default function ForumThreadPage() {
                             </span>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                                 <Eye size={15} />
-                                {thread.views} goruntulenme
+                                {thread.views.toLocaleString('tr-TR')} görüntülenme
                             </span>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                                 <MessageSquare size={15} />
-                                {entries.length} entry
+                                {entries.length} yanıt
                             </span>
                         </div>
 
@@ -492,6 +550,15 @@ export default function ForumThreadPage() {
                                 ))}
                             </div>
                         )}
+
+                        <div className="forum-thread-actions" role="group" aria-label="Konu işlemleri">
+                            <button type="button" onClick={jumpToReply} className="forum-thread-action-primary">
+                                <Reply size={16} /> Yanıt yaz
+                            </button>
+                            <button type="button" onClick={handleShare} className="forum-thread-action-secondary">
+                                <Share2 size={16} /> Paylaş
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -533,14 +600,14 @@ export default function ForumThreadPage() {
                                 borderRadius: '16px',
                             }}>
                                 <MessageSquare size={40} style={{ color: 'var(--text-muted)', marginBottom: '12px' }} />
-                                <p style={{ color: 'var(--text-muted)', fontSize: '15px' }}>Henuz entry yok. Ilk entry'yi siz yazin!</p>
+                                <p style={{ color: 'var(--text-muted)', fontSize: '15px' }}>Henüz yanıt yok. İlk yanıtı siz yazın.</p>
                             </div>
                         ) : (
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                 {/* Reddit tarzı sıralama sekmeleri */}
                                 {entries.length > 1 && (
                                     <div className="forum-sort-bar" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px' }}>
-                                        <span style={{ fontSize: '13px', color: 'var(--text-muted)', marginRight: '4px' }}>Sırala:</span>
+                                        <span id="forum-sort-label" style={{ fontSize: '13px', color: 'var(--text-muted)', marginRight: '4px' }}>Sırala:</span>
                                         {([
                                             { key: 'old' as const, label: 'Eskiden Yeniye', icon: <Clock size={14} /> },
                                             { key: 'top' as const, label: 'En İyiler', icon: <Flame size={14} /> },
@@ -548,6 +615,9 @@ export default function ForumThreadPage() {
                                         ]).map(tab => (
                                             <button
                                                 key={tab.key}
+                                                type="button"
+                                                aria-pressed={sortMode === tab.key}
+                                                aria-describedby="forum-sort-label"
                                                 onClick={() => { setSortMode(tab.key); setCurrentPage(1); }}
                                                 style={{
                                                     display: 'flex', alignItems: 'center', gap: '6px',
@@ -584,7 +654,7 @@ export default function ForumThreadPage() {
                                     const entryBorderLeft = !isFirstEntry ? (isOp ? '3px solid var(--primary)' : '3px solid var(--card-border)') : undefined;
 
                                     return (
-                                        <div key={entry.id} className="forum-entry-card" style={{
+                                        <div key={entry.id} id={`entry-${entry.id}`} role="article" className="forum-entry-card" style={{
                                             background: entryBg,
                                             border: isExpert ? '1px solid rgba(234, 179, 8, 0.4)' : (isBestAnswer ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid var(--card-border)'),
                                             borderLeft: entryBorderLeft || (isExpert ? '1px solid rgba(234, 179, 8, 0.4)' : (isBestAnswer ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid var(--card-border)')),
@@ -642,6 +712,15 @@ export default function ForumThreadPage() {
                                             <div className="forum-entry-content" style={{ flex: 1, padding: '24px', minWidth: 0 }}>
                                                 {/* Badges: OP / Best Answer */}
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', position: 'absolute', top: '16px', right: '16px' }}>
+                                                    <button
+                                                        type="button"
+                                                        className="forum-entry-permalink"
+                                                        onClick={() => copyEntryLink(entry.id, index + 1)}
+                                                        aria-label={`${index + 1}. mesajın bağlantısını kopyala`}
+                                                        title="Mesaj bağlantısını kopyala"
+                                                    >
+                                                        <Link2 size={11} /> #{index + 1}
+                                                    </button>
                                                     {isFirstEntry && (
                                                         <span style={{ fontSize: '10px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', background: 'rgba(59,130,246,0.15)', color: '#3b82f6', letterSpacing: '0.5px' }}>OP</span>
                                                     )}
@@ -654,9 +733,19 @@ export default function ForumThreadPage() {
 
                                             {/* Author Info */}
                                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', position: 'relative' }}>
-                                                <div 
+                                                <div
+                                                    role="button"
+                                                    tabIndex={0}
+                                                    aria-expanded={activeUserMenu === entry.id}
+                                                    aria-label={`@${entry.username} kullanıcı menüsünü aç`}
                                                     style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '12px' }}
                                                     onClick={() => setActiveUserMenu(activeUserMenu === entry.id ? null : entry.id)}
+                                                    onKeyDown={(event) => {
+                                                        if (event.key === 'Enter' || event.key === ' ') {
+                                                            event.preventDefault();
+                                                            setActiveUserMenu(activeUserMenu === entry.id ? null : entry.id);
+                                                        }
+                                                    }}
                                                 >
                                                     <div style={{
                                                         width: '40px', height: '40px', borderRadius: '50%',
@@ -894,13 +983,13 @@ export default function ForumThreadPage() {
                                 Sonraki <ChevronRight size={16} />
                             </button>
                             <div style={{ width: '100%', textAlign: 'center', fontSize: '12px', color: 'var(--text-muted)', marginTop: '8px' }}>
-                                Sayfa {currentPage} / {Math.ceil(sortedEntries.length / ENTRIES_PER_PAGE)} • Toplam {sortedEntries.length} entry
+                                Sayfa {currentPage} / {Math.ceil(sortedEntries.length / ENTRIES_PER_PAGE)} • Toplam {sortedEntries.length} yanıt
                             </div>
                         </div>
                     )}
 
                     {/* New Entry Form */}
-                    <div className="forum-entry-form" style={{
+                    <div id="yanit-yaz" className="forum-entry-form" style={{
                         marginTop: '32px',
                         background: 'var(--card-bg)',
                         border: '1px solid var(--card-border)',
@@ -923,7 +1012,7 @@ export default function ForumThreadPage() {
                                         {!user.avatar && user.username.charAt(0).toUpperCase()}
                                     </div>
                                     <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                        Yanit Yaz
+                                        Yanıt yaz
                                     </h3>
                                 </div>
                                 <MarkdownEditor
@@ -972,7 +1061,7 @@ export default function ForumThreadPage() {
                             <div style={{ textAlign: 'center', padding: '20px' }}>
                                 <LogIn size={28} style={{ color: 'var(--text-muted)', marginBottom: '12px' }} />
                                 <p style={{ color: 'var(--text-muted)', fontSize: '15px', marginBottom: '16px' }}>
-                                    Entry yazmak icin giris yapmaniz gerekiyor
+                                    Yanıt yazmak için giriş yapmanız gerekiyor
                                 </p>
                                 <Link href="/giris">
                                     <button style={{
@@ -1128,6 +1217,55 @@ export default function ForumThreadPage() {
                 @keyframes spin { to { transform: rotate(360deg); } }
                 @keyframes popIn { from { transform: translate(-50%,-50%) scale(0.9); opacity: 0; } to { transform: translate(-50%,-50%) scale(1); opacity: 1; } }
                 @keyframes slideUp { from { transform: translateY(80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+                .forum-thread-actions {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-top: 20px;
+                }
+                .forum-thread-actions button {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 7px;
+                    min-height: 40px;
+                    padding: 9px 15px;
+                    border-radius: 10px;
+                    font-size: 13px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: transform 0.15s ease, background 0.15s ease;
+                }
+                .forum-thread-actions button:hover {
+                    transform: translateY(-1px);
+                }
+                .forum-thread-action-primary {
+                    border: 1px solid white;
+                    background: white;
+                    color: #0f172a;
+                }
+                .forum-thread-action-secondary {
+                    border: 1px solid rgba(255,255,255,0.28);
+                    background: rgba(255,255,255,0.1);
+                    color: white;
+                }
+                .forum-entry-card:target {
+                    border-color: var(--primary) !important;
+                    box-shadow: 0 0 0 3px var(--primary-glow) !important;
+                }
+                .forum-entry-permalink {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 3px;
+                    padding: 3px 7px;
+                    border: 1px solid var(--card-border);
+                    border-radius: 6px;
+                    background: var(--secondary);
+                    color: var(--text-muted);
+                    font-size: 10px;
+                    font-weight: 700;
+                    cursor: pointer;
+                }
                 @media (max-width: 1024px) {
                     .forum-layout {
                         flex-direction: column !important;
@@ -1140,6 +1278,12 @@ export default function ForumThreadPage() {
                     }
                 }
                 @media (max-width: 768px) {
+                    .forum-thread-actions {
+                        width: 100%;
+                    }
+                    .forum-thread-actions button {
+                        flex: 1;
+                    }
                     .forum-entry-mobile-actions {
                         display: flex !important;
                     }

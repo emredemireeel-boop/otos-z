@@ -8,7 +8,7 @@ import OBDListClient from "./OBDListClient";
 // ── SEO Metadata ──
 export const metadata: Metadata = {
     title: "OBD Arıza Kodları Veritabanı — 3.500+ Kod | OtoSöz",
-    description: "Tüm OBD-II (P, B, C, U) arıza kodlarının Türkçe açıklamaları, belirtileri, nedenleri ve çözüm önerileri. 3.500+ arıza kodu veritabanı ile motor arıza lambası kodlarını sorgulayın.",
+    description: "3.500+ OBD-II arıza kodunun Türkçe anlamı, belirtileri, nedenleri ve çözüm önerileri. P, B, C ve U kodlarını ücretsiz sorgulayın.",
     keywords: [
         "OBD arıza kodları", "OBD-II kodları", "motor arıza kodu sorgulama",
         "P0 kodları", "arıza kodu nedir", "DTC kodları", "EOBD arıza kodları",
@@ -50,7 +50,9 @@ interface ObdCode {
 }
 
 export default function ObdPage() {
-    const allCodes = obdCodes as ObdCode[];
+    const allCodes = Array.from(
+        new Map((obdCodes as ObdCode[]).map(code => [code.code.toUpperCase(), code])).values()
+    );
 
     // Server'da istatistikleri hesapla — client'a sadece sayılar gider
     const stats = {
@@ -61,26 +63,35 @@ export default function ObdPage() {
         U: allCodes.filter(c => c.type === 'U').length,
     };
 
-    // İlk 30 kodu server'da hazırla — client bundle'a sadece bu küçük parça gider
-    const initialCodes = allCodes.slice(0, 30);
+    // İlk görünümde her kod ailesini temsil et; veri dosyasının sırası nedeniyle
+    // yalnızca B kodlarının görünmesini engelle.
+    const initialCodes = ['P', 'B', 'C', 'U'].flatMap(type =>
+        allCodes.filter(code => code.type === type).slice(0, 8)
+    );
 
     // Marka listesi
     const brands = Object.keys(carModelsData).sort().slice(0, 15);
 
-    // JSON-LD: FAQPage — server-side render (Googlebot için)
-    const faqSchema = {
+    // JSON-LD: Yalnızca sayfada gerçekten görünen koleksiyon ve breadcrumb.
+    const collectionSchema = {
         "@context": "https://schema.org",
         "@graph": [
             {
-                "@type": "FAQPage",
-                "mainEntity": allCodes.slice(0, 20).map(code => ({
-                    "@type": "Question",
-                    "name": `${code.code} Arıza Kodu Nedir?`,
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": `${code.title}. ${code.description}`
-                    }
-                }))
+                "@type": "CollectionPage",
+                "name": "OBD Arıza Kodları Veritabanı",
+                "description": `${stats.total.toLocaleString('tr-TR')} OBD-II arıza kodunun Türkçe açıklamaları`,
+                "url": "https://otosoz.com/obd",
+                "isPartOf": { "@type": "WebSite", "name": "OtoSöz", "url": "https://otosoz.com" },
+                "mainEntity": {
+                    "@type": "ItemList",
+                    "numberOfItems": stats.total,
+                    "itemListElement": initialCodes.map((code, index) => ({
+                        "@type": "ListItem",
+                        "position": index + 1,
+                        "name": `${code.code} — ${code.title}`,
+                        "url": `https://otosoz.com/obd/${code.code.toLowerCase()}`
+                    }))
+                }
             },
             {
                 "@type": "BreadcrumbList",
@@ -89,13 +100,6 @@ export default function ObdPage() {
                     { "@type": "ListItem", position: 2, name: "OBD Arıza Kodları", item: "https://otosoz.com/obd" },
                 ]
             },
-            {
-                "@type": "CollectionPage",
-                "name": "OBD Arıza Kodları Veritabanı",
-                "description": `${stats.total.toLocaleString('tr-TR')}+ OBD-II arıza kodlarının Türkçe açıklamaları`,
-                "url": "https://otosoz.com/obd",
-                "isPartOf": { "@type": "WebSite", "name": "OtoSöz", "url": "https://otosoz.com" },
-            },
         ]
     };
 
@@ -103,7 +107,7 @@ export default function ObdPage() {
         <div>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
             />
             <Navbar />
 

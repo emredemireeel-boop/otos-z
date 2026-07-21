@@ -33,7 +33,11 @@ export async function GET(request: NextRequest) {
     const offset = Math.max(0, parseInt(searchParams.get('offset') || '0', 10) || 0);
     const limit = Math.min(100, Math.max(1, parseInt(searchParams.get('limit') || '30', 10) || 30));
 
-    let result = obdCodes as ObdCode[];
+    // Aynı kod veri kaynağında birden fazla kez bulunabiliyor. Liste ve arama
+    // sonuçlarında yinelenen URL/kart üretmemek için kodu tekilleştir.
+    let result = Array.from(
+        new Map((obdCodes as ObdCode[]).map(code => [code.code.toUpperCase(), code])).values()
+    );
 
     // Tip filtresi
     if (type && ['P', 'B', 'C', 'U'].includes(type.toUpperCase())) {

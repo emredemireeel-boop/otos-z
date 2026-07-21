@@ -1550,6 +1550,7 @@
     },
     {
       "id": "guide_araba_renkleri_isi_emilimi",
+      "urlId": 10040,
       "title": "Araç Rengi Seçiminin Bilimsel Sırları: Renklere Göre Isı Emilimi ve Yakıt Tasarrufu Mega Rehberi",
       "description": "Güneş altında park edilen araçların rengi, kabin içinin fırına dönmesinde ne kadar etkilidir? Siyah ile beyaz araç arasında tam 19°C yüzey sıcaklığı farkı olduğunu biliyor muydunuz? İşin termodinamik boyutu, klima maliyetleri ve boya koruma sırları.",
       "minutes": 10,
@@ -2663,7 +2664,7 @@
           ]
         }
       ],
-      "urlId": 10006
+      "urlId": 10046
     },
     {
       "id": "guide_deger_kaybi",
@@ -2779,7 +2780,7 @@
           ]
         }
       ],
-      "urlId": 10004
+      "urlId": 10047
     },
     {
       "id": "guide_kis_lastigi",
@@ -2913,7 +2914,7 @@
           "cevap": "Ticari araç sahiplerinin kış lastiği takmama cezası 2026 yılı için yeniden değerleme oranlarına göre güncellenmekte olup tahmini olarak 6.000 TL ile 7.500 TL arasındadır. Ceza kesildikten sonra aracın yola devam etmesine izin verilmez, çekici çağrılır."
         }
       ],
-      "urlId": 10003
+      "urlId": 10048
     },
     {
       "id": "guide_001",
@@ -3365,6 +3366,7 @@
     },
     {
       "id": "guide_005",
+      "urlId": 10002,
       "title": "Araç Dolandırıcılık Yöntemleri ve Korunma Yolları",
       "description": "Sazan sarmalı, sahte dekont, km düşürme, pert gizleme ve dijital dolandırıcılık yöntemlerini tanıyın. Gerçek mağdur hikayeleri ve adım adım korunma rehberiyle paranızı güvene alın.",
       "minutes": 18,
@@ -5425,7 +5427,7 @@
       "urlId": 10013
     },
     {
-      "id": "guide_014",
+      "id": "guide_interesting_facts",
       "title": "Otomobil Dünyasından İlginç Bilgiler",
       "description": "Araba tutkunlarının bilmesi gereken şaşırtıcı gerçekler ve ilginç istatistikler.",
       "minutes": 5,
@@ -5628,7 +5630,7 @@
       "urlId": 10015
     },
     {
-      "id": "guide_010",
+      "id": "guide_usage_golden_rules",
       "title": "Araç Kullanımında Altın Kurallar: Yap & Yapma",
       "description": "Her sürücünün bilmesi gereken, aracınızın ömrünü uzatan doğrular ve ciddi masraf açan yanlışlar.",
       "minutes": 6,
@@ -7529,6 +7531,7 @@
     },
     {
       "id": "guide_seo_014",
+      "urlId": 10030,
       "title": "Sıfır Araç Alırken Bayide Kurulan 7 Tuzak",
       "description": "Sıfır kilometre bir otomobil almak harika bir his! Ama o parlak showroom'a adım attığınız andan itibaren cüzdanınızı korumanız gereken profesyonel bir satranç maçı başlıyor. Gelin, bayilerin sıkça başvurduğu 7 klasik tuzağı detaylarıyla deşifre edelim.",
       "minutes": 15,

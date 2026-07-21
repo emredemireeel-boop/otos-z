@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Search, ChevronRight, Car } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -17,15 +17,43 @@ interface ObdCode {
 interface BrandHubClientProps {
     brandName: string;
     obdCodes: ObdCode[];
+    brandModels: string[];
 }
 
-export default function BrandHubClient({ brandName, obdCodes }: BrandHubClientProps) {
+export default function BrandHubClient({ brandName, obdCodes, brandModels }: BrandHubClientProps) {
     const [searchQuery, setSearchQuery] = useState("");
+    const [codes, setCodes] = useState(obdCodes);
+    const [loading, setLoading] = useState(false);
 
-    const filteredCodes = obdCodes.filter(c => 
-        c.code.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        c.title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    useEffect(() => {
+        if (searchQuery.trim().length < 2) {
+            setCodes(obdCodes);
+            setLoading(false);
+            return;
+        }
+
+        const controller = new AbortController();
+        const timeout = window.setTimeout(async () => {
+            setLoading(true);
+            try {
+                const response = await fetch(`/api/obd?q=${encodeURIComponent(searchQuery.trim())}&limit=100`, {
+                    signal: controller.signal,
+                });
+                if (!response.ok) throw new Error('OBD araması başarısız');
+                const data = await response.json();
+                setCodes(data.items || []);
+            } catch (error) {
+                if (!controller.signal.aborted) console.error('OBD search error:', error);
+            } finally {
+                if (!controller.signal.aborted) setLoading(false);
+            }
+        }, 300);
+
+        return () => {
+            window.clearTimeout(timeout);
+            controller.abort();
+        };
+    }, [searchQuery, obdCodes]);
 
     const getTypeColor = (type: string) => {
         switch (type) {
@@ -62,8 +90,13 @@ export default function BrandHubClient({ brandName, obdCodes }: BrandHubClientPr
                             {brandName} Arıza Kodları
                         </h1>
                         <p style={{ color: 'var(--text-muted)', fontSize: '16px' }}>
-                            {brandName} marka aracınızda karşılaştığınız OBD-II arıza kodlarının anlamları, olası nedenleri ve çözüm yolları.
+                            {brandName} araçlarda görülebilen evrensel OBD-II kodlarının anlamları, olası nedenleri ve çözüm yolları.
                         </p>
+                        {brandModels.length > 0 && (
+                            <p style={{ color: 'var(--text-muted)', fontSize: '13px', marginTop: '10px' }}>
+                                {brandModels.slice(0, 8).join(', ')} ve diğer {brandName} modelleri için kod sorgulama rehberi.
+                            </p>
+                        )}
                     </div>
                 </div>
 
@@ -91,7 +124,10 @@ export default function BrandHubClient({ brandName, obdCodes }: BrandHubClientPr
 
                     {/* List */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                        {filteredCodes.slice(0, 50).map(code => {
+                        {loading && (
+                            <p role="status" style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '16px' }}>Kodlar aranıyor…</p>
+                        )}
+                        {!loading && codes.slice(0, 50).map(code => {
                             const colors = getTypeColor(code.type);
                             return (
                                 <Link 
@@ -140,10 +176,10 @@ export default function BrandHubClient({ brandName, obdCodes }: BrandHubClientPr
                                 </Link>
                             )
                         })}
-                        {filteredCodes.length === 0 && (
+                        {!loading && codes.length === 0 && (
                             <p style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '32px' }}>Sonuç bulunamadı.</p>
                         )}
-                        {filteredCodes.length > 50 && (
+                        {!loading && codes.length > 50 && (
                             <p style={{ textAlign: 'center', color: 'var(--text-muted)', paddingTop: '16px' }}>En ilgili 50 sonuç gösteriliyor. Lütfen aramayı daraltın.</p>
                         )}
                     </div>

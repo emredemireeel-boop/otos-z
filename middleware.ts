@@ -1,5 +1,14 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import libraryGuides from './public/data/library_guides.json';
+import { createSeoSlug } from './lib/slug';
+
+const ARTICLE_CANONICAL_SLUGS = new Map(
+    libraryGuides.guides.map(guide => {
+        const routeId = String(guide.urlId || guide.id);
+        return [routeId, `${createSeoSlug(guide.title)}--${routeId}`] as const;
+    }),
+);
 
 /**
  * Edge middleware — kaba kapı (coarse gate).
@@ -50,6 +59,22 @@ export function middleware(request: NextRequest) {
     }
 
     const path = request.nextUrl.pathname;
+
+    // Eski, Unicode veya sonradan değişmiş makale başlıklarını HTTP düzeyinde
+    // tek kalıcı slug'a taşı. Böylece Google aynı içeriği alternatif canonical
+    // olarak tekrar tekrar taramak yerine yalnızca güncel URL'yi izler.
+    if (path.startsWith('/makale/')) {
+        const requestedSlug = decodeURIComponent(path.slice('/makale/'.length));
+        const routeId = requestedSlug.split('--').at(-1) || '';
+        const canonicalSlug = ARTICLE_CANONICAL_SLUGS.get(routeId);
+
+        if (canonicalSlug && requestedSlug !== canonicalSlug) {
+            const canonicalUrl = request.nextUrl.clone();
+            canonicalUrl.pathname = `/makale/${canonicalSlug}`;
+            return NextResponse.redirect(canonicalUrl, 308);
+        }
+    }
+
     const token = request.cookies.get('auth_token')?.value;
     const role = request.cookies.get('user_role')?.value;
 

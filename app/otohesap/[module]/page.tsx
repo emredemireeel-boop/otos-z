@@ -19,6 +19,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
+    alternates: { canonical: `https://otosoz.com/otohesap/${resolvedParams.module}` },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `https://otosoz.com/otohesap/${resolvedParams.module}`,
+      type: 'website',
+    },
   };
 }
 

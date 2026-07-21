@@ -1,13 +1,30 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Metadata } from "next";
 import MakaleDetailClient from "./MakaleDetailClient";
 import path from "path";
 import fs from "fs";
+import { createSeoSlug } from "@/lib/slug";
 
 export const dynamic = 'force-dynamic';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
+}
+
+function getGuides(): any[] {
+    const filePath = path.join(process.cwd(), 'public', 'data', 'library_guides.json');
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+    return JSON.parse(fileContents).guides || [];
+}
+
+function findArticle(guides: any[], routeId: string) {
+    return guides.find((guide: any) => (
+        String(guide.urlId || '') === routeId || String(guide.id) === routeId
+    ));
+}
+
+function getCanonicalSlug(article: any): string {
+    return `${createSeoSlug(article.title)}--${article.urlId || article.id}`;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -16,13 +33,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const id = parts[parts.length - 1];
 
     try {
-        const filePath = path.join(process.cwd(), 'public', 'data', 'library_guides.json');
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        const data = JSON.parse(fileContents);
-        const article = data.guides.find((g: any) => (g.urlId && g.urlId.toString() === id) || (g.id === id));
+        const article = findArticle(getGuides(), id);
 
         if (!article) return { title: 'Makale Bulunamadı | OtoSöz' };
 
+        const canonicalSlug = getCanonicalSlug(article);
+        const canonicalUrl = `https://otosoz.com/makale/${canonicalSlug}`;
         const ogUrl = `/api/og?title=${encodeURIComponent(article.title)}&desc=${encodeURIComponent(article.description.slice(0, 160))}`;
 
         return {
@@ -33,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 title: article.title,
                 description: article.description,
                 type: 'article',
-                url: `https://otosoz.com/makale/${slug}`,
+                url: canonicalUrl,
                 images: [
                     {
                         url: ogUrl,
@@ -50,7 +66,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 images: [ogUrl],
             },
             alternates: {
-                canonical: `https://otosoz.com/makale/${slug}`,
+                canonical: canonicalUrl,
             },
         };
     } catch (error) {
@@ -65,10 +81,7 @@ export default async function MakalePage({ params }: PageProps) {
 
     let article = null;
     try {
-        const filePath = path.join(process.cwd(), 'public', 'data', 'library_guides.json');
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        const data = JSON.parse(fileContents);
-        article = data.guides.find((g: any) => g.urlId && g.urlId.toString() === id);
+        article = findArticle(getGuides(), id);
     } catch (error) {
         console.error("Error reading guides data", error);
     }
@@ -76,6 +89,13 @@ export default async function MakalePage({ params }: PageProps) {
     if (!article) {
         notFound();
     }
+
+    const canonicalSlug = getCanonicalSlug(article);
+    if (slug !== canonicalSlug) {
+        permanentRedirect(`/makale/${canonicalSlug}`);
+    }
+
+    const canonicalUrl = `https://otosoz.com/makale/${canonicalSlug}`;
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -86,7 +106,7 @@ export default async function MakalePage({ params }: PageProps) {
             "@type": "Person",
             "name": article.author || "OtoSöz Uzmanları"
         },
-        "url": `https://otosoz.com/makale/${slug}`,
+        "url": canonicalUrl,
         "publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
@@ -114,7 +134,7 @@ export default async function MakalePage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 3,
                 "name": article.title,
-                "item": `https://otosoz.com/makale/${slug}`
+                "item": canonicalUrl
             }
         ]
     };

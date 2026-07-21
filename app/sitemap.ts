@@ -4,28 +4,52 @@ import path from 'path';
 import { categories, getBrandsForCategory } from '@/data/guvenmetre';
 import { getAdminDb, initError } from '@/lib/firebaseAdmin';
 import { events } from '@/data/events';
+import { createSeoSlug as createSlug } from '@/lib/slug';
+import { OPEN_CAR_MARKETS, getMarketPath } from '@/data/open-car-markets';
 
 // Sitemap'in 15 dakikada bir yeniden oluşturulması — yeni başlık/entry'ler hızla Google'a gider
 export const revalidate = 900;
 
 const BASE_URL = 'https://otosoz.com';
 
-// Slug oluşturma aracı (google-index.js ile aynı standart)
-function createSlug(text: string) {
-    if (!text) return '';
-    const trMap: Record<string, string> = {
-        'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u', 'ë': 'e',
-        'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u', 'Ë': 'e',
-    };
-    return text.replace(/[çğıöşüëÇĞİÖŞÜË]/g, m => trMap[m] || m)
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .trim();
-}
+const LIBRARY_CATEGORY_SLUGS = [
+    'ilginc-bilgiler',
+    'otomotiv-sozluk',
+    'trafik-isaretleri',
+    'obd-ariza-kodlari',
+    'gosterge-isiklari',
+    'trafik-cezalari',
+    'lastik-rehberi',
+    'ikinci-el-rehberi',
+    'kaza-ilkyardim',
+    'mevsimsel-bakim',
+    'sigorta-rehberi',
+    'otoyol-ve-kopru-ucretleri',
+    'bakim-zamanlari',
+    'tuvturk-muayene',
+    'arac-segmentleri',
+    'plaka-kodlari',
+    'noter-islemleri',
+    'ehliyet-siniflari',
+    'kasko-deger',
+    'hgs-siniflari',
+    'dolandiricilik-rehberi',
+    'nereye-gitmeli',
+    'hasar-sorgulama',
+    'efsane-avcilari',
+    'nasil-yapilir',
+] as const;
+
+const ENGINE_DETAIL_SUFFIXES = [
+    '',
+    '-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri',
+    '-kronik-sorunlari',
+    '-arac-paketleri',
+    '-kullanici-deneyimleri',
+] as const;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const generatedAt = Date.now();
     const sitemapEntries: MetadataRoute.Sitemap = [
         // Ana Hub Sayfaları
         { url: `${BASE_URL}`, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
@@ -41,17 +65,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE_URL}/haberler`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
         { url: `${BASE_URL}/karsilastirma`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
         { url: `${BASE_URL}/uzmana-sor`, lastModified: new Date(), changeFrequency: 'always', priority: 0.8 },
-        { url: `${BASE_URL}/otohesap`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
         { url: `${BASE_URL}/piyasalar`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
         { url: `${BASE_URL}/guvenmetre`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
         { url: `${BASE_URL}/altin-anahtar`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
         { url: `${BASE_URL}/anket`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
         { url: `${BASE_URL}/etkinlikler`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-        { url: `${BASE_URL}/sozluk`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+        { url: `${BASE_URL}/acik-oto-pazari`, lastModified: new Date('2026-07-21'), changeFrequency: 'weekly', priority: 0.9 },
         { url: `${BASE_URL}/obd`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
         { url: `${BASE_URL}/ajanda`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-        { url: `${BASE_URL}/bakim-rehberi`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-        { url: `${BASE_URL}/ikinci-el-rehberi`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
         { url: `${BASE_URL}/usta-ol`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
         { url: `${BASE_URL}/uzman-ol`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
         { url: `${BASE_URL}/hakkimizda`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
@@ -59,6 +80,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE_URL}/gizlilik-politikasi`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
         { url: `${BASE_URL}/kullanim-sartlari`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     ];
+
+    // Her kütüphane sekmesi ayrı ve kendi canonical'ına sahip bir koleksiyon sayfasıdır.
+    LIBRARY_CATEGORY_SLUGS.forEach(categorySlug => {
+        sitemapEntries.push({
+            url: `${BASE_URL}/kutuphane?kategori=${categorySlug}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        });
+    });
 
     const safeReadFile = (fileName: string) => {
         try {
@@ -83,6 +114,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const vehicleList = vehicleDNAData || [];
     const engineList = engineDNAData || [];
     const trimList = trimLevelsData || [];
+    // Veri dosyasında aynı marka/model yolu bazı eski kayıtlar nedeniyle tekrar
+    // edebiliyor. Sayfa çözümleyicisinin kullandığı ilk kaydı canonical kabul et;
+    // sonraki kopyaların motorlarını aynı URL altında sitemap'e karıştırma.
+    const uniqueVehicleMap = new Map<string, any>();
+    vehicleList.forEach((vehicle: any) => {
+        const vehiclePath = `${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}`;
+        if (!uniqueVehicleMap.has(vehiclePath)) uniqueVehicleMap.set(vehiclePath, vehicle);
+    });
+    const uniqueVehicleList = Array.from(uniqueVehicleMap.values());
     
     const uniqueBrands = [...new Set(vehicleList.map((v: any) => v.brand))] as string[];
     // Combined/ortak marka isimlerini filtrele (ör. "Dacia / Renault") — bu slug'lar gerçek marka hub sayfası değil
@@ -97,7 +137,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
 
 
-    vehicleList.forEach((vehicle: any) => {
+    uniqueVehicleList.forEach((vehicle: any) => {
         const brandSlug = createSlug(vehicle.brand);
         const modelSlug = createSlug(vehicle.model);
 
@@ -134,7 +174,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
         
         // Donanım paketleri sayfası (Sadece varsa)
-        const hasTrim = trimList.find((t: any) => t.brand === vehicle.brand && t.model === vehicle.model);
+        const hasTrim = trimList.find((t: any) => t.vehicleId === vehicle.id);
         if (hasTrim) {
             sitemapEntries.push({
                 url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/arac-paketleri`,
@@ -145,14 +185,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
         
         // Motor seçenekleri (Sadece varsa)
-        const vehicleEngines = engineList.find((e: any) => e.brand === vehicle.brand && e.model === vehicle.model);
+        const vehicleEngines = engineList.find((e: any) => e.vehicleId === vehicle.id);
         if (vehicleEngines && vehicleEngines.engines) {
             vehicleEngines.engines.forEach((engine: any) => {
-                sitemapEntries.push({
-                    url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/${createSlug(engine.name)}`,
-                    lastModified: new Date(),
-                    changeFrequency: 'weekly',
-                    priority: 0.7,
+                const engineSlug = engine.slug || createSlug(engine.name);
+                ENGINE_DETAIL_SUFFIXES.forEach(suffix => {
+                    sitemapEntries.push({
+                        url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/${engineSlug}${suffix}`,
+                        lastModified: new Date(),
+                        changeFrequency: 'weekly',
+                        priority: suffix ? 0.6 : 0.7,
+                    });
                 });
             });
         }
@@ -185,21 +228,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     // 2b. Tekil OBD Kodları (genel /obd/{code} URL'leri)
-    // Crawl budget korumak için: yalnızca generic (standart) kodları ekle, max 500
+    // Sitemap sınırı 50.000 URL'dir; veritabanındaki tüm benzersiz kodları
+    // eklemek güvenlidir ve daha önce görünmez kalan binlerce detay sayfasının
+    // keşfedilmesini sağlar.
     const obdCodesData = safeReadFile('obd-codes.json');
     if (obdCodesData && Array.isArray(obdCodesData)) {
-        const genericCodes = obdCodesData
-            .filter((c: any) => c.isGeneric !== false) // Generic/standart kodları öncelikle al
-            .slice(0, 500);
-        genericCodes.forEach((code: any) => {
-            if (code.code) {
-                sitemapEntries.push({
-                    url: `${BASE_URL}/obd/${code.code.toLowerCase()}`,
-                    lastModified: new Date(),
-                    changeFrequency: 'monthly',
-                    priority: 0.4,
-                });
+        const uniqueObdCodes = new Map<string, any>();
+
+        obdCodesData.forEach((code: any) => {
+            const normalizedCode = String(code.code || '').trim().toLowerCase();
+            if (/^[pbcu][0-9a-f]{4}$/i.test(normalizedCode) && !uniqueObdCodes.has(normalizedCode)) {
+                uniqueObdCodes.set(normalizedCode, code);
             }
+        });
+
+        uniqueObdCodes.forEach((code, normalizedCode) => {
+            sitemapEntries.push({
+                url: `${BASE_URL}/obd/${normalizedCode}`,
+                lastModified: new Date(),
+                changeFrequency: 'monthly',
+                priority: code.isGeneric !== false ? 0.6 : 0.5,
+            });
         });
     }
 
@@ -406,13 +455,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     });
 
-    // 14. Etkinlikler (events.ts'den - dinamik)
-    events.forEach(event => {
+    // 14. Etkinlikler (oto pazarları kaynak kontrollü yeni dizinde tutulur)
+    events.filter(event => event.category !== 'pazar').forEach(event => {
         sitemapEntries.push({
             url: `${BASE_URL}/etkinlikler/${event.id}`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.6,
+        });
+    });
+
+    // 14b. Açık oto pazarı: yalnızca doğrulanmış ve indexlenebilir sayfalar.
+    // Teyit bekleyen 81 il sayfaları kullanıcıya açıktır ancak sitemap'e girmez.
+    const verifiedMarkets = OPEN_CAR_MARKETS.filter(market => market.status === 'verified');
+    const verifiedProvinceSlugs = new Set(verifiedMarkets.map(market => market.provinceSlug));
+
+    verifiedProvinceSlugs.forEach(provinceSlug => {
+        sitemapEntries.push({
+            url: `${BASE_URL}/acik-oto-pazari/${provinceSlug}`,
+            lastModified: new Date('2026-07-21'),
+            changeFrequency: 'weekly',
+            priority: 0.82,
+        });
+    });
+
+    verifiedMarkets.forEach(market => {
+        sitemapEntries.push({
+            url: `${BASE_URL}${getMarketPath(market)}`,
+            lastModified: new Date(market.checkedAt),
+            changeFrequency: 'weekly',
+            priority: 0.78,
         });
     });
 
@@ -464,6 +536,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         } catch (e) {}
     }
 
-    return sitemapEntries;
+    // Aynı URL farklı veri kümelerinden birden fazla kez gelebiliyor. Arama
+    // motorlarına her canonical URL'yi yalnızca bir kez gönder.
+    const uniqueEntries = new Map<string, MetadataRoute.Sitemap[number]>();
+    sitemapEntries.forEach(entry => {
+        if (!uniqueEntries.has(entry.url)) uniqueEntries.set(entry.url, entry);
+    });
+
+    // "lastmod" yalnızca gerçek bir değişiklik tarihiyse güvenilir bir sinyaldir.
+    // Eski kod her sitemap yenilemesinde binlerce URL'yi o an değişmiş gibi
+    // işaretliyordu. Çalışma anında üretilmiş sentetik tarihleri kaldır; içerik
+    // veya Firestore kaydından gelen gerçek tarihleri koru.
+    return Array.from(uniqueEntries.values()).map(entry => {
+        if (entry.lastModified instanceof Date) {
+            const isSynthetic = Math.abs(entry.lastModified.getTime() - generatedAt) < 5 * 60 * 1000;
+            if (isSynthetic) {
+                const { lastModified: _lastModified, ...stableEntry } = entry;
+                return stableEntry;
+            }
+        }
+        return entry;
+    });
 }
 

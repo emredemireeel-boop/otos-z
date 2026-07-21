@@ -110,6 +110,31 @@ export default function Footer() {
                         </div>
                     </div>
 
+                    {/* Links - Rehberler */}
+                    <div>
+                        <h2 style={{
+                            color: 'var(--foreground)',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            marginBottom: '16px',
+                            textTransform: 'uppercase',
+                            letterSpacing: '1px',
+                        }}>
+                            Rehberler
+                        </h2>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                            <Link href="/acik-oto-pazari" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
+                                81 İl Açık Oto Pazarı
+                            </Link>
+                            <Link href="/obd" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
+                                OBD Arıza Kodları
+                            </Link>
+                            <Link href="/kutuphane?kategori=trafik-cezalari" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
+                                Trafik Cezaları
+                            </Link>
+                        </div>
+                    </div>
+
                     {/* Links - Kurumsal */}
                     <div>
                         <h2 style={{

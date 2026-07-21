@@ -7,6 +7,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { events, eventCategories, cities, Event } from "@/data/events";
+import { getLegacyMarketPath, toMarketSlug } from "@/data/open-car-markets";
 
 import { Calendar, MapPin, Users, TrendingUp, Award, Tag, X, CheckCircle, Upload, Sparkles } from "lucide-react";
 import Link from "next/link";
@@ -193,6 +194,16 @@ export default function EtkinliklerPage() {
                                     {cat === "all" ? "Tümü" : eventCategories[cat as keyof typeof eventCategories].label}
                                 </button>
                             ))}
+                            <Link
+                                href="/acik-oto-pazari"
+                                style={{
+                                    padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '700',
+                                    whiteSpace: 'nowrap', textDecoration: 'none', border: '1px solid var(--primary)',
+                                    color: 'var(--primary)', background: 'color-mix(in srgb, var(--primary) 8%, transparent)'
+                                }}
+                            >
+                                81 İl Oto Pazarı Rehberi
+                            </Link>
                         </div>
 
 
@@ -655,9 +666,13 @@ export default function EtkinliklerPage() {
 }
 
 function EventCard({ event, formatDate }: { event: Event; formatDate: (date: string) => string }) {
+    const marketPath = event.category === 'pazar'
+        ? getLegacyMarketPath(event.id) ?? `/acik-oto-pazari/${toMarketSlug(event.city)}`
+        : undefined;
+
     return (
         <Link
-            href={`/etkinlikler/${event.id}`}
+            href={marketPath ?? `/etkinlikler/${event.id}`}
             style={{ textDecoration: 'none' }}
         >
             <div

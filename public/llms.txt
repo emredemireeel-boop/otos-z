@@ -4,34 +4,34 @@
 
 ## Ana Sayfalar
 
-- [Ana Sayfa](https://www.otosoz.com): OtoSöz ana sayfası — otomotiv forum, haberler ve topluluk.
-- [Forum](https://www.otosoz.com/forum): Otomotiv forum, soru-cevap ve tartışmalar.
-- [Araç DNA](https://www.otosoz.com/arac-dna): Araç DNA analizi — kronik sorunlar, artıları/eksileri, motor seçenekleri.
-- [Kütüphane](https://www.otosoz.com/kutuphane): Otomotiv rehberleri, makaleler, sözlük ve referans kaynakları.
-- [Haberler](https://www.otosoz.com/haberler): Otomotiv haberleri ve sektör gelişmeleri.
-- [OBD Kodları](https://www.otosoz.com/obd): OBD-II arıza kodları veritabanı ve açıklamaları.
-- [Karşılaştırma](https://www.otosoz.com/karsilastirma): Araç karşılaştırma aracı.
-- [OtoHesap](https://www.otosoz.com/otohesap): Yakıt hesaplama, MTV, ÖTV, KDV ve diğer otomotiv hesaplayıcılar.
-- [OtoBütçe](https://www.otosoz.com/otobutce): Bütçeye göre araç önerileri.
-- [Piyasalar](https://www.otosoz.com/piyasalar): Otomotiv piyasa verileri, döviz, akaryakıt fiyatları.
-- [GüvenMetre](https://www.otosoz.com/guvenmetre): Marka ve model güvenilirlik değerlendirmesi.
-- [Sözlük](https://www.otosoz.com/sozluk): Otomotiv terimleri sözlüğü.
-- [Uzmana Sor](https://www.otosoz.com/uzmana-sor): Uzman mekanikerlere soru sorma platformu.
-- [Anket](https://www.otosoz.com/anket): Otomotiv anketleri ve kullanıcı oylamaları.
-- [Etkinlikler](https://www.otosoz.com/etkinlikler): Otomotiv etkinlikleri ve buluşmalar.
-- [Altın Anahtar](https://www.otosoz.com/altin-anahtar): Araç bakım ve onarım ipuçları.
-- [Bakım Rehberi](https://www.otosoz.com/bakim-rehberi): Adım adım araç bakım rehberi.
-- [İkinci El Rehberi](https://www.otosoz.com/ikinci-el-rehberi): İkinci el araç alım-satım rehberi.
-- [Trafik Cezaları](https://www.otosoz.com/trafik-cezasi): 2026 güncel trafik cezaları listesi.
-- [Gösterge Işıkları](https://www.otosoz.com/gosterge): Araç gösterge paneli uyarı ışıkları rehberi.
-- [Ajanda](https://www.otosoz.com/ajanda): Otomotiv ajandası — bakım hatırlatıcıları.
+- [Ana Sayfa](https://otosoz.com): OtoSöz ana sayfası — otomotiv forum, haberler ve topluluk.
+- [Forum](https://otosoz.com/forum): Otomotiv forum, soru-cevap ve tartışmalar.
+- [Araç DNA](https://otosoz.com/arac-dna): Araç DNA analizi — kronik sorunlar, artıları/eksileri, motor seçenekleri.
+- [Kütüphane](https://otosoz.com/kutuphane): Otomotiv rehberleri, makaleler, sözlük ve referans kaynakları.
+- [Haberler](https://otosoz.com/haberler): Otomotiv haberleri ve sektör gelişmeleri.
+- [OBD Kodları](https://otosoz.com/obd): OBD-II arıza kodları veritabanı ve açıklamaları.
+- [Karşılaştırma](https://otosoz.com/karsilastirma): Araç karşılaştırma aracı.
+- [OtoHesap](https://otosoz.com/otohesap/yakit-hesaplama): Yakıt hesaplama, MTV, ÖTV, KDV ve diğer otomotiv hesaplayıcılar.
+- [OtoBütçe](https://otosoz.com/otobutce): Bütçeye göre araç önerileri.
+- [Piyasalar](https://otosoz.com/piyasalar): Otomotiv piyasa verileri, döviz, akaryakıt fiyatları.
+- [GüvenMetre](https://otosoz.com/guvenmetre): Marka ve model güvenilirlik değerlendirmesi.
+- [Sözlük](https://otosoz.com/kutuphane?kategori=otomotiv-sozluk): Otomotiv terimleri sözlüğü.
+- [Uzmana Sor](https://otosoz.com/uzmana-sor): Uzman mekanikerlere soru sorma platformu.
+- [Anket](https://otosoz.com/anket): Otomotiv anketleri ve kullanıcı oylamaları.
+- [Etkinlikler](https://otosoz.com/etkinlikler): Otomotiv etkinlikleri ve buluşmalar.
+- [Altın Anahtar](https://otosoz.com/altin-anahtar): Araç bakım ve onarım ipuçları.
+- [Bakım Rehberi](https://otosoz.com/kutuphane?kategori=bakim-zamanlari): Adım adım araç bakım rehberi.
+- [İkinci El Rehberi](https://otosoz.com/kutuphane?kategori=ikinci-el-rehberi): İkinci el araç alım-satım rehberi.
+- [Trafik Cezaları](https://otosoz.com/kutuphane?kategori=trafik-cezalari): 2026 güncel trafik cezaları listesi.
+- [Gösterge Işıkları](https://otosoz.com/kutuphane?kategori=gosterge-isiklari): Araç gösterge paneli uyarı ışıkları rehberi.
+- [Ajanda](https://otosoz.com/ajanda): Otomotiv ajandası — bakım hatırlatıcıları.
 
 ## Hakkında
 
-- [Hakkımızda](https://www.otosoz.com/hakkimizda): OtoSöz ekibi ve misyonumuz.
-- [İletişim](https://www.otosoz.com/iletisim): Bize ulaşın.
+- [Hakkımızda](https://otosoz.com/hakkimizda): OtoSöz ekibi ve misyonumuz.
+- [İletişim](https://otosoz.com/iletisim): Bize ulaşın.
 
 ## Yasal
 
-- [Gizlilik Politikası](https://www.otosoz.com/gizlilik-politikasi)
-- [Kullanım Şartları](https://www.otosoz.com/kullanim-sartlari)
+- [Gizlilik Politikası](https://otosoz.com/gizlilik-politikasi)
+- [Kullanım Şartları](https://otosoz.com/kullanim-sartlari)

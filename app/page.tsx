@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { BookOpen, ArrowRight, MessageSquare, TrendingUp, Users, BarChart3, Star, Clock, Eye, ThumbsUp, Award, Crown, Flame, ChevronRight, Zap, Sparkles, Plus, Car, AlertTriangle, CheckCircle, MapPin } from "lucide-react";
+import { BookOpen, ArrowRight, MessageSquare, TrendingUp, Users, BarChart3, Star, Clock, Eye, ThumbsUp, Award, Crown, Flame, ChevronRight, Zap, Sparkles, Plus, Car, AlertTriangle, CheckCircle, MapPin, Search, X } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
@@ -181,6 +181,12 @@ export default function Home() {
     useEffect(() => {
         const handleOpenModal = () => setShowNewTopicModal(true);
         window.addEventListener('open_new_topic_modal', handleOpenModal);
+
+        const params = new URLSearchParams(window.location.search);
+        const initialSearch = params.get('q');
+        if (initialSearch) setSearchQuery(initialSearch);
+        if (params.get('yeni') === '1') setShowNewTopicModal(true);
+
         return () => window.removeEventListener('open_new_topic_modal', handleOpenModal);
     }, []);
 
@@ -291,8 +297,8 @@ export default function Home() {
         entryCount: thread.entryCount || 0,
         category: thread.category === "Karsilastirma" ? "Karşılaştırma" : thread.category,
         isHot: thread.views > 50,
-        lastActivity: formatTimestamp(thread.createdAt),
-        rawCreatedAt: thread.createdAt, // eklendi
+        lastActivity: formatTimestamp(thread.lastEntryAt || thread.createdAt),
+        rawActivityAt: thread.lastEntryAt || thread.createdAt,
         lastAuthor: thread.authorUsername,
         authorLevel: "Surucu",
         lastEntry: "",
@@ -318,18 +324,21 @@ export default function Home() {
         : allTopics.filter(t => t.category === selectedCategory);
 
     // Search filter
-    const searchFilteredTopics = searchQuery.trim() === ""
+    const normalizedSearch = searchQuery.trim().toLocaleLowerCase('tr-TR');
+    const searchFilteredTopics = normalizedSearch === ""
         ? filteredTopics
         : filteredTopics.filter(t =>
-            t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            t.lastEntry?.toLowerCase().includes(searchQuery.toLowerCase())
+            t.title.toLocaleLowerCase('tr-TR').includes(normalizedSearch) ||
+            t.category.toLocaleLowerCase('tr-TR').includes(normalizedSearch) ||
+            t.lastAuthor.toLocaleLowerCase('tr-TR').includes(normalizedSearch) ||
+            t.lastEntry?.toLocaleLowerCase('tr-TR').includes(normalizedSearch)
         );
 
     const sortedTopics = [...searchFilteredTopics].sort((a, b) => {
         if (sortBy === "popular") return b.entryCount - a.entryCount;
         // Varsayılan: En yeni (en güncel) olan en başta
-        const timeA = a.rawCreatedAt?.toMillis ? a.rawCreatedAt.toMillis() : 0;
-        const timeB = b.rawCreatedAt?.toMillis ? b.rawCreatedAt.toMillis() : 0;
+        const timeA = a.rawActivityAt?.toMillis ? a.rawActivityAt.toMillis() : 0;
+        const timeB = b.rawActivityAt?.toMillis ? b.rawActivityAt.toMillis() : 0;
         return timeB - timeA;
     });
 
@@ -339,7 +348,7 @@ export default function Home() {
     const paginatedTopics = sortedTopics.slice((safePage - 1) * ITEMS_PER_PAGE, safePage * ITEMS_PER_PAGE);
 
     // Reset page on filter change
-    useEffect(() => { setCurrentPage(1); }, [selectedCategory, searchQuery]);
+    useEffect(() => { setCurrentPage(1); }, [selectedCategory, searchQuery, sortBy]);
 
 
     const renderContent = () => {
@@ -433,12 +442,15 @@ export default function Home() {
                 ) : paginatedTopics.length === 0 ? (
                     <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
                         <MessageSquare size={48} style={{ margin: '0 auto 16px', opacity: 0.5 }} />
-                        <p>Bu kategoride henüz başlık bulunmuyor.</p>
+                        <p>{searchQuery ? `“${searchQuery}” için sonuç bulunamadı.` : 'Bu kategoride henüz başlık bulunmuyor.'}</p>
+                        {searchQuery && (
+                            <button className="forum-empty-reset" onClick={() => setSearchQuery('')}>Aramayı temizle</button>
+                        )}
                     </div>
                 ) : (
                     paginatedTopics.map((topic) => (
-                        <Link key={topic.id} href={topic.slugUrl}>
-                        <div className="topic-card">
+                        <Link key={topic.id} href={topic.slugUrl} className="topic-link" aria-label={`${topic.title} konusunu aç`}>
+                        <article className="topic-card">
                             {/* Topic content */}
                             <div style={{ flex: 1, minWidth: 0 }}>
                                 {/* Category + badges */}
@@ -468,7 +480,7 @@ export default function Home() {
                                 </div>
 
                                 {/* Title */}
-                                <h2 style={{ fontSize: '17px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>
+                                <h2 className="topic-card-title" style={{ fontSize: '17px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>
                                     {topic.title}
                                 </h2>
 
@@ -488,7 +500,7 @@ export default function Home() {
 
                                 {/* Footer */}
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
-                                    <span style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '5px' }}><MessageSquare size={13} /> {topic.entryCount} Entry</span>
+                                    <span style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '5px' }}><MessageSquare size={13} /> {topic.entryCount} yanıt</span>
                                     <span style={{ opacity: 0.5 }}>•</span>
                                     <span style={{ whiteSpace: 'nowrap' }}>{topic.lastActivity}</span>
                                     <span style={{ opacity: 0.5 }}>•</span>
@@ -519,9 +531,9 @@ export default function Home() {
                             {/* Entry count */}
                             <div className="topic-entry-count" style={{ textAlign: 'right', flexShrink: 0 }}>
                                 <div style={{ fontSize: '28px', fontWeight: '700', color: 'var(--primary)' }}>{topic.entryCount}</div>
-                                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Entry</div>
+                                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>yanıt</div>
                             </div>
-                        </div>
+                        </article>
                     </Link>
                 )))}
             </div>
@@ -730,6 +742,8 @@ export default function Home() {
                                         return (
                                             <li key={cat.name} style={{ marginBottom: '4px' }}>
                                                 <button
+                                                    type="button"
+                                                    aria-pressed={active}
                                                     onClick={() => setSelectedCategory(cat.name)}
                                                     title={meta?.desc}
                                                     style={{
@@ -812,9 +826,26 @@ export default function Home() {
                         </aside>
 
                         {/* Main Content - BAşLIKLAR LİSTESİ */}
-                        <div>
+                        <div className="home-forum-feed">
+                            <div className="forum-mobile-categories" role="group" aria-label="Forum kategorileri">
+                                {dynamicCategories.map((cat) => {
+                                    const active = selectedCategory === cat.name;
+                                    return (
+                                        <button
+                                            key={`mobile-${cat.name}`}
+                                            type="button"
+                                            aria-pressed={active}
+                                            onClick={() => setSelectedCategory(cat.name)}
+                                            className={active ? 'forum-mobile-category active' : 'forum-mobile-category'}
+                                        >
+                                            {cat.name}<span>{cat.count}</span>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+
                             {/* Sort Bar */}
-                            <div style={{
+                            <div className="forum-feed-toolbar" style={{
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'space-between',
@@ -830,12 +861,13 @@ export default function Home() {
                                 <div className="sort-bar-search" style={{ position: 'relative', width: '220px', flexShrink: 0 }}>
                                     <input
                                         type="text"
+                                        aria-label="Forum başlıklarında ara"
                                         placeholder="Başlık ara..."
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                         style={{
                                             width: '100%',
-                                            padding: '7px 12px 7px 32px',
+                                            padding: '7px 32px',
                                             background: 'var(--background)',
                                             border: '1px solid var(--card-border)',
                                             borderRadius: '8px',
@@ -847,20 +879,41 @@ export default function Home() {
                                         onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
                                         onBlur={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
                                     />
-                                    <span style={{
+                                    <Search aria-hidden="true" size={14} style={{
                                         position: 'absolute', left: '10px', top: '50%',
-                                        transform: 'translateY(-50%)', fontSize: '13px', color: 'var(--text-muted)', pointerEvents: 'none',
-                                    }}>🔍</span>
+                                        transform: 'translateY(-50%)', color: 'var(--text-muted)', pointerEvents: 'none',
+                                    }} />
                                     {searchQuery && (
                                         <button
+                                            type="button"
+                                            aria-label="Aramayı temizle"
                                             onClick={() => setSearchQuery("")}
                                             style={{
                                                 position: 'absolute', right: '6px', top: '50%', transform: 'translateY(-50%)',
                                                 background: 'transparent', border: 'none', color: 'var(--text-muted)',
                                                 cursor: 'pointer', fontSize: '12px', padding: '4px', lineHeight: 1,
                                             }}
-                                        >✕</button>
+                                        ><X size={14} /></button>
                                     )}
+                                </div>
+
+                                <div className="forum-sort-segment" role="group" aria-label="Başlık sıralaması">
+                                    <button
+                                        type="button"
+                                        aria-pressed={sortBy === 'new'}
+                                        className={sortBy === 'new' ? 'active' : ''}
+                                        onClick={() => setSortBy('new')}
+                                    >
+                                        <Clock size={14} /> Son hareket
+                                    </button>
+                                    <button
+                                        type="button"
+                                        aria-pressed={sortBy === 'popular'}
+                                        className={sortBy === 'popular' ? 'active' : ''}
+                                        onClick={() => setSortBy('popular')}
+                                    >
+                                        <TrendingUp size={14} /> En çok yanıt
+                                    </button>
                                 </div>
 
                                 {/* Ekşi Sözlük-style Pagination */}

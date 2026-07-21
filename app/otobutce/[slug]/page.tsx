@@ -28,6 +28,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: category.seoTitle,
     description: category.seoDesc,
     keywords: `araba, ikinci el, araç önerisi, ${category.title} araba, ${category.title} araçlar`,
+    alternates: { canonical: `https://otosoz.com/otobutce/${category.slug}` },
+    openGraph: {
+      title: category.seoTitle,
+      description: category.seoDesc,
+      url: `https://otosoz.com/otobutce/${category.slug}`,
+      type: "article",
+    },
   };
 }
 

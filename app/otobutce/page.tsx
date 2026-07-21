@@ -11,7 +11,14 @@ import { ChevronRight, Wallet, Target, Info, Lightbulb, TrendingUp, ShieldCheck,
 export const metadata: Metadata = {
   title: "Bütçeye Göre Araç Önerileri 2026 | OtoBütçe",
   description: "Bütçenizi seçin, uzmanlarımızın önerdiği en mantıklı, az yakan ve masrafsız ikinci el araçları anında keşfedin. Güncel piyasa analizleri.",
-  keywords: "bütçeye göre araç, fiyata göre araba, 200 bin tl araç, 500 bin tl araba, oto bütçe, ikinci el araba tavsiyesi"
+  keywords: "bütçeye göre araç, fiyata göre araba, 200 bin tl araç, 500 bin tl araba, oto bütçe, ikinci el araba tavsiyesi",
+  alternates: { canonical: "https://otosoz.com/otobutce" },
+  openGraph: {
+    title: "Bütçeye Göre Araç Önerileri 2026 | OtoBütçe",
+    description: "Bütçenize göre en mantıklı, az yakan ve masrafsız ikinci el araç önerilerini karşılaştırın.",
+    url: "https://otosoz.com/otobutce",
+    type: "website",
+  },
 };
 
 // Design constants

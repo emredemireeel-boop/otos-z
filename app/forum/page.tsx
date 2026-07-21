@@ -3,7 +3,8 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getAdminDb, initError } from "@/lib/firebaseAdmin";
-import { MessageSquare, Eye, Clock, TrendingUp, Search, Plus } from "lucide-react";
+import { MessageSquare, Eye, TrendingUp, Search, Plus } from "lucide-react";
+import styles from "./forum.module.css";
 
 // 15 dk'da bir yeniden üret — yeni başlıklar hızla forum hub'ında görünür
 export const revalidate = 900;
@@ -17,10 +18,15 @@ interface PageProps {
 // Forum kategorileri (thread.category değerleriyle eşleşir)
 const FORUM_CATEGORIES: { slug: string; name: string }[] = [
     { slug: "genel", name: "Genel" },
-    { slug: "teknik", name: "Teknik" },
-    { slug: "deneyim", name: "Deneyim" },
-    { slug: "marka", name: "Marka" },
+    { slug: "teknik-ariza", name: "Teknik & Arıza" },
+    { slug: "bakim-tamir", name: "Bakım & Tamir" },
+    { slug: "modifiye-aksesuar", name: "Modifiye & Aksesuar" },
+    { slug: "elektrikli-hibrit", name: "Elektrikli & Hibrit" },
+    { slug: "lastik-jant", name: "Lastik & Jant" },
+    { slug: "sigorta-hukuk", name: "Sigorta & Hukuk" },
     { slug: "alim-satim", name: "Alım-Satım" },
+    { slug: "deneyim-inceleme", name: "Deneyim & İnceleme" },
+    { slug: "marka-model", name: "Marka & Model" },
 ];
 
 function createSlug(text: string): string {
@@ -202,7 +208,7 @@ export default async function ForumHubPage({ searchParams }: PageProps) {
                         </p>
 
                         {/* Kategori sekmeleri */}
-                        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                        <div className={styles.categoryScroller} aria-label="Forum kategorileri">
                             <Link href="/forum" style={pillStyle(!cat)}>Tümü</Link>
                             {FORUM_CATEGORIES.map(c => (
                                 <Link key={c.slug} href={`/forum?kategori=${c.slug}`} style={pillStyle(cat?.slug === c.slug)}>{c.name}</Link>
@@ -213,15 +219,21 @@ export default async function ForumHubPage({ searchParams }: PageProps) {
 
                 <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "24px" }}>
                     {/* Özet + Yeni Başlık */}
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", marginBottom: "20px", flexWrap: "wrap" }}>
-                        <div style={{ display: "flex", gap: "20px", fontSize: "13px", color: "var(--text-muted)" }}>
+                    <div className={styles.summaryBar}>
+                        <div className={styles.summaryStats}>
                             <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><MessageSquare size={14} /> {threads.length} konu</span>
                             <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><TrendingUp size={14} /> {totalEntries.toLocaleString("tr-TR")} yanıt</span>
                             <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><Eye size={14} /> {totalViews.toLocaleString("tr-TR")} görüntülenme</span>
                         </div>
-                        <Link href="/?yeni=1" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 18px", background: "var(--primary)", color: "white", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "13px" }}>
-                            <Plus size={16} /> Yeni Başlık Aç
-                        </Link>
+                        <div className={styles.summaryActions}>
+                            <form action="/" method="get" className={styles.searchForm}>
+                                <Search size={15} aria-hidden="true" />
+                                <input name="q" type="search" aria-label="Forumda ara" placeholder="Forumda ara..." />
+                            </form>
+                            <Link href="/?yeni=1" className={styles.newTopicLink}>
+                                <Plus size={16} /> Yeni Başlık Aç
+                            </Link>
+                        </div>
                     </div>
 
                     {/* Konu listesi */}
@@ -234,15 +246,15 @@ export default async function ForumHubPage({ searchParams }: PageProps) {
                     ) : (
                         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                             {threads.map(t => (
-                                <Link key={t.id} href={t.url} style={{ textDecoration: "none" }}>
-                                    <article style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "14px", padding: "18px 20px", display: "flex", gap: "16px", alignItems: "flex-start", transition: "border-color 0.15s" }}>
+                                <Link key={t.id} href={t.url} className={styles.threadLink}>
+                                    <article className={styles.threadCard}>
                                         <div style={{ flex: 1, minWidth: 0 }}>
                                             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px", flexWrap: "wrap" }}>
                                                 <span style={{ fontSize: "11px", fontWeight: "700", color: "var(--text-muted)", background: "var(--secondary)", padding: "3px 9px", borderRadius: "6px" }}>{t.category}</span>
                                                 <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>@{t.authorUsername}</span>
                                                 {t.lastActivity > 0 && <span style={{ fontSize: "12px", color: "var(--text-subtle)" }}>· {timeAgo(t.lastActivity)}</span>}
                                             </div>
-                                            <h2 style={{ fontSize: "16px", fontWeight: "600", color: "var(--foreground)", marginBottom: "6px", lineHeight: 1.4 }}>{t.title}</h2>
+                                            <h2 className={styles.threadTitle}>{t.title}</h2>
                                             {t.description && (
                                                 <p style={{ fontSize: "13px", color: "var(--text-muted)", lineHeight: 1.5, overflow: "hidden", textOverflow: "ellipsis", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", margin: 0 }}>{t.description}</p>
                                             )}
@@ -251,7 +263,7 @@ export default async function ForumHubPage({ searchParams }: PageProps) {
                                                 <span style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}><Eye size={13} /> {t.views} görüntülenme</span>
                                             </div>
                                         </div>
-                                        <div style={{ textAlign: "center", flexShrink: 0, minWidth: "56px" }}>
+                                        <div className={styles.answerCount}>
                                             <div style={{ fontSize: "24px", fontWeight: "700", color: "var(--foreground)" }}>{t.entryCount}</div>
                                             <div style={{ fontSize: "11px", color: "var(--text-muted)" }}>yanıt</div>
                                         </div>

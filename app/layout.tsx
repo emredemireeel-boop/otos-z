@@ -6,7 +6,9 @@ export const metadata: Metadata = {
     metadataBase: new URL('https://otosoz.com'),
     title: {
         default: "Otosöz - Türkiye'nin En Büyük Otomobil Platformu",
-        template: '%s | Otosöz',
+        // Alt sayfalar kendi marka eklerini yönetiyor. Burada tekrar eklemek
+        // "... | OtoSöz | Otosöz" biçiminde yinelenen başlıklar üretiyordu.
+        template: '%s',
     },
     description: "OtoSöz: Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı, ikinci el rehberi ve 50.000+ otomotiv verisi. Türkiye'nin en kapsamlı otomobil platformu.",
     keywords: [
@@ -24,9 +26,6 @@ export const metadata: Metadata = {
         apple: '/dark_logo.svg',
     },
     manifest: '/manifest.json',
-    alternates: {
-        canonical: 'https://otosoz.com',
-    },
     robots: {
         index: true,
         follow: true,
@@ -65,10 +64,6 @@ export const metadata: Metadata = {
         creator: '@otosoz',
     },
     category: 'automotive',
-    other: {
-        'google-site-verification': 'GOOGLE_VERIFICATION_CODE',
-        'msvalidate.01': 'BING_VERIFICATION_CODE',
-    },
 };
 
 import { AuthProvider } from "@/context/AuthContext";
@@ -113,34 +108,6 @@ const jsonLd = {
             description: 'Türkiye\'nin #1 Otomotiv Bilgi Platformu',
             publisher: { '@id': 'https://otosoz.com/#organization' },
             inLanguage: 'tr-TR',
-            // Google Sitelinks Search Box — Arama kutusunu doğrudan SERP'e taşır
-            potentialAction: {
-                '@type': 'SearchAction',
-                target: {
-                    '@type': 'EntryPoint',
-                    urlTemplate: 'https://otosoz.com/sozluk?q={search_term_string}',
-                },
-                'query-input': 'required name=search_term_string',
-            },
-        },
-        {
-            '@type': 'WebPage',
-            '@id': 'https://otosoz.com/#webpage',
-            url: 'https://otosoz.com',
-            name: 'OtoSöz — Türkiye\'nin #1 Otomotiv Bilgi Platformu',
-            isPartOf: { '@id': 'https://otosoz.com/#website' },
-            about: { '@id': 'https://otosoz.com/#organization' },
-            description: 'Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı ve 50.000+ otomotiv verisi.',
-            inLanguage: 'tr-TR',
-        },
-        {
-            // BreadcrumbList — Google'da breadcrumb zengin snippet'i tetikler
-            // Ana layout'ta sadece kök öğe; alt sayfalar kendi breadcrumb'larını tanımlar
-            '@type': 'BreadcrumbList',
-            '@id': 'https://otosoz.com/#breadcrumb',
-            itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://otosoz.com' },
-            ],
         },
     ],
 };

@@ -175,6 +175,7 @@ export default function Navbar() {
         { name: 'HABERLER', href: '/haberler' },
         { name: 'OTOHESAP', href: '/otohesap/yakit-hesaplama' },
         { name: 'OTOBÜTÇE', href: '/otobutce' },
+        { name: 'OTO PAZARI', href: '/acik-oto-pazari' },
         { name: 'ETKİNLİKLER', href: '/etkinlikler' },
         { name: 'GÜVENMETRE', href: '/guvenmetre' },
         { name: 'PİYASALAR', href: '/piyasalar' },

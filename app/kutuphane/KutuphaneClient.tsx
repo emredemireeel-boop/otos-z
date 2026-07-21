@@ -30,6 +30,7 @@ import TrafikIsaretleriSection from "./trafik-isaretleri-section";
 import NasilYapilirSection from "./nasil-yapilir-section";
 import trafikCezalariData from "@/data/trafik_cezalari.json";
 import obdCodes from "@/data/obd-codes.json";
+import { createSeoSlug } from "@/lib/slug";
 
 // Types for Library Guides
 interface GuideDetail {
@@ -167,30 +168,6 @@ export default function LibraryPage() {
 
     const currentTab = tabSlugs[activeTab] || tabSlugs[0];
 
-    // Dynamic page title & meta description for SEO
-    useEffect(() => {
-        document.title = currentTab.title;
-
-        // Update meta description
-        let metaDesc = document.querySelector('meta[name="description"]');
-        if (!metaDesc) {
-            metaDesc = document.createElement('meta');
-            metaDesc.setAttribute('name', 'description');
-            document.head.appendChild(metaDesc);
-        }
-        metaDesc.setAttribute('content', currentTab.description);
-
-        // Update canonical URL  
-        let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-        if (!canonical) {
-            canonical = document.createElement('link');
-            canonical.setAttribute('rel', 'canonical');
-            document.head.appendChild(canonical);
-        }
-        const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
-        canonical.setAttribute('href', activeTab === 0 ? `${baseUrl}/kutuphane` : `${baseUrl}/kutuphane?kategori=${currentTab.slug}`);
-    }, [activeTab]);
-
     const setActiveTab = (index: number) => {
         const slug = tabSlugs[index].slug;
         if (index === 0) {
@@ -207,21 +184,6 @@ export default function LibraryPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [guidePage, setGuidePage] = useState(1);
     const GUIDES_PER_PAGE = 10;
-
-    // Helper for URL slugs
-    const createSlug = (text: string) => {
-        const trMap: { [key: string]: string } = {
-            'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
-            'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u',
-        };
-        const slug = text.replace(/[çğıöşüÇĞİÖŞÜ]/g, match => trMap[match] || match)
-            .toLowerCase()
-            .replace(/[^a-z0-9\s-]/g, '')
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-')
-            .trim();
-        return slug;
-    };
 
     // Load JSON data
     useEffect(() => {
@@ -600,7 +562,7 @@ export default function LibraryPage() {
 
                             <div className="grid-2col" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
                                 {paginatedGuides.map((guide) => (
-                                    <Link key={guide.id} href={`/makale/${createSlug(guide.title)}--${(guide as any).urlId || guide.id}`} style={{ textDecoration: 'none' }}>
+                 <Link key={guide.id} href={`/makale/${createSeoSlug(guide.title)}--${(guide as any).urlId || guide.id}`} style={{ textDecoration: 'none' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
@@ -766,7 +728,7 @@ export default function LibraryPage() {
                             {/* Daily Tips */}
                             {filteredInteresting.dailyTips.length > 0 && <SectionCarousel title="Günlük İpuçları" icon={<Lightbulb color="#F59E0B" />}>
                                 {filteredInteresting.dailyTips.map((tip: DailyTip) => (
-                                    <Link key={tip.id} href={`/kutuphane/ilginc/${createSlug(tip.title)}-${tip.id}`} style={{ textDecoration: 'none', minWidth: '280px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                    <Link key={tip.id} href={`/kutuphane/ilginc/${createSeoSlug(tip.title)}-${tip.id}`} style={{ textDecoration: 'none', minWidth: '280px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
@@ -790,7 +752,7 @@ export default function LibraryPage() {
                             {/* Checklists */}
                             {filteredInteresting.checklists.length > 0 && <SectionCarousel title="Kontrol Listeleri" icon={<CheckCircle color="#43E97B" />}>
                                 {filteredInteresting.checklists.map((checklist: any) => (
-                                    <Link key={checklist.id} href={`/kutuphane/ilginc/${createSlug(checklist.title)}-${checklist.id}`} style={{ textDecoration: 'none', minWidth: '350px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                    <Link key={checklist.id} href={`/kutuphane/ilginc/${createSeoSlug(checklist.title)}-${checklist.id}`} style={{ textDecoration: 'none', minWidth: '350px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
@@ -828,7 +790,7 @@ export default function LibraryPage() {
                             {/* Do & Don't */}
                             {filteredInteresting.doAndDont.length > 0 && <SectionCarousel title="Yap & Yapma" icon={<ThumbsUp color="#3B82F6" />}>
                                 {filteredInteresting.doAndDont.map((item: DoAndDontData) => (
-                                    <Link key={item.id} href={`/kutuphane/ilginc/${createSlug(item.title)}-${item.id}`} style={{ textDecoration: 'none', minWidth: '400px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                    <Link key={item.id} href={`/kutuphane/ilginc/${createSeoSlug(item.title)}-${item.id}`} style={{ textDecoration: 'none', minWidth: '400px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',
@@ -872,7 +834,7 @@ export default function LibraryPage() {
                             {/* Quick Facts */}
                             {filteredInteresting.quickFacts.length > 0 && <SectionCarousel title="Hızlı Bilgiler" icon={<Zap color="#F59E0B" />}>
                                 {filteredInteresting.quickFacts.map((fact: QuickFactData) => (
-                                    <Link key={fact.id} href={`/kutuphane/ilginc/${createSlug(fact.text.slice(0, 40))}-${fact.id}`} style={{ textDecoration: 'none', minWidth: '300px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
+                                    <Link key={fact.id} href={`/kutuphane/ilginc/${createSeoSlug(fact.text.slice(0, 40))}-${fact.id}`} style={{ textDecoration: 'none', minWidth: '300px', flex: '0 0 auto', scrollSnapAlign: 'start', display: 'block' }}>
                                         <div style={{
                                             background: 'var(--card-bg)',
                                             border: '1px solid var(--card-border)',

@@ -49,15 +49,37 @@ function createSlug(text: string) {
         .trim();
 }
 
+function truncateMetaDescription(text: string, maxLength = 160) {
+    if (text.length <= maxLength) return text;
+    const shortened = text.slice(0, maxLength - 1);
+    const lastSpace = shortened.lastIndexOf(' ');
+    return `${shortened.slice(0, lastSpace > 100 ? lastSpace : shortened.length).trim()}…`;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
     
     // Check if it's a brand
     const brandName = Object.keys(carModelsData).find(k => createSlug(k) === slug.toLowerCase());
     if (brandName) {
+        const models = (carModelsData as Record<string, string[]>)[brandName] || [];
+        const modelSample = models.slice(0, 4).join(', ');
+        const description = truncateMetaDescription(`${brandName} ${modelSample ? `${modelSample} gibi modellerde ` : ''}görülebilen OBD-II arıza kodlarının Türkçe anlamlarını, belirtilerini, nedenlerini ve çözüm adımlarını sorgulayın.`);
         return {
-            title: `${brandName} Arıza Kodları ve Çözümleri | OtoSöz`,
-            description: `${brandName} marka aracınızda karşılaştığınız tüm OBD-II arıza kodlarının anlamları, belirtileri ve çözüm yolları.`,
+            title: `${brandName} OBD Arıza Kodları ve Çözümleri | OtoSöz`,
+            description,
+            keywords: [`${brandName} arıza kodları`, `${brandName} OBD kodları`, `${brandName} motor arıza kodu`, 'OBD-II kod sorgulama'],
+            openGraph: {
+                title: `${brandName} OBD Arıza Kodları | OtoSöz`,
+                description,
+                url: `https://otosoz.com/obd/${slug.toLowerCase()}`,
+                type: 'website',
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title: `${brandName} OBD Arıza Kodları | OtoSöz`,
+                description,
+            },
             alternates: {
                 canonical: `https://otosoz.com/obd/${slug.toLowerCase()}`,
             },
@@ -75,15 +97,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const description = `${upperCode} (${codeData.title}) OBD-II/EOBD arıza kodu rehberi ✓ Belirtiler: ${codeData.symptoms.slice(0, 2).join(', ')} ✓ Nedenleri ve çözüm yolları ✓ Tahmini onarım maliyeti ✓ DTC ${upperCode} [2026 Güncel]`;
 
-    const ogUrl = `/api/og?title=${encodeURIComponent(upperCode + ' - ' + codeData.title)}&desc=${encodeURIComponent(description.slice(0, 160))}`;
+    const metaDescription = truncateMetaDescription(description);
+    const ogUrl = `/api/og?title=${encodeURIComponent(upperCode + ' - ' + codeData.title)}&desc=${encodeURIComponent(metaDescription)}`;
 
     return {
         title: `${upperCode} Arıza Kodu Nedir? Nedenleri ve Çözümü [2026] | OtoSöz`,
-        description: description.slice(0, 160),
+        description: metaDescription,
         keywords: [`${upperCode}`, `${upperCode} arıza kodu`, `${upperCode} nedir`, `OBD ${upperCode}`, `DTC ${upperCode}`, `EOBD ${upperCode}`, `${codeData.title}`, 'arıza kodu sorgulama', 'OBD kodları', `${upperCode} çözümü`, `${upperCode} tamiri`, `${upperCode} onarım maliyeti`],
         openGraph: {
             title: `${upperCode} - ${codeData.title} | OtoSöz`,
-            description: description.slice(0, 160),
+            description: metaDescription,
             type: 'article',
             url: `https://otosoz.com/obd/${slug.toLowerCase()}`,
             images: [
@@ -98,7 +121,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         twitter: {
             card: 'summary_large_image',
             title: `${upperCode} - ${codeData.title} | OtoSöz`,
-            description: description.slice(0, 160),
+            description: metaDescription,
             images: [ogUrl],
         },
         alternates: {
@@ -113,9 +136,42 @@ export default async function OBDSlugPage({ params }: PageProps) {
     // 1. Check if slug is a Brand
     const brandName = Object.keys(carModelsData).find(k => createSlug(k) === slug.toLowerCase());
     if (brandName) {
-        // Sadece ilk 50 kodu gönder — client'ta arama ile geri kalanı API'den çeker
-        const brandCodes = (obdCodes as ObdCode[]).slice(0, 50);
-        return <BrandHubClient brandName={brandName} obdCodes={brandCodes} />;
+        const uniqueCodes = Array.from(
+            new Map((obdCodes as ObdCode[]).map(code => [code.code.toUpperCase(), code])).values()
+        );
+        const brandCodes = ['P', 'B', 'C', 'U'].flatMap(type =>
+            uniqueCodes.filter(code => code.type === type).slice(0, 12)
+        );
+        const brandModels = (carModelsData as Record<string, string[]>)[brandName] || [];
+        const brandUrl = `https://otosoz.com/obd/${slug.toLowerCase()}`;
+        const brandDescription = `${brandName} araçlarda görülebilen evrensel OBD-II arıza kodlarının anlamları, belirtileri, nedenleri ve çözüm yolları.`;
+        const brandSchema = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "CollectionPage",
+                    "name": `${brandName} OBD Arıza Kodları`,
+                    "description": brandDescription,
+                    "url": brandUrl,
+                    "isPartOf": { "@type": "WebSite", "name": "OtoSöz", "url": "https://otosoz.com" },
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://otosoz.com" },
+                        { "@type": "ListItem", "position": 2, "name": "OBD Arıza Kodları", "item": "https://otosoz.com/obd" },
+                        { "@type": "ListItem", "position": 3, "name": brandName, "item": brandUrl },
+                    ],
+                },
+            ],
+        };
+
+        return (
+            <>
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(brandSchema) }} />
+                <BrandHubClient brandName={brandName} obdCodes={brandCodes} brandModels={brandModels} />
+            </>
+        );
     }
 
     // 2. Check if slug is a Code

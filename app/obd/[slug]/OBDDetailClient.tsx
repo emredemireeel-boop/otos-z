@@ -640,8 +640,8 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                             {[
                                 { label: 'OBD Arıza Kodları', href: '/obd', icon: <Cpu size={14} /> },
-                                { label: 'Gösterge Işıkları', href: '/kutuphane/gosterge-isiklari', icon: <AlertTriangle size={14} /> },
-                                { label: 'Bakım Rehberi', href: '/bakim-rehberi', icon: <Wrench size={14} /> },
+                                { label: 'Gösterge Işıkları', href: '/kutuphane?kategori=gosterge-isiklari', icon: <AlertTriangle size={14} /> },
+                                { label: 'Bakım Rehberi', href: '/kutuphane?kategori=bakim-zamanlari', icon: <Wrench size={14} /> },
                                 { label: 'Forumda Tartış', href: '/forum', icon: <MessageSquare size={14} /> },
                             ].map((link, i) => (
                                 <Link key={i} href={link.href} style={{ textDecoration: 'none' }}>
