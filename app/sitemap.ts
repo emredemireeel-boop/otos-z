@@ -6,6 +6,7 @@ import { getAdminDb, initError } from '@/lib/firebaseAdmin';
 import { events } from '@/data/events';
 import { createSeoSlug as createSlug } from '@/lib/slug';
 import { OPEN_CAR_MARKETS, getMarketPath } from '@/data/open-car-markets';
+import { dictionaryTerms } from '@/data/dictionary';
 
 // Sitemap'in 15 dakikada bir yeniden oluşturulması — yeni başlık/entry'ler hızla Google'a gider
 export const revalidate = 900;
@@ -322,21 +323,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     // 6. Sözlük
-    try {
-        const dictionaryContent = fs.readFileSync(path.join(process.cwd(), 'data', 'dictionary.ts'), 'utf8');
-        const matches = dictionaryContent.match(/id:\s*["']([^"']+)["']/g);
-        if (matches) {
-            matches.forEach(match => {
-                const id = match.split(/["']/)[1];
-                sitemapEntries.push({
-                    url: `${BASE_URL}/sozluk/${id}`,
-                    lastModified: new Date(),
-                    changeFrequency: 'monthly',
-                    priority: 0.6,
-                });
-            });
-        }
-    } catch (e) {}
+    // Sayfa yalnızca yerel sözlük veri kümesini sunuyor. Firestore'daki veya
+    // Unicode kimlikli eski kayıtları sitemap'e eklemek, 200 kodlu bulunamadı
+    // sayfaları ve soft 404 üretirdi. Yalnızca gerçekten çözümlenen canonical
+    // kimlikleri yayınla.
+    const canonicalDictionaryIds = new Set(
+        dictionaryTerms.map(term => (
+            term.id === 'amortisör_takozu' ? 'amortisor_takozu' : term.id
+        )),
+    );
+    canonicalDictionaryIds.forEach(id => {
+        sitemapEntries.push({
+            url: `${BASE_URL}/sozluk/${id}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        });
+    });
 
     // 7. Gösterge Paneli Işıkları
     const faultLights = safeReadFile('fault_lights.json');
@@ -518,24 +521,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
     }
 
-    // 16. Dinamik Sözlük Terimleri (Firestore'dan)
-    if (!initError) {
-        try {
-            const db = getAdminDb();
-            const dictSnapshot = await db.collection('dictionary')
-                .limit(500)
-                .get();
-            dictSnapshot.forEach(doc => {
-                sitemapEntries.push({
-                    url: `${BASE_URL}/sozluk/${doc.id}`,
-                    lastModified: new Date(),
-                    changeFrequency: 'monthly',
-                    priority: 0.6,
-                });
-            });
-        } catch (e) {}
-    }
-
     // Aynı URL farklı veri kümelerinden birden fazla kez gelebiliyor. Arama
     // motorlarına her canonical URL'yi yalnızca bir kez gönder.
     const uniqueEntries = new Map<string, MetadataRoute.Sitemap[number]>();
@@ -558,4 +543,3 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return entry;
     });
 }
-

@@ -274,6 +274,11 @@ const nextConfig: NextConfig = {
                 destination: '/kutuphane?kategori=tuvturk-muayene',
                 permanent: true,
             },
+            {
+                source: '/kutuphane/nereye-gitmeli',
+                destination: '/kutuphane?kategori=nereye-gitmeli',
+                permanent: true,
+            },
             // ── Eski /kutuphane/rehber/ URL'leri → /kutuphane/{guideId} ──
             {
                 source: '/kutuphane/rehber/:guideId',
@@ -284,6 +289,16 @@ const nextConfig: NextConfig = {
             {
                 source: '/yakit-hesaplama',
                 destination: '/otohesap/yakit-hesaplama',
+                permanent: true,
+            },
+            {
+                source: '/otohesap/kasko-deger',
+                destination: '/otohesap/kasko-deger-sorgulama',
+                permanent: true,
+            },
+            {
+                source: '/sozluk',
+                destination: '/kutuphane?kategori=otomotiv-sozluk',
                 permanent: true,
             },
             // ── Eski /kullanim-kosullari → /kullanim-sartlari ──

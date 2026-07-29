@@ -3,10 +3,13 @@ import type { NextRequest } from 'next/server';
 import libraryGuides from './public/data/library_guides.json';
 import { createSeoSlug } from './lib/slug';
 
-const ARTICLE_CANONICAL_SLUGS = new Map(
-    libraryGuides.guides.map(guide => {
-        const routeId = String(guide.urlId || guide.id);
-        return [routeId, `${createSeoSlug(guide.title)}--${routeId}`] as const;
+const ARTICLE_CANONICAL_SLUGS = new Map<string, string>(
+    libraryGuides.guides.flatMap(guide => {
+        const canonicalRouteId = String(guide.urlId || guide.id);
+        const canonicalSlug = `${createSeoSlug(guide.title)}--${canonicalRouteId}`;
+        const legacyRouteIds = new Set([canonicalRouteId, String(guide.id)]);
+
+        return Array.from(legacyRouteIds, routeId => [routeId, canonicalSlug] as const);
     }),
 );
 
@@ -59,6 +62,22 @@ export function middleware(request: NextRequest) {
     }
 
     const path = request.nextUrl.pathname;
+    const decodedPath = decodeURIComponent(path).toLowerCase();
+
+    // Eski sözlük ve OBD URL'lerini içerik sunabilen güncel adreslere taşı.
+    // Bu yollar geçmişte 200 durum kodlu "bulunamadı" sayfası üreterek
+    // Search Console'da soft 404 olarak görünüyordu.
+    const legacyPathRedirects: Record<string, string> = {
+        '/sozluk/amortisör_takozu': '/sozluk/amortisor_takozu',
+        '/obd/citron': '/obd/citroen',
+        '/obd/alfa romeo': '/obd/alfa-romeo',
+        '/obd/aston martin': '/obd/aston-martin',
+    };
+    const legacyDestination = legacyPathRedirects[decodedPath];
+
+    if (legacyDestination) {
+        return NextResponse.redirect(new URL(legacyDestination, request.url), 308);
+    }
 
     // Eski, Unicode veya sonradan değişmiş makale başlıklarını HTTP düzeyinde
     // tek kalıcı slug'a taşı. Böylece Google aynı içeriği alternatif canonical
@@ -66,7 +85,11 @@ export function middleware(request: NextRequest) {
     if (path.startsWith('/makale/')) {
         const requestedSlug = decodeURIComponent(path.slice('/makale/'.length));
         const routeId = requestedSlug.split('--').at(-1) || '';
-        const canonicalSlug = ARTICLE_CANONICAL_SLUGS.get(routeId);
+        const normalizedRouteId = /^\d{3}$/.test(routeId)
+            ? `guide_${routeId}`
+            : routeId;
+        const canonicalSlug = ARTICLE_CANONICAL_SLUGS.get(routeId)
+            || ARTICLE_CANONICAL_SLUGS.get(normalizedRouteId);
 
         if (canonicalSlug && requestedSlug !== canonicalSlug) {
             const canonicalUrl = request.nextUrl.clone();
@@ -114,4 +137,3 @@ export const config = {
         '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|css|js|woff|woff2|ttf|eot|json|xml|txt|map)).*)',
     ],
 };
-
