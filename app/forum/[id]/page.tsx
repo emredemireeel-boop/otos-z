@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import ForumThreadClient from "./ForumThreadClient";
-import { getThreadBySlug } from "@/lib/forumService";
+import { getThreadPreviewBySlug } from "@/lib/serverThreadService";
 
 interface PageProps {
     params: Promise<{ id: string }>;
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const slug = resolvedParams.id;
 
     try {
-        const thread = await getThreadBySlug(slug);
+        const thread = await getThreadPreviewBySlug(slug);
 
         if (!thread) {
             return {
@@ -61,7 +61,7 @@ export default async function ForumThreadServerPage({ params }: PageProps) {
     let schemaJson = null;
 
     try {
-        const thread = await getThreadBySlug(slug);
+        const thread = await getThreadPreviewBySlug(slug);
         if (thread) {
             schemaJson = {
                 "@context": "https://schema.org",
