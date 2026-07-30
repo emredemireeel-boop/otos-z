@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import UzmanaSorClient from "./UzmanaSorClient";
-import { getThreadPreviewById } from "@/lib/serverThreadService";
+import { getThreadById } from "@/lib/forumService";
 
 interface PageProps {
     params: Promise<{ id: string }>;
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const threadId = resolvedParams.id;
 
     try {
-        const thread = await getThreadPreviewById(threadId);
+        const thread = await getThreadById(threadId);
 
         if (!thread) {
             return {
@@ -61,7 +61,7 @@ export default async function UzmanaSorServerPage({ params }: PageProps) {
     let schemaJson = null;
 
     try {
-        const thread = await getThreadPreviewById(threadId);
+        const thread = await getThreadById(threadId);
         if (thread) {
             schemaJson = {
                 "@context": "https://schema.org",
