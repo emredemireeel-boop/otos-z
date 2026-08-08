@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 import KutuphaneClient from "./KutuphaneClient";
 
 interface PageProps {
@@ -6,6 +7,14 @@ interface PageProps {
 }
 
 const BASE_URL = "https://otosoz.com";
+
+// Eski → yeni kategori eşleştirmesi. Google'ın taradığı eski slug'ları doğru
+// URL'ye 308 permanent redirect ile yönlendirir (200+canonical yerine).
+const LEGACY_CATEGORY_MAP: Record<string, string | null> = {
+    'otoyol-ucretleri': 'otoyol-ve-kopru-ucretleri',
+    'ehliyet-sinifari': 'ehliyet-siniflari', // typo correction
+    'makaleler': null, // null = redirect to /kutuphane (root)
+};
 
 // Her kategori: benzersiz SEO başlığı, açıklaması, anahtar kelimeler ve
 // zengin sonuç (rich result) için FAQ. Bu veri hem metadata hem JSON-LD üretir.
@@ -282,6 +291,26 @@ function buildJsonLd(cat: CatMeta): string {
 export default async function KutuphaneServerPage({ searchParams }: PageProps) {
     const resolvedParams = await searchParams;
     const kategori = typeof resolvedParams.kategori === "string" ? resolvedParams.kategori : null;
+
+    // ── Eski veya geçersiz kategori slug'larını 308 redirect ile doğru URL'ye yönlendir ──
+    // Bu, Google'ın "Doğru standart etikete sahip alternatif sayfa" uyarısını önler.
+    if (kategori) {
+        // 1) Bilinen eski slug → yeni slug eşleştirmesi
+        if (kategori in LEGACY_CATEGORY_MAP) {
+            const newSlug = LEGACY_CATEGORY_MAP[kategori];
+            if (newSlug) {
+                redirect(`/kutuphane?kategori=${newSlug}`);
+            } else {
+                redirect('/kutuphane');
+            }
+        }
+        // 2) Tanınmayan slug → ana kütüphane sayfasına yönlendir
+        const isKnown = CATEGORIES.some(c => c.slug === kategori);
+        if (!isKnown) {
+            redirect('/kutuphane');
+        }
+    }
+
     const cat = resolveCategory(kategori);
 
     return (

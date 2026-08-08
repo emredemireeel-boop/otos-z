@@ -677,7 +677,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
         
         <FloatingActionBar 
             title={`${codeData.code} - ${brandName ? brandName + ' ' : ''}${codeData.title}`} 
-            url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/obd/${brandName ? brandName.toLowerCase() + '/' : ''}${codeData.code.toLowerCase()}`} 
+            url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/obd/${codeData.code.toLowerCase()}`} 
         />
         <Footer />
         </>

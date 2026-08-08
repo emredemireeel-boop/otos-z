@@ -221,12 +221,6 @@ const nextConfig: NextConfig = {
                 destination: '/arac-dna/citroen/c3-12-puretech/:path*',
                 permanent: true,
             },
-            {
-                // /obd/{brand}/{code} → /obd/{code} — duplicate content önleme
-                source: '/obd/:brand/:code',
-                destination: '/obd/:code',
-                permanent: true,
-            },
             // Eski kütüphane kategori yollarını tek canonical kategori URL'sinde birleştir.
             // Bu adresler rehber detay rotasına düşüp ana sayfayı canonical gösteriyordu.
             {
@@ -235,23 +229,9 @@ const nextConfig: NextConfig = {
                 permanent: true,
             },
             {
-                source: '/kutuphane/kaza-ilkyardim',
-                destination: '/kutuphane?kategori=kaza-ilkyardim',
-                permanent: true,
-            },
-            {
-                source: '/kutuphane/dolandiricilik-rehberi',
-                destination: '/kutuphane?kategori=dolandiricilik-rehberi',
-                permanent: true,
-            },
-            {
-                source: '/kutuphane/gosterge-isiklari',
-                destination: '/kutuphane?kategori=gosterge-isiklari',
-                permanent: true,
-            },
-            {
-                source: '/kutuphane/sigorta-rehberi',
-                destination: '/kutuphane?kategori=sigorta-rehberi',
+                // /kutuphane/tuvturk → slug adı farklı olduğu için ayrıca belirt
+                source: '/kutuphane/tuvturk',
+                destination: '/kutuphane?kategori=tuvturk-muayene',
                 permanent: true,
             },
             {
@@ -259,26 +239,37 @@ const nextConfig: NextConfig = {
                 destination: '/kutuphane?kategori=ehliyet-siniflari',
                 permanent: true,
             },
-            {
-                source: '/kutuphane/lastik-rehberi',
-                destination: '/kutuphane?kategori=lastik-rehberi',
+            // Aşağıdaki kategori slug'ları path ve query-string slug'ı birebir aynı:
+            ...[
+                'ilginc-bilgiler',
+                'otomotiv-sozluk',
+                'trafik-isaretleri',
+                'obd-ariza-kodlari',
+                'gosterge-isiklari',
+                'trafik-cezalari',
+                'lastik-rehberi',
+                'ikinci-el-rehberi',
+                'kaza-ilkyardim',
+                'mevsimsel-bakim',
+                'sigorta-rehberi',
+                'bakim-zamanlari',
+                'arac-segmentleri',
+                'plaka-kodlari',
+                'noter-islemleri',
+                'ehliyet-siniflari',
+                'kasko-deger',
+                'hgs-siniflari',
+                'dolandiricilik-rehberi',
+                'nereye-gitmeli',
+                'hasar-sorgulama',
+                'efsane-avcilari',
+                'nasil-yapilir',
+                'otoyol-ve-kopru-ucretleri',
+            ].map(slug => ({
+                source: `/kutuphane/${slug}`,
+                destination: `/kutuphane?kategori=${slug}`,
                 permanent: true,
-            },
-            {
-                source: '/kutuphane/efsane-avcilari',
-                destination: '/kutuphane?kategori=efsane-avcilari',
-                permanent: true,
-            },
-            {
-                source: '/kutuphane/tuvturk',
-                destination: '/kutuphane?kategori=tuvturk-muayene',
-                permanent: true,
-            },
-            {
-                source: '/kutuphane/nereye-gitmeli',
-                destination: '/kutuphane?kategori=nereye-gitmeli',
-                permanent: true,
-            },
+            })),
             // ── Eski /kutuphane/rehber/ URL'leri → /kutuphane/{guideId} ──
             {
                 source: '/kutuphane/rehber/:guideId',
