@@ -11,13 +11,14 @@ import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 import ExpertModal from "@/components/ExpertModal";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
+import { SAMPLE_EXPERT_QUESTIONS } from "@/data/showcase-content";
 
 const CATEGORIES = ["Tümü", "Motor", "Sanzıman", "Lastik", "Bakım", "Elektrik", "Fren", "Süspansiyon", "Diğer"];
 
 export default function UzmanaSorPage() {
     const { user } = useAuth();
     const [threads, setThreads] = useState<ForumThread[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [showModal, setShowModal] = useState(false);
     const [showExpertModal, setShowExpertModal] = useState(false);
@@ -35,6 +36,11 @@ export default function UzmanaSorPage() {
     const filteredThreads = selectedCategory === "Tümü"
         ? threads
         : threads.filter(t => t.tags.includes(selectedCategory));
+    const filteredSamples = selectedCategory === "Tümü"
+        ? SAMPLE_EXPERT_QUESTIONS
+        : SAMPLE_EXPERT_QUESTIONS.filter(question => (
+            question.category === selectedCategory || question.tags.includes(selectedCategory)
+        ));
 
     const handleCreate = async () => {
         if (!user || !newQ.title.trim() || !newQ.content.trim() || creating) return;
@@ -67,7 +73,7 @@ export default function UzmanaSorPage() {
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>Uzmana Sor</h1>
                                 <span style={{ padding: '4px 10px', background: 'var(--secondary)', color: 'var(--text-muted)', fontSize: '11px', borderRadius: '9999px' }}>
-                                    {threads.length} Soru
+                                    {threads.length + SAMPLE_EXPERT_QUESTIONS.length} Soru
                                 </span>
                             </div>
                             <button onClick={() => {
@@ -93,6 +99,10 @@ export default function UzmanaSorPage() {
                                     color: selectedCategory === cat ? 'white' : 'var(--foreground)',
                                 }}>{cat}</button>
                             ))}
+                        </div>
+                        <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '12px' }}>
+                            <Sparkles size={14} color="var(--primary)" />
+                            İlk üç kayıt sayfa kullanımını göstermek amacıyla hazırlanmış örnek içeriktir.
                         </div>
                     </div>
                 </div>
@@ -132,6 +142,45 @@ export default function UzmanaSorPage() {
                                     </div>
 
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                                        {filteredSamples.map(question => (
+                                            <Link key={question.id} href={`/uzmana-sor/${question.id}`} style={{ textDecoration: 'none' }}>
+                                                <div style={{
+                                                    background: 'var(--card-bg)', border: '1px solid rgba(59, 130, 246, 0.35)',
+                                                    borderRadius: '16px', padding: '24px', cursor: 'pointer', transition: 'all 0.2s',
+                                                }}
+                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
+                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.35)'; }}
+                                                >
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
+                                                        <div style={{ flex: 1, minWidth: '200px' }}>
+                                                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                                                                <span style={{ padding: '4px 10px', background: 'rgba(59, 130, 246, 0.12)', color: '#3b82f6', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>Örnek içerik</span>
+                                                                {question.tags.slice(0, 2).map(tag => (
+                                                                    <span key={tag} style={{ padding: '4px 10px', background: 'rgba(255, 107, 0, 0.1)', color: 'var(--primary)', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>{tag}</span>
+                                                                ))}
+                                                                <span style={{ padding: '4px 10px', background: 'rgba(34, 197, 94, 0.1)', color: '#22c55e', fontSize: '11px', borderRadius: '6px', fontWeight: '700' }}>Yanıtlandı</span>
+                                                            </div>
+                                                            <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>{question.title}</h3>
+                                                            <p style={{ fontSize: '13px', lineHeight: 1.6, color: 'var(--text-muted)', margin: '0 0 10px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{question.description}</p>
+                                                            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '13px', color: 'var(--text-muted)' }}>
+                                                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Users size={14} /> {question.authorUsername}</span>
+                                                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Clock size={14} /> {question.dateLabel}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+                                                            <div style={{ textAlign: 'center' }}>
+                                                                <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--primary)' }}>{Math.max(0, question.entries.length - 1)}</div>
+                                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Yanıt</div>
+                                                            </div>
+                                                            <div style={{ textAlign: 'center' }}>
+                                                                <div style={{ fontSize: '20px', fontWeight: '700', color: '#3b82f6' }}>—</div>
+                                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Örnek</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        ))}
                                         {filteredThreads.map(thread => (
                                             <Link key={thread.id} href={`/uzmana-sor/${thread.id}`} style={{ textDecoration: 'none' }}>
                                                 <div style={{
@@ -173,7 +222,7 @@ export default function UzmanaSorPage() {
                                         ))}
                                     </div>
 
-                                    {filteredThreads.length === 0 && (
+                                    {filteredThreads.length === 0 && filteredSamples.length === 0 && (
                                         <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '60px 24px', textAlign: 'center' }}>
                                             <HelpCircle size={48} color="var(--text-muted)" style={{ marginBottom: '16px' }} />
                                             <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Henüz soru yok</h3>
@@ -196,15 +245,15 @@ export default function UzmanaSorPage() {
                         {/* Right Sidebar */}
                         <aside className="home-right-sidebar">
                             <div style={{ position: 'sticky', top: '100px' }}>
-                                {threads.length > 0 && (
+                                {(threads.length > 0 || SAMPLE_EXPERT_QUESTIONS.length > 0) && (
                                     <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px', marginBottom: '16px' }}>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                                             <Award size={16} color="#fbbf24" />
-                                            <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>Uzmanların Seçimi</h3>
+                                            <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>Örnek uzman soruları</h3>
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                            {threads.slice(0, 3).map(thread => (
-                                                <Link key={`vs-${thread.id}`} href={`/uzmana-sor/${thread.id}`} style={{ textDecoration: 'none' }}>
+                                            {SAMPLE_EXPERT_QUESTIONS.slice(0, 3).map(question => (
+                                                <Link key={`sample-${question.id}`} href={`/uzmana-sor/${question.id}`} style={{ textDecoration: 'none' }}>
                                                     <div style={{
                                                         background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', padding: '12px',
                                                         position: 'relative', transition: 'all 0.2s',
@@ -212,11 +261,11 @@ export default function UzmanaSorPage() {
                                                         onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
                                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
                                                     >
-                                                        <div style={{ position: 'absolute', top: 0, right: 0, background: '#fbbf24', color: 'black', fontSize: '9px', fontWeight: '800', padding: '2px 6px', borderBottomLeftRadius: '6px' }}>VİTRİN</div>
-                                                        <h3 style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px', paddingRight: '30px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{thread.title}</h3>
+                                                        <div style={{ position: 'absolute', top: 0, right: 0, background: '#3b82f6', color: 'white', fontSize: '9px', fontWeight: '800', padding: '2px 6px', borderBottomLeftRadius: '6px' }}>ÖRNEK</div>
+                                                        <h3 style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px', paddingRight: '42px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{question.title}</h3>
                                                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', color: 'var(--text-muted)' }}>
-                                                            <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Users size={10} />{thread.authorUsername}</span>
-                                                            <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={10} />{thread.entryCount}</span>
+                                                            <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Users size={10} />{question.authorUsername}</span>
+                                                            <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><MessageSquare size={10} />{Math.max(0, question.entries.length - 1)}</span>
                                                         </div>
                                                     </div>
                                                 </Link>
@@ -231,11 +280,11 @@ export default function UzmanaSorPage() {
                                     </h3>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                         <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
-                                            <div style={{ fontSize: '20px', fontWeight: '700', color: 'var(--primary)' }}>{threads.length}</div>
+                                            <div style={{ fontSize: '20px', fontWeight: '700', color: 'var(--primary)' }}>{threads.length + SAMPLE_EXPERT_QUESTIONS.length}</div>
                                             <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Toplam Soru</div>
                                         </div>
                                         <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
-                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#22c55e' }}>{threads.filter(t => t.entryCount > 1).length}</div>
+                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#22c55e' }}>{threads.filter(t => t.entryCount > 1).length + SAMPLE_EXPERT_QUESTIONS.length}</div>
                                             <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Yanıtlanan</div>
                                         </div>
                                     </div>

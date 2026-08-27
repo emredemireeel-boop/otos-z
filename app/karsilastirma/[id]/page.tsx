@@ -15,6 +15,56 @@ import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, Exte
 import { sampleListings, formatListingPrice } from "@/data/listings";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
+import { getSampleComparison, type ShowcaseComparison } from "@/data/showcase-content";
+
+function createSampleThread(comparison: ShowcaseComparison): ForumThread {
+    return {
+        id: comparison.id,
+        title: comparison.title,
+        category: 'Karsilastirma',
+        description: comparison.description,
+        authorId: 'sample',
+        authorUsername: comparison.authorUsername,
+        createdAt: null,
+        views: 0,
+        tags: comparison.tags,
+        entryCount: comparison.entries.length + 1,
+        lastEntryAt: null,
+        vehicleVotes: Object.fromEntries(
+            comparison.vehicles.map(vehicle => [
+                vehicle.name,
+                Array.from({ length: vehicle.votes }, (_, index) => `sample-${vehicle.name}-${index}`),
+            ]),
+        ),
+    };
+}
+
+function createSampleEntries(comparison: ShowcaseComparison): ForumEntry[] {
+    const vehicles = comparison.vehicles
+        .map(vehicle => `${vehicle.name}: ${vehicle.href}`)
+        .join('\n');
+    const introduction: ForumEntry = {
+        id: 'ornek-karsilastirma',
+        authorId: 'sample',
+        username: comparison.authorUsername,
+        content: `${comparison.description}\n\nKarsilastirilan Araclar:\n${vehicles}`,
+        createdAt: null,
+        likes: 0,
+        likedBy: [],
+    };
+    return [
+        introduction,
+        ...comparison.entries.map(entry => ({
+            id: entry.id,
+            authorId: 'sample',
+            username: entry.username,
+            content: entry.content,
+            createdAt: null,
+            likes: entry.likes,
+            likedBy: [],
+        })),
+    ];
+}
 
 const parseComparisonContent = (text: string) => {
     if (!text.includes("Karsilastirilan Araclar:")) return { description: text, vehicles: [] };
@@ -25,7 +75,7 @@ const parseComparisonContent = (text: string) => {
     
     const vehicles: {name: string, url: string}[] = [];
     vehiclesText.split('\n').forEach(line => {
-        const match = line.match(/^(.+?):\s*(https?:\/\/[^\s]+)/);
+        const match = line.match(/^(.+?):\s*((?:https?:\/\/|\/)[^\s]+)/);
         if (match) {
             vehicles.push({ name: match[1].trim(), url: match[2].trim() });
         }
@@ -38,45 +88,49 @@ export default function ComparisonDetailPage() {
     const params = useParams();
     const threadId = params.id as string;
     const { user } = useAuth();
+    const sampleComparison = getSampleComparison(threadId);
+    const isSample = Boolean(sampleComparison);
 
-    const [thread, setThread] = useState<ForumThread | null>(null);
-    const [entries, setEntries] = useState<ForumEntry[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [thread, setThread] = useState<ForumThread | null>(() => sampleComparison ? createSampleThread(sampleComparison) : null);
+    const [entries, setEntries] = useState<ForumEntry[]>(() => sampleComparison ? createSampleEntries(sampleComparison) : []);
+    const [loading, setLoading] = useState(!sampleComparison);
     const [newEntry, setNewEntry] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [likingEntry, setLikingEntry] = useState<string | null>(null);
     const [votingVehicle, setVotingVehicle] = useState<string | null>(null);
-    const [randomListings, setRandomListings] = useState<any[]>([]);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const viewCounted = useRef(false);
 
     useEffect(() => {
-        // We subscribe to the thread to get real-time vote updates
+        if (sampleComparison) {
+            setThread(createSampleThread(sampleComparison));
+            setEntries(createSampleEntries(sampleComparison));
+            setLoading(false);
+            return;
+        }
+
         const unsubThread = subscribeToThreads((threads) => {
-            const t = threads.find(th => th.id === threadId);
-            if (t) setThread(t);
+            const currentThread = threads.find(item => item.id === threadId);
+            if (currentThread) setThread(currentThread);
             setLoading(false);
         }, 1000);
 
-        async function loadViews() {
-            if (!viewCounted.current) {
-                viewCounted.current = true;
-                incrementViews(threadId);
-            }
+        if (!viewCounted.current) {
+            viewCounted.current = true;
+            incrementViews(threadId);
         }
-        loadViews();
 
-        // Rastgele ilanları hazırla
-        const shuffled = [...sampleListings].sort(() => 0.5 - Math.random());
-        setRandomListings(shuffled.slice(0, 3));
-    }, [threadId]);
+        return () => unsubThread();
+    }, [sampleComparison, threadId]);
 
     useEffect(() => {
+        if (sampleComparison) return;
         const unsub = subscribeToEntries(threadId, setEntries);
         return () => unsub();
-    }, [threadId]);
+    }, [sampleComparison, threadId]);
 
     const handleVehicleVote = async (vehicleName: string) => {
+        if (isSample) return;
         if (!user || votingVehicle) {
             if (!user) alert("Oy vermek için giriş yapmalısınız.");
             return;
@@ -96,7 +150,7 @@ export default function ComparisonDetailPage() {
     };
 
     const handleSubmit = async () => {
-        if (!newEntry.trim() || !user || submitting) return;
+        if (isSample || !newEntry.trim() || !user || submitting) return;
         setSubmitting(true);
         try {
             await addEntry(threadId, {
@@ -110,7 +164,7 @@ export default function ComparisonDetailPage() {
     };
 
     const handleLike = async (entryId: string) => {
-        if (!user || likingEntry) return;
+        if (isSample || !user || likingEntry) return;
         setLikingEntry(entryId);
         try { await toggleLike(threadId, entryId, user.id as string); } catch (e) { console.error(e); }
         setLikingEntry(null);
@@ -167,8 +221,8 @@ export default function ComparisonDetailPage() {
                                 <ArrowLeft size={16} /> Karşılaştırmalara Dön
                             </Link>
                         </div>
-                        <span style={{ padding: '6px 14px', background: 'rgba(161, 161, 170, 0.2)', border: '1px solid rgba(161, 161, 170, 0.3)', color: '#D4D4D8', borderRadius: '8px', fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                            ARAÇ KARŞILAŞTIRMA
+                        <span style={{ padding: '6px 14px', background: isSample ? 'rgba(255, 107, 53, 0.28)' : 'rgba(161, 161, 170, 0.2)', border: isSample ? '1px solid rgba(255, 107, 53, 0.55)' : '1px solid rgba(161, 161, 170, 0.3)', color: 'white', borderRadius: '8px', fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                            {isSample ? 'ÖRNEK KARŞILAŞTIRMA' : 'ARAÇ KARŞILAŞTIRMA'}
                         </span>
                         <h1 style={{ fontSize: '36px', fontWeight: '900', color: 'white', marginBottom: '12px', marginTop: '20px', lineHeight: 1.2, letterSpacing: '-0.5px' }}>
                             {thread.title}
@@ -178,8 +232,8 @@ export default function ComparisonDetailPage() {
                         )}
                         <div style={{ display: 'flex', alignItems: 'center', gap: '20px', fontSize: '14px', color: 'rgba(255, 255, 255, 0.7)', flexWrap: 'wrap' }}>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><User size={15} /> {thread.authorUsername}</span>
-                            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Clock size={15} /> {formatTimestamp(thread.createdAt)}</span>
-                            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Eye size={15} /> {thread.views} goruntulenme</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Clock size={15} /> {isSample ? sampleComparison?.dateLabel : formatTimestamp(thread.createdAt)}</span>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Eye size={15} /> {isSample ? '—' : thread.views} görüntülenme</span>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><MessageSquare size={15} /> {entries.length} entry</span>
                         </div>
                         {thread.tags.length > 0 && (
@@ -191,6 +245,14 @@ export default function ComparisonDetailPage() {
                         )}
                     </div>
                 </div>
+
+                {isSample && (
+                    <div style={{ maxWidth: '1200px', margin: '24px auto 0', padding: '0 24px' }}>
+                        <div style={{ padding: '14px 16px', borderRadius: '12px', background: 'rgba(255, 107, 53, 0.08)', border: '1px solid rgba(255, 107, 53, 0.25)', color: 'var(--foreground)', fontSize: '13px', lineHeight: 1.6 }}>
+                            <strong>Örnek içerik:</strong> Bu senaryo, karşılaştırma sayfa yapısını göstermek amacıyla hazırlanmıştır; oylar ve kullanıcı adları gerçek topluluk verisi değildir.
+                        </div>
+                    </div>
+                )}
 
                 {/* Content Layout */}
                 <div className="forum-layout" style={{ maxWidth: '1200px', margin: '0 auto', padding: '32px 24px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
@@ -224,7 +286,10 @@ export default function ComparisonDetailPage() {
                                             </div>
                                             <div>
                                                 <div style={{ fontSize: '16px', fontWeight: '800', color: 'var(--foreground)' }}>@{entry.username}</div>
-                                                <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{formatTimestamp(entry.createdAt)}</div>
+                                                <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{isSample ? (index === 0 ? sampleComparison?.dateLabel : sampleComparison?.entries[index - 1]?.dateLabel) : formatTimestamp(entry.createdAt)}</div>
+                                                {isSample && (
+                                                    <div style={{ fontSize: '11px', color: '#FF6B35', marginTop: '2px', fontWeight: '700' }}>{index === 0 ? 'Örnek karşılaştırma' : sampleComparison?.entries[index - 1]?.role}</div>
+                                                )}
                                             </div>
                                         </div>
                                         
@@ -255,16 +320,16 @@ export default function ComparisonDetailPage() {
                                                                 )}
                                                             </div>
                                                             <div style={{ display: 'flex', gap: '12px' }}>
-                                                                <a href={v.url} target="_blank" rel="noopener noreferrer" style={{ flex: 1, padding: '12px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '14px', fontWeight: '700', transition: 'all 0.2s' }}
+                                                                <a href={v.url} target={v.url.startsWith('/') ? undefined : '_blank'} rel={v.url.startsWith('/') ? undefined : 'noopener noreferrer'} style={{ flex: 1, padding: '12px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '14px', fontWeight: '700', transition: 'all 0.2s' }}
                                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--foreground)'; e.currentTarget.style.background = 'var(--card-bg)'; }}
                                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.background = 'var(--secondary)'; }}>
-                                                                    <ExternalLink size={16} /> İlana Git
+                                                                    <ExternalLink size={16} /> {v.url.startsWith('/') ? 'Araç DNA' : 'İlana git'}
                                                                 </a>
                                                                 <button onClick={() => handleVehicleVote(v.name)}
-                                                                        disabled={votingVehicle === v.name}
-                                                                        style={{ flex: 1, padding: '12px', background: isVoted ? '#22c55e' : 'rgba(34, 197, 94, 0.1)', border: '1px solid', borderColor: isVoted ? '#22c55e' : 'rgba(34, 197, 94, 0.3)', borderRadius: '10px', color: isVoted ? 'white' : '#22c55e', fontSize: '14px', fontWeight: '800', cursor: votingVehicle === v.name ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', transition: 'all 0.2s' }}>
+                                                                        disabled={isSample || votingVehicle === v.name}
+                                                                        style={{ flex: 1, padding: '12px', background: isVoted ? '#22c55e' : 'rgba(34, 197, 94, 0.1)', border: '1px solid', borderColor: isVoted ? '#22c55e' : 'rgba(34, 197, 94, 0.3)', borderRadius: '10px', color: isVoted ? 'white' : '#22c55e', fontSize: '14px', fontWeight: '800', cursor: isSample ? 'not-allowed' : votingVehicle === v.name ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', transition: 'all 0.2s' }}>
                                                                     {votingVehicle === v.name ? <Loader2 size={16} className="animate-spin" /> : <CheckCircle size={16} />}
-                                                                    {isVoted ? 'Oyunuz' : 'Oy Ver'}
+                                                                    {isSample ? 'Örnek oylar' : isVoted ? 'Oyunuz' : 'Oy ver'}
                                                                 </button>
                                                             </div>
                                                             
@@ -286,12 +351,12 @@ export default function ComparisonDetailPage() {
                                         )}
 
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
-                                            <button onClick={() => handleLike(entry.id)} disabled={!user || likingEntry === entry.id} style={{
+                                            <button onClick={() => handleLike(entry.id)} disabled={isSample || !user || likingEntry === entry.id} style={{
                                                 display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 14px',
                                                 background: isLiked ? 'rgba(34, 197, 94, 0.1)' : 'var(--secondary)',
                                                 border: isLiked ? '1px solid rgba(34, 197, 94, 0.3)' : '1px solid var(--card-border)',
                                                 borderRadius: '8px', color: isLiked ? '#22c55e' : 'var(--text-muted)',
-                                                fontSize: '13px', fontWeight: '600', cursor: user ? 'pointer' : 'not-allowed', opacity: !user ? 0.5 : 1,
+                                                fontSize: '13px', fontWeight: '600', cursor: !isSample && user ? 'pointer' : 'not-allowed', opacity: !isSample && user ? 1 : 0.6,
                                             }}>
                                                 <ThumbsUp size={14} /> {entry.likes}
                                             </button>
@@ -304,7 +369,18 @@ export default function ComparisonDetailPage() {
 
                     {/* New Entry Form */}
                     <div style={{ marginTop: '32px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '24px' }}>
-                        {user ? (
+                        {isSample ? (
+                            <div style={{ textAlign: 'center', padding: '8px 20px' }}>
+                                <Sparkles size={28} style={{ color: '#FF6B35', marginBottom: '12px' }} />
+                                <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>Bu karşılaştırma örnektir</h3>
+                                <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: 1.6, marginBottom: '16px' }}>
+                                    Örnek kayda oy veya yorum gönderilmez. Kendi araç listenizle yeni bir karşılaştırma oluşturabilirsiniz.
+                                </p>
+                                <Link href="/karsilastirma/yeni" style={{ display: 'inline-flex', padding: '11px 20px', background: '#FF6B35', color: 'white', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none' }}>
+                                    Yeni karşılaştırma oluştur
+                                </Link>
+                            </div>
+                        ) : user ? (
                             <>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                                     <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#FF6B35', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '700' }}>
