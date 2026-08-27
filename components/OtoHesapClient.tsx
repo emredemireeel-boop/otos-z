@@ -240,7 +240,7 @@ function LocationSelector({ label, il, ilce, mahalle, onIl, onIlce, onMahalle, e
 /* ═══════════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════════ */
-export default function OtoHesapClient({ activeModule }: { activeModule: string }) {
+export default function OtoHesapClient({ activeModule, pageTitle, pageDescription, children }: { activeModule: string; pageTitle: string; pageDescription: string; children?: React.ReactNode }) {
   const { user } = useAuth();
   const [fromIl, setFromIl] = useState("");
   const [fromIlce, setFromIlce] = useState("");
@@ -432,15 +432,15 @@ export default function OtoHesapClient({ activeModule }: { activeModule: string 
             <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "64px", height: "64px", borderRadius: "20px", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.15)", marginBottom: "20px", boxShadow: "0 8px 32px rgba(0,0,0,0.2)" }}>
               <Calculator size={32} color="white" />
             </div>
-            <h1 style={{ fontSize: "34px", fontWeight: "900", color: "white", margin: "0 0 10px 0", letterSpacing: "-0.5px" }}>
-              OtoHesap
+            <h1 style={{ fontSize: "34px", fontWeight: "900", color: "white", margin: "0 0 10px 0", letterSpacing: "-0.5px", lineHeight: "1.2" }}>
+              {pageTitle}
             </h1>
-            <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.65)", margin: "0 0 24px 0", lineHeight: "1.6" }}>
-              Türkiye&apos;nin en kapsamlı otomotiv hesaplama platformu
+            <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.72)", margin: "0 0 24px 0", lineHeight: "1.6" }}>
+              {pageDescription}
             </p>
             {/* Quick stat badges */}
             <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap" }}>
-              {[["7 Hesaplayıcı", "🧮"], ["2026 Güncel", "📅"], ["Ücretsiz", "✨"]].map(([t, i]) => (
+              {[["16 Hesaplayıcı", "🧮"], ["2026 Güncel", "📅"], ["Ücretsiz", "✨"]].map(([t, i]) => (
                 <span key={t} style={{ padding: "6px 14px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "20px", fontSize: "12px", fontWeight: "600", color: "rgba(255,255,255,0.8)", display: "flex", alignItems: "center", gap: "6px" }}>
                   {i} {t}
                 </span>
@@ -779,6 +779,7 @@ export default function OtoHesapClient({ activeModule }: { activeModule: string 
             <AracVsTaksiSection />
           </div>
         )}
+        {children}
       </main>
       <Footer />
     </div>

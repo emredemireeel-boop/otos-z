@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug } from "@/data/vehicle-dna";
+import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData, EngineOption } from "@/data/engine-dna";
 import { getAllBrands, getModelsForBrand } from "@/data/listings";
 
@@ -48,15 +48,15 @@ export default function AracDNAPage() {
         }
     });
 
-    // Get popular vehicles (top 50)
-    const popularVehicles = allEngineVariants.slice(0, 50);
+    const reviewedEngineVariants = allEngineVariants.filter(item => isVehicleEditoriallyReviewed(item.vehicle));
 
-    // Get top 5 and bottom 5 vehicles
-    const topCars = [...allEngineVariants]
+    // Popüler ve puan sıralamaları yalnızca kaynak kontrolü tamamlanan kayıtları kullanır.
+    const popularVehicles = reviewedEngineVariants.slice(0, 50);
+    const topCars = [...reviewedEngineVariants]
         .sort((a, b) => b.engine.score - a.engine.score)
         .slice(0, 5);
         
-    const bottomCars = [...allEngineVariants]
+    const bottomCars = [...reviewedEngineVariants]
         .filter(a => a.engine.score > 0)
         .sort((a, b) => a.engine.score - b.engine.score)
         .slice(0, 5);
@@ -679,8 +679,8 @@ export default function AracDNAPage() {
                         }}>
                             {displayedVehicles.map((item, index) => {
                                 const { vehicle, engine } = item;
-                                const scoreColor = getDNAScoreColor(engine.score);
-                                const scoreLabel = getDNAScoreLabel(engine.score);
+                                const isReviewed = isVehicleEditoriallyReviewed(vehicle);
+                                const scoreColor = isReviewed ? getDNAScoreColor(engine.score) : '#d97706';
                                 const slug = `${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}/${engine.slug}`;
 
                                 return (
@@ -737,7 +737,7 @@ export default function AracDNAPage() {
                                                 marginTop: 'auto'
                                             }}>
                                                 <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)' }}>
-                                                    DNA Skoru
+                                                    {isReviewed ? 'DNA Skoru' : 'Veri durumu'}
                                                 </span>
                                                 <div style={{
                                                     display: 'flex',
@@ -749,8 +749,8 @@ export default function AracDNAPage() {
                                                     border: `1px solid ${scoreColor}30`
                                                 }}>
                                                     <Dna size={16} color={scoreColor} />
-                                                    <span style={{ fontSize: '16px', fontWeight: '800', color: scoreColor }}>
-                                                        {engine.score}
+                                                    <span style={{ fontSize: isReviewed ? '16px' : '12px', fontWeight: '800', color: scoreColor }}>
+                                                        {isReviewed ? engine.score : 'İncelemede'}
                                                     </span>
                                                 </div>
                                             </div>

@@ -166,19 +166,18 @@ export default function Navbar() {
 
 
     const navLinks = [
-        { name: 'FORUM', href: '/' },
-        { name: 'ANKET', href: '/anket' },
-        { name: 'UZMANA SOR', href: '/uzmana-sor' },
-        { name: 'KARŞILAŞTIRMA', href: '/karsilastirma' },
-        { name: 'ARAÇ DNA', href: '/arac-dna' },
-        { name: 'KÜTÜPHANE', href: '/kutuphane' },
-        { name: 'HABERLER', href: '/haberler' },
-        { name: 'OTOHESAP', href: '/otohesap/yakit-hesaplama' },
-        { name: 'OTOBÜTÇE', href: '/otobutce' },
-        { name: 'OTO PAZARI', href: '/acik-oto-pazari' },
-        { name: 'ETKİNLİKLER', href: '/etkinlikler' },
-        { name: 'GÜVENMETRE', href: '/guvenmetre' },
-        { name: 'PİYASALAR', href: '/piyasalar' },
+        { name: 'Forum', href: '/' },
+        { name: 'Anket', href: '/anket' },
+        { name: 'Uzmana Sor', href: '/uzmana-sor' },
+        { name: 'Karşılaştırma', href: '/karsilastirma' },
+        { name: 'Araç DNA', href: '/arac-dna' },
+        { name: 'Kütüphane', href: '/kutuphane' },
+        { name: 'Haberler', href: '/haberler' },
+        { name: 'OtoHesap', href: '/otohesap' },
+        { name: 'Otobütçe', href: '/otobutce' },
+        { name: 'Etkinlikler', href: '/etkinlikler' },
+        { name: 'Güvenmetre', href: '/guvenmetre' },
+        { name: 'Piyasalar', href: '/piyasalar' },
     ];
 
     return (
@@ -225,7 +224,7 @@ export default function Navbar() {
                         color: 'var(--logo-text)',
                         whiteSpace: 'nowrap',
                     }}>
-                        OTOSÖZ
+                        Otosöz
                     </span>
                 </Link>
 
@@ -246,7 +245,7 @@ export default function Navbar() {
                                 href={item.href}
                                 style={{
                                     color: isActive ? 'var(--primary)' : 'var(--foreground)',
-                                    fontSize: '11px',
+                                    fontSize: '12px',
                                     fontWeight: '600',
                                     padding: '6px 10px',
                                     borderRadius: '6px',
@@ -345,7 +344,7 @@ export default function Navbar() {
                                         }}>
                                             <h3 style={{ color: 'var(--text-white)', fontWeight: '700', fontSize: '14px', margin: 0 }}>Mesajlar</h3>
                                             <Link href="/mesajlar" onClick={closeAllDropdowns} style={{
-                                                fontSize: '11px',
+                                                fontSize: '12px',
                                                 color: 'var(--badge-unread)',
                                                 textDecoration: 'none',
                                             }}>
@@ -523,7 +522,7 @@ export default function Navbar() {
                                                 <button
                                                     onClick={handleMarkAllRead}
                                                     style={{
-                                                        fontSize: '11px',
+                                                        fontSize: '12px',
                                                         color: 'var(--primary)',
                                                         background: 'transparent',
                                                         border: 'none',
@@ -602,7 +601,7 @@ export default function Navbar() {
                                                                 }}>{notification.title}</p>
                                                                 <span style={{
                                                                     color: 'var(--text-subtle)',
-                                                                    fontSize: '11px',
+                                                                    fontSize: '12px',
                                                                     whiteSpace: 'nowrap',
                                                                 }}>{notification.time}</span>
                                                             </div>

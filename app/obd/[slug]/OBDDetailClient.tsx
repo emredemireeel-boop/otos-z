@@ -167,7 +167,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                                 lineHeight: '1.3',
                                 marginBottom: '12px',
                             }}>
-                                {brandName ? `${brandName} ` : ''}{codeData.title}
+                                {brandName ? `${brandName} ` : ''}{codeData.code} Arıza Kodu: {codeData.title}
                             </h1>
 
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>

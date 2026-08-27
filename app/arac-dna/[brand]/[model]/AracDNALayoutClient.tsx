@@ -4,7 +4,7 @@ import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug } from "@/data/vehicle-dna";
+import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData } from "@/data/engine-dna";
 import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle, Package, Zap } from "lucide-react";
 
@@ -52,6 +52,36 @@ export default function AracDNALayoutClient({
         );
     }
 
+    if (!isVehicleEditoriallyReviewed(vehicle)) {
+        return (
+            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+                <Navbar />
+                <main style={{ flex: 1, background: 'var(--background)', padding: '100px 20px 60px' }}>
+                    <section style={{ maxWidth: 720, margin: '0 auto', padding: 32, background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 16 }}>
+                        <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', color: '#d97706', marginBottom: 10 }}>
+                            EDİTORYAL İNCELEME
+                        </div>
+                        <h1 style={{ fontSize: 28, color: 'var(--foreground)', marginBottom: 12 }}>
+                            {vehicle.brand} {vehicle.model} dosyası doğrulanıyor
+                        </h1>
+                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 24 }}>
+                            Bu eski kayıt birden fazla nesil veya donanım bilgisini karıştırdığı için puan ve arıza iddialarını geçici olarak göstermiyoruz. Kaynak kontrolü tamamlandığında canonical Araç DNA dosyası yeniden yayına alınacak.
+                        </p>
+                        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                            <Link href={`/arac-dna/${brandSlug}`} style={{ padding: '11px 16px', borderRadius: 10, background: 'var(--primary)', color: 'white', textDecoration: 'none', fontWeight: 700 }}>
+                                {vehicle.brand} modellerine dön
+                            </Link>
+                            <Link href="/forum" style={{ padding: '11px 16px', borderRadius: 10, border: '1px solid var(--card-border)', color: 'var(--foreground)', textDecoration: 'none', fontWeight: 700 }}>
+                                Forum deneyimlerini incele
+                            </Link>
+                        </div>
+                    </section>
+                </main>
+                <Footer />
+            </div>
+        );
+    }
+
     const engineParam = (params?.engine as string)?.toLowerCase() || "";
     let baseEngineSlug = engineParam;
     let currentTab = "genel-bakis";
@@ -79,8 +109,8 @@ export default function AracDNALayoutClient({
         { id: "genel-bakis", name: "Genel Bakış", path: `${basePath}`, icon: <FileText size={16} /> },
         { id: "artilar", name: "Artıları & Eksileri", path: `${basePath}-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri`, icon: <ThumbsUp size={16} /> },
         { id: "kronik", name: "Kronik Sorunlar", path: `${basePath}-kronik-sorunlari`, icon: <Wrench size={16} /> },
-        { id: "donanim", name: "Araç Paketleri", path: `${basePath}-arac-paketleri`, icon: <Package size={16} /> },
-        { id: "deneyimler", name: "Kullanıcı Deneyimleri", path: `${basePath}-kullanici-deneyimleri`, icon: <MessageCircle size={16} /> },
+        { id: "donanim", name: "Araç Paketleri", path: `/arac-dna/${brandSlug}/${modelSlug}/arac-paketleri`, icon: <Package size={16} /> },
+        { id: "deneyimler", name: "Kullanıcı Deneyimleri", path: `/arac-dna/${brandSlug}/${modelSlug}/kullanici-deneyimleri`, icon: <MessageCircle size={16} /> },
     ] : [];
 
     return (

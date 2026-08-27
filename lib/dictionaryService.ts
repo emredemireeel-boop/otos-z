@@ -84,9 +84,11 @@ export async function addTerm(data: Omit<DictionaryTerm, "id">): Promise<string>
 export async function updateTerm(id: string, data: Partial<DictionaryTerm>): Promise<void> {
     const { id: _, ...rest } = data as any;
     await updateDoc(doc(db, COLLECTION, id), rest);
+    pingGoogle(`/sozluk/${id}`).catch(() => {});
 }
 
 /** Terim sil */
 export async function deleteTerm(id: string): Promise<void> {
     await deleteDoc(doc(db, COLLECTION, id));
+    pingGoogle(`/sozluk/${id}`).catch(() => {});
 }

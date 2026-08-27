@@ -5,12 +5,12 @@ import "./globals.css";
 export const metadata: Metadata = {
     metadataBase: new URL('https://otosoz.com'),
     title: {
-        default: "Otosöz - Türkiye'nin En Büyük Otomobil Platformu",
+        default: "Otosöz - Türkiye'nin Otomobil Topluluğu",
         // Alt sayfalar kendi marka eklerini yönetiyor. Burada tekrar eklemek
-        // "... | OtoSöz | Otosöz" biçiminde yinelenen başlıklar üretiyordu.
+        // "... | Otosöz | Otosöz" biçiminde yinelenen başlıklar üretiyordu.
         template: '%s',
     },
-    description: "OtoSöz: Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı, ikinci el rehberi ve 50.000+ otomotiv verisi. Türkiye'nin en kapsamlı otomobil platformu.",
+    description: "Otosöz; sürücü deneyimlerini Araç DNA analizleri, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları ve hesaplama araçlarıyla bir araya getiren otomobil topluluğudur.",
     keywords: [
         "otomobil", "araç arıza kodları", "OBD kodları", "gösterge ışıkları",
         "ikinci el araç", "araç karşılaştırma", "araç DNA", "trafik cezaları 2026",
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "Otosöz - Türkiye'nin En Büyük Otomobil Platformu",
-        description: "Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı ve 50.000+ otomotiv verisi.",
+        title: "Otosöz - Türkiye'nin Otomobil Topluluğu",
+        description: "Araç DNA analizleri, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları ve sürücü deneyimleri tek toplulukta.",
         url: 'https://otosoz.com',
-        siteName: 'OtoSöz',
+        siteName: 'Otosöz',
         locale: 'tr_TR',
         type: 'website',
         images: [
@@ -52,14 +52,14 @@ export const metadata: Metadata = {
                 url: '/api/og',
                 width: 1200,
                 height: 630,
-                alt: 'OtoSöz — Türkiye\'nin En Kapsamlı Otomotiv Platformu',
+                alt: 'Otosöz — Türkiye\'nin Otomobil Topluluğu',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: "Otosöz - Türkiye'nin En Büyük Otomobil Platformu",
-        description: "Araç DNA, OBD kodları, otomotiv sözlüğü, gösterge ışıkları ve 50.000+ veri. Tek platformda tüm otomotiv bilgisi.",
+        title: "Otosöz - Türkiye'nin Otomobil Topluluğu",
+        description: "Araç DNA, OBD kodları, otomotiv sözlüğü, gösterge ışıkları ve sürücü deneyimleri tek toplulukta.",
         images: ['/api/og'],
         creator: '@otosoz',
     },
@@ -69,6 +69,7 @@ export const metadata: Metadata = {
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import GlobalEngagement from "@/components/GlobalEngagement";
+import GlobalAdRails from "@/components/GlobalAdRails";
 
 // ── JSON-LD Yapılandırılmış Veri (Structured Data) ──
 // Google'ın siteyi bir "Kuruluş" ve "Web Sitesi" olarak tanımasını sağlar.
@@ -79,7 +80,7 @@ const jsonLd = {
         {
             '@type': 'Organization',
             '@id': 'https://otosoz.com/#organization',
-            name: 'OtoSöz',
+            name: 'Otosöz',
             url: 'https://otosoz.com',
             logo: {
                 '@type': 'ImageObject',
@@ -87,7 +88,7 @@ const jsonLd = {
                 width: 512,
                 height: 512,
             },
-            description: 'Türkiye\'nin en kapsamlı otomotiv bilgi platformu. Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü ve teknik rehberler.',
+            description: 'Sürücü deneyimlerini Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü ve teknik rehberlerle buluşturan otomobil topluluğu.',
             foundingDate: '2024-01-01',
             sameAs: [
                 'https://www.instagram.com/otosoz',
@@ -104,8 +105,8 @@ const jsonLd = {
             '@type': 'WebSite',
             '@id': 'https://otosoz.com/#website',
             url: 'https://otosoz.com',
-            name: 'OtoSöz',
-            description: 'Türkiye\'nin #1 Otomotiv Bilgi Platformu',
+            name: 'Otosöz',
+            description: 'Türkiye\'nin otomobil topluluğu ve bilgi platformu',
             publisher: { '@id': 'https://otosoz.com/#organization' },
             inLanguage: 'tr-TR',
         },
@@ -128,7 +129,7 @@ export default function RootLayout({
                 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-                <meta name="apple-mobile-web-app-title" content="OtoSöz" />
+                <meta name="apple-mobile-web-app-title" content="Otosöz" />
 
                 {/* ── Geo & Language Sinyalleri ── */}
                 <meta name="geo.region" content="TR" />
@@ -137,9 +138,9 @@ export default function RootLayout({
                 {/* content-language artık html lang="tr" ile karşılanıyor */}
 
                 {/* ── Ek SEO Sinyalleri ── */}
-                <meta name="author" content="OtoSöz" />
-                <meta name="publisher" content="OtoSöz" />
-                <meta name="copyright" content="© 2024-2026 OtoSöz. Tüm hakları saklıdır." />
+                <meta name="author" content="Otosöz" />
+                <meta name="publisher" content="Otosöz" />
+                <meta name="copyright" content="© 2024-2026 Otosöz. Tüm hakları saklıdır." />
                 <meta name="rating" content="general" />
                 <meta name="distribution" content="global" />
                 <meta name="revisit-after" content="1 day" />
@@ -154,6 +155,8 @@ export default function RootLayout({
                 <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
                 <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+                <link rel="alternate" type="application/rss+xml" title="OtoSöz Forum - Son Başlıklar" href="/forum/feed.xml" />
 
                 {/* ── JSON-LD Yapılandırılmış Veri — Google Knowledge Graph & Rich Snippets ── */}
                 <script
@@ -179,6 +182,7 @@ export default function RootLayout({
                 <ThemeProvider>
                     <AuthProvider>
                         {children}
+                        <GlobalAdRails />
                         <GlobalEngagement />
                     </AuthProvider>
                 </ThemeProvider>

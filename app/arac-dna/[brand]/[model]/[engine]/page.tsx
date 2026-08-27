@@ -79,7 +79,7 @@ export default function EngineDetailedPage() {
             const exps = vehicle.userExperiences.map((e, index) => ({
                 ...e,
                 id: Math.random(),
-                upvotes: (e as any).upvotes || Math.floor(Math.random() * 50) + 5 // Mock initial upvotes
+                upvotes: (e as any).upvotes || 0
             }));
             setExperiences(exps.sort((a, b) => b.upvotes - a.upvotes));
         }

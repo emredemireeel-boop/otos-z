@@ -1,60 +1,41 @@
 /**
- * 🚀 SEO Ping Helper — Google Anında İndeksleme
- * 
- * Yeni içerik oluşturulduğunda arka planda Google'a bildirim gönderir.
- * Bu fonksiyon client-side'da çalışır ve sunucudaki /api/seo/ping endpoint'ine istek atar.
- * Hata durumunda sessizce devam eder (kullanıcı deneyimini etkilemez).
+ * Yeni veya güncellenen içerikten sonra keşif yüzeylerini yeniler.
  *
- * NOT: Burada secret TUTULMAZ. İstemci bundle'ına gömülen secret herkese görünür
- * olacağından koruma sağlamaz. Endpoint sunucu tarafında same-origin + rate limit
- * ile korunur.
+ * Google Indexing API genel web sayfalarını desteklemez. Bu yardımcı dışarıya
+ * yapay bir "indeksleme" isteği göndermek yerine canonical sayfayı, sitemap'i
+ * ve son içerik akışını sunucuda yeniden üretir.
  */
-
-const BASE_URL = 'https://otosoz.com';
 
 /**
- * Google'a yeni/güncellenen URL bildirimi gönderir.
- * @param path - Site yolu (örn: "/forum/konu-basligi--12345678")
- * @returns Promise<boolean> - Başarılı mı?
+ * @param path Site içi canonical yol (örn. /forum/baslik--12345678)
  */
-export async function pingGoogle(path: string): Promise<boolean> {
+export async function refreshSeoDiscovery(path: string): Promise<boolean> {
     try {
-        // Geliştirme ortamında (localhost) API çağrısı yapma
         if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-            console.log(`🔍 [SEO] Dev mode — Google ping atlanıyor: ${path}`);
             return false;
         }
 
-        const fullUrl = path.startsWith('http') ? path : `${BASE_URL}${path}`;
-
-        const res = await fetch('/api/seo/ping', {
+        const response = await fetch('/api/seo/ping', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url: fullUrl }),
+            body: JSON.stringify({ path }),
+            keepalive: true,
         });
 
-        if (res.ok) {
-            console.log(`✅ [SEO] Google ping başarılı: ${fullUrl}`);
-            return true;
-        } else {
-            console.warn(`⚠️ [SEO] Google ping başarısız (${res.status}): ${fullUrl}`);
-            return false;
-        }
-    } catch (error) {
-        // Sessizce devam et — SEO ping başarısız olsa bile kullanıcı deneyimini bozma
-        console.warn(`⚠️ [SEO] Ping hatası:`, error);
+        return response.ok;
+    } catch {
+        // Keşif yenilemesi ana içerik kaydını hiçbir zaman engellememeli.
         return false;
     }
 }
 
-/**
- * Birden fazla URL'yi sırayla Google'a bildir.
- * @param paths - URL yolları dizisi
- */
-export async function pingGoogleBatch(paths: string[]): Promise<void> {
+// Mevcut servislerin geriye dönük uyumluluğu için eski isim korunuyor.
+export const pingGoogle = refreshSeoDiscovery;
+
+export async function refreshSeoDiscoveryBatch(paths: string[]): Promise<void> {
     for (const path of paths) {
-        await pingGoogle(path);
-        // Rate limit koruması: 300ms bekle
-        await new Promise(r => setTimeout(r, 300));
+        await refreshSeoDiscovery(path);
     }
 }
+
+export const pingGoogleBatch = refreshSeoDiscoveryBatch;

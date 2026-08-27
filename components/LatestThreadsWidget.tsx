@@ -48,7 +48,7 @@ export default function LatestThreadsWidget() {
                     margin: 0, display: 'flex', alignItems: 'center', gap: '6px',
                 }}>
                     <Clock size={14} color="var(--text-muted)" />
-                    Son Başlıklar
+                    Son başlıklar
                 </h3>
                 <Link href="/forum" style={{
                     fontSize: '11px', color: 'var(--text-muted)', fontWeight: '500',

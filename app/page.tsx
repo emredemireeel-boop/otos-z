@@ -2,21 +2,23 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { BookOpen, ArrowRight, MessageSquare, TrendingUp, Users, BarChart3, Star, Clock, Eye, ThumbsUp, Award, Crown, Flame, ChevronRight, Zap, Sparkles, Plus, Car, AlertTriangle, CheckCircle, MapPin, Search, X } from "lucide-react";
+import { BookOpen, ArrowRight, MessageSquare, TrendingUp, BarChart3, Clock, Flame, ChevronRight, Plus, MapPin, Search, X, CalendarDays, Newspaper, Car, Dna, Wrench, AlertTriangle, ClipboardCheck, ShieldCheck, Lightbulb, Save, Loader2, Trash2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/context/AuthContext";
-import AdPlaceholder from "@/components/AdPlaceholder";
+
 import { events } from "@/data/events";
-import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
-import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, getThreadById, type ForumThread as FirestoreThread } from "@/lib/forumService";
-import { collection, getDocs, query, orderBy, limit, getCountFromServer, where } from "firebase/firestore";
+
+import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, type ForumThread as FirestoreThread } from "@/lib/forumService";
+import { addDoc, collection, getDocs, query, serverTimestamp, where } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import carModelsData from "@/data/carmodels.json";
 import { mythsData, Myth } from "@/data/efsane-avcilari-data";
+import { createSlug as createVehicleSlug, vehicleDNAData } from "@/data/vehicle-dna";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 import MarkdownEditor from "@/components/MarkdownEditor";
+import { validateEntryContent, validateThreadTitle } from "@/lib/validation";
 
 // Yazar seviye renkleri
 const levelColors: Record<string, { bg: string; text: string }> = {
@@ -64,6 +66,41 @@ const categories = [
     { name: "Uzmana Sor", count: 3, type: "expert", special: true },
 ];
 
+type NewContentType = "topic" | "survey" | "expert";
+
+type NewTopicFormData = {
+    title: string;
+    content: string;
+    category: string;
+    type: NewContentType;
+    carBrand: string;
+    carModel: string;
+    carYear: string;
+    carKm: string;
+};
+
+const EMPTY_NEW_TOPIC_DATA: NewTopicFormData = {
+    title: "",
+    content: "",
+    category: "",
+    type: "topic",
+    carBrand: "",
+    carModel: "",
+    carYear: "",
+    carKm: "",
+};
+
+const NEW_TOPIC_DRAFT_KEY = "otosoz_new_topic_draft_v1";
+
+const DRIVER_ESSENTIALS = [
+    { href: "/kutuphane?kategori=obd-ariza-kodlari", title: "OBD arıza kodları", description: "Nedenini ve çözümünü bul", icon: Wrench },
+    { href: "/kutuphane?kategori=gosterge-isiklari", title: "Gösterge ışıkları", description: "Uyarının önemini öğren", icon: AlertTriangle },
+    { href: "/kutuphane?kategori=ikinci-el-rehberi", title: "İkinci el kontrolü", description: "Almadan önce adım adım kontrol et", icon: ClipboardCheck },
+    { href: "/kutuphane?kategori=kaza-ilkyardim", title: "Kaza ve ilk yardım", description: "Doğru sırayla ne yapacağını gör", icon: ShieldCheck },
+];
+
+const FEATURED_DNA_MODELS = vehicleDNAData.filter((vehicle) => [1, 2, 3, 4, 5, 6, 7, 8, 13].includes(vehicle.id));
+
 export default function Home() {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
@@ -71,13 +108,18 @@ export default function Home() {
     const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [sortBy, setSortBy] = useState<"popular" | "new">("new");
     const [showNewTopicModal, setShowNewTopicModal] = useState(false);
-    const [newTopicData, setNewTopicData] = useState({ title: "", content: "", category: "", type: "topic", carBrand: "", carModel: "", carYear: "", carKm: "" });
+    const [newTopicData, setNewTopicData] = useState<NewTopicFormData>({ ...EMPTY_NEW_TOPIC_DATA });
     const [newSurveyOptions, setNewSurveyOptions] = useState(["Evet", "Hayır"]);
+    const [draftReady, setDraftReady] = useState(false);
+    const [draftRestored, setDraftRestored] = useState(false);
+    const [isSubmittingTopic, setIsSubmittingTopic] = useState(false);
+    const [newTopicError, setNewTopicError] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const ITEMS_PER_PAGE = 20;
+    const ITEMS_PER_PAGE = 10;
     const [randomGuide, setRandomGuide] = useState<any>(null);
     const [randomMyth, setRandomMyth] = useState<Myth | null>(null);
+    const [latestNews, setLatestNews] = useState<any[]>([]);
 
     const availableBrands = Object.keys(carModelsData).sort();
     const availableModels = newTopicData.carBrand && (carModelsData as Record<string, string[]>)[newTopicData.carBrand] 
@@ -87,10 +129,8 @@ export default function Home() {
 
     const [liveThreads, setLiveThreads] = useState<FirestoreThread[]>([]);
     const [loadingThreads, setLoadingThreads] = useState(true);
-    const [topUsers, setTopUsers] = useState<{username: string; role: string; entryCount?: number}[]>([]);
-    const [platformStats, setPlatformStats] = useState({ totalThreads: 0, totalEntries: 0, totalUsers: 0, todayThreads: 0 });
     const [homeSurveys, setHomeSurveys] = useState<any[]>([]);
-    const [sidebarAd, setSidebarAd] = useState<any>(null);
+
     const [globalUserMap, setGlobalUserMap] = useState<Record<string, { photoURL: string | null }>>({});
 
     // ── Yakıt Fiyatları Ticker State ──────────────────────────────────────────
@@ -170,6 +210,16 @@ export default function Home() {
             })
             .catch(err => console.error("Error loading guides:", err));
 
+        fetch('/data/news_posts.json')
+            .then(res => res.json())
+            .then(data => {
+                const sortedPosts = [...(data.posts || [])].sort(
+                    (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+                );
+                setLatestNews(sortedPosts.slice(0, 2));
+            })
+            .catch(err => console.error("Error loading news:", err));
+
         // Random Myth
         if (mythsData && mythsData.length > 0) {
             const randomMythIndex = Math.floor(Math.random() * mythsData.length);
@@ -190,50 +240,87 @@ export default function Home() {
         return () => window.removeEventListener('open_new_topic_modal', handleOpenModal);
     }, []);
 
+    // ── Yeni başlık taslağı ve modal davranışı ───────────────────────────────
+    useEffect(() => {
+        try {
+            const savedDraft = localStorage.getItem(NEW_TOPIC_DRAFT_KEY);
+            if (savedDraft) {
+                const parsed = JSON.parse(savedDraft);
+                const savedType: NewContentType = ["topic", "survey", "expert"].includes(parsed?.data?.type)
+                    ? parsed.data.type
+                    : "topic";
+                const restoredData: NewTopicFormData = {
+                    ...EMPTY_NEW_TOPIC_DATA,
+                    ...(parsed.data || {}),
+                    type: savedType,
+                    category: savedType === "survey"
+                        ? "Anket"
+                        : savedType === "expert"
+                            ? "Uzmana Sor"
+                            : (parsed?.data?.category || ""),
+                };
+                setNewTopicData(restoredData);
+                if (Array.isArray(parsed.options) && parsed.options.length >= 2) {
+                    setNewSurveyOptions(parsed.options.slice(0, 8));
+                }
+                setDraftRestored(Boolean(restoredData.title || restoredData.content || restoredData.category || restoredData.carBrand));
+            }
+        } catch {
+            localStorage.removeItem(NEW_TOPIC_DRAFT_KEY);
+        } finally {
+            setDraftReady(true);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!draftReady) return;
+        const timeout = window.setTimeout(() => {
+            const hasDraft = Boolean(
+                newTopicData.title.trim() ||
+                newTopicData.content.trim() ||
+                newTopicData.category ||
+                newTopicData.carBrand ||
+                newTopicData.carModel ||
+                newTopicData.carYear ||
+                newTopicData.carKm
+            );
+            if (!hasDraft) {
+                localStorage.removeItem(NEW_TOPIC_DRAFT_KEY);
+                return;
+            }
+            localStorage.setItem(NEW_TOPIC_DRAFT_KEY, JSON.stringify({
+                data: newTopicData,
+                options: newSurveyOptions,
+            }));
+        }, 450);
+        return () => window.clearTimeout(timeout);
+    }, [draftReady, newTopicData, newSurveyOptions]);
+
+    useEffect(() => {
+        setNewTopicError("");
+    }, [newTopicData, newSurveyOptions]);
+
+    useEffect(() => {
+        if (!showNewTopicModal) return;
+        const previousOverflow = document.body.style.overflow;
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === "Escape" && !isSubmittingTopic) setShowNewTopicModal(false);
+        };
+        document.body.style.overflow = "hidden";
+        window.addEventListener("keydown", handleEscape);
+        return () => {
+            document.body.style.overflow = previousOverflow;
+            window.removeEventListener("keydown", handleEscape);
+        };
+    }, [showNewTopicModal, isSubmittingTopic]);
+
     // ── Firestore Forum Threads ──────────────────────────────────────────────
     useEffect(() => {
         const unsub = subscribeToThreads((threads) => {
             setLiveThreads(threads);
             setLoadingThreads(false);
-            // İstatistikleri canlı thread'lerden hesapla
-            const totalEntries = threads.reduce((sum, t) => sum + (t.entryCount || 0), 0);
-            const now = Date.now();
-            const todayStart = now - 24 * 60 * 60 * 1000;
-            const todayThreads = threads.filter(t => {
-                if (!t.createdAt) return false;
-                return t.createdAt.toMillis() > todayStart;
-            }).length;
-            setPlatformStats(prev => ({ ...prev, totalThreads: threads.length, totalEntries, todayThreads }));
         }, 100);
         return () => unsub();
-    }, []);
-
-    // ── Firestore Top Users & Stats ──────────────────────────────────────────
-    useEffect(() => {
-        const fetchTopUsersAndStats = async () => {
-            try {
-                const usersRef = collection(db, 'users');
-                // Toplam kullanici sayisini sunucudan say
-                const countSnap = await getCountFromServer(usersRef);
-                setPlatformStats(prev => ({ ...prev, totalUsers: countSnap.data().count }));
-
-                // Sadece Top 5 kullaniciyi getir
-                const topUsersQuery = query(usersRef, orderBy('entryCount', 'desc'), limit(5));
-                const topUsersSnap = await getDocs(topUsersQuery);
-                const top5 = topUsersSnap.docs.map(d => {
-                    const data = d.data();
-                    return {
-                        username: data.username || 'anonim',
-                        role: data.role || 'caylak',
-                        entryCount: data.entryCount || 0,
-                    };
-                });
-                setTopUsers(top5);
-            } catch (e) {
-                console.error('Top users veya stats cekilemedi:', e);
-            }
-        };
-        fetchTopUsersAndStats();
     }, []);
 
     // ── Lazy load avatars for threads ──────────────────────────────────────────
@@ -304,6 +391,179 @@ export default function Home() {
         lastEntry: "",
         slugUrl: getThreadSlugUrl(thread),
     }));
+
+    const titleValidation = validateThreadTitle(newTopicData.title);
+    const contentValidation = validateEntryContent(newTopicData.content);
+    const validSurveyOptions = newSurveyOptions.map(option => option.trim()).filter(Boolean);
+    const normalizedSurveyOptions = validSurveyOptions.map(option => option.toLocaleLowerCase("tr-TR"));
+    const hasDuplicateSurveyOptions = new Set(normalizedSurveyOptions).size !== normalizedSurveyOptions.length;
+    const categoryIsValid = newTopicData.type === "survey"
+        ? newTopicData.category === "Anket"
+        : newTopicData.type === "expert"
+            ? newTopicData.category === "Uzmana Sor"
+            : FORUM_CATS.includes(newTopicData.category);
+    const surveyContentIsValid = !newTopicData.content.trim() || contentValidation.valid;
+    const maxVehicleYear = new Date().getFullYear() + 1;
+    const vehicleYearIsValid = !newTopicData.carYear || (
+        Number.isInteger(Number(newTopicData.carYear)) &&
+        Number(newTopicData.carYear) >= 1900 &&
+        Number(newTopicData.carYear) <= maxVehicleYear
+    );
+    const vehicleKmIsValid = !newTopicData.carKm || (
+        Number(newTopicData.carKm) >= 0 && Number(newTopicData.carKm) <= 2000000
+    );
+    const newTopicFormIsValid = Boolean(
+        titleValidation.valid &&
+        categoryIsValid &&
+        vehicleYearIsValid &&
+        vehicleKmIsValid &&
+        (newTopicData.type === "survey"
+            ? validSurveyOptions.length >= 2 && !hasDuplicateSurveyOptions && surveyContentIsValid
+            : contentValidation.valid)
+    );
+
+    const normalizedDraftTitle = newTopicData.title
+        .toLocaleLowerCase("tr-TR")
+        .replace(/[^\p{L}\p{N}\s]/gu, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    const ignoredSimilarityTerms = new Set(["araç", "araba", "sorun", "sorunu", "hakkında", "için", "olan", "nasıl"]);
+    const draftTitleTerms = [...new Set(normalizedDraftTitle.split(" ").filter(term => term.length >= 3 && !ignoredSimilarityTerms.has(term)))];
+    const similarTopicMatches = normalizedDraftTitle.length < 5 || draftTitleTerms.length === 0
+        ? []
+        : liveThreads
+            .map(thread => {
+                const normalizedThreadTitle = thread.title
+                    .toLocaleLowerCase("tr-TR")
+                    .replace(/[^\p{L}\p{N}\s]/gu, " ")
+                    .replace(/\s+/g, " ")
+                    .trim();
+                const matchedTerms = draftTitleTerms.filter(term => normalizedThreadTitle.includes(term)).length;
+                const phraseMatch = normalizedThreadTitle.includes(normalizedDraftTitle) || normalizedDraftTitle.includes(normalizedThreadTitle);
+                return {
+                    thread,
+                    score: (matchedTerms / draftTitleTerms.length) + (phraseMatch ? 1 : 0),
+                    matchedTerms,
+                };
+            })
+            .filter(match => match.matchedTerms >= Math.min(2, draftTitleTerms.length))
+            .sort((a, b) => b.score - a.score || b.thread.views - a.thread.views)
+            .slice(0, 3);
+
+    const newTopicChecklist = [
+        { label: "Açık ve anlaşılır başlık", complete: titleValidation.valid },
+        { label: "Doğru kategori", complete: categoryIsValid },
+        {
+            label: newTopicData.type === "survey" ? "En az iki farklı seçenek" : "Açıklayıcı ilk entry",
+            complete: newTopicData.type === "survey"
+                ? validSurveyOptions.length >= 2 && !hasDuplicateSurveyOptions
+                : contentValidation.valid,
+        },
+        {
+            label: "Araç bilgisi ekle",
+            complete: Boolean(newTopicData.carBrand && newTopicData.carModel),
+            optional: true,
+        },
+    ];
+
+    const resetNewTopicForm = () => {
+        setNewTopicData({ ...EMPTY_NEW_TOPIC_DATA });
+        setNewSurveyOptions(["Evet", "Hayır"]);
+        setDraftRestored(false);
+        setNewTopicError("");
+        if (typeof window !== "undefined") localStorage.removeItem(NEW_TOPIC_DRAFT_KEY);
+    };
+
+    const handleContentTypeChange = (type: NewContentType) => {
+        setNewTopicData(previous => ({
+            ...previous,
+            type,
+            category: type === "survey" ? "Anket" : type === "expert" ? "Uzmana Sor" : "",
+        }));
+    };
+
+    const handleCreateContent = async () => {
+        if (isSubmittingTopic) return;
+        if (!titleValidation.valid) {
+            setNewTopicError(titleValidation.error || "Başlığınızı kontrol edin.");
+            return;
+        }
+        if (!categoryIsValid) {
+            setNewTopicError("Lütfen başlığınız için uygun bir kategori seçin.");
+            return;
+        }
+        if (!vehicleYearIsValid || !vehicleKmIsValid) {
+            setNewTopicError("Araç yılı veya kilometre bilgisi geçerli aralıkta değil.");
+            return;
+        }
+        if (newTopicData.type === "survey") {
+            if (validSurveyOptions.length < 2) {
+                setNewTopicError("Anket için en az iki seçenek yazın.");
+                return;
+            }
+            if (hasDuplicateSurveyOptions) {
+                setNewTopicError("Anket seçenekleri birbirinden farklı olmalı.");
+                return;
+            }
+            if (!surveyContentIsValid) {
+                setNewTopicError(contentValidation.error || "Anket açıklamasını kontrol edin.");
+                return;
+            }
+        } else if (!contentValidation.valid) {
+            setNewTopicError(contentValidation.error || "İlk entry'nizi kontrol edin.");
+            return;
+        }
+        if (!user) {
+            setNewTopicError("Başlık açmak için giriş yapmalısınız. Taslağınız bu cihazda korunacak.");
+            return;
+        }
+
+        setIsSubmittingTopic(true);
+        setNewTopicError("");
+        try {
+            if (newTopicData.type === "survey") {
+                const nominees = validSurveyOptions.map((name, index) => ({ id: index + 1, name, votes: 0 }));
+                await addDoc(collection(db, "surveys"), {
+                    title: newTopicData.title.trim(),
+                    description: newTopicData.content.trim(),
+                    category: "Genel",
+                    iconName: "none",
+                    status: "active",
+                    totalVotes: 0,
+                    nominees,
+                    voters: {},
+                    createdBy: user.username,
+                    createdAt: serverTimestamp(),
+                });
+                resetNewTopicForm();
+                setShowNewTopicModal(false);
+                window.location.href = "/anket";
+                return;
+            }
+
+            const tags = [newTopicData.carBrand, newTopicData.carModel].filter(Boolean);
+            const threadSlug = await createThread({
+                title: newTopicData.title.trim(),
+                category: newTopicData.category,
+                content: newTopicData.content.trim(),
+                tags,
+                authorId: user.id as string,
+                authorUsername: user.username,
+                ...(newTopicData.carBrand ? { carBrand: newTopicData.carBrand } : {}),
+                ...(newTopicData.carModel ? { carModel: newTopicData.carModel } : {}),
+                ...(newTopicData.carYear ? { carYear: newTopicData.carYear } : {}),
+                ...(newTopicData.carKm ? { carKm: newTopicData.carKm } : {}),
+            });
+
+            resetNewTopicForm();
+            setShowNewTopicModal(false);
+            window.location.href = `/forum/${threadSlug}`;
+        } catch (error) {
+            setNewTopicError(error instanceof Error ? error.message : "İçerik oluşturulamadı. Lütfen tekrar deneyin.");
+        } finally {
+            setIsSubmittingTopic(false);
+        }
+    };
 
     const dynamicCategories = [
         { name: "Tümü", count: liveThreads.length, type: "topic" },
@@ -550,6 +810,7 @@ export default function Home() {
         }))
     };
 
+    const featuredEvent = events[0];
     return (
         <div>
             <script
@@ -559,54 +820,6 @@ export default function Home() {
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
-                {/* ─── Hero (sadece giriş yapmamış ziyaretçiler) ─── */}
-                {!user && (
-                    <section className="home-hero">
-                        <div className="home-hero-inner">
-                            <div className="home-hero-badge">
-                                <Sparkles size={14} /> Türkiye'nin otomobil topluluğu
-                            </div>
-                            <h1 className="home-hero-title">
-                                Aracını tanı, doğru kararı ver.
-                            </h1>
-                            <p className="home-hero-subtitle">
-                                Binlerce sürücünün deneyimi, uzman görüşleri ve gerçek veriler tek çatı altında.
-                                Arıza kodlarından araç DNA'sına, fiyat analizinden topluluk tartışmalarına kadar her şey OtoSöz'de.
-                            </p>
-                            <div className="home-hero-actions">
-                                <Link href="/kayit" style={{ textDecoration: 'none' }}>
-                                    <button className="home-hero-btn-primary">
-                                        Ücretsiz Katıl <ArrowRight size={17} />
-                                    </button>
-                                </Link>
-                                <Link href="/forum" style={{ textDecoration: 'none' }}>
-                                    <button className="home-hero-btn-ghost">
-                                        Forumu Keşfet
-                                    </button>
-                                </Link>
-                            </div>
-                            <div className="home-hero-stats">
-                                {[
-                                    { icon: MessageSquare, value: platformStats.totalThreads, label: 'Başlık' },
-                                    { icon: BarChart3, value: platformStats.totalEntries, label: 'Entry' },
-                                    { icon: Users, value: platformStats.totalUsers, label: 'Üye' },
-                                ].map((s, i) => {
-                                    const Icon = s.icon;
-                                    return (
-                                        <div key={i} className="home-hero-stat">
-                                            <Icon size={18} className="home-hero-stat-icon" />
-                                            <div>
-                                                <div className="home-hero-stat-val">{s.value > 0 ? s.value.toLocaleString('tr-TR') : '—'}</div>
-                                                <div className="home-hero-stat-label">{s.label}</div>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </section>
-                )}
-
                 {/* Sub Header */}
                 <div style={{
                     background: 'var(--top-bar-bg)',
@@ -614,9 +827,11 @@ export default function Home() {
                     padding: '16px 24px',
                 }}>
                     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-                        <div className="subheader-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                <h2 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>Topluluk</h2>
+                        <div className="subheader-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 0 }}>
+                            <div className="forum-page-heading">
+                                <span className="forum-page-eyebrow">Otosöz topluluğu</span>
+                                <h1>Forum</h1>
+                                <p>Gerçek sürücü deneyimleri, teknik çözümler ve güncel tartışmalar.</p>
                             </div>
 
                             {/* Fuel Widget */}
@@ -667,7 +882,7 @@ export default function Home() {
                                     {/* Şehir etiketi */}
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
                                         <span style={{ fontSize: '11px', color: 'var(--primary)', fontWeight: '700', fontFamily: 'monospace', padding: '4px 8px', background: 'var(--hover-primary)', borderRadius: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                                            <MapPin size={11} /> {tickerCity.toUpperCase()}
+                                            <MapPin size={11} /> {tickerCity}
                                         </span>
                                         <span style={{ width: '1px', height: '18px', background: 'var(--card-border)', display: 'inline-block', margin: '0 8px' }} />
                                     </div>
@@ -706,125 +921,90 @@ export default function Home() {
                                     boxShadow: '0 6px 18px rgba(59,130,246,0.25)',
                                 }}
                             >
-                                <Plus size={16} strokeWidth={3} /> Yeni Başlık
+                                <Plus size={16} strokeWidth={3} /> Yeni başlık aç
                             </button>
                         </div>
 
 
 
-                        {/* Reklam Alanı (Yan Yana) */}
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '8px', marginBottom: '8px' }}>
-                            <AdPlaceholder variant="banner" fallbackTitle="Reklam Alanı" fallbackDesc="Buraya reklam verebilirsiniz." />
-                            <AdPlaceholder variant="banner" fallbackTitle="Reklam Alanı" fallbackDesc="Buraya reklam verebilirsiniz." />
-                        </div>
                     </div>
                 </div>
 
-                <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
-                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
-                        {/* Left Sidebar - Kategoriler */}
-                        <aside className="home-left-sidebar">
-                            <div style={{
-                                position: 'sticky',
-                                top: '100px',
-                                background: 'var(--card-bg)',
-                                border: '1px solid var(--card-border)',
-                                borderRadius: '16px',
-                                padding: '16px',
-                            }}>
-                                <h2 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px' }}>
-                                    Kategoriler
-                                </h2>
-                                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                                    {dynamicCategories.map((cat) => {
-                                        const active = selectedCategory === cat.name;
-                                        const meta = CATEGORY_META[cat.name];
-                                        return (
-                                            <li key={cat.name} style={{ marginBottom: '4px' }}>
-                                                <button
-                                                    type="button"
-                                                    aria-pressed={active}
-                                                    onClick={() => setSelectedCategory(cat.name)}
-                                                    title={meta?.desc}
-                                                    style={{
-                                                        width: '100%',
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        justifyContent: 'space-between',
-                                                        gap: '10px',
-                                                        padding: '10px 12px',
-                                                        borderRadius: '10px',
-                                                        border: 'none',
-                                                        cursor: 'pointer',
-                                                        background: active ? 'var(--secondary)' : 'transparent',
-                                                        color: active ? 'var(--foreground)' : 'var(--text-muted)',
-                                                        fontSize: '14px',
-                                                        fontWeight: active ? '700' : '500',
-                                                        textAlign: 'left',
-                                                        transition: 'all 0.15s ease',
-                                                        borderLeft: active ? '3px solid var(--text-muted)' : '3px solid transparent',
-                                                    }}
-                                                    onMouseEnter={(e) => { if (!active) e.currentTarget.style.background = 'var(--secondary)'; }}
-                                                    onMouseLeave={(e) => { if (!active) e.currentTarget.style.background = 'transparent'; }}
-                                                >
-                                                    <span style={{ flex: 1 }}>{cat.name}</span>
-                                                    <span style={{
-                                                        fontSize: '11px', fontWeight: '700',
-                                                        color: 'var(--text-muted)',
-                                                        background: 'var(--secondary)',
-                                                        padding: '2px 8px', borderRadius: '10px', minWidth: '24px', textAlign: 'center',
-                                                    }}>{cat.count}</span>
-                                                </button>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
-                            
-                            {/* Reklam Alanı */}
-                            <AdPlaceholder position="sidebar" style={{ marginTop: '16px' }} />
-
-                            {/* Pazar Vitrini (Gizlendi) */}
-                            <LatestThreadsWidget />
-
-
-                            {/* Efsane Avcıları Vitrini */}
-                            {randomMyth && (
-                                <div style={{
-                                    marginTop: '16px',
-                                    background: 'var(--card-bg)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '16px',
-                                    padding: '16px',
-                                }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                            Günün Efsanesi
-                                        </h3>
-                                    </div>
-                                    
-                                    <Link href={`/kutuphane/efsane-avcilari/${randomMyth.slug}--${randomMyth.id}`} style={{ textDecoration: 'none' }}>
-                                        <div style={{ cursor: 'pointer' }}
-                                             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'}
-                                             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>
-                                            <p style={{ fontSize: '13px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px', lineHeight: '1.4' }}>
-                                                &quot;{randomMyth.myth}&quot;
-                                            </p>
-                                            <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '10px', lineHeight: '1.5', borderLeft: '2px solid var(--card-border)', paddingLeft: '8px' }}>
-                                                {randomMyth.reality}
-                                            </p>
-                                            <div style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                                Detaylı Oku <ArrowRight size={14} />
-                                            </div>
+                <div className="forum-shell" style={{ maxWidth: '1400px', margin: '0 auto', padding: '20px 24px 32px' }}>
+                    <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '230px minmax(0, 1fr) 300px', gap: '20px' }}>
+                        {/* Sol sütun — forum kategorileri */}
+                        <aside className="home-left-sidebar forum-sidebar" data-ad-rail-anchor="forum-start">
+                            <div className="forum-sidebar-stack">
+                                <section className="forum-sidebar-card forum-category-card" aria-labelledby="forum-categories-title">
+                                    <div className="forum-sidebar-heading">
+                                        <div>
+                                            <span className="forum-sidebar-kicker">Başlıklara göz at</span>
+                                            <h2 id="forum-categories-title">Kategoriler</h2>
                                         </div>
-                                    </Link>
+                                        <span className="forum-sidebar-total">{liveThreads.length}</span>
+                                    </div>
+                                    <ul className="forum-category-list">
+                                        {dynamicCategories.map((cat) => {
+                                            const active = selectedCategory === cat.name;
+                                            const meta = CATEGORY_META[cat.name];
+                                            return (
+                                                <li key={cat.name}>
+                                                    <button
+                                                        type="button"
+                                                        aria-pressed={active}
+                                                        onClick={() => setSelectedCategory(cat.name)}
+                                                        className={`forum-category-item${active ? ' active' : ''}`}
+                                                    >
+                                                        <span className="forum-category-copy">
+                                                            <span>{cat.name}</span>
+                                                            <small>{meta?.desc}</small>
+                                                        </span>
+                                                        <span className="forum-category-count">{cat.count}</span>
+                                                    </button>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                </section>
+
+                                <div className="forum-latest-wrapper">
+                                    <LatestThreadsWidget />
                                 </div>
-                            )}
 
-                            {/* Reklam Alanı (Rastgele Bilgi Altı) */}
-                            <AdPlaceholder position="sidebar_bottom" style={{ marginTop: '16px' }} />
+                                <section className="forum-sidebar-card forum-resource-card forum-sidebar-fill" aria-labelledby="driver-essentials-title">
+                                    <div className="forum-sidebar-heading">
+                                        <div>
+                                            <span className="forum-sidebar-kicker">Sürücü araçları</span>
+                                            <h2 id="driver-essentials-title"><Wrench size={15} /> Yolda lazım olur</h2>
+                                        </div>
+                                        <Link href="/kutuphane" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
+                                    </div>
+                                    <div className="forum-resource-list">
+                                        {DRIVER_ESSENTIALS.map(({ href, title, description, icon: ToolIcon }) => (
+                                            <Link key={href} href={href} className="forum-resource-row">
+                                                <span className="forum-resource-icon"><ToolIcon size={15} /></span>
+                                                <span className="forum-resource-copy">
+                                                    <strong>{title}</strong>
+                                                    <small>{description}</small>
+                                                </span>
+                                                <ChevronRight size={14} />
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </section>
+
+                                {randomMyth && (
+                                    <section className="forum-sidebar-card forum-myth-card forum-sidebar-bottom">
+                                        <span className="forum-sidebar-kicker">Kütüphaneden</span>
+                                        <h3>Günün efsanesi</h3>
+                                        <Link href={`/kutuphane/efsane-avcilari/${randomMyth.slug}--${randomMyth.id}`}>
+                                            <p>“{randomMyth.myth}”</p>
+                                            <span className="forum-card-link">Gerçeğini öğren <ArrowRight size={14} /></span>
+                                        </Link>
+                                    </section>
+                                )}
+                            </div>
                         </aside>
-
                         {/* Main Content - BAşLIKLAR LİSTESİ */}
                         <div className="home-forum-feed">
                             <div className="forum-mobile-categories" role="group" aria-label="Forum kategorileri">
@@ -1002,7 +1182,7 @@ export default function Home() {
                                             <BarChart3 size={16} color="var(--primary)" /> Aktif Anketler
                                         </h3>
                                         <Link href="/anket" style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                            Tumunu Gor <ChevronRight size={14} />
+                                            Tümünü gör <ChevronRight size={14} />
                                         </Link>
                                     </div>
                                     <div style={{ display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: '4px' }}>
@@ -1091,281 +1271,120 @@ export default function Home() {
                                         return pages;
                                     })()}
                                     <span style={{ fontSize: '12px', color: 'var(--text-muted)', marginLeft: '12px' }}>
-                                        sayfa {safePage} / {totalPages}
+                                        Sayfa {safePage} / {totalPages}
                                     </span>
                                 </div>
                             )}
                         </div>
 
-                        {/* Right Sidebar */}
-                        <aside className="home-right-sidebar">
-                            <div style={{ position: 'sticky', top: '100px' }}>
-                                {/* Bugün Gündemde */}
-                                <div style={{
-                                    background: 'var(--card-bg)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '16px',
-                                    padding: '16px',
-                                    marginBottom: '16px',
-                                }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                                        <h3 style={{
-                                            fontSize: '13px', fontWeight: '700', color: 'var(--foreground)',
-                                            margin: 0, display: 'flex', alignItems: 'center', gap: '6px',
-                                        }}>
-                                            <Flame size={14} color="var(--text-muted)" />
-                                            Bugün Gündemde
-                                        </h3>
-                                        <Link href="/forum" style={{
-                                            fontSize: '11px', color: 'var(--text-muted)', fontWeight: '500',
-                                            textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '2px',
-                                        }}>
-                                            tümü <ChevronRight size={11} />
-                                        </Link>
+                        {/* Sağ sütun — keşif akışı */}
+                        <aside className="home-right-sidebar forum-sidebar">
+                            <div className="forum-sidebar-stack">
+                                <section className="forum-sidebar-card forum-trending-card">
+                                    <div className="forum-sidebar-heading">
+                                        <div>
+                                            <span className="forum-sidebar-kicker">Topluluk nabzı</span>
+                                            <h2><Flame size={15} /> Gündemde</h2>
+                                        </div>
+                                        <Link href="/forum" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                                     </div>
 
                                     {loadingThreads ? (
-                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                            {[...Array(5)].map((_, i) => (
-                                                <div key={i} style={{ display: 'flex', gap: '10px', padding: '9px 6px', borderBottom: i < 4 ? '1px solid var(--card-border)' : 'none' }}>
-                                                    <div className="skeleton-pulse" style={{ width: '16px', height: '16px', borderRadius: '4px', flexShrink: 0 }} />
-                                                    <div style={{ flex: 1 }}>
-                                                        <div className="skeleton-pulse" style={{ width: '100%', height: '14px', borderRadius: '4px', marginBottom: '6px' }} />
-                                                        <div className="skeleton-pulse" style={{ width: '60%', height: '10px', borderRadius: '4px' }} />
-                                                    </div>
-                                                </div>
-                                            ))}
+                                        <div className="forum-compact-list">
+                                            {[...Array(5)].map((_, i) => <div key={i} className="forum-compact-skeleton skeleton-pulse" />)}
                                         </div>
                                     ) : liveThreads.length === 0 ? (
-                                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '16px 0', margin: 0 }}>Henüz gündem yok</p>
+                                        <p className="forum-sidebar-empty">Henüz gündem yok.</p>
                                     ) : (
-                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+                                        <div className="forum-compact-list">
                                             {[...liveThreads].sort((a, b) => b.views - a.views).slice(0, 5).map((thread, index) => (
-                                                <Link key={thread.id} href={getThreadSlugUrl(thread)} style={{ textDecoration: 'none' }}>
-                                                    <div
-                                                        style={{
-                                                            display: 'flex', alignItems: 'flex-start', gap: '10px',
-                                                            padding: '9px 6px',
-                                                            borderBottom: index < 4 ? '1px solid var(--card-border)' : 'none',
-                                                            transition: 'background 0.15s',
-                                                            borderRadius: '4px',
-                                                        }}
-                                                        onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--secondary)'; }}
-                                                        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
-                                                    >
-                                                        <span style={{
-                                                            fontSize: '12px', fontWeight: '700',
-                                                            color: index < 3 ? 'var(--primary)' : 'var(--text-muted)',
-                                                            minWidth: '16px', textAlign: 'center', flexShrink: 0,
-                                                            lineHeight: '18px',
-                                                        }}>
-                                                            {index + 1}
-                                                        </span>
-                                                        <div style={{ flex: 1, minWidth: 0 }}>
-                                                            <span style={{
-                                                                color: 'var(--foreground)', fontSize: '12.5px',
-                                                                fontWeight: '500', lineHeight: 1.45,
-                                                                display: '-webkit-box', WebkitLineClamp: 2,
-                                                                WebkitBoxOrient: 'vertical', overflow: 'hidden',
-                                                            }}>
-                                                                {thread.title}
-                                                            </span>
-                                                            <span style={{ fontSize: '10.5px', color: 'var(--text-muted)', marginTop: '2px', display: 'block' }}>
-                                                                {thread.views >= 1000 ? `${(thread.views / 1000).toFixed(1)}K` : thread.views} görüntülenme
-                                                                {thread.entryCount > 0 && ` · ${thread.entryCount} entry`}
-                                                            </span>
-                                                        </div>
-                                                    </div>
+                                                <Link key={thread.id} href={getThreadSlugUrl(thread)} className="forum-trending-row">
+                                                    <span className="forum-trending-rank">{String(index + 1).padStart(2, '0')}</span>
+                                                    <span className="forum-trending-copy">
+                                                        <strong>{thread.title}</strong>
+                                                        <small>{thread.entryCount} entry · {thread.views.toLocaleString('tr-TR')} görüntülenme</small>
+                                                    </span>
                                                 </Link>
                                             ))}
                                         </div>
                                     )}
-                                </div>
+                                </section>
 
-
-
-                                {/* En Aktif Üyeler */}
-                                {topUsers.length > 0 && (
-                                    <div className="home-sidebar-extra" style={{
-                                        background: 'var(--card-bg)',
-                                        border: '1px solid var(--card-border)',
-                                        borderRadius: '16px',
-                                        padding: '16px',
-                                        marginBottom: '16px',
-                                    }}>
-                                        <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                            <Award size={16} color="var(--primary)" /> En Aktif Üyeler
-                                        </h3>
-                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                                            {topUsers.map((tu, index) => {
-                                                const rankColors = ['#F59E0B', '#9CA3AF', '#B45309'];
-                                                const rankColor = index < 3 ? rankColors[index] : 'var(--text-muted)';
-                                                return (
-                                                    <Link key={tu.username} href={`/profil/${tu.username}`} style={{ textDecoration: 'none' }}>
-                                                        <div style={{
-                                                            display: 'flex', alignItems: 'center', gap: '10px',
-                                                            padding: '8px 6px', borderRadius: '8px',
-                                                            transition: 'background 0.15s',
-                                                        }}
-                                                            onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--secondary)'; }}
-                                                            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}>
-                                                            <span style={{
-                                                                fontSize: '13px', fontWeight: '800', color: rankColor,
-                                                                minWidth: '18px', textAlign: 'center', flexShrink: 0,
-                                                            }}>{index + 1}</span>
-                                                            <div style={{
-                                                                width: '30px', height: '30px', borderRadius: '50%',
-                                                                background: 'var(--secondary)', border: '1px solid var(--card-border)',
-                                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                                fontSize: '13px', fontWeight: '700', color: 'var(--text-muted)', flexShrink: 0,
-                                                            }}>{tu.username.charAt(0).toUpperCase()}</div>
-                                                            <div style={{ flex: 1, minWidth: 0 }}>
-                                                                <div style={{ fontSize: '13px', fontWeight: '600', color: 'var(--foreground)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                                                    {tu.username}
-                                                                </div>
-                                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                                                                    {(tu.entryCount || 0).toLocaleString('tr-TR')} entry
-                                                                </div>
-                                                            </div>
-                                                            {index === 0 && <Crown size={15} color="#F59E0B" style={{ flexShrink: 0 }} />}
-                                                        </div>
-                                                    </Link>
-                                                );
-                                            })}
+                                {latestNews.length > 0 && (
+                                    <section className="forum-sidebar-card forum-discovery-card">
+                                        <div className="forum-sidebar-heading">
+                                            <div>
+                                                <span className="forum-sidebar-kicker">Güncel</span>
+                                                <h2><Newspaper size={15} /> Son haberler</h2>
+                                            </div>
+                                            <Link href="/haberler" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                                         </div>
-                                    </div>
+                                        <div className="forum-discovery-list">
+                                            {latestNews.map((post) => (
+                                                <Link key={post.id} href={`/haberler/${post.slug}`}>
+                                                    <strong>{post.title}</strong>
+                                                    <small>{post.readTime} dk okuma</small>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </section>
                                 )}
 
-                                {/* İstatistikler */}
-                                <div className="home-sidebar-extra" style={{
-                                    background: 'var(--card-bg)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '16px',
-                                    padding: '16px',
-                                }}>
-                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '12px' }}>
-                                        İstatistikler
-                                    </h3>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                        {[
-                                            { label: 'Toplam Başlık', value: platformStats.totalThreads.toLocaleString() },
-                                            { label: 'Toplam Entry', value: platformStats.totalEntries.toLocaleString() },
-                                            { label: 'Kayıtlı Üye', value: platformStats.totalUsers.toLocaleString() },
-                                            { label: 'Bugün Açılan', value: `+${platformStats.todayThreads}`, color: 'var(--success)' },
-                                        ].map((stat) => (
-                                            <div key={stat.label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px' }}>
-                                                <span style={{ color: 'var(--text-muted)' }}>{stat.label}</span>
-                                                <span style={{ color: stat.color || 'var(--foreground)', fontWeight: '600' }}>{stat.value}</span>
-                                            </div>
+                                {randomGuide && (
+                                    <section className="forum-sidebar-card forum-guide-card">
+                                        <span className="forum-sidebar-kicker">Kütüphaneden seçki</span>
+                                        <div className="forum-guide-icon"><BookOpen size={18} /></div>
+                                        <h2>{randomGuide.title}</h2>
+                                        <p>{randomGuide.description}</p>
+                                        <Link href={`/makale/${randomGuide.title.toLowerCase().replace(/[^a-z0-9ğüşöçı]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}--${randomGuide.urlId || randomGuide.id}`} className="forum-card-link">
+                                            Rehberi oku <ArrowRight size={14} />
+                                        </Link>
+                                    </section>
+                                )}
+
+                                <section className="forum-sidebar-card forum-dna-card forum-sidebar-fill" aria-labelledby="featured-dna-title">
+                                    <div className="forum-sidebar-heading">
+                                        <div>
+                                            <span className="forum-sidebar-kicker">Araç DNA'dan</span>
+                                            <h2 id="featured-dna-title"><Dna size={15} /> Popüler araç dosyaları</h2>
+                                        </div>
+                                    </div>
+                                    <div className="forum-dna-list">
+                                        {FEATURED_DNA_MODELS.map((vehicle) => (
+                                            <Link
+                                                key={vehicle.id}
+                                                href={`/arac-dna/${createVehicleSlug(vehicle.brand)}/${createVehicleSlug(vehicle.model)}`}
+                                                className="forum-dna-row"
+                                            >
+                                                <span className="forum-dna-copy">
+                                                    <strong>{vehicle.brand} {vehicle.model}</strong>
+                                                    <small>{vehicle.chronicIssues.length} kronik konu · {vehicle.totalReports} kullanıcı raporu</small>
+                                                </span>
+                                                <span className="forum-dna-score" title={`DNA puanı ${vehicle.dnaScore}`}>{vehicle.dnaScore}</span>
+                                            </Link>
                                         ))}
                                     </div>
-                                </div>
+                                    <Link href="/arac-dna" className="forum-card-link forum-card-footer-link">
+                                        Tüm araçları keşfet <ArrowRight size={14} />
+                                    </Link>
+                                </section>
 
-                                {/* Random Guide Card - UPDATED BLACK */}
-                                {randomGuide && (
-                                    <div className="home-sidebar-extra" style={{
-                                        marginTop: '16px',
-                                        background: 'var(--card-bg)',
-                                        borderRadius: '16px',
-                                        padding: '20px',
-                                        color: 'var(--foreground)',
-                                        boxShadow: 'var(--card-shadow)',
-                                        position: 'relative',
-                                        overflow: 'hidden',
-                                        border: '1px solid var(--card-border)'
-                                    }}>
-                                        {/* Background Decor */}
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: -20,
-                                            right: -20,
-                                            opacity: 0.05,
-                                            transform: 'rotate(15deg)'
-                                        }}>
-                                            <BookOpen size={120} color="var(--text-muted)" />
+                                {featuredEvent && (
+                                    <section className="forum-sidebar-card forum-event-card forum-sidebar-bottom">
+                                        <span className="forum-sidebar-kicker">Takvim</span>
+                                        <div className="forum-event-meta">
+                                            <span className="forum-event-date">
+                                                <CalendarDays size={15} />
+                                                {new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'short' }).format(new Date(featuredEvent.date))}
+                                            </span>
+                                            <span>{featuredEvent.city}</span>
                                         </div>
-
-                                        <div style={{ position: 'relative', zIndex: 1 }}>
-                                            <div style={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: '8px',
-                                                marginBottom: '12px',
-                                                fontSize: '12px',
-                                                fontWeight: '600',
-                                                opacity: 0.7
-                                            }}>
-                                                <span style={{
-                                                    padding: '4px 10px',
-                                                    background: 'var(--secondary)',
-                                                    borderRadius: '20px',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    gap: '6px',
-                                                    border: '1px solid var(--card-border)'
-                                                }}>
-                                                    <BookOpen size={12} />
-                                                    Rastgele Bilgi
-                                                </span>
-                                            </div>
-
-                                            <h3 style={{
-                                                fontSize: '16px',
-                                                fontWeight: '700',
-                                                marginBottom: '8px',
-                                                lineHeight: '1.4',
-                                                color: 'var(--foreground)'
-                                            }}>
-                                                {randomGuide.title}
-                                            </h3>
-
-                                            <p style={{
-                                                fontSize: '13px',
-                                                opacity: 0.6,
-                                                marginBottom: '16px',
-                                                lineHeight: '1.5',
-                                                display: '-webkit-box',
-                                                WebkitLineClamp: 3,
-                                                WebkitBoxOrient: 'vertical',
-                                                overflow: 'hidden',
-                                                color: 'var(--text-muted)'
-                                            }}>
-                                                {randomGuide.description}
-                                            </p>
-
-                                            <Link href={`/makale/${randomGuide.title.toLowerCase().replace(/[^a-z0-9ğüşöçı]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}--${randomGuide.urlId || randomGuide.id}`} style={{ textDecoration: 'none' }}>
-                                                <button style={{
-                                                    width: '100%',
-                                                    padding: '12px',
-                                                    background: 'var(--secondary)',
-                                                    color: 'var(--foreground)',
-                                                    border: '1px solid var(--card-border)',
-                                                    borderRadius: '12px',
-                                                    fontWeight: '600',
-                                                    cursor: 'pointer',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    gap: '8px',
-                                                    transition: 'all 0.2s'
-                                                }}
-                                                    onMouseEnter={(e) => {
-                                                        e.currentTarget.style.background = 'var(--hover-primary)';
-                                                    }}
-                                                    onMouseLeave={(e) => {
-                                                        e.currentTarget.style.background = 'var(--secondary)';
-                                                    }}
-                                                >
-                                                    <span>Okumaya Başla</span>
-                                                    <ArrowRight size={16} />
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
+                                        <h2>{featuredEvent.title}</h2>
+                                        <Link href={`/etkinlikler/${featuredEvent.id}`} className="forum-card-link">
+                                            Etkinliği incele <ArrowRight size={14} />
+                                        </Link>
+                                    </section>
                                 )}
-
-                                {/* Reklam Alanı (Sağ Sidebar Alt) */}
-                                <AdPlaceholder position="sidebar_right" style={{ marginTop: '16px' }} />
                             </div>
                         </aside>
                     </div>
@@ -1377,408 +1396,347 @@ export default function Home() {
 
 
             {/* Yeni Başlık Modal */}
-            {
-                showNewTopicModal && (
-                    <div
-                        style={{
-                            position: 'fixed',
-                            inset: 0,
-                            background: 'var(--overlay-bg)',
-                            backdropFilter: 'blur(8px)',
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            justifyContent: 'center',
-                            zIndex: 1000,
-                            padding: '16px',
-                            overflowY: 'auto',
-                        }}
-                        onClick={() => setShowNewTopicModal(false)}
+            {showNewTopicModal && (
+                <div
+                    className="new-topic-modal-backdrop"
+                    onMouseDown={(event) => {
+                        if (event.target === event.currentTarget && !isSubmittingTopic) setShowNewTopicModal(false);
+                    }}
+                >
+                    <section
+                        className="new-topic-modal"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="new-topic-modal-title"
+                        onMouseDown={(event) => event.stopPropagation()}
                     >
-                        <div
-                            style={{
-                                background: 'var(--card-bg)',
-                                border: '1px solid var(--card-border)',
-                                borderRadius: '20px',
-                                padding: '28px',
-                                width: '100%',
-                                maxWidth: '550px',
-                                marginTop: '40px',
-                                marginBottom: '40px',
-                                position: 'relative',
-                            }}
-                            onClick={(e) => e.stopPropagation()}
-                        >
+                        <header className="new-topic-modal-header">
+                            <div>
+                                <span className="new-topic-modal-kicker"><MessageSquare size={13} /> Topluluğa katkı</span>
+                                <h2 id="new-topic-modal-title">Yeni başlık aç</h2>
+                                <p>Konuyu net anlatın; doğru sürücüler daha hızlı yanıt versin.</p>
+                            </div>
                             <button
+                                type="button"
+                                className="new-topic-modal-close"
+                                aria-label="Yeni başlık penceresini kapat"
+                                disabled={isSubmittingTopic}
                                 onClick={() => setShowNewTopicModal(false)}
-                                style={{
-                                    position: 'absolute',
-                                    top: '16px',
-                                    right: '16px',
-                                    background: 'var(--secondary)',
-                                    border: '1px solid var(--card-border)',
-                                    borderRadius: '50%',
-                                    width: '32px',
-                                    height: '32px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    cursor: 'pointer',
-                                    color: 'var(--text-muted)',
-                                    fontSize: '18px',
-                                    zIndex: 1,
-                                }}
                             >
-                                ✕
+                                <X size={18} />
                             </button>
-                            <h2 style={{ fontSize: '22px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '24px' }}>
-                                Yeni İçerik Oluştur
-                            </h2>
+                        </header>
 
-                            {/* Tür Seçimi */}
-                            <div style={{ marginBottom: '20px' }}>
-                                <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '10px' }}>
-                                    İçerik Türü
-                                </label>
-                                <div style={{ display: 'flex', gap: '10px' }}>
-                                    {[
-                                        { id: 'topic', label: '📄 Başlık', desc: 'Forum başlığı' },
-                                        { id: 'survey', label: '📊 Anket', desc: 'Oylama' },
-                                        { id: 'expert', label: '💡 Soru', desc: 'Uzmana Sor' },
-                                    ].map((type) => (
+                        <form
+                            className="new-topic-modal-form"
+                            onSubmit={(event) => {
+                                event.preventDefault();
+                                void handleCreateContent();
+                            }}
+                        >
+                            <div className="new-topic-type-grid" role="group" aria-label="İçerik türü">
+                                {([
+                                    { id: "topic", label: "Forum başlığı", description: "Deneyim veya tartışma", icon: MessageSquare },
+                                    { id: "survey", label: "Anket", description: "Topluluğun fikrini al", icon: BarChart3 },
+                                    { id: "expert", label: "Uzmana sor", description: "Teknik destek iste", icon: Lightbulb },
+                                ] as const).map((type) => {
+                                    const TypeIcon = type.icon;
+                                    const active = newTopicData.type === type.id;
+                                    return (
                                         <button
                                             key={type.id}
-                                            onClick={() => {
-                                                const isSurvey = type.id === 'survey';
-                                                setNewTopicData({
-                                                    ...newTopicData,
-                                                    type: type.id,
-                                                    category: isSurvey ? 'Anket' : ''
-                                                });
-                                            }}
-                                            style={{
-                                                flex: 1,
-                                                padding: '14px 12px',
-                                                background: newTopicData.type === type.id ? 'var(--primary)' : 'var(--secondary)',
-                                                border: newTopicData.type === type.id ? '2px solid var(--primary)' : '1px solid var(--card-border)',
-                                                borderRadius: '12px',
-                                                cursor: 'pointer',
-                                                textAlign: 'center',
-                                            }}
+                                            type="button"
+                                            className={`new-topic-type-button${active ? " active" : ""}`}
+                                            aria-pressed={active}
+                                            onClick={() => handleContentTypeChange(type.id)}
                                         >
-                                            <div style={{ fontSize: '18px', marginBottom: '4px' }}>{type.label.split(' ')[0]}</div>
-                                            <div style={{ fontSize: '12px', fontWeight: '600', color: newTopicData.type === type.id ? 'white' : 'var(--foreground)' }}>
-                                                {type.label.split(' ')[1]}
-                                            </div>
+                                            <span className="new-topic-type-icon"><TypeIcon size={17} /></span>
+                                            <span>
+                                                <strong>{type.label}</strong>
+                                                <small>{type.description}</small>
+                                            </span>
                                         </button>
-                                    ))}
-                                </div>
+                                    );
+                                })}
                             </div>
 
-                            {/* Kategori */}
-                            <div style={{ marginBottom: '20px' }}>
-                                <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>
-                                    Kategori <span style={{ color: '#ff4444' }}>*</span>
-                                </label>
-                                {newTopicData.type === 'survey' ? (
-                                    <input
-                                        type="text"
-                                        value="Anket"
-                                        disabled
-                                        style={{
-                                            width: '100%',
-                                            padding: '12px 16px',
-                                            background: 'var(--secondary)',
-                                            border: '1px solid var(--card-border)',
-                                            borderRadius: '10px',
-                                            color: 'var(--text-muted)',
-                                            fontSize: '14px',
-                                            outline: 'none',
-                                        }}
-                                    />
-                                ) : (
-                                    <select
-                                        value={newTopicData.category}
-                                        onChange={(e) => setNewTopicData({ ...newTopicData, category: e.target.value })}
-                                        style={{
-                                            width: '100%',
-                                            padding: '12px 16px',
-                                            background: 'var(--secondary)',
-                                            border: '1px solid var(--card-border)',
-                                            borderRadius: '10px',
-                                            color: 'var(--foreground)',
-                                            fontSize: '14px',
-                                            outline: 'none',
-                                        }}
-                                    >
-                                        <option value="" disabled>Kategori Seçiniz</option>
-                                        {categories.filter(c => !c.special).map((cat) => (
-                                            <option key={cat.name} value={cat.name}>{cat.name}</option>
-                                        ))}
-                                    </select>
-                                )}
-                            </div>
-
-                            {/* Araç Detayları (Opsiyonel) */}
-                            <div style={{ marginBottom: '20px', padding: '16px', background: 'rgba(59, 130, 246, 0.05)', border: '1px solid rgba(59, 130, 246, 0.1)', borderRadius: '12px' }}>
-                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <Car size={16} /> Araç Detayları (Opsiyonel)
-                                </label>
-                                <div className="car-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
-                                    <select
-                                        value={newTopicData.carBrand}
-                                        onChange={(e) => setNewTopicData({ ...newTopicData, carBrand: e.target.value, carModel: "" })}
-                                        style={{
-                                            width: '100%', padding: '12px 16px', background: 'var(--secondary)',
-                                            border: '1px solid var(--card-border)', borderRadius: '10px',
-                                            color: 'var(--foreground)', fontSize: '14px', outline: 'none'
-                                        }}
-                                    >
-                                        <option value="">Marka Seçin</option>
-                                        {availableBrands.map(b => <option key={b} value={b}>{b}</option>)}
-                                    </select>
-                                    <select
-                                        value={newTopicData.carModel}
-                                        onChange={(e) => setNewTopicData({ ...newTopicData, carModel: e.target.value })}
-                                        disabled={!newTopicData.carBrand}
-                                        style={{
-                                            width: '100%', padding: '12px 16px', background: 'var(--secondary)',
-                                            border: '1px solid var(--card-border)', borderRadius: '10px',
-                                            color: 'var(--foreground)', fontSize: '14px', outline: 'none',
-                                            opacity: newTopicData.carBrand ? 1 : 0.5
-                                        }}
-                                    >
-                                        <option value="">Model Seçin</option>
-                                        {availableModels.map((m: string) => <option key={m} value={m}>{m}</option>)}
-                                    </select>
-                                </div>
-                                <div className="car-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                                    <input
-                                        type="number"
-                                        placeholder="Yıl (Örn: 2018)"
-                                        value={newTopicData.carYear}
-                                        onChange={(e) => setNewTopicData({ ...newTopicData, carYear: e.target.value })}
-                                        style={{
-                                            width: '100%', padding: '12px 16px', background: 'var(--secondary)',
-                                            border: '1px solid var(--card-border)', borderRadius: '10px',
-                                            color: 'var(--foreground)', fontSize: '14px', outline: 'none'
-                                        }}
-                                    />
-                                    <input
-                                        type="number"
-                                        placeholder="KM (Örn: 120000)"
-                                        value={newTopicData.carKm}
-                                        onChange={(e) => setNewTopicData({ ...newTopicData, carKm: e.target.value })}
-                                        style={{
-                                            width: '100%', padding: '12px 16px', background: 'var(--secondary)',
-                                            border: '1px solid var(--card-border)', borderRadius: '10px',
-                                            color: 'var(--foreground)', fontSize: '14px', outline: 'none'
-                                        }}
-                                    />
-                                </div>
-                            </div>
-
-                            {/* İçerik Başlığı */}
-                            <div style={{ marginBottom: '20px' }}>
-                                <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>
-                                    Başlık <span style={{ color: '#ff4444' }}>*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    value={newTopicData.title}
-                                    onChange={(e) => setNewTopicData({ ...newTopicData, title: e.target.value })}
-                                    placeholder="Başlığınızı yazın..."
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        background: 'var(--secondary)',
-                                        border: '1px solid var(--card-border)',
-                                        borderRadius: '10px',
-                                        color: 'var(--foreground)',
-                                        fontSize: '14px',
-                                        outline: 'none',
-                                    }}
-                                />
-                            </div>
-
-                            {/* İçerik */}
-                            <div style={{ marginBottom: newTopicData.type === 'survey' ? '16px' : '24px' }}>
-                                <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>
-                                    İçerik
-                                </label>
-                                <MarkdownEditor
-                                    value={newTopicData.content}
-                                    onChange={(val) => setNewTopicData({ ...newTopicData, content: val })}
-                                    placeholder={
-                                        newTopicData.type === 'survey' ? "Anket açıklaması..." :
-                                            newTopicData.type === 'expert' ? "Sorununuzu detaylı açıklayın..." :
-                                                "İlk entry'nizi yazın..."
-                                    }
-                                    minRows={newTopicData.type === 'survey' ? 2 : 4}
-                                />
-                            </div>
-
-                            {/* Anket Seçenekleri */}
-                            {newTopicData.type === 'survey' && (
-                                <div style={{ marginBottom: '24px' }}>
-                                    <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>
-                                        Seçenekler (en az 2) <span style={{ color: '#ff4444' }}>*</span>
-                                    </label>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                        {newSurveyOptions.map((opt, i) => (
-                                            <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                                                <input
-                                                    type="text"
-                                                    value={opt}
-                                                    onChange={(e) => {
-                                                        const newOpts = [...newSurveyOptions];
-                                                        newOpts[i] = e.target.value;
-                                                        setNewSurveyOptions(newOpts);
-                                                    }}
-                                                    placeholder={`${i + 1}. Seçenek`}
-                                                    style={{
-                                                        flex: 1, padding: '10px 14px', background: 'var(--background)',
-                                                        border: '1px solid var(--card-border)', borderRadius: '8px',
-                                                        color: 'var(--foreground)', fontSize: '14px', outline: 'none'
-                                                    }}
-                                                />
-                                                {newSurveyOptions.length > 2 && (
-                                                    <button onClick={() => setNewSurveyOptions(newSurveyOptions.filter((_, idx) => idx !== i))}
-                                                        style={{ background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer', padding: '8px' }}>
-                                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
-                                                    </button>
-                                                )}
-                                            </div>
-                                        ))}
-                                        {newSurveyOptions.length < 8 && (
-                                            <button onClick={() => setNewSurveyOptions([...newSurveyOptions, ""])}
-                                                style={{
-                                                    alignSelf: 'flex-start', padding: '8px 16px', background: 'var(--secondary)',
-                                                    border: '1px solid var(--card-border)', borderRadius: '8px', color: 'var(--foreground)',
-                                                    fontSize: '13px', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px'
-                                                }}>
-                                                <Plus size={14} /> Seçenek Ekle
-                                            </button>
+                            <div className="new-topic-modal-layout">
+                                <div className="new-topic-form-column">
+                                    <div className="new-topic-field">
+                                        <div className="new-topic-label-row">
+                                            <label htmlFor="new-topic-title">Başlık</label>
+                                            <span className={newTopicData.title.length > 180 ? "limit" : ""}>{newTopicData.title.length}/200</span>
+                                        </div>
+                                        <input
+                                            id="new-topic-title"
+                                            type="text"
+                                            autoFocus
+                                            maxLength={200}
+                                            value={newTopicData.title}
+                                            aria-invalid={Boolean(newTopicData.title && !titleValidation.valid)}
+                                            className={`new-topic-control${newTopicData.title && !titleValidation.valid ? " is-error" : ""}`}
+                                            onChange={(event) => setNewTopicData(previous => ({ ...previous, title: event.target.value }))}
+                                            placeholder={
+                                                newTopicData.type === "survey"
+                                                    ? "Örn. Şehir içi için hangi motor daha mantıklı?"
+                                                    : newTopicData.type === "expert"
+                                                        ? "Örn. Soğuk motorda gelen zincir sesi normal mi?"
+                                                        : "Örn. Egea 1.4 Fire uzun kullanım deneyimim"
+                                            }
+                                        />
+                                        {newTopicData.title && !titleValidation.valid ? (
+                                            <small className="new-topic-field-error">{titleValidation.error}</small>
+                                        ) : (
+                                            <small className="new-topic-field-help">En az 5 karakter; model, belirti veya deneyimi açıkça yazın.</small>
                                         )}
                                     </div>
+
+                                    <div className="new-topic-field">
+                                        <div className="new-topic-label-row">
+                                            <label htmlFor="new-topic-category">Kategori</label>
+                                            <span>Zorunlu</span>
+                                        </div>
+                                        {newTopicData.type === "topic" ? (
+                                            <select
+                                                id="new-topic-category"
+                                                className={`new-topic-control${newTopicData.category && !categoryIsValid ? " is-error" : ""}`}
+                                                value={newTopicData.category}
+                                                onChange={(event) => setNewTopicData(previous => ({ ...previous, category: event.target.value }))}
+                                            >
+                                                <option value="">Kategori seçin</option>
+                                                {categories.filter(category => !category.special && category.name !== "Tümü").map(category => (
+                                                    <option key={category.name} value={category.name}>{category.name}</option>
+                                                ))}
+                                            </select>
+                                        ) : (
+                                            <div className="new-topic-locked-category" id="new-topic-category">
+                                                <span>{newTopicData.type === "survey" ? "Anket" : "Uzmana Sor"}</span>
+                                                <small>Kategori içerik türüne göre otomatik seçildi.</small>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <div className="new-topic-field">
+                                        <div className="new-topic-label-row">
+                                            <label>{newTopicData.type === "survey" ? "Açıklama" : "İlk entry"}</label>
+                                            <span className={newTopicData.content.length > 9000 ? "limit" : ""}>{newTopicData.content.length}/10.000</span>
+                                        </div>
+                                        <MarkdownEditor
+                                            value={newTopicData.content}
+                                            onChange={(value) => setNewTopicData(previous => ({ ...previous, content: value }))}
+                                            placeholder={
+                                                newTopicData.type === "survey"
+                                                    ? "Anketin kapsamını kısaca açıklayın (isteğe bağlı)..."
+                                                    : newTopicData.type === "expert"
+                                                        ? "Belirtileri, ne zaman başladığını ve denediğiniz çözümleri yazın..."
+                                                        : "Deneyiminizi veya sorunuzu ayrıntılarıyla anlatın..."
+                                            }
+                                            minRows={newTopicData.type === "survey" ? 3 : 6}
+                                        />
+                                        {newTopicData.content && !contentValidation.valid && (
+                                            <small className="new-topic-field-error">{contentValidation.error}</small>
+                                        )}
+                                    </div>
+
+                                    {newTopicData.type !== "survey" && (
+                                        <details
+                                            className="new-topic-vehicle-panel"
+                                            open={newTopicData.carBrand || newTopicData.carYear ? true : undefined}
+                                        >
+                                            <summary>
+                                                <span><Car size={16} /> Araç bilgisi</span>
+                                                <small>İsteğe bağlı</small>
+                                            </summary>
+                                            <div className="new-topic-vehicle-content">
+                                                <div className="new-topic-control-grid">
+                                                    <select
+                                                        className="new-topic-control"
+                                                        value={newTopicData.carBrand}
+                                                        onChange={(event) => setNewTopicData(previous => ({
+                                                            ...previous,
+                                                            carBrand: event.target.value,
+                                                            carModel: "",
+                                                        }))}
+                                                    >
+                                                        <option value="">Marka seçin</option>
+                                                        {availableBrands.map(brand => <option key={brand} value={brand}>{brand}</option>)}
+                                                    </select>
+                                                    <select
+                                                        className="new-topic-control"
+                                                        value={newTopicData.carModel}
+                                                        disabled={!newTopicData.carBrand}
+                                                        onChange={(event) => setNewTopicData(previous => ({ ...previous, carModel: event.target.value }))}
+                                                    >
+                                                        <option value="">Model seçin</option>
+                                                        {availableModels.map((model: string) => <option key={model} value={model}>{model}</option>)}
+                                                    </select>
+                                                </div>
+                                                <div className="new-topic-control-grid">
+                                                    <input
+                                                        className={`new-topic-control${!vehicleYearIsValid ? " is-error" : ""}`}
+                                                        type="number"
+                                                        min="1900"
+                                                        max={maxVehicleYear}
+                                                        placeholder="Model yılı"
+                                                        value={newTopicData.carYear}
+                                                        onChange={(event) => setNewTopicData(previous => ({ ...previous, carYear: event.target.value }))}
+                                                    />
+                                                    <input
+                                                        className={`new-topic-control${!vehicleKmIsValid ? " is-error" : ""}`}
+                                                        type="number"
+                                                        min="0"
+                                                        max="2000000"
+                                                        placeholder="Kilometre"
+                                                        value={newTopicData.carKm}
+                                                        onChange={(event) => setNewTopicData(previous => ({ ...previous, carKm: event.target.value }))}
+                                                    />
+                                                </div>
+                                                {(!vehicleYearIsValid || !vehicleKmIsValid) && (
+                                                    <small className="new-topic-field-error">Yıl veya kilometre değerini kontrol edin.</small>
+                                                )}
+                                            </div>
+                                        </details>
+                                    )}
+
+                                    {newTopicData.type === "survey" && (
+                                        <div className="new-topic-field">
+                                            <div className="new-topic-label-row">
+                                                <label>Anket seçenekleri</label>
+                                                <span>{validSurveyOptions.length}/8</span>
+                                            </div>
+                                            <div className="new-topic-survey-options">
+                                                {newSurveyOptions.map((option, index) => (
+                                                    <div key={index} className="new-topic-survey-row">
+                                                        <span>{index + 1}</span>
+                                                        <input
+                                                            type="text"
+                                                            maxLength={80}
+                                                            className="new-topic-control"
+                                                            value={option}
+                                                            placeholder={`${index + 1}. seçenek`}
+                                                            onChange={(event) => {
+                                                                const nextOptions = [...newSurveyOptions];
+                                                                nextOptions[index] = event.target.value;
+                                                                setNewSurveyOptions(nextOptions);
+                                                            }}
+                                                        />
+                                                        {newSurveyOptions.length > 2 && (
+                                                            <button
+                                                                type="button"
+                                                                aria-label={`${index + 1}. seçeneği kaldır`}
+                                                                onClick={() => setNewSurveyOptions(current => current.filter((_, optionIndex) => optionIndex !== index))}
+                                                            >
+                                                                <Trash2 size={15} />
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            {hasDuplicateSurveyOptions && (
+                                                <small className="new-topic-field-error">Aynı seçenek birden fazla kez kullanılamaz.</small>
+                                            )}
+                                            {newSurveyOptions.length < 8 && (
+                                                <button
+                                                    type="button"
+                                                    className="new-topic-add-option"
+                                                    onClick={() => setNewSurveyOptions(current => [...current, ""])}
+                                                >
+                                                    <Plus size={14} /> Seçenek ekle
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <aside className="new-topic-help-column">
+                                    <section className="new-topic-draft-card">
+                                        <Save size={17} />
+                                        <div>
+                                            <strong>{draftRestored ? "Taslağın geri yüklendi" : "Taslak otomatik kaydedilir"}</strong>
+                                            <span>{draftReady ? "Bu cihazda yazmaya sonra devam edebilirsin." : "Taslak hazırlanıyor..."}</span>
+                                        </div>
+                                        {draftRestored && (
+                                            <button type="button" onClick={resetNewTopicForm}>Temizle</button>
+                                        )}
+                                    </section>
+
+                                    <section className="new-topic-help-card">
+                                        <span className="new-topic-help-kicker">Yayın kontrolü</span>
+                                        <h3>İyi bir başlık için</h3>
+                                        <ul className="new-topic-checklist">
+                                            {newTopicChecklist.map(item => (
+                                                <li key={item.label} className={item.complete ? "complete" : ""}>
+                                                    <span>{item.complete ? "✓" : "·"}</span>
+                                                    <div>
+                                                        {item.label}
+                                                        {item.optional && <small>İsteğe bağlı</small>}
+                                                    </div>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </section>
+
+                                    {similarTopicMatches.length > 0 && (
+                                        <section className="new-topic-help-card new-topic-similar-card">
+                                            <span className="new-topic-help-kicker">Önce kontrol et</span>
+                                            <h3>Benzer başlıklar olabilir</h3>
+                                            <div>
+                                                {similarTopicMatches.map(({ thread }) => (
+                                                    <Link key={thread.id} href={getThreadSlugUrl(thread)} target="_blank" rel="noopener noreferrer">
+                                                        <strong>{thread.title}</strong>
+                                                        <small>{thread.entryCount || 0} yanıt · yeni sekmede açılır</small>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </section>
+                                    )}
+
+                                    {!user && (
+                                        <section className="new-topic-login-card">
+                                            <strong>Yayınlamak için giriş gerekli</strong>
+                                            <span>Formu doldurabilirsin; taslağın kaybolmaz.</span>
+                                            <Link href="/giris">Giriş yap <ArrowRight size={13} /></Link>
+                                        </section>
+                                    )}
+                                </aside>
+                            </div>
+
+                            {newTopicError && (
+                                <div className="new-topic-submit-error" role="alert">
+                                    <AlertTriangle size={17} />
+                                    <span>{newTopicError}</span>
+                                    {!user && <Link href="/giris">Giriş yap</Link>}
                                 </div>
                             )}
 
-                            {/* Buttons */}
-                            <div style={{ display: 'flex', gap: '12px' }}>
+                            <footer className="new-topic-modal-footer">
                                 <button
+                                    type="button"
+                                    className="new-topic-secondary-button"
+                                    disabled={isSubmittingTopic}
                                     onClick={() => setShowNewTopicModal(false)}
-                                    style={{
-                                        flex: 1,
-                                        padding: '14px',
-                                        background: 'var(--secondary)',
-                                        border: '1px solid var(--card-border)',
-                                        borderRadius: '10px',
-                                        color: 'var(--foreground)',
-                                        fontWeight: '500',
-                                        cursor: 'pointer',
-                                        fontSize: '14px',
-                                    }}
                                 >
-                                    İptal
+                                    Daha sonra
                                 </button>
                                 <button
-                                    onClick={async () => {
-                                        if (newTopicData.type === 'survey') {
-                                            const validOptions = newSurveyOptions.filter(o => o.trim() !== "");
-                                            if (validOptions.length < 2) {
-                                                alert("Anket için en az 2 geçerli seçenek girmelisiniz.");
-                                                return;
-                                            }
-                                            
-                                            // Normal anket Firestore kaydı (Anket sayfasına gidecek)
-                                            if (!user) {
-                                                alert("Anket oluşturmak için giriş yapmalısınız.");
-                                                return;
-                                            }
-                                            try {
-                                                const { addDoc, serverTimestamp, collection } = require("firebase/firestore");
-                                                const nominees = validOptions.map((name, i) => ({ id: i + 1, name, votes: 0 }));
-                                                const docRef = await addDoc(collection(db, "surveys"), {
-                                                    title: newTopicData.title.trim(),
-                                                    description: newTopicData.content.trim(),
-                                                    category: "Genel",
-                                                    iconName: "none",
-                                                    status: "active",
-                                                    totalVotes: 0,
-                                                    nominees,
-                                                    voters: {},
-                                                    createdBy: user.username,
-                                                    createdAt: serverTimestamp(),
-                                                });
-                                                
-                                                alert(`Anket başarıyla oluşturuldu!`);
-                                                setShowNewTopicModal(false);
-                                                setNewTopicData({ title: "", content: "", category: "", type: "topic", carBrand: "", carModel: "", carYear: "", carKm: "" });
-                                                setNewSurveyOptions(["Evet", "Hayır"]);
-                                                window.location.href = '/anket';
-                                            } catch (e: any) {
-                                                alert("Hata: " + e.message);
-                                            }
-                                        } else {
-                                            if (!user) {
-                                                alert("İçerik oluşturmak için giriş yapmalısınız.");
-                                                return;
-                                            }
-                                            try {
-                                                const threadData: any = {
-                                                    title: newTopicData.title.trim(),
-                                                    category: newTopicData.category,
-                                                    content: newTopicData.content.trim(),
-                                                    tags: [],
-                                                    authorId: user.id as string,
-                                                    authorUsername: user.username,
-                                                };
-                                                
-                                                if (newTopicData.carBrand) threadData.carBrand = newTopicData.carBrand;
-                                                if (newTopicData.carModel) threadData.carModel = newTopicData.carModel;
-                                                if (newTopicData.carYear) threadData.carYear = newTopicData.carYear;
-                                                if (newTopicData.carKm) threadData.carKm = newTopicData.carKm;
-                                                if (newTopicData.carBrand) threadData.tags.push(newTopicData.carBrand);
-                                                if (newTopicData.carModel) threadData.tags.push(newTopicData.carModel);
-
-                                                const threadId = await createThread(threadData);
-                                                
-                                                setShowNewTopicModal(false);
-                                                setNewTopicData({ title: "", content: "", category: "", type: "topic", carBrand: "", carModel: "", carYear: "", carKm: "" });
-                                                
-                                                const newThread = await getThreadById(threadId);
-                                                if (newThread) {
-                                                    window.location.href = getThreadSlugUrl(newThread);
-                                                } else {
-                                                    window.location.href = `/forum/${threadId}`;
-                                                }
-                                            } catch (e: any) {
-                                                alert("Hata: " + e.message);
-                                            }
-                                        }
-                                    }}
-                                    disabled={!newTopicData.title.trim() || (!newTopicData.category && newTopicData.type !== 'survey')}
-                                    style={{
-                                        flex: 1,
-                                        padding: '14px',
-                                        background: (!newTopicData.title.trim() || (!newTopicData.category && newTopicData.type !== 'survey')) ? 'var(--secondary)' : 'var(--primary)',
-                                        border: 'none',
-                                        borderRadius: '10px',
-                                        color: 'white',
-                                        fontWeight: '600',
-                                        cursor: (!newTopicData.title.trim() || (!newTopicData.category && newTopicData.type !== 'survey')) ? 'not-allowed' : 'pointer',
-                                        opacity: (!newTopicData.title.trim() || (!newTopicData.category && newTopicData.type !== 'survey')) ? 0.5 : 1,
-                                        fontSize: '14px',
-                                    }}
+                                    type="submit"
+                                    className="new-topic-primary-button"
+                                    disabled={!newTopicFormIsValid || isSubmittingTopic}
                                 >
-                                    Paylaş
+                                    {isSubmittingTopic && <Loader2 size={16} className="new-topic-spinner" />}
+                                    {isSubmittingTopic
+                                        ? "Yayınlanıyor..."
+                                        : newTopicData.type === "survey"
+                                            ? "Anketi yayınla"
+                                            : newTopicData.type === "expert"
+                                                ? "Soruyu gönder"
+                                                : "Başlığı yayınla"}
                                 </button>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }
-
+                            </footer>
+                        </form>
+                    </section>
+                </div>
+            )}
             <Footer />
         </div >
     );

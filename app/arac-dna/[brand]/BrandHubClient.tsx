@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { createSlug, getDNAScoreColor, getDNAScoreLabel } from "@/data/vehicle-dna";
+import { createSlug, getDNAScoreColor, getDNAScoreLabel, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { useState } from "react";
 import { Search, Car, ArrowLeft, TrendingUp, AlertTriangle, ChevronRight } from "lucide-react";
 
@@ -16,6 +16,7 @@ interface ModelData {
     strengths: string[];
     weaknesses: string[];
     chronicIssues: any[];
+    userExperiences: any[];
     totalReports: number;
     ncapStars?: number;
     ncapYear?: string;
@@ -32,11 +33,18 @@ export default function BrandHubClient({ brandName, models }: Props) {
     const [sortBy, setSortBy] = useState<"score" | "name">("score");
 
     const brandSlug = createSlug(brandName);
-    const avgScore = Math.round(models.reduce((s, v) => s + v.dnaScore, 0) / models.length);
+    const reviewedModels = models.filter(model => isVehicleEditoriallyReviewed(model));
+    const avgScore = reviewedModels.length
+        ? Math.round(reviewedModels.reduce((sum, vehicle) => sum + vehicle.dnaScore, 0) / reviewedModels.length)
+        : 0;
 
     const filtered = models
         .filter(m => m.model.toLowerCase().includes(searchQuery.toLowerCase()))
-        .sort((a, b) => sortBy === "score" ? b.dnaScore - a.dnaScore : a.model.localeCompare(b.model, 'tr'));
+        .sort((a, b) => {
+            const reviewOrder = Number(isVehicleEditoriallyReviewed(b)) - Number(isVehicleEditoriallyReviewed(a));
+            if (reviewOrder !== 0) return reviewOrder;
+            return sortBy === "score" ? b.dnaScore - a.dnaScore : a.model.localeCompare(b.model, 'tr');
+        });
 
     return (
         <>
@@ -153,7 +161,8 @@ export default function BrandHubClient({ brandName, models }: Props) {
                             </div>
                         )}
                         {filtered.map(model => {
-                            const scoreColor = getDNAScoreColor(model.dnaScore);
+                            const isReviewed = isVehicleEditoriallyReviewed(model);
+                            const scoreColor = isReviewed ? getDNAScoreColor(model.dnaScore) : '#d97706';
                             return (
                                 <Link
                                     key={model.id}
@@ -181,18 +190,18 @@ export default function BrandHubClient({ brandName, models }: Props) {
                                                 {model.model}
                                             </div>
                                             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", fontSize: 13, color: "var(--text-muted)" }}>
-                                                {model.ncapStars && (
-                                                    <span>⭐ NCAP {model.ncapStars}/5</span>
+                                                {isReviewed ? (
+                                                    <>
+                                                        {model.ncapStars && <span>⭐ NCAP {model.ncapStars}/5</span>}
+                                                        {model.engineCount > 0 && <span>🔧 {model.engineCount} motor seçeneği</span>}
+                                                        {model.chronicIssues?.length > 0 && (
+                                                            <span style={{ color: "#f59e0b" }}>⚠️ {model.chronicIssues.length} kronik sorun</span>
+                                                        )}
+                                                        <span>📊 {model.totalReports} rapor</span>
+                                                    </>
+                                                ) : (
+                                                    <span style={{ color: '#d97706', fontWeight: 700 }}>Kaynak kontrolü sürüyor</span>
                                                 )}
-                                                {model.engineCount > 0 && (
-                                                    <span>🔧 {model.engineCount} motor seçeneği</span>
-                                                )}
-                                                {model.chronicIssues?.length > 0 && (
-                                                    <span style={{ color: "#f59e0b" }}>
-                                                        ⚠️ {model.chronicIssues.length} kronik sorun
-                                                    </span>
-                                                )}
-                                                <span>📊 {model.totalReports} rapor</span>
                                             </div>
                                         </div>
 
@@ -203,7 +212,7 @@ export default function BrandHubClient({ brandName, models }: Props) {
                                                 display: "flex", alignItems: "center", justifyContent: "center",
                                                 fontWeight: 800, fontSize: 18, color: scoreColor,
                                             }}>
-                                                {model.dnaScore}
+                                                {isReviewed ? model.dnaScore : 'Kontrol'}
                                             </div>
                                             <ChevronRight size={20} color="var(--text-muted)" />
                                         </div>

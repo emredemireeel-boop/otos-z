@@ -82,7 +82,7 @@ async function fetchThreads(categoryName: string | null): Promise<HubThread[]> {
                 authorUsername: data.authorUsername || "anonim",
                 views: data.views || 0,
                 entryCount: data.entryCount || 0,
-                description: data.description || "",
+                description: data.description || data.seoExcerpt || "",
                 url,
                 lastActivity: tsToMillis(data.lastEntryAt) || tsToMillis(data.createdAt),
             };

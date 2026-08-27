@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { getAdminDb, FieldValue } from '@/lib/firebaseAdmin';
 import { Timestamp } from 'firebase-admin/firestore';
 import { requireAuth, type AuthResult } from '@/lib/authGuard';
@@ -128,27 +129,10 @@ export async function POST(request: Request) {
             createdAt: FieldValue.serverTimestamp(),
         });
 
-        // 🚀 Google'a güncelleme bildirimi (best-effort)
-        try {
-            const { google } = await import('googleapis');
-            const path = await import('path');
-            const KEY_FILE = 'otosozindex-7a4ca5cb2331.json';
-            const keyFilePath = path.join(process.cwd(), KEY_FILE);
-            const gauth = new google.auth.GoogleAuth({
-                keyFile: keyFilePath,
-                scopes: ['https://www.googleapis.com/auth/indexing'],
-            });
-            const client = await gauth.getClient();
-            const indexing = google.indexing({ version: 'v3', auth: client as any });
-            await indexing.urlNotifications.publish({
-                requestBody: {
-                    url: `https://otosoz.com/guvenmetre/${categoryId}/${brandId}`,
-                    type: 'URL_UPDATED',
-                },
-            });
-        } catch (seoErr) {
-            console.warn('SEO ping başarısız (devam ediliyor)');
-        }
+        // Değerlendirme sonrası canonical sayfa ve sitemap'i yenile.
+        revalidatePath(`/guvenmetre/${categoryId}/${brandId}`);
+        revalidatePath('/guvenmetre');
+        revalidatePath('/sitemap.xml');
 
         // 🎯 Görev tetikle: GüvenMetre değerlendirmesi yapıldı (Admin SDK ile)
         try {

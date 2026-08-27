@@ -5,15 +5,16 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
-import { Settings, Fuel, CarFront, Activity, Award, CheckCircle, AlertCircle, Plus, X, Trash2, Sparkles, TrendingUp, Users, CheckSquare } from "lucide-react";
+import { Settings, Fuel, CarFront, Activity, Award, CheckCircle, AlertCircle, Plus, X, Trash2, Sparkles, TrendingUp, Users, CheckSquare, BookOpen, ChevronRight, Gauge, ShieldCheck } from "lucide-react";
 import {
     collection, addDoc, getDocs, doc, updateDoc, deleteDoc,
     serverTimestamp, query, orderBy, increment
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
-import AdPlaceholder from "@/components/AdPlaceholder";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
+import AdPlaceholder from "@/components/AdPlaceholder";
+import { curatedSurveys } from "@/data/curated-surveys";
+import { createSlug, vehicleDNAData } from "@/data/vehicle-dna";
 
 interface Nominee {
     id: number;
@@ -31,6 +32,41 @@ interface Survey {
     nominees: Nominee[];
     createdBy?: string;
     voters?: Record<string, number>; // userId -> nomineeId
+    source?: "curated" | "firestore";
+}
+
+const CURATED_VOTE_STORAGE_PREFIX = "otosoz-curated-survey-votes";
+
+const libraryShortcuts = [
+    { title: "Gösterge ışıkları", description: "Uyarı lambalarının anlamını öğrenin", href: "/kutuphane?kategori=gosterge-isiklari" },
+    { title: "OBD arıza kodları", description: "Arıza kodunu hızlıca yorumlayın", href: "/kutuphane?kategori=obd-ariza-kodlari" },
+    { title: "İkinci el rehberi", description: "Satın almadan önce kontrol listesi", href: "/kutuphane?kategori=ikinci-el-rehberi" },
+    { title: "Bakım zamanları", description: "Periyodik bakımı kaçırmayın", href: "/kutuphane?kategori=bakim-zamanlari" },
+];
+
+function getCuratedSurveysForUser(userId?: string): Survey[] {
+    let savedVotes: Record<string, number> = {};
+    if (userId && typeof window !== "undefined") {
+        try {
+            savedVotes = JSON.parse(window.localStorage.getItem(`${CURATED_VOTE_STORAGE_PREFIX}:${userId}`) || "{}");
+        } catch {
+            savedVotes = {};
+        }
+    }
+
+    return curatedSurveys.map((survey) => {
+        const selectedNomineeId = savedVotes[survey.id];
+        const hasSavedVote = Boolean(userId && selectedNomineeId !== undefined);
+        return {
+            ...survey,
+            totalVotes: survey.totalVotes + (hasSavedVote ? 1 : 0),
+            nominees: survey.nominees.map((nominee) => ({
+                ...nominee,
+                votes: nominee.votes + (hasSavedVote && nominee.id === selectedNomineeId ? 1 : 0),
+            })),
+            voters: hasSavedVote && userId ? { [userId]: selectedNomineeId } : {},
+        };
+    });
 }
 
 export default function AnketPage() {
@@ -51,23 +87,28 @@ export default function AnketPage() {
         setTimeout(() => setToast(null), 3000);
     };
 
-    // Load surveys from Firebase
+    // Editör anketleri her zaman görünür; topluluk anketleri Firestore'dan eklenir.
     useEffect(() => {
         const loadSurveys = async () => {
+            const builtInSurveys = getCuratedSurveysForUser(user?.id as string | undefined);
             try {
                 const snap = await getDocs(query(collection(db, "surveys"), orderBy("createdAt", "desc")));
                 const items = snap.docs.map(d => ({
                     id: d.id,
                     ...d.data(),
+                    source: "firestore" as const,
                 })) as Survey[];
-                setSurveys(items);
+                const curatedTitles = new Set(builtInSurveys.map(survey => survey.title.toLocaleLowerCase("tr-TR")));
+                const uniqueCommunitySurveys = items.filter(survey => !curatedTitles.has(survey.title.toLocaleLowerCase("tr-TR")));
+                setSurveys([...builtInSurveys, ...uniqueCommunitySurveys]);
             } catch (e) {
                 console.warn("Anketler yuklenemedi:", e);
+                setSurveys(builtInSurveys);
             }
             setLoading(false);
         };
         loadSurveys();
-    }, []);
+    }, [user?.id]);
 
     // Handle vote
     const handleVote = async (surveyId: string, nomineeId: number) => {
@@ -101,7 +142,24 @@ export default function AnketPage() {
             };
         }));
 
-        // Save to Firebase
+        if (survey.source === "curated") {
+            try {
+                const storageKey = `${CURATED_VOTE_STORAGE_PREFIX}:${user.id as string}`;
+                const savedVotes = JSON.parse(window.localStorage.getItem(storageKey) || "{}") as Record<string, number>;
+                savedVotes[surveyId] = nomineeId;
+                window.localStorage.setItem(storageKey, JSON.stringify(savedVotes));
+                showToast("Oyunuz kaydedildi!", "success");
+                try {
+                    const { markQuestComplete } = await import("@/lib/questService");
+                    await markQuestComplete(user.id as string, "surveyVoted");
+                } catch { /* sessiz */ }
+            } catch {
+                showToast("Oy tarayıcıya kaydedilemedi, tekrar deneyin.", "error");
+            }
+            return;
+        }
+
+        // Topluluk anketlerini Firebase'e kaydet.
         try {
             const surveyRef = doc(db, "surveys", surveyId);
             const updatedSurvey = surveys.find(s => s.id === surveyId)!;
@@ -172,9 +230,44 @@ export default function AnketPage() {
         return activeSurveys.filter(s => s.category === selectedCategory);
     }, [surveys, selectedCategory]);
 
-    const ITEMS_PER_PAGE = 9;
-    const totalPages = Math.ceil(filteredSurveys.length / ITEMS_PER_PAGE);
+    const ITEMS_PER_PAGE = 10;
+    const totalPages = Math.max(1, Math.ceil(filteredSurveys.length / ITEMS_PER_PAGE));
     const paginatedSurveys = filteredSurveys.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+    const activeSurveys = useMemo(() => surveys.filter(survey => survey.status === "active"), [surveys]);
+    const featuredSurveys = useMemo(
+        () => [...activeSurveys].sort((a, b) => b.totalVotes - a.totalVotes).slice(0, 2),
+        [activeSurveys]
+    );
+    const popularSurveys = useMemo(
+        () => [...activeSurveys].sort((a, b) => b.totalVotes - a.totalVotes).slice(0, 4),
+        [activeSurveys]
+    );
+    const totalVotes = useMemo(() => activeSurveys.reduce((sum, survey) => sum + survey.totalVotes, 0), [activeSurveys]);
+    const popularCategory = useMemo(() => {
+        const totals = activeSurveys.reduce<Record<string, number>>((acc, survey) => {
+            acc[survey.category] = (acc[survey.category] || 0) + survey.totalVotes;
+            return acc;
+        }, {});
+        return Object.entries(totals).sort(([, a], [, b]) => b - a)[0]?.[0] || "Genel";
+    }, [activeSurveys]);
+    const featuredVehicles = vehicleDNAData.slice(0, 3);
+
+    useEffect(() => {
+        if (currentPage > totalPages) setCurrentPage(totalPages);
+    }, [currentPage, totalPages]);
+
+    const focusSurvey = (surveyId: string) => {
+        const surveyIndex = activeSurveys.findIndex(survey => survey.id === surveyId);
+        if (surveyIndex < 0) return;
+        setSelectedCategory("Tümü");
+        setCurrentPage(Math.floor(surveyIndex / ITEMS_PER_PAGE) + 1);
+        window.setTimeout(() => {
+            const element = document.getElementById(`survey-${surveyId}`);
+            if (!element) return;
+            const y = element.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }, 80);
+    };
 
     return (
         <div>
@@ -216,7 +309,7 @@ export default function AnketPage() {
                                     fontWeight: '600', borderRadius: '10px', border: '1px solid var(--card-border)',
                                     textDecoration: 'none', fontSize: '14px',
                                 }}>
-                                    Giris Yap
+                                    Giriş Yap
                                 </Link>
                             )}
                         </div>
@@ -241,45 +334,85 @@ export default function AnketPage() {
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '24px' }}>
                     <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: '24px' }}>
                         {/* Sol Sidebar */}
-                        <aside className="home-left-sidebar">
-                            <div style={{ position: 'sticky', top: '100px' }}>
+                        <aside className="home-left-sidebar" data-ad-rail-anchor="survey-sidebar">
+                            <div>
                                 <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px', marginBottom: '16px' }}>
-                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                        <TrendingUp size={16} color="var(--primary)" /> Anket Trendleri
+                                    <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '7px' }}>
+                                        <TrendingUp size={16} color="var(--primary)" /> Anket nabzı
                                     </h3>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                            <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(59, 130, 246, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3b82f6' }}><Users size={14}/></div>
+                                            <div style={{ width: '34px', height: '34px', borderRadius: '9px', background: 'rgba(59, 130, 246, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3b82f6' }}><Users size={15}/></div>
                                             <div>
-                                                <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>Topluluğun Sesi</div>
-                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Binlerce Oy</div>
+                                                <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>{totalVotes.toLocaleString('tr-TR')} oy</div>
+                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Topluluk görüşü</div>
                                             </div>
                                         </div>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                            <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981' }}><CheckSquare size={14}/></div>
+                                            <div style={{ width: '34px', height: '34px', borderRadius: '9px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981' }}><CheckSquare size={15}/></div>
                                             <div>
-                                                <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>Güncel Veri</div>
-                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Gerçek Zamanlı</div>
+                                                <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>{activeSurveys.length} aktif anket</div>
+                                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Sonuçlar anlık güncellenir</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px' }}>
-                                    <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Nasıl Çalışır?</h3>
-                                    <p style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>Fikrinizi belirtmek için anketlere katılın. Sonuçlar anında güncellenir. Dilerseniz kendi anketinizi de oluşturabilirsiniz.</p>
+
+                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '18px', marginBottom: '16px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '7px' }}>
+                                            <BookOpen size={16} color="var(--primary)" /> Kütüphaneden
+                                        </h3>
+                                        <Link href="/kutuphane" style={{ color: 'var(--primary)', fontSize: '11px', fontWeight: '700', textDecoration: 'none' }}>Tümü</Link>
+                                    </div>
+                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                        {libraryShortcuts.map((item) => (
+                                            <Link key={item.href} href={item.href} style={{ display: 'block', padding: '11px 0', borderTop: '1px solid var(--card-border)', textDecoration: 'none' }}>
+                                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '6px' }}>
+                                                    <span style={{ color: 'var(--foreground)', fontSize: '12px', fontWeight: '700' }}>{item.title}</span>
+                                                    <ChevronRight size={14} color="var(--primary)" />
+                                                </div>
+                                                <div style={{ color: 'var(--text-muted)', fontSize: '10px', lineHeight: 1.45, marginTop: '3px' }}>{item.description}</div>
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
 
-                                {/* Pazar Vitrini (Gizlendi) */}
+                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '18px', marginBottom: '16px' }}>
+                                    <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>Nasıl çalışır?</h3>
+                                    <p style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.55', margin: 0 }}>Seçeneğinizi işaretleyin; oy verdikten sonra topluluğun güncel dağılımını görün. Giriş yapan üyeler oylarını daha sonra değiştirebilir.</p>
+                                </div>
+
                                 <LatestThreadsWidget />
 
+                                <div style={{ marginTop: '16px' }}>
+                                    <AdPlaceholder position="anket_sol_ust" fallbackTitle="Anket sayfasında reklam ver" fallbackDesc="Karar aşamasındaki otomobil kullanıcılarına ulaşın." style={{ aspectRatio: '4 / 5' }} />
+                                </div>
+
+                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '18px', marginTop: '16px' }}>
+                                    <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px' }}>Hızlı araçlar</h3>
+                                    <p style={{ fontSize: '11px', lineHeight: 1.5, color: 'var(--text-muted)', margin: '0 0 10px' }}>Karar vermeden önce hesaplayın, karşılaştırın veya uzmana danışın.</p>
+                                    {[
+                                        { title: 'Yakıt maliyetini hesapla', href: '/otohesap/yakit-hesaplama' },
+                                        { title: 'Araçları karşılaştır', href: '/karsilastirma' },
+                                        { title: 'Uzmana sor', href: '/uzmana-sor' },
+                                    ].map(item => (
+                                        <Link key={item.href} href={item.href} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '6px', padding: '10px 0', borderTop: '1px solid var(--card-border)', color: 'var(--foreground)', fontSize: '12px', fontWeight: '700', textDecoration: 'none' }}>
+                                            {item.title}<ChevronRight size={14} color="var(--primary)" />
+                                        </Link>
+                                    ))}
+                                </div>
+
+                                <div style={{ position: 'sticky', top: '100px', marginTop: '16px' }}>
+                                    <AdPlaceholder position="anket_sol_alt" fallbackTitle="OtoSöz topluluğuna ulaşın" fallbackDesc="Markanızı otomobil meraklılarıyla buluşturun." style={{ aspectRatio: '4 / 5' }} />
+                                </div>
                             </div>
                         </aside>
-
                         {/* Orta İçerik */}
                         <div>
 
                     {/* Vitrin Alanı */}
-                    {!loading && surveys.length > 0 && (
+                    {!loading && featuredSurveys.length > 0 && (
                         <div style={{ marginBottom: '40px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                                 <div style={{ background: 'rgba(251, 191, 36, 0.1)', padding: '8px', borderRadius: '10px' }}>
@@ -288,7 +421,7 @@ export default function AnketPage() {
                                 <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>Günün Vitrini</h2>
                             </div>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
-                                {surveys.slice(0, 2).map((survey) => (
+                                {featuredSurveys.map((survey) => (
                                     <div key={`vitrin-${survey.id}`} style={{
                                         background: 'linear-gradient(145deg, var(--card-bg), rgba(255,255,255,0.02))',
                                         border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px',
@@ -299,13 +432,7 @@ export default function AnketPage() {
                                         <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{survey.description}</p>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                             <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: '600' }}>{survey.totalVotes.toLocaleString()} oy</span>
-                                            <button onClick={() => {
-                                                const el = document.getElementById(`survey-${survey.id}`);
-                                                if (el) {
-                                                    const y = el.getBoundingClientRect().top + window.scrollY - 100;
-                                                    window.scrollTo({ top: y, behavior: 'smooth' });
-                                                }
-                                            }} style={{ padding: '6px 12px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '8px', color: 'var(--foreground)', fontSize: '12px', cursor: 'pointer', fontWeight: '600', transition: 'all 0.2s' }}>
+                                            <button onClick={() => focusSurvey(survey.id)} style={{ padding: '6px 12px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '8px', color: 'var(--foreground)', fontSize: '12px', cursor: 'pointer', fontWeight: '600', transition: 'all 0.2s' }}>
                                                 Oyla
                                             </button>
                                         </div>
@@ -323,12 +450,12 @@ export default function AnketPage() {
                     </div>
 
                     {loading ? (
-                        <div style={{ padding: '60px', textAlign: 'center', color: 'var(--text-muted)' }}>Anketler yukleniyor...</div>
+                        <div style={{ padding: '60px', textAlign: 'center', color: 'var(--text-muted)' }}>Anketler yükleniyor...</div>
                     ) : (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                             {filteredSurveys.length === 0 ? (
                                 <div style={{ padding: '60px', textAlign: 'center', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', color: 'var(--text-muted)' }}>
-                                    {selectedCategory === "Tümü" ? "Henuz anket olusturulmamis. Ilk anketi siz olusturun!" : "Bu kategoride henuz anket bulunmuyor."}
+                                    {selectedCategory === "Tümü" ? "Henüz anket oluşturulmamış. İlk anketi siz oluşturun!" : "Bu kategoride henüz anket bulunmuyor."}
                                 </div>
                             ) : (
                                 <>
@@ -434,7 +561,7 @@ export default function AnketPage() {
                                             {/* Footer */}
                                             {survey.createdBy && (
                                                 <div style={{ padding: '0 20px 16px', fontSize: '12px', color: 'var(--text-muted)' }}>
-                                                    Olusturan: @{survey.createdBy}
+                                                    Oluşturan: @{survey.createdBy}
                                                 </div>
                                             )}
                                         </div>
@@ -490,35 +617,83 @@ export default function AnketPage() {
 
                         {/* Sağ Sidebar */}
                         <aside className="home-right-sidebar">
-                            <div style={{ position: 'sticky', top: '100px' }}>
-                                {/* Reklam Alanı */}
-                                <div style={{ marginBottom: '16px' }}>
-                                    <AdPlaceholder position="sidebar" />
+                            <div>
+                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '18px', marginBottom: '16px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: '8px' }}>
+                                        <h3 style={{ display: 'flex', alignItems: 'center', gap: '7px', fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
+                                            <Gauge size={16} color="var(--primary)" /> Araç DNA'dan
+                                        </h3>
+                                        <Link href="/arac-dna" style={{ color: 'var(--primary)', fontSize: '11px', fontWeight: '700', textDecoration: 'none' }}>Tümü</Link>
+                                    </div>
+                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                        {featuredVehicles.map((vehicle) => (
+                                            <Link
+                                                key={vehicle.id}
+                                                href={`/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}`}
+                                                style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '10px', alignItems: 'center', padding: '12px 0', borderTop: '1px solid var(--card-border)', textDecoration: 'none' }}
+                                            >
+                                                <div style={{ minWidth: 0 }}>
+                                                    <div style={{ fontSize: '10px', color: 'var(--primary)', fontWeight: '700', marginBottom: '3px' }}>{vehicle.brand}</div>
+                                                    <div style={{ fontSize: '12px', lineHeight: 1.4, color: 'var(--foreground)', fontWeight: '700' }}>{vehicle.model}</div>
+                                                    <div style={{ fontSize: '10px', color: 'var(--text-muted)', marginTop: '4px' }}>{vehicle.chronicIssues.length} kronik konu · {vehicle.totalReports} rapor</div>
+                                                </div>
+                                                <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: vehicle.dnaScore >= 80 ? 'rgba(16,185,129,.12)' : 'rgba(245,158,11,.12)', color: vehicle.dnaScore >= 80 ? '#10b981' : '#f59e0b', display: 'grid', placeItems: 'center', fontSize: '13px', fontWeight: '800' }}>
+                                                    {vehicle.dnaScore}
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
 
-                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '20px' }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '18px', marginBottom: '16px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
                                         <Activity size={16} color="var(--primary)" />
-                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>İstatistikler</h3>
+                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>Anket özeti</h3>
                                     </div>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
                                         <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
-                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#3b82f6' }}>{surveys.length}</div>
-                                            <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Toplam Anket</div>
+                                            <div style={{ fontSize: '19px', fontWeight: '800', color: '#3b82f6' }}>{activeSurveys.length}</div>
+                                            <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Aktif anket</div>
                                         </div>
                                         <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
-                                            <div style={{ fontSize: '20px', fontWeight: '700', color: '#10b981' }}>{surveys.reduce((acc, s) => acc + s.totalVotes, 0).toLocaleString()}</div>
-                                            <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Kullanılan Oy</div>
+                                            <div style={{ fontSize: '19px', fontWeight: '800', color: '#10b981' }}>{totalVotes.toLocaleString('tr-TR')}</div>
+                                            <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Kullanılan oy</div>
                                         </div>
-                                        {surveys.length > 0 && (
-                                            <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
-                                                <div style={{ fontSize: '16px', fontWeight: '700', color: '#f59e0b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                                    {surveys.reduce((prev, current) => (prev.totalVotes > current.totalVotes) ? prev : current).category}
-                                                </div>
-                                                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>En Popüler Kategori</div>
-                                            </div>
-                                        )}
+                                        <div style={{ gridColumn: '1 / -1', padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
+                                            <div style={{ fontSize: '14px', fontWeight: '800', color: '#f59e0b' }}>{popularCategory}</div>
+                                            <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>En çok ilgi gören kategori</div>
+                                        </div>
                                     </div>
+                                </div>
+
+                                <Link href="/kutuphane?kategori=ikinci-el-rehberi" style={{ display: 'block', background: 'linear-gradient(135deg, rgba(0,90,226,.12), rgba(59,130,246,.04))', border: '1px solid rgba(0,90,226,.25)', borderRadius: '16px', padding: '18px', textDecoration: 'none' }}>
+                                    <div style={{ width: '34px', height: '34px', borderRadius: '10px', background: 'rgba(0,90,226,.12)', display: 'grid', placeItems: 'center', marginBottom: '12px' }}><ShieldCheck size={18} color="var(--primary)" /></div>
+                                    <div style={{ color: 'var(--primary)', fontSize: '10px', fontWeight: '800', letterSpacing: '.05em', marginBottom: '5px' }}>SATIN ALMA REHBERİ</div>
+                                    <div style={{ color: 'var(--foreground)', fontSize: '14px', fontWeight: '800', lineHeight: 1.4 }}>İkinci el araçta doğru kontrol sırası</div>
+                                    <div style={{ color: 'var(--text-muted)', fontSize: '11px', lineHeight: 1.5, marginTop: '6px' }}>İlan, kayıt, ekspertiz ve test sürüşü adımlarını tek listede inceleyin.</div>
+                                    <div style={{ color: 'var(--primary)', fontSize: '11px', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '12px' }}>Rehberi aç <ChevronRight size={13} /></div>
+                                </Link>
+
+                                <div style={{ marginTop: '16px' }}>
+                                    <AdPlaceholder position="anket_sag_ust" fallbackTitle="Bu alanda markanız yer alsın" fallbackDesc="Otomobil tercihlerini araştıran kullanıcılara ulaşın." style={{ aspectRatio: '1 / 1' }} />
+                                </div>
+
+                                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '18px', marginTop: '16px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                                        <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>Çok oy alanlar</h3>
+                                        <TrendingUp size={15} color="var(--primary)" />
+                                    </div>
+                                    {popularSurveys.map((survey, index) => (
+                                        <button key={survey.id} onClick={() => focusSurvey(survey.id)} style={{ display: 'grid', gridTemplateColumns: '22px 1fr auto', gap: '8px', alignItems: 'start', width: '100%', padding: '11px 0', border: 0, borderTop: '1px solid var(--card-border)', background: 'transparent', color: 'var(--foreground)', cursor: 'pointer', textAlign: 'left' }}>
+                                            <span style={{ color: 'var(--primary)', fontSize: '11px', fontWeight: '800' }}>{String(index + 1).padStart(2, '0')}</span>
+                                            <span style={{ fontSize: '12px', lineHeight: 1.45, fontWeight: '700' }}>{survey.title}</span>
+                                            <span style={{ color: 'var(--text-muted)', fontSize: '10px', whiteSpace: 'nowrap' }}>{survey.totalVotes.toLocaleString('tr-TR')}</span>
+                                        </button>
+                                    ))}
+                                </div>
+
+                                <div style={{ position: 'sticky', top: '100px', marginTop: '16px' }}>
+                                    <AdPlaceholder position="anket_sag_alt" fallbackTitle="Premium reklam alanı" fallbackDesc="Anket sayfasında sürekli görünür olun." style={{ aspectRatio: '1 / 1' }} />
                                 </div>
                             </div>
                         </aside>

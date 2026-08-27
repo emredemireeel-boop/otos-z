@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { redirect } from "next/navigation";
+import { permanentRedirect, redirect } from "next/navigation";
 import KutuphaneClient from "./KutuphaneClient";
 
 interface PageProps {
@@ -7,6 +7,7 @@ interface PageProps {
 }
 
 const BASE_URL = "https://otosoz.com";
+const LIBRARY_LAST_REVIEWED = "2026-08-26";
 
 // Eski → yeni kategori eşleştirmesi. Google'ın taradığı eski slug'ları doğru
 // URL'ye 308 permanent redirect ile yönlendirir (200+canonical yerine).
@@ -16,8 +17,8 @@ const LEGACY_CATEGORY_MAP: Record<string, string | null> = {
     'makaleler': null, // null = redirect to /kutuphane (root)
 };
 
-// Her kategori: benzersiz SEO başlığı, açıklaması, anahtar kelimeler ve
-// zengin sonuç (rich result) için FAQ. Bu veri hem metadata hem JSON-LD üretir.
+// Her kategori benzersiz başlık, açıklama ve arama niyetiyle sunulur.
+// Yapılandırılmış veri yalnızca sunucuda, görünür içerikle uyumlu üretilir.
 interface CatMeta {
     slug: string;
     name: string;
@@ -30,9 +31,9 @@ interface CatMeta {
 const CATEGORIES: CatMeta[] = [
     {
         slug: "makaleler", name: "Makaleler",
-        title: "Otomotiv Makaleleri ve Rehberleri | OtoSöz Kütüphane",
-        description: "Otomotiv dünyasına dair detaylı makaleler, bakım rehberleri ve uzman önerileri. Araç sahiplerinin bilmesi gereken her şey OtoSöz Kütüphane'de.",
-        keywords: ["otomotiv makaleleri", "araç bakım rehberi", "oto rehber", "araba bilgileri"],
+        title: "Otomobil Bilgi Kütüphanesi ve Araç Rehberleri | OtoSöz",
+        description: "OBD-II arıza kodları, gösterge ışıkları, bakım, lastik, trafik, muayene ve ikinci el araç rehberleri. Türkçe otomobil bilgi kütüphanesi.",
+        keywords: ["otomobil bilgi kütüphanesi", "araç rehberleri", "otomotiv sözlüğü", "araç bakım rehberi", "OBD arıza kodları"],
     },
     {
         slug: "ilginc-bilgiler", name: "İlginç Bilgiler",
@@ -247,11 +248,15 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
             images: [ogUrl],
         },
         alternates: { canonical: canonicalUrl },
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
+        },
     };
 }
 
-// Sunucu tarafında zengin yapılandırılmış veri (JSON-LD) üretir:
-// BreadcrumbList + (varsa) FAQPage. Google rich result / SEO için kritik.
+// Sunucu tarafında görünür içerikle uyumlu CollectionPage ve BreadcrumbList üretir.
 function buildJsonLd(cat: CatMeta): string {
     const isRoot = cat.slug === "makaleler";
     const pageUrl = isRoot ? `${BASE_URL}/kutuphane` : `${BASE_URL}/kutuphane?kategori=${cat.slug}`;
@@ -270,20 +275,28 @@ function buildJsonLd(cat: CatMeta): string {
             name: cat.title.split("|")[0].trim(),
             description: cat.description,
             url: pageUrl,
+            inLanguage: "tr-TR",
+            dateModified: LIBRARY_LAST_REVIEWED,
             isPartOf: { "@type": "WebSite", name: "OtoSöz", url: BASE_URL },
+            ...(isRoot ? {
+                mainEntity: {
+                    "@type": "ItemList",
+                    numberOfItems: CATEGORIES.length,
+                    itemListElement: CATEGORIES.map((category, index) => ({
+                        "@type": "ListItem",
+                        position: index + 1,
+                        name: category.name,
+                        url: category.slug === "makaleler"
+                            ? `${BASE_URL}/kutuphane`
+                            : category.slug === "obd-ariza-kodlari"
+                                ? `${BASE_URL}/obd`
+                                : `${BASE_URL}/kutuphane?kategori=${category.slug}`,
+                    })),
+                },
+            } : {}),
         },
     ];
 
-    if (cat.faq && cat.faq.length > 0) {
-        graph.push({
-            "@type": "FAQPage",
-            mainEntity: cat.faq.map(f => ({
-                "@type": "Question",
-                name: f.q,
-                acceptedAnswer: { "@type": "Answer", text: f.a },
-            })),
-        });
-    }
 
     return JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
 }
@@ -292,6 +305,11 @@ export default async function KutuphaneServerPage({ searchParams }: PageProps) {
     const resolvedParams = await searchParams;
     const kategori = typeof resolvedParams.kategori === "string" ? resolvedParams.kategori : null;
 
+    // Kütüphane içindeki eski OBD kopyasını ana, kapsamlı OBD merkezinde birleştir.
+    if (kategori === "obd-ariza-kodlari") {
+        permanentRedirect("/obd");
+    }
+
     // ── Eski veya geçersiz kategori slug'larını 308 redirect ile doğru URL'ye yönlendir ──
     // Bu, Google'ın "Doğru standart etikete sahip alternatif sayfa" uyarısını önler.
     if (kategori) {
@@ -299,9 +317,9 @@ export default async function KutuphaneServerPage({ searchParams }: PageProps) {
         if (kategori in LEGACY_CATEGORY_MAP) {
             const newSlug = LEGACY_CATEGORY_MAP[kategori];
             if (newSlug) {
-                redirect(`/kutuphane?kategori=${newSlug}`);
+                permanentRedirect(`/kutuphane?kategori=${newSlug}`);
             } else {
-                redirect('/kutuphane');
+                permanentRedirect('/kutuphane');
             }
         }
         // 2) Tanınmayan slug → ana kütüphane sayfasına yönlendir
@@ -319,7 +337,7 @@ export default async function KutuphaneServerPage({ searchParams }: PageProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: buildJsonLd(cat) }}
             />
-            <KutuphaneClient />
+            <KutuphaneClient initialCategory={cat.slug} />
         </>
     );
 }

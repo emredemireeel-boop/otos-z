@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { vehicleDNAData } from "@/data/vehicle-dna";
+import { createSlug, vehicleDNAData } from "@/data/vehicle-dna";
 import { ThumbsUp, CheckCircle, AlertTriangle } from "lucide-react";
 
 export default function ProsAndConsPage() {
@@ -11,8 +11,8 @@ export default function ProsAndConsPage() {
     const modelSlug = (params?.model as string)?.toLowerCase() || "";
 
     const vehicle = vehicleDNAData.find(v => {
-        const vBrandSlug = v.brand.toLowerCase().replace(/\s+/g, '-');
-        const vModelSlug = v.model.toLowerCase().replace(/\s+/g, '-');
+        const vBrandSlug = createSlug(v.brand);
+        const vModelSlug = createSlug(v.model);
         return vBrandSlug === brandSlug && vModelSlug === modelSlug;
     });
 

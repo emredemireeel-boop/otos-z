@@ -5,10 +5,17 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OBDListClient from "./OBDListClient";
 
+const OBD_LAST_REVIEWED = "2026-08-26";
+const POPULAR_OBD_CODES = [
+    "P0420", "P0171", "P0300", "P0299", "P0401", "P0101",
+    "P0340", "P0016", "P0128", "P0442", "B0001", "C0035",
+    "U0100", "U0121",
+];
+
 // ── SEO Metadata ──
 export const metadata: Metadata = {
-    title: "OBD Arıza Kodları Veritabanı — 3.500+ Kod | OtoSöz",
-    description: "3.500+ OBD-II arıza kodunun Türkçe anlamı, belirtileri, nedenleri ve çözüm önerileri. P, B, C ve U kodlarını ücretsiz sorgulayın.",
+    title: "OBD-II Arıza Kodları: Türkçe Sorgulama | OtoSöz",
+    description: "3.500'den fazla OBD-II arıza kodunun Türkçe anlamını, belirtilerini, olası nedenlerini ve çözüm adımlarını sorgulayın. P, B, C ve U kodları.",
     keywords: [
         "OBD arıza kodları", "OBD-II kodları", "motor arıza kodu sorgulama",
         "P0 kodları", "arıza kodu nedir", "DTC kodları", "EOBD arıza kodları",
@@ -33,6 +40,11 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://otosoz.com/obd",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
     },
 };
 
@@ -65,9 +77,14 @@ export default function ObdPage() {
 
     // İlk görünümde her kod ailesini temsil et; veri dosyasının sırası nedeniyle
     // yalnızca B kodlarının görünmesini engelle.
-    const initialCodes = ['P', 'B', 'C', 'U'].flatMap(type =>
-        allCodes.filter(code => code.type === type).slice(0, 8)
-    );
+    const initialCodes = Array.from(new Map([
+        ...POPULAR_OBD_CODES
+            .map(code => allCodes.find(item => item.code.toUpperCase() === code))
+            .filter((code): code is ObdCode => Boolean(code)),
+        ...['P', 'B', 'C', 'U'].flatMap(type =>
+            allCodes.filter(code => code.type === type).slice(0, 10)
+        ),
+    ].map(code => [code.code.toUpperCase(), code])).values()).slice(0, 48);
 
     // Marka listesi
     const brands = Object.keys(carModelsData).sort().slice(0, 15);
@@ -81,6 +98,8 @@ export default function ObdPage() {
                 "name": "OBD Arıza Kodları Veritabanı",
                 "description": `${stats.total.toLocaleString('tr-TR')} OBD-II arıza kodunun Türkçe açıklamaları`,
                 "url": "https://otosoz.com/obd",
+                "inLanguage": "tr-TR",
+                "dateModified": OBD_LAST_REVIEWED,
                 "isPartOf": { "@type": "WebSite", "name": "OtoSöz", "url": "https://otosoz.com" },
                 "mainEntity": {
                     "@type": "ItemList",
@@ -121,7 +140,14 @@ export default function ObdPage() {
                     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'white' }}>OBD Veritabanı</h1>
+                                <div>
+                                    <h1 style={{ fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: '800', color: 'white', marginBottom: '6px' }}>
+                                        OBD-II Arıza Kodları: Türkçe Anlam ve Çözüm Rehberi
+                                    </h1>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.6', maxWidth: '850px' }}>
+                                        Aracınızdan okunan P, B, C veya U kodunu arayın; kodun hangi sistemi ilgilendirdiğini, belirtilerini, olası nedenlerini ve güvenli çözüm sırasını inceleyin.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -133,6 +159,20 @@ export default function ObdPage() {
                     stats={stats}
                     brands={brands}
                 />
+
+                <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '8px 24px 56px' }}>
+                    <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '18px', padding: '24px' }}>
+                        <h2 style={{ fontSize: '20px', fontWeight: '750', color: 'var(--foreground)', marginBottom: '12px' }}>OBD-II kodu nasıl okunur?</h2>
+                        <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.75', marginBottom: '16px' }}>
+                            Kodun ilk harfi arızanın ana ailesini belirtir: P motor ve şanzıman, B gövde ve konfor, C şasi-fren-süspansiyon, U ise araç içi iletişim ağı kodlarıdır. Kod tek başına parça değişimi talimatı değildir; belirti, tesisat ve ölçüm sonuçlarıyla birlikte değerlendirilmelidir.
+                        </p>
+                        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                            <a href="/kutuphane?kategori=gosterge-isiklari" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Gösterge ışıkları rehberi →</a>
+                            <a href="/kutuphane?kategori=nereye-gitmeli" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Hangi ustaya gitmeli? →</a>
+                            <a href="/uzmana-sor" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Uzmana sor →</a>
+                        </div>
+                    </div>
+                </section>
             </main>
 
             <Footer />

@@ -289,6 +289,7 @@ export async function createThread(data: {
         title: filteredTitle,
         category: safeCategory,
         description: safeDescription,
+        seoExcerpt: filteredContent.slice(0, 240),
         authorId: data.authorId,
         authorUsername: safeUsername,
         createdAt: now,
@@ -333,7 +334,7 @@ export async function createThread(data: {
         }
     } catch (e) { console.warn("Gamification error on create thread:", e); }
 
-    // 🚀 Google'a anında indeksleme bildirimi gönder
+    // Sitemap, forum hub ve RSS keşif yüzeylerini yenile
     pingGoogle(`/forum/${slugUrl}`).catch(() => {});
 
     return slugUrl;
@@ -388,14 +389,15 @@ export async function addEntry(threadId: string, data: {
         }
     } catch (e) { console.warn("Gamification error on add entry:", e); }
 
-    // 🚀 Google'a güncelleme bildirimi gönder (yeni entry = sayfa güncellendi)
+    // Yeni entry sonrası sitemap, forum hub ve RSS akışını yenile
     try {
         const threadSnap = await getDoc(doc(db, "threads", threadId));
         if (threadSnap.exists()) {
             const td = threadSnap.data();
-            if (td.urlId) {
-                pingGoogle(`/forum/${createSlug(td.title)}--${td.urlId}`).catch(() => {});
-            }
+            const threadPath = td.urlId
+                ? `/forum/${createSlug(td.title)}--${td.urlId}`
+                : `/forum/${threadId}`;
+            pingGoogle(threadPath).catch(() => {});
         }
     } catch {}
 

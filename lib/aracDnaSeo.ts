@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { engineDNAData } from "@/data/engine-dna";
-import { createSlug, vehicleDNAData } from "@/data/vehicle-dna";
+import { createSlug, isVehicleEditoriallyReviewed, vehicleDNAData } from "@/data/vehicle-dna";
 import { createPageMetadata } from "@/lib/seo";
 
 export type VehicleSection = "kronik-sorunlar" | "neden-alinir" | "kullanici-deneyimleri" | "arac-paketleri";
@@ -27,7 +27,7 @@ const sectionMetadata: Record<VehicleSection, {
     },
 };
 
-function findVehicle(brand: string, model: string) {
+export function findVehicleByRoute(brand: string, model: string) {
     return vehicleDNAData.find(item => (
         createSlug(item.brand) === brand.toLowerCase()
         && createSlug(item.model) === model.toLowerCase()
@@ -46,19 +46,33 @@ export function createVehicleSectionMetadata(
     model: string,
     section: VehicleSection,
 ): Metadata {
-    const vehicle = findVehicle(brand, model);
+    const vehicle = findVehicleByRoute(brand, model);
     if (!vehicle) return notFoundMetadata("Araç DNA Verisi Bulunamadı | OtoSöz");
 
     const name = `${vehicle.brand} ${vehicle.model}`;
     const config = sectionMetadata[section];
     const canonicalPath = `/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}/${section}`;
 
-    return createPageMetadata({
+    const metadata = createPageMetadata({
         title: config.title(name),
-        description: config.description(name),
+        description: section === 'kullanici-deneyimleri' && vehicle.userExperiences.length === 0
+            ? `${name} için henüz onaylanmış sürücü deneyimi bulunmuyor. Mevcut teknik kayıtları inceleyin veya forumda deneyiminizi paylaşın.`
+            : config.description(name),
         path: canonicalPath,
         keywords: [config.title(name), `${name} yorumları`, `${name} inceleme`],
     });
+
+    const hasDistinctContent = section === "kronik-sorunlar"
+        ? vehicle.chronicIssues.length > 0
+        : section === "neden-alinir"
+            ? vehicle.strengths.length > 0 || vehicle.weaknesses.length > 0
+            : section === "kullanici-deneyimleri"
+                ? vehicle.userExperiences.length > 0
+                : true;
+
+    return hasDistinctContent && isVehicleEditoriallyReviewed(vehicle)
+        ? metadata
+        : { ...metadata, robots: { index: false, follow: true } };
 }
 
 const engineSuffixes = {
@@ -71,7 +85,7 @@ const engineSuffixes = {
 type EngineTab = "genel-bakis" | keyof typeof engineSuffixes;
 
 export function createEngineMetadata(brand: string, model: string, engineParam: string): Metadata {
-    const vehicle = findVehicle(brand, model);
+    const vehicle = findVehicleByRoute(brand, model);
     if (!vehicle) return notFoundMetadata("Araç DNA Verisi Bulunamadı | OtoSöz");
 
     const normalizedEngineParam = engineParam.toLowerCase();
@@ -119,11 +133,31 @@ export function createEngineMetadata(brand: string, model: string, engineParam: 
         },
     };
 
-    const canonicalPath = `/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}/${engine.slug}${canonicalSuffix}`;
-    return createPageMetadata({
+    const modelPath = `/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}`;
+    const hasDistinctContent = currentTab === "genel-bakis"
+        || (currentTab === "kronik" && engine.chronicIssues.length > 0)
+        || (currentTab === "artilar" && Boolean(engine.pros?.length || engine.cons?.length));
+
+    const canonicalPath = currentTab === "donanim"
+        ? `${modelPath}/arac-paketleri`
+        : currentTab === "deneyimler"
+            ? vehicle.userExperiences.length > 0
+                ? `${modelPath}/kullanici-deneyimleri`
+                : modelPath
+            : currentTab === "artilar" && !hasDistinctContent
+                ? `${modelPath}/neden-alinir`
+                : currentTab === "kronik" && !hasDistinctContent
+                    ? `${modelPath}/kronik-sorunlar`
+                    : `${modelPath}/${engine.slug}${canonicalSuffix}`;
+
+    const metadata = createPageMetadata({
         title: tabCopy[currentTab].title,
         description: tabCopy[currentTab].description,
         path: canonicalPath,
         keywords: [`${engineName} kronik sorunlar`, `${engineName} yorumları`, `${engineName} inceleme`],
     });
+
+    return hasDistinctContent && isVehicleEditoriallyReviewed(vehicle)
+        ? metadata
+        : { ...metadata, robots: { index: false, follow: true } };
 }

@@ -1,75 +1,77 @@
+import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
-import { google } from 'googleapis';
-import path from 'path';
 import { checkRateLimit, getClientIP } from '@/lib/rateLimit';
 
+const BASE_URL = 'https://otosoz.com';
+const ALLOWED_PREFIXES = ['/forum/', '/sozluk/', '/guvenmetre/'];
+
 /**
- * 🚀 Google Instant Indexing API (Anında İndeksleme)
- * Kullanım: POST /api/seo/ping { url: "https://otosoz.com/..." }
- *
- * ✅ GÜVENLİK: İki koruma katmanı:
- *   1) Same-origin kontrolü (yalnızca kendi sitemizden gelen istekler) VEYA
- *      sunucudan-sunucuya çağrılar için SEO_PING_SECRET header'ı.
- *   2) IP bazlı rate limit (kötüye kullanım / DoS önleme).
- * İstemci tarafında artık secret tutulmuyor.
+ * Yeni kullanıcı içeriğinden sonra sitemap ve keşif akışını yeniler.
+ * Bu endpoint Google Indexing API çağırmaz; API yalnızca JobPosting ve canlı
+ * yayın sayfaları için desteklendiğinden normal forum URL'lerinde kullanılmaz.
  */
 export async function POST(request: Request) {
-    // ── Rate limit (saatte 60 ping yeterli) ──
     const ip = getClientIP(request);
-    const rl = checkRateLimit(`seo-ping:${ip}`, { windowMs: 60 * 60_000, maxRequests: 60 });
-    if (!rl.allowed) {
-        return NextResponse.json(
-            { success: false, error: 'Çok fazla istek.' },
-            { status: 429 }
-        );
+    const rateLimit = checkRateLimit(`seo-refresh:${ip}`, {
+        windowMs: 60 * 60_000,
+        maxRequests: 120,
+    });
+
+    if (!rateLimit.allowed) {
+        return NextResponse.json({ success: false, error: 'Çok fazla istek.' }, { status: 429 });
     }
 
     try {
-        const body = await request.json();
-        const { url } = body;
-
-        // ── Erişim kontrolü ──
-        // a) Same-origin: tarayıcıdan gelen isteklerin Origin'i kendi sitemiz olmalı
-        // b) Server-to-server: SEO_PING_SECRET header'ı (opsiyonel, env tanımlıysa)
         const origin = request.headers.get('origin') || '';
-        const allowedOrigins = ['https://otosoz.com', 'https://www.otosoz.com'];
-        const isSameOrigin = allowedOrigins.includes(origin);
-
+        const allowedOrigins = new Set([
+            BASE_URL,
+            'https://www.otosoz.com',
+            ...(process.env.NODE_ENV !== 'production' ? ['http://localhost:3000'] : []),
+        ]);
         const envSecret = process.env.SEO_PING_SECRET;
-        const headerSecret = request.headers.get('x-seo-secret');
-        const hasValidSecret = !!envSecret && headerSecret === envSecret;
+        const hasValidSecret = Boolean(envSecret)
+            && request.headers.get('x-seo-secret') === envSecret;
 
-        if (!isSameOrigin && !hasValidSecret) {
+        if (!allowedOrigins.has(origin) && !hasValidSecret) {
             return NextResponse.json({ success: false, error: 'Yetkisiz erişim.' }, { status: 401 });
         }
 
-        if (!url || typeof url !== 'string' || !url.startsWith('https://otosoz.com')) {
-            return NextResponse.json({ success: false, error: 'Geçerli bir OtoSöz URL\'si gereklidir.' }, { status: 400 });
+        const body = await request.json();
+        const rawPath = typeof body?.path === 'string'
+            ? body.path
+            : typeof body?.url === 'string'
+                ? body.url
+                : '';
+        const parsed = new URL(rawPath, BASE_URL);
+
+        if (!['otosoz.com', 'www.otosoz.com'].includes(parsed.hostname)) {
+            return NextResponse.json({ success: false, error: 'Geçersiz alan adı.' }, { status: 400 });
         }
 
-        // Google Indexing API Kimlik Doğrulaması
-        const KEY_FILE = 'otosozindex-7a4ca5cb2331.json';
-        const keyFilePath = path.join(process.cwd(), KEY_FILE);
+        const pathname = parsed.pathname.replace(/\/{2,}/g, '/');
+        if (!ALLOWED_PREFIXES.some(prefix => pathname.startsWith(prefix))) {
+            return NextResponse.json({ success: false, error: 'Bu içerik yolu desteklenmiyor.' }, { status: 400 });
+        }
 
-        const auth = new google.auth.GoogleAuth({
-            keyFile: keyFilePath,
-            scopes: ['https://www.googleapis.com/auth/indexing'],
-        });
+        const refreshed = new Set<string>(['/sitemap.xml']);
+        refreshed.add(pathname);
 
-        const client = await auth.getClient();
-        const indexing = google.indexing({ version: 'v3', auth: client as any });
+        if (pathname.startsWith('/forum/')) {
+            refreshed.add('/forum');
+            refreshed.add('/forum/feed.xml');
+        } else if (pathname.startsWith('/sozluk/')) {
+            refreshed.add('/sozluk');
+        } else if (pathname.startsWith('/guvenmetre/')) {
+            refreshed.add('/guvenmetre');
+        }
 
-        const res = await indexing.urlNotifications.publish({
-            requestBody: {
-                url: url,
-                type: 'URL_UPDATED',
-            },
-        });
+        for (const target of refreshed) {
+            revalidatePath(target);
+        }
 
-        return NextResponse.json({ success: true, data: res.data });
-
-    } catch (error: any) {
-        console.error('❌ SEO Ping Hatası:', error?.message);
-        return NextResponse.json({ success: false, error: 'İndeksleme bildirimi başarısız.' }, { status: 500 });
+        return NextResponse.json({ success: true, refreshed: [...refreshed] });
+    } catch (error) {
+        console.error('SEO discovery refresh error:', error);
+        return NextResponse.json({ success: false, error: 'Keşif yüzeyleri yenilenemedi.' }, { status: 500 });
     }
 }

@@ -123,8 +123,11 @@ export default function Footer() {
                             Rehberler
                         </h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                            <Link href="/acik-oto-pazari" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
-                                81 İl Açık Oto Pazarı
+                            <Link href="/otohesap" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
+                                OtoHesap Araçları
+                            </Link>
+                            <Link href="/kutuphane?kategori=ikinci-el-rehberi" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
+                                İkinci El Araç Rehberi
                             </Link>
                             <Link href="/obd" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
                                 OBD Arıza Kodları

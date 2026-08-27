@@ -48,6 +48,12 @@ type Modal = { type: 'delete'; ad: Ad } | { type: 'edit'; ad: Ad } | null;
 
 //  Reklam Pozisyonları (sitenin özel slot'ları) 
 const AD_POSITIONS = [
+    { key: 'global_rail_left', label: 'Global Sol Reklam Rayı', page: 'Tüm Genel Sayfalar', desc: 'Geniş ekranlarda içerik dışındaki sol boşlukta görünür ve kaydırmayı takip eder', size: '160x600', traffic: 'Çok Yüksek', icon: '⬅️' },
+    { key: 'global_rail_right', label: 'Global Sağ Reklam Rayı', page: 'Tüm Genel Sayfalar', desc: 'Geniş ekranlarda içerik dışındaki sağ boşlukta görünür ve kaydırmayı takip eder', size: '160x600', traffic: 'Çok Yüksek', icon: '➡️' },
+    { key: 'anket_sol_ust', label: 'Anket Sol Üst Reklamı', page: 'Anket', desc: 'Son başlıkların altında, sol sütunda görünür', size: '220x275', traffic: 'Yüksek', icon: '📊' },
+    { key: 'anket_sol_alt', label: 'Anket Sol Takip Eden Reklam', page: 'Anket', desc: 'Sol sütunun altında görünür ve sayfa kaydırıldıkça takip eder', size: '220x275', traffic: 'Yüksek', icon: '📌' },
+    { key: 'anket_sag_ust', label: 'Anket Sağ Üst Reklamı', page: 'Anket', desc: 'Satın alma rehberinin altında, sağ sütunda görünür', size: '280x280', traffic: 'Yüksek', icon: '📊' },
+    { key: 'anket_sag_alt', label: 'Anket Sağ Takip Eden Reklam', page: 'Anket', desc: 'Sağ sütunun altında görünür ve sayfa kaydırıldıkça takip eder', size: '280x280', traffic: 'Yüksek', icon: '📌' },
     { key: 'anasayfa_hero', label: 'Ana Sayfa Hero Altı', page: 'Ana Sayfa', desc: 'En yüksek trafik, tam genişlik banner alanı', size: '1200x90', traffic: 'Çok Yüksek', icon: ' ' },
     { key: 'forum_feed', label: 'Forum Liste Arası', page: 'Forum', desc: 'Her 5 başlıktan sonra görünen native reklam', size: '728x90', traffic: 'Yüksek', icon: '💬' },
     { key: 'entry_arasi', label: 'Entry Arası (Native)', page: 'Başlık Detay', desc: 'Entry\'ler arasında yerleşik, doğal görünümlü', size: 'Native', traffic: 'Yüksek', icon: '📑' },
@@ -59,6 +65,7 @@ const AD_POSITIONS = [
 ];
 
 const AD_TYPES = [
+    { key: 'banner_skyscraper', label: 'Dikey Reklam Rayı', size: '160x600', icon: <LayoutTemplate size={14} /> },
     { key: 'banner_leaderboard', label: 'Leaderboard Banner', size: '728x90', icon: <Monitor size={14} /> },
     { key: 'banner_rectangle', label: 'Rectangle Banner', size: '300x250', icon: <LayoutTemplate size={14} /> },
     { key: 'banner_halfpage', label: 'Half Page', size: '300x600', icon: <LayoutTemplate size={14} /> },
@@ -157,7 +164,7 @@ export default function AdminReklamlarPage() {
         if (!form.advertiser.trim() || !form.title.trim()) return;
         const sizeMap: Record<string, string> = {
             banner_leaderboard: '728x90', banner_rectangle: '300x250',
-            banner_halfpage: '300x600', banner_mobile: '320x50', native: 'native',
+            banner_halfpage: '300x600', banner_skyscraper: '160x600', banner_mobile: '320x50', native: 'native',
         };
         const payload = { ...form, size: sizeMap[form.type] || '300x250', budget: Number(form.budget) || 0 };
         const ok = await apiAction('create_ad', 'new', JSON.stringify(payload));
@@ -187,6 +194,7 @@ export default function AdminReklamlarPage() {
     });
 
     const totalEarning = summary ? Math.round(summary.totalBudget * 0.72) : 0; // ~%72 gerçekleşme simülasyonu
+    const isRailPosition = form.position === 'global_rail_left' || form.position === 'global_rail_right';
 
     return (
         <div style={{ position: 'relative', paddingBottom: '40px' }}>
@@ -390,7 +398,7 @@ export default function AdminReklamlarPage() {
             {tab === 'pozisyonlar' && (
                 <div>
                     <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: 1.7 }}>
-                        Aşağıdaki alanlar Otosöz'ın sitesinde tanımlanmış özel reklam slotlarıdır. Google AdSense değil — sitenin kendi sistemidir. Her pozisyon bağımsız kampanya kabul eder.
+                        Aşağıdaki alanlar Otosöz'ün sitesinde tanımlanmış özel reklam slotlarıdır. Google AdSense değil — sitenin kendi sistemidir. Her pozisyon bağımsız kampanya kabul eder.
                     </p>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '14px' }}>
                         {AD_POSITIONS.map(pos => {
@@ -424,7 +432,7 @@ export default function AdminReklamlarPage() {
                                             {activeAdsHere.length > 0 ? `✓ ${activeAdsHere.length} Aktif Kampanya` : '— Boş'}
                                         </span>
                                     </div>
-                                    <button onClick={() => { setForm(f => ({ ...f, position: pos.key })); setTab('yeni'); }} style={{ width: '100%', padding: '8px', borderRadius: '8px', background: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.2)', color: '#3B82F6', fontSize: '12px', fontWeight: '700', cursor: 'pointer' }}>
+                                    <button onClick={() => { setForm(f => ({ ...f, position: pos.key, type: pos.key.startsWith('global_rail_') ? 'banner_skyscraper' : f.type })); setTab('yeni'); }} style={{ width: '100%', padding: '8px', borderRadius: '8px', background: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.2)', color: '#3B82F6', fontSize: '12px', fontWeight: '700', cursor: 'pointer' }}>
                                         + Bu Alana Kampanya Ekle
                                     </button>
                                 </div>
@@ -486,7 +494,7 @@ export default function AdminReklamlarPage() {
                         {/* Reklam Tipi */}
                         <div style={{ marginBottom: '14px' }}>
                             <label style={labelStyle}>Reklam Türü</label>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '8px' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(96px, 1fr))', gap: '8px' }}>
                                 {AD_TYPES.map(t => (
                                     <button key={t.key} onClick={() => setForm(f => ({ ...f, type: t.key }))} style={{ padding: '10px 8px', borderRadius: '8px', border: form.type === t.key ? '2px solid var(--primary)' : '1px solid var(--border-subtle)', background: form.type === t.key ? 'rgba(59,130,246,0.07)' : 'var(--background)', color: form.type === t.key ? 'var(--primary)' : 'var(--text-muted)', cursor: 'pointer', fontSize: '11px', fontWeight: '700', textAlign: 'center' }}>
                                         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4px' }}>{t.icon}</div>
@@ -500,7 +508,7 @@ export default function AdminReklamlarPage() {
                         {/* Pozisyon */}
                         <div style={{ marginBottom: '14px' }}>
                             <label style={labelStyle}>Reklam Pozisyonu (Slot)</label>
-                            <select value={form.position} onChange={e => setForm(f => ({ ...f, position: e.target.value }))} style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-subtle)', background: 'var(--background)', color: 'var(--foreground)', fontSize: '13px', outline: 'none', cursor: 'pointer' }}>
+                            <select value={form.position} onChange={e => { const position = e.target.value; setForm(f => ({ ...f, position, type: position.startsWith('global_rail_') ? 'banner_skyscraper' : f.type })); }} style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-subtle)', background: 'var(--background)', color: 'var(--foreground)', fontSize: '13px', outline: 'none', cursor: 'pointer' }}>
                                 {AD_POSITIONS.map(p => (
                                     <option key={p.key} value={p.key}>{p.icon} {p.label} ({p.page} · {p.size})</option>
                                 ))}
@@ -522,18 +530,37 @@ export default function AdminReklamlarPage() {
                         {/* Önizleme kartı */}
                         {(form.advertiser || form.title) && (
                             <div style={{ marginBottom: '20px', padding: '14px 16px', borderRadius: '12px', background: 'var(--background)', border: '2px dashed var(--border-subtle)' }}>
-                                <p style={{ margin: '0 0 6px', fontSize: '10px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Önizleme</p>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                    <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>📑</div>
-                                    <div>
-                                        <p style={{ margin: 0, fontWeight: '700', fontSize: '13px', color: 'var(--foreground)' }}>{form.title || 'Kampanya Başlığı'}</p>
-                                        <p style={{ margin: 0, fontSize: '11px', color: 'var(--text-muted)' }}>{form.description || 'Reklam açıklaması'} · <span style={{ color: 'var(--primary)' }}>{form.advertiser}</span></p>
+                                <p style={{ margin: '0 0 10px', fontSize: '10px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Önizleme · {isRailPosition ? 'Dikey reklam rayı' : 'Standart reklam'}</p>
+                                {isRailPosition ? (
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
+                                        <div style={{ position: 'relative', width: '104px', height: '300px', flexShrink: 0, overflow: 'hidden', borderRadius: '8px', border: '1px solid var(--card-border)', background: form.imageUrl ? `url(${form.imageUrl}) center / cover no-repeat` : 'linear-gradient(160deg, var(--primary), #172554)', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '14px', textAlign: 'center' }}>
+                                            <span style={{ position: 'absolute', top: '7px', right: '7px', padding: '2px 5px', borderRadius: '999px', background: 'rgba(0,0,0,0.55)', fontSize: '7px', fontWeight: '700' }}>Reklam</span>
+                                            {!form.imageUrl && (
+                                                <>
+                                                    <LayoutTemplate size={24} style={{ marginBottom: '12px' }} />
+                                                    <strong style={{ fontSize: '12px', lineHeight: 1.35 }}>{form.title || 'Kampanya Başlığı'}</strong>
+                                                    <span style={{ marginTop: '7px', fontSize: '8px', lineHeight: 1.4, opacity: 0.82 }}>{form.description || 'Reklam açıklaması'}</span>
+                                                </>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <p style={{ margin: 0, color: 'var(--foreground)', fontSize: '14px', fontWeight: '750' }}>{form.position === 'global_rail_left' ? 'Global sol reklam rayı' : 'Global sağ reklam rayı'}</p>
+                                            <p style={{ margin: '6px 0 0', color: 'var(--text-muted)', fontSize: '12px', lineHeight: 1.6 }}>Önerilen kreatif: <strong>160 × 600 px</strong>. Yalnızca yeterli dış boşluğu olan geniş ekranlarda görünür ve kaydırmayı takip eder.</p>
+                                            <span style={{ display: 'inline-flex', marginTop: '10px', padding: '4px 8px', borderRadius: '6px', background: 'rgba(16,185,129,0.1)', color: '#10B981', fontSize: '10px', fontWeight: '700' }}>Tüm genel sayfalarda aktif</span>
+                                        </div>
                                     </div>
-                                    <span style={{ marginLeft: 'auto', fontSize: '10px', background: 'rgba(16,185,129,0.1)', color: '#10B981', padding: '2px 7px', borderRadius: '5px', fontWeight: '700' }}>Reklam</span>
-                                </div>
+                                ) : (
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                        <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>📑</div>
+                                        <div>
+                                            <p style={{ margin: 0, fontWeight: '700', fontSize: '13px', color: 'var(--foreground)' }}>{form.title || 'Kampanya Başlığı'}</p>
+                                            <p style={{ margin: 0, fontSize: '11px', color: 'var(--text-muted)' }}>{form.description || 'Reklam açıklaması'} · <span style={{ color: 'var(--primary)' }}>{form.advertiser}</span></p>
+                                        </div>
+                                        <span style={{ marginLeft: 'auto', fontSize: '10px', background: 'rgba(16,185,129,0.1)', color: '#10B981', padding: '2px 7px', borderRadius: '5px', fontWeight: '700' }}>Reklam</span>
+                                    </div>
+                                )}
                             </div>
                         )}
-
                         <div style={{ display: 'flex', gap: '10px' }}>
                             <button onClick={() => setTab('kampanyalar')} style={cancelBtnStyle}>İptal</button>
                             <button onClick={handleCreate} disabled={!form.advertiser.trim() || !form.title.trim() || actionLoading} style={{ ...primaryBtnStyle, opacity: form.advertiser.trim() && form.title.trim() ? 1 : 0.4 }}>

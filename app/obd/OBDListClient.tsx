@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Activity, AlertCircle, Wrench, X, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { createSeoSlug } from "@/lib/slug";
 
 interface ObdCode {
     code: string;
@@ -152,7 +153,7 @@ export default function OBDListClient({ initialCodes, totalCount, stats, brands 
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 {brands.map((brand) => (
                                     <li key={brand}>
-                                        <Link href={`/obd/${brand.toLowerCase()}`} style={{
+                                        <Link href={`/obd/${createSeoSlug(brand)}`} style={{
                                             display: 'block',
                                             padding: '8px 12px',
                                             borderRadius: '8px',
@@ -326,8 +327,14 @@ export default function OBDListClient({ initialCodes, totalCount, stats, brands 
                                                     </div>
 
                                                     {/* Title */}
-                                                    <h2 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px' }}>
-                                                        {code.title}
+                                                    <h2 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>
+                                                        <Link
+                                                            href={`/obd/${code.code.toLowerCase()}`}
+                                                            onClick={(event) => event.stopPropagation()}
+                                                            style={{ color: 'var(--foreground)', textDecoration: 'none' }}
+                                                        >
+                                                            {code.code} Arıza Kodu — {code.title}
+                                                        </Link>
                                                     </h2>
 
                                                     {/* Description */}
@@ -345,18 +352,23 @@ export default function OBDListClient({ initialCodes, totalCount, stats, brands 
                                                 </div>
 
                                                 {/* Arrow */}
-                                                <div style={{
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    width: '40px',
-                                                    height: '40px',
-                                                    borderRadius: '10px',
-                                                    background: 'var(--secondary)',
-                                                    flexShrink: 0,
-                                                }}>
+                                                <Link
+                                                    href={`/obd/${code.code.toLowerCase()}`}
+                                                    aria-label={`${code.code} arıza kodu detayını aç`}
+                                                    onClick={(event) => event.stopPropagation()}
+                                                    style={{
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        width: '40px',
+                                                        height: '40px',
+                                                        borderRadius: '10px',
+                                                        background: 'var(--secondary)',
+                                                        flexShrink: 0,
+                                                    }}
+                                                >
                                                     <ChevronRight style={{ width: '20px', height: '20px', color: 'var(--text-muted)' }} />
-                                                </div>
+                                                </Link>
                                             </div>
                                         </div>
                                     );

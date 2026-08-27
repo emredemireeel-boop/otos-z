@@ -22,7 +22,7 @@ interface AdPlaceholderProps {
     style?: React.CSSProperties;
     fallbackTitle?: string;
     fallbackDesc?: string;
-    variant?: 'square' | 'banner';
+    variant?: 'square' | 'banner' | 'rail';
 }
 
 export default function AdPlaceholder({
@@ -80,11 +80,12 @@ export default function AdPlaceholder({
     }, [ads.length]);
 
     const isBanner = variant === 'banner';
+    const isRail = variant === 'rail';
     const containerStyle: React.CSSProperties = {
         position: 'relative',
         width: '100%',
-        aspectRatio: isBanner ? 'auto' : '1 / 1',
-        height: isBanner ? '75px' : 'auto',
+        aspectRatio: isBanner || isRail ? 'auto' : '1 / 1',
+        height: isRail ? '100%' : isBanner ? '75px' : 'auto',
         ...style
     };
 
@@ -93,13 +94,27 @@ export default function AdPlaceholder({
             <div style={{
                 background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', ...containerStyle
-            }} className={className}>
+            }} className={`${isRail ? 'ad-placeholder-mobile ad-rail-placeholder ' : ''}${className || ''}` }>
                 <div style={{ opacity: 0.5, fontSize: '14px', color: 'var(--text-muted)' }}>Yükleniyor...</div>
             </div>
         );
     }
 
     if (ads.length === 0) {
+        if (isRail) {
+            return (
+                <Link href="/iletisim" className={`ad-placeholder-mobile ad-rail-placeholder ${className || ''}`} style={{ textDecoration: 'none', display: 'block', ...containerStyle }}>
+                    <div className="ad-rail-fallback">
+                        <span className="ad-rail-fallback-icon"><Sparkles size={22} /></span>
+                        <span className="ad-rail-fallback-kicker">Reklam alanı</span>
+                        <h3>{fallbackTitle}</h3>
+                        <p>{fallbackDesc}</p>
+                        <span className="ad-rail-fallback-action">Bilgi al <ChevronRight size={14} /></span>
+                    </div>
+                </Link>
+            );
+        }
+
         return (
             <Link href="/iletisim" className="ad-placeholder-mobile" style={{ textDecoration: 'none', display: 'block', ...containerStyle }}>
                 <div style={{
@@ -130,6 +145,35 @@ export default function AdPlaceholder({
     const currentAd = ads[currentIndex];
     const adHref = currentAd?.url ? currentAd.url : "/iletisim";
     const adTarget = currentAd?.url ? "_blank" : "_self";
+
+    if (isRail) {
+        return (
+            <div className={`ad-placeholder-mobile ad-rail-placeholder ${className || ''}`} style={containerStyle}>
+                <Link href={adHref} target={adTarget} rel={currentAd?.url ? "sponsored noopener noreferrer" : undefined} className="ad-rail-link" aria-label={`${currentAd.title} — ${currentAd.advertiser}` }>
+                    <div className={`ad-rail-creative${currentAd.imageUrl ? ' has-image' : ''}`}>
+                        <span className="ad-rail-sponsored">Sponsorlu</span>
+                        {currentAd.imageUrl ? (
+                            <div className="ad-rail-image" style={{ backgroundImage: `url(${currentAd.imageUrl})` }} />
+                        ) : (
+                            <>
+                                <span className="ad-rail-brand-icon"><Zap size={24} /></span>
+                                <div className="ad-rail-copy">
+                                    <h4>{currentAd.title}</h4>
+                                    <p>{currentAd.description}</p>
+                                    <small>{currentAd.advertiser}</small>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                </Link>
+                {ads.length > 1 && (
+                    <div className="ad-rail-dots" aria-hidden="true">
+                        {ads.map((_, idx) => <span key={idx} className={idx === currentIndex ? 'active' : ''} />)}
+                    </div>
+                )}
+            </div>
+        );
+    }
 
     return (
         <div className={`ad-placeholder-mobile ${className || ''}`} style={containerStyle}>

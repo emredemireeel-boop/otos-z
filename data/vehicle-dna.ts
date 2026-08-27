@@ -965,7 +965,7 @@ export const vehicleDNAData: VehicleDNA[] = [
     {
         id: 18,
         brand: "Nissan",
-        model: "Qashqai J11 (2014-2021)",
+        model: "Qashqai J12 (2021-2025)",
         year: "2021-2025",
         ncapStars: 5,
         ncapYear: "2021",
@@ -7875,7 +7875,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -7905,7 +7905,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -7935,7 +7935,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -7965,7 +7965,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -7995,7 +7995,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8025,7 +8025,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8055,7 +8055,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8085,7 +8085,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8115,7 +8115,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8145,7 +8145,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8175,7 +8175,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8205,7 +8205,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8235,7 +8235,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8265,7 +8265,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8295,7 +8295,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8325,7 +8325,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8355,7 +8355,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8385,7 +8385,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8415,7 +8415,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8445,7 +8445,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8475,7 +8475,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8505,7 +8505,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8535,7 +8535,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8565,7 +8565,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8595,7 +8595,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8625,7 +8625,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8655,7 +8655,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8685,7 +8685,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8715,7 +8715,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8745,7 +8745,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8775,7 +8775,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8805,7 +8805,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8835,7 +8835,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8865,7 +8865,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8895,7 +8895,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8925,7 +8925,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8955,7 +8955,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -8985,7 +8985,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -9015,7 +9015,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -9045,7 +9045,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -9075,7 +9075,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -9105,7 +9105,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -9135,7 +9135,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         year: "2015-2025",
         ncapStars: 4,
         ncapYear: "2018",
-        dnaScore: Math.floor(Math.random() * 20) + 70,
+        dnaScore: 75,
         strengths: [
             "Genel kullanıcı memnuniyeti yüksek",
             "Yakıt ekonomisi tatminkar",
@@ -9287,6 +9287,27 @@ export const vehicleDNAData: VehicleDNA[] = [
     }
 ];
 
+
+/**
+ * Arama motorlarına ve karar destek ekranlarına yalnızca editoryal çekirdek
+ * katalog açılır. Eski toplu içe aktarımlar silinmez; kaynak doğrulaması
+ * tamamlanana kadar yanlış bilgi yaymaması için inceleme statüsünde tutulur.
+ */
+const KNOWN_GENERATION_MISMATCH_IDS = new Set([15, 16, 22]);
+
+export function isVehicleEditoriallyReviewed(vehicle: VehicleDNA): boolean {
+    return vehicle.id < 2000
+        && !vehicle.brand.includes('/')
+        && !KNOWN_GENERATION_MISMATCH_IDS.has(vehicle.id)
+        && Number.isInteger(vehicle.dnaScore)
+        && vehicle.dnaScore >= 0
+        && vehicle.dnaScore <= 100;
+}
+// Aynı slug için eski bir içe aktarım ve editoryal kayıt birlikteyse tüm
+// mevcut .find() çağrıları önce güvenilir kaydı seçsin.
+vehicleDNAData.sort((a, b) =>
+    Number(isVehicleEditoriallyReviewed(b)) - Number(isVehicleEditoriallyReviewed(a))
+);
 
 export function getDNAScoreColor(score: number): string {
     if (score >= 80) return '#22C55E'; // Yeşil - Mükemmel

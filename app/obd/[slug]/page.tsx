@@ -1,12 +1,18 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import Link from "next/link";
 import obdCodes from "@/data/obd-codes.json";
 import carModelsData from "@/data/carmodels.json";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import OBDDetailClient from "./OBDDetailClient";
 import BrandHubClient from "./BrandHubClient";
+import { createSeoSlug } from "@/lib/slug";
+
+const BASE_URL = "https://otosoz.com";
+const OBD_LAST_REVIEWED = "2026-08-26";
+const POPULAR_OBD_CODES = [
+    "P0420", "P0171", "P0300", "P0299", "P0401", "P0101",
+    "P0340", "P0016", "P0128", "P0442", "B0001", "C0035",
+    "U0100", "U0121",
+];
 
 interface ObdCode {
     code: string;
@@ -25,261 +31,183 @@ interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
+const ALL_CODES = Array.from(
+    new Map((obdCodes as ObdCode[]).map(code => [code.code.toUpperCase(), code])).values()
+);
+
 function getTypeLabel(type: string) {
     switch (type) {
-        case 'P': return 'Powertrain – Motor & Şanzıman';
-        case 'B': return 'Body – Gövde & Konfor';
-        case 'C': return 'Chassis – Şasi, Fren, Süspansiyon';
-        case 'U': return 'Network – Araç İletişim Ağı';
-        default: return 'Bilinmeyen Sistem';
+        case "P": return "Powertrain – Motor ve Şanzıman";
+        case "B": return "Body – Gövde ve Konfor";
+        case "C": return "Chassis – Şasi, Fren ve Süspansiyon";
+        case "U": return "Network – Araç İletişim Ağı";
+        default: return "OBD-II Sistemi";
     }
 }
 
-function createSlug(text: string) {
-    if (!text) return '';
-    const map: Record<string, string> = {
-        'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u', 'ë': 'e',
-        'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u', 'Ë': 'e',
-    };
-    return text.replace(/[çğıöşüëÇĞİÖŞÜË]/g, m => map[m] || m)
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .trim();
-}
-
-function truncateMetaDescription(text: string, maxLength = 160) {
+function truncateMetaDescription(text: string, maxLength = 158) {
     if (text.length <= maxLength) return text;
     const shortened = text.slice(0, maxLength - 1);
-    const lastSpace = shortened.lastIndexOf(' ');
+    const lastSpace = shortened.lastIndexOf(" ");
     return `${shortened.slice(0, lastSpace > 100 ? lastSpace : shortened.length).trim()}…`;
+}
+
+function findBrand(slug: string) {
+    return Object.keys(carModelsData).find(brand => createSeoSlug(brand) === slug.toLowerCase());
+}
+
+export function generateStaticParams() {
+    const popularSet = new Set(POPULAR_OBD_CODES);
+    const selected = [
+        ...ALL_CODES.filter(code => popularSet.has(code.code.toUpperCase())),
+        ...["P", "B", "C", "U"].flatMap(type =>
+            ALL_CODES.filter(code => code.type === type).slice(0, 30)
+        ),
+    ];
+
+    return Array.from(new Map(selected.map(code => [code.code.toUpperCase(), code])).values())
+        .map(code => ({ slug: code.code.toLowerCase() }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
-    
-    // Check if it's a brand
-    const brandName = Object.keys(carModelsData).find(k => createSlug(k) === slug.toLowerCase());
+    const normalizedSlug = slug.toLowerCase();
+    const brandName = findBrand(normalizedSlug);
+
     if (brandName) {
         const models = (carModelsData as Record<string, string[]>)[brandName] || [];
-        const modelSample = models.slice(0, 4).join(', ');
-        const description = truncateMetaDescription(`${brandName} ${modelSample ? `${modelSample} gibi modellerde ` : ''}görülebilen OBD-II arıza kodlarının Türkçe anlamlarını, belirtilerini, nedenlerini ve çözüm adımlarını sorgulayın.`);
+        const description = truncateMetaDescription(
+            `${brandName} araçlarda görülebilen OBD-II kodlarını sorgulayın. ${models.slice(0, 4).join(", ")} modelleri için kod anlamı, belirti ve çözüm rehberi.`
+        );
+        const url = `${BASE_URL}/obd/${normalizedSlug}`;
+
         return {
-            title: `${brandName} OBD Arıza Kodları ve Çözümleri | OtoSöz`,
+            title: `${brandName} OBD-II Arıza Kodu Sorgulama | OtoSöz`,
             description,
-            keywords: [`${brandName} arıza kodları`, `${brandName} OBD kodları`, `${brandName} motor arıza kodu`, 'OBD-II kod sorgulama'],
+            alternates: { canonical: url },
+            robots: {
+                index: false,
+                follow: true,
+                googleBot: { index: false, follow: true },
+            },
             openGraph: {
-                title: `${brandName} OBD Arıza Kodları | OtoSöz`,
+                title: `${brandName} OBD-II Arıza Kodu Sorgulama | OtoSöz`,
                 description,
-                url: `https://otosoz.com/obd/${slug.toLowerCase()}`,
-                type: 'website',
-            },
-            twitter: {
-                card: 'summary_large_image',
-                title: `${brandName} OBD Arıza Kodları | OtoSöz`,
-                description,
-            },
-            alternates: {
-                canonical: `https://otosoz.com/obd/${slug.toLowerCase()}`,
+                url,
+                type: "website",
             },
         };
     }
 
-    const upperCode = slug.toUpperCase();
-    const codeData = (obdCodes as ObdCode[]).find(c => c.code.toLowerCase() === slug.toLowerCase());
+    const upperCode = normalizedSlug.toUpperCase();
+    const codeData = ALL_CODES.find(code => code.code.toUpperCase() === upperCode);
 
     if (!codeData) {
         return {
-            title: `${upperCode} Arıza Kodu Bulunamadı | OtoSöz`,
+            title: "OBD Arıza Kodu Bulunamadı | OtoSöz",
+            robots: { index: false, follow: false },
         };
     }
 
-    const description = `${upperCode} (${codeData.title}) OBD-II/EOBD arıza kodu rehberi ✓ Belirtiler: ${codeData.symptoms.slice(0, 2).join(', ')} ✓ Nedenleri ve çözüm yolları ✓ Tahmini onarım maliyeti ✓ DTC ${upperCode} [2026 Güncel]`;
-
-    const metaDescription = truncateMetaDescription(description);
-    const ogUrl = `/api/og?title=${encodeURIComponent(upperCode + ' - ' + codeData.title)}&desc=${encodeURIComponent(metaDescription)}`;
+    const canonicalUrl = `${BASE_URL}/obd/${codeData.code.toLowerCase()}`;
+    const metaDescription = truncateMetaDescription(
+        `${codeData.code} arıza kodu: ${codeData.title}. Türkçe anlamı, belirtileri, olası nedenleri, ciddiyet seviyesi ve kontrol edilmesi gereken çözüm adımları.`
+    );
+    const ogUrl = `/api/og?title=${encodeURIComponent(`${codeData.code} Arıza Kodu`)}&desc=${encodeURIComponent(codeData.title)}`;
 
     return {
-        title: `${upperCode} Arıza Kodu Nedir? Nedenleri ve Çözümü [2026] | OtoSöz`,
+        title: `${codeData.code} Arıza Kodu Nedir? Belirtileri ve Çözümü | OtoSöz`,
         description: metaDescription,
-        keywords: [`${upperCode}`, `${upperCode} arıza kodu`, `${upperCode} nedir`, `OBD ${upperCode}`, `DTC ${upperCode}`, `EOBD ${upperCode}`, `${codeData.title}`, 'arıza kodu sorgulama', 'OBD kodları', `${upperCode} çözümü`, `${upperCode} tamiri`, `${upperCode} onarım maliyeti`],
+        keywords: [`${codeData.code} arıza kodu`, `${codeData.code} nedir`, `OBD ${codeData.code}`, codeData.title],
+        alternates: { canonical: canonicalUrl },
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
+        },
         openGraph: {
-            title: `${upperCode} - ${codeData.title} | OtoSöz`,
+            title: `${codeData.code} Arıza Kodu: ${codeData.title} | OtoSöz`,
             description: metaDescription,
-            type: 'article',
-            url: `https://otosoz.com/obd/${slug.toLowerCase()}`,
-            images: [
-                {
-                    url: ogUrl,
-                    width: 1200,
-                    height: 630,
-                    alt: `${upperCode} Arıza Kodu`,
-                }
-            ],
+            type: "article",
+            url: canonicalUrl,
+            images: [{ url: ogUrl, width: 1200, height: 630, alt: `${codeData.code} arıza kodu açıklaması` }],
         },
         twitter: {
-            card: 'summary_large_image',
-            title: `${upperCode} - ${codeData.title} | OtoSöz`,
+            card: "summary_large_image",
+            title: `${codeData.code} Arıza Kodu: ${codeData.title} | OtoSöz`,
             description: metaDescription,
             images: [ogUrl],
-        },
-        alternates: {
-            canonical: `https://otosoz.com/obd/${slug.toLowerCase()}`,
         },
     };
 }
 
 export default async function OBDSlugPage({ params }: PageProps) {
     const { slug } = await params;
-    
-    // 1. Check if slug is a Brand
-    const brandName = Object.keys(carModelsData).find(k => createSlug(k) === slug.toLowerCase());
+    const normalizedSlug = slug.toLowerCase();
+
+    const brandName = findBrand(normalizedSlug);
     if (brandName) {
-        const uniqueCodes = Array.from(
-            new Map((obdCodes as ObdCode[]).map(code => [code.code.toUpperCase(), code])).values()
-        );
-        const brandCodes = ['P', 'B', 'C', 'U'].flatMap(type =>
-            uniqueCodes.filter(code => code.type === type).slice(0, 12)
+        const brandCodes = ["P", "B", "C", "U"].flatMap(type =>
+            ALL_CODES.filter(code => code.type === type).slice(0, 12)
         );
         const brandModels = (carModelsData as Record<string, string[]>)[brandName] || [];
-        const brandUrl = `https://otosoz.com/obd/${slug.toLowerCase()}`;
-        const brandDescription = `${brandName} araçlarda görülebilen evrensel OBD-II arıza kodlarının anlamları, belirtileri, nedenleri ve çözüm yolları.`;
-        const brandSchema = {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "CollectionPage",
-                    "name": `${brandName} OBD Arıza Kodları`,
-                    "description": brandDescription,
-                    "url": brandUrl,
-                    "isPartOf": { "@type": "WebSite", "name": "OtoSöz", "url": "https://otosoz.com" },
-                },
-                {
-                    "@type": "BreadcrumbList",
-                    "itemListElement": [
-                        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://otosoz.com" },
-                        { "@type": "ListItem", "position": 2, "name": "OBD Arıza Kodları", "item": "https://otosoz.com/obd" },
-                        { "@type": "ListItem", "position": 3, "name": brandName, "item": brandUrl },
-                    ],
-                },
-            ],
-        };
 
-        return (
-            <>
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(brandSchema) }} />
-                <BrandHubClient brandName={brandName} obdCodes={brandCodes} brandModels={brandModels} />
-            </>
-        );
+        return <BrandHubClient brandName={brandName} obdCodes={brandCodes} brandModels={brandModels} />;
     }
 
-    // 2. Check if slug is a Code
-    const codeData = (obdCodes as ObdCode[]).find(c => c.code.toLowerCase() === slug.toLowerCase());
+    const codeData = ALL_CODES.find(code => code.code.toLowerCase() === normalizedSlug);
+    if (!codeData) notFound();
 
-    if (!codeData) {
-        notFound();
-    }
-
-    // Related codes (same type, similar code prefix)
     const prefix = codeData.code.slice(0, 2);
-    const relatedCodes = (obdCodes as ObdCode[])
-        .filter(c => c.type === codeData.type && c.code !== codeData.code && c.code.startsWith(prefix))
-        .slice(0, 4);
+    const relatedCodes = ALL_CODES
+        .filter(code => code.type === codeData.type && code.code !== codeData.code && code.code.startsWith(prefix))
+        .slice(0, 6);
 
+    const canonicalUrl = `${BASE_URL}/obd/${codeData.code.toLowerCase()}`;
     const typeLabel = getTypeLabel(codeData.type);
-
-    // JSON-LD Structured Data for Google Rich Results
-    const articleSchema = {
+    const structuredData = {
         "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": `${codeData.code} Arıza Kodu Nedir? ${codeData.title}`,
-        "description": codeData.description,
-        "url": `https://otosoz.com/obd/${codeData.code.toLowerCase()}`,
-        "publisher": {
-            "@type": "Organization",
-            "name": "OtoSöz",
-            "url": "https://otosoz.com"
-        }
-    };
-
-    const faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
+        "@graph": [
             {
-                "@type": "Question",
-                "name": `${codeData.code} arıza kodu ne anlama gelir?`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": codeData.description
-                }
+                "@type": "Article",
+                "@id": `${canonicalUrl}#article`,
+                "headline": `${codeData.code} Arıza Kodu: ${codeData.title}`,
+                "description": codeData.description,
+                "url": canonicalUrl,
+                "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+                "dateModified": OBD_LAST_REVIEWED,
+                "inLanguage": "tr-TR",
+                "articleSection": typeLabel,
+                "author": { "@type": "Organization", "name": "OtoSöz", "url": BASE_URL },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "OtoSöz",
+                    "url": BASE_URL,
+                    "logo": { "@type": "ImageObject", "url": `${BASE_URL}/dark_logo.svg` },
+                },
+                "about": {
+                    "@type": "DefinedTerm",
+                    "name": codeData.code,
+                    "description": codeData.title,
+                    "inDefinedTermSet": `${BASE_URL}/obd`,
+                },
             },
             {
-                "@type": "Question",
-                "name": `${codeData.code} arıza kodunun belirtileri nelerdir?`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": codeData.symptoms.join('. ')
-                }
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+                    { "@type": "ListItem", "position": 2, "name": "OBD-II Arıza Kodları", "item": `${BASE_URL}/obd` },
+                    { "@type": "ListItem", "position": 3, "name": `${codeData.code} Arıza Kodu`, "item": canonicalUrl },
+                ],
             },
-            {
-                "@type": "Question",
-                "name": `${codeData.code} arıza kodu nasıl çözülür?`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": codeData.fixes.join('. ')
-                }
-            },
-            {
-                "@type": "Question",
-                "name": `${codeData.code} arıza kodu ile araç kullanmak güvenli mi?`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": `${codeData.code} arıza kodunun ciddiyeti ${codeData.severity || 'Değişken'} seviyesindedir. Kesin teşhis için yetkili servise başvurmanız önerilir.`
-                }
-            },
-            {
-                "@type": "Question",
-                "name": `${codeData.code} onarımı ne kadar tutar?`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": `${codeData.code} onarım maliyeti araç markasına, model yılına ve servis noktasına göre değişiklik gösterir. Tahmini maliyet bilgisi için sayfamızdaki detaylı rehberi inceleyebilirsiniz.`
-                }
-            }
-        ]
-    };
-
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Ana Sayfa",
-                "item": "https://otosoz.com/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "OBD Arıza Kodları",
-                "item": "https://otosoz.com/obd"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": codeData.code,
-                "item": `https://otosoz.com/obd/${codeData.code.toLowerCase()}`
-            }
-        ]
+        ],
     };
 
     return (
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, faqSchema, breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
             />
             <OBDDetailClient codeData={codeData} relatedCodes={relatedCodes} typeLabel={typeLabel} />
         </>

@@ -85,8 +85,7 @@ export default function VehicleModelSelectionPage() {
                 </div>
             )}
 
-            {/* SEO Content Depth Expansion */}
-            <div style={{
+            <section style={{
                 marginTop: '48px',
                 padding: '32px',
                 background: 'var(--card-bg)',
@@ -96,19 +95,30 @@ export default function VehicleModelSelectionPage() {
                 color: 'var(--text-muted)',
                 lineHeight: '1.7'
             }}>
-                <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '16px' }}>
-                    {vehicle.brand} {vehicle.model} Hakkında Detaylı Analiz
+                <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>
+                    {vehicle.brand} {vehicle.model} dosya kapsamı
                 </h2>
-                <p style={{ marginBottom: '16px' }}>
-                    <strong>{vehicle.brand} {vehicle.model}</strong>, sınıfının en çok tercih edilen ve merak edilen araçlarından biridir. Otomobil tutkunları ve potansiyel alıcılar, bu modeli incelerken özellikle motor seçeneklerinin performans, yakıt tüketimi ve kronik sorunlar açısından nasıl farklılaştığını merak etmektedir. Aracın üretim yılına, donanım paketine ve tercih edilen vites tipine (manuel, tam otomatik, yarı otomatik vb.) bağlı olarak kullanım deneyimi büyük ölçüde değişebilir. 
+                <p style={{ marginBottom: '20px' }}>
+                    Bu dosya <strong>{vehicle.year}</strong> üretim dönemini, {engineData?.engines.length || 0} motor seçeneğini ve editoryal kayıttaki {vehicle.chronicIssues.length} kontrol başlığını kapsar. Motor ve şanzıman seçimine göre riskler değişebileceği için ayrıntıyı ilgili motor kartından inceleyin.
                 </p>
-                <p style={{ marginBottom: '16px' }}>
-                    OtoAsfalt Araç DNA platformu, <strong>{vehicle.brand} {vehicle.model}</strong> için en ince ayrıntısına kadar veri analizi sunar. Hangi motorun daha uzun ömürlü olduğunu, hangisinin kronik yağ yakma, şanzıman ısınması veya elektronik arıza gibi potansiyel sorunlara yatkın olduğunu görmek için yukarıdaki seçeneklerden aracınıza veya almayı düşündüğünüz araca en uygun motor varyantını seçmeniz gerekir.
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
+                    <div>
+                        <h3 style={{ fontSize: '15px', color: 'var(--foreground)', marginBottom: '8px' }}>Öne çıkan yönler</h3>
+                        <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                            {vehicle.strengths.slice(0, 3).map(item => <li key={item}>{item}</li>)}
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style={{ fontSize: '15px', color: 'var(--foreground)', marginBottom: '8px' }}>Satın almadan önce kontrol</h3>
+                        <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                            {vehicle.chronicIssues.slice(0, 3).map(issue => <li key={issue.id}>{issue.title}</li>)}
+                        </ul>
+                    </div>
+                </div>
+                <p style={{ marginTop: '20px', fontSize: '13px' }}>
+                    DNA puanı bir satın alma garantisi değildir; araç yaşı, bakım geçmişi, kullanım biçimi ve ekspertiz sonucu birlikte değerlendirilmelidir.
                 </p>
-                <p>
-                    {vehicle.brand} markasının geliştirdiği teknolojik altyapılar ve {vehicle.model} modeline özel kronik sorunların tüm detayları, sanayi ustalarının yorumları ve gerçek kullanıcı deneyimleriyle harmanlanarak 10 üzerinden bir <strong>DNA Skoru</strong> ile değerlendirilir. En düşük puanlı sorunlu motorlardan kaçınmak ve bütçenize en uygun en sorunsuz aracı bulmak için motor seçiminizi yaparak detaylı incelemeye hemen başlayın.
-                </p>
-            </div>
+            </section>
         </div>
     );
 }

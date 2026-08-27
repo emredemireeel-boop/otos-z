@@ -114,6 +114,12 @@ const nextConfig: NextConfig = {
     },
     async redirects() {
         return [
+
+            {
+                source: '/obd/:brand/:code',
+                destination: '/obd/:code',
+                permanent: true,
+            },
             ...openCarMarketRedirects.map(([eventId, destination]) => ({
                 source: `/etkinlikler/${eventId}`,
                 destination,
@@ -163,7 +169,12 @@ const nextConfig: NextConfig = {
             },
             {
                 source: '/arac-dna/nissan/qashqai/:path*',
-                destination: '/arac-dna/nissan/qashqai-j11-2014-2021/:path*',
+                destination: '/arac-dna/nissan/qashqai-j12-2021-2025/:path*',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/nissan/qashqai-j11-2014-2021/:path*',
+                destination: '/arac-dna/nissan/qashqai-j12-2021-2025/:path*',
                 permanent: true,
             },
             {
@@ -194,6 +205,11 @@ const nextConfig: NextConfig = {
             {
                 source: '/arac-dna/chery/tiggo-8-pro/:path*',
                 destination: '/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/:path*',
+                permanent: true,
+            },
+            {
+                source: '/arac-dna/chery/omoda-5-comfort/:path*',
+                destination: '/arac-dna/chery/omoda-5-1-nesil-2023-2025/:path*',
                 permanent: true,
             },
             {
@@ -267,7 +283,9 @@ const nextConfig: NextConfig = {
                 'otoyol-ve-kopru-ucretleri',
             ].map(slug => ({
                 source: `/kutuphane/${slug}`,
-                destination: `/kutuphane?kategori=${slug}`,
+                destination: slug === 'obd-ariza-kodlari'
+                    ? '/obd'
+                    : `/kutuphane?kategori=${slug}`,
                 permanent: true,
             })),
             // ── Eski /kutuphane/rehber/ URL'leri → /kutuphane/{guideId} ──

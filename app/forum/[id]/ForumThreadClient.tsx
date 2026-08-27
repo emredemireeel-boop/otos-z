@@ -72,7 +72,7 @@ export default function ForumThreadPage() {
     const [userRoleMap, setUserRoleMap] = useState<Record<string, string>>({});
     const [userPhotoMap, setUserPhotoMap] = useState<Record<string, string>>({});
     
-    const ENTRIES_PER_PAGE = 13;
+    const ENTRIES_PER_PAGE = 10;
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const viewCounted = useRef(false);
 
@@ -412,53 +412,8 @@ export default function ForumThreadPage() {
 
     const catStyle = getCategoryStyle(thread.category);
 
-    const structuredData = [
-        {
-            "@context": "https://schema.org",
-            "@type": "DiscussionForumPosting",
-            "headline": thread.title,
-            "author": {
-                "@type": "Person",
-                "name": thread.authorUsername
-            },
-            "interactionStatistic": {
-                "@type": "InteractionCounter",
-                "interactionType": "https://schema.org/CommentAction",
-                "userInteractionCount": entries.length
-            }
-        },
-        {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Ana Sayfa",
-                    "item": "https://otosoz.com/"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Forum",
-                    "item": "https://otosoz.com/forum"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": thread.title,
-                    "item": `https://otosoz.com/forum/${slugParam}`
-                }
-            ]
-        }
-    ];
-
     return (
         <div>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-            />
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>

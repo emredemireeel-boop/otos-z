@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
 import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield, CreditCard, FileText, Fingerprint, Compass, MessageSquare, Signpost } from "lucide-react";
 import Link from "next/link";
-import ObdSection from "./obd-section";
+
 import GostergeSection from "./gosterge-section";
 import LastikRehberiSection from "./lastik-rehberi-section";
 import IkinciElSection from "./ikinci-el-section";
@@ -29,7 +29,7 @@ import EfsaneAvcilariSection from "./efsane-avcilari-section";
 import TrafikIsaretleriSection from "./trafik-isaretleri-section";
 import NasilYapilirSection from "./nasil-yapilir-section";
 import trafikCezalariData from "@/data/trafik_cezalari.json";
-import obdCodes from "@/data/obd-codes.json";
+
 import { createSeoSlug } from "@/lib/slug";
 
 // Types for Library Guides
@@ -124,8 +124,8 @@ const SectionCarousel = ({ title, icon, children }: { title: string, icon?: Reac
     );
 };
 
-export default function LibraryPage() {
-    const router = useRouter();
+export default function LibraryPage({ initialCategory = 'makaleler' }: { initialCategory?: string }) {
+
     const searchParams = useSearchParams();
 
     // SEO-friendly slug mappings
@@ -159,7 +159,7 @@ export default function LibraryPage() {
     ];
 
     // Determine active tab from URL
-    const sekmeParam = searchParams.get('kategori');
+    const sekmeParam = searchParams.get('kategori') || initialCategory;
     const activeTab = useMemo(() => {
         if (!sekmeParam) return 0;
         const idx = tabSlugs.findIndex(t => t.slug === sekmeParam);
@@ -168,14 +168,6 @@ export default function LibraryPage() {
 
     const currentTab = tabSlugs[activeTab] || tabSlugs[0];
 
-    const setActiveTab = (index: number) => {
-        const slug = tabSlugs[index].slug;
-        if (index === 0) {
-            router.push('/kutuphane', { scroll: false });
-        } else {
-            router.push(`/kutuphane?kategori=${slug}`, { scroll: false });
-        }
-    };
 
     const [guides, setGuides] = useState<GuideDetail[]>([]);
     const [interestingData, setInterestingData] = useState<any>(null);
@@ -295,107 +287,9 @@ export default function LibraryPage() {
         }
     }, [interestingData, searchQuery]);
 
-    const getMythBustersSchema = () => {
-        if (!filteredInteresting || !filteredInteresting.mythBusters || filteredInteresting.mythBusters.length === 0) return null;
-        const schema = {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": filteredInteresting.mythBusters.map((myth: any) => ({
-                "@type": "Question",
-                "name": myth.myth,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": myth.truth
-                }
-            }))
-        };
-        return JSON.stringify(schema);
-    };
-
-    const getOBDSchema = () => {
-        const schema = {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": obdCodes.slice(0, 20).map((code: any) => ({
-                "@type": "Question",
-                "name": `${code.code} Arıza Kodu Nedir?`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": `${code.title}. ${code.description}`
-                }
-            }))
-        };
-        return JSON.stringify(schema);
-    };
-
-    const getDynamicSchema = () => {
-        let schema: any = null;
-
-        if (currentTab.slug === 'trafik-cezalari' && (trafikCezalariData as any)?.categories) {
-            // Trafik Cezaları FAQ — gerçek FAQ soruları
-            const allRows = (trafikCezalariData as any).categories.flatMap((cat: any) => cat.rows);
-            const faqItems: any[] = [];
-            for (const row of allRows) {
-                if (row.faq && row.faq.length > 0) {
-                    for (const f of row.faq.slice(0, 2)) {
-                        faqItems.push({
-                            "@type": "Question",
-                            "name": f.soru,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": f.cevap
-                            }
-                        });
-                    }
-                }
-                if (faqItems.length >= 30) break;
-            }
-            schema = {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": faqItems
-            };
-        } else if (currentTab.slug === 'obd-ariza-kodlari' && obdCodes) {
-            return getOBDSchema();
-        } else if (currentTab.slug === 'ilginc-bilgiler' && filteredInteresting?.mythBusters) {
-            return getMythBustersSchema();
-        } else if (currentTab.slug === 'makaleler' && filteredGuides) {
-            schema = {
-                 "@context": "https://schema.org",
-                 "@type": "CollectionPage",
-                 "name": "Otomotiv Makaleleri ve Rehberleri",
-                 "description": "Otomotiv dünyasına dair güncel makaleler ve rehberler.",
-                 "hasPart": filteredGuides.slice(0, 10).map(g => ({
-                     "@type": "Article",
-                     "headline": g.title,
-                     "description": g.description
-                 }))
-             };
-        } else {
-            // Generic SSS for dictionary terms if looking at Sözlük (activeTab === 2)
-            if (currentTab.slug === 'otomotiv-sozluk' && filteredDictionary) {
-                schema = {
-                    "@context": "https://schema.org",
-                    "@type": "FAQPage",
-                    "mainEntity": filteredDictionary.slice(0, 15).map((term: any) => ({
-                        "@type": "Question",
-                        "name": `${term.term} Nedir?`,
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": term.description
-                        }
-                    }))
-                };
-            }
-        }
-
-        if (schema) return JSON.stringify(schema);
-        return null;
-    };
 
     return (
         <div>
-            {getDynamicSchema() && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getDynamicSchema()! }} />}
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -417,7 +311,14 @@ export default function LibraryPage() {
                                             : 'linear-gradient(135deg, #3B82F6, #1D4ED8)',
                                     boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
                                 }} />
-                                <h1 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)' }}>Oto Kütüphane</h1>
+                                <div>
+                                    <h1 style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: '800', color: 'var(--foreground)', marginBottom: '4px' }}>
+                                        {activeTab === 0 ? 'Oto Kütüphane: Otomotiv Bilgi ve Rehber Merkezi' : currentTab.title.split('|')[0].trim()}
+                                    </h1>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.55', maxWidth: '760px' }}>
+                                        {currentTab.description}
+                                    </p>
+                                </div>
                                 {activeTab !== 0 && (
                                     <span style={{
                                         padding: '4px 12px',
@@ -505,41 +406,36 @@ export default function LibraryPage() {
                         <div className="kutuphane-tabs">
                             {tabs.map((tab, index) => {
                                 const Icon = tab.icon;
+                                const slug = tabSlugs[index].slug;
+                                const href = slug === 'makaleler'
+                                    ? '/kutuphane'
+                                    : slug === 'obd-ariza-kodlari'
+                                        ? '/obd'
+                                        : `/kutuphane?kategori=${slug}`;
                                 return (
-                                    <button
-                                        key={index}
-                                        onClick={() => setActiveTab(index)}
+                                    <Link
+                                        key={slug}
+                                        href={href}
+                                        aria-current={activeTab === index ? 'page' : undefined}
                                         style={{
                                             padding: '7px 13px',
                                             background: activeTab === index ? 'var(--primary)' : 'var(--secondary)',
                                             color: activeTab === index ? 'white' : 'var(--foreground)',
                                             border: `1px solid ${activeTab === index ? 'var(--primary)' : 'var(--card-border)'}`,
                                             borderRadius: '8px',
-                                            cursor: 'pointer',
                                             fontWeight: '600',
                                             fontSize: '12px',
                                             display: 'flex',
                                             alignItems: 'center',
                                             gap: '6px',
                                             transition: 'all 0.2s ease',
-                                            whiteSpace: 'nowrap'
-                                        }}
-                                        onMouseEnter={(e) => {
-                                            if (activeTab !== index) {
-                                                e.currentTarget.style.borderColor = 'var(--primary)';
-                                                e.currentTarget.style.background = 'var(--card-bg)';
-                                            }
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            if (activeTab !== index) {
-                                                e.currentTarget.style.borderColor = 'var(--card-border)';
-                                                e.currentTarget.style.background = 'var(--secondary)';
-                                            }
+                                            whiteSpace: 'nowrap',
+                                            textDecoration: 'none',
                                         }}
                                     >
                                         <Icon style={{ width: '14px', height: '14px' }} />
                                         {tab.name}
-                                    </button>
+                                    </Link>
                                 );
                             })}
                         </div>
@@ -991,14 +887,10 @@ export default function LibraryPage() {
                         </div>
                     )}
 
-                    {/* Tab 4: OBD */}
-                    
+
                     {/* Tab 3.5: Trafik İşaretleri */}
                     {currentTab.slug === 'trafik-isaretleri' && (
                         <TrafikIsaretleriSection />
-                    )}
-                    {currentTab.slug === 'obd-ariza-kodlari' && (
-                        <ObdSection />
                     )}
 
                     {/* Tab 5: Göstergeler */}

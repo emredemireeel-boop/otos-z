@@ -194,16 +194,7 @@ export default function EtkinliklerPage() {
                                     {cat === "all" ? "Tümü" : eventCategories[cat as keyof typeof eventCategories].label}
                                 </button>
                             ))}
-                            <Link
-                                href="/acik-oto-pazari"
-                                style={{
-                                    padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '700',
-                                    whiteSpace: 'nowrap', textDecoration: 'none', border: '1px solid var(--primary)',
-                                    color: 'var(--primary)', background: 'color-mix(in srgb, var(--primary) 8%, transparent)'
-                                }}
-                            >
-                                81 İl Oto Pazarı Rehberi
-                            </Link>
+
                         </div>
 
 

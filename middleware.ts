@@ -79,6 +79,27 @@ export function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL(legacyDestination, request.url), 308);
     }
 
+    // Eski Kütüphane query adreslerini temiz ve tek bir canonical hedefe taşı.
+    // Arama motoru yönlendirme hedefinde eski query parametresini görmez.
+    if (path === '/kutuphane') {
+        const category = request.nextUrl.searchParams.get('kategori');
+        const categoryRedirects: Record<string, { pathname: string; category?: string }> = {
+            'obd-ariza-kodlari': { pathname: '/obd' },
+            'otoyol-ucretleri': { pathname: '/kutuphane', category: 'otoyol-ve-kopru-ucretleri' },
+            'ehliyet-sinifari': { pathname: '/kutuphane', category: 'ehliyet-siniflari' },
+            'makaleler': { pathname: '/kutuphane' },
+        };
+        const target = category ? categoryRedirects[category] : undefined;
+
+        if (target) {
+            const canonicalUrl = request.nextUrl.clone();
+            canonicalUrl.pathname = target.pathname;
+            canonicalUrl.search = '';
+            if (target.category) canonicalUrl.searchParams.set('kategori', target.category);
+            return NextResponse.redirect(canonicalUrl, 308);
+        }
+    }
+
     // Eski, Unicode veya sonradan değişmiş makale başlıklarını HTTP düzeyinde
     // tek kalıcı slug'a taşı. Böylece Google aynı içeriği alternatif canonical
     // olarak tekrar tekrar taramak yerine yalnızca güncel URL'yi izler.
