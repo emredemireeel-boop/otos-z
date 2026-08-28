@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import ForumThreadClient from './ForumThreadClient';
-import { getForumThreadSeo, plainTextExcerpt } from '@/lib/forumSeoServer';
+import { getForumThreadSeo, plainTextExcerpt } from '@/lib/forumDataServer';
 
 interface PageProps {
     params: Promise<{ id: string }>;
@@ -98,7 +98,7 @@ export default async function ForumThreadServerPage({ params }: PageProps) {
             '@id': `${canonicalUrl}#entry-${entry.id}`,
             url: `${canonicalUrl}#entry-${entry.id}`,
             text: entry.content,
-            ...(toIso(entry.createdAt) ? { dateCreated: toIso(entry.createdAt) } : {}),
+            ...(toIso(entry.createdAt) ? { datePublished: toIso(entry.createdAt) } : {}),
             author: { '@type': 'Person', name: entry.username },
             interactionStatistic: {
                 '@type': 'InteractionCounter',
@@ -135,7 +135,23 @@ export default async function ForumThreadServerPage({ params }: PageProps) {
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
-            <ForumThreadClient />
+            <ForumThreadClient
+                initialThread={{
+                    id: thread.id,
+                    title: thread.title,
+                    category: thread.category,
+                    description: thread.description,
+                    authorUsername: thread.authorUsername,
+                    createdAt: thread.createdAt,
+                    views: thread.views,
+                    entryCount: thread.entryCount,
+                    lastEntryAt: thread.lastEntryAt,
+                    urlId: /^\d{8}$/.test(thread.slug.split('--').at(-1) || '')
+                        ? Number(thread.slug.split('--').at(-1))
+                        : undefined,
+                }}
+                initialEntries={thread.entries}
+            />
         </>
     );
 }

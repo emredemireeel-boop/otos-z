@@ -18,7 +18,7 @@ import { sampleListings, formatListingPrice } from "@/data/listings";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import MarkdownEditor from "@/components/MarkdownEditor";
 import AdPlaceholder from "@/components/AdPlaceholder";
-import { doc, getDoc, collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { doc, getDoc, collection, addDoc, serverTimestamp, Timestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
@@ -40,15 +40,61 @@ const parseComparisonContent = (text: string) => {
     return { description, vehicles };
 };
 
-export default function ForumThreadPage() {
+interface InitialForumThread {
+    id: string;
+    title: string;
+    category: string;
+    description: string;
+    authorUsername: string;
+    createdAt: number | null;
+    views: number;
+    entryCount: number;
+    lastEntryAt: number | null;
+    urlId?: number;
+}
+
+interface InitialForumEntry {
+    id: string;
+    username: string;
+    content: string;
+    createdAt: number | null;
+    likes: number;
+}
+
+interface ForumThreadPageProps {
+    initialThread?: InitialForumThread;
+    initialEntries?: InitialForumEntry[];
+}
+
+function hydrateInitialThread(thread?: InitialForumThread): ForumThread | null {
+    if (!thread) return null;
+    return {
+        ...thread,
+        authorId: '',
+        tags: [],
+        createdAt: thread.createdAt ? Timestamp.fromMillis(thread.createdAt) : null,
+        lastEntryAt: thread.lastEntryAt ? Timestamp.fromMillis(thread.lastEntryAt) : null,
+    };
+}
+
+function hydrateInitialEntries(entries: InitialForumEntry[] = []): ForumEntry[] {
+    return entries.map(entry => ({
+        ...entry,
+        authorId: '',
+        likedBy: [],
+        createdAt: entry.createdAt ? Timestamp.fromMillis(entry.createdAt) : null,
+    }));
+}
+
+export default function ForumThreadPage({ initialThread, initialEntries = [] }: ForumThreadPageProps) {
     const params = useParams();
     const router = useRouter();
     const slugParam = params.id as string;
     const { user } = useAuth();
 
-    const [thread, setThread] = useState<ForumThread | null>(null);
-    const [entries, setEntries] = useState<ForumEntry[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [thread, setThread] = useState<ForumThread | null>(() => hydrateInitialThread(initialThread));
+    const [entries, setEntries] = useState<ForumEntry[]>(() => hydrateInitialEntries(initialEntries));
+    const [loading, setLoading] = useState(!initialThread);
     const [newEntry, setNewEntry] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [likingEntry, setLikingEntry] = useState<string | null>(null);

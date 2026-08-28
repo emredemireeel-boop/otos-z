@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { categories, getBrandsForCategory } from '@/data/guvenmetre';
-import { getAdminDb, initError } from '@/lib/firebaseAdmin';
+import { getRecentForumThreadSummaries } from '@/lib/forumDataServer';
 import { events } from '@/data/events';
 import { OTOHESAP_META } from '@/data/otohesap-meta';
 import { OTOHESAP_LAST_REVIEWED } from '@/data/otohesap-content';
@@ -448,45 +448,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     });
 
-    // 15. Dinamik Forum Konuları (Firestore'dan)
-    // Hem yeni açılan hem de yeni yanıt alan başlıkları birleştir. On-demand
-    // revalidation bu listeyi içerik kaydından hemen sonra yeniden üretir.
-    if (!initError) {
-        try {
-            const db = getAdminDb();
-            const [recentlyCreated, recentlyActive] = await Promise.all([
-                db.collection('threads').orderBy('createdAt', 'desc').limit(1200).get(),
-                db.collection('threads').orderBy('lastEntryAt', 'desc').limit(1200).get(),
-            ]);
-            const threadDocs = new Map<string, FirebaseFirestore.QueryDocumentSnapshot>();
-            [...recentlyCreated.docs, ...recentlyActive.docs].forEach(doc => threadDocs.set(doc.id, doc));
-
-            threadDocs.forEach(doc => {
-                const threadData = doc.data();
-                const title = String(threadData.title || '').trim();
-                const status = String(threadData.status || '').toLocaleLowerCase('tr-TR');
-                const hidden = threadData.deleted === true
-                    || threadData.hidden === true
-                    || ['deleted', 'hidden', 'spam', 'rejected', 'silindi', 'gizli', 'reddedildi'].includes(status);
-                if (hidden || title.length < 5 || Number(threadData.entryCount || 0) < 1) return;
-
-                const threadSlug = threadData.urlId
-                    ? `${createSlug(title)}--${threadData.urlId}`
-                    : doc.id;
-                const updatedAt = threadData.lastEntryAt || threadData.createdAt;
-                const lastModified = updatedAt?.toDate ? updatedAt.toDate() : undefined;
-
-                sitemapEntries.push({
-                    url: `${BASE_URL}/forum/${threadSlug}`,
-                    ...(lastModified ? { lastModified } : {}),
-                    changeFrequency: 'hourly',
-                    priority: 0.8,
-                });
-            });
-        } catch (e) {
-            console.error('Sitemap Firestore thread fetching error:', e);
-        }
-    }
+    // 15. Dinamik forum konuları: Admin erişimi yoksa güvenli public Firestore
+    // yedeği devreye girer. Yeni başlık ve entry'ler 15 dakika içinde görünür.
+    const forumThreads = await getRecentForumThreadSummaries(1200);
+    forumThreads.forEach(thread => {
+        sitemapEntries.push({
+            url: `${BASE_URL}/forum/${thread.slug}`,
+            ...(thread.lastEntryAt || thread.createdAt
+                ? { lastModified: new Date(thread.lastEntryAt || thread.createdAt || Date.now()) }
+                : {}),
+            changeFrequency: 'hourly',
+            priority: 0.8,
+        });
+    });
 
     // Aynı URL farklı veri kümelerinden birden fazla kez gelebiliyor. Arama
     // motorlarına her canonical URL'yi yalnızca bir kez gönder.

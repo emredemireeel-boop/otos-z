@@ -7,9 +7,9 @@ import Footer from "@/components/Footer";
 import { Clock, Eye, Calendar, ArrowLeft, User, Share2, Facebook, Twitter, Linkedin, CheckCircle } from "lucide-react";
 import AutoLinkText from "@/components/AutoLinkText";
 
-export default function HaberDetailClient({ slug }: { slug: string }) {
-    const [post, setPost] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
+export default function HaberDetailClient({ slug, initialPost }: { slug: string; initialPost: any }) {
+    const [post, setPost] = useState<any>(initialPost);
+    const [loading, setLoading] = useState(!initialPost);
     const [copied, setCopied] = useState(false);
 
     useEffect(() => {
@@ -66,26 +66,32 @@ export default function HaberDetailClient({ slug }: { slug: string }) {
         );
     }
 
+    const canonicalUrl = `https://otosoz.com/haberler/${slug}`;
     const structuredData = {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "NewsArticle",
+        "@id": `${canonicalUrl}#article`,
+        "url": canonicalUrl,
+        "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
         "headline": post.title,
         "description": post.description,
-        "image": post.image,
+        "image": [post.image],
         "author": {
             "@type": "Person",
-            "name": post.author
+            "name": post.author || "OtoSöz Editör"
         },
         "publisher": {
             "@type": "Organization",
+            "@id": "https://otosoz.com/#organization",
             "name": "OtoSöz",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://otosoz.com/logo.png"
+                "url": "https://otosoz.com/dark_logo.svg"
             }
         },
         "datePublished": post.createdAt,
-        "dateModified": post.createdAt
+        "dateModified": post.updatedAt || post.createdAt,
+        "inLanguage": "tr-TR"
     };
 
     const breadcrumbSchema = {
@@ -100,7 +106,7 @@ export default function HaberDetailClient({ slug }: { slug: string }) {
 
     return (
         <div>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]).replace(/</g, '\\u003c') }} />
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
                 

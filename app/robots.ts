@@ -74,7 +74,7 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: '/',
             },
         ],
-        sitemap: 'https://otosoz.com/sitemap.xml',
+        sitemap: ['https://otosoz.com/sitemap.xml', 'https://otosoz.com/news-sitemap.xml'],
         host: 'https://otosoz.com',
     };
 }

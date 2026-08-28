@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAdminDb, initError } from '@/lib/firebaseAdmin';
-import { createSeoSlug } from '@/lib/slug';
-import { plainTextExcerpt } from '@/lib/forumSeoServer';
+import { getRecentForumThreadSummaries, plainTextExcerpt } from '@/lib/forumDataServer';
 
 export const revalidate = 300;
 const BASE_URL = 'https://otosoz.com';
@@ -15,53 +13,26 @@ function escapeXml(value: string): string {
         .replace(/'/g, '&apos;');
 }
 
-function timestampToDate(value: any): Date | null {
-    if (!value) return null;
-    if (typeof value.toDate === 'function') return value.toDate();
-    if (typeof value.seconds === 'number') return new Date(value.seconds * 1000);
-    const parsed = new Date(value);
-    return Number.isNaN(parsed.getTime()) ? null : parsed;
-}
-
 export async function GET() {
-    const items: string[] = [];
-    let lastBuildDate = new Date();
+    const threads = await getRecentForumThreadSummaries(100);
+    const lastBuildDate = threads[0]?.lastEntryAt || threads[0]?.createdAt
+        ? new Date(threads[0].lastEntryAt || threads[0].createdAt || Date.now())
+        : new Date();
 
-    if (!initError) {
-        try {
-            const db = getAdminDb();
-            let snapshot: FirebaseFirestore.QuerySnapshot;
-            try {
-                snapshot = await db.collection('threads').orderBy('lastEntryAt', 'desc').limit(100).get();
-            } catch {
-                snapshot = await db.collection('threads').orderBy('createdAt', 'desc').limit(100).get();
-            }
-
-            snapshot.docs.forEach((doc, index) => {
-                const data = doc.data();
-                const title = String(data.title || '').trim();
-                if (title.length < 5 || data.deleted === true || data.hidden === true) return;
-
-                const slug = data.urlId ? `${createSeoSlug(title)}--${data.urlId}` : doc.id;
-                const link = `${BASE_URL}/forum/${slug}`;
-                const published = timestampToDate(data.lastEntryAt) || timestampToDate(data.createdAt) || new Date();
-                if (index === 0) lastBuildDate = published;
-                const description = plainTextExcerpt(String(data.seoExcerpt || data.description || title), 240);
-
-                items.push([
-                    '<item>',
-                    `<title>${escapeXml(title)}</title>`,
-                    `<link>${escapeXml(link)}</link>`,
-                    `<guid isPermaLink="true">${escapeXml(link)}</guid>`,
-                    `<pubDate>${published.toUTCString()}</pubDate>`,
-                    `<description>${escapeXml(description)}</description>`,
-                    '</item>',
-                ].join(''));
-            });
-        } catch (error) {
-            console.error('Forum RSS feed error:', error);
-        }
-    }
+    const items = threads.map(thread => {
+        const link = `${BASE_URL}/forum/${thread.slug}`;
+        const published = new Date(thread.lastEntryAt || thread.createdAt || Date.now());
+        const description = plainTextExcerpt(thread.description || thread.title, 240);
+        return [
+            '<item>',
+            `<title>${escapeXml(thread.title)}</title>`,
+            `<link>${escapeXml(link)}</link>`,
+            `<guid isPermaLink="true">${escapeXml(link)}</guid>`,
+            `<pubDate>${published.toUTCString()}</pubDate>`,
+            `<description>${escapeXml(description)}</description>`,
+            '</item>',
+        ].join('');
+    });
 
     const xml = [
         '<?xml version="1.0" encoding="UTF-8"?>',

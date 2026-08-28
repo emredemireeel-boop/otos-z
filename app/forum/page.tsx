@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getAdminDb, initError } from "@/lib/firebaseAdmin";
+import { getForumHubThreadSummaries } from "@/lib/forumDataServer";
 import { MessageSquare, Eye, TrendingUp, Search, Plus } from "lucide-react";
 import styles from "./forum.module.css";
 
@@ -29,16 +29,6 @@ const FORUM_CATEGORIES: { slug: string; name: string }[] = [
     { slug: "marka-model", name: "Marka & Model" },
 ];
 
-function createSlug(text: string): string {
-    if (!text) return "";
-    const trMap: Record<string, string> = {
-        "ç": "c", "ğ": "g", "ı": "i", "ö": "o", "ş": "s", "ü": "u",
-        "Ç": "c", "Ğ": "g", "İ": "i", "Ö": "o", "Ş": "s", "Ü": "u",
-    };
-    return text.replace(/[çğıöşüÇĞİÖŞÜ]/g, m => trMap[m] || m)
-        .toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "").slice(0, 80);
-}
-
 interface HubThread {
     id: string;
     title: string;
@@ -51,49 +41,19 @@ interface HubThread {
     lastActivity: number;
 }
 
-function tsToMillis(ts: any): number {
-    if (!ts) return 0;
-    if (typeof ts?.toMillis === "function") return ts.toMillis();
-    if (ts?.seconds) return ts.seconds * 1000;
-    return 0;
-}
-
 async function fetchThreads(categoryName: string | null): Promise<HubThread[]> {
-    if (initError) return [];
-    try {
-        const db = getAdminDb();
-        let q: FirebaseFirestore.Query = db.collection("threads");
-        if (categoryName) q = q.where("category", "==", categoryName);
-        // Not: category filtresiyle orderBy composite index gerektirebilir; güvenli tarafta
-        // createdAt ile sırala, yoksa client-side sort uygula.
-        const snap = await (categoryName
-            ? q.limit(100).get()
-            : q.orderBy("createdAt", "desc").limit(60).get());
-
-        const threads: HubThread[] = snap.docs.map(d => {
-            const data = d.data();
-            const url = data.urlId
-                ? `/forum/${createSlug(data.title || "")}--${data.urlId}`
-                : `/forum/${d.id}`;
-            return {
-                id: d.id,
-                title: data.title || "",
-                category: data.category || "Genel",
-                authorUsername: data.authorUsername || "anonim",
-                views: data.views || 0,
-                entryCount: data.entryCount || 0,
-                description: data.description || data.seoExcerpt || "",
-                url,
-                lastActivity: tsToMillis(data.lastEntryAt) || tsToMillis(data.createdAt),
-            };
-        });
-        // En son etkinliğe göre sırala
-        threads.sort((a, b) => b.lastActivity - a.lastActivity);
-        return threads.slice(0, 50);
-    } catch (e) {
-        console.error("Forum hub fetch error:", e);
-        return [];
-    }
+    const threads = await getForumHubThreadSummaries(categoryName);
+    return threads.map(thread => ({
+        id: thread.id,
+        title: thread.title,
+        category: thread.category,
+        authorUsername: thread.authorUsername,
+        views: thread.views,
+        entryCount: thread.entryCount,
+        description: thread.description,
+        url: `/forum/${thread.slug}`,
+        lastActivity: thread.lastEntryAt || thread.createdAt || 0,
+    }));
 }
 
 function resolveCategory(kategori: string | null) {
@@ -130,7 +90,8 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
 }
 
 function buildJsonLd(threads: HubThread[], catName: string | null): string {
-    const pageUrl = catName ? `${BASE_URL}/forum?kategori=${createSlug(catName)}` : `${BASE_URL}/forum`;
+    const categorySlug = FORUM_CATEGORIES.find(category => category.name === catName)?.slug;
+    const pageUrl = categorySlug ? `${BASE_URL}/forum?kategori=${categorySlug}` : `${BASE_URL}/forum`;
     const graph: any[] = [
         {
             "@type": "BreadcrumbList",
