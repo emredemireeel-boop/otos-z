@@ -2331,7 +2331,7 @@ select {
   overflow: hidden;
   color: var(--foreground);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.45;
   transition: color 150ms ease;
   -webkit-box-orient: vertical;
@@ -2534,7 +2534,7 @@ select {
 
 .forum-trending-copy strong,
 .forum-discovery-list strong {
-  font-weight: 550;
+  font-weight: 400;
 }
 
 .home-forum-feed .topic-card-title {
