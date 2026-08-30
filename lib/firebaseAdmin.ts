@@ -1,4 +1,4 @@
-import { initializeApp, getApps, cert, type App } from 'firebase-admin/app';
+import { initializeApp, getApps, cert, applicationDefault, type App } from 'firebase-admin/app';
 import { getAuth, type Auth } from 'firebase-admin/auth';
 import { getFirestore, type Firestore } from 'firebase-admin/firestore';
 
@@ -89,8 +89,29 @@ function initAdmin(): void {
             initError = `Firebase Admin init hatası: ${err?.message || err}`;
             console.error('Firebase Admin: initializeApp hatası:', err?.message || err);
         }
-    } else {
-        initError = 'FIREBASE_SERVICE_ACCOUNT_KEY ortam değişkeni eksik veya geçersiz JSON.';
+    }
+
+    // VPS ve benzeri sunucularda kimlik bilgisini repo dışında tut. Google Admin
+    // SDK, GOOGLE_APPLICATION_CREDENTIALS ile işaret edilen ve 600 izinli dosyayı
+    // applicationDefault üzerinden güvenli biçimde yükler.
+    if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+        try {
+            adminApp = initializeApp({
+                credential: applicationDefault(),
+                projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'otosoz',
+            });
+            adminAuth = getAuth(adminApp);
+            adminDb = getFirestore(adminApp);
+            initError = null;
+            return;
+        } catch (err: any) {
+            initError = `Firebase Admin application credentials hatası: ${err?.message || err}`;
+            console.error('Firebase Admin: applicationDefault hatası:', err?.message || err);
+        }
+    }
+
+    if (!initError) {
+        initError = 'Firebase Admin kimlik bilgisi bulunamadı.';
         console.warn('Firebase Admin:', initError);
     }
 
