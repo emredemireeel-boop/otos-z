@@ -7,6 +7,7 @@ export interface Myth {
     explanation: string;
     seoTitle: string;
     seoDescription: string;
+    sources?: Array<{ title: string; url: string }>;
 }
 
 export const mythsData: Myth[] = [
@@ -410,5 +411,182 @@ export const mythsData: Myth[] = [
         explanation: "Hızlı geçtiğinizde kabin içinde sarsıntıyı daha az hissedebilirsiniz çünkü süspansiyon darbeyi aniden emer ve tekerlek havada asılı kalarak zemine uyum sağlar. Ancak fizik kanunları gereği (Momentum), 1.5 tonluk aracın tüm kinetik enerjisi anlık olarak amortisör kulelerine, rot başlarına ve salıncak burçlarına biner. Bu şok darbesi zamanla kule sacını yırtar, amortisör milini eğer ve tekerlek bilyasını dağıtır.",
         seoTitle: "Kasislerden Hızlı Geçmek Arabaya Zarar Verir Mi?",
         seoDescription: "Bozuk yolda veya çukurda hızlı gitmek mi yavaş gitmek mi arabayı daha çok bozar? Süspansiyon şoku ve ön takım (rot-balans) parçalanması."
+    },
+
+    // ARAMA NİYETİ YÜKSEK YENİ EFSANELER
+    {
+        id: 40,
+        slug: "sifir-arabada-rodaj-gerekir-mi",
+        category: 'engine',
+        myth: "Yeni nesil sıfır araçlarda rodaj tamamen kalktı; ilk günden dip gaz ve yüksek devir kullanılabilir.",
+        reality: "Yanlış. Modern araçlarda rodaj daha kolaydır ama üreticinin ilk kilometreler için verdiği sınırlar hâlâ geçerlidir.",
+        explanation: "Üretim toleransları geliştiği için eski araçlardaki kadar zahmetli bir rodaj süreci yoktur. Buna rağmen motor, fren, lastik ve aktarma parçalarının yüzeyleri ilk kullanımda birbirine uyum sağlar. Birçok üretici ilk yüzlerce veya ilk 1.000 kilometrede ani hızlanmadan, sert frenlemeden, çok yüksek devirden ve uzun süre aynı hızda gitmekten kaçınılmasını ister.\n\nDoğru yöntem aracı aşırı düşük devirde boğmak veya sürekli sabit hızda kullanmak değil; motor ısındıktan sonra yükü ve devri makul aralıkta değiştirerek kullanmaktır. Kesin kilometre ve devir sınırı modelden modele değişir; bağlayıcı bilgi aracın kullanım kılavuzundadır.",
+        seoTitle: "Sıfır Arabada Rodaj Gerekir Mi? İlk Kaç Kilometre?",
+        seoDescription: "Yeni arabada rodaj var mı, kaç kilometre sürer? İlk 1.000 km’de yüksek devir, ani fren ve sabit hız kullanımına dair doğru bilgiler.",
+        sources: [
+            { title: "Toyota Owners — Yeni araç rodaj önerileri", url: "https://www.toyota.com/owners/warranty-owners-manuals/digital/article/prius/2024/om47e80u/ch04se010401/" }
+        ]
+    },
+    {
+        id: 41,
+        slug: "kis-lastigi-sadece-karda-mi-takilir",
+        category: 'tire',
+        myth: "Kış lastiği yalnızca kar yağdığında işe yarar; şehirde kar yoksa gereksizdir.",
+        reality: "Yanlış. Kış lastiği soğuk, ıslak ve buzlanma riski bulunan koşullar için geliştirilir; yalnız kar lastiği değildir.",
+        explanation: "Kış lastiğinin hamuru ve sırt deseni düşük sıcaklıklarda esnekliğini ve su tahliye kabiliyetini korumaya odaklanır. Yaz lastiği soğukta sertleştiğinde kuru görünen zeminde bile fren ve çekiş performansı düşebilir. Kar, buz ve sulu kar koşullarında 3PMSF işaretli kış lastikleri dört mevsim lastiklerden daha etkilidir.\n\nLastik seçimi yaşadığınız bölgenin sıcaklığına, yağışına ve sürüş şartlarına göre yapılmalıdır. Dört tekerde aynı tip, uygun ebat ve üreticinin önerdiği basınç kullanılmalı; sadece çekiş aksına iki kış lastiği takmak aracın dengesini bozabilir.",
+        seoTitle: "Kış Lastiği Sadece Kar Yağdığında Mı Takılır?",
+        seoDescription: "Kış lastiği kar yokken gerekli mi? Soğuk ve ıslak zeminde kış lastiği, dört mevsim lastik ve 3PMSF işareti arasındaki fark.",
+        sources: [
+            { title: "NHTSA TireWise — Lastik türleri ve güvenliği", url: "https://www.nhtsa.gov/vehicle-safety/tires" },
+            { title: "NHTSA — Kış sürüşü ve lastik önerileri", url: "https://www.nhtsa.gov/winter-driving-tips" }
+        ]
+    },
+    {
+        id: 42,
+        slug: "lastige-nitrojen-basmak-faydali-mi",
+        category: 'tire',
+        myth: "Lastiğe nitrojen basılırsa hava hiç eksilmez, lastik patlamaz ve yakıt tüketimi belirgin biçimde düşer.",
+        reality: "Abartılıdır. Nitrojen basınç kaybını bir miktar yavaşlatabilir ama basınç kontrolünü ortadan kaldırmaz.",
+        explanation: "Normal hava zaten yaklaşık yüzde 78 azottur. Daha yüksek saflıktaki nitrojen moleküler sızıntıyı ve içerideki nemi bir miktar azaltabilir; bu nedenle yarış, havacılık veya çok hassas filo uygulamalarında avantaj sağlayabilir. Günlük otomobil kullanımında asıl farkı yaratan gazın adı değil, lastiğin doğru soğuk basınçta tutulmasıdır.\n\nNitrojenli lastik de siboptan, jant kenarından veya hasarlı bölgeden basınç kaybedebilir ve delinebilir. Basınç düştüğünde nitrojen bulamazsanız normal hava eklemek güvenlidir. Ayda en az bir kez soğukken ölçüm yapmak, yakıt ve güvenlik açısından nitrojen etiketinden daha önemlidir.",
+        seoTitle: "Lastiğe Nitrojen Basmak Faydalı Mı?",
+        seoDescription: "Nitrojen lastik havası eksilmeyi ve patlamayı önler mi? Normal hava ile nitrojen arasındaki gerçek fark ve doğru basınç kontrolü.",
+        sources: [
+            { title: "NHTSA arşivindeki üretici teknik bülteni — Nitrojen kullanımı", url: "https://static.nhtsa.gov/odi/tsbs/2020/MC-10174300-9999.pdf" }
+        ]
+    },
+    {
+        id: 43,
+        slug: "lastik-hava-basinci-yanaktaki-psi",
+        category: 'tire',
+        myth: "Lastik yanağında yazan PSI değeri, araca basılması gereken doğru lastik havasıdır.",
+        reality: "Yanlış. Yanaktaki değer lastiğin sınır bilgisidir; araç için önerilen basınç kapı içi etikette veya kullanım kılavuzundadır.",
+        explanation: "Aynı lastik farklı ağırlık, aks yükü ve süspansiyon ayarına sahip birçok araçta kullanılabilir. Bu yüzden lastik üreticisinin yanakta verdiği değer, otomobilinizin konfor ve yol tutuş için hedeflediği basınç değildir. Doğru ön ve arka basınçlar sürücü kapısı çevresindeki etikette, yakıt kapağında veya kullanım kılavuzunda bulunur.\n\nÖlçüm lastikler en az birkaç saattir soğukken yapılmalıdır. Tam yüklü araç veya römork kullanımı için üretici ayrı değer verebilir. Yanaktaki yüksek değeri hedeflemek orta taban aşınmasına, daha sert sürüşe ve yol tutuş kaybına neden olabilir.",
+        seoTitle: "Lastik Hava Basıncı Kaç Olmalı? Yanaktaki PSI Doğru Mu?",
+        seoDescription: "Lastik yanağındaki PSI değeri mi, kapı içi etiket mi kullanılmalı? Ön ve arka lastik basıncı soğukken nasıl doğru ölçülür?",
+        sources: [
+            { title: "NHTSA — Önerilen soğuk lastik basıncı", url: "https://www.nhtsa.gov/winter-driving-tips" },
+            { title: "U.S. Department of Energy — Doğru lastik basıncı", url: "https://afdc.energy.gov/files/u/publication/gas_saving_tips_2015.pdf" }
+        ]
+    },
+    {
+        id: 44,
+        slug: "sicak-lastigin-havasi-indirilir-mi",
+        category: 'tire',
+        myth: "Uzun yoldan sonra lastik basıncı yükseldiyse hemen hava indirip etiketteki değere getirmek gerekir.",
+        reality: "Yanlış. Isınan lastikte basıncın yükselmesi normaldir; sıcak lastiği soğuk değerine indirmek daha sonra düşük basınca yol açar.",
+        explanation: "Sürüş sırasında lastik esner, içindeki hava ısınır ve basınç doğal olarak yükselir. Kapı içi etiketteki değer genellikle soğuk lastik içindir. Sıcak lastikten hava boşaltıp bu değere getirirseniz araç park edip lastikler soğuduğunda basınç önerilen seviyenin altına düşer.\n\nEn doğru ölçüm araç en az üç saattir kullanılmamışken veya çok kısa ve düşük hızlı bir sürüşten sonra yapılır. Sıcak ölçümde bariz bir eksiklik görürseniz güvenli seviyeye kadar hava eklenebilir; kesin ayar lastikler soğuduğunda yeniden kontrol edilmelidir.",
+        seoTitle: "Sıcak Lastiğin Havası İndirilir Mi?",
+        seoDescription: "Uzun yolda ısınan lastiğin basıncı neden yükselir? Sıcak lastikten hava indirmek doğru mu ve soğuk lastik basıncı ne zaman ölçülür?",
+        sources: [
+            { title: "NHTSA TireWise — Lastik basıncı ölçümü", url: "https://www.nhtsa.gov/vehicle-safety/tires" }
+        ]
+    },
+    {
+        id: 45,
+        slug: "dpf-rolantide-gaz-vererek-temizlenir-mi",
+        category: 'engine',
+        myth: "Dizel partikül filtresini temizlemek için park halinde birkaç dakika yüksek gaz vermek yeterlidir.",
+        reality: "Genellikle yanlış ve risklidir. Rejenerasyon için aracın belirlediği sıcaklık ve sürüş koşulları gerekir.",
+        explanation: "DPF, biriken kurumu egzoz sıcaklığını yükselterek yakar. Birçok binek araçta uygun koşul; motor sıcakken güvenli bir ana yolda sabit hız ve uygun devirle belirli süre sürmektir. Park halinde rastgele gaz vermek rejenerasyonu başlatmayabilir, çevreyi egzoz gazına maruz bırakır ve sıcak egzoz nedeniyle yangın riski oluşturabilir.\n\nBazı araçlarda servis veya sürücü menüsünden başlatılan özel sabit rejenerasyon özelliği vardır; bu işlem sıradan gaz vermek değildir ve kullanım kılavuzundaki güvenlik adımları uygulanır. Modelinizin DPF mesajını ve kılavuzunu izleyin.",
+        seoTitle: "DPF Rölantide Gaz Vererek Temizlenir Mi?",
+        seoDescription: "Dizel partikül filtresi park halinde gaz vererek açılır mı? DPF rejenerasyonu için doğru sürüş, sıcaklık ve güvenlik şartları.",
+        sources: [
+            { title: "Ford Owners Manual — DPF rejenerasyonu", url: "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G1007921&Uid=G1465712&buildtype=web&countryCode=USA&div=f&languageCode=en&userMarket=GBR&vFilteringEnabled=False&variantid=2509" }
+        ]
+    },
+    {
+        id: 46,
+        slug: "dpf-lambasi-uzun-yolda-soner-mi",
+        category: 'engine',
+        myth: "DPF lambası ne kadar dolu olursa olsun uzun yola çıkınca mutlaka söner; servise gitmeye gerek yoktur.",
+        reality: "Yanlış. Erken aşamada uygun sürüş yardımcı olabilir; aşırı doluluk veya motor arıza lambasında servis gerekebilir.",
+        explanation: "Kısa mesafe ve düşük hızlı kullanım rejenerasyonun tamamlanmasını engelleyebilir. Üreticinin önerdiği sabit hız ve süre, filtre henüz uygun doluluk seviyesindeyken kurumun yakılmasına yardımcı olabilir. Ancak uyarı yanıp sönüyor, güç düşüyor, motor arıza lambası eşlik ediyor veya ekranda 'servis' mesajı görünüyorsa uzun yol denemesi hasarı büyütebilir.\n\nAşırı dolu filtrede araç koruma moduna geçebilir ve otomatik rejenerasyonu engelleyebilir. Bu durumda arıza kodu okunmalı; basınç sensörü, sıcaklık sensörü, EGR, enjektör veya yağ seviyesi gibi temel nedenler kontrol edilmeden yalnız filtre temizliğiyle yetinilmemelidir.",
+        seoTitle: "DPF Lambası Uzun Yolda Her Zaman Söner Mi?",
+        seoDescription: "DPF ışığı yanınca kaç dakika ve hangi devirde sürülür? Hangi DPF uyarısında uzun yol yerine servise gidilmesi gerekir?",
+        sources: [
+            { title: "Ford Owners Manual — DPF gereksinimleri ve uyarılar", url: "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G2134155&Uid=G2256915&buildtype=web&countryCode=USA&div=f&languageCode=en&moidRef=G2129701&userMarket=NZL&vFilteringEnabled=False&variantid=10283" }
+        ]
+    },
+    {
+        id: 47,
+        slug: "elektrikli-araba-yuzde-100-sarj-edilir-mi",
+        category: 'electric',
+        myth: "Elektrikli otomobil her gece yüzde 100'e kadar şarj edilmelidir; eksik şarj bataryaya zarar verir.",
+        reality: "Her araç için doğru değildir. Günlük şarj sınırı batarya kimyasına ve üreticinin önerisine göre ayarlanmalıdır.",
+        explanation: "Birçok lityum iyon bataryalı elektrikli araç günlük kullanımda yüzde 80 civarında sınır önerir ve yüzde 100'ü uzun yol öncesine bırakır. Bataryayı uzun süre tamamen dolu veya tamamen boş seviyede bekletmek bazı kimyalarda yaşlanmayı hızlandırabilir. Buna karşılık bazı LFP bataryalarda kalibrasyon ve kullanım gereği üretici düzenli yüzde 100 şarj önerebilir.\n\nBu nedenle internetteki tek bir yüzdeyi bütün elektrikli araçlara uygulamak yanlıştır. Araç ekranında gösterilen günlük/seyahat sınırı ve modelin güncel kullanım kılavuzu esas alınmalıdır.",
+        seoTitle: "Elektrikli Araba Her Gün Yüzde 100 Şarj Edilir Mi?",
+        seoDescription: "Elektrikli araç bataryası yüzde 80 mi 100 mü şarj edilmeli? Lityum iyon ve LFP bataryalarda günlük şarj sınırı neden değişir?",
+        sources: [
+            { title: "Kia Owners Manual — Yüksek voltaj batarya bakımı", url: "https://ownersmanual.kia.com/full_webhelp/SW1K/2026/en_RG/topics/t00006.html" },
+            { title: "Tesla Owners Manual — Batarya bakımı", url: "https://www.tesla.com/ownersmanual/model3/en_au/GUID-7FE78D73-0A17-47C4-B21B-54F641FFAEF4.html" }
+        ]
+    },
+    {
+        id: 48,
+        slug: "hizli-sarj-bataryaya-zarar-verir-mi",
+        category: 'electric',
+        myth: "DC hızlı şarj tamamen zararsızdır; sürekli hızlı şarj ile AC şarj arasında batarya ömrü açısından fark yoktur.",
+        reality: "Araç hızlı şarjı güvenle yönetir ancak sürekli yüksek güçlü DC kullanım daha fazla ısı ve batarya stresi oluşturabilir.",
+        explanation: "Batarya yönetim sistemi sıcaklık ve doluluk yükseldikçe şarj gücünü azaltarak hücreleri korur; bu nedenle sağlam bir istasyonda hızlı şarj yapmak normal ve güvenlidir. Fakat yüksek akım daha fazla ısı üretir. Üreticiler günlük kullanımda uygun olduğunda AC şarjı, DC hızlı şarjı ise özellikle uzun yol ve ihtiyaç durumları için önerir.\n\nTek bir hızlı şarj bataryayı bozmaz. Asıl etki kullanım sıklığı, batarya sıcaklığı, şarj seviyesi ve modelin termal yönetimine bağlıdır. Şarj öncesi batarya hazırlama özelliği varsa navigasyondan istasyonu seçmek performansı iyileştirebilir.",
+        seoTitle: "Hızlı Şarj Elektrikli Araba Bataryasına Zarar Verir Mi?",
+        seoDescription: "DC hızlı şarj batarya ömrünü kısaltır mı? AC şarj ile hızlı şarj arasındaki ısı, güç ve batarya yönetim sistemi farkları.",
+        sources: [
+            { title: "Kia Owners Manual — AC ve DC şarj önerileri", url: "https://ownersmanual.kia.com/full_webhelp/SW1K/2026/en_RG/topics/t00006.html" },
+            { title: "Tesla Owners Manual — Hızlı şarj ve batarya bakımı", url: "https://www.tesla.com/ownersmanual/model3/en_au/GUID-7FE78D73-0A17-47C4-B21B-54F641FFAEF4.html" }
+        ]
+    },
+    {
+        id: 49,
+        slug: "elektrikli-araba-yagmurda-sarj-edilir-mi",
+        category: 'electric',
+        myth: "Elektrikli otomobil yağmurda şarj edilirse kullanıcıyı elektrik çarpar.",
+        reality: "Sertifikalı ve hasarsız araç/istasyon bağlantıları yağmurlu koşullar için tasarlanır; yine de ıslak veya hasarlı ekipman kullanılmaz.",
+        explanation: "Elektrikli araç ve sabit şarj istasyonu bağlantıları, fiş tam oturmadan yüksek voltajı vermeyen haberleşme ve kilitleme sistemlerine sahiptir. Normal yağmur altında sağlam, uygun şekilde kurulmuş bir istasyonda üretici talimatına göre şarj yapılabilir.\n\nAncak soket veya fişin içinde su varsa, kablo hasarlıysa, kullanıcı su birikintisi içinde duruyorsa ya da yıldırım riski bulunuyorsa bağlantı yapılmamalıdır. Ev tipi uzatma kablosu ve korumasız priz kullanmak, sertifikalı araç şarj ekipmanıyla aynı şey değildir. Her zaman araç ve şarj cihazı kılavuzundaki su geçirmezlik uyarılarını izleyin.",
+        seoTitle: "Elektrikli Araba Yağmurda Şarj Edilir Mi?",
+        seoDescription: "Yağmurda elektrikli araç şarj etmek güvenli mi? Islak soket, yıldırım, su birikintisi ve sertifikalı şarj istasyonu için güvenlik şartları.",
+        sources: [
+            { title: "Kia Owners Manual — Elektrikli araç şarj güvenliği", url: "https://ownersmanual.kia.com/full_webhelp/CV1/2024/en_US/topics/t00041.html" },
+            { title: "UK Office for Zero Emission Vehicles — Elektrikli araç efsaneleri", url: "https://www.walthamforest.gov.uk/sites/default/files/2022-07/Common%20misconceptions%20about%20EVs.pdf" }
+        ]
+    },
+    {
+        id: 50,
+        slug: "motor-yagi-fazla-olursa-ne-olur",
+        category: 'engine',
+        myth: "Motor yağını maksimum çizgisinin üstüne koymak motoru daha iyi yağlar ve ekstra koruma sağlar.",
+        reality: "Yanlış. Fazla yağ ciddi motor ve emisyon sistemi hasarına yol açabilir.",
+        explanation: "Yağ seviyesi fazla olduğunda dönen krank mili yağa çarparak onu köpürtebilir. Hava kabarcıklı yağ, pompanın gerekli basıncı ve yağ filmini kararlı biçimde oluşturmasını zorlaştırır. Fazla basınç keçelerden sızıntıya, yağın emme sistemine taşınmasına, buji ve katalitik konvertör veya DPF kirlenmesine neden olabilir.\n\nAraç düz zeminde, üreticinin belirttiği bekleme süresinden sonra ölçülmeli ve seviye minimum ile maksimum işaretleri arasında tutulmalıdır. Yanlışlıkla fazla yağ eklendiyse aracı zorlamadan uygun miktar tahliye edilmelidir.",
+        seoTitle: "Motor Yağı Fazla Olursa Ne Olur?",
+        seoDescription: "Motor yağını maksimum çizgisinin üstüne koymak zararlı mı? Köpürme, yağ basıncı, keçe, katalizör ve DPF hasarı belirtileri.",
+        sources: [
+            { title: "Toyota Owners Manual — Motor yağını fazla doldurma uyarısı", url: "https://www.toyota.com/owners/warranty-owners-manuals/digital/article/corolla/2020/om12k77u/ch07se030404/" },
+            { title: "Hyundai Owners Manual — Yağ seviyesi uyarısı", url: "https://ownersmanual.hyundai.com/docview/webhelp/Hyundai/5375bf28-c9d4-4116-920b-b92a819711e6/id5b370fe0144.html" }
+        ]
+    },
+    {
+        id: 51,
+        slug: "abs-devreye-girince-fren-pompalanir-mi",
+        category: 'safety',
+        myth: "Acil frende ABS titremeye başlayınca pedalı bırakıp tekrar tekrar pompalamak gerekir.",
+        reality: "Çalışan ABS'li araçta yanlış. Pedala güçlü ve sürekli basınç uygulanmalı, sistemin çalışmasına izin verilmelidir.",
+        explanation: "ABS tekerleklerin hızını saniyede birçok kez izler ve kilitlenmeyi önlemek için fren basıncını otomatik olarak azaltıp artırır. Pedalda vuruntu, titreşim ve mekanik ses hissedilmesi çoğu zaman sistemin devrede olduğunun işaretidir. Ayağı çekmek veya pedalı pompalamak ABS döngüsünü kesebilir ve fren mesafesini uzatabilir.\n\nAcil durumda pedala kararlı biçimde basın, direksiyonla güvenli kaçış alanına yönelin ve gözünüzü gitmek istediğiniz noktada tutun. Bu öneri düzgün çalışan ABS içindir; hidrolik kaybı veya farklı bir fren arızası şüphesinde araç güvenli biçimde durdurulup servis kontrolü yapılmalıdır.",
+        seoTitle: "ABS Devreye Girince Fren Pedalı Pompalanır Mı?",
+        seoDescription: "ABS fren yaparken pedal neden titrer? Acil durumda frene sürekli mi basılır, pedal pompalanır mı? Doğru ABS fren tekniği.",
+        sources: [
+            { title: "NHTSA arşivindeki araç kullanım kılavuzu — ABS fren tekniği", url: "https://static.nhtsa.gov/odi/tsbs/2024/MC-10251058-9999.pdf" }
+        ]
+    },
+    {
+        id: 52,
+        slug: "hava-filtresi-degisince-yakit-duser-mi",
+        category: 'fuel',
+        myth: "Modern bir otomobilde hava filtresini değiştirmek yakıt tüketimini her zaman büyük ölçüde düşürür.",
+        reality: "Genellikle abartılıdır. Enjeksiyonlu modern araçlarda yeni filtre performansı iyileştirebilir, yakıt ekonomisi etkisi sınırlı olabilir.",
+        explanation: "Karbüratörlü eski motorlarda kirli hava filtresi karışımı doğrudan zenginleştirip tüketimi artırabilirdi. Modern motorlarda hava akış sensörü, oksijen sensörü ve motor kontrol ünitesi yakıt miktarını gelen havaya göre ayarlar. Bu nedenle tıkalı filtrenin değiştirilmesi gaz tepkisini ve hızlanmayı düzeltebilir; fakat tek başına büyük bir tüketim düşüşü garanti etmez.\n\nFiltre yine de üreticinin bakım planına göre değiştirilmelidir; aşırı kirli filtre motorun nefesini kısıtlayabilir. Yüksek tüketimde lastik basıncı, kısa mesafe, trafik, termostat, oksijen sensörü, enjektör ve sürüş alışkanlığı birlikte değerlendirilmelidir.",
+        seoTitle: "Hava Filtresi Değişince Yakıt Tüketimi Düşer Mi?",
+        seoDescription: "Kirli hava filtresi arabayı çok yaktırır mı? Modern enjeksiyonlu araçlarda hava filtresinin yakıt tüketimi ve performansa gerçek etkisi.",
+        sources: [
+            { title: "U.S. Department of Energy — Araç bakımında yakıt tasarrufu", url: "https://afdc.energy.gov/files/u/publication/gas_saving_tips_2015.pdf" }
+        ]
     }
 ];

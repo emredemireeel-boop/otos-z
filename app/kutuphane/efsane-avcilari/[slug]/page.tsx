@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -49,19 +49,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         return { title: "Efsane Bulunamadı | OtoSöz" };
     }
 
+    const canonicalPath = `/kutuphane/efsane-avcilari/${myth.slug}--${myth.id}`;
+
     return {
         title: `${myth.seoTitle} | Oto Efsane Avcıları`,
         description: myth.seoDescription,
         openGraph: {
             title: `${myth.seoTitle} | OtoSöz`,
             description: myth.seoDescription,
-            url: `https://otosoz.com/kutuphane/efsane-avcilari/${slug}`,
+            url: `https://otosoz.com${canonicalPath}`,
             siteName: "OtoSöz",
             locale: "tr_TR",
             type: "article",
         },
         alternates: {
-            canonical: `/kutuphane/efsane-avcilari/${slug}`,
+            canonical: canonicalPath,
         },
     };
 }
@@ -81,6 +83,11 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
         notFound();
     }
 
+    const canonicalSlug = `${myth.slug}--${myth.id}`;
+    if (slug !== canonicalSlug) {
+        redirect(`/kutuphane/efsane-avcilari/${canonicalSlug}`);
+    }
+
     const catColor = getCategoryColor(myth.category);
     const catLabel = getCategoryLabel(myth.category);
 
@@ -94,23 +101,45 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
         .filter(m => m.category === myth.category && m.id !== myth.id)
         .slice(0, 3);
 
+    const pageUrl = `https://otosoz.com/kutuphane/efsane-avcilari/${canonicalSlug}`;
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [{
-            "@type": "Question",
-            "name": myth.seoTitle || myth.myth,
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": myth.explanation
+        "@graph": [
+            {
+                "@type": "Article",
+                "headline": myth.seoTitle,
+                "description": myth.seoDescription,
+                "mainEntityOfPage": pageUrl,
+                "author": { "@type": "Organization", "name": "OtoSöz" },
+                "publisher": { "@type": "Organization", "name": "OtoSöz", "url": "https://otosoz.com" },
+                "citation": myth.sources?.map(source => source.url) || []
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [{
+                    "@type": "Question",
+                    "name": myth.seoTitle || myth.myth,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": myth.explanation
+                    }
+                }]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Kütüphane", "item": "https://otosoz.com/kutuphane" },
+                    { "@type": "ListItem", "position": 2, "name": "Efsane Avcıları", "item": "https://otosoz.com/kutuphane?kategori=efsane-avcilari" },
+                    { "@type": "ListItem", "position": 3, "name": myth.seoTitle, "item": pageUrl }
+                ]
             }
-        }]
+        ]
     };
 
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
             <Navbar />
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
             <main style={{ paddingTop: '100px', paddingBottom: '60px', maxWidth: '860px', margin: '0 auto', padding: '100px 24px 60px 24px' }}>
                 
@@ -221,6 +250,21 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
                             ))}
                         </div>
                     </div>
+
+                    {myth.sources && myth.sources.length > 0 && (
+                        <div style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "20px", padding: "28px 32px", marginBottom: "32px" }}>
+                            <h2 style={{ display: "flex", alignItems: "center", gap: "10px", margin: "0 0 16px", color: "var(--foreground)", fontSize: "17px", fontWeight: 700 }}>
+                                <BookOpen size={19} color={catColor} /> Kaynaklar ve teknik referanslar
+                            </h2>
+                            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                                {myth.sources.map((source) => (
+                                    <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "flex-start", gap: "8px", color: "var(--primary)", fontSize: "13px", lineHeight: 1.55, textDecoration: "none" }}>
+                                        <ExternalLink size={14} style={{ flexShrink: 0, marginTop: "3px" }} /> {source.title}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Sonuç Kutusu */}
                     <div style={{ 

@@ -8,6 +8,7 @@ import { OTOHESAP_META } from '@/data/otohesap-meta';
 import { OTOHESAP_LAST_REVIEWED } from '@/data/otohesap-content';
 import { createSeoSlug as createSlug } from '@/lib/slug';
 import { dictionaryTerms } from '@/data/dictionary';
+import { mythsData } from '@/data/efsane-avcilari-data';
 
 // Sitemap'in 15 dakikada bir yeniden oluşturulması — yeni başlık/entry'ler hızla Google'a gider
 export const revalidate = 900;
@@ -409,23 +410,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     }
 
-    // 11. Efsane Avcıları (TS dosyasından ID'ler)
-    try {
-        const efsaneContent = fs.readFileSync(path.join(process.cwd(), 'data', 'efsane-avcilari-data.ts'), 'utf8');
-        const efsaneMatches = efsaneContent.match(/id:\s*["']([^"']+)["']/g);
-        if (efsaneMatches) {
-            efsaneMatches.forEach(match => {
-                const id = match.split(/["']/)[1];
-                sitemapEntries.push({
-                    url: `${BASE_URL}/kutuphane/efsane-avcilari/${id}`,
-                    lastModified: new Date(),
-                    changeFrequency: 'monthly',
-                    priority: 0.6,
-                });
-            });
-        }
-    } catch (e) {}
-
+    // 11. Efsane Avcıları — canonical slug ve sayısal ID birlikte kullanılır
+    mythsData.forEach((myth) => {
+        sitemapEntries.push({
+            url: `${BASE_URL}/kutuphane/efsane-avcilari/${myth.slug}--${myth.id}`,
+            lastModified: new Date(LIBRARY_LAST_REVIEWED),
+            changeFrequency: 'monthly',
+            priority: 0.7,
+        });
+    });
 
     // 13. OtoHesap Modülleri
     const otohesapModules = Object.keys(OTOHESAP_META || {});
