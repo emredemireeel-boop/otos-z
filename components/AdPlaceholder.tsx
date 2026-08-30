@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import Link from "next/link";
+import Image from "next/image";
+import { useTheme } from "@/context/ThemeContext";
 import { Sparkles, Zap, ChevronRight, ChevronLeft } from "lucide-react";
 
 interface Ad {
@@ -33,6 +35,7 @@ export default function AdPlaceholder({
     fallbackDesc = "Günde 10.000+ otomotiv tutkununa ulaşın.",
     variant = "square"
 }: AdPlaceholderProps) {
+    const { theme } = useTheme();
     const [ads, setAds] = useState<Ad[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [loading, setLoading] = useState(true);
@@ -105,7 +108,7 @@ export default function AdPlaceholder({
             return (
                 <Link href="/iletisim" className={`ad-placeholder-mobile ad-rail-placeholder ${className || ''}`} style={{ textDecoration: 'none', display: 'block', ...containerStyle }}>
                     <div className="ad-rail-fallback">
-                        <span className="ad-rail-fallback-icon"><Sparkles size={22} /></span>
+                        <span className="ad-rail-fallback-icon"><Image src={theme === "light" ? "/whitemode_logo.svg" : "/dark_logo.svg"} alt="OtoSöz" width={34} height={34} /></span>
                         <span className="ad-rail-fallback-kicker">Reklam alanı</span>
                         <h3>{fallbackTitle}</h3>
                         <p>{fallbackDesc}</p>

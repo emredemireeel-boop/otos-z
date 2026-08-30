@@ -3426,6 +3426,10 @@ select {
   line-height: 1.35;
 }
 
+.ad-rail-fallback h3 {
+  font-weight: 400;
+}
+
 .ad-rail-copy p,
 .ad-rail-fallback p {
   margin: 9px 0 0;
@@ -3446,7 +3450,7 @@ select {
   margin-bottom: 7px;
   color: var(--primary);
   font-size: 9px;
-  font-weight: 750;
+  font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
