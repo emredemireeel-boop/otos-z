@@ -7,10 +7,7 @@ import {
     Filter, Hash, Mail, Calendar, Shield, AlertCircle, RefreshCw,
     ChevronDown, Car, Star
 } from "lucide-react";
-import { db } from "@/lib/firebase";
-import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
-import { adminPost } from "@/lib/adminFetch";
-import { deleteAllUserEntries } from "@/lib/forumService";
+import { adminGet, adminPost } from "@/lib/adminFetch";
 
 type Role = string;
 type FilterType = "hepsi" | "usta" | "caylak" | "silik";
@@ -72,28 +69,16 @@ export default function AdminUsersPage() {
     const fetchUsers = useCallback(async () => {
         setLoading(true);
         try {
-            const snap = await getDocs(collection(db, 'users'));
-            const allUsers = snap.docs.map(d => {
-                const data = d.data();
-                return {
-                    id: d.id,
-                    username: data.username || '',
-                    displayName: data.displayName || '',
-                    bio: data.bio || '',
-                    level: data.level || 'Yeni Uye',
-                    reputation: data.reputation || 0,
-                    joinDate: data.createdAt?.toDate?.() ? data.createdAt.toDate().toLocaleDateString('tr-TR') : '-',
-                    carBrand: data.carBrand || '',
-                    carModel: data.carModel || '',
-                    city: data.city || '',
-                    avatar: data.username?.charAt(0)?.toUpperCase() || 'U',
-                    badges: data.badges || [],
-                    email: data.email || '',
-                    role: data.role || 'standard',
-                    warnings: data.warnings || 0,
-                    banned: data.banned || false,
-                } as LiveUser;
-            }).filter(u => !searchTerm || u.username.toLowerCase().includes(searchTerm.toLowerCase()) || u.displayName.toLowerCase().includes(searchTerm.toLowerCase()));
+            const result = await adminGet('users', searchTerm ? { q: searchTerm } : undefined);
+            if (!result.success) throw new Error(result.message || 'Kullanıcılar yüklenemedi.');
+            const allUsers = (result.users || []).map((data: Partial<LiveUser> & { createdAt?: string }) => ({
+                id: data.id || '', username: data.username || '', displayName: data.displayName || '',
+                bio: data.bio || '', level: data.level || 'Yeni Üye', reputation: data.reputation || 0,
+                joinDate: data.createdAt || '-', carBrand: data.carBrand || '', carModel: data.carModel || '',
+                city: data.city || '', avatar: data.username?.charAt(0)?.toUpperCase() || 'U',
+                badges: data.badges || [], email: data.email || '', role: data.role || 'standard',
+                warnings: data.warnings || 0, banned: data.banned || false,
+            } as LiveUser));
             setUsers(allUsers);
         } catch (e) {
             console.error('Kullanicilar yuklenemedi:', e);
@@ -111,19 +96,11 @@ export default function AdminUsersPage() {
     const apiAction = async (action: string, target: string, detail?: string, duration?: string) => {
         setActionLoading(true);
         try {
-            // Firestore'a direkt yaz (hızlı güncelleme)
-            if (action === 'ban_user') {
-                await updateDoc(doc(db, 'users', target), { banned: true, role: 'banned', bannedAt: new Date() });
-            } else if (action === 'unban_user') {
-                await updateDoc(doc(db, 'users', target), { banned: false, role: 'standard', warnings: 0, bannedAt: null });
-            } else if (action === 'warn_user') {
-                const u = users.find(x => x.id === target);
-                await updateDoc(doc(db, 'users', target), { warnings: (u?.warnings || 0) + 1 });
-            } else if (action === 'set_role') {
-                await updateDoc(doc(db, 'users', target), { role: detail });
-            }
-            // Admin API'ye bildir (log kaydı oluştur)
-            adminPost({ action, target, detail: detail || duration || '' }).catch(() => {});
+            const payloadDetail = action === 'ban_user'
+                ? JSON.stringify({ reason: detail || '', duration: duration || '1h' })
+                : (detail || '');
+            const result = await adminPost({ action, target, detail: payloadDetail });
+            if (!result.success) throw new Error(result.message || 'İşlem başarısız.');
             await fetchUsers();
             return true;
         } catch (e) {
@@ -139,18 +116,12 @@ export default function AdminUsersPage() {
         const bannedUsername = modal.user.username;
         const ok = await apiAction('ban_user', modal.user.id, banReason, banDuration);
         if (ok) {
-            // Banlanan kullanıcının tüm entry'lerini sil
-            try {
-                await deleteAllUserEntries(bannedUsername);
-            } catch (e) {
-                console.error('Entry silme hatasi:', e);
-            }
             setModal(null);
             setBanReason(""); setBanDuration("1h");
             setSelectedUser(null);
             showToast(banDuration === "kalici"
-                ? `@${bannedUsername} kalıcı olarak uçuruldu ve tüm entry'leri silindi.`
-                : `@${bannedUsername} ${BAN_DURATIONS.find(d => d.value === banDuration)?.label} banlandı ve tüm entry'leri silindi.`, "error");
+                ? `@${bannedUsername} kalıcı olarak erişime kapatıldı.`
+                : `@${bannedUsername} ${BAN_DURATIONS.find(d => d.value === banDuration)?.label} süreyle banlandı.`, "error");
         }
     };
 

@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
-    onAuthStateChanged,
+    onIdTokenChanged,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
     signInWithPopup,
@@ -102,6 +102,29 @@ async function saveProfile(uid: string, data: Record<string, unknown>) {
     }
 }
 
+async function savePrivateProfile(uid: string, email: string) {
+    if (!email) return;
+    try {
+        await setDoc(doc(db, "user_private", uid), {
+            email,
+            updatedAt: new Date().toISOString(),
+        }, { merge: true });
+    } catch (e) {
+        console.error("Özel profil kaydetme hatası:", e);
+    }
+}
+
+async function syncServerSession(idToken?: string) {
+    const response = await fetch('/api/auth/session', {
+        method: idToken ? 'POST' : 'DELETE',
+        credentials: 'same-origin',
+        cache: 'no-store',
+        headers: idToken ? { 'Content-Type': 'application/json' } : undefined,
+        body: idToken ? JSON.stringify({ idToken }) : undefined,
+    });
+    if (!response.ok) throw new Error(`Oturum eşitleme başarısız: ${response.status}`);
+}
+
 /* ── Turkce hata mesajlari ── */
 function firebaseError(code: string): string {
     const map: Record<string, string> = {
@@ -129,21 +152,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     /* ── Auth state listener ── */
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (fbUser) => {
+        const unsubscribe = onIdTokenChanged(auth, async (fbUser) => {
             if (fbUser) {
                 const appUser = await mapFirebaseUser(fbUser);
                 setFirebaseUser(fbUser);
                 setUser(appUser);
                 localStorage.setItem("Otosoz_user", JSON.stringify(appUser));
 
-                // Firebase ID Token ile guvenli cookie set et
+                // Token JavaScript tarafından okunabilen bir cookie'ye yazılmaz.
+                // Sunucu tokenı doğrular ve HttpOnly oturum çerezlerini üretir.
                 try {
-                    const idToken = await fbUser.getIdToken();
-                    const isSecure = window.location.protocol === 'https:' ? '; Secure' : '';
-                    document.cookie = `auth_token=${idToken}; path=/; max-age=3600; SameSite=Strict${isSecure}`;
-                    document.cookie = `user_role=${appUser.role}; path=/; max-age=3600; SameSite=Strict${isSecure}`;
+                    await syncServerSession(await fbUser.getIdToken());
                 } catch (e) {
-                    console.warn('Token cookie hatasi:', e);
+                    console.warn('Sunucu oturumu eşitlenemedi:', e);
                 }
 
                 // Profil tamamlanmamissa flag'i ayarla
@@ -157,8 +178,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 setUser(null);
                 setNeedsProfileCompletion(false);
                 localStorage.removeItem("Otosoz_user");
-                document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-                document.cookie = "user_role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+                void syncServerSession().catch(() => {});
             }
             setIsLoading(false);
         });
@@ -197,7 +217,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             if (!snap.exists()) {
                 // Temel bilgileri kaydet, profil tamamlanmadi olarak isaretle
                 await saveProfile(fbUser.uid, {
-                    email: fbUser.email || "",
                     googleDisplayName: fbUser.displayName || "",
                     googlePhotoURL: fbUser.photoURL || "",
                     role: "caylak",
@@ -206,6 +225,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                     provider: "google",
                     profileComplete: false,
                 });
+                await savePrivateProfile(fbUser.uid, fbUser.email || "");
             }
 
             if (isNewUser) {
@@ -340,7 +360,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             await saveProfile(fbUser.uid, {
                 username: normalizedUsername,
                 displayName: normalizedUsername,
-                email,
                 role: "caylak",
                 level: "Cirak",
                 city: city || "",
@@ -348,6 +367,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 provider: "email",
                 profileComplete: true,
             });
+            await savePrivateProfile(fbUser.uid, email);
 
             setIsLoading(false);
             return true;
@@ -366,8 +386,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setFirebaseUser(null);
         setNeedsProfileCompletion(false);
         localStorage.removeItem("Otosoz_user");
-        document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-        document.cookie = "user_role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        void syncServerSession().catch(() => {});
         router.push("/");
     };
 

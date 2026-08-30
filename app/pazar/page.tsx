@@ -105,11 +105,6 @@ export default function PazarPage() {
         return filteredListings.slice(startIndex, startIndex + itemsPerPage);
     }, [filteredListings, currentPage, itemsPerPage]);
 
-    // Reset to page 1 when filters change
-    useMemo(() => {
-        setCurrentPage(1);
-    }, [searchQuery, selectedBrand, selectedModel, selectedColor]);
-
     const addListing = (newListing: CarListing) => {
         setListings(prev => [newListing, ...prev]);
         setShowNewListingModal(false);
@@ -118,6 +113,7 @@ export default function PazarPage() {
     const handleBrandChange = (brand: string) => {
         setSelectedBrand(brand);
         setSelectedModel("Tümü");
+        setCurrentPage(1);
     };
 
     // JSON-LD Schema for Vehicles
@@ -157,7 +153,7 @@ export default function PazarPage() {
             <Navbar />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
             />
             <main>
                 {/* Header */}
@@ -215,7 +211,10 @@ export default function PazarPage() {
                                     type="text"
                                     placeholder="Marka veya model ara..."
                                     value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    onChange={(e) => {
+                                        setSearchQuery(e.target.value);
+                                        setCurrentPage(1);
+                                    }}
                                     style={{
                                         flex: 1,
                                         background: 'transparent',
@@ -250,7 +249,10 @@ export default function PazarPage() {
 
                             <select
                                 value={selectedModel}
-                                onChange={(e) => setSelectedModel(e.target.value)}
+                                onChange={(e) => {
+                                    setSelectedModel(e.target.value);
+                                    setCurrentPage(1);
+                                }}
                                 disabled={selectedBrand === "Tümü"}
                                 style={{
                                     padding: '10px 16px',
@@ -272,7 +274,10 @@ export default function PazarPage() {
 
                             <select
                                 value={selectedColor}
-                                onChange={(e) => setSelectedColor(e.target.value)}
+                                onChange={(e) => {
+                                    setSelectedColor(e.target.value);
+                                    setCurrentPage(1);
+                                }}
                                 style={{
                                     padding: '10px 16px',
                                     background: 'var(--secondary)',

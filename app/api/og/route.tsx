@@ -4,11 +4,11 @@ export const runtime = 'edge';
 
 export async function GET(request: Request) {
     try {
-        const { searchParams, origin } = new URL(request.url);
-        
-        const title = searchParams.get('title') || "OtoSöz - Türkiye'nin En Kapsamlı Otomobil Platformu";
-        const description = searchParams.get('desc') || "Araç arıza kodları, gösterge işaretleri, kütüphane ve teknik rehberler. Aradığınız her şey OtoSöz'de.";
-        
+        const { searchParams } = new URL(request.url);
+
+        const title = (searchParams.get('title') || "OtoSöz - Türkiye'nin En Kapsamlı Otomobil Platformu").trim().slice(0, 140);
+        const description = (searchParams.get('desc') || "Araç arıza kodları, gösterge işaretleri, kütüphane ve teknik rehberler. Aradığınız her şey OtoSöz'de.").trim().slice(0, 320);
+
         return new ImageResponse(
             (
                 <div style={{
@@ -41,16 +41,16 @@ export async function GET(request: Request) {
                         background: 'radial-gradient(circle, rgba(239,68,68,0.1) 0%, rgba(0,0,0,0) 60%)',
                         borderRadius: '50%',
                     }} />
-                    
+
                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: '60px', zIndex: 10 }}>
-                        <img 
-                            src={`${origin}/white_logo.svg`} 
-                            width="300" 
-                            style={{ objectFit: 'contain' }} 
+                        <img
+                            src="https://otosoz.com/white_logo.svg"
+                            width="300"
+                            style={{ objectFit: 'contain' }}
                             alt="OtoSöz Logo"
                         />
                     </div>
-                    
+
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -101,7 +101,7 @@ export async function GET(request: Request) {
                 height: 630,
             }
         );
-    } catch (e: any) {
-        return new Response(`Failed to generate the image: ${e.message}`, { status: 500 });
+    } catch {
+        return new Response('Görsel oluşturulamadı.', { status: 500 });
     }
 }

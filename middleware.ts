@@ -52,17 +52,30 @@ function isTokenValid(token: string | undefined): boolean {
 }
 
 export function middleware(request: NextRequest) {
-    const hostname = request.headers.get('host') || '';
-    
-    // ── www → non-www 301 redirect (SEO) ──
-    if (hostname.startsWith('www.')) {
-        const newUrl = new URL(request.url);
-        newUrl.host = hostname.replace('www.', '');
+    const hostHeader = (request.headers.get('host') || '').toLowerCase();
+    const hostname = hostHeader.split(':')[0];
+    const allowedHosts = new Set(['otosoz.com', 'www.otosoz.com', 'localhost', '127.0.0.1']);
+
+    // Host başlığı üzerinden açık yönlendirme/cache poisoning yapılmasını engelle.
+    if (!allowedHosts.has(hostname)) {
+        return new NextResponse('Geçersiz host.', { status: 400 });
+    }
+
+    // ── www → sabit canonical alan adı ──
+    if (hostname === 'www.otosoz.com') {
+        const newUrl = request.nextUrl.clone();
+        newUrl.protocol = 'https:';
+        newUrl.host = 'otosoz.com';
         return NextResponse.redirect(newUrl, 301);
     }
 
     const path = request.nextUrl.pathname;
-    const decodedPath = decodeURIComponent(path).toLowerCase();
+    let decodedPath: string;
+    try {
+        decodedPath = decodeURIComponent(path).toLowerCase();
+    } catch {
+        return new NextResponse('Geçersiz istek yolu.', { status: 400 });
+    }
 
     // Eski sözlük ve OBD URL'lerini içerik sunabilen güncel adreslere taşı.
     // Bu yollar geçmişte 200 durum kodlu "bulunamadı" sayfası üreterek

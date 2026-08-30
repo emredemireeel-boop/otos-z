@@ -120,7 +120,7 @@ function buildJsonLd(threads: HubThread[], catName: string | null): string {
             })),
         });
     }
-    return JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
+    return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, '\\u003c');
 }
 
 function timeAgo(ms: number): string {
@@ -238,7 +238,7 @@ export default async function ForumHubPage({ searchParams }: PageProps) {
                     <section style={{ marginTop: "32px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "16px", padding: "24px" }}>
                         <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--foreground)", marginBottom: "12px" }}>OtoSöz Forum Hakkında</h2>
                         <p style={{ fontSize: "14px", color: "var(--text-muted)", lineHeight: 1.7, margin: 0 }}>
-                            OtoSöz forumu, Türkiye'deki araç sahiplerini, oto ustalarını ve otomobil tutkunlarını bir araya getiren bağımsız bir topluluktur.
+                            OtoSöz forumu, Türkiye&apos;deki araç sahiplerini, oto ustalarını ve otomobil tutkunlarını bir araya getiren bağımsız bir topluluktur.
                             Aracınızla ilgili bir arıza mı yaşıyorsunuz, bir model hakkında gerçek kullanıcı yorumları mı arıyorsunuz, yoksa ikinci el alım-satım tavsiyesi mi istiyorsunuz?
                             Foruma ücretsiz katılarak sorularınızı sorabilir, deneyimlerinizi paylaşabilir ve binlerce sürücünün bilgisinden faydalanabilirsiniz.
                         </p>

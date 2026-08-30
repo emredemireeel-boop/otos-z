@@ -203,6 +203,7 @@ export default function AnketPage() {
                 nominees,
                 voters: {},
                 createdBy: user.username,
+                createdById: user.id as string,
                 createdAt: serverTimestamp(),
             });
             setSurveys(prev => [{
@@ -621,7 +622,7 @@ export default function AnketPage() {
                                 <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '18px', marginBottom: '16px' }}>
                                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: '8px' }}>
                                         <h3 style={{ display: 'flex', alignItems: 'center', gap: '7px', fontSize: '14px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                            <Gauge size={16} color="var(--primary)" /> Araç DNA'dan
+                                            <Gauge size={16} color="var(--primary)" /> Araç DNA&apos;dan
                                         </h3>
                                         <Link href="/arac-dna" style={{ color: 'var(--primary)', fontSize: '11px', fontWeight: '700', textDecoration: 'none' }}>Tümü</Link>
                                     </div>

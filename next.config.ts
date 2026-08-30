@@ -1,6 +1,35 @@
 import type { NextConfig } from "next";
 
+const contentSecurityPolicy = [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "object-src 'none'",
+    "frame-ancestors 'none'",
+    "form-action 'self'",
+    "script-src 'self' 'unsafe-inline' https://apis.google.com https://www.gstatic.com",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob: https:",
+    "font-src 'self' data:",
+    "connect-src 'self' https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com https://router.project-osrm.org",
+    "frame-src 'self' https://accounts.google.com https://*.firebaseapp.com https://maps.google.com",
+    "worker-src 'self' blob:",
+    "manifest-src 'self'",
+    "upgrade-insecure-requests",
+].join('; ');
+
 const securityHeaders = [
+    {
+        key: 'Content-Security-Policy',
+        value: contentSecurityPolicy,
+    },
+    {
+        key: 'Cross-Origin-Opener-Policy',
+        value: 'same-origin-allow-popups',
+    },
+    {
+        key: 'X-DNS-Prefetch-Control',
+        value: 'off',
+    },
     {
         // Clickjacking koruması - iframe'de gösterilmesini engelle
         key: 'X-Frame-Options',
@@ -12,9 +41,9 @@ const securityHeaders = [
         value: 'nosniff',
     },
     {
-        // XSS koruması (eski tarayıcılar için)
+        // Eski ve sorunlu tarayıcı XSS filtresini kapat; CSP asıl korumadır.
         key: 'X-XSS-Protection',
-        value: '1; mode=block',
+        value: '0',
     },
     {
         // Referrer bilgisini sınırla

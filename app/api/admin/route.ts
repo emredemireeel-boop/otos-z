@@ -121,19 +121,29 @@ export async function GET(request: Request) {
         }
 
         if (section === 'users') {
-            const search = searchParams.get('q') || '';
+            const search = (searchParams.get('q') || '').trim().slice(0, 80);
             const usersDocs = await db.collection('users').limit(200).get();
+            const privateDocs = usersDocs.empty
+                ? []
+                : await db.getAll(...usersDocs.docs.map(d => db.collection('user_private').doc(d.id)));
+            const emailById = new Map(privateDocs.map(d => [d.id, d.data()?.email || '']));
             const users = usersDocs.docs.map(d => {
                 const data = d.data();
                 return {
                     id: d.id,
                     username: data.username || '',
                     displayName: data.displayName || '',
-                    email: data.email || '',
+                    email: emailById.get(d.id) || '',
                     role: data.role || 'standard',
                     city: data.city || '',
-                    level: data.level || 'Yeni Uye',
-                    banned: data.banned || false,
+                    level: data.level || 'Yeni Üye',
+                    bio: data.bio || '',
+                    carBrand: data.carBrand || '',
+                    carModel: data.carModel || '',
+                    badges: Array.isArray(data.badges) ? data.badges : [],
+                    reputation: Number(data.ratingTotalScore || data.reputation || 0),
+                    warnings: Number(data.warnings || 0),
+                    banned: data.banned === true,
                     createdAt: tsToStr(data.createdAt),
                 };
             }).filter(u => !search || u.username.toLowerCase().includes(search.toLowerCase()) || u.displayName.toLowerCase().includes(search.toLowerCase()));
@@ -320,15 +330,19 @@ export async function GET(request: Request) {
 
         if (section === 'moderators') {
             const docs = await db.collection('users').where('role', 'in', ['moderator', 'admin']).get();
+            const privateDocs = docs.empty
+                ? []
+                : await db.getAll(...docs.docs.map(d => db.collection('user_private').doc(d.id)));
+            const emailById = new Map(privateDocs.map(d => [d.id, d.data()?.email || '']));
             const moderators = docs.docs.map(d => {
                 const data = d.data();
                 return {
                     id: d.id,
                     username: data.username || '',
                     displayName: data.displayName || '',
-                    email: data.email || '',
+                    email: emailById.get(d.id) || '',
                     role: data.role || 'moderator',
-                    banned: data.banned || false,
+                    banned: data.banned === true,
                     createdAt: tsToStr(data.createdAt),
                 };
             });
@@ -386,10 +400,15 @@ export async function POST(request: Request) {
 
     try {
         const body = await request.json();
-        const { action, target, detail } = body;
+        const action = typeof body?.action === 'string' ? body.action.trim() : '';
+        const target = typeof body?.target === 'string' ? body.target.trim() : '';
+        const detail = typeof body?.detail === 'string' ? body.detail : '';
 
-        // Input dogrulama: target bir document ID ise kontrol et
-        if (target && !isValidDocId(target)) {
+        if (!action || action.length > 80 || detail.length > 100_000) {
+            return NextResponse.json({ success: false, message: 'Geçersiz istek.' }, { status: 400 });
+        }
+        const usernameTarget = action === 'ban_user' && /^@?[a-z0-9_.-]{3,30}$/i.test(target);
+        if (target && !isValidDocId(target) && !usernameTarget) {
             return NextResponse.json({ success: false, message: 'Geçersiz hedef ID formatı.' }, { status: 400 });
         }
 
@@ -399,9 +418,18 @@ export async function POST(request: Request) {
         // Log yaz helper
         async function writeLog(act: string, tgt: string, det: string) {
             await db.collection('admin_logs').add({
-                action: act, target: tgt, detail: det, admin: logActor,
+                action: act.slice(0, 80), target: tgt.slice(0, 128), detail: det.slice(0, 1000), admin: logActor,
                 createdAt: FieldValue.serverTimestamp(),
             });
+        }
+
+        async function protectedUser(uid: string) {
+            const snapshot = await db.collection('users').doc(uid).get();
+            if (!snapshot.exists) return { error: NextResponse.json({ success: false, message: 'Kullanıcı bulunamadı.' }, { status: 404 }) };
+            if (uid === adminUser.uid || snapshot.data()?.role === 'admin') {
+                return { error: NextResponse.json({ success: false, message: 'Admin hesapları bu işlemle değiştirilemez.' }, { status: 403 }) };
+            }
+            return { snapshot };
         }
 
         switch (action) {
@@ -457,29 +485,66 @@ export async function POST(request: Request) {
 
             // Kullanici islemleri
             case 'ban_user': {
-                // target doc ID olabilir veya (rapor akışından) username olabilir.
                 let banUid = target;
-                const directSnap = await db.collection('users').doc(target).get();
+                let directSnap = await db.collection('users').doc(target).get();
                 if (!directSnap.exists) {
-                    // username olarak dene
-                    const uq = await db.collection('users').where('username', '==', String(target).replace('@', '').toLowerCase()).limit(1).get();
-                    if (!uq.empty) banUid = uq.docs[0].id;
-                    else return NextResponse.json({ success: false, message: 'Kullanıcı bulunamadı.' }, { status: 404 });
+                    const users = await db.collection('users')
+                        .where('username', '==', target.replace('@', '').toLowerCase()).limit(1).get();
+                    if (users.empty) return NextResponse.json({ success: false, message: 'Kullanıcı bulunamadı.' }, { status: 404 });
+                    banUid = users.docs[0].id;
+                    directSnap = users.docs[0];
                 }
-                await db.collection('users').doc(banUid).update({ banned: true, role: 'banned' });
-                await writeLog('BAN', banUid, detail || 'Ban uygulandi');
+                if (banUid === adminUser.uid || directSnap.data()?.role === 'admin') {
+                    return NextResponse.json({ success: false, message: 'Admin hesabı banlanamaz.' }, { status: 403 });
+                }
+                let reason = detail;
+                let duration = 'kalici';
+                try {
+                    const parsed = JSON.parse(detail);
+                    reason = typeof parsed.reason === 'string' ? parsed.reason : '';
+                    duration = typeof parsed.duration === 'string' ? parsed.duration : 'kalici';
+                } catch { /* eski istemciler düz metin neden gönderebilir */ }
+                const durations: Record<string, number> = {
+                    '1g': 86_400_000, '3g': 259_200_000, '1h': 604_800_000,
+                    '1ay': 2_592_000_000, '3ay': 7_776_000_000,
+                };
+                if (duration !== 'kalici' && !durations[duration]) {
+                    return NextResponse.json({ success: false, message: 'Geçersiz ban süresi.' }, { status: 400 });
+                }
+                await db.collection('users').doc(banUid).update({
+                    banned: true,
+                    bannedAt: FieldValue.serverTimestamp(),
+                    bannedUntil: duration === 'kalici' ? null : Timestamp.fromMillis(Date.now() + durations[duration]),
+                    banReason: reason.trim().slice(0, 500),
+                });
+                await writeLog('BAN', banUid, reason || 'Ban uygulandı');
                 return NextResponse.json({ success: true });
             }
 
-            case 'unban_user':
-                await db.collection('users').doc(target).update({ banned: false, role: 'standard' });
-                await writeLog('UNBAN', target, 'Ban kaldirildi');
+            case 'unban_user': {
+                const checked = await protectedUser(target);
+                if (checked.error) return checked.error;
+                await db.collection('users').doc(target).update({
+                    banned: false,
+                    bannedAt: FieldValue.delete(),
+                    bannedUntil: FieldValue.delete(),
+                    banReason: FieldValue.delete(),
+                });
+                await writeLog('UNBAN', target, 'Ban kaldırıldı');
                 return NextResponse.json({ success: true });
+            }
 
-            case 'set_role':
+            case 'set_role': {
+                const allowedRoles = new Set(['caylak', 'standard', 'usta', 'uzman', 'moderator']);
+                if (!allowedRoles.has(detail)) {
+                    return NextResponse.json({ success: false, message: 'Geçersiz rol.' }, { status: 400 });
+                }
+                const checked = await protectedUser(target);
+                if (checked.error) return checked.error;
                 await db.collection('users').doc(target).update({ role: detail });
                 await writeLog('ROLE', target, `Rol -> ${detail}`);
                 return NextResponse.json({ success: true });
+            }
 
             // GüvenMetre yorum islemleri
             case 'delete_review':
@@ -749,15 +814,24 @@ export async function POST(request: Request) {
                 return NextResponse.json({ success: true });
 
             // ── Moderatör Yönetimi ──
-            case 'add_moderator':
+            case 'add_moderator': {
+                const checked = await protectedUser(target);
+                if (checked.error) return checked.error;
                 await db.collection('users').doc(target).update({ role: 'moderator' });
                 await writeLog('MOD_ADD', target, 'Moderatör atandı');
                 return NextResponse.json({ success: true });
+            }
 
-            case 'remove_moderator':
+            case 'remove_moderator': {
+                const checked = await protectedUser(target);
+                if (checked.error) return checked.error;
+                if (checked.snapshot?.data()?.role !== 'moderator') {
+                    return NextResponse.json({ success: false, message: 'Hedef moderatör değil.' }, { status: 409 });
+                }
                 await db.collection('users').doc(target).update({ role: 'standard' });
                 await writeLog('MOD_REMOVE', target, 'Moderatörlük kaldırıldı');
                 return NextResponse.json({ success: true });
+            }
 
             // ── Toplu Mesaj / Bildirim Yayını ──
             case 'send_broadcast': {

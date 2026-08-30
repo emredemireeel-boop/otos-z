@@ -533,6 +533,7 @@ export default function Home() {
                     nominees,
                     voters: {},
                     createdBy: user.username,
+                    createdById: user.id as string,
                     createdAt: serverTimestamp(),
                 });
                 resetNewTopicForm();
@@ -815,7 +816,7 @@ export default function Home() {
         <div>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema).replace(/</g, '\\u003c') }}
             />
             <Navbar />
 
@@ -1345,7 +1346,7 @@ export default function Home() {
                                 <section className="forum-sidebar-card forum-dna-card forum-sidebar-fill" aria-labelledby="featured-dna-title">
                                     <div className="forum-sidebar-heading">
                                         <div>
-                                            <span className="forum-sidebar-kicker">Araç DNA'dan</span>
+                                            <span className="forum-sidebar-kicker">Araç DNA&apos;dan</span>
                                             <h2 id="featured-dna-title"><Dna size={15} /> Popüler araç dosyaları</h2>
                                         </div>
                                     </div>

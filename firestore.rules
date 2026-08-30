@@ -2,287 +2,325 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    // ── Yardımcı fonksiyonlar ──────────────────────────────────────────────
     function isSignedIn() {
       return request.auth != null;
     }
-    function userRole() {
-      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+
+    function currentUser() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
     }
+
+    function userRole() {
+      return currentUser().get('role', 'caylak');
+    }
+
     function isAdmin() {
       return isSignedIn() && userRole() == 'admin';
     }
-    function isAdminOrMod() {
-      return isSignedIn() && userRole() in ['admin', 'moderator'];
+
+    function isModerator() {
+      return isSignedIn() && userRole() == 'moderator';
     }
 
-    // Kullanıcılar
-    // ✅ GÜVENLİK: Kullanıcı kendi profilini düzenleyebilir ANCAK role/banned gibi
-    //    ayrıcalık alanlarını DEĞİŞTİREMEZ (privilege escalation engellendi).
-    //    Rol/ban değişikliği yalnızca admin/moderatör tarafından yapılabilir.
+    function isAdminOrMod() {
+      return isAdmin() || isModerator();
+    }
+
+    function isActiveUser() {
+      return isSignedIn()
+        && (
+          currentUser().get('banned', false) != true
+          || (
+            currentUser().get('bannedUntil', null) != null
+            && currentUser().bannedUntil <= request.time
+          )
+        );
+    }
+
     match /users/{userId} {
+      // Bu belge yalnızca kamu profili alanlarını içerir. E-posta user_private'a taşınır.
       allow read: if true;
 
-      // Oluşturma: sadece kendi dokümanını, ayrıcalıksız bir rolle
-      allow create: if isSignedIn() && request.auth.uid == userId
-        && (!('role' in request.resource.data) || request.resource.data.role in ['caylak', 'standard'])
-        && (!('banned' in request.resource.data) || request.resource.data.banned == false);
+      allow create: if isSignedIn()
+        && request.auth.uid == userId
+        && request.resource.data.get('role', 'caylak') in ['caylak', 'standard']
+        && request.resource.data.get('banned', false) == false
+        && !request.resource.data.keys().hasAny([
+          'email', 'permissions', 'warnings', 'ratingTotalScore', 'ratingCount',
+          'ratingAverage', 'bannedAt', 'bannedUntil', 'banReason'
+        ]);
 
-      // Güncelleme
-      allow update: if isSignedIn() && (
-        // Admin/moderatör her alanı güncelleyebilir
-        isAdminOrMod() ||
-        // Kullanıcı kendi profilini günceller AMA role/banned/rating alanlarına dokunamaz
-        (request.auth.uid == userId
-          && !request.resource.data.diff(resource.data).affectedKeys()
-              .hasAny(['role', 'banned', 'ratingTotalScore', 'ratingCount', 'ratingAverage'])) ||
-        // Başka kullanıcılar yalnızca puanlama alanlarını güncelleyebilir
-        (request.auth.uid != userId
-          && request.resource.data.diff(resource.data).affectedKeys()
-              .hasOnly(['ratingTotalScore', 'ratingCount', 'ratingAverage']))
-      );
+      allow update: if
+        isAdmin()
+        || (
+          isModerator()
+          && request.auth.uid != userId
+          && !(resource.data.get('role', 'caylak') in ['admin', 'moderator'])
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+            'banned', 'bannedAt', 'bannedUntil', 'banReason',
+            'warnings', 'lastWarningAt', 'lastWarningReason'
+          ])
+        )
+        || (
+          isActiveUser()
+          && request.auth.uid == userId
+          && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+            'email', 'role', 'permissions', 'banned', 'bannedAt', 'bannedUntil',
+            'banReason', 'warnings', 'lastWarningAt', 'lastWarningReason',
+            'ratingTotalScore', 'ratingCount', 'ratingAverage'
+          ])
+        );
 
-      // Silme: yalnızca admin
+      allow delete: if isAdmin() && request.auth.uid != userId;
+    }
+
+    match /user_private/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow create, update: if isSignedIn()
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly(['email', 'updatedAt', 'migratedAt'])
+        && request.resource.data.get('email', '') == request.auth.token.email;
       allow delete: if isAdmin();
     }
-                          
-    // Konu Başlıkları (Threads) ve Altındaki Girdiler (Entries)
-    // ✅ GÜVENLİK: Güncelleme → topluluk alanları (views, entryCount, oy) herkese açık,
-    //    içerik değişikliği ve silme sadece sahip veya admin/moderatör
+
     match /threads/{threadId} {
       allow read: if true;
-      // Oluşturma: authorId istek sahibinin kendisi olmalı (kimlik sahteciliği önlenir)
-      allow create: if request.auth != null
+      allow create: if isActiveUser()
         && request.resource.data.authorId == request.auth.uid;
-      allow update: if request.auth != null && (
-        // Topluluk etkileşim alanları: görüntüleme, entry sayısı, oylar, kronik sorunlar
-        request.resource.data.diff(resource.data).affectedKeys().hasOnly(
-          ['views', 'entryCount', 'lastEntryAt', 'vehicleVotes', 'chronicIssues']
-        ) ||
-        // İçerik düzenleme: sadece yazar veya admin/moderatör
-        resource.data.authorId == request.auth.uid ||
+      allow update: if
         isAdminOrMod()
-      );
-      allow delete: if request.auth != null && (
-        resource.data.authorId == request.auth.uid ||
-        isAdminOrMod()
-      );
-      
+        || (
+          isActiveUser()
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+            'views', 'entryCount', 'lastEntryAt', 'vehicleVotes', 'chronicIssues'
+          ])
+        )
+        || (
+          isActiveUser()
+          && resource.data.authorId == request.auth.uid
+          && request.resource.data.authorId == resource.data.authorId
+          && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+            'pinned', 'locked', 'trending', 'authorId', 'createdAt'
+          ])
+        );
+      allow delete: if isAdminOrMod()
+        || (isActiveUser() && resource.data.authorId == request.auth.uid);
+
       match /entries/{entryId} {
         allow read: if true;
-        // Oluşturma: authorId istek sahibinin kendisi olmalı
-        allow create: if request.auth != null
+        allow create: if isActiveUser()
           && request.resource.data.authorId == request.auth.uid;
-        allow update: if request.auth != null && (
-          // Beğeni alanları: herkes beğenebilir
-          request.resource.data.diff(resource.data).affectedKeys().hasOnly(
-            ['likes', 'likedBy']
-          ) ||
-          // İçerik düzenleme: sadece yazar veya admin/moderatör
-          resource.data.authorId == request.auth.uid ||
+        allow update: if
           isAdminOrMod()
-        );
-        allow delete: if request.auth != null && (
-          resource.data.authorId == request.auth.uid ||
-          isAdminOrMod()
-        );
+          || (
+            isActiveUser()
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes', 'likedBy'])
+          )
+          || (
+            isActiveUser()
+            && resource.data.authorId == request.auth.uid
+            && request.resource.data.authorId == resource.data.authorId
+            && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['authorId', 'createdAt'])
+          );
+        allow delete: if isAdminOrMod()
+          || (isActiveUser() && resource.data.authorId == request.auth.uid);
       }
     }
 
-    // Sohbetler (Conversations) ve Mesajlar
-    // ✅ GÜVENLİK: Sadece sohbete katılan kullanıcılar erişebilir
     match /conversations/{convId} {
-      allow read: if request.auth != null
-        && request.auth.uid in resource.data.participants;
-      allow create: if request.auth != null
+      allow read: if isSignedIn() && request.auth.uid in resource.data.participants;
+      allow create: if isActiveUser()
+        && request.resource.data.participants is list
+        && request.resource.data.participants.size() == 2
         && request.auth.uid in request.resource.data.participants;
-      allow update: if request.auth != null
-        && request.auth.uid in resource.data.participants;
-      allow delete: if false; // Sohbet silinemez
-      
+      allow update: if isActiveUser()
+        && request.auth.uid in resource.data.participants
+        && request.resource.data.participants == resource.data.participants
+        && request.resource.data.participantUsernames == resource.data.participantUsernames
+        && request.resource.data.lastSenderId == request.auth.uid
+        && request.resource.data.lastMessage is string
+        && request.resource.data.lastMessage.size() <= 2000
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'lastMessage', 'lastMessageAt', 'lastSenderId'
+        ]);
+      allow delete: if false;
+
       match /messages/{msgId} {
-        allow read: if request.auth != null
+        allow read: if isSignedIn()
           && request.auth.uid in get(/databases/$(database)/documents/conversations/$(convId)).data.participants;
-        allow create: if request.auth != null
-          && request.auth.uid in get(/databases/$(database)/documents/conversations/$(convId)).data.participants;
-        allow update, delete: if false; // Mesajlar değiştirilemez/silinemez
+        allow create: if isActiveUser()
+          && request.auth.uid in get(/databases/$(database)/documents/conversations/$(convId)).data.participants
+          && request.resource.data.senderId == request.auth.uid
+          && request.resource.data.content is string
+          && request.resource.data.content.size() > 0
+          && request.resource.data.content.size() <= 2000;
+        allow update, delete: if false;
       }
     }
 
-    // Bildirimler
-    // ✅ GÜVENLİK: Sadece kendi bildirimlerini okuyabilir/güncelleyebilir.
-    //    Oluştururken hedef userId, oluşturanın kendisi olmayabilir (başka birine
-    //    bildirim gönderme), ancak bildirim içeriği gönderenin kimliğiyle damgalanır.
     match /notifications/{notifId} {
-      allow read: if request.auth != null
-        && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && (
-        // Kendi kendine sistem bildirimi (başarı, seviye vb.)
-        request.resource.data.userId == request.auth.uid ||
-        // Başka kullanıcıya bildirim: gönderen kimliğiyle damgalanmalı
-        request.resource.data.fromUserId == request.auth.uid
-      );
-      // Güncelleme yalnızca okundu/işaretleme alanları için (içerik değiştirilemez)
-      allow update: if request.auth != null
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isActiveUser()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.title is string
+        && request.resource.data.message is string
+        && request.resource.data.title.size() <= 120
+        && request.resource.data.message.size() <= 1000;
+      allow update: if isSignedIn()
         && resource.data.userId == request.auth.uid
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read', 'readAt', 'seen']);
       allow delete: if false;
     }
 
-    // Anketler (Surveys)
-    // ✅ GÜVENLİK: Anket oluşturma/silme sadece admin, oy verme (update) üyeler.
-    //    Oy verme sırasında sadece oy alanları değiştirilebilir.
     match /surveys/{surveyId} {
       allow read: if true;
-      allow create, delete: if isAdmin();
-      allow update: if request.auth != null && (
-        isAdmin() ||
-        request.resource.data.diff(resource.data).affectedKeys().hasOnly(
-          ['nominees', 'totalVotes', 'voters']
-        )
-      );
+      allow create: if isAdmin()
+        || (
+          isActiveUser()
+          && request.resource.data.status == 'pending'
+          && request.resource.data.createdById == request.auth.uid
+          && request.resource.data.totalVotes == 0
+          && request.resource.data.nominees is list
+          && request.resource.data.nominees.size() >= 2
+          && request.resource.data.nominees.size() <= 10
+        );
+      allow update: if isAdmin()
+        || (
+          isActiveUser()
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['nominees', 'totalVotes', 'voters'])
+          && request.resource.data.nominees.size() == resource.data.nominees.size()
+          && request.resource.data.totalVotes >= resource.data.totalVotes
+          && request.resource.data.totalVotes <= resource.data.totalVotes + 1
+          && request.resource.data.voters.diff(resource.data.get('voters', {})).affectedKeys().hasOnly([request.auth.uid])
+        );
+      allow delete: if isAdmin();
     }
 
-    // Karşılaştırmalar (Comparisons)
-    // ✅ GÜVENLİK: Yazma sadece admin
     match /comparisons/{compId} {
       allow read: if true;
       allow write: if isAdmin();
     }
 
-    // Araç DNA Kronik Sorunlar & Oylar
-    // ✅ GÜVENLİK: Giriş yapmış kullanıcılar oy/sorun ekleyebilir, silme sadece admin
     match /vehicle_chronic_issues/{vehicleId} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow create: if isActiveUser()
+        && request.resource.data.keys().hasOnly(['brandSlug', 'modelSlug', 'chronicIssues', 'staticIssueVotes'])
+        && request.resource.data.chronicIssues is list
+        && request.resource.data.chronicIssues.size() <= 1;
+      allow update: if isActiveUser()
+        && request.resource.data.brandSlug == resource.data.brandSlug
+        && request.resource.data.modelSlug == resource.data.modelSlug
+        && request.resource.data.chronicIssues is list
+        && request.resource.data.chronicIssues.size() <= 10
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['chronicIssues', 'staticIssueVotes']);
       allow delete: if isAdmin();
     }
 
-    // DNA Kronik Sorun Bildirimleri (Admin Onay Kuyruğu)
-    // ✅ GÜVENLİK: Okuma/güncelleme/silme sadece admin
     match /dna_chronic_reports/{reportId} {
       allow read: if isAdminOrMod();
-      allow create: if request.auth != null;
+      allow create: if isActiveUser()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.status == 'bekliyor'
+        && request.resource.data.issueTitle is string
+        && request.resource.data.issueTitle.size() <= 160
+        && request.resource.data.issueDescription is string
+        && request.resource.data.issueDescription.size() <= 3000;
       allow update, delete: if isAdminOrMod();
     }
 
-    // Kullanıcı Puanları
-    // ✅ GÜVENLİK: Oluştururken raterId istek sahibinin kendisi olmalı (sahtecilik önlenir)
     match /userRatings/{ratingId} {
-      allow read: if request.auth != null;
-      allow create: if request.auth != null
-        && request.resource.data.raterId == request.auth.uid;
-      allow update: if request.auth != null
-        && resource.data.raterId == request.auth.uid;
+      allow read: if isSignedIn();
+      allow create: if isActiveUser()
+        && request.resource.data.raterId == request.auth.uid
+        && request.resource.data.targetUserId != request.auth.uid
+        && request.resource.data.score is number
+        && request.resource.data.score >= 1
+        && request.resource.data.score <= 5;
+      allow update: if isActiveUser()
+        && resource.data.raterId == request.auth.uid
+        && request.resource.data.raterId == resource.data.raterId
+        && request.resource.data.targetUserId == resource.data.targetUserId
+        && request.resource.data.score is number
+        && request.resource.data.score >= 1
+        && request.resource.data.score <= 5
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['score', 'updatedAt']);
       allow delete: if false;
     }
 
-    // Raporlar / Şikayetler
-    // ✅ GÜVENLİK: Oluşturma herkes, okuma/güncelleme sadece admin/moderatör
     match /reports/{reportId} {
-      allow create: if request.auth != null;
+      allow create: if isActiveUser();
       allow read, update: if isAdminOrMod();
       allow delete: if false;
     }
 
-    // Admin Logları
-    // ✅ GÜVENLİK: Sadece admin okuyup yazabilir
     match /admin_logs/{logId} {
       allow read, write: if isAdmin();
     }
 
-    // Sözlük
-    // ✅ GÜVENLİK: Yazma sadece admin/moderatör
     match /dictionary/{termId} {
       allow read: if true;
       allow write: if isAdminOrMod();
     }
 
-    // Reklamlar
-    // ✅ GÜVENLİK: Yazma sadece admin
     match /advertisements/{adId} {
       allow read: if true;
       allow write: if isAdmin();
     }
 
-    // İşletme Başvuruları
-    // ✅ GÜVENLİK: Onaylama/silme sadece admin/moderatör
     match /businesses/{businessId} {
-      allow read: if true;
-      allow create: if request.auth != null;
+      allow read: if resource.data.approved == true || isAdminOrMod();
+      allow create: if isActiveUser()
+        && request.resource.data.addedBy == request.auth.uid
+        && request.resource.data.approved == false;
       allow update, delete: if isAdminOrMod();
     }
 
-    // Etkinlik Önerileri
-    // ✅ GÜVENLİK: Onaylama/silme sadece admin/moderatör
     match /pending_events/{eventId} {
-      allow read: if true;
-      allow create: if request.auth != null;
+      allow read: if isAdminOrMod();
+      allow create: if isActiveUser();
       allow update, delete: if isAdminOrMod();
     }
 
-    // Kullanıcı Görevleri (Quests)
     match /userQuests/{questId} {
-      allow read: if request.auth != null && request.auth.uid == questId;
-      allow write: if request.auth != null && request.auth.uid == questId;
+      allow read, write: if isActiveUser() && request.auth.uid == questId;
     }
 
-    // Kullanıcı Ayarları (Bakım Takvimi vb.)
     match /user_settings/{settingId} {
-      allow read: if request.auth != null && request.auth.uid == settingId;
-      allow write: if request.auth != null && request.auth.uid == settingId;
+      allow read, write: if isActiveUser() && request.auth.uid == settingId;
     }
 
-    // GüvenMetre Değerlendirmeleri
-    // ✅ GÜVENLİK: Güncelleme/silme sadece admin/moderatör
     match /guvenmetre_reviews/{reviewId} {
       allow read: if true;
-      allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
+      allow create: if false;
       allow update, delete: if isAdminOrMod();
     }
 
-    // Kelime Filtresi
-    // ✅ Okuma herkese açık (içerik filtresi istemcide de uygulanır),
-    //    yazma yalnızca admin/moderatör. (Asıl yazma Admin SDK ile yapılır.)
     match /bad_words/{wordId} {
       allow read: if true;
       allow write: if isAdminOrMod();
     }
 
-    // Sistem Ayarları
-    // ✅ Okuma herkese açık (özellik bayrakları), yazma sadece admin.
     match /settings/{docId} {
       allow read: if true;
       allow write: if isAdmin();
     }
 
-    // Rozetler (tanımlar)
-    // ✅ Okuma herkese açık, yazma sadece admin/moderatör.
     match /badges/{badgeId} {
       allow read: if true;
       allow write: if isAdminOrMod();
     }
 
-    // Toplu Mesaj / Yayın kayıtları
-    // ✅ Yalnızca admin erişebilir (asıl yazma Admin SDK ile).
     match /broadcasts/{bcId} {
       allow read, write: if isAdmin();
     }
 
-    // Uzman Başvuruları
-    // ✅ GÜVENLİK: Kullanıcı kendi başvurusunu oluşturur ve okur (status'u kendi
-    //    değiştiremez). Onay/red yalnızca admin/moderatör (Admin SDK ile).
     match /expert_applications/{appId} {
-      allow read: if request.auth != null && (
-        resource.data.userId == request.auth.uid || isAdminOrMod()
-      );
-      allow create: if request.auth != null
+      allow read: if isSignedIn()
+        && (resource.data.userId == request.auth.uid || isAdminOrMod());
+      allow create: if isActiveUser()
         && request.resource.data.userId == request.auth.uid
         && request.resource.data.status == 'bekliyor';
       allow update, delete: if isAdminOrMod();
     }
-
   }
 }

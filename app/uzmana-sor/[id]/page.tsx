@@ -126,7 +126,7 @@ export default async function UzmanaSorServerPage({ params }: PageProps) {
             {schemaJson && (
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson) }}
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson).replace(/</g, '\\u003c') }}
                 />
             )}
             <UzmanaSorClient />

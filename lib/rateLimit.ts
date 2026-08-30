@@ -81,11 +81,13 @@ export function checkRateLimit(
  * Request'ten IP adresini cikarir
  */
 export function getClientIP(request: Request): string {
-    const forwarded = request.headers.get('x-forwarded-for');
-    if (forwarded) {
-        return forwarded.split(',')[0].trim();
-    }
-    const realIp = request.headers.get('x-real-ip');
-    if (realIp) return realIp;
-    return 'unknown';
+    // Cloudflare bu başlığı istemciden gelen değerin üzerine yazar. Doğrudan
+    // Nginx erişiminde x-real-ip, yalnızca son çare olarak x-forwarded-for kullanılır.
+    const candidates = [
+        request.headers.get('cf-connecting-ip'),
+        request.headers.get('x-real-ip'),
+        request.headers.get('x-forwarded-for')?.split(',')[0],
+    ];
+    const value = candidates.find(Boolean)?.trim() || 'unknown';
+    return /^[0-9a-f:.]{3,64}$/i.test(value) ? value : 'unknown';
 }
