@@ -14,6 +14,7 @@ export default function KullanimSartlariPage() {
     const [showBackToTop, setShowBackToTop] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
         const handleScroll = () => {
             setShowBackToTop(window.scrollY > 400);
@@ -453,7 +454,7 @@ export default function KullanimSartlariPage() {
                             </h2>
                             <h3 className="legal-h3">10.1 Kullanıcı Tarafından Fesih</h3>
                             <p className="legal-p">
-                                Kullanıcı, dilediği zaman hesap ayarları üzerinden veya iletisim@otosoz.com adresine yazılı başvuruda bulunarak üyeliğini sonlandırabilir. Hesap kapanması ile birlikte kullanıcı verileri KVKK m.7 uyarınca makul sürede silinir veya anonim hale getirilir.
+                                Kullanıcı, dilediği zaman hesap ayarları veya iletişim sayfası üzerinden yazılı başvuruda bulunarak üyeliğini sonlandırabilir. Hesap kapanması ile birlikte kullanıcı verileri KVKK m.7 uyarınca makul sürede silinir veya anonim hale getirilir.
                             </p>
                             <h3 className="legal-h3">10.2 Platform Tarafından Fesih</h3>
                             <p className="legal-p">

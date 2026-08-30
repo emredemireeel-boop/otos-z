@@ -14,6 +14,7 @@ export default function GizlilikPolitikasiPage() {
     const [showBackToTop, setShowBackToTop] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
         const handleScroll = () => {
             setShowBackToTop(window.scrollY > 400);
@@ -627,9 +628,9 @@ export default function GizlilikPolitikasiPage() {
                                 border: '1px solid var(--card-border)', margin: '16px 0',
                             }}>
                                 <div style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: '12px', fontSize: '14px' }}>
-                                    <strong style={{ color: 'var(--foreground)' }}>📦 KVKK Başvuru:</strong> <span style={{ color: 'var(--text-muted)' }}>kvkk@Otosöz.com</span>
-                                    <strong style={{ color: 'var(--foreground)' }}>📦 Genel İletişim:</strong> <span style={{ color: 'var(--text-muted)' }}>iletisim@otosoz.com</span>
-                                    <strong style={{ color: 'var(--foreground)' }}>🌍 Web:</strong> <span style={{ color: 'var(--text-muted)' }}>www.Otosöz.com/iletisim</span>
+                                    <strong style={{ color: 'var(--foreground)' }}>📦 KVKK Başvuru:</strong> <a href="/iletisim" style={{ color: 'var(--primary)' }}>İletişim formu</a>
+                                    <strong style={{ color: 'var(--foreground)' }}>📦 Genel İletişim:</strong> <a href="/iletisim" style={{ color: 'var(--primary)' }}>İletişim sayfası</a>
+                                    <strong style={{ color: 'var(--foreground)' }}>🌍 Web:</strong> <a href="/iletisim" style={{ color: 'var(--primary)' }}>otosoz.com/iletisim</a>
                                 </div>
                             </div>
 

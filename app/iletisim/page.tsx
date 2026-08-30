@@ -38,7 +38,7 @@ export default function IletisimPage() {
                                 </div>
                                 <div>
                                     <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px' }}>E-Posta</h3>
-                                    <p style={{ color: 'var(--text-muted)', fontSize: '15px' }}>iletisim@otosoz.com</p>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '15px' }}>Aşağıdaki iletişim formunu kullanın</p>
                                 </div>
                             </div>
 

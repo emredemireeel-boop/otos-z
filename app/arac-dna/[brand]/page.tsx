@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { vehicleDNAData, createSlug } from "@/data/vehicle-dna";
+import { vehicleDNAData, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData } from "@/data/engine-dna";
 import { notFound } from "next/navigation";
 import BrandHubClient from "./BrandHubClient";
@@ -9,8 +9,9 @@ interface PageProps {
 }
 
 // Birleşik marka isimlerini ('/' içerenleri) filtrele
-const uniqueBrands = [...new Set(vehicleDNAData.map(v => v.brand))]
-    .filter(b => !b.includes('/'));
+const uniqueBrands = [...new Set(
+    vehicleDNAData.filter(isVehicleEditoriallyReviewed).map(v => v.brand),
+)].filter(b => !b.includes('/'));
 
 export async function generateStaticParams() {
     return uniqueBrands.map(brand => ({
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const brandName = uniqueBrands.find(b => createSlug(b) === brandSlug.toLowerCase());
     if (!brandName) return { title: "Marka Bulunamadı | OtoSöz" };
 
-    const brandModels = vehicleDNAData.filter(v => v.brand === brandName);
+    const brandModels = vehicleDNAData.filter(v => v.brand === brandName && isVehicleEditoriallyReviewed(v));
     const avgScore = Math.round(brandModels.reduce((s, v) => s + v.dnaScore, 0) / brandModels.length);
 
     const title = `${brandName} Araç DNA Analizi – ${brandModels.length} Model İncelemesi [2026] | OtoSöz`;
@@ -57,7 +58,7 @@ export default async function BrandPage({ params }: PageProps) {
     const brandName = uniqueBrands.find(b => createSlug(b) === brandSlug.toLowerCase());
     if (!brandName) notFound();
 
-    const brandModels = vehicleDNAData.filter(v => v.brand === brandName);
+    const brandModels = vehicleDNAData.filter(v => v.brand === brandName && isVehicleEditoriallyReviewed(v));
     
     // Her model için motor bilgilerini de ekle
     const modelsWithEngines = brandModels.map(vehicle => {

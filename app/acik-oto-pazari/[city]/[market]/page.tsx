@@ -125,7 +125,7 @@ export default async function OpenCarMarketDetailPage({ params }: MarketPageProp
             "@type": "BreadcrumbList",
             itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Ana sayfa", item: "https://otosoz.com" },
-                { "@type": "ListItem", position: 2, name: "Açık Oto Pazarı", item: "https://otosoz.com/acik-oto-pazari" },
+                { "@type": "ListItem", position: 2, name: "Etkinlikler", item: "https://otosoz.com/etkinlikler" },
                 { "@type": "ListItem", position: 3, name: province.name, item: `https://otosoz.com/acik-oto-pazari/${province.slug}` },
                 { "@type": "ListItem", position: 4, name: market.shortName, item: canonical },
             ],
@@ -165,7 +165,7 @@ export default async function OpenCarMarketDetailPage({ params }: MarketPageProp
             <main className={styles.main}>
                 <nav className={styles.breadcrumbs} aria-label="Sayfa yolu">
                     <Link href="/">Ana sayfa</Link><span>/</span>
-                    <Link href="/acik-oto-pazari">Açık oto pazarı</Link><span>/</span>
+                    <Link href="/etkinlikler">Etkinlikler</Link><span>/</span>
                     <Link href={`/acik-oto-pazari/${province.slug}`}>{province.name}</Link><span>/</span>
                     <span>{market.shortName}</span>
                 </nav>

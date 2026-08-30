@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData } from "@/data/engine-dna";
+import { trimLevelsData } from "@/data/trim-levels";
 import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle, Package, Zap } from "lucide-react";
 
 const suffixes = {
@@ -105,12 +106,26 @@ export default function AracDNALayoutClient({
         ? `/arac-dna/${brandSlug}/${modelSlug}/${baseEngineSlug}`
         : `/arac-dna/${brandSlug}/${modelSlug}`;
 
+    const modelPath = `/arac-dna/${brandSlug}/${modelSlug}`;
+    const hasTrimLevels = trimLevelsData.some(item => item.vehicleId === vehicle.id);
     const tabs = specificEngine ? [
         { id: "genel-bakis", name: "Genel Bakış", path: `${basePath}`, icon: <FileText size={16} /> },
-        { id: "artilar", name: "Artıları & Eksileri", path: `${basePath}-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri`, icon: <ThumbsUp size={16} /> },
-        { id: "kronik", name: "Kronik Sorunlar", path: `${basePath}-kronik-sorunlari`, icon: <Wrench size={16} /> },
-        { id: "donanim", name: "Araç Paketleri", path: `/arac-dna/${brandSlug}/${modelSlug}/arac-paketleri`, icon: <Package size={16} /> },
-        { id: "deneyimler", name: "Kullanıcı Deneyimleri", path: `/arac-dna/${brandSlug}/${modelSlug}/kullanici-deneyimleri`, icon: <MessageCircle size={16} /> },
+        ...((specificEngine.pros?.length || specificEngine.cons?.length)
+            ? [{ id: "artilar", name: "Artıları & Eksileri", path: `${basePath}-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri`, icon: <ThumbsUp size={16} /> }]
+            : (vehicle.strengths.length || vehicle.weaknesses.length)
+                ? [{ id: "artilar", name: "Artıları & Eksileri", path: `${modelPath}/neden-alinir`, icon: <ThumbsUp size={16} /> }]
+                : []),
+        ...(specificEngine.chronicIssues.length > 0
+            ? [{ id: "kronik", name: "Kronik Sorunlar", path: `${basePath}-kronik-sorunlari`, icon: <Wrench size={16} /> }]
+            : vehicle.chronicIssues.length > 0
+                ? [{ id: "kronik", name: "Kronik Sorunlar", path: `${modelPath}/kronik-sorunlar`, icon: <Wrench size={16} /> }]
+                : []),
+        ...(hasTrimLevels
+            ? [{ id: "donanim", name: "Araç Paketleri", path: `${modelPath}/arac-paketleri`, icon: <Package size={16} /> }]
+            : []),
+        ...(vehicle.userExperiences.length > 0
+            ? [{ id: "deneyimler", name: "Kullanıcı Deneyimleri", path: `${modelPath}/kullanici-deneyimleri`, icon: <MessageCircle size={16} /> }]
+            : []),
     ] : [];
 
     return (

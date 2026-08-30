@@ -145,6 +145,11 @@ const nextConfig: NextConfig = {
         return [
 
             {
+                source: '/acik-oto-pazari',
+                destination: '/etkinlikler',
+                permanent: true,
+            },
+            {
                 source: '/obd/:brand/:code',
                 destination: '/obd/:code',
                 permanent: true,
@@ -302,7 +307,6 @@ const nextConfig: NextConfig = {
                 'plaka-kodlari',
                 'noter-islemleri',
                 'ehliyet-siniflari',
-                'kasko-deger',
                 'hgs-siniflari',
                 'dolandiricilik-rehberi',
                 'nereye-gitmeli',
@@ -327,6 +331,11 @@ const nextConfig: NextConfig = {
             {
                 source: '/yakit-hesaplama',
                 destination: '/otohesap/yakit-hesaplama',
+                permanent: true,
+            },
+            {
+                source: '/otohesap/kasko',
+                destination: '/otohesap/kasko-deger-sorgulama',
                 permanent: true,
             },
             {

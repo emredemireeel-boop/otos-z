@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { dictionaryTerms } from '@/data/dictionary';
 import obdCodes from '@/data/obd-codes.json';
+import { getCanonicalDictionaryId } from '@/lib/seoUrls';
 
 type Keyword = { keyword: string; id: string; type: 'dict' | 'obd'; tooltip: string };
 
@@ -38,7 +39,7 @@ function linkKeywords(text: string, keywords: Keyword[], keyPrefix: string): Rea
         if (!keyword) {
             nodes.push(term);
         } else {
-            const href = keyword.type === 'dict' ? `/sozluk/${keyword.id}` : `/obd/${keyword.id}`;
+            const href = keyword.type === 'dict' ? `/sozluk/${getCanonicalDictionaryId(keyword.id)}` : `/obd/${keyword.id}`;
             const color = keyword.type === 'dict' ? '#3b82f6' : '#ef4444';
             nodes.push(<Link key={`${keyPrefix}-${termStart}`} href={href} title={`${keyword.keyword} Nedir?\n${keyword.tooltip}`} style={{ color, fontWeight: 600, textDecoration: 'none', borderBottom: `1px dashed ${color}`, padding: '0 2px' }}>{term}</Link>);
         }

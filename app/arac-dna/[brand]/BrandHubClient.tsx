@@ -38,7 +38,7 @@ export default function BrandHubClient({ brandName, models }: Props) {
         ? Math.round(reviewedModels.reduce((sum, vehicle) => sum + vehicle.dnaScore, 0) / reviewedModels.length)
         : 0;
 
-    const filtered = models
+    const filtered = reviewedModels
         .filter(m => m.model.toLowerCase().includes(searchQuery.toLowerCase()))
         .sort((a, b) => {
             const reviewOrder = Number(isVehicleEditoriallyReviewed(b)) - Number(isVehicleEditoriallyReviewed(a));

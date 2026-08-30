@@ -2,6 +2,7 @@ export interface OtoButceCar {
   id: string;
   marka: string;
   model: string;
+  dnaPath?: string;
   yilAraligi: string;
   yakitTipi: string;
   sanziman: string;
@@ -377,6 +378,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         id: "c-4-4",
         marka: "Renault",
         model: "Clio 3",
+        dnaPath: "/arac-dna/renault/clio-3-nesil-2005-2014",
         yilAraligi: "2015 - 2024",
         yakitTipi: "Dizel / Benzin",
         sanziman: "Manuel",
@@ -524,6 +526,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         id: "c-6-6",
         marka: "Hyundai / Renault",
         model: "i20 / Clio 4",
+        dnaPath: "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020",
         yilAraligi: "2013 - 2017",
         yakitTipi: "Benzin / Dizel",
         sanziman: "Manuel / Otomatik",
@@ -999,6 +1002,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
         id: "c-10-6",
         marka: "Chery",
         model: "Omoda 5 (Comfort)",
+        dnaPath: "/arac-dna/chery/omoda-5-1-nesil-2023-2025",
         yilAraligi: "2023 - 2024",
         yakitTipi: "Benzin",
         sanziman: "Otomatik",

@@ -142,7 +142,7 @@ export default async function CityOpenCarMarketPage({ params }: CityPageProps) {
                 "@type": "BreadcrumbList",
                 itemListElement: [
                     { "@type": "ListItem", position: 1, name: "Ana sayfa", item: "https://otosoz.com" },
-                    { "@type": "ListItem", position: 2, name: "Açık Oto Pazarı", item: "https://otosoz.com/acik-oto-pazari" },
+                    { "@type": "ListItem", position: 2, name: "Etkinlikler", item: "https://otosoz.com/etkinlikler" },
                     { "@type": "ListItem", position: 3, name: province.name, item: canonical },
                 ],
             },
@@ -172,7 +172,7 @@ export default async function CityOpenCarMarketPage({ params }: CityPageProps) {
             <main className={styles.main}>
                 <nav className={styles.breadcrumbs} aria-label="Sayfa yolu">
                     <Link href="/">Ana sayfa</Link><span>/</span>
-                    <Link href="/acik-oto-pazari">Açık oto pazarı</Link><span>/</span>
+                    <Link href="/etkinlikler">Etkinlikler</Link><span>/</span>
                     <span>{province.name}</span>
                 </nav>
 
@@ -287,7 +287,7 @@ export default async function CityOpenCarMarketPage({ params }: CityPageProps) {
                     </div>
                 </section>
 
-                <Link className={styles.backLink} href="/acik-oto-pazari">← 81 ilin tamamına dön</Link>
+                <Link className={styles.backLink} href="/etkinlikler">← Tüm etkinliklere dön</Link>
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
             </main>
             <Footer />

@@ -84,7 +84,7 @@ export default async function OtoyolDetayPage({ params }: PageProps) {
 
             <main style={{ maxWidth: "860px", margin: "0 auto", padding: "100px 24px 60px 24px" }}>
                 {/* Back Button */}
-                <Link href="/kutuphane?kategori=otoyol-ucretleri" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "14px", fontWeight: "600", marginBottom: "32px", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
+                <Link href="/kutuphane?kategori=otoyol-ve-kopru-ucretleri" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "14px", fontWeight: "600", marginBottom: "32px", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
                     <ArrowLeft size={16} /> Otoyol ve Köprü Ücretleri
                 </Link>
 

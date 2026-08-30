@@ -244,7 +244,7 @@ export default async function OtoButceCategoryPage({ params }: Props) {
                         paddingLeft: "24px"
                       }}>
                         <Link 
-                          href={`/arac-dna/${createSlug(car.marka)}/${createSlug(car.model)}`}
+                          href={car.dnaPath || `/arac-dna/${createSlug(car.marka)}/${createSlug(car.model)}`}
                           className="hover:opacity-90 transition-opacity"
                           style={{
                             display: "flex",
@@ -263,7 +263,7 @@ export default async function OtoButceCategoryPage({ params }: Props) {
                           }}
                         >
                           <Activity size={16} />
-                          Araç DNA'sı
+                          Araç DNA&apos;sı
                         </Link>
                       </div>
                     </div>

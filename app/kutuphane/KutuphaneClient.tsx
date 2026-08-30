@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
 import { BookOpen, Lightbulb, BookMarked, Clock, Tag, TrendingUp, ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, CheckCircle, XCircle, Search, Wrench, AlertTriangle, ChevronLeft, ChevronRight, ShieldAlert, Zap, ExternalLink, Map, Handshake, MapPin, IdCard, Shield, CreditCard, FileText, Fingerprint, Compass, MessageSquare, Signpost } from "lucide-react";
 import Link from "next/link";
+import { getCanonicalDictionaryId } from "@/lib/seoUrls";
 
 import GostergeSection from "./gosterge-section";
 import LastikRehberiSection from "./lastik-rehberi-section";
@@ -411,7 +412,9 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
                                     ? '/kutuphane'
                                     : slug === 'obd-ariza-kodlari'
                                         ? '/obd'
-                                        : `/kutuphane?kategori=${slug}`;
+                                        : slug === 'kasko-deger'
+                                            ? '/kutuphane/kasko-deger'
+                                            : `/kutuphane?kategori=${slug}`;
                                 return (
                                     <Link
                                         key={slug}
@@ -860,7 +863,7 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
                                                         </div>
                                                         <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{term.why}</p>
                                                     </div>
-                                                    <Link href={`/sozluk/${term.id}`} style={{ textDecoration: 'none' }}>
+                                                    <Link href={`/sozluk/${getCanonicalDictionaryId(term.id)}`} style={{ textDecoration: 'none' }}>
                                                         <span style={{
                                                             display: 'inline-flex', alignItems: 'center', gap: '6px',
                                                             padding: '8px 16px', fontSize: '13px', fontWeight: '600',
@@ -980,7 +983,7 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
 
                             {/* e-Devlet Sorgulama Linki */}
                             <a href="https://www.turkiye.gov.tr/emniyet-arac-plakasina-yazilan-ceza-sorgulama?hizmet=Ekrani" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '16px', padding: '16px', background: 'var(--primary)', color: 'white', borderRadius: '12px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', position: 'relative', zIndex: 1, boxShadow: '0 4px 15px rgba(37, 99, 235, 0.2)' }}>
-                                <ExternalLink size={20} /> e-Devlet'ten Trafik Cezası Sorgula
+                                <ExternalLink size={20} /> e-Devlet&apos;ten Trafik Cezası Sorgula
                             </a>
                         </div>
                     )}

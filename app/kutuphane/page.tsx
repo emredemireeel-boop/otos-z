@@ -305,6 +305,11 @@ export default async function KutuphaneServerPage({ searchParams }: PageProps) {
     const resolvedParams = await searchParams;
     const kategori = typeof resolvedParams.kategori === "string" ? resolvedParams.kategori : null;
 
+    // Kasko değer sorgusunun tek canonical adresi temiz, özel sayfadır.
+    if (kategori === "kasko-deger") {
+        permanentRedirect("/kutuphane/kasko-deger");
+    }
+
     // Kütüphane içindeki eski OBD kopyasını ana, kapsamlı OBD merkezinde birleştir.
     if (kategori === "obd-ariza-kodlari") {
         permanentRedirect("/obd");

@@ -39,7 +39,7 @@ const CURATED_VOTE_STORAGE_PREFIX = "otosoz-curated-survey-votes";
 
 const libraryShortcuts = [
     { title: "Gösterge ışıkları", description: "Uyarı lambalarının anlamını öğrenin", href: "/kutuphane?kategori=gosterge-isiklari" },
-    { title: "OBD arıza kodları", description: "Arıza kodunu hızlıca yorumlayın", href: "/kutuphane?kategori=obd-ariza-kodlari" },
+    { title: "OBD arıza kodları", description: "Arıza kodunu hızlıca yorumlayın", href: "/obd" },
     { title: "İkinci el rehberi", description: "Satın almadan önce kontrol listesi", href: "/kutuphane?kategori=ikinci-el-rehberi" },
     { title: "Bakım zamanları", description: "Periyodik bakımı kaçırmayın", href: "/kutuphane?kategori=bakim-zamanlari" },
 ];

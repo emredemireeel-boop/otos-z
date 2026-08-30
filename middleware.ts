@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import libraryGuides from './public/data/library_guides.json';
 import { createSeoSlug } from './lib/slug';
+import { mythsData } from './data/efsane-avcilari-data';
 
 const ARTICLE_CANONICAL_SLUGS = new Map<string, string>(
     libraryGuides.guides.flatMap(guide => {
@@ -11,6 +12,10 @@ const ARTICLE_CANONICAL_SLUGS = new Map<string, string>(
 
         return Array.from(legacyRouteIds, routeId => [routeId, canonicalSlug] as const);
     }),
+);
+
+const MYTH_CANONICAL_SLUGS = new Map(
+    mythsData.map(myth => [String(myth.id), `${myth.slug}--${myth.id}`] as const),
 );
 
 /**
@@ -77,6 +82,20 @@ export function middleware(request: NextRequest) {
         return new NextResponse('Geçersiz istek yolu.', { status: 400 });
     }
 
+    // Geçmişte motor slug'ına yanlışlıkla eklenen model sekmelerini gerçek HTTP
+    // yönlendirmesiyle tek canonical model sekmesine taşı. Server Component içindeki
+    // yönlendirme HTML meta-refresh üretmeyeceği için Google doğrudan 308 görür.
+    const legacyEngineTabMatch = decodedPath.match(
+        /^\/arac-dna\/([^/]+)\/([^/]+)\/(.+)-(arac-paketleri|kullanici-deneyimleri)$/,
+    );
+    if (legacyEngineTabMatch) {
+        const [, brand, model, , section] = legacyEngineTabMatch;
+        return NextResponse.redirect(
+            new URL(`/arac-dna/${brand}/${model}/${section}`, request.url),
+            308,
+        );
+    }
+
     // Eski sözlük ve OBD URL'lerini içerik sunabilen güncel adreslere taşı.
     // Bu yollar geçmişte 200 durum kodlu "bulunamadı" sayfası üreterek
     // Search Console'da soft 404 olarak görünüyordu.
@@ -101,6 +120,7 @@ export function middleware(request: NextRequest) {
             'otoyol-ucretleri': { pathname: '/kutuphane', category: 'otoyol-ve-kopru-ucretleri' },
             'ehliyet-sinifari': { pathname: '/kutuphane', category: 'ehliyet-siniflari' },
             'makaleler': { pathname: '/kutuphane' },
+            'kasko-deger': { pathname: '/kutuphane/kasko-deger' },
         };
         const target = category ? categoryRedirects[category] : undefined;
 
@@ -128,6 +148,17 @@ export function middleware(request: NextRequest) {
         if (canonicalSlug && requestedSlug !== canonicalSlug) {
             const canonicalUrl = request.nextUrl.clone();
             canonicalUrl.pathname = `/makale/${canonicalSlug}`;
+            return NextResponse.redirect(canonicalUrl, 308);
+        }
+    }
+
+    if (path.startsWith('/kutuphane/efsane-avcilari/')) {
+        const requestedSlug = decodeURIComponent(path.slice('/kutuphane/efsane-avcilari/'.length));
+        const routeId = requestedSlug.split('--').at(-1) || '';
+        const canonicalSlug = MYTH_CANONICAL_SLUGS.get(routeId);
+        if (canonicalSlug && requestedSlug !== canonicalSlug) {
+            const canonicalUrl = request.nextUrl.clone();
+            canonicalUrl.pathname = `/kutuphane/efsane-avcilari/${canonicalSlug}`;
             return NextResponse.redirect(canonicalUrl, 308);
         }
     }

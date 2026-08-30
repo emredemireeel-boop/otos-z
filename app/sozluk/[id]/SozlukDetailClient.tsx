@@ -6,6 +6,7 @@ import { DictionaryTerm, categoryColors } from "@/data/dictionary";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AutoLinkText from "@/components/AutoLinkText";
+import { getCanonicalDictionaryId } from "@/lib/seoUrls";
 
 export default function SozlukDetailClient({ term, relatedTerms, sameLetterTerms }: {
     term: DictionaryTerm;
@@ -178,7 +179,7 @@ export default function SozlukDetailClient({ term, relatedTerms, sameLetterTerms
                             </div>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 {relatedTerms.map(rt => (
-                                    <Link key={rt.id} href={`/sozluk/${rt.id}`} style={{ textDecoration: 'none' }}>
+                                    <Link key={rt.id} href={`/sozluk/${getCanonicalDictionaryId(rt.id)}`} style={{ textDecoration: 'none' }}>
                                         <div style={{
                                             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                                             padding: '14px 16px',
@@ -226,11 +227,11 @@ export default function SozlukDetailClient({ term, relatedTerms, sameLetterTerms
                     {sameLetterTerms.length > 0 && (
                         <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', padding: '20px' }}>
                             <h3 style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-muted)', marginBottom: '14px' }}>
-                                "{term.letter}" Harfi ile Başlayanlar
+                                &quot;{term.letter}&quot; Harfi ile Başlayanlar
                             </h3>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 {sameLetterTerms.map(st => (
-                                    <Link key={st.id} href={`/sozluk/${st.id}`} style={{ textDecoration: 'none' }}>
+                                    <Link key={st.id} href={`/sozluk/${getCanonicalDictionaryId(st.id)}`} style={{ textDecoration: 'none' }}>
                                         <div style={{
                                             padding: '10px 12px',
                                             borderRadius: '10px',

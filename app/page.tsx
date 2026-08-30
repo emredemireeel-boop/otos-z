@@ -9,6 +9,7 @@ import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/context/AuthContext";
 
 import { events } from "@/data/events";
+import { getLegacyMarketPath } from "@/data/open-car-markets";
 
 import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, type ForumThread as FirestoreThread } from "@/lib/forumService";
 import { addDoc, collection, getDocs, query, serverTimestamp, where } from "firebase/firestore";
@@ -93,7 +94,7 @@ const EMPTY_NEW_TOPIC_DATA: NewTopicFormData = {
 const NEW_TOPIC_DRAFT_KEY = "otosoz_new_topic_draft_v1";
 
 const DRIVER_ESSENTIALS = [
-    { href: "/kutuphane?kategori=obd-ariza-kodlari", title: "OBD arıza kodları", description: "Nedenini ve çözümünü bul", icon: Wrench },
+    { href: "/obd", title: "OBD arıza kodları", description: "Nedenini ve çözümünü bul", icon: Wrench },
     { href: "/kutuphane?kategori=gosterge-isiklari", title: "Gösterge ışıkları", description: "Uyarının önemini öğren", icon: AlertTriangle },
     { href: "/kutuphane?kategori=ikinci-el-rehberi", title: "İkinci el kontrolü", description: "Almadan önce adım adım kontrol et", icon: ClipboardCheck },
     { href: "/kutuphane?kategori=kaza-ilkyardim", title: "Kaza ve ilk yardım", description: "Doğru sırayla ne yapacağını gör", icon: ShieldCheck },
@@ -1381,7 +1382,7 @@ export default function Home() {
                                             <span>{featuredEvent.city}</span>
                                         </div>
                                         <h2>{featuredEvent.title}</h2>
-                                        <Link href={`/etkinlikler/${featuredEvent.id}`} className="forum-card-link">
+                                        <Link href={getLegacyMarketPath(featuredEvent.id) ?? `/etkinlikler/${featuredEvent.id}`} className="forum-card-link">
                                             Etkinliği incele <ArrowRight size={14} />
                                         </Link>
                                     </section>

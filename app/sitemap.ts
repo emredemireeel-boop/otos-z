@@ -9,6 +9,7 @@ import { OTOHESAP_LAST_REVIEWED } from '@/data/otohesap-content';
 import { createSeoSlug as createSlug } from '@/lib/slug';
 import { dictionaryTerms } from '@/data/dictionary';
 import { mythsData } from '@/data/efsane-avcilari-data';
+import { getCanonicalDictionaryId } from '@/lib/seoUrls';
 
 // Sitemap'in 15 dakikada bir yeniden oluşturulması — yeni başlık/entry'ler hızla Google'a gider
 export const revalidate = 900;
@@ -36,7 +37,6 @@ const LIBRARY_CATEGORY_SLUGS = [
     'plaka-kodlari',
     'noter-islemleri',
     'ehliyet-siniflari',
-    'kasko-deger',
     'hgs-siniflari',
     'dolandiricilik-rehberi',
     'nereye-gitmeli',
@@ -52,6 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Ana Hub Sayfaları
         { url: `${BASE_URL}`, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
         { url: `${BASE_URL}/kutuphane`, lastModified: new Date(LIBRARY_LAST_REVIEWED), changeFrequency: 'weekly', priority: 0.9 },
+        { url: `${BASE_URL}/kutuphane/kasko-deger`, lastModified: new Date(LIBRARY_LAST_REVIEWED), changeFrequency: 'monthly', priority: 0.8 },
         { url: `${BASE_URL}/forum`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.9 },
         { url: `${BASE_URL}/forum?kategori=genel`, changeFrequency: 'daily', priority: 0.7 },
         { url: `${BASE_URL}/forum?kategori=teknik-ariza`, changeFrequency: 'daily', priority: 0.7 },
@@ -330,9 +331,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // sayfaları ve soft 404 üretirdi. Yalnızca gerçekten çözümlenen canonical
     // kimlikleri yayınla.
     const canonicalDictionaryIds = new Set(
-        dictionaryTerms.map(term => (
-            term.id === 'amortisör_takozu' ? 'amortisor_takozu' : term.id
-        )),
+        dictionaryTerms.map(term => getCanonicalDictionaryId(term.id)),
     );
     canonicalDictionaryIds.forEach(id => {
         sitemapEntries.push({

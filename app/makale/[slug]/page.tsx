@@ -128,7 +128,7 @@ export default async function MakalePage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Makaleler",
-                "item": "https://otosoz.com/kutuphane?kategori=makaleler"
+                "item": "https://otosoz.com/kutuphane"
             },
             {
                 "@type": "ListItem",

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -85,7 +85,7 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
 
     const canonicalSlug = `${myth.slug}--${myth.id}`;
     if (slug !== canonicalSlug) {
-        redirect(`/kutuphane/efsane-avcilari/${canonicalSlug}`);
+        permanentRedirect(`/kutuphane/efsane-avcilari/${canonicalSlug}`);
     }
 
     const catColor = getCategoryColor(myth.category);
