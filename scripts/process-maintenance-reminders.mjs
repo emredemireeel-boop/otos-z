@@ -58,7 +58,7 @@ function reminderFor(label, dueDate, daysUntil) {
         return {
             stage: "week",
             type: "warning",
-            title: `${label} için 1 hafta kaldı`,
+            title: daysUntil === 7 ? `${label} için 1 hafta kaldı` : `${label} için ${daysUntil} gün kaldı`,
             message: `${readableDate(dueDate)} tarihindeki işleminizi unutmayın. Bakım Ajandası'ndan tarihi güncelleyebilirsiniz.`,
         };
     }
