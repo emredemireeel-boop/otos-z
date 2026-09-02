@@ -24,6 +24,7 @@ import AlSatKarMarjiSection from "@/app/kutuphane/al-sat-karmarji-section";
 import YatirimKiyaslamaSection from "@/app/kutuphane/yatirim-kiyaslama-section";
 import AracIthalatSection from "@/app/kutuphane/arac-ithalat-section";
 import AracVsTaksiSection from "@/app/kutuphane/arac-vs-taksi-section";
+import { KmBasinaMaliyetCalculator, LastikBasinciCalculator, MotorGucuCalculator, SahipOlmaMaliyetiCalculator, YakitTuruKarsilastirmaCalculator } from "@/components/OtoHesapNewCalculators";
 const RouteMap = dynamic(() => import("@/components/RouteMap"), { ssr: false });
 
 /* ═══════════════════════════════════════════
@@ -410,6 +411,11 @@ export default function OtoHesapClient({ activeModule, pageTitle, pageDescriptio
     { key: 'elektrikli-arac-sarj-maliyeti' as const, label: 'Elektrikli Araç', desc: 'Şarj maliyeti ve karşılaştırma', icon: Zap, color: '#10B981', href: '/yakit-hesaplama/elektrikli-arac-sarj-maliyeti' },
     { key: 'arac-ithalat-vergisi' as const, label: 'Yurtdışı İthalat', desc: 'Gümrük ve ÖTV maliyeti', icon: MapIcon, color: '#0EA5E9', href: '/yakit-hesaplama/arac-ithalat-vergisi' },
     { key: 'arac-vs-taksi' as const, label: 'Araç Mı Taksi Mi?', desc: 'Satın alma & Kiralama', icon: Route, color: '#6366F1', href: '/yakit-hesaplama/arac-vs-taksi' },
+    { key: 'km-basina-maliyet' as const, label: 'Km Başı Maliyet', desc: 'Tüm giderlerle TL/km hesabı', icon: Route, color: '#2D7465', href: '/otohesap/km-basina-maliyet' },
+    { key: 'yillik-sahip-olma-maliyeti' as const, label: 'Sahip Olma Maliyeti', desc: 'Değer kaybı dahil toplam gider', icon: Wallet, color: '#765B34', href: '/otohesap/yillik-sahip-olma-maliyeti' },
+    { key: 'yakit-turu-karsilastirma' as const, label: 'Yakıt Türü Kıyasla', desc: 'Benzin, dizel, LPG ve elektrik', icon: Fuel, color: '#3F7B5F', href: '/otohesap/yakit-turu-karsilastirma' },
+    { key: 'motor-gucu-donusturme' as const, label: 'kW - Beygir Çevir', desc: 'kW, PS ve HP dönüşümü', icon: Activity, color: '#536B91', href: '/otohesap/motor-gucu-donusturme' },
+    { key: 'lastik-basinci-donusturme' as const, label: 'PSI - Bar Çevir', desc: 'PSI, bar ve kPa dönüşümü', icon: Circle, color: '#8C596E', href: '/otohesap/lastik-basinci-donusturme' },
   ];
 
   const activeTool = TOOLS.find(tool => tool.key === activeModule) || TOOLS[0];
@@ -769,6 +775,11 @@ export default function OtoHesapClient({ activeModule, pageTitle, pageDescriptio
             <AracVsTaksiSection />
           </div>
         )}
+        {activeModule === 'km-basina-maliyet' && <div className="otohesap-calculator-surface"><KmBasinaMaliyetCalculator /></div>}
+        {activeModule === 'yillik-sahip-olma-maliyeti' && <div className="otohesap-calculator-surface"><SahipOlmaMaliyetiCalculator /></div>}
+        {activeModule === 'yakit-turu-karsilastirma' && <div className="otohesap-calculator-surface wide"><YakitTuruKarsilastirmaCalculator /></div>}
+        {activeModule === 'motor-gucu-donusturme' && <div className="otohesap-calculator-surface"><MotorGucuCalculator /></div>}
+        {activeModule === 'lastik-basinci-donusturme' && <div className="otohesap-calculator-surface"><LastikBasinciCalculator /></div>}
         {children}
       </main>
       <Footer />

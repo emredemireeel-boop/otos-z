@@ -751,6 +751,107 @@
   line-height: 1.6;
 }
 
+
+/* New calculator modules */
+.oh-new-calculator {
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  background: var(--card-bg);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, .06);
+}
+
+.oh-calc-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 23px 24px;
+  border-bottom: 1px solid var(--card-border);
+  background: color-mix(in srgb, var(--tool-accent, var(--oh-accent)) 5%, var(--card-bg));
+}
+
+.oh-calc-header-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border: 1px solid color-mix(in srgb, var(--tool-accent, var(--oh-accent)) 18%, var(--card-border));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--tool-accent, var(--oh-accent)) 10%, var(--card-bg));
+  color: var(--tool-accent, var(--oh-accent));
+}
+
+.oh-calc-header h2 { margin: 0 0 5px; font-size: 20px; font-weight: 500 !important; }
+.oh-calc-header p { margin: 0; color: var(--text-muted); font-size: 12px; line-height: 1.65; }
+
+.oh-calc-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 24px;
+}
+
+.oh-calc-field { display: grid; gap: 7px; min-width: 0; }
+.oh-calc-field > span:first-child { color: var(--text-muted); font-size: 11px; font-weight: 400; }
+.oh-calc-field small { color: var(--text-subtle); font-size: 10px; line-height: 1.45; }
+.oh-calc-input-wrap { position: relative; display: block; }
+.oh-calc-input-wrap input { width: 100%; padding-right: 72px !important; font-size: 14px; }
+.oh-calc-suffix { position: absolute; top: 50%; right: 12px; transform: translateY(-50%); color: var(--text-muted); font-size: 10px; pointer-events: none; }
+
+.oh-calc-fields > .oh-calc-metric.primary,
+.oh-calc-fields > .oh-calc-metric-grid,
+.oh-calc-fields > .oh-calc-breakdown,
+.oh-calc-fields > .oh-fuel-compare-inputs,
+.oh-calc-fields > .oh-compare-table,
+.oh-calc-fields > .oh-calc-disclaimer,
+.oh-calc-fields > .oh-calc-note { grid-column: 1 / -1; }
+
+.oh-calc-metric {
+  display: grid;
+  gap: 5px;
+  padding: 16px;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  background: var(--secondary);
+}
+.oh-calc-metric > span { color: var(--text-muted); font-size: 10px; }
+.oh-calc-metric strong { color: var(--foreground); font-size: 20px; font-weight: 500 !important; letter-spacing: -.01em; }
+.oh-calc-metric small { color: var(--text-muted); font-size: 10px; }
+.oh-calc-metric.primary { padding: 22px; border-color: color-mix(in srgb, var(--tool-accent, var(--oh-accent)) 24%, var(--card-border)); background: color-mix(in srgb, var(--tool-accent, var(--oh-accent)) 7%, var(--card-bg)); }
+.oh-calc-metric.primary strong { color: var(--tool-accent, var(--oh-accent)); font-size: clamp(26px, 5vw, 38px); }
+
+.oh-calc-metric-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.oh-calc-breakdown { display: grid; gap: 0; margin: 0; border: 1px solid var(--card-border); border-radius: 13px; background: var(--card-bg); }
+.oh-calc-breakdown div { display: flex; justify-content: space-between; gap: 18px; padding: 11px 13px; border-bottom: 1px solid var(--card-border); }
+.oh-calc-breakdown div:last-child { border-bottom: 0; }
+.oh-calc-breakdown dt { color: var(--text-muted); font-size: 11px; }
+.oh-calc-breakdown dd { margin: 0; color: var(--foreground); font-size: 12px; font-weight: 500; }
+
+.oh-fuel-compare-inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.oh-fuel-compare-inputs fieldset { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; min-width: 0; margin: 0; padding: 15px; border: 1px solid var(--card-border); border-radius: 14px; background: var(--secondary); }
+.oh-fuel-compare-inputs legend { padding: 0 6px; color: var(--foreground); font-size: 12px; font-weight: 500; }
+
+.oh-unit-tabs { display: flex; align-self: end; gap: 7px; }
+.oh-unit-tabs button { flex: 1; min-height: 44px; border: 1px solid var(--card-border); border-radius: 10px; background: var(--secondary); color: var(--text-muted); font-size: 12px; }
+.oh-unit-tabs button.active { border-color: color-mix(in srgb, var(--tool-accent, var(--oh-accent)) 42%, var(--card-border)); background: color-mix(in srgb, var(--tool-accent, var(--oh-accent)) 8%, var(--card-bg)); color: var(--foreground); }
+
+.oh-compare-table { display: grid; overflow: hidden; border: 1px solid var(--card-border); border-radius: 14px; }
+.oh-compare-table > div { display: grid; grid-template-columns: 1.15fr .8fr .9fr .75fr; gap: 10px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--card-border); color: var(--text-muted); font-size: 11px; }
+.oh-compare-table > div:last-child { border-bottom: 0; }
+.oh-compare-table > div.best { background: color-mix(in srgb, var(--tool-accent, var(--oh-accent)) 7%, var(--card-bg)); color: var(--foreground); }
+.oh-compare-table > div > span:first-child { display: flex; align-items: center; gap: 7px; color: var(--foreground); font-size: 12px; }
+.oh-compare-table small { padding: 3px 6px; border-radius: 999px; background: var(--tool-accent, var(--oh-accent)); color: white; font-size: 8px; }
+.oh-compare-table strong { color: var(--foreground); font-size: 12px; font-weight: 500 !important; }
+.oh-calc-disclaimer { margin: 0; color: var(--text-subtle); font-size: 10px; line-height: 1.55; }
+.oh-calc-note { display: flex; gap: 9px; align-items: flex-start; padding: 13px; border: 1px solid var(--card-border); border-radius: 12px; background: var(--secondary); color: var(--text-muted); font-size: 11px; line-height: 1.55; }
+.oh-calc-note svg { flex: 0 0 auto; color: var(--tool-accent, var(--oh-accent)); }
+
+.oh-formula-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+.oh-formula-grid article { padding: 15px; border: 1px solid var(--card-border); border-radius: 13px; background: var(--secondary); }
+.oh-formula-grid span { display: block; margin-bottom: 6px; color: var(--foreground); font-size: 11px; font-weight: 500; }
+.oh-formula-grid p { margin: 0 !important; font-size: 12px !important; }
+
 @media (max-width: 900px) {
   .oh-hero-inner,
   .oh-module-head,
@@ -831,6 +932,19 @@
   .otohesap-calculator-surface [style*="grid-template-columns:1fr 1fr 1fr"] {
     grid-template-columns: 1fr !important;
   }
+}
+
+@media (max-width: 640px) {
+  .oh-calc-fields,
+  .oh-calc-metric-grid,
+  .oh-fuel-compare-inputs,
+  .oh-fuel-compare-inputs fieldset,
+  .oh-formula-grid { grid-template-columns: 1fr; }
+  .oh-calc-header, .oh-calc-fields { padding: 18px; }
+  .oh-unit-tabs { align-self: auto; }
+  .oh-compare-table > div { grid-template-columns: 1fr 1fr; }
+  .oh-compare-table > div > span:nth-child(2),
+  .oh-compare-table > div > span:nth-child(4) { text-align: right; }
 }
 
 @media print {

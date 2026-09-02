@@ -4,12 +4,12 @@ import { OTOHESAP_META } from "@/data/otohesap-meta";
 import { OTOHESAP_GUIDES, OTOHESAP_LAST_REVIEWED } from "@/data/otohesap-content";
 
 const PAGE_URL = "https://otosoz.com/otohesap";
-const PAGE_DESCRIPTION = "Yakıt, MTV, taşıt kredisi, ÖTV muafiyeti, kasko değeri, bakım, elektrikli araç şarjı ve daha fazlası için 16 ücretsiz otomotiv hesaplayıcısı.";
+const PAGE_DESCRIPTION = "Yakıt, araç maliyeti, kredi, MTV, bakım, değer kaybı, motor gücü ve lastik basıncı için 21 ücretsiz otomotiv hesaplama aracını kullanın.";
 
 export const metadata: Metadata = {
-  title: "OtoHesap: Araç Maliyeti ve Otomotiv Hesaplama Araçları | Otosöz",
+  title: "OtoHesap: 21 Ücretsiz Araç Hesaplama Aracı | Otosöz",
   description: PAGE_DESCRIPTION,
-  keywords: ["otomotiv hesaplama araçları", "araç maliyeti hesaplama", "yakıt hesaplama", "MTV hesaplama 2026", "taşıt kredisi hesaplama", "OtoHesap"],
+  keywords: ["araç hesaplama araçları", "araç maliyeti hesaplama", "yakıt hesaplama", "kilometre maliyeti", "MTV hesaplama 2026", "taşıt kredisi hesaplama", "kW beygir hesaplama", "PSI bar çevirme", "OtoHesap"],
   alternates: { canonical: PAGE_URL },
   authors: [{ name: "Otosöz İçerik Ekibi", url: "https://otosoz.com/hakkimizda" }],
   creator: "Otosöz",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" } },
   openGraph: {
     title: "OtoHesap: Ücretsiz Otomotiv Hesaplama Araçları",
-    description: "Araç alırken ve kullanırken ihtiyaç duyacağınız 16 hesaplayıcı tek merkezde.",
+    description: "Araç alırken ve kullanırken ihtiyaç duyacağınız 21 ücretsiz hesaplayıcı tek merkezde.",
     url: PAGE_URL,
     siteName: "Otosöz",
     locale: "tr_TR",

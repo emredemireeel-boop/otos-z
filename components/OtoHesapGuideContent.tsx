@@ -29,6 +29,12 @@ export default function OtoHesapGuideContent({ activeModule }: Props) {
             </li>
           ))}
         </ol>
+        {(guide.formula || guide.example) && (
+          <div className="oh-formula-grid">
+            {guide.formula && <article><span>Hesaplama formülü</span><p>{guide.formula}</p></article>}
+            {guide.example && <article><span>Örnek hesap</span><p>{guide.example}</p></article>}
+          </div>
+        )}
       </div>
 
       <div className="oh-guide-two-col">

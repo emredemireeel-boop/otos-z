@@ -6,9 +6,11 @@ export interface OtoHesapGuide {
   result: string;
   caution: string;
   faqs: Array<{ question: string; answer: string }>;
+  formula?: string;
+  example?: string;
 }
 
-export const OTOHESAP_LAST_REVIEWED = '2026-08-26';
+export const OTOHESAP_LAST_REVIEWED = '2026-09-02';
 
 export const OTOHESAP_GUIDES: Record<string, OtoHesapGuide> = {
   'yakit-hesaplama': {
@@ -203,11 +205,87 @@ export const OTOHESAP_GUIDES: Record<string, OtoHesapGuide> = {
       { question: 'Düşük kilometrede taksi daha mı avantajlıdır?', answer: 'Sabit araç giderleri nedeniyle düşük kullanımda alternatif ulaşım daha ekonomik olabilir; sonuç şehir ve kullanım düzenine göre değişir.' },
     ],
   },
+  'km-basina-maliyet': {
+    label: 'Kilometre Başı Maliyet',
+    h1: 'Kilometre Başı Araç Maliyeti Hesaplama',
+    category: 'Kullanım maliyeti',
+    steps: ['Aylık kilometre, yakıt fiyatı ve ortalama tüketimi girin.', 'Sigorta, MTV, bakım, lastik ve diğer yıllık giderleri ekleyin.', 'Kilometre başı, aylık ve yıllık gerçek maliyeti birlikte inceleyin.'],
+    result: 'Yakıt gideri ile yıllık sabit giderler aynı kullanım mesafesine dağıtılır; TL/km, aylık ortalama ve yıllık toplam ayrı gösterilir.',
+    caution: 'Değer kaybı ve kredi faizi bu araçta varsayılan olarak yer almaz. Bunları görmek için toplam sahip olma maliyeti aracını kullanın.',
+    formula: 'Kilometre başı maliyet = (yıllık yakıt gideri + yıllık sabit giderler) / yıllık kilometre.',
+    example: 'Ayda 1.250 km kullanılan bir araç yılda 15.000 km yapar. Yakıt, sigorta, vergi ve bakım toplamı 120.000 TL ise maliyet 8 TL/km olur.',
+    faqs: [
+      { question: 'Araç kilometre maliyetine hangi giderler eklenmeli?', answer: 'Yakıtın yanında trafik sigortası, kasko, MTV, bakım, lastik, otopark ve düzenli diğer kullanım giderleri eklenmelidir.' },
+      { question: 'Sadece yakıt maliyetine bakmak neden yanıltıcıdır?', answer: 'Araç az kullanılsa bile sigorta, vergi ve zaman bağlı bakım gibi sabit giderler devam eder; gerçek kilometre maliyeti bu kalemlerle yükselir.' },
+      { question: 'Kilometre arttıkça birim maliyet düşer mi?', answer: 'Sabit giderler daha fazla kilometreye yayıldığı için genellikle düşer; ancak yakıt ve aşınma giderleri kullanım arttıkça yükselir.' },
+    ],
+  },
+  'yillik-sahip-olma-maliyeti': {
+    label: 'Sahip Olma Maliyeti',
+    h1: 'Yıllık ve Toplam Araç Sahip Olma Maliyeti Hesaplama',
+    category: 'Kullanım maliyeti',
+    steps: ['Araç değeri, kullanım süresi ve yıllık değer kaybı oranını girin.', 'Kilometre, tüketim ve yakıt fiyatını belirtin.', 'Vergi, sigorta, bakım ve diğer yıllık giderlerle toplam maliyeti görün.'],
+    result: 'Tahmini satış değeri, bileşik değer kaybı, dönem yakıt gideri ve sabit giderler birleştirilerek toplam sahip olma maliyeti hesaplanır.',
+    caution: 'İkinci el piyasa değeri doğrusal değişmez. Marka, model, kilometre, hasar, kur ve piyasa koşulları tahmini kalan değeri değiştirebilir.',
+    formula: 'Toplam sahip olma maliyeti = değer kaybı + kullanım dönemi boyunca yakıt, vergi, sigorta, bakım ve diğer giderler.',
+    example: '1.250.000 TL değerindeki araç beş yıl sonunda tahminen 660.000 TL kalırsa, yaklaşık 590.000 TL değer kaybı kullanım giderlerine eklenir.',
+    faqs: [
+      { question: 'Toplam sahip olma maliyeti nedir?', answer: 'Aracın alış fiyatı ile satış değeri arasındaki kayba yakıt, finansman, vergi, sigorta, bakım ve kullanım giderlerinin eklenmesidir.' },
+      { question: 'Araç fiyatının tamamı gider sayılır mı?', answer: 'Araç dönem sonunda satılabilecek bir varlık olduğu için hesapta alış fiyatının tamamı değil, tahmini değer kaybı maliyet kabul edilir.' },
+      { question: 'Değer kaybı neden bileşik hesaplanır?', answer: 'Her yılın kaybı bir önceki yılın kalan değeri üzerinden gerçekleştiği için bileşik yaklaşım düz bir toplamdan daha gerçekçi bir tahmin sunar.' },
+    ],
+  },
+  'yakit-turu-karsilastirma': {
+    label: 'Yakıt Türü Kıyaslama',
+    h1: 'Benzin, Dizel, LPG ve Elektrik Maliyet Karşılaştırma',
+    category: 'Kullanım maliyeti',
+    steps: ['Yıllık kullanım kilometrenizi girin.', 'Her enerji türü için güncel birim fiyat ve tüketim değerini yazın.', 'Kilometre başı ve yıllık maliyet sıralamasını karşılaştırın.'],
+    result: 'Dört enerji türü en düşük yıllık maliyetten en yükseğe sıralanır; her seçeneğin TL/km değeri ve en ekonomik seçeneğe göre farkı gösterilir.',
+    caution: 'Araç fiyatı, bakım, batarya, vergi ve sigorta farkları dahil değildir. Satın alma kararı için yalnızca enerji maliyetini değil toplam sahip olma maliyetini değerlendirin.',
+    formula: 'Yıllık enerji maliyeti = yıllık kilometre × (100 km tüketimi × birim fiyat / 100).',
+    example: '15.000 km kullanımda 7 lt/100 km tüketen bir araç, litre fiyatı 48 TL ise yılda yaklaşık 50.400 TL yakıt harcar.',
+    faqs: [
+      { question: 'Benzin mi dizel mi daha ekonomik?', answer: 'Sonuç yıllık kilometre, gerçek tüketim ve güncel fiyatlara bağlıdır. Düşük tüketim tek başına daha düşük toplam araç maliyeti anlamına gelmez.' },
+      { question: 'Elektrikli araç tüketimi nasıl karşılaştırılır?', answer: 'Elektrikli araçta kWh/100 km tüketim ile elektrik birim fiyatı çarpılır; sonuç diğer yakıtlarla aynı TL/km ölçeğine çevrilir.' },
+      { question: 'LPG tüketimi neden benzinden yüksek olabilir?', answer: 'LPG’nin enerji yoğunluğu farklı olduğu için litre bazında tüketim genellikle artabilir; düşük litre fiyatı toplam maliyeti dengeleyebilir.' },
+    ],
+  },
+  'motor-gucu-donusturme': {
+    label: 'kW - Beygir Çevirme',
+    h1: 'kW, HP ve PS Motor Gücü Dönüştürme',
+    category: 'Teknik hesaplamalar',
+    steps: ['Ruhsatta veya teknik tabloda gördüğünüz güç değerini girin.', 'Kaynak birimi kW, PS veya HP olarak seçin.', 'Diğer iki birimdeki kesin karşılığı anında görüntüleyin.'],
+    result: 'Girilen motor gücü kilovat, metrik beygir (PS) ve mekanik beygir (HP) olarak aynı anda gösterilir.',
+    caution: 'Türkiye’de günlük dilde beygir denildiğinde çoğunlukla PS kastedilir. HP ile PS birbirine yakın olsa da aynı birim değildir.',
+    formula: '1 kW = 1,35962 PS = 1,34102 HP. Dönüşüm uluslararası sabit katsayılarla yapılır.',
+    example: '100 kW motor gücü yaklaşık 135,96 PS ve 134,10 HP değerine karşılık gelir.',
+    faqs: [
+      { question: '100 kW kaç beygirdir?', answer: '100 kW yaklaşık 135,96 PS metrik beygir veya 134,10 HP mekanik beygirdir.' },
+      { question: 'HP ve PS aynı mı?', answer: 'Hayır. PS metrik beygir, HP mekanik beygirdir. Aralarındaki fark küçük olsa da teknik karşılıkları farklıdır.' },
+      { question: 'Ruhsatta motor gücü hangi birimde yazar?', answer: 'Türkiye’de ruhsat ve resmî teknik kayıtlarda motor gücü çoğunlukla kW olarak belirtilir.' },
+    ],
+  },
+  'lastik-basinci-donusturme': {
+    label: 'PSI - Bar Çevirme',
+    h1: 'Lastik Basıncı PSI, Bar ve kPa Dönüştürme',
+    category: 'Teknik hesaplamalar',
+    steps: ['Pompa, araç etiketi veya kılavuzdaki basınç değerini girin.', 'Kaynak birimi PSI, bar veya kPa olarak seçin.', 'Diğer basınç birimlerindeki karşılığı görüntüleyin.'],
+    result: 'Tek bir lastik basıncı değeri bar, PSI ve kilopaskal biçiminde eş zamanlı gösterilir.',
+    caution: 'Bu araç yalnızca birim dönüştürür. Aracınız için doğru hedef basınç, sürücü kapısı içindeki etiket veya kullanım kılavuzunda yer alır.',
+    formula: '1 bar = 14,5038 PSI = 100 kPa.',
+    example: '2,3 bar lastik basıncı yaklaşık 33,36 PSI ve tam olarak 230 kPa değerine karşılık gelir.',
+    faqs: [
+      { question: '2,3 bar kaç PSI eder?', answer: '2,3 bar yaklaşık 33,36 PSI değerine karşılık gelir.' },
+      { question: 'Lastik yanağındaki PSI değeri önerilen basınç mı?', answer: 'Genellikle hayır. Yanaktaki değer lastiğin azami sınırı olabilir; araç üreticisinin kapı içi etiketindeki soğuk lastik basıncı esas alınmalıdır.' },
+      { question: 'Lastik basıncı ne zaman ölçülmeli?', answer: 'Daha doğru karşılaştırma için lastikler soğukken, uzun sürüşten önce ölçüm yapılması tercih edilir.' },
+    ],
+  },
+
 };
 
 export const OTOHESAP_GROUPS = [
-  { title: 'Kullanım maliyetleri', description: 'Yakıt, vergi, bakım ve günlük ulaşım bütçenizi planlayın.', modules: ['yakit-hesaplama', 'elektrikli-arac-sarj-maliyeti', 'arac-bakim', 'mtv-hesaplama', 'arac-vs-taksi'] },
+  { title: 'Kullanım maliyetleri', description: 'Yakıt, vergi, bakım ve gerçek araç kullanım bütçenizi planlayın.', modules: ['yakit-hesaplama', 'km-basina-maliyet', 'yillik-sahip-olma-maliyeti', 'yakit-turu-karsilastirma', 'elektrikli-arac-sarj-maliyeti', 'arac-bakim', 'mtv-hesaplama', 'arac-vs-taksi'] },
   { title: 'Satın alma ve finansman', description: 'Kredi, peşinat, taksit ve araç alımındaki toplam maliyeti görün.', modules: ['tasit-kredisi', 'butce-planlama', 'kredi-karti-hesaplama', 'dijital-senet-hesaplama', 'otv-muafiyeti'] },
   { title: 'Araç değeri ve yatırım', description: 'Piyasa değeri, hasar, al-sat ve alternatif yatırım senaryolarını kıyaslayın.', modules: ['kasko-deger-sorgulama', 'deger-kaybi', 'al-sat-analizi', 'yatirim-kiyaslama', 'arac-ithalat-vergisi'] },
-  { title: 'Teknik hesaplamalar', description: 'Araç üzerindeki teknik değişikliklerin ölçü ve sürüş etkisini kontrol edin.', modules: ['lastik-ebat'] },
+  { title: 'Teknik hesaplamalar', description: 'Araç ölçülerini ve teknik birimleri güvenilir katsayılarla dönüştürün.', modules: ['lastik-ebat', 'motor-gucu-donusturme', 'lastik-basinci-donusturme'] },
 ] as const;

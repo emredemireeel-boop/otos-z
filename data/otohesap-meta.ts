@@ -78,5 +78,30 @@ export const OTOHESAP_META: Record<string, { title: string; description: string;
     title: 'Araç Sahibi Olmak vs Taksi Kiralama Maliyet Hesaplama | OtoHesap',
     description: 'Yıllık kilometrenize göre otomobil sahibi olmanın masraflarıyla (MTV, Kasko, Bakım) Taksi ve TikTak/Moov gibi kiralama uygulamalarını kıyaslayın.',
     keywords: 'araç mı taksi mi, araç sahibi olma maliyeti hesaplama, tiktak vs araba almak, moov mu taksi mi, araba alma maliyet kıyaslaması'
+  },
+  'km-basina-maliyet': {
+    title: 'Kilometre Başı Araç Maliyeti Hesaplama | OtoHesap',
+    description: 'Yakıt, sigorta, kasko, MTV, bakım ve diğer giderleri ekleyerek aracınızın gerçek kilometre başı, aylık ve yıllık kullanım maliyetini hesaplayın.',
+    keywords: 'kilometre başı maliyet hesaplama, araç km maliyeti, araba kilometre maliyeti, aylık araç gideri, yıllık araç masrafı'
+  },
+  'yillik-sahip-olma-maliyeti': {
+    title: 'Araç Sahip Olma Maliyeti Hesaplama | OtoHesap',
+    description: 'Araç fiyatı, değer kaybı, yakıt, vergi, sigorta ve bakım giderleriyle 1-10 yıllık toplam araç sahip olma maliyetini ücretsiz hesaplayın.',
+    keywords: 'araç sahip olma maliyeti, araba yıllık masrafı, toplam sahip olma maliyeti, araç değer kaybı ve gider, otomobil TCO hesaplama'
+  },
+  'yakit-turu-karsilastirma': {
+    title: 'Yakıt Türü Maliyet Karşılaştırma | OtoHesap',
+    description: 'Benzin, dizel, LPG ve elektrikli araçların kilometre başı ve yıllık enerji maliyetini kendi fiyat ve tüketim değerlerinizle karşılaştırın.',
+    keywords: 'benzin dizel lpg karşılaştırma, elektrikli araç yakıt karşılaştırma, hangi yakıt daha ekonomik, yakıt türü maliyet hesaplama'
+  },
+  'motor-gucu-donusturme': {
+    title: 'kW - HP - PS Beygir Gücü Çevirme | OtoHesap',
+    description: 'Motor gücünü kW, HP ve PS arasında anında dönüştürün. Ruhsattaki kilovat değerinin beygir gücü karşılığını doğru katsayılarla hesaplayın.',
+    keywords: 'kw beygir hesaplama, kw hp çevirme, kw ps dönüştürme, motor gücü hesaplama, 100 kw kaç beygir'
+  },
+  'lastik-basinci-donusturme': {
+    title: 'Lastik Basıncı PSI - Bar - kPa Çevirme | OtoHesap',
+    description: 'Lastik hava basıncını PSI, bar ve kPa arasında anında dönüştürün. Pompa ve araç etiketi değerlerini ücretsiz karşılaştırın.',
+    keywords: 'psi bar çevirme, lastik basıncı hesaplama, bar psi hesaplama, kpa bar dönüştürme, lastik hava basıncı'
   }
 };

@@ -27,6 +27,11 @@ const VISUALS: Record<string, { icon: LucideIcon; accent: string }> = {
   "yatirim-kiyaslama": { icon: LineChart, accent: "#8c731c" },
   "arac-ithalat-vergisi": { icon: MapPinned, accent: "#37788d" },
   "lastik-ebat": { icon: Circle, accent: "#a04472" },
+  "km-basina-maliyet": { icon: Route, accent: "#2d7465" },
+  "yillik-sahip-olma-maliyeti": { icon: Wallet, accent: "#765b34" },
+  "yakit-turu-karsilastirma": { icon: Fuel, accent: "#3f7b5f" },
+  "motor-gucu-donusturme": { icon: Gauge, accent: "#536b91" },
+  "lastik-basinci-donusturme": { icon: Circle, accent: "#8c596e" },
 };
 
 const POPULAR_MODULES = ["yakit-hesaplama", "tasit-kredisi", "mtv-hesaplama", "kasko-deger-sorgulama"];
@@ -46,7 +51,7 @@ export default function OtoHesapIndexView() {
               <span className="oh-eyebrow"><Sparkles size={14} /> Otosöz karar araçları</span>
               <h1>Aracınızla ilgili her hesabı tek yerde netleştirin</h1>
               <p className="oh-hero-copy">
-                Yakıttan krediye, vergiden bakıma kadar araç sahibi olmanın gerçek maliyetini sade veriler ve anlaşılır sonuçlarla görün.
+                Araç maliyeti, yakıt, kredi, vergi ve teknik dönüşümleri 21 ücretsiz hesaplama aracıyla sade veriler ve anlaşılır sonuçlarla görün.
               </p>
               <div className="oh-hero-actions">
                 <Link className="oh-primary-action" href="/otohesap/yakit-hesaplama">
@@ -60,7 +65,7 @@ export default function OtoHesapIndexView() {
               <div className="oh-trust-label"><Calculator size={14} /> Hesap merkezi</div>
               <div className="oh-stat-grid">
                 <div className="oh-stat">
-                  <span className="oh-stat-value">16 araç</span>
+                  <span className="oh-stat-value">{Object.keys(OTOHESAP_GUIDES).length} araç</span>
                   <span className="oh-stat-label">Satın alma ve kullanım kararları için kapsamlı hesaplayıcılar</span>
                 </div>
                 <div className="oh-stat">

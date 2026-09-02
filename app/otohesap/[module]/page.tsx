@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const resolvedParams = await params;
   const meta = OTOHESAP_META[resolvedParams.module];
   if (!meta) {
-    return { title: 'OtoHesap | OtoSöz' };
+    return { title: 'OtoHesap | Otosöz' };
   }
 
   const pageUrl = `https://otosoz.com/otohesap/${resolvedParams.module}`;
@@ -23,9 +23,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
-    authors: [{ name: 'OtoSöz İçerik Ekibi', url: 'https://otosoz.com/hakkimizda' }],
-    creator: 'OtoSöz',
-    publisher: 'OtoSöz',
+    authors: [{ name: 'Otosöz İçerik Ekibi', url: 'https://otosoz.com/hakkimizda' }],
+    creator: 'Otosöz',
+    publisher: 'Otosöz',
     category: 'Otomotiv hesaplama araçları',
     robots: {
       index: true,
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: meta.title,
       description: meta.description,
       url: pageUrl,
-      siteName: 'OtoSöz',
+      siteName: 'Otosöz',
       locale: 'tr_TR',
       type: 'website',
       images: [],
@@ -62,6 +62,7 @@ export default async function OtoHesapModulePage({ params }: PageProps) {
   }
 
   const pageUrl = `https://otosoz.com/otohesap/${resolvedParams.module}`;
+  const applicationCategory = guide.category === 'Teknik hesaplamalar' ? 'UtilitiesApplication' : 'FinanceApplication';
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -75,12 +76,12 @@ export default async function OtoHesapModulePage({ params }: PageProps) {
         ],
       },
       {
-        '@type': 'SoftwareApplication',
+        '@type': ['SoftwareApplication', 'WebApplication'],
         '@id': `${pageUrl}#calculator`,
         name: guide.h1,
         description: meta.description,
         url: pageUrl,
-        applicationCategory: 'FinanceApplication',
+        applicationCategory,
         applicationSubCategory: guide.category,
         operatingSystem: 'Web',
         browserRequirements: 'JavaScript destekleyen güncel bir web tarayıcısı',
@@ -89,7 +90,18 @@ export default async function OtoHesapModulePage({ params }: PageProps) {
         dateModified: OTOHESAP_LAST_REVIEWED,
         featureList: guide.steps,
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'TRY' },
-        provider: { '@type': 'Organization', '@id': 'https://otosoz.com/#organization', name: 'OtoSöz', url: 'https://otosoz.com' },
+        provider: { '@type': 'Organization', '@id': 'https://otosoz.com/#organization', name: 'Otosöz', url: 'https://otosoz.com' },
+        keywords: meta.keywords,
+        potentialAction: { '@type': 'UseAction', target: pageUrl },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${pageUrl}#faq`,
+        mainEntity: guide.faqs.map(faq => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        })),
       },
       {
         '@type': 'WebPage',
@@ -101,6 +113,7 @@ export default async function OtoHesapModulePage({ params }: PageProps) {
         dateModified: OTOHESAP_LAST_REVIEWED,
         breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
         mainEntity: { '@id': `${pageUrl}#calculator` },
+        hasPart: { '@id': `${pageUrl}#faq` },
         isPartOf: { '@id': 'https://otosoz.com/#website' },
       },
     ],
