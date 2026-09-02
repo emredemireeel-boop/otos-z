@@ -85,7 +85,7 @@ export default function OtoHesapIndexView() {
             <div className="oh-group-header" style={{ marginTop: 22, marginBottom: 13 }}>
               <span className="oh-group-index"><Clock3 size={17} /></span>
               <div>
-                <h2 id="popular-title" style={{ margin: "0 0 3px", fontSize: 19, fontWeight: 630 }}>Hızlı başlangıç</h2>
+                <h2 id="popular-title" style={{ margin: "0 0 3px", fontSize: 19, fontWeight: 500 }}>Hızlı başlangıç</h2>
                 <p style={{ margin: 0, color: "var(--text-muted)", fontSize: 12 }}>En sık kullanılan hesaplayıcılara doğrudan ulaşın.</p>
               </div>
             </div>

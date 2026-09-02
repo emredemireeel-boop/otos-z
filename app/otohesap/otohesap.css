@@ -6,6 +6,9 @@
   --oh-elevated: color-mix(in srgb, var(--card-bg) 98%, var(--foreground));
   --oh-line: color-mix(in srgb, var(--card-border) 82%, var(--foreground));
   background: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-synthesis: none;
+  font-weight: 400;
 }
 
 .oh-page-container {
@@ -59,7 +62,7 @@
   background: var(--oh-accent-soft);
   color: var(--foreground);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: .025em;
 }
 
@@ -69,9 +72,9 @@
   margin: 17px 0 14px;
   color: var(--foreground);
   font-size: clamp(34px, 5vw, 56px);
-  font-weight: 650;
+  font-weight: 500;
   line-height: 1.06;
-  letter-spacing: -.045em;
+  letter-spacing: -.022em;
 }
 
 .oh-hero-copy,
@@ -101,7 +104,7 @@
   padding: 0 16px;
   border-radius: 11px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -134,7 +137,7 @@
   margin-bottom: 14px;
   color: var(--text-muted);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .08em;
 }
@@ -162,7 +165,7 @@
   margin-bottom: 5px;
   color: var(--foreground);
   font-size: 25px;
-  font-weight: 650;
+  font-weight: 500;
   letter-spacing: -.03em;
 }
 
@@ -235,7 +238,7 @@
   display: block;
   color: var(--foreground);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.35;
 }
 
@@ -268,14 +271,14 @@
   border: 1px solid var(--card-border);
   color: var(--text-muted);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .oh-group h2 {
   margin: 0 0 3px;
   color: var(--foreground);
   font-size: 24px;
-  font-weight: 650;
+  font-weight: 500;
 }
 
 .oh-group p {
@@ -337,7 +340,7 @@
 .oh-tool-title {
   margin: 0 0 8px;
   font-size: 17px;
-  font-weight: 620;
+  font-weight: 500;
 }
 
 .oh-tool-description {
@@ -359,7 +362,7 @@
   padding-top: 18px;
   color: var(--foreground);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .oh-tool-cta-icon {
@@ -395,7 +398,7 @@
   margin: 12px 0 9px;
   color: var(--foreground);
   font-size: 20px;
-  font-weight: 630;
+  font-weight: 500;
 }
 
 .oh-info-card p {
@@ -511,7 +514,7 @@
 
 .oh-tool-tab-title {
   font-size: 12px;
-  font-weight: 580;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -533,7 +536,7 @@
   background: var(--card-bg);
   color: var(--foreground);
   font-size: 12px;
-  font-weight: 580;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -580,31 +583,38 @@
 
 .otohesap-calculator-surface label {
   color: var(--text-muted) !important;
-  font-weight: 550 !important;
+  font-weight: 400 !important;
   letter-spacing: 0 !important;
 }
 
 .otohesap-calculator-surface button {
   font-family: inherit;
-  font-weight: 580 !important;
+  font-weight: 500 !important;
 }
 
 .otohesap-calculator-surface h2,
 .otohesap-calculator-surface h3,
 .otohesap-calculator-surface h4 {
-  font-weight: 640 !important;
-  letter-spacing: -.015em !important;
+  font-weight: 500 !important;
+  letter-spacing: -.005em !important;
 }
 
-.otohesap-calculator-surface strong {
-  font-weight: 620 !important;
+.otohesap-calculator-surface strong,
+.otohesap-calculator-surface b {
+  font-weight: 500 !important;
 }
 
 .otohesap-calculator-surface [style*="font-weight: 900"],
 .otohesap-calculator-surface [style*="font-weight:900"],
 .otohesap-calculator-surface [style*="font-weight: 800"],
-.otohesap-calculator-surface [style*="font-weight:800"] {
-  font-weight: 680 !important;
+.otohesap-calculator-surface [style*="font-weight:800"],
+.otohesap-calculator-surface [style*="font-weight: 700"],
+.otohesap-calculator-surface [style*="font-weight:700"],
+.otohesap-calculator-surface [style*="font-weight: 600"],
+.otohesap-calculator-surface [style*="font-weight:600"],
+.otohesap-calculator-surface [style*="font-weight: bold"],
+.otohesap-calculator-surface [style*="font-weight:bold"] {
+  font-weight: 500 !important;
 }
 
 .oh-guide {
@@ -628,7 +638,7 @@
 .oh-guide h2,
 .oh-guide h3 {
   color: var(--foreground);
-  font-weight: 630;
+  font-weight: 500;
 }
 
 .oh-guide h2 {
@@ -674,7 +684,7 @@
   background: var(--card-bg);
   color: var(--text-muted);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .oh-guide-two-col {
@@ -709,7 +719,7 @@
 .oh-faq-item summary {
   color: var(--foreground);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -729,7 +739,7 @@
   background: var(--secondary);
   color: var(--foreground);
   font-size: 13px;
-  font-weight: 560;
+  font-weight: 500;
   line-height: 1.45;
   text-decoration: none;
 }
