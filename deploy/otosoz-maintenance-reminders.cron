@@ -1,0 +1,6 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+CRON_TZ=Europe/Istanbul
+
+# Bakım ajandasını her gün 09:00'da denetler. Bildirim kimlikleri tekrarsızdır.
+0 9 * * * root cd /var/www/otos-z && GOOGLE_APPLICATION_CREDENTIALS=/etc/otosoz/firebase-admin.json NEXT_PUBLIC_FIREBASE_PROJECT_ID=otosoz /usr/bin/flock -n /tmp/otosoz-maintenance-reminders.lock /usr/bin/node scripts/process-maintenance-reminders.mjs >> /var/log/otosoz-maintenance-reminders.log 2>&1

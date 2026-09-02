@@ -12,6 +12,8 @@ export interface Notification {
     message: string;
     read: boolean;
     createdAt: Timestamp | null;
+    link?: string;
+    source?: string;
 }
 
 /** Bildirim olustur */

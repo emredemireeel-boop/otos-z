@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start -H 127.0.0.1",
     "lint": "eslint",
-    "enrich-obd": "node scripts/enrich-obd-codes.js"
+    "enrich-obd": "node scripts/enrich-obd-codes.js",
+    "maintenance:reminders": "node scripts/process-maintenance-reminders.mjs",
+    "maintenance:reminders:dry": "node scripts/process-maintenance-reminders.mjs --dry-run"
   },
   "dependencies": {
     "@opentelemetry/api": "^1.9.1",

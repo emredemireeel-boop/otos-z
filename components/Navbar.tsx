@@ -7,7 +7,7 @@ import { Bell, Settings, User, LogOut, MessageCircle, Wrench, Briefcase, Crown, 
 
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import CarThemeToggle from "@/components/CarThemeToggle";
 import { subscribeToNotifications, markNotificationRead, markAllRead, type Notification as FBNotification } from "@/lib/notificationService";
 import { subscribeToConversations, type Conversation as FBConversation } from "@/lib/messageService";
@@ -22,6 +22,7 @@ interface NavNotification {
     read: boolean;
     link?: string;
     avatar?: string;
+    source?: string;
 }
 
 interface NavMessage {
@@ -66,6 +67,10 @@ const typeConfig: Record<string, { icon: React.ReactNode; color: string }> = {
         icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
         color: "bg-neutral-500/20 text-neutral-400"
     },
+    warning: {
+        icon: <Wrench className="w-4 h-4" strokeWidth={1.8} />,
+        color: "bg-orange-500/20 text-orange-400"
+    },
     achievement: {
         icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>,
         color: "bg-amber-500/20 text-amber-400"
@@ -82,10 +87,12 @@ export default function Navbar() {
     const [messages, setMessages] = useState<NavMessage[]>([]);
     const prevNotifCount = useRef(-1);
     const prevMsgCount = useRef(-1);
+    const knownNotificationIds = useRef<Set<string> | null>(null);
 
     const { user, logout } = useAuth();
     const { theme, toggleTheme } = useTheme();
     const pathname = usePathname();
+    const router = useRouter();
     const isLoggedIn = !!user;
 
     // Preload notification sound
@@ -93,6 +100,8 @@ export default function Navbar() {
 
     // Subscribe to Firebase notifications
     useEffect(() => {
+        knownNotificationIds.current = null;
+        prevNotifCount.current = -1;
         if (!user?.id) return;
         const unsub = subscribeToNotifications(user.id as string, (fbNotifs) => {
             const mapped: NavNotification[] = fbNotifs.map(n => ({
@@ -102,13 +111,30 @@ export default function Navbar() {
                 message: n.message,
                 time: formatTimeAgo(n.createdAt),
                 read: n.read,
-                avatar: n.title.charAt(0),
+                link: n.link,
+                source: n.source,
+                avatar: n.source === "maintenance_agenda" ? undefined : n.title.charAt(0),
             }));
-            // Play sound if new unread notification arrived
+            const currentIds = new Set(mapped.map(notification => notification.id));
+            const newArrival = knownNotificationIds.current
+                ? mapped.find(notification => !notification.read && !knownNotificationIds.current!.has(notification.id))
+                : undefined;
+
             const newUnread = mapped.filter(n => !n.read).length;
             if (newUnread > prevNotifCount.current && prevNotifCount.current >= 0) {
                 playNotificationSound();
             }
+            if (newArrival?.source === "maintenance_agenda"
+                && typeof window !== "undefined"
+                && "Notification" in window
+                && window.Notification.permission === "granted") {
+                new window.Notification(newArrival.title, {
+                    body: newArrival.message,
+                    icon: "/otoasfaltlogo.png",
+                    tag: newArrival.id,
+                });
+            }
+            knownNotificationIds.current = currentIds;
             prevNotifCount.current = newUnread;
             setNotifications(mapped);
         });
@@ -154,8 +180,9 @@ export default function Navbar() {
     };
 
     const handleNotificationClick = (notification: NavNotification) => {
-        markNotificationRead(notification.id);
+        void markNotificationRead(notification.id);
         closeAllDropdowns();
+        if (notification.link?.startsWith("/")) router.push(notification.link);
     };
 
     const handleMarkAllRead = async () => {

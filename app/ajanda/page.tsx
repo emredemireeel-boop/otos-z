@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import {
     ShieldCheck, Wrench, Filter, Wind, Fuel, Leaf, RefreshCw,
     CheckCircle, Calendar, Edit2, Check, Bell, RotateCcw,
@@ -11,6 +12,11 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useAuth } from "@/context/AuthContext";
+import {
+    loadMaintenanceAgenda, saveMaintenanceAgenda,
+    type StoredMaintenanceAgenda
+} from "@/lib/maintenanceAgendaService";
 
 // --- Types ---
 
@@ -62,6 +68,8 @@ const calculateAutoDateAndText = (partLifeKm: number, userAnnualKm: number): { d
 };
 
 export default function AgendaPage() {
+    const { user, getIdToken, isLoading: authLoading } = useAuth();
+
     // User Inputs
     const [annualKmInput, setAnnualKmInput] = useState("15000");
     const [selectedFuelType, setSelectedFuelType] = useState<FuelType>("Benzin");
@@ -70,6 +78,11 @@ export default function AgendaPage() {
 
     // UI States
     const [showSuccess, setShowSuccess] = useState(false);
+    const [agendaReady, setAgendaReady] = useState(false);
+    const [persistenceEnabled, setPersistenceEnabled] = useState(false);
+    const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
+    const [browserPermission, setBrowserPermission] = useState<NotificationPermission | "unsupported">("unsupported");
+    const saveSequence = useRef(0);
 
     // Maintenance States
     const [items, setItems] = useState<Record<string, MaintenanceItem>>({});
@@ -150,6 +163,106 @@ export default function AgendaPage() {
         // items özellikle bağımlılık değildir; eklenmesi hesaplama döngüsü oluşturur.
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeAnnualKm, activeFuelType]);
+
+    useEffect(() => {
+        if (typeof window !== "undefined" && "Notification" in window) {
+            setBrowserPermission(window.Notification.permission);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (authLoading) return;
+        let cancelled = false;
+        setAgendaReady(false);
+        setPersistenceEnabled(false);
+        setSaveState("idle");
+
+        const restore = (agenda: StoredMaintenanceAgenda) => {
+            const restored: Record<string, MaintenanceItem> = {};
+            for (const [key, item] of Object.entries(agenda.items || {})) {
+                const date = new Date(item.dueDate + "T12:00:00");
+                if (!Number.isNaN(date.getTime())) {
+                    restored[key] = { enabled: item.enabled, date, notify: item.notify };
+                }
+            }
+            setAnnualKmInput(String(agenda.annualKm));
+            setSelectedFuelType(agenda.fuelType);
+            setActiveAnnualKm(agenda.annualKm);
+            setActiveFuelType(agenda.fuelType);
+            if (Object.keys(restored).length > 0) setItems(restored);
+        };
+
+        const hydrate = async () => {
+            try {
+                if (user?.id) {
+                    const token = await getIdToken();
+                    if (!token) throw new Error("Oturum doğrulanamadı.");
+                    const saved = await loadMaintenanceAgenda(token);
+                    if (cancelled) return;
+                    if (saved) restore(saved);
+                } else {
+                    const local = window.localStorage.getItem("otosoz_maintenance_agenda");
+                    if (local) restore(JSON.parse(local) as StoredMaintenanceAgenda);
+                }
+                if (!cancelled) {
+                    setPersistenceEnabled(true);
+                    setAgendaReady(true);
+                    setSaveState("saved");
+                }
+            } catch (error) {
+                console.error("Bakım ajandası yüklenemedi:", error);
+                if (!cancelled) {
+                    setAgendaReady(true);
+                    setSaveState("error");
+                }
+            }
+        };
+
+        void hydrate();
+        return () => { cancelled = true; };
+        // getIdToken, AuthContext yeniden çizimlerinde kimliği değişmeden yenilenebilir.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [authLoading, user?.id]);
+
+    useEffect(() => {
+        if (!agendaReady || !persistenceEnabled || authLoading || Object.keys(items).length === 0) return;
+        const sequence = ++saveSequence.current;
+        setSaveState("saving");
+        const timer = window.setTimeout(async () => {
+            const agenda: StoredMaintenanceAgenda = {
+                annualKm: activeAnnualKm,
+                fuelType: activeFuelType,
+                timezone: "Europe/Istanbul",
+                items: Object.fromEntries(Object.entries(items).map(([key, item]) => [key, {
+                    enabled: item.enabled,
+                    dueDate: formatDateInput(item.date),
+                    notify: item.notify,
+                }])),
+            };
+            try {
+                if (user?.id) {
+                    const token = await getIdToken();
+                    if (!token) throw new Error("Oturum doğrulanamadı.");
+                    await saveMaintenanceAgenda(token, agenda);
+                } else {
+                    window.localStorage.setItem("otosoz_maintenance_agenda", JSON.stringify(agenda));
+                }
+                if (saveSequence.current === sequence) setSaveState("saved");
+            } catch (error) {
+                console.error("Bakım ajandası kaydedilemedi:", error);
+                if (saveSequence.current === sequence) setSaveState("error");
+            }
+        }, 700);
+        return () => window.clearTimeout(timer);
+        // getIdToken, kimlik değişmeden yeni bir fonksiyon referansı alabilir.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [items, activeAnnualKm, activeFuelType, agendaReady, persistenceEnabled, authLoading, user?.id]);
+
+    const requestBrowserNotifications = async () => {
+        if (typeof window === "undefined" || !("Notification" in window)) return;
+        const permission = await window.Notification.requestPermission();
+        setBrowserPermission(permission);
+    };
 
     const handleCalculate = () => {
         const rawKm = parseInt(annualKmInput.replace(/\./g, '')) || 15000;
@@ -266,6 +379,60 @@ export default function AgendaPage() {
                             <div>
                                 <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>Araç Profili</h2>
                                 <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>Yakıt tipi ve yıllık kullanım bilgilerinizi girin</p>
+                            </div>
+                        </div>
+
+                        <div style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: "16px",
+                            flexWrap: "wrap",
+                            padding: "14px 16px",
+                            marginBottom: "24px",
+                            borderRadius: "12px",
+                            background: "var(--secondary)",
+                            border: "1px solid var(--card-border)"
+                        }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "10px", minWidth: "240px", flex: 1 }}>
+                                <Bell size={18} strokeWidth={1.8} style={{ color: "var(--primary)", flexShrink: 0 }} aria-hidden="true" />
+                                <div>
+                                    <div style={{ color: "var(--foreground)", fontSize: "13px", fontWeight: 600 }}>
+                                        {user ? "Sunucu hatırlatmaları etkin" : "Otomatik hatırlatmalar için giriş yapın"}
+                                    </div>
+                                    <div style={{ color: "var(--text-muted)", fontSize: "12px", marginTop: "2px" }}>
+                                        {user
+                                            ? "Seçili işlemler için 7 gün kala ve günü geldiğinde bildirim oluşturulur."
+                                            : "Takviminiz bu cihazda saklanır; sunucu bildirimi için hesabınızla giriş yapmalısınız."}
+                                    </div>
+                                </div>
+                            </div>
+                            <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
+                                {user && browserPermission === "default" && (
+                                    <button
+                                        onClick={() => void requestBrowserNotifications()}
+                                        style={{
+                                            padding: "8px 12px", borderRadius: "8px", border: "1px solid var(--card-border)",
+                                            background: "var(--card-bg)", color: "var(--foreground)", cursor: "pointer", fontSize: "12px", fontWeight: 600
+                                        }}
+                                    >
+                                        Tarayıcı bildirimini aç
+                                    </button>
+                                )}
+                                {!user && (
+                                    <Link href="/giris" style={{ color: "var(--primary)", fontSize: "12px", fontWeight: 700 }}>
+                                        Giriş yap
+                                    </Link>
+                                )}
+                                <span style={{
+                                    color: saveState === "error" ? "#dc2626" : "var(--text-muted)",
+                                    fontSize: "12px", fontWeight: 600, whiteSpace: "nowrap"
+                                }}>
+                                    {saveState === "saving" && "Kaydediliyor…"}
+                                    {saveState === "saved" && (user ? "Değişiklikler kaydedildi" : "Bu cihaza kaydedildi")}
+                                    {saveState === "error" && "Kayıt başarısız; bağlantınızı kontrol edin"}
+                                    {saveState === "idle" && "Ajanda hazırlanıyor…"}
+                                </span>
                             </div>
                         </div>
 
@@ -393,7 +560,7 @@ export default function AgendaPage() {
                                 onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
                             >
                                 <RefreshCw size={17} strokeWidth={2} aria-hidden="true" />
-                                Hesapla ve Güncelle
+                                Hesapla ve Kaydet
                             </button>
                         </div>
                     </div>
@@ -585,7 +752,7 @@ export default function AgendaPage() {
                                 Güncellendi!
                             </h3>
                             <p style={{ fontSize: '14px', color: 'var(--text-muted)', textAlign: 'center' }}>
-                                Bakım takvimi başarıyla hesaplandı.
+                                Bakım takvimi güncellendi ve hatırlatıcılar kaydediliyor.
                             </p>
                         </motion.div>
                     </motion.div>
@@ -781,7 +948,8 @@ function InteractiveCard({
                                 type="date"
                                 value={formatDateInput(item.date)}
                                 onChange={(e) => {
-                                    const newDate = new Date(e.target.value);
+                                    if (!e.target.value) return;
+                                    const newDate = new Date(e.target.value + "T12:00:00");
                                     onDateChange(newDate);
                                 }}
                                 style={{
