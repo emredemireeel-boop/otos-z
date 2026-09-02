@@ -14,13 +14,13 @@ import {
 import { startConversation } from "@/lib/messageService";
 import { rateUser, getMyRatingForUser } from "@/lib/userService";
 import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star, ChevronLeft, ChevronRight, TrendingUp, ArrowUp, Flame, AlertTriangle, Plus, X, ShieldCheck, Share2, Reply, Link2 } from "lucide-react";
-import { sampleListings, formatListingPrice } from "@/data/listings";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import MarkdownEditor from "@/components/MarkdownEditor";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import { doc, getDoc, collection, addDoc, serverTimestamp, Timestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
+import ForumThreadSidebarCards from "@/components/ForumThreadSidebarCards";
 
 const parseComparisonContent = (text: string) => {
     if (!text.includes("Karsilastirilan Araclar:")) return { description: text, vehicles: [] };
@@ -98,7 +98,6 @@ export default function ForumThreadPage({ initialThread, initialEntries = [] }: 
     const [newEntry, setNewEntry] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [likingEntry, setLikingEntry] = useState<string | null>(null);
-    const [randomListings, setRandomListings] = useState<any[]>([]);
     const [reportModal, setReportModal] = useState<{ entry: ForumEntry; threadTitle: string } | null>(null);
     const [reportCategory, setReportCategory] = useState('hakaret');
     const [reportNote, setReportNote] = useState('');
@@ -187,10 +186,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [] }: 
             }
         }
         load();
-        
-        // Rastgele ilanları hazırla
-        const shuffled = [...sampleListings].sort(() => 0.5 - Math.random());
-        setRandomListings(shuffled.slice(0, 3));
+
     }, [slugParam]);
 
     // Entry'leri realtime dinle (thread yuklendikten sonra gercek ID kullan)
@@ -267,8 +263,8 @@ export default function ForumThreadPage({ initialThread, initialEntries = [] }: 
         const rest = entries.slice(1);
         const sorted = [...rest].sort((a, b) => {
             // Pending local entries have null createdAt, treat them as newest
-            const ta = a.createdAt?.toMillis?.() || Date.now();
-            const tb = b.createdAt?.toMillis?.() || Date.now();
+            const ta = a.createdAt?.toMillis?.() ?? Number.MAX_SAFE_INTEGER;
+            const tb = b.createdAt?.toMillis?.() ?? Number.MAX_SAFE_INTEGER;
 
             if (sortMode === 'top') {
                 if (b.likes !== a.likes) return b.likes - a.likes;
@@ -589,6 +585,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [] }: 
                                  ))}
                              </div>
                          </div>
+                        <ForumThreadSidebarCards side="left" seedKey={thread.id} />
                     </div>
 
                     {/* Middle Column: Entries */}
@@ -1090,6 +1087,8 @@ export default function ForumThreadPage({ initialThread, initialEntries = [] }: 
                             {/* Tüm İlanları Gör Gizlendi */}
                         </div>
                         
+                        <ForumThreadSidebarCards side="right" seedKey={thread.id} />
+
                         {/* Reklam Alani */}
                         <AdPlaceholder position="sidebar" />
                     </div>
