@@ -13,6 +13,7 @@ import {
 } from "@/lib/forumService";
 import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ShieldCheck, HelpCircle, Sparkles } from "lucide-react";
 import { getSampleExpertQuestion, type ShowcaseExpertQuestion } from "@/data/showcase-content";
+import { ExpertEntryPagination, ExpertQuestionSidebars } from "@/components/ExpertQuestionSidebars";
 
 function createSampleThread(question: ShowcaseExpertQuestion): ForumThread {
     return {
@@ -42,7 +43,7 @@ function createSampleEntries(question: ShowcaseExpertQuestion): ForumEntry[] {
     }));
 }
 
-export default function QuestionDetailPage() {
+export default function QuestionDetailPage({ initialPage = 1 }: { initialPage?: number }) {
     const params = useParams();
     const threadId = params.id as string;
     const { user } = useAuth();
@@ -56,6 +57,11 @@ export default function QuestionDetailPage() {
     const [submitting, setSubmitting] = useState(false);
     const [likingEntry, setLikingEntry] = useState<string | null>(null);
     const viewCounted = useRef(false);
+    const entriesPerPage = 10;
+    const totalPages = Math.max(1, Math.ceil(entries.length / entriesPerPage));
+    const currentPage = Math.min(Math.max(initialPage, 1), totalPages);
+    const pageStart = (currentPage - 1) * entriesPerPage;
+    const visibleEntries = entries.slice(pageStart, pageStart + entriesPerPage);
 
     useEffect(() => {
         if (sampleQuestion) {
@@ -141,7 +147,7 @@ export default function QuestionDetailPage() {
                     background: 'var(--card-bg)',
                     borderBottom: '1px solid var(--card-border)', padding: '32px 24px'
                 }}>
-                    <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+                    <div className="expert-detail-header-inner">
                         <Link href="/uzmana-sor" style={{ color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '14px', marginBottom: '16px' }}>
                             <ArrowLeft size={14} /> Uzmana Sor
                         </Link>
@@ -169,11 +175,25 @@ export default function QuestionDetailPage() {
                 </div>
 
                 {/* Entries */}
-                <div style={{ maxWidth: '900px', margin: '0 auto', padding: '32px 24px' }}>
+                <div className="expert-detail-layout">
+                    <aside className="expert-detail-sidebar expert-detail-sidebar-left" aria-label="Uzman soru araçları">
+                        <ExpertQuestionSidebars side="left" questionId={threadId} category={sampleQuestion?.category || thread.category} />
+                    </aside>
+
+                    <section className="expert-detail-center" aria-label="Soru ve yanıtlar">
+                    <div id="entryler" className="expert-entry-anchor" />
                     {isSample && (
                         <div style={{ marginBottom: '20px', padding: '14px 16px', borderRadius: '12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', color: 'var(--foreground)', fontSize: '13px', lineHeight: 1.6 }}>
                             <strong>Örnek içerik:</strong> Bu soru ve yanıt, Uzmana Sor sayfa yapısını göstermek amacıyla hazırlanmıştır; gerçek kullanıcı kaydı değildir.
                         </div>
+                    )}
+                    {entries.length > 0 && (
+                        <ExpertEntryPagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            entryCount={entries.length}
+                            questionId={threadId}
+                        />
                     )}
                     {entries.length === 0 ? (
                         <div style={{ textAlign: 'center', padding: '60px 20px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px' }}>
@@ -182,9 +202,10 @@ export default function QuestionDetailPage() {
                         </div>
                     ) : (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            {entries.map((entry, index) => {
+                            {visibleEntries.map((entry, index) => {
+                                const absoluteIndex = pageStart + index;
                                 const isLiked = user ? entry.likedBy.includes(user.id as string) : false;
-                                const isFirst = index === 0;
+                                const isFirst = absoluteIndex === 0;
                                 return (
                                     <div key={entry.id} style={{
                                         background: isFirst ? 'var(--card-bg)' : 'var(--card-bg)',
@@ -192,7 +213,7 @@ export default function QuestionDetailPage() {
                                         borderRadius: '16px', padding: '24px', position: 'relative',
                                     }}>
                                         <div style={{ position: 'absolute', top: '24px', right: '24px', fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'monospace', background: 'var(--secondary)', padding: '2px 8px', borderRadius: '4px' }}>
-                                            {isFirst ? "Soru" : `#${index}`}
+                                            {isFirst ? "Soru" : `#${absoluteIndex}`}
                                         </div>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                                             <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--secondary)', border: '1px solid var(--card-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', flexShrink: 0 }}>
@@ -200,9 +221,9 @@ export default function QuestionDetailPage() {
                                             </div>
                                             <div>
                                                 <div style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)' }}>@{entry.username}</div>
-                                                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{isSample ? sampleQuestion?.entries[index]?.dateLabel : formatTimestamp(entry.createdAt)}</div>
-                                                {isSample && sampleQuestion?.entries[index]?.role && (
-                                                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px', fontWeight: '700' }}>{sampleQuestion.entries[index].role}</div>
+                                                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{isSample ? sampleQuestion?.entries[absoluteIndex]?.dateLabel : formatTimestamp(entry.createdAt)}</div>
+                                                {isSample && sampleQuestion?.entries[absoluteIndex]?.role && (
+                                                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px', fontWeight: '700' }}>{sampleQuestion.entries[absoluteIndex].role}</div>
                                                 )}
                                             </div>
                                         </div>
@@ -222,6 +243,15 @@ export default function QuestionDetailPage() {
                                 );
                             })}
                         </div>
+                    )}
+
+                    {entries.length > 0 && (
+                        <ExpertEntryPagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            entryCount={entries.length}
+                            questionId={threadId}
+                        />
                     )}
 
                     {/* New Entry Form */}
@@ -262,6 +292,11 @@ export default function QuestionDetailPage() {
                             </div>
                         )}
                     </div>
+                    </section>
+
+                    <aside className="expert-detail-sidebar expert-detail-sidebar-right" aria-label="Topluluk ve ilgili içerikler">
+                        <ExpertQuestionSidebars side="right" questionId={threadId} category={sampleQuestion?.category || thread.category} />
+                    </aside>
                 </div>
             </main>
             <Footer />

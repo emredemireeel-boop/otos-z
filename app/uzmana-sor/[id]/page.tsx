@@ -2,9 +2,11 @@ import { Metadata } from "next";
 import UzmanaSorClient from "./UzmanaSorClient";
 import { getThreadById } from "@/lib/forumService";
 import { SAMPLE_EXPERT_QUESTIONS, getSampleExpertQuestion } from "@/data/showcase-content";
+import "./uzmana-sor-detail.css";
 
 interface PageProps {
     params: Promise<{ id: string }>;
+    searchParams: Promise<{ sayfa?: string }>;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -79,9 +81,12 @@ export function generateStaticParams() {
     return SAMPLE_EXPERT_QUESTIONS.map(question => ({ id: question.id }));
 }
 
-export default async function UzmanaSorServerPage({ params }: PageProps) {
+export default async function UzmanaSorServerPage({ params, searchParams }: PageProps) {
     const resolvedParams = await params;
+    const resolvedSearchParams = await searchParams;
     const threadId = resolvedParams.id;
+    const parsedPage = Number.parseInt(resolvedSearchParams.sayfa || "1", 10);
+    const initialPage = Number.isFinite(parsedPage) && parsedPage > 0 ? parsedPage : 1;
     const sampleQuestion = getSampleExpertQuestion(threadId);
     let schemaJson: Record<string, unknown> | null = sampleQuestion
         ? {
@@ -129,7 +134,7 @@ export default async function UzmanaSorServerPage({ params }: PageProps) {
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson).replace(/</g, '\\u003c') }}
                 />
             )}
-            <UzmanaSorClient />
+            <UzmanaSorClient initialPage={initialPage} />
         </>
     );
 }
