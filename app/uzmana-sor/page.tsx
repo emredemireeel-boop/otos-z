@@ -83,7 +83,7 @@ export default function UzmanaSorPage() {
                                 }
                                 setShowExpertModal(true);
                             }} style={{
-                                padding: '10px 20px', background: 'var(--primary)', color: 'white',
+                                padding: '10px 20px', background: 'var(--foreground)', color: 'var(--card-bg)',
                                 fontWeight: '600', borderRadius: '10px', border: 'none', cursor: 'pointer',
                                 fontSize: '14px', display: 'flex', alignItems: 'center', gap: '6px',
                             }}>
@@ -95,13 +95,13 @@ export default function UzmanaSorPage() {
                                 <button key={cat} onClick={() => setSelectedCategory(cat)} style={{
                                     padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '500',
                                     whiteSpace: 'nowrap', border: 'none', cursor: 'pointer',
-                                    background: selectedCategory === cat ? 'var(--primary)' : 'var(--secondary)',
-                                    color: selectedCategory === cat ? 'white' : 'var(--foreground)',
+                                    background: selectedCategory === cat ? 'var(--foreground)' : 'var(--card-bg)',
+                                    color: selectedCategory === cat ? 'var(--card-bg)' : 'var(--foreground)',
                                 }}>{cat}</button>
                             ))}
                         </div>
                         <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '12px' }}>
-                            <Sparkles size={14} color="var(--primary)" />
+                            <Sparkles size={14} color="var(--foreground)" />
                             İlk üç kayıt sayfa kullanımını göstermek amacıyla hazırlanmış örnek içeriktir.
                         </div>
                     </div>
@@ -129,7 +129,7 @@ export default function UzmanaSorPage() {
                         <div>
                             {loading ? (
                                 <div style={{ textAlign: 'center', padding: '60px' }}>
-                                    <div style={{ width: 40, height: 40, border: '3px solid var(--card-border)', borderTop: '3px solid var(--primary)', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 16px' }} />
+                                    <div style={{ width: 40, height: 40, border: '3px solid var(--card-border)', borderTop: '3px solid var(--foreground)', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 16px' }} />
                                     <p style={{ color: 'var(--text-muted)' }}>Sorular yükleniyor...</p>
                                 </div>
                             ) : (
@@ -137,7 +137,7 @@ export default function UzmanaSorPage() {
 
 
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-                                        <div style={{ background: 'rgba(76, 224, 179, 0.1)', padding: '6px', borderRadius: '8px' }}><HelpCircle size={18} color="var(--primary)" /></div>
+                                        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', padding: '6px', borderRadius: '8px' }}><HelpCircle size={18} color="var(--foreground)" /></div>
                                         <h2 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)' }}>Tüm Sorular</h2>
                                     </div>
 
@@ -145,20 +145,20 @@ export default function UzmanaSorPage() {
                                         {filteredSamples.map(question => (
                                             <Link key={question.id} href={`/uzmana-sor/${question.id}`} style={{ textDecoration: 'none' }}>
                                                 <div style={{
-                                                    background: 'var(--card-bg)', border: '1px solid rgba(59, 130, 246, 0.35)',
+                                                    background: 'var(--card-bg)', border: '1px solid var(--card-border)',
                                                     borderRadius: '16px', padding: '24px', cursor: 'pointer', transition: 'all 0.2s',
                                                 }}
-                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.35)'; }}
+                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--foreground)'; }}
+                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
                                                 >
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
                                                         <div style={{ flex: 1, minWidth: '200px' }}>
                                                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
-                                                                <span style={{ padding: '4px 10px', background: 'rgba(59, 130, 246, 0.12)', color: '#3b82f6', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>Örnek içerik</span>
+                                                                <span style={{ padding: '4px 10px', background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>Örnek içerik</span>
                                                                 {question.tags.slice(0, 2).map(tag => (
-                                                                    <span key={tag} style={{ padding: '4px 10px', background: 'rgba(255, 107, 0, 0.1)', color: 'var(--primary)', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>{tag}</span>
+                                                                    <span key={tag} style={{ padding: '4px 10px', background: 'var(--card-bg)', color: 'var(--text-muted)', border: '1px solid var(--card-border)', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>{tag}</span>
                                                                 ))}
-                                                                <span style={{ padding: '4px 10px', background: 'rgba(34, 197, 94, 0.1)', color: '#22c55e', fontSize: '11px', borderRadius: '6px', fontWeight: '700' }}>Yanıtlandı</span>
+                                                                <span style={{ padding: '4px 10px', background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', fontSize: '11px', borderRadius: '6px', fontWeight: '700' }}>Yanıtlandı</span>
                                                             </div>
                                                             <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>{question.title}</h3>
                                                             <p style={{ fontSize: '13px', lineHeight: 1.6, color: 'var(--text-muted)', margin: '0 0 10px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{question.description}</p>
@@ -169,11 +169,11 @@ export default function UzmanaSorPage() {
                                                         </div>
                                                         <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
                                                             <div style={{ textAlign: 'center' }}>
-                                                                <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--primary)' }}>{Math.max(0, question.entries.length - 1)}</div>
+                                                                <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>{Math.max(0, question.entries.length - 1)}</div>
                                                                 <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Yanıt</div>
                                                             </div>
                                                             <div style={{ textAlign: 'center' }}>
-                                                                <div style={{ fontSize: '20px', fontWeight: '700', color: '#3b82f6' }}>—</div>
+                                                                <div style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>—</div>
                                                                 <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Örnek</div>
                                                             </div>
                                                         </div>
@@ -187,17 +187,17 @@ export default function UzmanaSorPage() {
                                                     background: 'var(--card-bg)', border: '1px solid var(--card-border)',
                                                     borderRadius: '16px', padding: '24px', cursor: 'pointer', transition: 'all 0.2s',
                                                 }}
-                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
+                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--foreground)'; }}
                                                     onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
                                                 >
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
                                                         <div style={{ flex: 1, minWidth: '200px' }}>
                                                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
                                                                 {thread.tags.slice(0, 2).map(tag => (
-                                                                    <span key={tag} style={{ padding: '4px 10px', background: 'rgba(255, 107, 0, 0.1)', color: 'var(--primary)', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>{tag}</span>
+                                                                    <span key={tag} style={{ padding: '4px 10px', background: 'var(--card-bg)', color: 'var(--text-muted)', border: '1px solid var(--card-border)', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>{tag}</span>
                                                                 ))}
                                                                 {thread.entryCount > 1 && (
-                                                                    <span style={{ padding: '4px 10px', background: 'rgba(34, 197, 94, 0.1)', color: '#22c55e', fontSize: '11px', borderRadius: '6px', fontWeight: '700' }}>Yanıtlandı</span>
+                                                                    <span style={{ padding: '4px 10px', background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', fontSize: '11px', borderRadius: '6px', fontWeight: '700' }}>Yanıtlandı</span>
                                                                 )}
                                                             </div>
                                                             <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>{thread.title}</h3>
@@ -208,11 +208,11 @@ export default function UzmanaSorPage() {
                                                         </div>
                                                         <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
                                                             <div style={{ textAlign: 'center' }}>
-                                                                <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--primary)' }}>{thread.entryCount}</div>
+                                                                <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>{thread.entryCount}</div>
                                                                 <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Yanıt</div>
                                                             </div>
                                                             <div style={{ textAlign: 'center' }}>
-                                                                <div style={{ fontSize: '24px', fontWeight: '700', color: '#3b82f6' }}>{thread.views}</div>
+                                                                <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>{thread.views}</div>
                                                                 <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Görüntülenme</div>
                                                             </div>
                                                         </div>
@@ -233,7 +233,7 @@ export default function UzmanaSorPage() {
                                                     return;
                                                 }
                                                 setShowExpertModal(true);
-                                            }} style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', border: 'none', borderRadius: '10px', fontSize: '14px', fontWeight: '700', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                                            }} style={{ padding: '12px 24px', background: 'var(--foreground)', color: 'var(--card-bg)', border: 'none', borderRadius: '10px', fontSize: '14px', fontWeight: '700', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                                                 <Plus size={16} /> Soru Sor
                                             </button>
                                         </div>
@@ -258,10 +258,10 @@ export default function UzmanaSorPage() {
                                                         background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', padding: '12px',
                                                         position: 'relative', transition: 'all 0.2s',
                                                     }}
-                                                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
+                                                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--foreground)'; }}
                                                         onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
                                                     >
-                                                        <div style={{ position: 'absolute', top: 0, right: 0, background: '#3b82f6', color: 'white', fontSize: '9px', fontWeight: '800', padding: '2px 6px', borderBottomLeftRadius: '6px' }}>ÖRNEK</div>
+                                                        <div style={{ position: 'absolute', top: 0, right: 0, background: 'var(--foreground)', color: 'var(--card-bg)', fontSize: '9px', fontWeight: '800', padding: '2px 6px', borderBottomLeftRadius: '6px' }}>ÖRNEK</div>
                                                         <h3 style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px', paddingRight: '42px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{question.title}</h3>
                                                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', color: 'var(--text-muted)' }}>
                                                             <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Users size={10} />{question.authorUsername}</span>
@@ -280,7 +280,7 @@ export default function UzmanaSorPage() {
                                     </h3>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                         <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>
-                                            <div style={{ fontSize: '20px', fontWeight: '700', color: 'var(--primary)' }}>{threads.length + SAMPLE_EXPERT_QUESTIONS.length}</div>
+                                            <div style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>{threads.length + SAMPLE_EXPERT_QUESTIONS.length}</div>
                                             <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Toplam Soru</div>
                                         </div>
                                         <div style={{ padding: '12px', background: 'var(--secondary)', borderRadius: '10px' }}>

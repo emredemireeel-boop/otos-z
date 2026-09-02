@@ -125,7 +125,7 @@ export default function QuestionDetailPage() {
                     <div style={{ textAlign: 'center' }}>
                         <h1 style={{ fontSize: '48px', marginBottom: '16px', color: 'var(--foreground)' }}>404</h1>
                         <p style={{ fontSize: '18px', color: 'var(--text-muted)', marginBottom: '24px' }}>Soru bulunamadı</p>
-                        <Link href="/uzmana-sor"><button style={{ padding: '12px 24px', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Sorulara dön</button></Link>
+                        <Link href="/uzmana-sor"><button style={{ padding: '12px 24px', background: 'var(--foreground)', color: 'var(--card-bg)', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Sorulara dön</button></Link>
                     </div>
                 </main><Footer />
             </div>
@@ -138,28 +138,28 @@ export default function QuestionDetailPage() {
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
                 {/* Header */}
                 <div style={{
-                    background: 'linear-gradient(135deg, #006C4C, #00C9B8)',
+                    background: 'var(--card-bg)',
                     borderBottom: '1px solid var(--card-border)', padding: '32px 24px'
                 }}>
                     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                        <Link href="/uzmana-sor" style={{ color: 'rgba(255, 255, 255, 0.6)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '14px', marginBottom: '16px' }}>
+                        <Link href="/uzmana-sor" style={{ color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '14px', marginBottom: '16px' }}>
                             <ArrowLeft size={14} /> Uzmana Sor
                         </Link>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
                             {isSample && (
-                                <span style={{ padding: '4px 12px', background: 'rgba(255, 255, 255, 0.2)', color: 'white', borderRadius: '6px', fontSize: '11px', fontWeight: '800' }}>Örnek içerik</span>
+                                <span style={{ padding: '4px 12px', background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', borderRadius: '6px', fontSize: '11px', fontWeight: '800' }}>Örnek içerik</span>
                             )}
                             {thread.tags.slice(0, 2).map(tag => (
-                                <span key={tag} style={{ padding: '4px 12px', background: 'rgba(255, 255, 255, 0.15)', color: 'rgba(255, 255, 255, 0.9)', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>{tag}</span>
+                                <span key={tag} style={{ padding: '4px 12px', background: 'var(--card-bg)', color: 'var(--text-muted)', border: '1px solid var(--card-border)', borderRadius: '6px', fontSize: '11px', fontWeight: '700' }}>{tag}</span>
                             ))}
                             {entries.length > 1 && (
-                                <span style={{ padding: '4px 12px', background: 'rgba(52, 211, 153, 0.2)', color: '#6EE7B7', borderRadius: '6px', fontSize: '12px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <span style={{ padding: '4px 12px', background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', borderRadius: '6px', fontSize: '12px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
                                     <ShieldCheck size={14} /> Yanitlandi
                                 </span>
                             )}
                         </div>
-                        <h1 style={{ fontSize: '28px', fontWeight: '800', color: 'white', marginBottom: '8px', lineHeight: 1.3 }}>{thread.title}</h1>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', fontSize: '14px', color: 'rgba(255, 255, 255, 0.7)', flexWrap: 'wrap' }}>
+                        <h1 style={{ fontSize: '28px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '8px', lineHeight: 1.3 }}>{thread.title}</h1>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', fontSize: '14px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><User size={15} /> {thread.authorUsername}</span>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Clock size={15} /> {isSample ? sampleQuestion?.dateLabel : formatTimestamp(thread.createdAt)}</span>
                             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Eye size={15} /> {thread.views} görüntülenme</span>
@@ -171,7 +171,7 @@ export default function QuestionDetailPage() {
                 {/* Entries */}
                 <div style={{ maxWidth: '900px', margin: '0 auto', padding: '32px 24px' }}>
                     {isSample && (
-                        <div style={{ marginBottom: '20px', padding: '14px 16px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.08)', border: '1px solid rgba(59, 130, 246, 0.25)', color: 'var(--foreground)', fontSize: '13px', lineHeight: 1.6 }}>
+                        <div style={{ marginBottom: '20px', padding: '14px 16px', borderRadius: '12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', color: 'var(--foreground)', fontSize: '13px', lineHeight: 1.6 }}>
                             <strong>Örnek içerik:</strong> Bu soru ve yanıt, Uzmana Sor sayfa yapısını göstermek amacıyla hazırlanmıştır; gerçek kullanıcı kaydı değildir.
                         </div>
                     )}
@@ -188,21 +188,21 @@ export default function QuestionDetailPage() {
                                 return (
                                     <div key={entry.id} style={{
                                         background: isFirst ? 'var(--card-bg)' : 'var(--card-bg)',
-                                        border: isFirst ? '1px solid rgba(59, 130, 246, 0.3)' : '1px solid var(--card-border)',
+                                        border: '1px solid var(--card-border)',
                                         borderRadius: '16px', padding: '24px', position: 'relative',
                                     }}>
                                         <div style={{ position: 'absolute', top: '24px', right: '24px', fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'monospace', background: 'var(--secondary)', padding: '2px 8px', borderRadius: '4px' }}>
                                             {isFirst ? "Soru" : `#${index}`}
                                         </div>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                                            <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: isFirst ? 'linear-gradient(135deg, #3b82f6, #2563eb)' : 'linear-gradient(135deg, #22c55e, #16a34a)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', fontWeight: '700', color: 'white', flexShrink: 0 }}>
+                                            <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--secondary)', border: '1px solid var(--card-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', flexShrink: 0 }}>
                                                 {entry.username.charAt(0).toUpperCase()}
                                             </div>
                                             <div>
                                                 <div style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)' }}>@{entry.username}</div>
                                                 <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{isSample ? sampleQuestion?.entries[index]?.dateLabel : formatTimestamp(entry.createdAt)}</div>
                                                 {isSample && sampleQuestion?.entries[index]?.role && (
-                                                    <div style={{ fontSize: '11px', color: '#3b82f6', marginTop: '2px', fontWeight: '700' }}>{sampleQuestion.entries[index].role}</div>
+                                                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px', fontWeight: '700' }}>{sampleQuestion.entries[index].role}</div>
                                                 )}
                                             </div>
                                         </div>
@@ -210,9 +210,9 @@ export default function QuestionDetailPage() {
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
                                             <button onClick={() => handleLike(entry.id)} disabled={isSample || !user || likingEntry === entry.id} style={{
                                                 display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 14px',
-                                                background: isLiked ? 'rgba(34, 197, 94, 0.1)' : 'var(--secondary)',
-                                                border: isLiked ? '1px solid rgba(34, 197, 94, 0.3)' : '1px solid var(--card-border)',
-                                                borderRadius: '8px', color: isLiked ? '#22c55e' : 'var(--text-muted)',
+                                                background: 'var(--card-bg)',
+                                                border: '1px solid var(--card-border)',
+                                                borderRadius: '8px', color: isLiked ? 'var(--foreground)' : 'var(--text-muted)',
                                                 fontSize: '13px', fontWeight: '600', cursor: !isSample && user ? 'pointer' : 'not-allowed', opacity: !isSample && user ? 1 : 0.6,
                                             }}>
                                                 <ThumbsUp size={14} /> {entry.likes}
@@ -228,12 +228,12 @@ export default function QuestionDetailPage() {
                     <div style={{ marginTop: '32px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '24px' }}>
                         {isSample ? (
                             <div style={{ textAlign: 'center', padding: '8px 20px' }}>
-                                <Sparkles size={28} style={{ color: '#3b82f6', marginBottom: '12px' }} />
+                                <Sparkles size={28} style={{ color: 'var(--foreground)', marginBottom: '12px' }} />
                                 <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>Bu sayfa örnektir</h3>
                                 <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: 1.6, marginBottom: '16px' }}>
                                     Örnek kayda yanıt gönderilmez. Kendi araç sorunuzu açarak topluluktan ve uzmanlardan görüş alabilirsiniz.
                                 </p>
-                                <Link href="/uzmana-sor" style={{ display: 'inline-flex', padding: '11px 20px', background: '#3b82f6', color: 'white', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none' }}>
+                                <Link href="/uzmana-sor" style={{ display: 'inline-flex', padding: '11px 20px', background: 'var(--foreground)', color: 'var(--card-bg)', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none' }}>
                                     Kendi sorunu sor
                                 </Link>
                             </div>
@@ -243,11 +243,11 @@ export default function QuestionDetailPage() {
                                 <textarea value={newEntry} onChange={(e) => setNewEntry(e.target.value)}
                                     placeholder="Yanıtınızı yazın..."
                                     style={{ width: '100%', minHeight: '100px', padding: '16px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '12px', color: 'var(--foreground)', fontSize: '15px', resize: 'none', outline: 'none', marginBottom: '16px', lineHeight: 1.6 }}
-                                    onFocus={(e) => e.target.style.borderColor = '#3b82f6'} onBlur={(e) => e.target.style.borderColor = 'var(--card-border)'}
+                                    onFocus={(e) => e.target.style.borderColor = 'var(--foreground)'} onBlur={(e) => e.target.style.borderColor = 'var(--card-border)'}
                                 />
                                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                                     <button onClick={handleSubmit} disabled={!newEntry.trim() || submitting} style={{
-                                        padding: '12px 28px', background: newEntry.trim() ? '#3b82f6' : 'var(--card-border)', color: 'white', border: 'none', borderRadius: '10px',
+                                        padding: '12px 28px', background: newEntry.trim() ? 'var(--foreground)' : 'var(--card-border)', color: newEntry.trim() ? 'var(--card-bg)' : 'var(--text-muted)', border: 'none', borderRadius: '10px',
                                         fontSize: '14px', fontWeight: '700', cursor: newEntry.trim() ? 'pointer' : 'not-allowed', display: 'flex', alignItems: 'center', gap: '8px',
                                     }}>
                                         {submitting ? "Gönderiliyor..." : <><Send size={14} /> Gönder</>}
@@ -258,7 +258,7 @@ export default function QuestionDetailPage() {
                             <div style={{ textAlign: 'center', padding: '20px' }}>
                                 <LogIn size={28} style={{ color: 'var(--text-muted)', marginBottom: '12px' }} />
                                 <p style={{ color: 'var(--text-muted)', fontSize: '15px', marginBottom: '16px' }}>Yanıt yazmak için giriş yapmanız gerekiyor</p>
-                                <Link href="/giris"><button style={{ padding: '12px 28px', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '10px', fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}>Giriş yap</button></Link>
+                                <Link href="/giris"><button style={{ padding: '12px 28px', background: 'var(--foreground)', color: 'var(--card-bg)', border: 'none', borderRadius: '10px', fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}>Giriş yap</button></Link>
                             </div>
                         )}
                     </div>

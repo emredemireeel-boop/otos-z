@@ -14,13 +14,13 @@ const S = {
   header: { padding:'20px 24px',borderBottom:'1px solid var(--card-border)',display:'flex',justifyContent:'space-between' as const,alignItems:'center' as const },
   body: { padding:'24px',overflowY:'auto' as const,flex:1 },
   footer: { padding:'16px 24px',borderTop:'1px solid var(--card-border)',display:'flex',gap:'12px' },
-  btn: (active:boolean,color?:string) => ({ padding:'12px 24px',borderRadius:'12px',border:'none',cursor:active?'pointer':'not-allowed',fontWeight:'600' as const,fontSize:'14px',opacity:active?1:0.5,background:color||'var(--primary)',color:'white',display:'flex',alignItems:'center' as const,gap:'8px',flex:1,justifyContent:'center' as const }),
+  btn: (active:boolean,color?:string) => ({ padding:'12px 24px',borderRadius:'12px',border:'none',cursor:active?'pointer':'not-allowed',fontWeight:'600' as const,fontSize:'14px',opacity:active?1:0.5,background:color||'var(--foreground)',color:'var(--card-bg)',display:'flex',alignItems:'center' as const,gap:'8px',flex:1,justifyContent:'center' as const }),
   btnSec: { padding:'12px 24px',borderRadius:'12px',border:'1px solid var(--card-border)',cursor:'pointer',fontWeight:'500' as const,fontSize:'14px',background:'var(--secondary)',color:'var(--foreground)',display:'flex',alignItems:'center' as const,gap:'8px',justifyContent:'center' as const },
-  card: (sel:boolean,c:string) => ({ background:sel?`${c}10`:'var(--secondary)',border:sel?`2px solid ${c}`:'2px solid var(--card-border)',borderRadius:'16px',padding:'20px',cursor:'pointer',transition:'all 0.2s' }),
-  roleCard: (sel:boolean,c:string) => ({ background:sel?`${c}15`:'var(--secondary)',border:sel?`2px solid ${c}`:'2px solid var(--card-border)',borderRadius:'14px',padding:'16px',cursor:'pointer',transition:'all 0.2s' }),
+  card: (sel:boolean,_c:string) => ({ background:'var(--card-bg)',border:sel?'2px solid var(--foreground)':'2px solid var(--card-border)',borderRadius:'16px',padding:'20px',cursor:'pointer',transition:'all 0.2s' }),
+  roleCard: (sel:boolean,_c:string) => ({ background:'var(--card-bg)',border:sel?'2px solid var(--foreground)':'2px solid var(--card-border)',borderRadius:'14px',padding:'16px',cursor:'pointer',transition:'all 0.2s' }),
   input: { width:'100%',padding:'12px 16px',background:'var(--secondary)',border:'1px solid var(--card-border)',borderRadius:'10px',color:'var(--foreground)',fontSize:'14px',outline:'none' },
   label: { display:'block',fontSize:'13px',fontWeight:'600' as const,color:'var(--text-muted)',marginBottom:'8px' },
-  tag: (c:string) => ({ padding:'3px 8px',borderRadius:'6px',fontSize:'11px',fontWeight:'700' as const,background:`${c}18`,color:c }),
+  tag: (_c:string) => ({ padding:'3px 8px',borderRadius:'6px',fontSize:'11px',fontWeight:'700' as const,background:'var(--card-bg)',border:'1px solid var(--card-border)',color:'var(--foreground)' }),
 };
 
 const FLOWS = [
@@ -130,7 +130,7 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
         </div>
         {/* Progress */}
         {mode==='pro' && <div style={{height:'3px',background:'var(--secondary)'}}>
-          <div style={{height:'100%',width:`${(step/3)*100}%`,background:'linear-gradient(90deg,var(--primary),#7c4dff)',transition:'width 0.3s',borderRadius:'0 2px 2px 0'}}/>
+          <div style={{height:'100%',width:`${(step/3)*100}%`,background:'var(--foreground)',transition:'width 0.3s',borderRadius:'0 2px 2px 0'}}/>
         </div>}
         {/* Body */}
         <div style={S.body}>
@@ -140,7 +140,7 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
               <p style={{fontSize:'14px',color:'var(--text-muted)',margin:'0 0 4px'}}>Nasıl soru sormak istiyorsun?</p>
               <div style={{...S.roleCard(false,'#22c55e'),padding:'20px',cursor:'pointer'}} onClick={()=>setMode('forum')}>
                 <div style={{display:'flex',alignItems:'center',gap:'14px'}}>
-                  <div style={{width:'52px',height:'52px',borderRadius:'14px',background:'rgba(34,197,94,0.12)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}><MessageSquare size={24} color="#22c55e"/></div>
+                  <div style={{width:'52px',height:'52px',borderRadius:'14px',background:'var(--card-bg)',border:'1px solid var(--card-border)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}><MessageSquare size={24} color="#22c55e"/></div>
                   <div style={{flex:1}}>
                     <div style={{fontSize:'17px',fontWeight:'700',color:'var(--foreground)'}}>Foruma Sor</div>
                     <div style={{fontSize:'13px',color:'var(--text-muted)',marginTop:'4px',lineHeight:'1.5'}}>Topluluk ve gönüllü uzmanlar yanıtlar. Ücretsiz.</div>
@@ -149,9 +149,9 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
                 </div>
               </div>
               <div style={{...S.roleCard(false,'#7c4dff'),padding:'20px',cursor:'pointer',position:'relative'}} onClick={()=>setMode('pro')}>
-                <div style={{position:'absolute',top:'10px',right:'10px',padding:'3px 10px',borderRadius:'8px',fontSize:'10px',fontWeight:'700',background:'linear-gradient(135deg,#7c4dff,#ff6b00)',color:'white'}}>PREMİUM</div>
+                <div style={{position:'absolute',top:'10px',right:'10px',padding:'3px 10px',borderRadius:'8px',fontSize:'10px',fontWeight:'700',background:'var(--foreground)',color:'var(--card-bg)'}}>PREMİUM</div>
                 <div style={{display:'flex',alignItems:'center',gap:'14px'}}>
-                  <div style={{width:'52px',height:'52px',borderRadius:'14px',background:'rgba(124,77,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}><Award size={24} color="#7c4dff"/></div>
+                  <div style={{width:'52px',height:'52px',borderRadius:'14px',background:'var(--card-bg)',border:'1px solid var(--card-border)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}><Award size={24} color="#7c4dff"/></div>
                   <div style={{flex:1}}>
                     <div style={{fontSize:'17px',fontWeight:'700',color:'var(--foreground)'}}>Profesyonel Destek Al</div>
                     <div style={{fontSize:'13px',color:'var(--text-muted)',marginTop:'4px',lineHeight:'1.5'}}>Bizzat ustaya gider, foruma düşmez. Alım-satım, arıza veya kaza desteği.</div>
@@ -194,11 +194,11 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
                 <div key={f.key} style={S.card(flow===f.key,f.color)} onClick={()=>setFlow(f.key)}>
                   <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start'}}>
                     <div style={{flex:1}}>
-                      <span style={{padding:'3px 10px',borderRadius:'8px',fontSize:'10px',fontWeight:'700',background:`${f.color}18`,color:f.color}}>{f.badge}</span>
+                      <span style={{padding:'3px 10px',borderRadius:'8px',fontSize:'10px',fontWeight:'700',background:'var(--card-bg)',border:'1px solid var(--card-border)',color:'var(--foreground)'}}>{f.badge}</span>
                       <h3 style={{fontSize:'17px',fontWeight:'700',color:'var(--foreground)',margin:'10px 0 4px'}}>{f.title}</h3>
                       <p style={{fontSize:'13px',color:'var(--text-muted)',margin:0}}>{f.desc}</p>
                     </div>
-                    <div style={{width:'44px',height:'44px',borderRadius:'12px',background:`${f.color}12`,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginLeft:'12px'}}>
+                    <div style={{width:'44px',height:'44px',borderRadius:'12px',background:'var(--card-bg)',border:'1px solid var(--card-border)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginLeft:'12px'}}>
                       <Icon size={22} color={f.color}/>
                     </div>
                   </div>
@@ -210,7 +210,7 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
                       </div>
                     ))}
                   </div>
-                  {flow===f.key && <div style={{marginTop:'10px',textAlign:'right'}}><span style={{padding:'4px 12px',borderRadius:'8px',fontSize:'11px',fontWeight:'700',background:`${f.color}18`,color:f.color}}>✓ Seçildi</span></div>}
+                  {flow===f.key && <div style={{marginTop:'10px',textAlign:'right'}}><span style={{padding:'4px 12px',borderRadius:'8px',fontSize:'11px',fontWeight:'700',background:'var(--card-bg)',border:'1px solid var(--card-border)',color:'var(--foreground)'}}>✓ Seçildi</span></div>}
                 </div>
               )})}
             </div>
@@ -225,7 +225,7 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
                   {BUYSELL_ROLES.map(r=>{const Icon=r.icon;return(
                     <div key={r.key} style={S.roleCard(bsRole===r.key,r.color)} onClick={()=>setBsRole(r.key)}>
                       <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-                        <div style={{width:'36px',height:'36px',borderRadius:'10px',background:`${r.color}15`,display:'flex',alignItems:'center',justifyContent:'center'}}><Icon size={18} color={r.color}/></div>
+                        <div style={{width:'36px',height:'36px',borderRadius:'10px',background:'var(--card-bg)',border:'1px solid var(--card-border)',display:'flex',alignItems:'center',justifyContent:'center'}}><Icon size={18} color={r.color}/></div>
                         <div style={{flex:1}}>
                           <div style={{fontSize:'14px',fontWeight:'700',color:'var(--foreground)'}}>{r.title}</div>
                           <div style={{fontSize:'12px',color:'var(--text-muted)'}}>{r.desc}</div>
@@ -322,7 +322,7 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
                   <Truck size={18} color={accTow?'#3b82f6':'var(--text-muted)'}/>
                   <span style={{fontSize:'14px',fontWeight:accTow?'600':'400',color:'var(--foreground)'}}>Çekiciye ihtiyacım var</span>
                 </div>
-                <div style={{width:'40px',height:'22px',borderRadius:'11px',background:accTow?'#3b82f6':'var(--card-border)',position:'relative',transition:'all 0.2s'}}>
+                <div style={{width:'40px',height:'22px',borderRadius:'11px',background:accTow?'var(--foreground)':'var(--card-border)',position:'relative',transition:'all 0.2s'}}>
                   <div style={{width:'18px',height:'18px',borderRadius:'50%',background:'white',position:'absolute',top:'2px',left:accTow?'20px':'2px',transition:'all 0.2s'}}/>
                 </div>
               </div>
@@ -338,7 +338,7 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
               <p style={{fontSize:'14px',color:'var(--text-muted)',margin:0}}>Sorunuzu nasıl göndermek istersiniz?</p>
               <div style={{...S.roleCard(false,'#22c55e'),padding:'20px'}} onClick={handleFree}>
                 <div style={{display:'flex',alignItems:'center',gap:'14px'}}>
-                  <div style={{width:'48px',height:'48px',borderRadius:'14px',background:'rgba(34,197,94,0.12)',display:'flex',alignItems:'center',justifyContent:'center'}}><Send size={22} color="#22c55e"/></div>
+                  <div style={{width:'48px',height:'48px',borderRadius:'14px',background:'var(--card-bg)',border:'1px solid var(--card-border)',display:'flex',alignItems:'center',justifyContent:'center'}}><Send size={22} color="#22c55e"/></div>
                   <div style={{flex:1}}>
                     <div style={{fontSize:'16px',fontWeight:'700',color:'var(--foreground)'}}>Foruma Gönder (Ücretsiz)</div>
                     <div style={{fontSize:'13px',color:'var(--text-muted)',marginTop:'4px'}}>Topluluk ve gönüllü uzmanlar yanıtlar</div>
@@ -347,9 +347,9 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
                 </div>
               </div>
               <div style={{...S.roleCard(false,'#7c4dff'),padding:'20px',position:'relative'}} onClick={()=>setShowDevMsg(true)}>
-                <div style={{position:'absolute',top:'10px',right:'10px',padding:'3px 10px',borderRadius:'8px',fontSize:'10px',fontWeight:'700',background:'linear-gradient(135deg,#7c4dff,#ff6b00)',color:'white'}}>PREMİUM</div>
+                <div style={{position:'absolute',top:'10px',right:'10px',padding:'3px 10px',borderRadius:'8px',fontSize:'10px',fontWeight:'700',background:'var(--foreground)',color:'var(--card-bg)'}}>PREMİUM</div>
                 <div style={{display:'flex',alignItems:'center',gap:'14px'}}>
-                  <div style={{width:'48px',height:'48px',borderRadius:'14px',background:'rgba(124,77,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center'}}><Sparkles size={22} color="#7c4dff"/></div>
+                  <div style={{width:'48px',height:'48px',borderRadius:'14px',background:'var(--card-bg)',border:'1px solid var(--card-border)',display:'flex',alignItems:'center',justifyContent:'center'}}><Sparkles size={22} color="#7c4dff"/></div>
                   <div style={{flex:1}}>
                     <div style={{fontSize:'16px',fontWeight:'700',color:'var(--foreground)'}}>Uzmana Gönder (Premium)</div>
                     <div style={{fontSize:'13px',color:'var(--text-muted)',marginTop:'4px'}}>Bizzat ustaya gider, foruma düşmez</div>
@@ -358,7 +358,7 @@ export default function ExpertModal({ show, onClose, onSubmitFree }: Props) {
                 </div>
               </div>
               {showDevMsg && (
-                <div style={{padding:'16px',background:'rgba(124,77,255,0.08)',border:'1px solid rgba(124,77,255,0.25)',borderRadius:'12px',display:'flex',alignItems:'center',gap:'12px'}}>
+                <div style={{padding:'16px',background:'var(--card-bg)',border:'1px solid var(--card-border)',borderRadius:'12px',display:'flex',alignItems:'center',gap:'12px'}}>
                   <AlertTriangle size={20} color="#7c4dff"/>
                   <div>
                     <div style={{fontSize:'14px',fontWeight:'700',color:'var(--foreground)'}}>🚧 Geliştirme Aşamasında</div>
