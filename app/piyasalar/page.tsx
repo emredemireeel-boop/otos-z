@@ -20,7 +20,7 @@ export default function PiyasalarPage() {
     const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
-        document.title = "2026 Türkiye Otomobil Pazar Endeksi & 2025 En Çok Satan Arabalar | OtoAsfalt";
+        document.title = "2026 Türkiye Otomobil Pazar Endeksi & 2025 En Çok Satan Arabalar | OtoSöz";
         let metaDesc = document.querySelector('meta[name="description"]');
         if (!metaDesc) {
             metaDesc = document.createElement('meta');

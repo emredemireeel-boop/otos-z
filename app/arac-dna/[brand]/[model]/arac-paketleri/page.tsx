@@ -97,7 +97,7 @@ export default function TrimLevelsPage() {
                     Yukarıdaki tabloda, <strong>{vehicle.brand} {vehicle.model}</strong> için sunulan başlıca donanım seviyelerini (örneğin baz donanım, orta donanım ve üst donanım) kıyaslayabilirsiniz. Boş paketlerde manuel klima ve halojen farlar standartken, üst donanımlara çıktıkça otomatik dijital klima, LED/Matrix farlar, açılır cam tavan veya panoramik cam tavan, gelişmiş sürüş destek sistemleri (şerit takip, kör nokta uyarı vb.) standart hale gelmektedir.
                 </p>
                 <p>
-                    OtoAsfalt olarak donanım paketlerini detaylı bir şekilde analiz ediyor ve ikinci el piyasasındaki değer kaybı durumuna göre en mantıklı paketi (Fiyat/Performans Paketi) belirlemenize yardımcı oluyoruz. Aracı satın almadan önce hangi donanımların sizin için olmazsa olmaz olduğuna karar vermek, uzun vadeli kullanıcı memnuniyetini garantileyen en önemli adımlardan biridir.
+                    OtoSöz olarak donanım paketlerini detaylı bir şekilde analiz ediyor ve ikinci el piyasasındaki değer kaybı durumuna göre en mantıklı paketi (Fiyat/Performans Paketi) belirlemenize yardımcı oluyoruz. Aracı satın almadan önce hangi donanımların sizin için olmazsa olmaz olduğuna karar vermek, uzun vadeli kullanıcı memnuniyetini garantileyen en önemli adımlardan biridir.
                 </p>
             </div>
         </div>

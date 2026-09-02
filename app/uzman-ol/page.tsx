@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { submitExpertApplication, type ExpertProfession } from "@/lib/expertService";
 
-/* ── OtoAsfalt.v2'den birebir alınan meslek & belge yapısı ── */
+/* ── OtoSöz meslek ve belge yapısı ── */
 const PROFESSION_OPTIONS = [
     {
         id: "dealer",
