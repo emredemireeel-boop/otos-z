@@ -16,7 +16,7 @@ import { rateUser, getMyRatingForUser } from "@/lib/userService";
 import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star, ChevronLeft, ChevronRight, TrendingUp, ArrowUp, Flame, AlertTriangle, Plus, X, ShieldCheck, Share2, Reply, Link2 } from "lucide-react";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import MarkdownEditor from "@/components/MarkdownEditor";
-import AdPlaceholder from "@/components/AdPlaceholder";
+import ClosableAdSlot from "@/components/ClosableAdSlot";
 import { doc, getDoc, collection, addDoc, serverTimestamp, Timestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
@@ -586,6 +586,13 @@ export default function ForumThreadPage({ initialThread, initialEntries = [] }: 
                              </div>
                          </div>
                         <ForumThreadSidebarCards side="left" seedKey={thread.id} />
+                        <ClosableAdSlot
+                            position="entry_sidebar_left"
+                            dismissKey="entry_sidebar_left"
+                            adStyle={{ aspectRatio: '4 / 5' }}
+                            fallbackTitle="Bu alana reklam ver"
+                            fallbackDesc="Araç sahiplerine doğrudan ulaşın."
+                        />
                     </div>
 
                     {/* Middle Column: Entries */}
@@ -1087,10 +1094,15 @@ export default function ForumThreadPage({ initialThread, initialEntries = [] }: 
                             {/* Tüm İlanları Gör Gizlendi */}
                         </div>
                         
-                        <ForumThreadSidebarCards side="right" seedKey={thread.id} />
+                        <ClosableAdSlot
+                            position="entry_sidebar_right"
+                            dismissKey="entry_sidebar_right"
+                            adStyle={{ aspectRatio: '6 / 5' }}
+                            fallbackTitle="Bu alana reklam ver"
+                            fallbackDesc="Otomobil topluluğunda markanızı gösterin."
+                        />
 
-                        {/* Reklam Alani */}
-                        <AdPlaceholder position="sidebar" />
+                        <ForumThreadSidebarCards side="right" seedKey={thread.id} />
                     </div>
                 </div>
             </main>

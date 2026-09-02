@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import AdPlaceholder from "@/components/AdPlaceholder";
+import ClosableAdSlot from "@/components/ClosableAdSlot";
 
 const HIDDEN_ROUTE_PREFIXES = [
     "/admin",
@@ -68,8 +68,9 @@ export default function GlobalAdRails() {
             <aside className="global-ad-rail global-ad-rail-left" aria-label="Sol reklam alanı" style={{ top: railTop }}>
                 <div className="global-ad-rail-shell">
                     <div className="global-ad-rail-title">Reklam</div>
-                    <AdPlaceholder
+                    <ClosableAdSlot
                         position="global_rail_left"
+                        dismissKey="global_rail_left"
                         variant="rail"
                         fallbackTitle="Bu alana reklam ver"
                         fallbackDesc="Otomobil topluluğuna her sayfada ulaşın."
@@ -80,8 +81,9 @@ export default function GlobalAdRails() {
             <aside className="global-ad-rail global-ad-rail-right" aria-label="Sağ reklam alanı" style={{ top: railTop }}>
                 <div className="global-ad-rail-shell">
                     <div className="global-ad-rail-title">Reklam</div>
-                    <AdPlaceholder
+                    <ClosableAdSlot
                         position="global_rail_right"
+                        dismissKey="global_rail_right"
                         variant="rail"
                         fallbackTitle="Bu alana reklam ver"
                         fallbackDesc="Otomobil topluluğuna her sayfada ulaşın."

@@ -50,6 +50,10 @@ type Modal = { type: 'delete'; ad: Ad } | { type: 'edit'; ad: Ad } | null;
 const AD_POSITIONS = [
     { key: 'global_rail_left', label: 'Global Sol Reklam Rayı', page: 'Tüm Genel Sayfalar', desc: 'Geniş ekranlarda içerik dışındaki sol boşlukta görünür ve kaydırmayı takip eder', size: '160x600', traffic: 'Çok Yüksek', icon: '⬅️' },
     { key: 'global_rail_right', label: 'Global Sağ Reklam Rayı', page: 'Tüm Genel Sayfalar', desc: 'Geniş ekranlarda içerik dışındaki sağ boşlukta görünür ve kaydırmayı takip eder', size: '160x600', traffic: 'Çok Yüksek', icon: '➡️' },
+    { key: 'forum_top_left', label: 'Forum Üst Sol Banner', page: 'Forum', desc: 'Başlık arama ve üç sütunlu forum alanının üstünde, toplam genişliğin sol yarısında görünür', size: '680x90', traffic: 'Çok Yüksek', icon: '↖️' },
+    { key: 'forum_top_right', label: 'Forum Üst Sağ Banner', page: 'Forum', desc: 'Başlık arama ve üç sütunlu forum alanının üstünde, toplam genişliğin sağ yarısında görünür', size: '680x90', traffic: 'Çok Yüksek', icon: '↗️' },
+    { key: 'entry_sidebar_left', label: 'Entry Detay Sol Reklamı', page: 'Başlık Detay', desc: 'Gündem ve faydalı bilgiler altında sol sütunda görünür; kullanıcı kapatabilir', size: '280x350', traffic: 'Yüksek', icon: '⬅️' },
+    { key: 'entry_sidebar_right', label: 'Entry Detay Sağ Reklamı', page: 'Başlık Detay', desc: 'Son başlıklar altında sağ sütunda görünür; kullanıcı kapatabilir', size: '300x250', traffic: 'Yüksek', icon: '➡️' },
     { key: 'anket_sol_ust', label: 'Anket Sol Üst Reklamı', page: 'Anket', desc: 'Son başlıkların altında, sol sütunda görünür', size: '220x275', traffic: 'Yüksek', icon: '📊' },
     { key: 'anket_sol_alt', label: 'Anket Sol Takip Eden Reklam', page: 'Anket', desc: 'Sol sütunun altında görünür ve sayfa kaydırıldıkça takip eder', size: '220x275', traffic: 'Yüksek', icon: '📌' },
     { key: 'anket_sag_ust', label: 'Anket Sağ Üst Reklamı', page: 'Anket', desc: 'Satın alma rehberinin altında, sağ sütunda görünür', size: '280x280', traffic: 'Yüksek', icon: '📊' },
@@ -398,7 +402,7 @@ export default function AdminReklamlarPage() {
             {tab === 'pozisyonlar' && (
                 <div>
                     <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: 1.7 }}>
-                        Aşağıdaki alanlar Otosöz'ün sitesinde tanımlanmış özel reklam slotlarıdır. Google AdSense değil — sitenin kendi sistemidir. Her pozisyon bağımsız kampanya kabul eder.
+                        Aşağıdaki alanlar OtoSöz&apos;ün sitesinde tanımlanmış özel reklam slotlarıdır. Google AdSense değil — sitenin kendi sistemidir. Her pozisyon bağımsız kampanya kabul eder.
                     </p>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '14px' }}>
                         {AD_POSITIONS.map(pos => {

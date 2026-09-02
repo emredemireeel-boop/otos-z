@@ -2,7 +2,7 @@ import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
     title: 'OtoSöz Hakkında',
-    description: 'OtoSöz’ün otomobil sahipleri için güvenilir bilgi, karşılaştırma, arıza kodu ve topluluk deneyimi sunma yaklaşımını keşfedin.',
+    description: 'OtoSöz, OBDKodu ve OtoKusur projelerinin sürücülere güvenilir otomobil bilgisi, arıza kodu araştırması ve kronik kusur analizi sunan yaklaşımını keşfedin.',
     path: '/hakkimizda',
 });
 

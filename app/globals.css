@@ -3505,3 +3505,81 @@ select {
     height: min(660px, 100%);
   }
 }
+
+/* Closable forum and global advertisement slots */
+.closable-ad-slot {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.closable-ad-slot-close {
+  position: absolute;
+  z-index: 20;
+  top: 7px;
+  right: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.78);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.closable-ad-slot-close:hover {
+  background: rgba(15, 23, 42, 0.96);
+  transform: scale(1.04);
+}
+
+.closable-ad-slot > .ad-placeholder-mobile {
+  width: 100%;
+}
+
+.global-ad-rail-shell > .closable-ad-slot {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.global-ad-rail-shell > .closable-ad-slot > .ad-rail-placeholder {
+  height: 100% !important;
+}
+
+.global-ad-rail .ad-rail-sponsored {
+  right: auto;
+  left: 8px;
+}
+
+.forum-top-ad-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.forum-top-ad-grid:empty {
+  display: none;
+}
+
+.forum-top-ad-grid > .closable-ad-slot:only-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .forum-top-ad-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .forum-top-ad-grid .ad-placeholder-mobile {
+    height: 72px !important;
+  }
+}

@@ -182,20 +182,20 @@ export default function AdPlaceholder({
         <div className={`ad-placeholder-mobile ${className || ''}`} style={containerStyle}>
             <Link href={adHref} target={adTarget} rel={currentAd?.url ? "sponsored noopener noreferrer" : undefined} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
                 <div style={{
-                    background: 'var(--card-bg)', border: '1px solid var(--primary)', borderRadius: isBanner ? '12px' : '16px', padding: isBanner ? '8px 12px' : '16px',
+                    background: 'var(--card-bg)', border: '1px solid var(--primary)', borderRadius: isBanner ? '12px' : '16px', padding: isBanner && currentAd.imageUrl ? '0' : isBanner ? '8px 12px' : '16px',
                     position: 'relative', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', height: '100%',
                     display: 'flex', flexDirection: isBanner ? 'row' : 'column', alignItems: isBanner ? 'center' : 'stretch', gap: isBanner ? '12px' : '0',
                     transition: 'opacity 0.3s ease-in-out'
                 }}>
-                    <div style={{ position: 'absolute', top: 0, right: 0, background: 'var(--primary)', color: 'white', fontSize: '9px', padding: '3px 8px', borderBottomLeftRadius: '8px', fontWeight: 'bold', zIndex: 2 }}>
+                    <div style={{ position: 'absolute', top: 0, left: 0, background: 'var(--primary)', color: 'white', fontSize: '9px', padding: '3px 8px', borderBottomRightRadius: '8px', fontWeight: '600', zIndex: 2 }}>
                         Sponsorlu
                     </div>
                     
                     {currentAd.imageUrl ? (
                         <div style={{ 
-                            width: isBanner ? '60px' : '100%', height: isBanner ? '100%' : 'auto', flex: isBanner ? 'none' : '1', borderRadius: '8px', marginBottom: isBanner ? '0' : '10px',
+                            width: '100%', height: isBanner ? '100%' : 'auto', flex: '1', borderRadius: isBanner ? '11px' : '8px', marginBottom: isBanner ? '0' : '10px',
                             backgroundImage: `url(${currentAd.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center',
-                            minHeight: isBanner ? '0' : '0'
+                            minHeight: '0'
                         }} />
                     ) : (
                         <div style={{ 
@@ -206,11 +206,13 @@ export default function AdPlaceholder({
                         </div>
                     )}
                     
-                    <div style={{ marginTop: isBanner ? '0' : 'auto', flex: 1, overflow: 'hidden' }}>
-                        <h4 style={{ fontSize: isBanner ? '13px' : '14px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '2px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{currentAd.title}</h4>
-                        <p style={{ fontSize: isBanner ? '11px' : '12px', color: 'var(--text-muted)', lineHeight: '1.4', margin: 0, display: '-webkit-box', WebkitLineClamp: isBanner ? 1 : 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{currentAd.description}</p>
-                        {!isBanner && <div style={{ fontSize: '10px', color: 'var(--text-subtle)', marginTop: '6px', fontWeight: '600' }}>{currentAd.advertiser}</div>}
-                    </div>
+                    {!(isBanner && currentAd.imageUrl) && (
+                        <div style={{ marginTop: isBanner ? '0' : 'auto', flex: 1, overflow: 'hidden' }}>
+                            <h4 style={{ fontSize: isBanner ? '13px' : '14px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '2px', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{currentAd.title}</h4>
+                            <p style={{ fontSize: isBanner ? '11px' : '12px', color: 'var(--text-muted)', lineHeight: '1.4', margin: 0, display: '-webkit-box', WebkitLineClamp: isBanner ? 1 : 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{currentAd.description}</p>
+                            {!isBanner && <div style={{ fontSize: '10px', color: 'var(--text-subtle)', marginTop: '6px', fontWeight: '600' }}>{currentAd.advertiser}</div>}
+                        </div>
+                    )}
                 </div>
             </Link>
 

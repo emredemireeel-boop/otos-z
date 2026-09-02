@@ -18,6 +18,7 @@ import carModelsData from "@/data/carmodels.json";
 import { mythsData, Myth } from "@/data/efsane-avcilari-data";
 import { createSlug as createVehicleSlug, vehicleDNAData } from "@/data/vehicle-dna";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
+import ClosableAdSlot from "@/components/ClosableAdSlot";
 import MarkdownEditor from "@/components/MarkdownEditor";
 import { validateEntryContent, validateThreadTitle } from "@/lib/validation";
 
@@ -933,6 +934,24 @@ export default function Home() {
                 </div>
 
                 <div className="forum-shell" style={{ maxWidth: '1400px', margin: '0 auto', padding: '20px 24px 32px' }}>
+                    <div className="forum-top-ad-grid" aria-label="Forum sponsorlu reklam alanları">
+                        <ClosableAdSlot
+                            position="forum_top_left"
+                            dismissKey="forum_top_left"
+                            variant="banner"
+                            adStyle={{ height: '90px' }}
+                            fallbackTitle="Bu alana reklam ver"
+                            fallbackDesc="OtoSöz topluluğuna görünür biçimde ulaşın."
+                        />
+                        <ClosableAdSlot
+                            position="forum_top_right"
+                            dismissKey="forum_top_right"
+                            variant="banner"
+                            adStyle={{ height: '90px' }}
+                            fallbackTitle="Bu alana reklam ver"
+                            fallbackDesc="OtoSöz topluluğuna görünür biçimde ulaşın."
+                        />
+                    </div>
                     <div className="home-main-grid" style={{ display: 'grid', gridTemplateColumns: '230px minmax(0, 1fr) 300px', gap: '20px' }}>
                         {/* Sol sütun — forum kategorileri */}
                         <aside className="home-left-sidebar forum-sidebar" data-ad-rail-anchor="forum-start">
