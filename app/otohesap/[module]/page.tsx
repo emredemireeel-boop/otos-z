@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import OtoHesapClient from '@/components/OtoHesapClient';
-import OtoHesapSeoContent from '@/components/OtoHesapSeoContent';
+import OtoHesapGuideContent from '@/components/OtoHesapGuideContent';
 import { OTOHESAP_META } from '@/data/otohesap-meta';
 import { OTOHESAP_GUIDES, OTOHESAP_LAST_REVIEWED } from '@/data/otohesap-content';
 
@@ -110,7 +110,7 @@ export default async function OtoHesapModulePage({ params }: PageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
       <OtoHesapClient activeModule={resolvedParams.module} pageTitle={guide.h1} pageDescription={meta.description}>
-        <OtoHesapSeoContent activeModule={resolvedParams.module} />
+        <OtoHesapGuideContent activeModule={resolvedParams.module} />
       </OtoHesapClient>
     </>
   );

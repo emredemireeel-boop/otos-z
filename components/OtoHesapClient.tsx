@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon, Calculator, CreditCard, Wallet, FileText, Banknote, Shield, Zap, Activity, Circle, Wrench, BadgePercent, TrendingUp, LineChart, Printer, MessageCircle, Route, Car } from "lucide-react";
+import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon, Calculator, CreditCard, Wallet, FileText, Banknote, Shield, Zap, Activity, Circle, Wrench, BadgePercent, TrendingUp, LineChart, Printer, MessageCircle, Route, Car, CheckCircle2, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
@@ -35,10 +35,10 @@ const citiesData = citiesRaw as CitiesData;
 const districtCoords = districtCoordsRaw as unknown as Record<string, Record<string, [number, number]>>;
 
 /* ── Accent ── */
-const AC = "#2563EB";
-const AC_L = "rgba(37,99,235,0.08)";
-const AC_B = "rgba(37,99,235,0.20)";
-const AC_BG = "rgba(37,99,235,0.04)";
+const AC = "#146B5D";
+const AC_L = "rgba(20,107,93,0.08)";
+const AC_B = "rgba(20,107,93,0.20)";
+const AC_BG = "rgba(20,107,93,0.04)";
 
 /* ── Fuel types & prices (cetvel) ── */
 const DEFAULT_FUEL_TYPES = [
@@ -412,11 +412,14 @@ export default function OtoHesapClient({ activeModule, pageTitle, pageDescriptio
     { key: 'arac-vs-taksi' as const, label: 'Araç Mı Taksi Mi?', desc: 'Satın alma & Kiralama', icon: Route, color: '#6366F1', href: '/yakit-hesaplama/arac-vs-taksi' },
   ];
 
+  const activeTool = TOOLS.find(tool => tool.key === activeModule) || TOOLS[0];
+  const ActiveToolIcon = activeTool.icon;
+
   return (
-    <div>
+    <div className="otohesap-shell" style={{ "--tool-accent": activeTool.color } as React.CSSProperties}>
       <Navbar />
 
-      <main style={{ minHeight: "100vh", background: "var(--background)" }}>
+      <main>
         <style dangerouslySetInnerHTML={{__html: `
           @media print {
             .no-print, nav, footer { display: none !important; }
@@ -424,80 +427,67 @@ export default function OtoHesapClient({ activeModule, pageTitle, pageDescriptio
             main { padding: 0 !important; background: white !important; }
           }
         `}} />
-        {/* Premium Hero */}
-        <div className="no-print" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #2563EB 100%)', padding: "48px 24px 44px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 70% 30%, rgba(37,99,235,0.3) 0%, transparent 60%)" }} />
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 20% 80%, rgba(124,58,237,0.2) 0%, transparent 50%)" }} />
-          <div style={{ maxWidth: "700px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-            <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "64px", height: "64px", borderRadius: "20px", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.15)", marginBottom: "20px", boxShadow: "0 8px 32px rgba(0,0,0,0.2)" }}>
-              <Calculator size={32} color="white" />
-            </div>
-            <h1 style={{ fontSize: "34px", fontWeight: "900", color: "white", margin: "0 0 10px 0", letterSpacing: "-0.5px", lineHeight: "1.2" }}>
-              {pageTitle}
-            </h1>
-            <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.72)", margin: "0 0 24px 0", lineHeight: "1.6" }}>
-              {pageDescription}
-            </p>
-            {/* Quick stat badges */}
-            <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap" }}>
-              {[["16 Hesaplayıcı", "🧮"], ["2026 Güncel", "📅"], ["Ücretsiz", "✨"]].map(([t, i]) => (
-                <span key={t} style={{ padding: "6px 14px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "20px", fontSize: "12px", fontWeight: "600", color: "rgba(255,255,255,0.8)", display: "flex", alignItems: "center", gap: "6px" }}>
-                  {i} {t}
-                </span>
-              ))}
+        {/* Module heading */}
+        <section className="oh-module-hero no-print">
+          <div className="oh-page-container oh-module-hero-inner">
+            <nav aria-label="İçerik yolu" className="oh-breadcrumb oh-module-breadcrumb">
+              <Link href="/">Ana Sayfa</Link><span aria-hidden="true">/</span>
+              <Link href="/otohesap">OtoHesap</Link><span aria-hidden="true">/</span>
+              <span>{activeTool.label}</span>
+            </nav>
+            <div className="oh-module-head">
+              <span className="oh-module-icon"><ActiveToolIcon size={29} strokeWidth={1.7} /></span>
+              <div className="oh-module-copy-wrap">
+                <span className="oh-category-pill"><Sparkles size={13} /> OtoHesap</span>
+                <h1>{pageTitle}</h1>
+                <p className="oh-module-copy">{pageDescription}</p>
+              </div>
+              <aside className="oh-module-side-note" aria-label="Hesaplayıcı özellikleri">
+                <span><CheckCircle2 size={14} /> Ücretsiz kullanım</span>
+                <span><CheckCircle2 size={14} /> Kayıt gerektirmez</span>
+                <span><CheckCircle2 size={14} /> Anında sonuç</span>
+              </aside>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Tool Cards Hub */}
-        <div className="no-print" style={{ maxWidth: "900px", margin: "-24px auto 0", padding: "0 20px", position: "relative", zIndex: 2 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "12px", marginBottom: "20px" }}>
+        {/* Compact tool navigation */}
+        <div className="oh-tool-nav-wrap no-print">
+          <div className="oh-page-container oh-tool-nav" aria-label="OtoHesap araçları">
             {TOOLS.map(tool => {
               const Icon = tool.icon;
               const active = activeModule === tool.key;
               return (
-                <Link key={tool.key} href={`/otohesap/${tool.key}`}
-                  style={{
-                    padding: "18px 16px", borderRadius: "16px", cursor: "pointer", textAlign: "left", textDecoration: "none",
-                    background: active ? "var(--card-bg)" : "var(--card-bg)",
-                    border: `2px solid ${active ? tool.color : "var(--card-border)"}`,
-                    boxShadow: active ? `0 4px 20px ${tool.color}25` : "0 2px 8px rgba(0,0,0,0.04)",
-                    transition: "all 0.25s ease", display: "flex", alignItems: "flex-start", gap: "12px",
-                    transform: active ? "translateY(-2px)" : "none",
-                  }}
-                  onMouseEnter={e => { if(!active) { e.currentTarget.style.borderColor = tool.color; e.currentTarget.style.transform = "translateY(-2px)"; }}}
-                  onMouseLeave={e => { if(!active) { e.currentTarget.style.borderColor = "var(--card-border)"; e.currentTarget.style.transform = "none"; }}}
+                <Link
+                  key={tool.key}
+                  href={`/otohesap/${tool.key}`}
+                  className={`oh-tool-tab${active ? " active" : ""}`}
+                  style={{ "--tool-accent": tool.color } as React.CSSProperties}
+                  aria-current={active ? "page" : undefined}
                 >
-                  <div style={{ width: "40px", height: "40px", borderRadius: "12px", background: `${tool.color}15`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <Icon size={20} color={tool.color} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: "14px", fontWeight: "700", color: active ? tool.color : "var(--foreground)", marginBottom: "2px" }}>{tool.label}</div>
-                    <div style={{ fontSize: "11px", color: "var(--text-muted)", lineHeight: "1.4" }}>{tool.desc}</div>
-                  </div>
+                  <span className="oh-tool-tab-icon"><Icon size={16} strokeWidth={1.8} /></span>
+                  <span className="oh-tool-tab-title">{tool.label}</span>
                 </Link>
               );
             })}
           </div>
         </div>
 
-        {/* Global Action Bar */}
-        <div className="no-print" style={{ maxWidth: "720px", margin: "20px auto 0", display: "flex", justifyContent: "flex-end", gap: "10px", padding: "0 20px" }}>
-          <button onClick={() => window.print()} style={{ padding: "10px 16px", borderRadius: "10px", background: "var(--card-bg)", border: "1px solid var(--card-border)", color: "var(--foreground)", fontSize: "13px", fontWeight: "700", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", transition: "all 0.2s" }} onMouseOver={e => e.currentTarget.style.borderColor = "var(--text-muted)"} onMouseOut={e => e.currentTarget.style.borderColor = "var(--card-border)"}>
-            <Printer size={16} /> PDF / Yazdır
+        <div className="oh-page-container oh-module-actions no-print">
+          <button className="oh-action-button" onClick={() => window.print()}>
+            <Printer size={15} /> PDF / Yazdır
           </button>
-          <button onClick={() => {
-            const activeTool = TOOLS.find(t => t.key === activeModule);
-            const text = `OtoSöz'de ücretsiz "${activeTool?.label}" aracını kullanarak kendi hesaplamamı yaptım! Sen de hemen dene: https://otosoz.com/otohesap/${activeModule}`;
-            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
-          }} style={{ padding: "10px 16px", borderRadius: "10px", background: "#25D366", border: "none", color: "white", fontSize: "13px", fontWeight: "700", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", transition: "transform 0.2s" }} onMouseOver={e => e.currentTarget.style.transform = "scale(1.05)"} onMouseOut={e => e.currentTarget.style.transform = "scale(1)"}>
-            <MessageCircle size={16} /> WhatsApp'ta Paylaş
+          <button className="oh-action-button share" onClick={() => {
+            const text = `Otosöz'de ücretsiz "${activeTool.label}" aracını kullandım. Sen de dene: https://otosoz.com/otohesap/${activeModule}`;
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+          }}>
+            <MessageCircle size={15} /> Paylaş
           </button>
         </div>
 
         {/* Content */}
         {activeModule === 'yakit-hesaplama' && (
-        <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px", position: "relative", zIndex: 1 }}>
+        <div className="otohesap-calculator-surface">
 
           {/* ── Route ── */}
           <div style={{ ...card, marginBottom: "16px" }}>
@@ -677,105 +667,105 @@ export default function OtoHesapClient({ activeModule, pageTitle, pageDescriptio
 
         {/* Kredi Kartı Tab */}
         {activeModule === 'kredi-karti-hesaplama' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <KrediKartiAracSection />
           </div>
         )}
 
         {/* Bütçe Planla Tab */}
         {activeModule === 'butce-planlama' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <AracAlimHesapSection />
           </div>
         )}
 
         {/* Dijital Senet Tab */}
         {activeModule === 'dijital-senet-hesaplama' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <DijitalSenetHesapSection />
           </div>
         )}
 
         {/* MTV Hesaplama Tab */}
         {activeModule === 'mtv-hesaplama' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <MtvHesaplamaSection />
           </div>
         )}
 
         {/* Kasko Değer Tab */}
         {activeModule === 'kasko-deger-sorgulama' && (
-          <div style={{ maxWidth: "900px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface wide">
             <KaskoDegerSection />
           </div>
         )}
 
         {/* Elektrikli Araç Tab */}
         {activeModule === 'elektrikli-arac-sarj-maliyeti' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <EvMaliyetSection />
           </div>
         )}
 
         {/* Değer Kaybı Tab */}
         {activeModule === 'deger-kaybi' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <DegerKaybiSection />
           </div>
         )}
 
         {/* Taşıt Kredisi Tab */}
         {activeModule === 'tasit-kredisi' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <TasitKredisiSection />
           </div>
         )}
 
         {/* Araç Bakım Tab */}
         {activeModule === 'arac-bakim' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <AracBakimSection />
           </div>
         )}
 
         {/* Lastik Ebat Tab */}
         {activeModule === 'lastik-ebat' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <LastikEbatSection />
           </div>
         )}
 
         {/* ÖTV Muafiyet Tab */}
         {activeModule === 'otv-muafiyeti' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <OtvMuafiyetSection />
           </div>
         )}
 
         {/* Al-Sat Kâr Analizi Tab */}
         {activeModule === 'al-sat-analizi' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <AlSatKarMarjiSection />
           </div>
         )}
 
         {/* Yatırım Kıyaslama Tab */}
         {activeModule === 'yatirim-kiyaslama' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <YatirimKiyaslamaSection />
           </div>
         )}
 
         {/* Araç İthalat Vergisi Tab */}
         {activeModule === 'arac-ithalat-vergisi' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <AracIthalatSection />
           </div>
         )}
 
         {/* Araç vs Taksi Tab */}
         {activeModule === 'arac-vs-taksi' && (
-          <div style={{ maxWidth: "720px", margin: "20px auto 0", padding: "0 20px 60px" }}>
+          <div className="otohesap-calculator-surface">
             <AracVsTaksiSection />
           </div>
         )}
