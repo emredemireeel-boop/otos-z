@@ -544,7 +544,7 @@ export default function Navbar() {
                                             alignItems: 'center',
                                             justifyContent: 'space-between',
                                         }}>
-                                            <h3 style={{ color: 'var(--text-white)', fontWeight: '700', fontSize: '14px', margin: 0 }}>Bildirimler</h3>
+                                            <h3 style={{ color: 'var(--foreground)', fontWeight: '700', fontSize: '14px', margin: 0 }}>Bildirimler</h3>
                                             {unreadNotifications > 0 && (
                                                 <button
                                                     onClick={handleMarkAllRead}
@@ -619,7 +619,7 @@ export default function Navbar() {
                                                         <div style={{ flex: 1, minWidth: 0 }}>
                                                             <div style={{ display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: '8px' }}>
                                                                 <p style={{
-                                                                    color: 'white',
+                                                                    color: 'var(--foreground)',
                                                                     fontSize: '13px',
                                                                     fontWeight: '600',
                                                                     margin: 0,
