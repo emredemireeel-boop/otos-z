@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import "./cookie-consent.css";
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://otosoz.com'),
@@ -70,6 +71,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import GlobalEngagement from "@/components/GlobalEngagement";
 import GlobalAdRails from "@/components/GlobalAdRails";
+import CookieConsent from "@/components/CookieConsent";
 
 // ── JSON-LD Yapılandırılmış Veri (Structured Data) ──
 // Google'ın siteyi bir "Kuruluş" ve "Web Sitesi" olarak tanımasını sağlar.
@@ -152,7 +154,6 @@ export default function RootLayout({
                 {/* ── DNS Prefetch & Preconnect — Kritik 3. parti bağlantılar ── */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
                 <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
@@ -165,17 +166,21 @@ export default function RootLayout({
                 />
             </head>
             <body>
-                {/* Google Analytics */}
-                <Script
-                    src="https://www.googletagmanager.com/gtag/js?id=G-WBNEVXRYML"
-                    strategy="afterInteractive"
-                />
-                <Script id="google-analytics" strategy="afterInteractive">
+                {/* Google Consent Mode: ziyaretçi seçim yapana kadar isteğe bağlı depolama kapalıdır. */}
+                <Script id="google-consent-default" strategy="beforeInteractive">
                     {`
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'G-WBNEVXRYML');
+                        window.gtag = gtag;
+                        gtag('consent', 'default', {
+                            analytics_storage: 'denied',
+                            ad_storage: 'denied',
+                            ad_user_data: 'denied',
+                            ad_personalization: 'denied',
+                            functionality_storage: 'granted',
+                            security_storage: 'granted',
+                            wait_for_update: 500
+                        });
                     `}
                 </Script>
 
@@ -185,6 +190,7 @@ export default function RootLayout({
                         <GlobalAdRails />
                         <GlobalEngagement />
                     </AuthProvider>
+                    <CookieConsent />
                 </ThemeProvider>
             </body>
         </html>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Youtube, Instagram } from "lucide-react";
+import CookieSettingsTrigger from "@/components/CookieSettingsTrigger";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -66,7 +67,7 @@ export default function Footer() {
                             opacity: 0.9,
                             marginBottom: '16px',
                         }}>
-                            "Tek renk değil çok renk"
+                            &ldquo;Tek renk değil çok renk&rdquo;
                         </p>
                         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                             <a href="https://www.youtube.com/@otosoz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#FF0000'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
@@ -185,6 +186,19 @@ export default function Footer() {
                                 onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
                                 Gizlilik Politikası
                             </Link>
+                            <Link href="/cerez-politikasi" style={{
+                                color: 'var(--text-muted)',
+                                fontSize: '14px',
+                                transition: 'color 0.3s ease',
+                                textDecoration: 'none'
+                            }}
+                                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
+                                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
+                                Çerez Politikası
+                            </Link>
+                            <CookieSettingsTrigger className="footer-cookie-settings-trigger">
+                                Çerez Tercihleri
+                            </CookieSettingsTrigger>
                             <Link href="/iletisim" style={{
                                 color: 'var(--text-muted)',
                                 fontSize: '14px',
