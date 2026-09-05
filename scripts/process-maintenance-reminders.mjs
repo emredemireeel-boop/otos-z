@@ -126,7 +126,7 @@ async function processAgenda(app, db, snapshot, today, counters) {
             reminderKey: `${itemKey}:${item.dueDate}:${reminder.stage}`,
             dueDate: item.dueDate,
         });
-        if (created) { counters.created += 1; counters.pushSent += await sendReminderPush(app, db, userId, reminder, "/ajanda"); }
+        if (created) { counters.created += 1; if (!DRY_RUN) counters.pushSent += await sendReminderPush(app, db, userId, reminder, "/ajanda"); }
         else counters.duplicates += 1;
     }
 }
