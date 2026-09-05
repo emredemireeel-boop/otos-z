@@ -41,7 +41,7 @@ export default function Footer() {
                             }}>
                                 <Image
                                     src="/white_logo.svg"
-                                    alt="Otosöz Logo"
+                                    alt="OtoSöz Logo"
                                     fill
                                     sizes="40px"
                                     style={{ objectFit: 'contain', filter: 'var(--logo-filter)' }}
@@ -55,19 +55,19 @@ export default function Footer() {
                                 WebkitTextFillColor: 'transparent',
                                 textTransform: 'uppercase'
                             }}>
-                                Otosöz
+                                OtoSöz
                             </span>
                         </div>
                         <p style={{
                             color: 'var(--foreground)',
                             fontSize: '15px',
                             lineHeight: '1.6',
-                            fontWeight: '600',
-                            fontStyle: 'italic',
+                            fontWeight: '500',
+                            fontStyle: 'normal',
                             opacity: 0.9,
                             marginBottom: '16px',
                         }}>
-                            &ldquo;Tek renk değil çok renk&rdquo;
+                            &ldquo;Arabanla ilgili karar vermeden önce OtoSöz&apos;e sor.&rdquo;
                         </p>
                         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                             <a href="https://www.youtube.com/@otosoz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#FF0000'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
@@ -234,7 +234,7 @@ export default function Footer() {
                         color: 'var(--text-muted)',
                         fontSize: '13px',
                     }}>
-                        © {currentYear} Otosöz. Tüm hakları saklıdır.
+                        © {currentYear} OtoSöz. Tüm hakları saklıdır.
                     </p>
                 </div>
             </div>

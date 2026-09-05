@@ -1,7 +1,7 @@
 {
-  "name": "OtoSöz — Türkiye'nin #1 Otomotiv Bilgi Platformu",
+  "name": "OtoSöz — Otomotiv Karar Platformu",
   "short_name": "OtoSöz",
-  "description": "Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı ve 50.000+ otomotiv verisi.",
+  "description": "Araç seçimi, arıza çözümü ve otomobil karşılaştırması için gerçek sürücü deneyimini, uzman görüşünü ve veriyi bir araya getirir.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
@@ -10,7 +10,11 @@
   "scope": "/",
   "lang": "tr",
   "dir": "ltr",
-  "categories": ["automotive", "education", "utilities"],
+  "categories": [
+    "automotive",
+    "education",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "/dark_logo.svg",
@@ -27,32 +31,52 @@
   ],
   "shortcuts": [
     {
-      "name": "Kütüphane",
-      "short_name": "Kütüphane",
-      "description": "Otomotiv bilgi kütüphanesi",
-      "url": "/kutuphane",
-      "icons": [{ "src": "/dark_logo.svg", "sizes": "any" }]
+      "name": "Araç alacağım",
+      "short_name": "Araç DNA",
+      "description": "Kronik sorunları ve kullanıcı deneyimlerini incele",
+      "url": "/arac-dna",
+      "icons": [
+        {
+          "src": "/dark_logo.svg",
+          "sizes": "any"
+        }
+      ]
     },
     {
-      "name": "OBD Arıza Kodları",
-      "short_name": "OBD",
-      "description": "Araç arıza kodları rehberi",
-      "url": "/obd",
-      "icons": [{ "src": "/dark_logo.svg", "sizes": "any" }]
+      "name": "Aracım bozuldu",
+      "short_name": "Uzmana Sor",
+      "description": "Araç sorununu uzmanlara ve topluluğa sor",
+      "url": "/uzmana-sor",
+      "icons": [
+        {
+          "src": "/dark_logo.svg",
+          "sizes": "any"
+        }
+      ]
+    },
+    {
+      "name": "Araç karşılaştır",
+      "short_name": "Karşılaştır",
+      "description": "İki otomobili veri ve deneyimle karşılaştır",
+      "url": "/karsilastirma",
+      "icons": [
+        {
+          "src": "/dark_logo.svg",
+          "sizes": "any"
+        }
+      ]
     },
     {
       "name": "Forum",
       "short_name": "Forum",
-      "description": "Otomotiv topluluk forumu",
+      "description": "Gerçek sürücü deneyimlerini incele",
       "url": "/forum",
-      "icons": [{ "src": "/dark_logo.svg", "sizes": "any" }]
-    },
-    {
-      "name": "Araç DNA",
-      "short_name": "DNA",
-      "description": "Araç analiz ve karşılaştırma",
-      "url": "/arac-dna",
-      "icons": [{ "src": "/dark_logo.svg", "sizes": "any" }]
+      "icons": [
+        {
+          "src": "/dark_logo.svg",
+          "sizes": "any"
+        }
+      ]
     }
   ]
 }

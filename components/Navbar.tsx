@@ -237,7 +237,7 @@ export default function Navbar() {
                     <div style={{ position: 'relative', width: '32px', height: '32px' }}>
                         <Image
                             src={theme === 'light' ? "/whitemode_logo.svg" : "/dark_logo.svg"}
-                            alt="Otosöz"
+                            alt="OtoSöz"
                             fill
                             sizes="32px"
                             style={{ objectFit: 'contain' }}
@@ -251,7 +251,7 @@ export default function Navbar() {
                         color: 'var(--logo-text)',
                         whiteSpace: 'nowrap',
                     }}>
-                        Otosöz
+                        OtoSöz
                     </span>
                 </Link>
 

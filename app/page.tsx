@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { BookOpen, ArrowRight, MessageSquare, TrendingUp, BarChart3, Clock, Flame, ChevronRight, Plus, MapPin, Search, X, CalendarDays, Newspaper, Car, Dna, Wrench, AlertTriangle, ClipboardCheck, ShieldCheck, Lightbulb, Save, Loader2, Trash2 } from "lucide-react";
+import { BookOpen, ArrowRight, MessageSquare, TrendingUp, BarChart3, Clock, Flame, ChevronRight, Plus, MapPin, Search, X, CalendarDays, Newspaper, Car, Dna, Wrench, Scale, AlertTriangle, ClipboardCheck, ShieldCheck, Lightbulb, Save, Loader2, Trash2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
@@ -99,6 +99,33 @@ const DRIVER_ESSENTIALS = [
     { href: "/kutuphane?kategori=gosterge-isiklari", title: "Gösterge ışıkları", description: "Uyarının önemini öğren", icon: AlertTriangle },
     { href: "/kutuphane?kategori=ikinci-el-rehberi", title: "İkinci el kontrolü", description: "Almadan önce adım adım kontrol et", icon: ClipboardCheck },
     { href: "/kutuphane?kategori=kaza-ilkyardim", title: "Kaza ve ilk yardım", description: "Doğru sırayla ne yapacağını gör", icon: ShieldCheck },
+];
+
+const DECISION_PATHS = [
+    {
+        number: "01",
+        href: "/arac-dna",
+        label: "Araç alacağım",
+        description: "Kronik sorunları, kullanıcı deneyimlerini ve alınır mı analizini tek dosyada incele.",
+        action: "Araç DNA’yı incele",
+        icon: Car,
+    },
+    {
+        number: "02",
+        href: "/uzmana-sor",
+        label: "Aracım bozuldu",
+        description: "Belirtiyi anlat; uzman ve topluluk görüşüyle arızayı anlamaya ve doğru adıma ulaşmaya başla.",
+        action: "Uzmana sor",
+        icon: Wrench,
+    },
+    {
+        number: "03",
+        href: "/karsilastirma",
+        label: "İki araç arasında kaldım",
+        description: "Araçları yan yana karşılaştır; gerçek kullanıcı görüşünü ve topluluk oyunu birlikte değerlendir.",
+        action: "Karşılaştırmaya başla",
+        icon: Scale,
+    },
 ];
 
 const FEATURED_DNA_MODELS = vehicleDNAData.filter((vehicle) => [1, 2, 3, 4, 5, 6, 7, 8, 13].includes(vehicle.id));
@@ -832,9 +859,9 @@ export default function Home() {
                     <div className="forum-subheader-inner" style={{ margin: '0 auto' }}>
                         <div className="subheader-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 0 }}>
                             <div className="forum-page-heading">
-                                <span className="forum-page-eyebrow">Otosöz topluluğu</span>
-                                <h1>Forum</h1>
-                                <p>Gerçek sürücü deneyimleri, teknik çözümler ve güncel tartışmalar.</p>
+                                <span className="forum-page-eyebrow">OtoSöz karar topluluğu</span>
+                                <h2>Forum</h2>
+                                <p>Kararını gerçek sürücü deneyimleri ve teknik çözümlerle güçlendir.</p>
                             </div>
 
                             {/* Fuel Widget */}
@@ -934,6 +961,30 @@ export default function Home() {
                 </div>
 
                 <div className="forum-shell" style={{ maxWidth: '1400px', margin: '0 auto', padding: '20px 24px 32px' }}>
+                    <section className="decision-hub" aria-labelledby="decision-hub-title">
+                        <div className="decision-hub-intro">
+                            <div>
+                                <span className="decision-hub-kicker">OtoSöz karar merkezi</span>
+                                <h1 id="decision-hub-title">Arabanla ilgili karar vermeden önce OtoSöz’e sor.</h1>
+                            </div>
+                            <p>
+                                OtoSöz yalnızca bir forum değil; araç seçimini, arıza çözümünü ve karşılaştırmayı
+                                gerçek deneyim, uzman görüşü ve düzenli veriyle birleştiren otomotiv karar platformudur.
+                            </p>
+                        </div>
+                        <div className="decision-path-grid">
+                            {DECISION_PATHS.map(({ number, href, label, description, action, icon: DecisionIcon }) => (
+                                <Link key={href} href={href} className="decision-path-card">
+                                    <span className="decision-path-number">{number}</span>
+                                    <span className="decision-path-icon"><DecisionIcon size={21} /></span>
+                                    <h3>{label}</h3>
+                                    <p>{description}</p>
+                                    <span className="decision-path-action">{action} <ArrowRight size={15} /></span>
+                                </Link>
+                            ))}
+                        </div>
+                    </section>
+
                     <div className="forum-top-ad-grid" aria-label="Forum sponsorlu reklam alanları">
                         <ClosableAdSlot
                             position="forum_top_left"

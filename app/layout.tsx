@@ -6,14 +6,16 @@ import "./cookie-consent.css";
 export const metadata: Metadata = {
     metadataBase: new URL('https://otosoz.com'),
     title: {
-        default: "Otosöz - Türkiye'nin Otomobil Topluluğu",
+        default: "OtoSöz - Otomotiv Karar Platformu",
         // Alt sayfalar kendi marka eklerini yönetiyor. Burada tekrar eklemek
         // "... | Otosöz | Otosöz" biçiminde yinelenen başlıklar üretiyordu.
         template: '%s',
     },
-    description: "Otosöz; sürücü deneyimlerini Araç DNA analizleri, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları ve hesaplama araçlarıyla bir araya getiren otomobil topluluğudur.",
+    description: "OtoSöz; araç alırken, arıza araştırırken veya iki otomobili karşılaştırırken gerçek sürücü deneyimini, uzman görüşünü ve veriyi bir araya getiren otomotiv karar platformudur.",
     keywords: [
-        "otomobil", "araç arıza kodları", "OBD kodları", "gösterge ışıkları",
+        "otomotiv karar platformu", "araç satın alma", "araba alınır mı", "araç kullanıcı yorumları",
+        "otomobil arıza çözümü", "uzmana sor", "kronik sorunlar", "otomobil",
+        "araç arıza kodları", "OBD kodları", "gösterge ışıkları",
         "ikinci el araç", "araç karşılaştırma", "araç DNA", "trafik cezaları 2026",
         "yakıt hesaplama", "otomotiv forum", "araç bakım rehberi", "kasko değer listesi",
         "motor arıza", "lastik rehberi", "ehliyet sınıfları", "MTV hesaplama",
@@ -42,10 +44,10 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "Otosöz - Türkiye'nin Otomobil Topluluğu",
-        description: "Araç DNA analizleri, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları ve sürücü deneyimleri tek toplulukta.",
+        title: "OtoSöz - Otomotiv Karar Platformu",
+        description: "Araç seçimi, arıza çözümü ve otomobil karşılaştırması için gerçek deneyim, uzman görüşü ve veriler tek platformda.",
         url: 'https://otosoz.com',
-        siteName: 'Otosöz',
+        siteName: 'OtoSöz',
         locale: 'tr_TR',
         type: 'website',
         images: [
@@ -53,14 +55,14 @@ export const metadata: Metadata = {
                 url: '/api/og',
                 width: 1200,
                 height: 630,
-                alt: 'Otosöz — Türkiye\'nin Otomobil Topluluğu',
+                alt: 'OtoSöz — Otomotiv Karar Platformu',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: "Otosöz - Türkiye'nin Otomobil Topluluğu",
-        description: "Araç DNA, OBD kodları, otomotiv sözlüğü, gösterge ışıkları ve sürücü deneyimleri tek toplulukta.",
+        title: "OtoSöz - Otomotiv Karar Platformu",
+        description: "Araç seçimi, arıza çözümü ve otomobil karşılaştırması için doğru bilgi ve gerçek deneyim tek platformda.",
         images: ['/api/og'],
         creator: '@otosoz',
     },
@@ -82,7 +84,7 @@ const jsonLd = {
         {
             '@type': 'Organization',
             '@id': 'https://otosoz.com/#organization',
-            name: 'Otosöz',
+            name: 'OtoSöz',
             url: 'https://otosoz.com',
             logo: {
                 '@type': 'ImageObject',
@@ -90,7 +92,9 @@ const jsonLd = {
                 width: 512,
                 height: 512,
             },
-            description: 'Sürücü deneyimlerini Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü ve teknik rehberlerle buluşturan otomobil topluluğu.',
+            description: 'Araç seçimi, arıza çözümü ve otomobil karşılaştırması için sürücü deneyimini, uzman görüşünü ve veriyi bir araya getiren otomotiv karar platformu.',
+            slogan: 'Arabanla ilgili karar vermeden önce OtoSöz’e sor.',
+            knowsAbout: ['Araç satın alma', 'Otomobil arızaları', 'Araç karşılaştırma', 'Araç DNA analizi', 'OBD arıza kodları'],
             foundingDate: '2024-01-01',
             sameAs: [
                 'https://www.instagram.com/otosoz',
@@ -107,8 +111,8 @@ const jsonLd = {
             '@type': 'WebSite',
             '@id': 'https://otosoz.com/#website',
             url: 'https://otosoz.com',
-            name: 'Otosöz',
-            description: 'Türkiye\'nin otomobil topluluğu ve bilgi platformu',
+            name: 'OtoSöz',
+            description: 'Türkiye’nin araç seçimi, arıza çözümü ve otomobil karşılaştırmasına odaklanan otomotiv karar platformu',
             publisher: { '@id': 'https://otosoz.com/#organization' },
             inLanguage: 'tr-TR',
         },
@@ -131,7 +135,7 @@ export default function RootLayout({
                 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-                <meta name="apple-mobile-web-app-title" content="Otosöz" />
+                <meta name="apple-mobile-web-app-title" content="OtoSöz" />
 
                 {/* ── Geo & Language Sinyalleri ── */}
                 <meta name="geo.region" content="TR" />
@@ -140,9 +144,9 @@ export default function RootLayout({
                 {/* content-language artık html lang="tr" ile karşılanıyor */}
 
                 {/* ── Ek SEO Sinyalleri ── */}
-                <meta name="author" content="Otosöz" />
-                <meta name="publisher" content="Otosöz" />
-                <meta name="copyright" content="© 2024-2026 Otosöz. Tüm hakları saklıdır." />
+                <meta name="author" content="OtoSöz" />
+                <meta name="publisher" content="OtoSöz" />
+                <meta name="copyright" content="© 2024-2026 OtoSöz. Tüm hakları saklıdır." />
                 <meta name="rating" content="general" />
                 <meta name="distribution" content="global" />
                 <meta name="revisit-after" content="1 day" />

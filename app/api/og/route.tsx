@@ -6,8 +6,8 @@ export async function GET(request: Request) {
     try {
         const { searchParams } = new URL(request.url);
 
-        const title = (searchParams.get('title') || "OtoSöz - Türkiye'nin En Kapsamlı Otomobil Platformu").trim().slice(0, 140);
-        const description = (searchParams.get('desc') || "Araç arıza kodları, gösterge işaretleri, kütüphane ve teknik rehberler. Aradığınız her şey OtoSöz'de.").trim().slice(0, 320);
+        const title = (searchParams.get('title') || "OtoSöz - Otomotiv Karar Platformu").trim().slice(0, 140);
+        const description = (searchParams.get('desc') || "Araç alırken, arızayı araştırırken veya iki otomobil arasında kalırken karar vermeden önce OtoSöz'e sor.").trim().slice(0, 320);
 
         return new ImageResponse(
             (

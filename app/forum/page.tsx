@@ -68,10 +68,10 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
 
     const title = cat
         ? `${cat.name} Forum Konuları | OtoSöz Topluluk`
-        : "OtoSöz Forum - Türkiye'nin Otomobil Topluluğu";
+        : "OtoSöz Forum | Otomotiv Karar Topluluğu";
     const description = cat
         ? `${cat.name} kategorisindeki güncel forum konuları, tartışmalar ve sürücü deneyimleri. OtoSöz topluluğuna katıl.`
-        : "Araç sahipleri, ustalar ve otomobil tutkunları OtoSöz forumunda buluşuyor. Arıza deneyimleri, teknik tartışmalar, model incelemeleri ve daha fazlası.";
+        : "Araç satın alma, arıza çözümü ve karşılaştırma kararlarını gerçek sürücü deneyimleriyle güçlendiren OtoSöz forumunu keşfedin.";
     const canonicalUrl = cat ? `${BASE_URL}/forum?kategori=${cat.slug}` : `${BASE_URL}/forum`;
     const ogUrl = `/api/og?title=${encodeURIComponent(title.split("|")[0].trim())}&desc=${encodeURIComponent(description.slice(0, 100))}`;
 
@@ -104,7 +104,7 @@ function buildJsonLd(threads: HubThread[], catName: string | null): string {
         {
             "@type": "CollectionPage",
             name: "OtoSöz Forum",
-            description: "Türkiye'nin otomobil topluluğu — araç deneyimleri ve teknik tartışmalar.",
+            description: "OtoSöz otomotiv karar topluluğu — araç deneyimleri, teknik çözümler ve satın alma değerlendirmeleri.",
             url: pageUrl,
             isPartOf: { "@type": "WebSite", name: "OtoSöz", url: BASE_URL },
         },
