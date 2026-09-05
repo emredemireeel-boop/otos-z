@@ -1956,6 +1956,11 @@ select {
   line-height: 1.4;
 }
 
+.forum-subheader-inner {
+  width: calc(100% - 24px);
+  max-width: 1868px;
+}
+
 .forum-shell {
   width: 100%;
 }
@@ -3290,6 +3295,9 @@ select {
 }
 /* Global skyscraper ad rails */
 .global-ad-rails {
+  --global-ad-content-width: 1400px;
+  --global-ad-rail-gap: 14px;
+  --global-ad-rail-width: clamp(118px, calc((100vw - var(--global-ad-content-width)) / 2 - 26px), 220px);
   position: relative;
   z-index: 40;
 }
@@ -3298,17 +3306,16 @@ select {
   position: fixed;
   top: 70px;
   bottom: 14px;
-  width: min(180px, calc((100vw - 1420px) / 2 - 14px));
-  min-width: 118px;
+  width: var(--global-ad-rail-width);
   pointer-events: none;
 }
 
 .global-ad-rail-left {
-  left: 12px;
+  left: max(12px, calc(50vw - (var(--global-ad-content-width) / 2) - var(--global-ad-rail-width) - var(--global-ad-rail-gap)));
 }
 
 .global-ad-rail-right {
-  right: 12px;
+  right: max(12px, calc(50vw - (var(--global-ad-content-width) / 2) - var(--global-ad-rail-width) - var(--global-ad-rail-gap)));
 }
 
 .global-ad-rail-shell {
@@ -3497,10 +3504,6 @@ select {
 }
 
 @media (min-width: 2100px) {
-  .global-ad-rail {
-    width: 220px;
-  }
-
   .global-ad-rail-shell {
     height: min(660px, 100%);
   }

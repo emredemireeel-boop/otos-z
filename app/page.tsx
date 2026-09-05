@@ -829,7 +829,7 @@ export default function Home() {
                     borderBottom: '1px solid var(--card-border)',
                     padding: '16px 24px',
                 }}>
-                    <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+                    <div className="forum-subheader-inner" style={{ margin: '0 auto' }}>
                         <div className="subheader-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 0 }}>
                             <div className="forum-page-heading">
                                 <span className="forum-page-eyebrow">Otosöz topluluğu</span>
