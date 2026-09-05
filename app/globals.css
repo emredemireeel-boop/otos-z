@@ -1957,6 +1957,10 @@ select {
   line-height: 1.4;
 }
 
+.navbar-inner {
+  max-width: 1400px;
+}
+
 .forum-subheader-inner {
   width: calc(100% - 24px);
   max-width: 1868px;
@@ -2087,6 +2091,13 @@ select {
   font-weight: 700;
 }
 
+@media (min-width: 2300px) {
+  .navbar-inner,
+  .forum-subheader-inner {
+    max-width: 2368px;
+  }
+}
+
 @media (max-width: 900px) {
   .decision-hub-intro,
   .decision-path-grid {
@@ -2104,6 +2115,13 @@ select {
 
 .forum-shell {
   width: 100%;
+  max-width: 1400px;
+}
+
+@media (min-width: 2300px) {
+  .forum-shell {
+    max-width: 1900px;
+  }
 }
 
 .home-main-grid {
@@ -3636,6 +3654,12 @@ select {
 .ad-rail-dots span.active {
   width: 14px;
   background: #fff;
+}
+
+@media (min-width: 2300px) {
+  .global-ad-rails-forum {
+    --global-ad-content-width: 1900px;
+  }
 }
 
 @media (max-width: 1699px), (max-height: 639px) {

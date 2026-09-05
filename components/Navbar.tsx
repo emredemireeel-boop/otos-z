@@ -217,9 +217,9 @@ export default function Navbar() {
             borderBottom: '1px solid var(--card-border)',
             padding: '0 16px',
         }}>
-            <div style={{
+            <div className="navbar-inner" style={{
                 position: 'relative',
-                maxWidth: '1400px',
+                width: '100%',
                 margin: '0 auto',
                 display: 'flex',
                 alignItems: 'center',

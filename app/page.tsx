@@ -960,7 +960,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="forum-shell" style={{ maxWidth: '1400px', margin: '0 auto', padding: '20px 24px 32px' }}>
+                <div className="forum-shell" style={{ margin: '0 auto', padding: '20px 24px 32px' }}>
                     <section className="decision-hub" aria-labelledby="decision-hub-title">
                         <div className="decision-hub-intro">
                             <div>

@@ -61,10 +61,11 @@ export default function GlobalAdRails() {
     }, [hasRailSpace, pathname]);
 
     const isHiddenRoute = HIDDEN_ROUTE_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+    const isForumHome = pathname === "/";
     if (!hasRailSpace || isHiddenRoute) return null;
 
     return (
-        <div className="global-ad-rails" aria-label="Sponsorlu reklam alanları">
+        <div className={`global-ad-rails${isForumHome ? " global-ad-rails-forum" : ""}`} aria-label="Sponsorlu reklam alanları">
             <aside className="global-ad-rail global-ad-rail-left" aria-label="Sol reklam alanı" style={{ top: railTop }}>
                 <div className="global-ad-rail-shell">
                     <div className="global-ad-rail-title">Reklam</div>
