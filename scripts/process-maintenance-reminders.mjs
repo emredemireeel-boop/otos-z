@@ -1,4 +1,5 @@
 import { applicationDefault, getApps, initializeApp } from "firebase-admin/app";
+import { getMessaging } from "firebase-admin/messaging";
 import { FieldPath, FieldValue, getFirestore } from "firebase-admin/firestore";
 
 const TIMEZONE = "Europe/Istanbul";
@@ -87,7 +88,17 @@ async function createOnce(db, id, data) {
     }
 }
 
-async function processAgenda(db, snapshot, today, counters) {
+async function sendReminderPush(app, db, userId, reminder, link) {
+    const tokens = await db.collection("push_subscriptions").where("userId", "==", userId).limit(500).get();
+    const docs = tokens.docs.filter(doc => doc.data()?.preferences?.maintenance !== false && typeof doc.data()?.token === "string");
+    if (!docs.length) return 0;
+    const result = await getMessaging(app).sendEachForMulticast({ tokens:docs.map(doc => doc.data().token), notification:{ title:reminder.title, body:reminder.message }, data:{ link, tag:"maintenance" }, webpush:{ fcmOptions:{ link } } });
+    const invalid = new Set(["messaging/registration-token-not-registered", "messaging/invalid-registration-token"]);
+    await Promise.all(result.responses.map((response,index) => !response.success && invalid.has(response.error?.code) ? docs[index].ref.delete() : null));
+    return result.successCount;
+}
+
+async function processAgenda(app, db, snapshot, today, counters) {
     const agenda = snapshot.data();
     const userId = typeof agenda.userId === "string" ? agenda.userId : snapshot.id;
     if (!agenda.items || typeof agenda.items !== "object") return;
@@ -115,7 +126,7 @@ async function processAgenda(db, snapshot, today, counters) {
             reminderKey: `${itemKey}:${item.dueDate}:${reminder.stage}`,
             dueDate: item.dueDate,
         });
-        if (created) counters.created += 1;
+        if (created) { counters.created += 1; counters.pushSent += await sendReminderPush(app, db, userId, reminder, "/ajanda"); }
         else counters.duplicates += 1;
     }
 }
@@ -127,7 +138,7 @@ async function main() {
     });
     const db = getFirestore(app);
     const today = dateInTimezone();
-    const counters = { agendas: 0, eligible: 0, created: 0, duplicates: 0 };
+    const counters = { agendas: 0, eligible: 0, created: 0, duplicates: 0, pushSent: 0 };
     let lastDocument = null;
 
     do {
@@ -140,7 +151,7 @@ async function main() {
 
         for (const snapshot of page.docs) {
             counters.agendas += 1;
-            await processAgenda(db, snapshot, today, counters);
+            await processAgenda(app, db, snapshot, today, counters);
         }
         lastDocument = page.docs.at(-1);
         if (page.size < PAGE_SIZE) break;

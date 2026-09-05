@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { User, Settings, Bell, Car, MessageSquare, Heart, Award, Calendar, MapPin, Edit2, Camera, TrendingUp, Eye, ThumbsUp, X, Flag, Send, AlertTriangle, ShieldCheck, CheckCircle, ExternalLink, Sprout, Wrench, Crown, Sparkles } from "lucide-react";
+import { User, Settings, Bell, Car, MessageSquare, Heart, Award, Calendar, MapPin, Edit2, Camera, TrendingUp, Eye, ThumbsUp, X, Flag, Send, AlertTriangle, ShieldCheck, CheckCircle, ExternalLink, Sprout, Wrench, Crown, Sparkles, Share2 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter, useParams } from "next/navigation";
 import { getAllCities, getDistrictsForCity } from "@/data/locations";
@@ -587,9 +587,10 @@ export default function ProfilPage() {
                                     <h3 className="profile-section-title">Rozetler ({otherUserData.badges.length})</h3>
                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                                         {otherUserData.badges.map((badge, i) => (
-                                            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '6px 12px', borderRadius: '8px', background: 'var(--secondary)', border: '1px solid var(--card-border)', fontSize: '13px', fontWeight: '600', color: 'var(--foreground)' }}>
+                                            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '6px 8px 6px 12px', borderRadius: '8px', background: 'var(--secondary)', border: '1px solid var(--card-border)', fontSize: '13px', fontWeight: '600', color: 'var(--foreground)' }}>
                                                 <Award size={13} style={{ color: 'var(--text-muted)' }} />
                                                 {badge}
+                                                <a href={`/basarim/${params.userId}/${encodeURIComponent(badge)}`} aria-label={`${badge} başarım kartını aç`} title="Başarım kartını paylaş" style={{ display:'grid', placeItems:'center', width:'24px', height:'24px', marginLeft:'3px', borderRadius:'6px', color:'var(--primary)', background:'var(--card-bg)' }}><Share2 size={12}/></a>
                                             </span>
                                         ))}
                                     </div>

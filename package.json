@@ -9,7 +9,8 @@
     "lint": "eslint",
     "enrich-obd": "node scripts/enrich-obd-codes.js",
     "maintenance:reminders": "node scripts/process-maintenance-reminders.mjs",
-    "maintenance:reminders:dry": "node scripts/process-maintenance-reminders.mjs --dry-run"
+    "maintenance:reminders:dry": "node scripts/process-maintenance-reminders.mjs --dry-run",
+    "fuel:alerts": "node scripts/process-fuel-price-alerts.mjs"
   },
   "dependencies": {
     "@opentelemetry/api": "^1.9.1",

@@ -8,6 +8,7 @@ import Link from "next/link";
 import AutoLinkText from "@/components/AutoLinkText";
 import RelatedContent from "@/components/RelatedContent";
 import FloatingActionBar from "@/components/FloatingActionBar";
+import { buildMaintenanceSteps } from "@/lib/maintenanceHowTo";
 
 interface BakimRehberiDetailClientProps {
     bakimItem: any;
@@ -15,6 +16,7 @@ interface BakimRehberiDetailClientProps {
 
 export default function BakimRehberiDetailClient({ bakimItem }: BakimRehberiDetailClientProps) {
     const router = useRouter();
+    const maintenanceSteps = buildMaintenanceSteps(bakimItem.title, bakimItem.degisimPeriyodu);
 
     return (
         <div>
@@ -174,6 +176,20 @@ export default function BakimRehberiDetailClient({ bakimItem }: BakimRehberiDeta
                                 </div>
                             </div>
                             
+                            <section style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '32px' }} aria-labelledby="bakim-adimlari">
+                                <h2 id="bakim-adimlari" style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <Wrench size={20} color="var(--primary)" /> Bakım nasıl planlanır?
+                                </h2>
+                                <ol style={{ display: 'grid', gap: '14px', margin: 0, padding: 0, listStyle: 'none' }}>
+                                    {maintenanceSteps.map((step, index) => (
+                                        <li id={`adim-${index + 1}`} key={step.name} style={{ display: 'grid', gridTemplateColumns: '34px 1fr', gap: '12px', alignItems: 'start' }}>
+                                            <span style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'var(--primary)', color: 'white', display: 'grid', placeItems: 'center', fontWeight: 700 }}>{index + 1}</span>
+                                            <div><h3 style={{ fontSize: '15px', margin: '2px 0 6px', color: 'var(--foreground)' }}>{step.name}</h3><p style={{ margin: 0, color: 'var(--text-muted)', lineHeight: 1.65, fontSize: '14px' }}>{step.text}</p></div>
+                                        </li>
+                                    ))}
+                                </ol>
+                            </section>
+
                             {/* Tags */}
                             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                                 {bakimItem.tags.map((tag: string, idx: number) => (

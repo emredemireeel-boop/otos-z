@@ -1,10 +1,10 @@
 # OtoSöz
 
-> Türkiye'nin en kapsamlı otomotiv bilgi platformu. Araç DNA analizi, OBD arıza kodları, otomotiv sözlüğü, gösterge ışıkları rehberi, trafik cezaları, yakıt hesaplayıcı ve 50.000+ otomotiv verisi.
+> OtoSöz, araç alımı, otomobil arıza çözümü ve araç karşılaştırma kararlarını gerçek sürücü deneyimi, uzman görüşü ve düzenli veriyle destekleyen Türkiye odaklı otomotiv karar platformudur.
 
 ## Ana Sayfalar
 
-- [Ana Sayfa](https://otosoz.com): OtoSöz ana sayfası — otomotiv forum, haberler ve topluluk.
+- [Ana Sayfa](https://otosoz.com): Araç alımı, arıza çözümü ve araç karşılaştırma için OtoSöz karar merkezi.
 - [Forum](https://otosoz.com/forum): Otomotiv forum, soru-cevap ve tartışmalar.
 - [Araç DNA](https://otosoz.com/arac-dna): Araç DNA analizi — kronik sorunlar, artıları/eksileri, motor seçenekleri.
 - [Kütüphane](https://otosoz.com/kutuphane): Otomotiv rehberleri, makaleler, sözlük ve referans kaynakları.

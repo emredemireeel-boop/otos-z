@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import "./cookie-consent.css";
@@ -6,7 +6,7 @@ import "./cookie-consent.css";
 export const metadata: Metadata = {
     metadataBase: new URL('https://otosoz.com'),
     title: {
-        default: "OtoSöz - Otomotiv Karar Platformu",
+        default: "OtoSöz | Araç Alımı, Arıza Çözümü ve Karşılaştırma",
         // Alt sayfalar kendi marka eklerini yönetiyor. Burada tekrar eklemek
         // "... | Otosöz | Otosöz" biçiminde yinelenen başlıklar üretiyordu.
         template: '%s',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "OtoSöz - Otomotiv Karar Platformu",
+        title: "OtoSöz | Araç Alımı, Arıza Çözümü ve Karşılaştırma",
         description: "Araç seçimi, arıza çözümü ve otomobil karşılaştırması için gerçek deneyim, uzman görüşü ve veriler tek platformda.",
         url: 'https://otosoz.com',
         siteName: 'OtoSöz',
@@ -61,12 +61,22 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: "OtoSöz - Otomotiv Karar Platformu",
+        title: "OtoSöz | Araç Alımı, Arıza Çözümü ve Karşılaştırma",
         description: "Araç seçimi, arıza çözümü ve otomobil karşılaştırması için doğru bilgi ve gerçek deneyim tek platformda.",
         images: ['/api/og'],
         creator: '@otosoz',
     },
     category: 'automotive',
+};
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    themeColor: [
+        { media: '(prefers-color-scheme: dark)', color: '#000000' },
+        { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    ],
 };
 
 import { AuthProvider } from "@/context/AuthContext";
@@ -96,14 +106,25 @@ const jsonLd = {
             slogan: 'Arabanla ilgili karar vermeden önce OtoSöz’e sor.',
             knowsAbout: ['Araç satın alma', 'Otomobil arızaları', 'Araç karşılaştırma', 'Araç DNA analizi', 'OBD arıza kodları'],
             foundingDate: '2024-01-01',
+            email: 'iletisim@otosoz.com',
+            address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'İzmir',
+                addressCountry: 'TR',
+            },
+            areaServed: {
+                '@type': 'Country',
+                name: 'Türkiye',
+            },
             sameAs: [
-                'https://www.instagram.com/otosoz',
-                'https://twitter.com/otosoz',
+                'https://www.youtube.com/@otosoz',
+                'https://www.instagram.com/otosoz.tr',
             ],
             contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'customer support',
                 availableLanguage: 'Turkish',
+                email: 'iletisim@otosoz.com',
                 url: 'https://otosoz.com/iletisim',
             },
         },
@@ -127,19 +148,14 @@ export default function RootLayout({
     return (
         <html lang="tr" dir="ltr">
             <head>
-                {/* Mobile viewport */}
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-
-                {/* ── Tema ve PWA Renkleri ── */}
-                <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
-                <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+                {/* Viewport ve tema renkleri Next.js viewport metadata üzerinden üretilir. */}
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
                 <meta name="apple-mobile-web-app-title" content="OtoSöz" />
 
                 {/* ── Geo & Language Sinyalleri ── */}
                 <meta name="geo.region" content="TR" />
-                <meta name="geo.placename" content="Ankara" />
+                <meta name="geo.placename" content="İzmir" />
                 <meta name="language" content="Turkish" />
                 {/* content-language artık html lang="tr" ile karşılanıyor */}
 
@@ -151,17 +167,9 @@ export default function RootLayout({
                 <meta name="distribution" content="global" />
                 <meta name="revisit-after" content="1 day" />
 
-                {/* LCP optimizasyonu: Logoları en yüksek öncelikle önyükle */}
-                <link rel="preload" href="/dark_logo.svg" as="image" type="image/svg+xml" fetchPriority="high" />
-                <link rel="preload" href="/whitemode_logo.svg" as="image" type="image/svg+xml" fetchPriority="high" />
-
-                {/* ── DNS Prefetch & Preconnect — Kritik 3. parti bağlantılar ── */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
+                {/* Navbar görseli Next/Image tarafından yalnızca kullanılan tema için önyüklenir. */}
                 <link rel="alternate" type="application/rss+xml" title="OtoSöz Forum - Son Başlıklar" href="/forum/feed.xml" />
+                <link rel="alternate" type="text/plain" title="OtoSöz LLM içerik haritası" href="/llms.txt" />
 
                 {/* ── JSON-LD Yapılandırılmış Veri — Google Knowledge Graph & Rich Snippets ── */}
                 <script

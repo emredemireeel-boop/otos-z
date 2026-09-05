@@ -114,6 +114,13 @@ async function savePrivateProfile(uid: string, email: string) {
     }
 }
 
+async function claimLaunchCampaign(fbUser: FirebaseUser) {
+    try {
+        const token = await fbUser.getIdToken();
+        await fetch('/api/campaign/claim', { method:'POST', headers:{ Authorization: `Bearer ${token}` }, cache:'no-store' });
+    } catch (error) { console.warn('Lansman kampanyası eşitlenemedi:', error); }
+}
+
 async function syncServerSession(idToken?: string) {
     const response = await fetch('/api/auth/session', {
         method: idToken ? 'POST' : 'DELETE',
@@ -163,6 +170,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 // Sunucu tokenı doğrular ve HttpOnly oturum çerezlerini üretir.
                 try {
                     await syncServerSession(await fbUser.getIdToken());
+                    void claimLaunchCampaign(fbUser);
                 } catch (e) {
                     console.warn('Sunucu oturumu eşitlenemedi:', e);
                 }
@@ -226,6 +234,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                     profileComplete: false,
                 });
                 await savePrivateProfile(fbUser.uid, fbUser.email || "");
+                await claimLaunchCampaign(fbUser);
             }
 
             if (isNewUser) {
@@ -368,6 +377,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 profileComplete: true,
             });
             await savePrivateProfile(fbUser.uid, email);
+            await claimLaunchCampaign(fbUser);
 
             setIsLoading(false);
             return true;

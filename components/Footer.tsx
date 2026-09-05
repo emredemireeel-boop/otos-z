@@ -2,240 +2,76 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Youtube, Instagram } from "lucide-react";
+import { Youtube, Instagram, MapPin, Mail } from "lucide-react";
 import CookieSettingsTrigger from "@/components/CookieSettingsTrigger";
+
+const forumLinks = [
+    { href: "/", label: "Gündemdeki başlıklar" },
+    { href: "/forum", label: "Tüm forum başlıkları" },
+    { href: "/anket", label: "Topluluk anketleri" },
+    { href: "/uzmana-sor", label: "Uzmana sor" },
+];
+
+const guideLinks = [
+    { href: "/arac-dna", label: "Araç DNA analizleri" },
+    { href: "/obd", label: "OBD arıza kodları" },
+    { href: "/karsilastirma", label: "Araç karşılaştırma" },
+    { href: "/otohesap", label: "OtoHesap araçları" },
+];
+
+const corporateLinks = [
+    { href: "/hakkimizda", label: "Hakkımızda" },
+    { href: "/iletisim", label: "İletişim" },
+    { href: "/kullanim-sartlari", label: "Kullanım şartları" },
+    { href: "/gizlilik-politikasi", label: "Gizlilik politikası" },
+    { href: "/cerez-politikasi", label: "Çerez politikası" },
+];
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer style={{
-            background: 'var(--secondary)',
-            borderTop: '1px solid var(--card-border)',
-            padding: '60px 24px 30px',
-            marginTop: '80px',
-        }}>
-            <div style={{
-                maxWidth: '1400px',
-                margin: '0 auto',
-            }}>
-                {/* Main Footer Content */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                    gap: '40px',
-                    marginBottom: '40px',
-                }}>
-                    {/* Logo & Description */}
-                    <div>
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '12px',
-                            marginBottom: '16px',
-                        }}>
-                            <div style={{
-                                position: 'relative',
-                                width: '40px',
-                                height: '40px',
-                            }}>
-                                <Image
-                                    src="/white_logo.svg"
-                                    alt="OtoSöz Logo"
-                                    fill
-                                    sizes="40px"
-                                    style={{ objectFit: 'contain', filter: 'var(--logo-filter)' }}
-                                />
-                            </div>
-                            <span style={{
-                                fontSize: '20px',
-                                fontWeight: '800',
-                                background: 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                textTransform: 'uppercase'
-                            }}>
-                                OtoSöz
+        <footer className="site-footer">
+            <div className="site-footer-inner">
+                <div className="site-footer-grid">
+                    <section className="site-footer-brand" aria-labelledby="site-footer-brand-title">
+                        <div className="site-footer-logo-row">
+                            <span className="site-footer-logo">
+                                <Image src="/white_logo.svg" alt="OtoSöz" fill sizes="40px" className="site-footer-logo-image" />
                             </span>
+                            <span id="site-footer-brand-title" className="site-footer-name">OtoSöz</span>
                         </div>
-                        <p style={{
-                            color: 'var(--foreground)',
-                            fontSize: '15px',
-                            lineHeight: '1.6',
-                            fontWeight: '500',
-                            fontStyle: 'normal',
-                            opacity: 0.9,
-                            marginBottom: '16px',
-                        }}>
-                            &ldquo;Arabanla ilgili karar vermeden önce OtoSöz&apos;e sor.&rdquo;
-                        </p>
-                        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                            <a href="https://www.youtube.com/@otosoz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#FF0000'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                                <Youtube size={24} />
-                            </a>
-                            <a href="https://instagram.com/otosoz.tr" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#E1306C'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                                <Instagram size={24} />
-                            </a>
+                        <p>Arabanla ilgili karar vermeden önce OtoSöz&apos;e sor.</p>
+                        <address className="site-footer-contact">
+                            <a href="mailto:iletisim@otosoz.com"><Mail size={15} /> iletisim@otosoz.com</a>
+                            <span><MapPin size={15} /> İzmir, Türkiye</span>
+                        </address>
+                        <div className="site-footer-socials" aria-label="OtoSöz sosyal medya hesapları">
+                            <a href="https://www.youtube.com/@otosoz" target="_blank" rel="noopener noreferrer" aria-label="OtoSöz YouTube"><Youtube size={22} /></a>
+                            <a href="https://www.instagram.com/otosoz.tr" target="_blank" rel="noopener noreferrer" aria-label="OtoSöz Instagram"><Instagram size={22} /></a>
                         </div>
-                    </div>
+                    </section>
 
-                    {/* Links - Forum */}
-                    <div>
-                        <h2 style={{
-                            color: 'var(--foreground)',
-                            fontSize: '14px',
-                            fontWeight: '600',
-                            marginBottom: '16px',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                        }}>
-                            Forum
-                        </h2>
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '12px',
-                        }}>
-                            {['Öne Çıkanlar', 'Yeni Konular', 'Yazarlar', 'İstatistikler'].map((item) => (
-                                <Link key={item} href="/" style={{ // Assuming links go to home/forum for now
-                                    color: 'var(--text-muted)',
-                                    fontSize: '14px',
-                                    transition: 'color 0.3s ease',
-                                    textDecoration: 'none'
-                                }}
-                                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                                    {item}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
+                    <nav className="site-footer-nav" aria-labelledby="site-footer-forum-title">
+                        <h2 id="site-footer-forum-title">Topluluk</h2>
+                        {forumLinks.map(link => <Link key={link.href + link.label} href={link.href}>{link.label}</Link>)}
+                    </nav>
 
-                    {/* Links - Rehberler */}
-                    <div>
-                        <h2 style={{
-                            color: 'var(--foreground)',
-                            fontSize: '14px',
-                            fontWeight: '600',
-                            marginBottom: '16px',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                        }}>
-                            Rehberler
-                        </h2>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                            <Link href="/otohesap" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
-                                OtoHesap Araçları
-                            </Link>
-                            <Link href="/kutuphane?kategori=ikinci-el-rehberi" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
-                                İkinci El Araç Rehberi
-                            </Link>
-                            <Link href="/obd" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
-                                OBD Arıza Kodları
-                            </Link>
-                            <Link href="/kutuphane?kategori=trafik-cezalari" style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none' }}>
-                                Trafik Cezaları
-                            </Link>
-                        </div>
-                    </div>
+                    <nav className="site-footer-nav" aria-labelledby="site-footer-guides-title">
+                        <h2 id="site-footer-guides-title">Karar araçları</h2>
+                        {guideLinks.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+                    </nav>
 
-                    {/* Links - Kurumsal */}
-                    <div>
-                        <h2 style={{
-                            color: 'var(--foreground)',
-                            fontSize: '14px',
-                            fontWeight: '600',
-                            marginBottom: '16px',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                        }}>
-                            Kurumsal
-                        </h2>
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '12px',
-                        }}>
-                            <Link href="/hakkimizda" style={{
-                                color: 'var(--text-muted)',
-                                fontSize: '14px',
-                                transition: 'color 0.3s ease',
-                                textDecoration: 'none'
-                            }}
-                                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                                Hakkımızda
-                            </Link>
-                            <Link href="/kullanim-sartlari" style={{
-                                color: 'var(--text-muted)',
-                                fontSize: '14px',
-                                transition: 'color 0.3s ease',
-                                textDecoration: 'none'
-                            }}
-                                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                                Kullanım Şartları
-                            </Link>
-                            <Link href="/gizlilik-politikasi" style={{
-                                color: 'var(--text-muted)',
-                                fontSize: '14px',
-                                transition: 'color 0.3s ease',
-                                textDecoration: 'none'
-                            }}
-                                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                                Gizlilik Politikası
-                            </Link>
-                            <Link href="/cerez-politikasi" style={{
-                                color: 'var(--text-muted)',
-                                fontSize: '14px',
-                                transition: 'color 0.3s ease',
-                                textDecoration: 'none'
-                            }}
-                                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                                Çerez Politikası
-                            </Link>
-                            <CookieSettingsTrigger className="footer-cookie-settings-trigger">
-                                Çerez Tercihleri
-                            </CookieSettingsTrigger>
-                            <Link href="/iletisim" style={{
-                                color: 'var(--text-muted)',
-                                fontSize: '14px',
-                                transition: 'color 0.3s ease',
-                                textDecoration: 'none'
-                            }}
-                                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
-                                İletişim
-                            </Link>
-                        </div>
-                    </div>
-
-
+                    <nav className="site-footer-nav" aria-labelledby="site-footer-corporate-title">
+                        <h2 id="site-footer-corporate-title">Kurumsal</h2>
+                        {corporateLinks.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+                        <CookieSettingsTrigger className="footer-cookie-settings-trigger">Çerez tercihleri</CookieSettingsTrigger>
+                    </nav>
                 </div>
 
-                {/* Divider */}
-                <div style={{
-                    height: '1px',
-                    background: 'var(--card-border)',
-                    marginBottom: '24px',
-                }} />
-
-                {/* Bottom Footer */}
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    flexWrap: 'wrap',
-                    gap: '16px',
-                }}>
-                    <p style={{
-                        color: 'var(--text-muted)',
-                        fontSize: '13px',
-                    }}>
-                        © {currentYear} OtoSöz. Tüm hakları saklıdır.
-                    </p>
+                <div className="site-footer-bottom">
+                    <p>© {currentYear} OtoSöz. Tüm hakları saklıdır.</p>
+                    <span>Türkiye&apos;nin otomotiv karar platformu</span>
                 </div>
             </div>
         </footer>

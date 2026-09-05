@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import BakimRehberiDetailClient from "./BakimRehberiDetailClient";
 import path from "path";
 import fs from "fs";
+import { buildMaintenanceSteps } from "@/lib/maintenanceHowTo";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -58,6 +59,7 @@ export default async function BakimRehberiPage({ params }: PageProps) {
         notFound();
     }
 
+    const maintenanceSteps = buildMaintenanceSteps(bakimItem.title, bakimItem.degisimPeriyodu);
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -69,6 +71,20 @@ export default async function BakimRehberiPage({ params }: PageProps) {
             "name": "OtoSöz",
             "url": "https://otosoz.com"
         }
+    };
+
+    const howToSchema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": `${bakimItem.title} kontrolü ve değişim planı`,
+        "description": bakimItem.description,
+        "step": maintenanceSteps.map((step, index) => ({
+            "@type": "HowToStep",
+            "position": index + 1,
+            "name": step.name,
+            "text": step.text,
+            "url": `https://otosoz.com/bakim-rehberi/${slug}#adim-${index + 1}`,
+        })),
     };
 
     const breadcrumbSchema = {
@@ -100,7 +116,7 @@ export default async function BakimRehberiPage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, howToSchema, breadcrumbSchema]) }}
             />
             <BakimRehberiDetailClient bakimItem={bakimItem} />
         </>

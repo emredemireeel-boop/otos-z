@@ -71,6 +71,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE_URL}/piyasalar`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
         { url: `${BASE_URL}/guvenmetre`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
         { url: `${BASE_URL}/altin-anahtar`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+        { url: `${BASE_URL}/bilgi-yarismasi`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
         { url: `${BASE_URL}/anket`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
         { url: `${BASE_URL}/otohesap`, lastModified: new Date(OTOHESAP_LAST_REVIEWED), changeFrequency: 'weekly', priority: 0.9 },
         { url: `${BASE_URL}/etkinlikler`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },

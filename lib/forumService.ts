@@ -398,6 +398,11 @@ export async function addEntry(threadId: string, data: {
                 ? `/forum/${createSlug(td.title)}--${td.urlId}`
                 : `/forum/${threadId}`;
             pingGoogle(threadPath).catch(() => {});
+            if (td.authorId && td.authorId !== data.authorId) {
+                const { auth } = await import("./firebase");
+                const token = await auth.currentUser?.getIdToken();
+                if (token) fetch("/api/notifications/reply", { method:"POST", headers:{ "Content-Type":"application/json", Authorization:`Bearer ${token}` }, body:JSON.stringify({ threadId, entryId:entryRef.id }) }).catch(() => {});
+            }
         }
     } catch {}
 

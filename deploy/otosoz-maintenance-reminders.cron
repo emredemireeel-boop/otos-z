@@ -4,3 +4,6 @@ CRON_TZ=Europe/Istanbul
 
 # Bakım ajandasını 08:00-22:00 arasında saatlik denetler. Bildirim kimlikleri tekrarsızdır.
 5 8-22 * * * root cd /var/www/otos-z && GOOGLE_APPLICATION_CREDENTIALS=/etc/otosoz/firebase-admin.json NEXT_PUBLIC_FIREBASE_PROJECT_ID=otosoz /usr/bin/flock -n /tmp/otosoz-maintenance-reminders.lock /usr/local/bin/node scripts/process-maintenance-reminders.mjs >> /var/log/otosoz-maintenance-reminders.log 2>&1
+
+# Abone olunan şehirlerde yakıt fiyatını 6 saatte bir denetler; yalnız gerçek değişimde bildirim yollar.
+20 */6 * * * root cd /var/www/otos-z && GOOGLE_APPLICATION_CREDENTIALS=/etc/otosoz/firebase-admin.json NEXT_PUBLIC_FIREBASE_PROJECT_ID=otosoz /usr/bin/flock -n /tmp/otosoz-fuel-alerts.lock /usr/local/bin/node scripts/process-fuel-price-alerts.mjs >> /var/log/otosoz-fuel-alerts.log 2>&1

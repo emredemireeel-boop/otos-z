@@ -201,10 +201,10 @@ export default function Navbar() {
         { name: 'Kütüphane', href: '/kutuphane' },
         { name: 'Haberler', href: '/haberler' },
         { name: 'OtoHesap', href: '/otohesap' },
-        { name: 'Otobütçe', href: '/otobutce' },
+        { name: 'Altın Anahtar', href: '/altin-anahtar' },
+        { name: 'Bilgi Yarışması', href: '/bilgi-yarismasi' },
         { name: 'Etkinlikler', href: '/etkinlikler' },
         { name: 'Güvenmetre', href: '/guvenmetre' },
-        { name: 'Piyasalar', href: '/piyasalar' },
     ];
 
     return (

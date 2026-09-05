@@ -66,6 +66,14 @@ const SEED_BADGES = [
     { name: "Trend Yapıcı", emoji: "📈", description: "Siteye gündem olan içerik üretmiş", color: "#EF4444", type: "manuel" },
     { name: "Editör Seçimi", emoji: "🌟", description: "Yönetici tarafından öne çıkarılmış içerik", color: "#F59E0B", type: "manuel" },
     { name: "Garaj Doğrulandı", emoji: "🛡️", description: "Güvenmetre ile araç sahipliği doğrulanmış", color: "#14B8A6", type: "manuel" },
+    { name: "İlk Forum Yazısı", emoji: "✍️", description: "İlk forum entry'sini yayımladı", color: "#2563EB", type: "otomatik" },
+    { name: "100 Beğeni", emoji: "💯", description: "Entry'leri toplam 100 beğeni aldı", color: "#DC2626", type: "otomatik" },
+    { name: "50 Cevap", emoji: "💬", description: "Topluluğa 50 entry ile katkı verdi", color: "#7C3AED", type: "otomatik" },
+    { name: "1 Yıllık Üye", emoji: "🎂", description: "OtoSöz'de bir yılını tamamladı", color: "#B45309", type: "otomatik" },
+    { name: "İlk 1000 Üye", emoji: "🏁", description: "OtoSöz'ün ilk 1000 üyesinden biri", color: "#111827", type: "kampanya" },
+    { name: "OtoSöz Elçisi", emoji: "📣", description: "Lansman kampanyasını paylaştı", color: "#0369A1", type: "kampanya" },
+    { name: "İlk Quiz", emoji: "🧠", description: "İlk otomotiv bilgi yarışmasını tamamladı", color: "#0891B2", type: "otomatik" },
+    { name: "Motor Bilgesi", emoji: "🏆", description: "Bilgi yarışmasında 10/10 yaptı", color: "#CA8A04", type: "otomatik" },
 ];
 
 type Tab = "kullanicilar" | "rozetler" | "seviyeler";

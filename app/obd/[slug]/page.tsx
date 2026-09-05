@@ -165,6 +165,12 @@ export default async function OBDSlugPage({ params }: PageProps) {
 
     const canonicalUrl = `${BASE_URL}/obd/${codeData.code.toLowerCase()}`;
     const typeLabel = getTypeLabel(codeData.type);
+    const faqItems = [
+        { question: `${codeData.code} arıza kodu nedir?`, answer: codeData.description || codeData.title },
+        ...(codeData.symptoms.length ? [{ question: `${codeData.code} arıza kodunun belirtileri nelerdir?`, answer: codeData.symptoms.slice(0, 5).join("; ") }] : []),
+        ...(codeData.causes.length ? [{ question: `${codeData.code} arıza kodu neden oluşur?`, answer: codeData.causes.slice(0, 5).join("; ") }] : []),
+        ...(codeData.fixes.length ? [{ question: `${codeData.code} arıza kodu nasıl giderilir?`, answer: `Kontrol sırası: ${codeData.fixes.slice(0, 5).join("; ")}` }] : []),
+    ];
     const structuredData = {
         "@context": "https://schema.org",
         "@graph": [
@@ -191,6 +197,15 @@ export default async function OBDSlugPage({ params }: PageProps) {
                     "description": codeData.title,
                     "inDefinedTermSet": `${BASE_URL}/obd`,
                 },
+            },
+            {
+                "@type": "FAQPage",
+                "@id": `${canonicalUrl}#faq`,
+                "mainEntity": faqItems.map(item => ({
+                    "@type": "Question",
+                    "name": item.question,
+                    "acceptedAnswer": { "@type": "Answer", "text": item.answer },
+                })),
             },
             {
                 "@type": "BreadcrumbList",

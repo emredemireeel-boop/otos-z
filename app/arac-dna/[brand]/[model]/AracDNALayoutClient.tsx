@@ -7,7 +7,8 @@ import Footer from "@/components/Footer";
 import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData } from "@/data/engine-dna";
 import { trimLevelsData } from "@/data/trim-levels";
-import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle, Package } from "lucide-react";
+import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle, Package, HelpCircle } from "lucide-react";
+import { buildVehicleFaq } from "@/lib/vehicleFaq";
 
 const suffixes = {
     'artilar': '-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri',
@@ -104,7 +105,9 @@ export default function AracDNALayoutClient({
         if (pathname.includes(`/arac-dna/${brandSlug}/${modelSlug}/kullanici-deneyimleri`)) currentTab = "deneyimler";
     }
 
-    const specificEngine = baseEngineSlug ? engineDNAData.find(e => e.vehicleId === vehicle.id)?.engines.find(e => e.slug === baseEngineSlug) : null;
+    const vehicleEngines = engineDNAData.find(e => e.vehicleId === vehicle.id)?.engines || [];
+    const specificEngine = baseEngineSlug ? vehicleEngines.find(e => e.slug === baseEngineSlug) : null;
+    const faqItems = buildVehicleFaq(vehicle, vehicleEngines);
 
     // Determine the active score and title
     const activeScore = specificEngine ? specificEngine.score : vehicle.dnaScore;
@@ -278,6 +281,24 @@ export default function AracDNALayoutClient({
                     <div>
                         {children}
                     </div>
+
+                    <section className="dna-seo-faq" aria-labelledby="dna-faq-title">
+                        <div className="dna-seo-faq-heading">
+                            <HelpCircle size={20} aria-hidden="true" />
+                            <div>
+                                <span>Araç kararı</span>
+                                <h2 id="dna-faq-title">${vehicle.brand} ${vehicle.model} hakkında sık sorulanlar</h2>
+                            </div>
+                        </div>
+                        <div className="dna-seo-faq-grid">
+                            {faqItems.map(item => (
+                                <details key={item.question}>
+                                    <summary>{item.question}</summary>
+                                    <p>{item.answer}</p>
+                                </details>
+                            ))}
+                        </div>
+                    </section>
 
                 </div>
             </main>

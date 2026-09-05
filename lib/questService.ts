@@ -4,6 +4,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./firebase";
 import { createNotification } from "./notificationService";
+import { awardXP } from "./xpService";
 
 /**
  * Usta Ol! Gorev Sistemi
@@ -194,11 +195,13 @@ export async function markQuestComplete(
     // Gorevi tamamladiginda kullaniciya bildirim + XP
     const quest = QUEST_DEFINITIONS.find(q => q.key === questKey);
     if (quest) {
+        const reward = await awardXP(userId, "DAILY_CONTENT", quest.xp);
+        const rewardedXP = reward?.xpGained || quest.xp;
         await createNotification({
             userId,
             type: "info",
             title: "Görev Tamamlandı",
-            message: `"${quest.title}" görevini tamamladın (+${quest.xp} XP). Usta olmaya bir adım daha yaklaştın!`,
+            message: `"${quest.title}" görevini tamamladın (+${rewardedXP} XP). Usta olmaya bir adım daha yaklaştın!`,
         });
     }
 

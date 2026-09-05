@@ -7,7 +7,7 @@ import { db } from "./firebase";
 export interface Notification {
     id: string;
     userId: string;
-    type: "promotion" | "warning" | "info" | "system";
+    type: "promotion" | "warning" | "info" | "system" | "achievement" | "reply" | "maintenance";
     title: string;
     message: string;
     read: boolean;
@@ -22,12 +22,16 @@ export async function createNotification(data: {
     type: Notification["type"];
     title: string;
     message: string;
+    link?: string;
+    source?: string;
 }) {
     await addDoc(collection(db, "notifications"), {
         userId: data.userId,
         type: data.type,
         title: data.title,
         message: data.message,
+        ...(data.link ? { link: data.link } : {}),
+        ...(data.source ? { source: data.source } : {}),
         read: false,
         createdAt: serverTimestamp(),
     });

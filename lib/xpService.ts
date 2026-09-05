@@ -1,4 +1,5 @@
 import { db } from "@/lib/firebase";
+import { getXpMultiplier } from "@/lib/campaign";
 import { doc, getDoc, updateDoc, increment, collection, query, orderBy, limit, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
 
 export const XP_ACTIONS = {
@@ -91,7 +92,8 @@ export async function awardXP(userId: string, action: keyof typeof XP_ACTIONS, c
         
         const userData = userSnap.data();
         const currentXP = userData.xp || 0;
-        const xpGained = customAmount || XP_ACTIONS[action];
+        const baseXP = customAmount ?? XP_ACTIONS[action];
+        const xpGained = baseXP * getXpMultiplier();
         const newXP = currentXP + xpGained;
         
         const oldLevel = getLevelForXP(currentXP);
@@ -100,6 +102,8 @@ export async function awardXP(userId: string, action: keyof typeof XP_ACTIONS, c
         
         await updateDoc(userRef, {
             xp: increment(xpGained),
+            weeklyXP: increment(xpGained),
+            monthlyXP: increment(xpGained),
             level: newLevel.name
         });
         

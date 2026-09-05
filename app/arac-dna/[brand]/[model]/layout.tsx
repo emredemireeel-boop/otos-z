@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { createPageMetadata } from "@/lib/seo";
 import { createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
+import { engineDNAData } from "@/data/engine-dna";
 import { findVehicleByRoute } from "@/lib/aracDnaSeo";
+import { buildVehicleFaq } from "@/lib/vehicleFaq";
 import AracDNALayoutClient from "./AracDNALayoutClient";
 
 interface LayoutProps {
@@ -23,6 +25,12 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     }
 
     const canonicalPath = `/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}`;
+    const engines = engineDNAData.find(item => item.vehicleId === vehicle.id)?.engines || [];
+    const engineKeywords = engines.flatMap(engine => [
+        `${vehicle.brand} ${vehicle.model} ${engine.name} yakıt tüketimi`,
+        `${vehicle.brand} ${vehicle.model} ${engine.transmission} şanzıman arızası`,
+        `${vehicle.brand} ${vehicle.model} ${engine.name} alınır mı`,
+    ]);
     const metadata = createPageMetadata({
         title: `${vehicle.brand} ${vehicle.model} Araç DNA Analizi`,
         description: `${vehicle.brand} ${vehicle.model} için motor seçenekleri, DNA puanı, kronik sorunlar, kullanıcı deneyimleri ve donanım paketlerini inceleyin.`,
@@ -31,6 +39,9 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
             `${vehicle.brand} ${vehicle.model} kronik sorunlar`,
             `${vehicle.brand} ${vehicle.model} yorumları`,
             `${vehicle.brand} ${vehicle.model} motor seçenekleri`,
+            `${vehicle.brand} ${vehicle.model} yakıt tüketimi`,
+            `${vehicle.brand} ${vehicle.model} alınır mı`,
+            ...engineKeywords,
         ],
     });
 
@@ -51,5 +62,24 @@ export default async function AracDNALayout({ children, params }: LayoutProps) {
         permanentRedirect(`/arac-dna/${canonicalBrand}/${canonicalModel}`);
     }
 
-    return <AracDNALayoutClient>{children}</AracDNALayoutClient>;
+    const engines = engineDNAData.find(item => item.vehicleId === vehicle.id)?.engines || [];
+    const faqItems = buildVehicleFaq(vehicle, engines);
+    const canonicalUrl = `https://otosoz.com/arac-dna/${canonicalBrand}/${canonicalModel}`;
+    const faqSchema = isVehicleEditoriallyReviewed(vehicle) ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${canonicalUrl}#faq`,
+        "mainEntity": faqItems.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": { "@type": "Answer", "text": item.answer },
+        })),
+    } : null;
+
+    return (
+        <>
+            {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+            <AracDNALayoutClient>{children}</AracDNALayoutClient>
+        </>
+    );
 }
