@@ -58,7 +58,7 @@ export default function HaberDetailClient({ slug, initialPost }: { slug: string;
                     <div style={{ textAlign: 'center' }}>
                         <h1 style={{ fontSize: '48px', marginBottom: '16px', color: 'var(--foreground)' }}>404</h1>
                         <p style={{ fontSize: '18px', color: 'var(--text-muted)', marginBottom: '24px' }}>Makale bulunamadı.</p>
-                        <Link href="/haberler"><button style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Haberler'e Dön</button></Link>
+                        <Link href="/haberler"><button style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Haberler&apos;e Dön</button></Link>
                     </div>
                 </main>
                 <Footer />
@@ -67,6 +67,9 @@ export default function HaberDetailClient({ slug, initialPost }: { slug: string;
     }
 
     const canonicalUrl = `https://otosoz.com/haberler/${slug}`;
+    const structuredImage = String(post.image || '').startsWith('http')
+        ? post.image
+        : `https://otosoz.com${post.image}`;
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "NewsArticle",
@@ -75,7 +78,8 @@ export default function HaberDetailClient({ slug, initialPost }: { slug: string;
         "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
         "headline": post.title,
         "description": post.description,
-        "image": [post.image],
+        "image": [structuredImage],
+        ...(post.sourceUrl ? { "citation": [post.sourceUrl] } : {}),
         "author": {
             "@type": "Person",
             "name": post.author || "OtoSöz Editör"
@@ -119,7 +123,7 @@ export default function HaberDetailClient({ slug, initialPost }: { slug: string;
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--background) 0%, rgba(15,23,42,0.4) 100%)' }} />
                     <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 10, padding: '0 24px 40px', width: '100%' }}>
                         <Link href="/haberler" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '14px', fontWeight: '600', marginBottom: '20px' }}>
-                            <ArrowLeft size={16} /> Haberler'e Dön
+                            <ArrowLeft size={16} /> Haberler&apos;e Dön
                         </Link>
                         <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
                             {post.tags.map((tag: string) => (

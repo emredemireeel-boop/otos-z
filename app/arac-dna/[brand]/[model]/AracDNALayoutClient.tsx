@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData } from "@/data/engine-dna";
 import { trimLevelsData } from "@/data/trim-levels";
-import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle, Package, Zap } from "lucide-react";
+import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle, Package } from "lucide-react";
 
 const suffixes = {
     'artilar': '-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri',
@@ -95,6 +95,15 @@ export default function AracDNALayoutClient({
         }
     }
 
+    // Static model routes do not have an engine param. Keep the matching tab
+    // active so navigation remains consistent between engine and model pages.
+    if (!engineParam) {
+        if (pathname.includes(`/arac-dna/${brandSlug}/${modelSlug}/neden-alinir`)) currentTab = "artilar";
+        if (pathname.includes(`/arac-dna/${brandSlug}/${modelSlug}/kronik-sorunlar`)) currentTab = "kronik";
+        if (pathname.includes(`/arac-dna/${brandSlug}/${modelSlug}/arac-paketleri`)) currentTab = "donanim";
+        if (pathname.includes(`/arac-dna/${brandSlug}/${modelSlug}/kullanici-deneyimleri`)) currentTab = "deneyimler";
+    }
+
     const specificEngine = baseEngineSlug ? engineDNAData.find(e => e.vehicleId === vehicle.id)?.engines.find(e => e.slug === baseEngineSlug) : null;
 
     // Determine the active score and title
@@ -108,8 +117,24 @@ export default function AracDNALayoutClient({
 
     const modelPath = `/arac-dna/${brandSlug}/${modelSlug}`;
     const hasTrimLevels = trimLevelsData.some(item => item.vehicleId === vehicle.id);
+    const modelTabs = [
+        { id: "genel-bakis", name: "Motor Seçenekleri", path: modelPath, icon: <FileText size={16} /> },
+        ...((vehicle.strengths.length || vehicle.weaknesses.length)
+            ? [{ id: "artilar", name: "Artıları & Eksileri", path: `${modelPath}/neden-alinir`, icon: <ThumbsUp size={16} /> }]
+            : []),
+        ...(vehicle.chronicIssues.length > 0
+            ? [{ id: "kronik", name: "Kronik Sorunlar", path: `${modelPath}/kronik-sorunlar`, icon: <Wrench size={16} /> }]
+            : []),
+        ...(hasTrimLevels
+            ? [{ id: "donanim", name: "Araç Paketleri", path: `${modelPath}/arac-paketleri`, icon: <Package size={16} /> }]
+            : []),
+        ...(vehicle.userExperiences.length > 0
+            ? [{ id: "deneyimler", name: "Kullanıcı Deneyimleri", path: `${modelPath}/kullanici-deneyimleri`, icon: <MessageCircle size={16} /> }]
+            : []),
+    ];
+
     const tabs = specificEngine ? [
-        { id: "genel-bakis", name: "Genel Bakış", path: `${basePath}`, icon: <FileText size={16} /> },
+        { id: "genel-bakis", name: "Genel Bakış", path: basePath, icon: <FileText size={16} /> },
         ...((specificEngine.pros?.length || specificEngine.cons?.length)
             ? [{ id: "artilar", name: "Artıları & Eksileri", path: `${basePath}-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri`, icon: <ThumbsUp size={16} /> }]
             : (vehicle.strengths.length || vehicle.weaknesses.length)
@@ -126,7 +151,7 @@ export default function AracDNALayoutClient({
         ...(vehicle.userExperiences.length > 0
             ? [{ id: "deneyimler", name: "Kullanıcı Deneyimleri", path: `${modelPath}/kullanici-deneyimleri`, icon: <MessageCircle size={16} /> }]
             : []),
-    ] : [];
+    ] : modelTabs;
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -206,21 +231,38 @@ export default function AracDNALayoutClient({
                             </div>
                         </div>
 
-                        {/* Tab Navigation (Only show if specific engine is selected) */}
-                        {tabs.length > 0 && (
-                            <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px', borderTop: '1px solid var(--card-border)', paddingTop: '24px' }} className="hide-scrollbar">
+                    </div>
+
+                    {/* Persistent model/engine navigation */}
+                    {tabs.length > 0 && (
+                        <div
+                            className="dna-tabs-sticky"
+                            style={{
+                                position: 'sticky',
+                                top: '62px',
+                                zIndex: 900,
+                                marginBottom: '24px',
+                                padding: '10px',
+                                background: 'var(--card-bg)',
+                                border: '1px solid var(--card-border)',
+                                borderRadius: '14px',
+                                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)'
+                            }}
+                            aria-label="Araç DNA bölümleri"
+                        >
+                            <div style={{ display: 'flex', gap: '8px', overflowX: 'auto' }} className="hide-scrollbar">
                                 {tabs.map((tab) => {
                                     const isActive = currentTab === tab.id;
                                     return (
                                         <Link key={tab.path} href={tab.path} style={{ textDecoration: 'none' }}>
                                             <div style={{
                                                 display: 'flex', alignItems: 'center', gap: '8px',
-                                                padding: '12px 20px', borderRadius: '12px',
+                                                padding: '11px 18px', borderRadius: '10px',
                                                 background: isActive ? 'var(--primary)' : 'var(--secondary)',
                                                 color: isActive ? 'white' : 'var(--foreground)',
                                                 fontWeight: isActive ? '600' : '500',
-                                                fontSize: '15px', whiteSpace: 'nowrap',
-                                                transition: 'all 0.2s', border: `1px solid ${isActive ? 'var(--primary)' : 'transparent'}`
+                                                fontSize: '14px', whiteSpace: 'nowrap',
+                                                transition: 'all 0.2s', border: `1px solid ${isActive ? 'var(--primary)' : 'var(--card-border)'}`
                                             }}>
                                                 {tab.icon}
                                                 {tab.name}
@@ -229,8 +271,8 @@ export default function AracDNALayoutClient({
                                     );
                                 })}
                             </div>
-                        )}
-                    </div>
+                        </div>
+                    )}
 
                     {/* Page Content */}
                     <div>
