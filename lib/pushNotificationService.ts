@@ -2,7 +2,7 @@ import type { User as FirebaseUser } from "firebase/auth";
 import { getMessaging, getToken, isSupported } from "firebase/messaging";
 import { app } from "@/lib/firebase";
 
-export interface PushPreferences { maintenance:boolean; replies:boolean; fuel:boolean; }
+export interface PushPreferences { maintenance:boolean; replies:boolean; messages:boolean; fuel:boolean; }
 
 function workerUrl() {
     const params = new URLSearchParams({
@@ -28,5 +28,19 @@ export async function subscribeToPush(user: FirebaseUser, preferences: PushPrefe
     const idToken = await user.getIdToken();
     const response = await fetch("/api/push/subscribe", { method:"POST", headers:{ "Content-Type":"application/json", Authorization:`Bearer ${idToken}` }, body:JSON.stringify({ token, preferences }) });
     if (!response.ok) throw new Error("Bildirim tercihi kaydedilemedi.");
+    localStorage.setItem("otosoz_push_token", token);
     return token;
+}
+
+export async function unsubscribeFromPush(user: FirebaseUser) {
+    const token = localStorage.getItem("otosoz_push_token");
+    if (!token) return;
+    const idToken = await user.getIdToken();
+    const response = await fetch("/api/push/subscribe", {
+        method:"DELETE",
+        keepalive:true,
+        headers:{ "Content-Type":"application/json", Authorization:`Bearer ${idToken}` },
+        body:JSON.stringify({ token }),
+    });
+    if (response.ok) localStorage.removeItem("otosoz_push_token");
 }

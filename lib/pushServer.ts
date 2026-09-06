@@ -2,7 +2,7 @@ import { getApps } from "firebase-admin/app";
 import { getMessaging } from "firebase-admin/messaging";
 import { getAdminDb } from "@/lib/firebaseAdmin";
 
-export type PushPreference = "maintenance" | "replies" | "fuel";
+export type PushPreference = "maintenance" | "replies" | "messages" | "fuel";
 export async function sendPushToUser(userId:string, payload:{ title:string; body:string; link:string; tag?:string }, preference:PushPreference) {
     try {
         const db = getAdminDb();

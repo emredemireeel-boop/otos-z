@@ -15,6 +15,7 @@ import { doc, setDoc, getDoc, collection, query, where, getDocs } from "firebase
 import { auth, db, googleProvider } from "@/lib/firebase";
 import { validateUsername } from "@/lib/usernameValidation";
 import { validatePassword } from "@/lib/validation";
+import { unsubscribeFromPush } from "@/lib/pushNotificationService";
 
 export type UserRole = "caylak" | "usta" | "admin" | "moderator";
 
@@ -391,13 +392,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     /* ── Logout ── */
     const logout = () => {
-        signOut(auth);
-        setUser(null);
-        setFirebaseUser(null);
-        setNeedsProfileCompletion(false);
-        localStorage.removeItem("Otosoz_user");
-        void syncServerSession().catch(() => {});
-        router.push("/");
+        const finalize = () => {
+            void signOut(auth);
+            setUser(null);
+            setFirebaseUser(null);
+            setNeedsProfileCompletion(false);
+            localStorage.removeItem("Otosoz_user");
+            void syncServerSession().catch(() => {});
+            router.push("/");
+        };
+        if (firebaseUser) {
+            void unsubscribeFromPush(firebaseUser)
+                .catch((error) => console.warn("Push aboneliği kapatılamadı:", error))
+                .finally(finalize);
+            return;
+        }
+        finalize();
     };
 
     /* ── Update Role ── */

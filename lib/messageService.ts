@@ -1,9 +1,9 @@
 import {
-    collection, addDoc, getDocs, query, where, orderBy,
-    doc, updateDoc, serverTimestamp, onSnapshot, Timestamp,
-    setDoc, getDoc
+    collection, getDocs, query, where, orderBy,
+    doc, updateDoc, onSnapshot, Timestamp,
+    arrayUnion, arrayRemove,
 } from "firebase/firestore";
-import { db } from "./firebase";
+import { auth, db } from "./firebase";
 
 export interface ChatMessage {
     id: string;
@@ -22,106 +22,67 @@ export interface Conversation {
     lastMessageAt: Timestamp | null;
     lastSenderId: string;
     createdAt: Timestamp | null;
+    blockedBy?: string[];
 }
 
-/** Iki kullanici arasindaki conversation ID'sini olustur (deterministik) */
-function getConversationId(uid1: string, uid2: string): string {
-    return [uid1, uid2].sort().join("_");
+async function messageApi(body: Record<string, unknown>) {
+    const currentUser = auth.currentUser;
+    if (!currentUser) throw new Error("Mesajlar için giriş yapmalısınız.");
+    const token = await currentUser.getIdToken();
+    const response = await fetch("/api/mobile/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+        body: JSON.stringify(body),
+    });
+    const result = await response.json().catch(() => ({})) as { message?: string; conversationId?: string };
+    if (!response.ok) throw new Error(result.message || "Mesaj işlemi tamamlanamadı.");
+    return result;
 }
 
-/** Yeni konusma baslat veya mevcut olanin ID'sini dondur */
-export async function startConversation(
-    myId: string, myUsername: string,
-    otherId: string, otherUsername: string
-): Promise<string> {
-    const convId = getConversationId(myId, otherId);
-    const convRef = doc(db, "conversations", convId);
-    const snap = await getDoc(convRef);
-
-    if (!snap.exists()) {
-        await setDoc(convRef, {
-            participants: [myId, otherId],
-            participantUsernames: { [myId]: myUsername, [otherId]: otherUsername },
-            lastMessage: "",
-            lastMessageAt: serverTimestamp(),
-            lastSenderId: "",
-            createdAt: serverTimestamp(),
-        });
-    }
-    return convId;
+export async function startConversation(myId: string, myUsername: string, otherId: string, otherUsername: string): Promise<string> {
+    if (auth.currentUser?.uid !== myId) throw new Error("Oturum doğrulanamadı.");
+    void myUsername;
+    void otherUsername;
+    const result = await messageApi({ action: "start", otherUserId: otherId });
+    if (!result.conversationId) throw new Error("Konuşma başlatılamadı.");
+    return result.conversationId;
 }
 
-/** Kullanicinin tum konusmalarini dinle (realtime) */
-export function subscribeToConversations(
-    userId: string,
-    callback: (conversations: Conversation[]) => void
-) {
-    const q = query(
-        collection(db, "conversations"),
-        where("participants", "array-contains", userId),
-        orderBy("lastMessageAt", "desc")
-    );
+export function subscribeToConversations(userId: string, callback: (conversations: Conversation[]) => void) {
+    const q = query(collection(db, "conversations"), where("participants", "array-contains", userId), orderBy("lastMessageAt", "desc"));
     return onSnapshot(q, (snap) => {
-        const items = snap.docs.map(d => ({
-            id: d.id,
-            ...d.data(),
-        })) as Conversation[];
-        callback(items);
+        callback(snap.docs.map((item) => ({ id: item.id, ...item.data() })) as Conversation[]);
     }, (err) => {
-        console.warn("Konusma dinleme hatasi:", err);
+        console.warn("Konuşma dinleme hatası:", err);
         callback([]);
     });
 }
 
-/** Bir konusmanin mesajlarini dinle (realtime) */
-export function subscribeToMessages(
-    conversationId: string,
-    callback: (messages: ChatMessage[]) => void
-) {
-    const q = query(
-        collection(db, "conversations", conversationId, "messages"),
-        orderBy("createdAt", "asc")
-    );
+export function subscribeToMessages(conversationId: string, callback: (messages: ChatMessage[]) => void) {
+    const q = query(collection(db, "conversations", conversationId, "messages"), orderBy("createdAt", "asc"));
     return onSnapshot(q, (snap) => {
-        const items = snap.docs.map(d => ({
-            id: d.id,
-            ...d.data(),
-        })) as ChatMessage[];
-        callback(items);
+        callback(snap.docs.map((item) => ({ id: item.id, ...item.data() })) as ChatMessage[]);
     }, (err) => {
-        console.warn("Mesaj dinleme hatasi:", err);
+        console.warn("Mesaj dinleme hatası:", err);
         callback([]);
     });
 }
 
-/** Mesaj gonder */
-export async function sendMessage(
-    conversationId: string,
-    senderId: string,
-    senderUsername: string,
-    content: string
-) {
-    // Mesaji subcollection'a ekle
-    await addDoc(collection(db, "conversations", conversationId, "messages"), {
-        senderId,
-        senderUsername,
-        content,
-        read: false,
-        createdAt: serverTimestamp(),
-    });
-
-    // Konusma metadata'sini guncelle
+export async function setConversationBlocked(conversationId: string, userId: string, blocked: boolean) {
     await updateDoc(doc(db, "conversations", conversationId), {
-        lastMessage: content,
-        lastMessageAt: serverTimestamp(),
-        lastSenderId: senderId,
+        blockedBy: blocked ? arrayUnion(userId) : arrayRemove(userId),
     });
 }
 
-/** Kullanici ara (username ile) */
+export async function sendMessage(conversationId: string, senderId: string, senderUsername: string, content: string) {
+    if (auth.currentUser?.uid !== senderId) throw new Error("Oturum doğrulanamadı.");
+    void senderUsername;
+    await messageApi({ action: "send", conversationId, content });
+}
+
 export async function searchUsers(searchTerm: string, currentUserId: string) {
     const snap = await getDocs(collection(db, "users"));
     return snap.docs
-        .map(d => ({ id: d.id, username: d.data().username || "", displayName: d.data().displayName || "" }))
-        .filter(u => u.id !== currentUserId && u.username.toLowerCase().includes(searchTerm.toLowerCase()));
+        .map((item) => ({ id: item.id, username: item.data().username || "", displayName: item.data().displayName || "" }))
+        .filter((item) => item.id !== currentUserId && item.username.toLowerCase().includes(searchTerm.toLowerCase()));
 }

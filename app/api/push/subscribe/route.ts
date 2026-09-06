@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { requireAuth } from "@/lib/authGuard";
 import { getAdminDb, FieldValue } from "@/lib/firebaseAdmin";
 
-function preferences(value:any) { return { maintenance:value?.maintenance !== false, replies:value?.replies !== false, fuel:value?.fuel !== false }; }
+function preferences(value:any) { return { maintenance:value?.maintenance !== false, replies:value?.replies !== false, messages:value?.messages !== false, fuel:value?.fuel !== false }; }
 export async function POST(request:Request) {
     const auth = await requireAuth(request); if (auth instanceof NextResponse) return auth;
     const body = await request.json().catch(() => ({}));
