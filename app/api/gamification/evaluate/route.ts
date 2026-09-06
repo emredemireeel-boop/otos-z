@@ -9,12 +9,13 @@ export async function POST(request: Request) {
     const userRef = db.collection("users").doc(auth.uid!);
     const [userSnap, entriesSnap] = await Promise.all([
         userRef.get(),
-        db.collectionGroup("entries").where("authorId", "==", auth.uid).limit(500).get(),
+        db.collectionGroup("entries").limit(2000).get(),
     ]);
     if (!userSnap.exists) return NextResponse.json({ success:false }, { status:404 });
     const data = userSnap.data() || {};
-    const likes = entriesSnap.docs.reduce((sum, entry) => sum + Number(entry.data().likes || 0), 0);
-    const entryCount = entriesSnap.size;
+    const userEntries = entriesSnap.docs.filter(entry => entry.data().authorId === auth.uid);
+    const likes = userEntries.reduce((sum, entry) => sum + Number(entry.data().likes || 0), 0);
+    const entryCount = userEntries.length;
     const createdAt = data.createdAt?.toDate?.() || (data.createdAt ? new Date(data.createdAt) : null);
     const earned = [];
     if (entryCount >= 1) earned.push("İlk Forum Yazısı");

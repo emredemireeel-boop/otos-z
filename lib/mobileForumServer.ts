@@ -162,15 +162,16 @@ async function evaluateBadges(uid: string) {
     const db = getAdminDb();
     const [profile, entries] = await Promise.all([
         db.collection("users").doc(uid).get(),
-        db.collectionGroup("entries").where("authorId", "==", uid).limit(500).get(),
+        db.collectionGroup("entries").limit(2000).get(),
     ]);
     if (!profile.exists) return;
     const data = profile.data() || {};
-    const likes = entries.docs.reduce((total, entry) => total + Number(entry.data().likes || 0), 0);
+    const userEntries = entries.docs.filter(entry => entry.data().authorId === uid);
+    const likes = userEntries.reduce((total, entry) => total + Number(entry.data().likes || 0), 0);
     const earned: string[] = [];
-    if (entries.size >= 1) earned.push("İlk Forum Yazısı");
+    if (userEntries.length >= 1) earned.push("İlk Forum Yazısı");
     if (likes >= 100) earned.push("100 Beğeni");
-    if (entries.size >= 50) earned.push("50 Cevap");
+    if (userEntries.length >= 50) earned.push("50 Cevap");
     const createdAt = data.createdAt?.toDate?.() as Date | undefined;
     if (createdAt && Date.now() - createdAt.getTime() >= 365 * 86_400_000) earned.push("1 Yıllık Üye");
     const existing = Array.isArray(data.badges) ? data.badges : [];

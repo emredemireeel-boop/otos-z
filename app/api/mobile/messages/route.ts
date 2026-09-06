@@ -7,7 +7,7 @@ import { sendPushToUser } from "@/lib/pushServer";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-type MessageAction = "start" | "send";
+type MessageAction = "start" | "send" | "block";
 
 function cleanText(value: unknown, maximum: number) {
     if (typeof value !== "string") return "";
@@ -122,6 +122,26 @@ async function sendMessage(uid: string, body: Record<string, unknown>) {
     return { conversationId, messageId: messageRef.id };
 }
 
+async function setBlocked(uid: string, body: Record<string, unknown>) {
+    const conversationId = cleanText(body.conversationId, 300);
+    const blocked = body.blocked === true;
+    if (!validDocumentId(conversationId)) throw new Error("Geçersiz konuşma.");
+    const db = getAdminDb();
+    const conversationRef = db.collection("conversations").doc(conversationId);
+    const blockedBy = await db.runTransaction(async (transaction) => {
+        const conversation = await transaction.get(conversationRef);
+        if (!conversation.exists) throw new Error("Konuşma bulunamadı.");
+        const data = conversation.data() || {};
+        const participants = Array.isArray(data.participants) ? data.participants.filter((item): item is string => typeof item === "string") : [];
+        if (participants.length !== 2 || !participants.includes(uid)) throw new Error("Bu konuşmaya erişemezsin.");
+        const current = Array.isArray(data.blockedBy) ? data.blockedBy.filter((item): item is string => typeof item === "string" && participants.includes(item)) : [];
+        const next = blocked ? [...new Set([...current, uid])] : current.filter(item => item !== uid);
+        transaction.update(conversationRef, { blockedBy: next });
+        return next;
+    });
+    return { conversationId, blocked, blockedBy };
+}
+
 export async function POST(request: Request) {
     const auth = await requireAuth(request);
     if (auth instanceof NextResponse) return auth;
@@ -129,7 +149,7 @@ export async function POST(request: Request) {
     if (contentLength > 16_384) return NextResponse.json({ success: false, message: "İstek çok büyük." }, { status: 413 });
     const body = await request.json().catch(() => ({})) as Record<string, unknown>;
     const action = body.action as MessageAction;
-    if (action !== "start" && action !== "send") return NextResponse.json({ success: false, message: "Geçersiz işlem." }, { status: 400 });
+    if (action !== "start" && action !== "send" && action !== "block") return NextResponse.json({ success: false, message: "Geçersiz işlem." }, { status: 400 });
 
     const rate = checkRateLimit(`mobile-message:${action}:${auth.uid}:${getClientIP(request)}`, action === "send" ? RATE_LIMITS.createContent : RATE_LIMITS.general);
     if (!rate.allowed) {
@@ -140,7 +160,11 @@ export async function POST(request: Request) {
     }
 
     try {
-        const result = action === "start" ? await startConversation(auth.uid!, body) : await sendMessage(auth.uid!, body);
+        const result = action === "start"
+            ? await startConversation(auth.uid!, body)
+            : action === "send"
+                ? await sendMessage(auth.uid!, body)
+                : await setBlocked(auth.uid!, body);
         return NextResponse.json({ success: true, ...result });
     } catch (error) {
         console.error("Mobile messages API error:", error);

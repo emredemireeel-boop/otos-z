@@ -1,7 +1,6 @@
 import {
     collection, getDocs, query, where, orderBy,
-    doc, updateDoc, onSnapshot, Timestamp,
-    arrayUnion, arrayRemove,
+    onSnapshot, Timestamp,
 } from "firebase/firestore";
 import { auth, db } from "./firebase";
 
@@ -69,9 +68,8 @@ export function subscribeToMessages(conversationId: string, callback: (messages:
 }
 
 export async function setConversationBlocked(conversationId: string, userId: string, blocked: boolean) {
-    await updateDoc(doc(db, "conversations", conversationId), {
-        blockedBy: blocked ? arrayUnion(userId) : arrayRemove(userId),
-    });
+    if (auth.currentUser?.uid !== userId) throw new Error("Oturum doğrulanamadı.");
+    await messageApi({ action: "block", conversationId, blocked });
 }
 
 export async function sendMessage(conversationId: string, senderId: string, senderUsername: string, content: string) {
