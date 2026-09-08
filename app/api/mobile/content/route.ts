@@ -77,7 +77,10 @@ export async function GET(request: NextRequest) {
               ncapStars: vehicle.ncapStars,
               ncapYear: vehicle.ncapYear,
             }))
-            .filter((vehicle) => mobileVehiclePaths.has(vehicle.slug)),
+            .filter((vehicle) => mobileVehiclePaths.has(vehicle.slug))
+            .filter((vehicle, index, vehicles) =>
+              vehicles.findIndex((candidate) => candidate.slug === vehicle.slug) === index,
+            ),
         };
       default:
         return {};
