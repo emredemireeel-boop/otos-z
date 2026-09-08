@@ -4,8 +4,8 @@ import { curatedSurveys } from "@/data/curated-surveys";
 import { events, eventCategories } from "@/data/events";
 import { categories as trustCategories } from "@/data/guvenmetre";
 import { turkeyBrandMarkets, turkeyModelMarkets } from "@/data/markets";
-import mastersData from "@/public/data/altin_anahtar.json";
 import newsData from "@/public/data/news_posts.json";
+import { getAltinAnahtarMasters } from "@/lib/altinAnahtar";
 
 export const revalidate = 900;
 
@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const payload = (() => {
+  const payload = await (async () => {
     switch (moduleName) {
       case "news":
         return { items: newsData.posts };
@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
       case "trust":
         return { items: trustCategories };
       case "masters":
-        return { items: mastersData.masters };
+        return { items: await getAltinAnahtarMasters() };
       case "markets":
         return {
           brands: turkeyBrandMarkets,

@@ -6,7 +6,7 @@ import {
     LayoutDashboard, Users, MessageSquareWarning, Settings, LogOut,
     ShoppingCart, Banknote, Tags, ShieldCheck, Activity,
     AlertCircle, Megaphone, Flag, Award,
-    Filter, Radio, UserCog, BookOpen, CheckSquare
+    Filter, Radio, UserCog, BookOpen, CheckSquare, KeyRound
 } from "lucide-react";
 import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
@@ -42,6 +42,7 @@ const navItems = [
             { name: "Finans ve Premium", href: "/admin/finans", icon: Banknote, badge: null },
             { name: "Icerik ve Trendler", href: "/admin/icerik", icon: Tags, badge: null },
             { name: "Reklam Yonetimi", href: "/admin/reklamlar", icon: Megaphone, badge: null },
+            { name: "Altın Anahtar", href: "/admin/altin-anahtar", icon: KeyRound, badge: null },
             { name: "Rozet ve Seviyeler", href: "/admin/rozetler", icon: Award, badge: null },
             { name: "Kelime Filtresi", href: "/admin/kelime-filtresi", icon: Filter, badge: null },
             { name: "Toplu Yayin", href: "/admin/yayin", icon: Radio, badge: null },

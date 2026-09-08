@@ -4,6 +4,13 @@ import { Timestamp } from 'firebase-admin/firestore';
 import { requireAdmin, type AuthResult } from '@/lib/authGuard';
 import { checkRateLimit, RATE_LIMITS, getClientIP } from '@/lib/rateLimit';
 import { isValidDocId } from '@/lib/validation';
+import {
+    deleteAltinAnahtarMaster,
+    extractCoordinatesFromMapValue,
+    getAltinAnahtarMasters,
+    isAllowedMapHost,
+    upsertAltinAnahtarMaster,
+} from '@/lib/altinAnahtar';
 
 /**
  * Admin API - Firestore uzerinden gercek platform verilerini yonetir
@@ -23,6 +30,41 @@ function tsToStr(ts: any): string {
     if (ts.seconds) return new Date(ts.seconds * 1000).toLocaleString('tr-TR');
     if (typeof ts === 'string') return ts;
     return '-';
+}
+
+async function resolveMapLocation(input: string) {
+    const value = input.trim();
+    if (!value) throw new Error('Harita bağlantısı veya koordinat girin.');
+    const direct = extractCoordinatesFromMapValue(value);
+    if (direct && !/^https?:/i.test(value)) {
+        return { ...direct, mapUrl: `https://www.google.com/maps?q=${direct.lat},${direct.lng}` };
+    }
+
+    let url: URL;
+    try { url = new URL(value); }
+    catch { throw new Error('Harita bağlantısı geçerli değil.'); }
+    if (url.protocol !== 'https:' || !isAllowedMapHost(url.hostname)) {
+        throw new Error('Yalnızca güvenli Google Maps, Apple Maps veya Yandex Maps bağlantıları desteklenir.');
+    }
+    if (direct) return { ...direct, mapUrl: url.toString() };
+
+    let finalUrl = url;
+    for (let redirectCount = 0; redirectCount < 6; redirectCount++) {
+        const response = await fetch(finalUrl, {
+            redirect: 'manual',
+            headers: { 'User-Agent': 'OtoSoz-Admin/1.0' },
+            signal: AbortSignal.timeout(7000),
+        });
+        const location = response.headers.get('location');
+        if (!location || response.status < 300 || response.status >= 400) break;
+        const nextUrl = new URL(location, finalUrl);
+        if (nextUrl.protocol !== 'https:' || !isAllowedMapHost(nextUrl.hostname)) {
+            throw new Error('Harita bağlantısı güvenli olmayan bir adrese yönlendi.');
+        }
+        finalUrl = nextUrl;
+    }
+    const resolved = extractCoordinatesFromMapValue(finalUrl.toString());
+    return { lat: resolved?.lat ?? null, lng: resolved?.lng ?? null, mapUrl: finalUrl.toString() };
 }
 
 // -- GET --
@@ -372,6 +414,11 @@ export async function GET(request: Request) {
             return NextResponse.json({ success: true, users });
         }
 
+        if (section === 'altin_anahtar') {
+            const masters = await getAltinAnahtarMasters();
+            return NextResponse.json({ success: true, masters, total: masters.length });
+        }
+
         return NextResponse.json({ success: false, message: 'Gecersiz section.' }, { status: 400 });
     } catch (err) {
         console.error('Admin API GET error:', err);
@@ -651,13 +698,31 @@ export async function POST(request: Request) {
                 return NextResponse.json({ success: true });
             }
 
-            case 'save_altin_anahtar': {
-                const fs = await import('fs');
-                const path = await import('path');
-                const filePath = path.join(process.cwd(), 'public', 'data', 'altin_anahtar.json');
-                fs.writeFileSync(filePath, JSON.stringify(body.data, null, 2), 'utf-8');
-                await writeLog('ALTIN_ANAHTAR', 'save', `Usta verileri güncellendi (${body.data?.masters?.length || 0} kayıt)`);
+            case 'upsert_altin_anahtar_master': {
+                try {
+                    const master = await upsertAltinAnahtarMaster(body.data, target || undefined, logActor);
+                    await writeLog(target ? 'ALTIN_ANAHTAR_UPDATE' : 'ALTIN_ANAHTAR_CREATE', master.id, master.name);
+                    return NextResponse.json({ success: true, master });
+                } catch (error) {
+                    const message = error instanceof Error ? error.message : 'Firma kaydedilemedi.';
+                    return NextResponse.json({ success: false, message }, { status: 400 });
+                }
+            }
+
+            case 'delete_altin_anahtar_master': {
+                await deleteAltinAnahtarMaster(target, logActor);
+                await writeLog('ALTIN_ANAHTAR_DELETE', target, 'Firma kaydı kaldırıldı');
                 return NextResponse.json({ success: true });
+            }
+
+            case 'resolve_altin_anahtar_map': {
+                try {
+                    const location = await resolveMapLocation(detail);
+                    return NextResponse.json({ success: true, ...location });
+                } catch (error) {
+                    const message = error instanceof Error ? error.message : 'Harita bağlantısı çözümlenemedi.';
+                    return NextResponse.json({ success: false, message }, { status: 400 });
+                }
             }
 
             // Pazar Ilan

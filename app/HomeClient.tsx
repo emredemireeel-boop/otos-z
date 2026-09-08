@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { BookOpen, ArrowRight, MessageSquare, TrendingUp, BarChart3, Clock, Flame, ChevronRight, Plus, MapPin, Search, X, CalendarDays, Newspaper, Car, Dna, Wrench, AlertTriangle, ClipboardCheck, ShieldCheck, Lightbulb, Save, Loader2, Trash2 } from "lucide-react";
@@ -134,7 +134,7 @@ const HOME_FEATURED_EVENT = {
     href: "/acik-oto-pazari/istanbul/kartal-eski-oto-pazari",
 };
 
-export default function Home({ decisionHub }: { decisionHub: ReactNode }) {
+export default function Home() {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
     const { user } = useAuth();
@@ -911,9 +911,7 @@ export default function Home({ decisionHub }: { decisionHub: ReactNode }) {
                     </div>
                 </div>
 
-                <div className="forum-shell">
-                    {decisionHub}
-
+                <div className="forum-shell" data-ad-rail-anchor="forum-content-start">
                     <div className="forum-top-ad-grid" aria-label="Forum sponsorlu reklam alanları">
                         <ClosableAdSlot
                             position="forum_top_left"

@@ -5,9 +5,8 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
-import { Search, MapPin, Star, Award, Wrench, ChevronRight, X, Filter, ChevronDown, Plus, Phone, Clock, Save, Building2, Navigation, Map as MapIcon } from "lucide-react";
+import { Search, MapPin, Star, Award, Wrench, ChevronRight, X, Filter, ChevronDown, Plus, Phone, Clock, Navigation, Map as MapIcon } from "lucide-react";
 import { getCities, getDistrictsByCityCode } from "turkey-neighbourhoods";
-import carModelsData from "@/data/carmodels.json";
 
 const TurkeyMapSVG = dynamic(() => import("@/components/TurkeyMapSVG"), { ssr: false });
 const RouteMap = dynamic(() => import("@/components/RouteMap"), { ssr: false });
@@ -20,10 +19,9 @@ interface Master {
     address?: string; hours?: Record<string, string>; services?: string[];
     googleRating?: number; googleReviews?: number;
     lat?: number; lng?: number;
+    mapUrl?: string; website?: string; establishedYear?: number;
 }
 
-const ALL_BRANDS = Object.keys(carModelsData).sort();
-const DAYS = ["pazartesi","sali","carsamba","persembe","cuma","cumartesi","pazar"];
 const DAY_LABELS: Record<string, string> = { pazartesi:"Pazartesi", sali:"Salı", carsamba:"Çarşamba", persembe:"Perşembe", cuma:"Cuma", cumartesi:"Cumartesi", pazar:"Pazar" };
 
 const CITY_MAP: Record<string, string> = {};
@@ -63,50 +61,12 @@ export default function AltinAnahtarClient() {
     const [showFilters, setShowFilters] = useState(false);
     const [showDistrictDropdown, setShowDistrictDropdown] = useState(false);
     const [expandedMaster, setExpandedMaster] = useState<string | null>(null);
-    const [showAdminModal, setShowAdminModal] = useState(false);
-    const [saving, setSaving] = useState(false);
-    const [form, setForm] = useState({
-        name: "", address: "", phone: "", city: "", district: "",
-        area: "", description: "", goldenKeys: 1, experience: 5,
-        rating: 4.5, reviewCount: 0, googleRating: 0, googleReviews: 0,
-        specialtyList: [] as string[], brandList: [] as string[],
-        servicesList: "",
-        hours: { pazartesi:"08:30-18:30", sali:"08:30-18:30", carsamba:"08:30-18:30", persembe:"08:30-18:30", cuma:"08:30-18:30", cumartesi:"08:30-14:00", pazar:"Kapalı" } as Record<string, string>,
-    });
-
-    const handleSaveMaster = async () => {
-        if (!form.name || !form.city || !form.phone) return alert("Firma adı, şehir ve telefon zorunlu!");
-        setSaving(true);
-        const newMaster: Master = {
-            id: form.name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "") + "-" + Date.now(),
-            name: form.name, workshop: form.name,
-            goldenKeys: form.goldenKeys, specialty: form.specialtyList,
-            city: form.city, district: form.district, area: form.area,
-            address: form.address, phone: form.phone,
-            experience: form.experience, brands: form.brandList,
-            description: form.description,
-            rating: form.rating, reviewCount: form.reviewCount,
-            hours: form.hours, services: form.servicesList.split(",").map(s => s.trim()).filter(Boolean),
-            googleRating: form.googleRating, googleReviews: form.googleReviews,
-        };
-        const updated = { masters: [...masters, newMaster] };
-        try {
-            await fetch("/api/admin", {
-                method: "POST", headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ action: "save_altin_anahtar", data: updated }),
-            });
-            // Ayrıca lokal olarak da güncelle
-            setMasters([...masters, newMaster]);
-            setShowAdminModal(false);
-            setForm({ name:"", address:"", phone:"", city:"", district:"", area:"", description:"", goldenKeys:1, experience:5, rating:4.5, reviewCount:0, googleRating:0, googleReviews:0, specialtyList:[], brandList:[], servicesList:"", hours:{ pazartesi:"08:30-18:30", sali:"08:30-18:30", carsamba:"08:30-18:30", persembe:"08:30-18:30", cuma:"08:30-18:30", cumartesi:"08:30-14:00", pazar:"Kapalı" } });
-            alert("Usta başarıyla eklendi!");
-        } catch (e) { console.error(e); alert("Hata oluştu"); }
-        setSaving(false);
-    };
-
     useEffect(() => {
-        fetch(`/data/altin_anahtar.json?t=${Date.now()}`)
-            .then(r => r.json())
+        fetch("/api/altin-anahtar", { cache: "no-store" })
+            .then(r => {
+                if (!r.ok) throw new Error("Altın Anahtar kayıtları yüklenemedi.");
+                return r.json();
+            })
             .then(d => setMasters(d.masters || []))
             .catch(console.error);
     }, []);
@@ -404,6 +364,7 @@ export default function AltinAnahtarClient() {
                                 <div className="aa-meta" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "6px" }}>
                                     <div className="aa-meta-left" style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "12px", color: "var(--text-muted)", flexWrap: "wrap" }}>
                                         <span style={{ display: "flex", alignItems: "center", gap: "4px" }}><MapPin size={12} /> {m.district}, {m.city}</span>
+                                        {m.establishedYear && <span>Kuruluş {m.establishedYear}</span>}
                                         <span>{m.experience} yıl</span>
                                         {m.phone && <a href={`tel:${m.phone.replace(/[^0-9+]/g,'')}`} onClick={e => e.stopPropagation()} style={{ display: "flex", alignItems: "center", gap: "4px", color: "#2563EB", textDecoration: "none", fontWeight: "600" }}><Phone size={12} /> {m.phone}</a>}
                                     </div>
@@ -432,16 +393,16 @@ export default function AltinAnahtarClient() {
                                             </div>
                                         )}
                                         {/* Harita */}
-                                        {m.lat && m.lng && (
+                                        {(m.mapUrl || (typeof m.lat === "number" && typeof m.lng === "number")) && (
                                             <div>
                                                 <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "6px" }}>
                                                     <MapIcon size={13} color="#FFD700" />
                                                     <span style={{ fontSize: "11px", fontWeight: "700", color: "var(--foreground)" }}>Konum</span>
                                                 </div>
-                                                <div onClick={e => e.stopPropagation()}>
+                                                {typeof m.lat === "number" && typeof m.lng === "number" && <div onClick={e => e.stopPropagation()}>
                                                     <RouteMap from={[m.lat, m.lng]} to={[m.lat, m.lng]} />
-                                                </div>
-                                                <a href={`https://www.google.com/maps?q=${m.lat},${m.lng}`} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}
+                                                </div>}
+                                                <a href={m.mapUrl || `https://www.google.com/maps?q=${m.lat},${m.lng}`} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}
                                                     style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "8px", padding: "8px 16px", borderRadius: "8px", background: "#2563EB", color: "white", fontSize: "12px", fontWeight: "700", textDecoration: "none" }}>
                                                     <Navigation size={14} /> Google Maps'te Aç
                                                 </a>
@@ -457,7 +418,7 @@ export default function AltinAnahtarClient() {
 
                 {/* Admin Floating Button */}
                 {isAdmin && (
-                    <button onClick={() => setShowAdminModal(true)} style={{
+                    <button onClick={() => { window.location.href = "/admin/altin-anahtar"; }} title="Altın Anahtar yönetimini aç" style={{
                         position: "fixed", bottom: "32px", right: "32px", width: "56px", height: "56px",
                         borderRadius: "16px", background: "linear-gradient(135deg, #FFD700, #FFA000)",
                         border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
@@ -466,147 +427,6 @@ export default function AltinAnahtarClient() {
                        onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
                         <Plus size={24} color="#1a1a2e" strokeWidth={3} />
                     </button>
-                )}
-
-                {/* Admin Modal */}
-                {isAdmin && showAdminModal && (
-                    <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}
-                        onClick={e => { if (e.target === e.currentTarget) setShowAdminModal(false); }}>
-                        <div style={{ background: "var(--card-bg)", borderRadius: "20px", width: "100%", maxWidth: "680px", maxHeight: "90vh", overflow: "auto", border: "1px solid var(--card-border)" }}>
-                            <div style={{ padding: "20px 24px", borderBottom: "1px solid var(--card-border)", display: "flex", justifyContent: "space-between", alignItems: "center", position: "sticky", top: 0, background: "var(--card-bg)", zIndex: 2, borderRadius: "20px 20px 0 0" }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                                    <Building2 size={20} color="#FFD700" />
-                                    <h2 style={{ fontSize: "18px", fontWeight: "800", color: "var(--foreground)", margin: 0 }}>Usta / Servis Ekle</h2>
-                                </div>
-                                <button onClick={() => setShowAdminModal(false)} style={{ background: "none", border: "none", color: "var(--text-muted)", cursor: "pointer" }}><X size={20} /></button>
-                            </div>
-                            <div style={{ padding: "24px", display: "flex", flexDirection: "column", gap: "16px" }}>
-                                {/* Firma Adı */}
-                                <div>
-                                    <label style={lbl}>Firma / Usta Adı *</label>
-                                    <input value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Özkan Oto Servis" style={inp} />
-                                </div>
-                                {/* Adres */}
-                                <div>
-                                    <label style={lbl}>Detaylı Adres *</label>
-                                    <input value={form.address} onChange={e => setForm({...form, address: e.target.value})} placeholder="Ata Sanayi Sitesi, 8780/34. Sk. No:27" style={inp} />
-                                </div>
-                                {/* İl / İlçe / Semt */}
-                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "10px" }}>
-                                    <div>
-                                        <label style={lbl}>İl *</label>
-                                        <select value={form.city} onChange={e => setForm({...form, city: e.target.value, district: ""})} style={inp}>
-                                            <option value="">Seçin</option>
-                                            {Object.values(CITY_MAP).sort().map(c => <option key={c} value={c}>{c}</option>)}
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label style={lbl}>İlçe</label>
-                                        <input value={form.district} onChange={e => setForm({...form, district: e.target.value})} placeholder="Çiğli" style={inp} />
-                                    </div>
-                                    <div>
-                                        <label style={lbl}>Semt / Bölge</label>
-                                        <input value={form.area} onChange={e => setForm({...form, area: e.target.value})} placeholder="Ata Sanayi" style={inp} />
-                                    </div>
-                                </div>
-                                {/* Telefon */}
-                                <div>
-                                    <label style={lbl}>Telefon Numarası *</label>
-                                    <input value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} placeholder="(0232) 376 81 93" style={inp} />
-                                </div>
-                                {/* Çalışma Saatleri */}
-                                <div>
-                                    <label style={lbl}>Çalışma Saatleri</label>
-                                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px" }}>
-                                        {DAYS.map(d => (
-                                            <div key={d} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                                <span style={{ fontSize: "11px", fontWeight: "600", color: "var(--text-muted)", width: "55px" }}>{DAY_LABELS[d]}</span>
-                                                <input value={form.hours[d]} onChange={e => setForm({...form, hours: {...form.hours, [d]: e.target.value}})} style={{...inp, padding: "6px 10px", fontSize: "12px"}} placeholder="08:30-18:30" />
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                {/* Altın Anahtar Seviyesi */}
-                                <div>
-                                    <label style={lbl}>Altın Anahtar Seviyesi</label>
-                                    <div style={{ display: "flex", gap: "8px" }}>
-                                        {[1,2,3].map(k => (
-                                            <button key={k} onClick={() => setForm({...form, goldenKeys: k})} style={{
-                                                flex: 1, padding: "10px", borderRadius: "10px", cursor: "pointer", textAlign: "center",
-                                                border: `2px solid ${form.goldenKeys === k ? "#FFD700" : "var(--card-border)"}`,
-                                                background: form.goldenKeys === k ? "#FFD70015" : "var(--secondary)",
-                                            }}>
-                                                <GoldenKeys count={k} size={14} />
-                                                <div style={{ fontSize: "11px", fontWeight: "600", color: "var(--foreground)", marginTop: "4px" }}>{getKeyLabel(k)}</div>
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
-                                {/* Uzmanlık Alanları */}
-                                <div>
-                                    <label style={lbl}>Uzmanlık Alanları</label>
-                                    <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-                                        {SPECIALTIES.filter(s => s !== "Tümü").map(s => (
-                                            <button key={s} onClick={() => {
-                                                const list = form.specialtyList.includes(s) ? form.specialtyList.filter(x => x !== s) : [...form.specialtyList, s];
-                                                setForm({...form, specialtyList: list});
-                                            }} style={{
-                                                padding: "5px 12px", borderRadius: "8px", fontSize: "11px", fontWeight: "600", cursor: "pointer",
-                                                background: form.specialtyList.includes(s) ? "#FFD70020" : "var(--secondary)",
-                                                color: form.specialtyList.includes(s) ? "#FFD700" : "var(--foreground)",
-                                                border: `1px solid ${form.specialtyList.includes(s) ? "#FFD70055" : "var(--card-border)"}`,
-                                            }}>{s}</button>
-                                        ))}
-                                    </div>
-                                </div>
-                                {/* Marka Seçimi */}
-                                <div>
-                                    <label style={lbl}>Uzman Olduğu Marka(lar)</label>
-                                    <div style={{ display: "flex", flexWrap: "wrap", gap: "5px", maxHeight: "140px", overflowY: "auto", padding: "8px", background: "var(--secondary)", borderRadius: "10px" }}>
-                                        {ALL_BRANDS.map(b => (
-                                            <button key={b} onClick={() => {
-                                                const list = form.brandList.includes(b) ? form.brandList.filter(x => x !== b) : [...form.brandList, b];
-                                                setForm({...form, brandList: list});
-                                            }} style={{
-                                                padding: "4px 10px", borderRadius: "6px", fontSize: "10px", fontWeight: "600", cursor: "pointer",
-                                                background: form.brandList.includes(b) ? "#7c4dff20" : "var(--card-bg)",
-                                                color: form.brandList.includes(b) ? "#7c4dff" : "var(--text-muted)",
-                                                border: `1px solid ${form.brandList.includes(b) ? "#7c4dff44" : "var(--card-border)"}`,
-                                            }}>{b}</button>
-                                        ))}
-                                    </div>
-                                    {form.brandList.length > 0 && <div style={{ fontSize: "11px", color: "#7c4dff", marginTop: "6px" }}>Seçili: {form.brandList.join(", ")}</div>}
-                                </div>
-                                {/* Hizmetler */}
-                                <div>
-                                    <label style={lbl}>Hizmetler (virgülle ayırın)</label>
-                                    <input value={form.servicesList} onChange={e => setForm({...form, servicesList: e.target.value})} placeholder="Motor arıza tespiti, Fren tamiri, Elektrik" style={inp} />
-                                </div>
-                                {/* Deneyim + Google Puan */}
-                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "10px" }}>
-                                    <div><label style={lbl}>Deneyim (yıl)</label><input type="number" value={form.experience} onChange={e => setForm({...form, experience: +e.target.value})} style={inp} /></div>
-                                    <div><label style={lbl}>Google Puan</label><input type="number" step="0.1" value={form.googleRating} onChange={e => setForm({...form, googleRating: +e.target.value, rating: +e.target.value})} style={inp} /></div>
-                                    <div><label style={lbl}>Google Yorum</label><input type="number" value={form.googleReviews} onChange={e => setForm({...form, googleReviews: +e.target.value, reviewCount: +e.target.value})} style={inp} /></div>
-                                    <div><label style={lbl}>Puan (0-5)</label><input type="number" step="0.1" max={5} value={form.rating} onChange={e => setForm({...form, rating: +e.target.value})} style={inp} /></div>
-                                </div>
-                                {/* Açıklama */}
-                                <div>
-                                    <label style={lbl}>Açıklama</label>
-                                    <textarea value={form.description} onChange={e => setForm({...form, description: e.target.value})} placeholder="Kısa tanıtım yazısı..." rows={3}
-                                        style={{...inp, resize: "vertical", fontFamily: "inherit"}} />
-                                </div>
-                                {/* Kaydet */}
-                                <button onClick={handleSaveMaster} disabled={saving} style={{
-                                    padding: "14px", borderRadius: "12px", border: "none", cursor: saving ? "not-allowed" : "pointer",
-                                    background: "linear-gradient(135deg, #FFD700, #FFA000)", color: "#1a1a2e",
-                                    fontSize: "15px", fontWeight: "800", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
-                                    opacity: saving ? 0.6 : 1
-                                }}>
-                                    <Save size={18} /> {saving ? "Kaydediliyor..." : "Kaydet"}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 )}
 
                 <style>{`
@@ -625,6 +445,3 @@ export default function AltinAnahtarClient() {
         </div>
     );
 }
-
-const lbl: React.CSSProperties = { fontSize: "11px", fontWeight: "700", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px", display: "block" };
-const inp: React.CSSProperties = { width: "100%", padding: "10px 14px", background: "var(--secondary)", border: "1px solid var(--card-border)", borderRadius: "10px", color: "var(--foreground)", fontSize: "13px", outline: "none", boxSizing: "border-box" };
