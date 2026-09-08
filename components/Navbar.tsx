@@ -49,31 +49,31 @@ function formatTimeAgo(ts: any): string {
 const typeConfig: Record<string, { icon: React.ReactNode; color: string }> = {
     like: {
         icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg>,
-        color: "bg-pink-500/20 text-pink-400"
+        color: "text-pink-600"
     },
     reply: {
         icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" /></svg>,
-        color: "bg-blue-500/20 text-blue-400"
+        color: "text-blue-600"
     },
     follow: {
         icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>,
-        color: "bg-emerald-500/20 text-emerald-400"
+        color: "text-emerald-600"
     },
     mention: {
         icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" /></svg>,
-        color: "bg-purple-500/20 text-purple-400"
+        color: "text-purple-600"
     },
     system: {
         icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-        color: "bg-neutral-500/20 text-neutral-400"
+        color: "text-neutral-600"
     },
     warning: {
         icon: <Wrench className="w-4 h-4" strokeWidth={1.8} />,
-        color: "bg-orange-500/20 text-orange-400"
+        color: "text-orange-600"
     },
     achievement: {
         icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>,
-        color: "bg-amber-500/20 text-amber-400"
+        color: "text-amber-600"
     },
 };
 
@@ -577,7 +577,7 @@ export default function Navbar() {
                                                             padding: '12px 16px',
                                                             display: 'flex',
                                                             gap: '12px',
-                                                            background: !notification.read ? 'rgba(255, 107, 0, 0.05)' : 'transparent',
+                                                            background: 'transparent',
                                                             borderBottom: '1px solid var(--border-subtle)',
                                                             border: 'none',
                                                             cursor: 'pointer',
@@ -585,7 +585,7 @@ export default function Navbar() {
                                                             transition: 'background 0.2s',
                                                         }}
                                                         onMouseEnter={(e) => e.currentTarget.style.background = 'var(--dropdown-hover)'}
-                                                        onMouseLeave={(e) => e.currentTarget.style.background = !notification.read ? 'rgba(255, 107, 0, 0.05)' : 'transparent'}
+                                                        onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                                                     >
                                                         {notification.avatar ? (
                                                             <div style={{
@@ -612,6 +612,8 @@ export default function Navbar() {
                                                                 alignItems: 'center',
                                                                 justifyContent: 'center',
                                                                 flexShrink: 0,
+                                                                background: 'transparent',
+                                                                border: '1px solid var(--card-border)',
                                                             }} className={config.color}>
                                                                 {config.icon}
                                                             </div>
