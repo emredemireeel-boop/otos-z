@@ -78,8 +78,29 @@ service cloud.firestore {
       allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
       allow create, update: if isSignedIn()
         && request.auth.uid == userId
-        && request.resource.data.keys().hasOnly(['email', 'updatedAt', 'migratedAt'])
-        && request.resource.data.get('email', '') == request.auth.token.email;
+        && request.resource.data.keys().hasOnly([
+          'email', 'updatedAt', 'migratedAt',
+          'termsAcceptedAt', 'privacyAcceptedAt',
+          'legalDocumentVersion', 'legalConsentSource'
+        ])
+        && request.resource.data.get('email', '') == request.auth.token.email
+        && (
+          !request.resource.data.keys().hasAny([
+            'termsAcceptedAt', 'privacyAcceptedAt',
+            'legalDocumentVersion', 'legalConsentSource'
+          ])
+          || (
+            request.resource.data.keys().hasAll([
+              'termsAcceptedAt', 'privacyAcceptedAt',
+              'legalDocumentVersion', 'legalConsentSource'
+            ])
+            && request.resource.data.termsAcceptedAt is timestamp
+            && request.resource.data.privacyAcceptedAt is timestamp
+            && request.resource.data.legalDocumentVersion is string
+            && request.resource.data.legalDocumentVersion.size() <= 32
+            && request.resource.data.legalConsentSource == 'android'
+          )
+        );
       allow delete: if isAdmin();
     }
 
