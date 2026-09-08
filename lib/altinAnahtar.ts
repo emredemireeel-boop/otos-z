@@ -191,7 +191,12 @@ export async function getAltinAnahtarMasters(): Promise<AltinAnahtarMaster[]> {
       const data = document.data();
       if (data.deleted === true) { merged.delete(document.id); return; }
       const current = merged.get(document.id) || {};
-      merged.set(document.id, { ...current, ...data, id: document.id } as AltinAnahtarMaster);
+      try {
+        // Firestore denetim alanlarını (updatedBy, deleted vb.) public yanıta taşıma.
+        merged.set(document.id, sanitizeAltinAnahtarMaster({ ...current, ...data }, document.id));
+      } catch (error) {
+        console.error(`Geçersiz Altın Anahtar kaydı atlandı: ${document.id}`, error);
+      }
     });
   } catch (error) {
     console.error("Altın Anahtar Firestore verisi okunamadı, yerel veri kullanılıyor:", error);
