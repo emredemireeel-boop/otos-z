@@ -8,6 +8,7 @@ interface PageProps {
 
 const BASE_URL = "https://otosoz.com";
 const LIBRARY_LAST_REVIEWED = "2026-08-26";
+const TRAFFIC_FINES_CANONICAL = `${BASE_URL}/trafik-cezasi`;
 
 // Eski → yeni kategori eşleştirmesi. Google'ın taradığı eski slug'ları doğru
 // URL'ye 308 permanent redirect ile yönlendirir (200+canonical yerine).
@@ -226,7 +227,11 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
     const cat = resolveCategory(kategori);
 
     const isRoot = !kategori || cat.slug === "makaleler";
-    const canonicalUrl = isRoot ? `${BASE_URL}/kutuphane` : `${BASE_URL}/kutuphane?kategori=${cat.slug}`;
+    const canonicalUrl = cat.slug === "trafik-cezalari"
+        ? TRAFFIC_FINES_CANONICAL
+        : isRoot
+            ? `${BASE_URL}/kutuphane`
+            : `${BASE_URL}/kutuphane?kategori=${cat.slug}`;
     const ogUrl = `/api/og?title=${encodeURIComponent(cat.title.split("|")[0].trim())}&desc=${encodeURIComponent(cat.description.slice(0, 100))}`;
 
     return {
@@ -259,7 +264,11 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
 // Sunucu tarafında görünür içerikle uyumlu CollectionPage ve BreadcrumbList üretir.
 function buildJsonLd(cat: CatMeta): string {
     const isRoot = cat.slug === "makaleler";
-    const pageUrl = isRoot ? `${BASE_URL}/kutuphane` : `${BASE_URL}/kutuphane?kategori=${cat.slug}`;
+    const pageUrl = cat.slug === "trafik-cezalari"
+        ? TRAFFIC_FINES_CANONICAL
+        : isRoot
+            ? `${BASE_URL}/kutuphane`
+            : `${BASE_URL}/kutuphane?kategori=${cat.slug}`;
 
     const graph: any[] = [
         {
@@ -290,7 +299,9 @@ function buildJsonLd(cat: CatMeta): string {
                             ? `${BASE_URL}/kutuphane`
                             : category.slug === "obd-ariza-kodlari"
                                 ? `${BASE_URL}/obd`
-                                : `${BASE_URL}/kutuphane?kategori=${category.slug}`,
+                                : category.slug === "trafik-cezalari"
+                                    ? TRAFFIC_FINES_CANONICAL
+                                    : `${BASE_URL}/kutuphane?kategori=${category.slug}`,
                     })),
                 },
             } : {}),
@@ -313,6 +324,11 @@ export default async function KutuphaneServerPage({ searchParams }: PageProps) {
     // Kütüphane içindeki eski OBD kopyasını ana, kapsamlı OBD merkezinde birleştir.
     if (kategori === "obd-ariza-kodlari") {
         permanentRedirect("/obd");
+    }
+
+    // Trafik cezalarının tek, temiz ve güçlü canonical adresini kullan.
+    if (kategori === "trafik-cezalari") {
+        permanentRedirect("/trafik-cezasi");
     }
 
     // ── Eski veya geçersiz kategori slug'larını 308 redirect ile doğru URL'ye yönlendir ──

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowLeft, ShieldAlert, FileText, AlertTriangle, CheckCircle, ExternalLink, Info, BadgeAlert, Coins, Gavel, ChevronDown, ChevronRight, Scale, Clock, BookOpen, HelpCircle } from "lucide-react";
@@ -85,8 +84,6 @@ function FAQAccordion({ faq }: { faq: { soru: string; cevap: string }[] }) {
 }
 
 export default function TrafikCezasiDetailClient({ cezaItem, kategori, ilgiliCezalar = [] }: TrafikCezasiDetailClientProps) {
-    const router = useRouter();
-
     return (
         <div>
             <Navbar />
@@ -99,7 +96,7 @@ export default function TrafikCezasiDetailClient({ cezaItem, kategori, ilgiliCez
                         <ChevronRight size={14} />
                         <Link href="/kutuphane" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Kütüphane</Link>
                         <ChevronRight size={14} />
-                        <Link href="/kutuphane?kategori=trafik-cezalari" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Trafik Cezaları</Link>
+                        <Link href="/trafik-cezasi" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Trafik Cezaları</Link>
                         <ChevronRight size={14} />
                         <span style={{ color: 'var(--foreground)', fontWeight: '600' }}>{cezaItem.ihlal}</span>
                     </nav>
@@ -125,8 +122,8 @@ export default function TrafikCezasiDetailClient({ cezaItem, kategori, ilgiliCez
                     </div>
 
                     <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-                        <button
-                            onClick={() => router.back()}
+                        <Link
+                            href="/trafik-cezasi"
                             style={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -141,13 +138,15 @@ export default function TrafikCezasiDetailClient({ cezaItem, kategori, ilgiliCez
                                 cursor: 'pointer',
                                 marginBottom: '24px',
                                 transition: 'all 0.2s ease',
-                                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+                                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                                textDecoration: 'none',
+                                width: 'fit-content'
                             }}
                             onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.transform = 'translateX(-2px)'; }}
                             onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.transform = 'translateX(0)'; }}
                         >
                             <ArrowLeft size={16} /> Tüm Cezalara Dön
-                        </button>
+                        </Link>
 
                         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '24px', flexWrap: 'wrap' }}>
                             <div style={{
@@ -475,7 +474,7 @@ export default function TrafikCezasiDetailClient({ cezaItem, kategori, ilgiliCez
                                 padding: '20px'
                             }}>
                                 <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Tüm Trafik Cezaları</h3>
-                                <Link href="/kutuphane?kategori=trafik-cezalari" style={{
+                                <Link href="/trafik-cezasi" style={{
                                     display: 'inline-block',
                                     fontSize: '14px',
                                     color: 'var(--primary)',
@@ -494,7 +493,8 @@ export default function TrafikCezasiDetailClient({ cezaItem, kategori, ilgiliCez
                                 padding: '16px'
                             }}>
                                 <p style={{ fontSize: '11px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
-                                    <strong>⚖️ Yasal Not:</strong> Bu sayfadaki bilgiler 2918 sayılı Karayolları Trafik Kanunu ve ilgili yönetmelikler kapsamında bilgilendirme amaçlı hazırlanmıştır. Kesin ve güncel bilgi için Emniyet Genel Müdürlüğü veya yetkili makamlara başvurunuz. © OtoSöz
+                                    <strong>⚖️ Kaynak ve yasal not:</strong> İçerik 9 Eylül 2026 tarihinde kontrol edilmiştir.{' '}
+                                    <a href="https://resmigazete.gov.tr/27.02.2026" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontWeight: '600' }}>7574 sayılı düzenlemeyi Resmî Gazete’de inceleyin</a>. Bilgiler genel bilgilendirme amaçlıdır; kesin işlem öncesinde yetkili makamdan güncel tutarı doğrulayın. © OtoSöz
                                 </p>
                             </div>
                         </div>

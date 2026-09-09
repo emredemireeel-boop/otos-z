@@ -318,7 +318,9 @@ const nextConfig: NextConfig = {
                 source: `/kutuphane/${slug}`,
                 destination: slug === 'obd-ariza-kodlari'
                     ? '/obd'
-                    : `/kutuphane?kategori=${slug}`,
+                    : slug === 'trafik-cezalari'
+                        ? '/trafik-cezasi'
+                        : `/kutuphane?kategori=${slug}`,
                 permanent: true,
             })),
             // ── Eski /kutuphane/rehber/ URL'leri → /kutuphane/{guideId} ──

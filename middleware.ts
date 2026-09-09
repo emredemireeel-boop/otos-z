@@ -121,6 +121,7 @@ export function middleware(request: NextRequest) {
             'ehliyet-sinifari': { pathname: '/kutuphane', category: 'ehliyet-siniflari' },
             'makaleler': { pathname: '/kutuphane' },
             'kasko-deger': { pathname: '/kutuphane/kasko-deger' },
+            'trafik-cezalari': { pathname: '/trafik-cezasi' },
         };
         const target = category ? categoryRedirects[category] : undefined;
 

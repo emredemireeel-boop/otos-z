@@ -412,6 +412,8 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
                                     ? '/kutuphane'
                                     : slug === 'obd-ariza-kodlari'
                                         ? '/obd'
+                                        : slug === 'trafik-cezalari'
+                                            ? '/trafik-cezasi'
                                         : slug === 'kasko-deger'
                                             ? '/kutuphane/kasko-deger'
                                             : `/kutuphane?kategori=${slug}`;
@@ -977,7 +979,8 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
                             <div style={{ marginTop: '8px', padding: '12px 16px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '8px', position: 'relative', zIndex: 1 }}>
                                 <span style={{ fontSize: '14px', opacity: 0.5 }}>•</span>
                                 <p style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
-                                    Bu tablo <strong style={{ color: 'var(--foreground)', fontWeight: '600' }}>Otosöz</strong> tarafından 2026 yılı güncel mevzuatı kapsamında hazırlanmıştır. Kesin bilgi için yetkili makamlara başvurunuz.
+                                    Bu tablo <strong style={{ color: 'var(--foreground)', fontWeight: '600' }}>OtoSöz</strong> tarafından 2026 yılı güncel mevzuatı kapsamında hazırlanmıştır. Son kontrol: 9 Eylül 2026.{' '}
+                                    <a href="https://resmigazete.gov.tr/27.02.2026" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontWeight: '600' }}>Resmî Gazete’deki 7574 sayılı düzenlemeyi inceleyin</a>. Kesin işlem öncesinde yetkili makamdan güncel tutarı doğrulayın.
                                 </p>
                             </div>
 
