@@ -4,6 +4,7 @@ import { curatedSurveys } from "@/data/curated-surveys";
 import { events, eventCategories } from "@/data/events";
 import { categories as trustCategories } from "@/data/guvenmetre";
 import { turkeyBrandMarkets, turkeyModelMarkets } from "@/data/markets";
+import { SAMPLE_COMPARISONS, SAMPLE_EXPERT_QUESTIONS } from "@/data/showcase-content";
 import newsData from "@/public/data/news_posts.json";
 import { getAltinAnahtarMasters } from "@/lib/altinAnahtar";
 import { createSlug, vehicleDNAData } from "@/data/vehicle-dna";
@@ -17,6 +18,8 @@ const supportedModules = new Set([
   "trust",
   "masters",
   "markets",
+  "comparisons",
+  "expert-questions",
   "vehicle-dna",
 ]);
 
@@ -54,6 +57,10 @@ export async function GET(request: NextRequest) {
           brands: turkeyBrandMarkets,
           models: turkeyModelMarkets,
         };
+      case "comparisons":
+        return { items: SAMPLE_COMPARISONS };
+      case "expert-questions":
+        return { items: SAMPLE_EXPERT_QUESTIONS };
       case "vehicle-dna":
         return {
           items: vehicleDNAData
