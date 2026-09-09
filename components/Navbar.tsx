@@ -202,7 +202,6 @@ export default function Navbar() {
         { name: 'Haberler', href: '/haberler' },
         { name: 'OtoHesap', href: '/otohesap' },
         { name: 'Altın Anahtar', href: '/altin-anahtar' },
-        { name: 'Bilgi Yarışması', href: '/bilgi-yarismasi' },
         { name: 'Etkinlikler', href: '/etkinlikler' },
         { name: 'Güvenmetre', href: '/guvenmetre' },
     ];

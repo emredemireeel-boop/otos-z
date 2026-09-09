@@ -16,7 +16,7 @@ export async function POST(request: Request) {
         if (snap.data()?.campaignBonuses?.launchShareAt) return;
         claimed = true;
         tx.update(ref, { "campaignBonuses.launchShareAt":new Date().toISOString(), xp:FieldValue.increment(LAUNCH_CAMPAIGN.shareBonus), weeklyXP:FieldValue.increment(LAUNCH_CAMPAIGN.shareBonus), monthlyXP:FieldValue.increment(LAUNCH_CAMPAIGN.shareBonus), badges:FieldValue.arrayUnion("OtoSöz Elçisi") });
-        tx.create(db.collection("notifications").doc(), { userId:auth.uid, type:"achievement", title:"OtoSöz Elçisi", message:`Lansman paylaşımın için +${LAUNCH_CAMPAIGN.shareBonus} XP kazandın.`, read:false, createdAt:FieldValue.serverTimestamp(), link:"/bilgi-yarismasi", source:"launch_campaign" });
+        tx.create(db.collection("notifications").doc(), { userId:auth.uid, type:"achievement", title:"OtoSöz Elçisi", message:`Lansman paylaşımın için +${LAUNCH_CAMPAIGN.shareBonus} XP kazandın.`, read:false, createdAt:FieldValue.serverTimestamp(), link:"/profil", source:"launch_campaign" });
     });
     return NextResponse.json({ success:true, claimed, xp:claimed ? LAUNCH_CAMPAIGN.shareBonus : 0, message:claimed ? "+50 XP hesabına eklendi." : "Paylaşım bonusunu daha önce aldın." });
 }

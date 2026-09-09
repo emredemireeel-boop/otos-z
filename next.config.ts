@@ -145,6 +145,12 @@ const nextConfig: NextConfig = {
         return [
 
             {
+                source: '/bilgi-yarismasi',
+                destination: '/forum',
+                permanent: true,
+            },
+
+            {
                 source: '/acik-oto-pazari',
                 destination: '/etkinlikler',
                 permanent: true,

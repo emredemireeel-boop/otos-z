@@ -72,8 +72,6 @@ const SEED_BADGES = [
     { name: "1 Yıllık Üye", emoji: "🎂", description: "OtoSöz'de bir yılını tamamladı", color: "#B45309", type: "otomatik" },
     { name: "İlk 1000 Üye", emoji: "🏁", description: "OtoSöz'ün ilk 1000 üyesinden biri", color: "#111827", type: "kampanya" },
     { name: "OtoSöz Elçisi", emoji: "📣", description: "Lansman kampanyasını paylaştı", color: "#0369A1", type: "kampanya" },
-    { name: "İlk Quiz", emoji: "🧠", description: "İlk otomotiv bilgi yarışmasını tamamladı", color: "#0891B2", type: "otomatik" },
-    { name: "Motor Bilgesi", emoji: "🏆", description: "Bilgi yarışmasında 10/10 yaptı", color: "#CA8A04", type: "otomatik" },
 ];
 
 type Tab = "kullanicilar" | "rozetler" | "seviyeler";

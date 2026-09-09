@@ -24,7 +24,7 @@ export async function POST(request: Request) {
             launchCampaign:{ campaignId:LAUNCH_CAMPAIGN.id, eligible, ordinal, claimedAt:new Date().toISOString() },
             ...(eligible ? { badges:FieldValue.arrayUnion("İlk 1000 Üye") } : {}),
         });
-        if (eligible) tx.create(db.collection("notifications").doc(), { userId:auth.uid, type:"achievement", title:"İlk 1000 Üye rozeti", message:`OtoSöz'ün ilk 1000 üyesi arasına ${ordinal}. sıradan katıldın. Lansman boyunca XP'lerin 2x.`, read:false, createdAt:FieldValue.serverTimestamp(), link:"/bilgi-yarismasi", source:"launch_campaign" });
+        if (eligible) tx.create(db.collection("notifications").doc(), { userId:auth.uid, type:"achievement", title:"İlk 1000 Üye rozeti", message:`OtoSöz'ün ilk 1000 üyesi arasına ${ordinal}. sıradan katıldın. Lansman boyunca XP'lerin 2x.`, read:false, createdAt:FieldValue.serverTimestamp(), link:"/profil", source:"launch_campaign" });
         result = { ...result, eligible, ordinal };
     });
     return NextResponse.json(result);
