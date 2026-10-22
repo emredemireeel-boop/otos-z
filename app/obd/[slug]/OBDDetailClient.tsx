@@ -346,40 +346,11 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                         </section>
                     )}
 
-                    {/* ── Detaylı Teknik Rehber ── */}
-                    <section style={{
-                        background: 'var(--card-bg)',
-                        border: '1px solid var(--card-border)',
-                        borderRadius: '20px',
-                        padding: '28px',
-                    }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                            <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(99,102,241,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(99,102,241,0.2)' }}>
-                                <BookOpen size={18} style={{ color: '#6366f1' }} />
-                            </div>
-                            <h2 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>
-                                {brandName ? `${brandName} Araçlarda ` : ''}{codeData.code} Hakkında Bilmeniz Gerekenler
-                            </h2>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px', color: 'var(--foreground)', lineHeight: '1.8' }}>
-                            <p style={{ margin: 0 }}>
-                                <strong>{codeData.code}</strong> arıza kodu, aracınızın OBD-II (On-Board Diagnostics) / EOBD sisteminde <strong>{typeLabel.split(' – ')[1]?.toLowerCase() || 'ilgili sistem'}</strong> bölümüne ait bir DTC (Diagnostic Trouble Code) kodudur. {codeData.isGeneric
-                                    ? 'Bu evrensel bir standarttır; hangi marka araç kullanırsanız kullanın aynı anlama gelir.'
-                                    : 'Bu üreticiye özel bir koddur ve farklı araç markalarında farklı anlamlar taşıyabilir.'}
-                            </p>
-                            <p style={{ margin: 0 }}>
-                                {brandName
-                                    ? `${brandName} marka aracınızda ${codeData.code} arıza kodu göründüğünde, ${codeData.symptoms.length > 0 ? codeData.symptoms.slice(0, 2).join(', ').toLowerCase() : 'çeşitli belirtiler'} gibi durumlarla karşılaşabilirsiniz.`
-                                    : `Aracınızda ${codeData.code} arıza kodu belirdiğinde, ${codeData.symptoms.length > 0 ? codeData.symptoms.slice(0, 2).join(', ').toLowerCase() : 'çeşitli belirtiler'} gibi durumlar gözlemlenebilir.`
-                                } Bu arıza kodunun {codeData.causes.length > 0 ? codeData.causes.length : 'birden fazla'} olası nedeni bulunmaktadır ve doğru teşhis için profesyonel OBD-II tarayıcı ile detaylı analiz yapılması önerilir.
-                            </p>
-                            <p style={{ margin: 0 }}>
-                                {codeData.severity?.toLowerCase().includes('kritik') || codeData.severity?.toLowerCase().includes('yüksek')
-                                    ? `⚠️ Bu arıza kodu "${codeData.severity}" seviyesindedir. Aracınızı en kısa sürede yetkili servise götürmeniz veya profesyonel mekanik desteği almanız şiddetle tavsiye edilir. Arızayı görmezden gelmek daha büyük hasarlara ve yüksek onarım maliyetlerine yol açabilir.`
-                                    : `Bu arıza kodunun ciddiyeti "${codeData.severity || 'Değişken'}" olarak değerlendirilmektedir. Acil bir tehlike oluşturmasa da sorunu görmezden gelmemeniz ve uygun bir zamanda çözdürmeniz önerilir.`
-                                }
-                            </p>
-                        </div>
+                    <section style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', padding: '28px' }}>
+                        <h2 style={{ fontSize: '16px', fontWeight: 700 }}>Bu kaydı nasıl kullanmalı?</h2>
+                        <p>{codeData.sources?.length ? 'Aşağıdaki kaynakların kapsadığı araçları ve model yıllarını kontrol edin. Bir araç için yayımlanmış servis bülteni bütün modellere uygulanamaz.' : 'Bu bir katalog kaydıdır. Kod özelinde kaynakla doğrulanmamış ortak belirti ve onarım şablonları gösterilmez; boş liste arıza olmadığı anlamına gelmez.'}</p>
+                        <p>Tam kodu, varsa alt kodunu, kontrol modülünü, araç yılı ve motorunu kaydedin. Genel kod tanımı aynı olsa bile test koşulları ve ölçüm sınırları üreticiye göre değişir.</p>
+                        <p>Kod tek başına güvenli sürüş veya parça değişimi kararı verdirmez. Yanıp sönen motor lambası, hararet, fren veya direksiyon sorunu varsa güvenli yerde durup uzman yardımına başvurun.</p>
                     </section>
 
                     {/* ── Sık Sorulan Sorular (FAQ) ── */}

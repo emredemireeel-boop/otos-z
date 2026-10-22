@@ -5,12 +5,30 @@ import type { ObdCode } from './obd-content';
 export const OBD_LAST_REVIEWED = '2026-08-26';
 export const OBD_DIRECTORY_PAGE_SIZE = 80;
 export const POPULAR_OBD_CODES = ['P0420', 'P0171', 'P0300', 'P0299', 'P0401', 'P0101', 'P0340', 'P0016', 'P0128', 'P0442', 'B0001', 'C0035', 'U0100', 'U0121'];
+// Eski toplu zenginleştirme, yüzlerce farklı koda aynı teşhis listelerini
+// eklemişti. Kaynaklı editoryal kayıtları koru; doğrulanmamış şablon maddelerini
+// kod özelinde bulguymuş gibi API, FAQ ve sayfa üzerinden yayımlama.
+const repeatedAdvice = new Map<string, number>();
+for (const raw of rawCodes) {
+    for (const field of ['causes', 'fixes'] as const) {
+        for (const text of new Set(raw[field] || [])) {
+            const key = `${field}:${text}`;
+            repeatedAdvice.set(key, (repeatedAdvice.get(key) || 0) + 1);
+        }
+    }
+}
 const records = new Map<string, ObdCode>();
 for (const raw of rawCodes) {
     const code = raw.code.trim().toUpperCase();
     if (!/^[PBCU][0-3][0-9A-F]{3}$/.test(code)) continue;
     // Aynı kaydın son sürümü: API, detay, dizin ve sitemap aynı veriyi kullanır.
-    records.set(code, { ...raw, ...reviewedObdCodes[code], code });
+    const record: ObdCode = { ...raw, ...reviewedObdCodes[code], code };
+    if (!record.sources?.length) {
+        for (const field of ['causes', 'fixes'] as const) {
+            record[field] = record[field].filter(text => (repeatedAdvice.get(`${field}:${text}`) || 0) < 300);
+        }
+    }
+    records.set(code, record);
 }
 export const obdCodes = [...records.values()].sort((a, b) => a.code.localeCompare(b.code, 'en'));
 const contentSignature = (code: ObdCode) => JSON.stringify({
