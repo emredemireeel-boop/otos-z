@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
                 userAgent: '*',
                 allow: [
                     '/',
+                    '/api/og',         // Sayfalarda kullanılan paylaşım görselleri
                     '/etkinlikler/',
                     '/arac-dna/',
                     '/forum',           // Forum hub sayfası (indekslenebilir topluluk sayfası)
@@ -53,7 +54,7 @@ export default function robots(): MetadataRoute.Robots {
             {
                 // Google Resim botu — görsellere erişim aç
                 userAgent: 'Googlebot-Image',
-                allow: '/',
+                allow: ['/', '/api/og'],
                 disallow: ['/api/', '/admin/', '/moderator/'],
             },
             {
