@@ -3,6 +3,17 @@ import type { ObdCode } from '../lib/obd-content';
 // Kaynaklar belirli araçların üretici bültenleridir; tüm modellere uygulanacak
 // parça değişimi talimatı olarak kullanılmaz. Yalnızca kontrol edilen kodlar.
 export const reviewedObdCodes: Record<string, Partial<ObdCode>> = {
+    P1000: {
+        title: 'Ford P1000: OBD Hazırlık Testleri Tamamlanmadı',
+        isGeneric: false,
+        description: 'Ford bağlamında P1000, OBD izleme testlerinin tamamlanmadığını bildirir. Tek başına parça arızası veya değişim gerekçesi değildir. Kaynak 1999 Ford PCED belgesidir; güncel aracın yıl ve motoruna uygun prosedür ayrıca doğrulanmalıdır.',
+        systems: ['OBD Hazırlık Monitörleri'],
+        symptoms: ['Cihazda tamamlanmamış readiness monitörleri görülebilir; diğer belirtiler ayrıca değerlendirilmelidir'],
+        causes: ['Akü/PCM bağlantısının kesilmesi veya kodların silinmesi sonrası testlerin tamamlanmaması', 'İzleme döngüsünün tamamlanmasını etkileyen koşullar veya başka arıza kayıtları'],
+        fixes: ['Tüm kodları, readiness durumunu ve son işlemleri kaydedin', 'Araç için geçerli Ford prosedürünü kontrol edin; sabit kilometre veya sürüş süresi varsaymayın', 'Kodu tekrar tekrar silerek test tamamlanmasını beklemeyin; eşlik eden arızaları ayrıca inceletin'],
+        lastReviewed: '2026-10-22',
+        sources: [{ title: 'Ford PCED 1999: P1000 monitor testing not complete; model kapsamını kontrol edin', url: 'https://www.fordservicecontent.dealerconnection.com/pubs/content/~WVX2/~MUS~LEN/15/VX25112.HTM' }],
+    },
     P0171: {
         title: 'Yakıt-Hava Karışımı Fazla Fakir (Bank 1)',
         description: 'P0171, motor kontrol ünitesinin birinci silindir sırasındaki yakıt-hava karışımını fazla fakir algıladığını belirtir. Emme hattındaki ölçülmemiş hava girişi olası nedenlerden biridir. Kod doğrudan krank mili veya zamanlama arızası anlamına gelmez.',
