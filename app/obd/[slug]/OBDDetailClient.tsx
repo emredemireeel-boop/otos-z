@@ -348,7 +348,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
 
                     <section style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', padding: '28px' }}>
                         <h2 style={{ fontSize: '16px', fontWeight: 700 }}>Bu kaydı nasıl kullanmalı?</h2>
-                        <p>{codeData.sources?.length ? 'Aşağıdaki kaynakların kapsadığı araçları ve model yıllarını kontrol edin. Bir araç için yayımlanmış servis bülteni bütün modellere uygulanamaz.' : 'Bu bir katalog kaydıdır. Kod özelinde kaynakla doğrulanmamış ortak belirti ve onarım şablonları gösterilmez; boş liste arıza olmadığı anlamına gelmez.'}</p>
+                        <p>{codeData.sources?.length ? 'Aşağıdaki kaynakların kapsadığı araçları ve model yıllarını kontrol edin. Bir araç için yayımlanmış servis bülteni bütün modellere uygulanamaz.' : 'Bu bir katalog kaydıdır. Gösterilen olasılıklar araç özelinde doğrulanmış teşhis değildir. Üreticinin servis belgesiyle karşılaştırın; boş liste arıza olmadığı anlamına gelmez.'}</p>
                         <p>Tam kodu, varsa alt kodunu, kontrol modülünü, araç yılı ve motorunu kaydedin. Genel kod tanımı aynı olsa bile test koşulları ve ölçüm sınırları üreticiye göre değişir.</p>
                         <p>Kod tek başına güvenli sürüş veya parça değişimi kararı verdirmez. Yanıp sönen motor lambası, hararet, fren veya direksiyon sorunu varsa güvenli yerde durup uzman yardımına başvurun.</p>
                     </section>
