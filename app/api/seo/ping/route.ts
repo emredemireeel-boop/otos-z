@@ -57,7 +57,7 @@ export async function POST(request: Request) {
         refreshed.add(pathname);
 
         if (pathname.startsWith('/forum/')) {
-            refreshed.add('/forum');
+            refreshed.add('/');
             refreshed.add('/forum/feed.xml');
         } else if (pathname.startsWith('/sozluk/')) {
             refreshed.add('/sozluk');

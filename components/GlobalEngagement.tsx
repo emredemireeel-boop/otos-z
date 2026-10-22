@@ -1,14 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
 import XPPopup from "./XPPopup";
 import MobileBottomNav from "./MobileBottomNav";
 import { useAuth } from "@/context/AuthContext";
 const PushNotificationManager = dynamic(() => import("./PushNotificationManager"), { ssr: false });
+const subscribeToHydration = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 export default function GlobalEngagement() {
     const { firebaseUser } = useAuth();
+    const mounted = useSyncExternalStore(subscribeToHydration, getClientSnapshot, getServerSnapshot);
     const [xpPopup, setXpPopup] = useState<{show: boolean, amount: number, action: string, leveledUp?: boolean, newLevelName?: string, newLevelIcon?: string} | null>(null);
     const [pushReady, setPushReady] = useState(false);
     const [streakModal, setStreakModal] = useState<{show: boolean, streak: number, xpGained: number} | null>(null);
@@ -54,6 +58,11 @@ export default function GlobalEngagement() {
         sessionStorage.setItem(key, '1');
         void firebaseUser.getIdToken().then(token => fetch('/api/gamification/evaluate', { method:'POST', headers:{ Authorization: `Bearer ${token}` } })).catch(() => {});
     }, [firebaseUser]);
+
+    // Mobil gezinme ve bildirim katmanları arama motoru içeriği değildir.
+    // Bunları ilk sunucu HTML'sine basmamak hem yanıtı küçültür hem de
+    // tarayıcılara daha temiz bir içerik/kod oranı sunar.
+    if (!mounted) return null;
 
     return (
         <>

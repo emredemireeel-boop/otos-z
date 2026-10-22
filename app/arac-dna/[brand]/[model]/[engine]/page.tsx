@@ -9,6 +9,8 @@ import { Shield, Star, Info, MessageCircle, AlertCircle, TrendingUp, TrendingDow
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { submitDNAChronicReport } from "@/lib/dnaService";
+import { getTopSellingVehicleGuide } from "@/data/top-selling-vehicle-guides";
+import TopSellingVehicleGuide from "@/components/TopSellingVehicleGuide";
 
 const suffixes = {
     'artilar': '-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri',
@@ -72,6 +74,7 @@ export default function EngineDetailedPage() {
                     reportCount: issue.reportCount
                 }))
             ];
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIssues(allIssues.sort((a, b) => b.reportCount - a.reportCount));
         }
 
@@ -91,6 +94,7 @@ export default function EngineDetailedPage() {
     const scoreColor = getDNAScoreColor(activeScore);
     const scoreLabel = getDNAScoreLabel(activeScore);
     const vehicleTrimData = trimLevelsData.find(t => t.vehicleId === vehicle.id);
+    const marketGuide = getTopSellingVehicleGuide(brandSlug, modelSlug);
 
     const handleReportSubmit = async () => {
         if (!reportTitle.trim() || !reportDesc.trim() || !user || reportSubmitting) return;
@@ -292,9 +296,21 @@ export default function EngineDetailedPage() {
                         <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '18px', fontWeight: '700', color: '#3b82f6', marginBottom: '12px' }}>
                             <Info size={20} /> Otosöz Uzman Özeti
                         </h3>
-                        <p style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: '1.6', marginBottom: 0 }}>
-                            {vehicle.brand} {vehicle.model} <strong>{specificEngine.name}</strong> motor seçeneği, {activeScore >= 80 ? "sınıfının en güçlü ve sorunsuz seçeneklerinden biridir." : activeScore >= 60 ? "fiyat/performans açısından değerlendirilebilir ancak kronik sorunlara dikkat edilmesi gereken bir motor/vites kombinasyonudur." : "almadan önce kronik sorunlarının dikkatlice araştırılması gereken bir kombinasyondur."}
+                        <p style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: '1.6', marginBottom: specificEngine.description ? '12px' : 0 }}>
+                            {vehicle.brand} {vehicle.model} <strong>{specificEngine.name}</strong> seçeneği; puan, doğrulanmış kontrol başlıkları ve kullanıcı bildirimleri birlikte değerlendirilerek incelenir.
                         </p>
+                        {specificEngine.description && <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.7', margin: 0 }}>{specificEngine.description}</p>}
+                    </div>
+                    {marketGuide && <TopSellingVehicleGuide guide={marketGuide} />}
+                    <div className="dna-overview-columns">
+                        <article>
+                            <h3><TrendingUp size={19} /> Güçlü yönlerden kısa liste</h3>
+                            <ul>{(specificEngine.pros?.length ? specificEngine.pros : vehicle.strengths).slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
+                        </article>
+                        <article>
+                            <h3><AlertCircle size={19} /> Dikkat edilmesi gerekenler</h3>
+                            <ul>{(specificEngine.cons?.length ? specificEngine.cons : vehicle.weaknesses).slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
+                        </article>
                     </div>
                 </div>
             )}
@@ -304,7 +320,7 @@ export default function EngineDetailedPage() {
                 <div id="artilar" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
                     <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '24px' }}>
                         <h2 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '20px', fontWeight: '700', color: '#10b981', marginBottom: '20px' }}>
-                            <TrendingUp size={24} /> En Beğenilen Yönleri
+                            <TrendingUp size={24} /> Güçlü Yönler
                         </h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {specificEngine.pros ? specificEngine.pros.map((strength, index) => (
@@ -323,7 +339,7 @@ export default function EngineDetailedPage() {
 
                     <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '24px' }}>
                         <h2 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '20px', fontWeight: '700', color: '#ef4444', marginBottom: '20px' }}>
-                            <TrendingDown size={24} /> En Çok Şikayet Edilenler
+                            <TrendingDown size={24} /> Dikkat Noktaları
                         </h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {specificEngine.cons ? specificEngine.cons.map((weakness, index) => (

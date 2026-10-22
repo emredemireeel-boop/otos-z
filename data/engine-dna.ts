@@ -8782,4 +8782,30 @@ export const engineDNAData: VehicleEngineData[] = [
       },
     ],
   },
+  {
+    vehicleId: 1010,
+    engines: [
+      {
+        slug: "turbo-tce-edc-145-hp", name: "Turbo TCe EDC 145 HP", fuelType: "Benzin", transmission: "7 ileri EDC otomatik", score: 82,
+        description: "1,3 litre turbo benzinli motor 145 bg ve 245 Nm üretir. 4x2 çekiş, 7 ileri EDC ve üretici verisine göre 6,3 L/100 km WLTP birleşik tüketimle günlük kullanım odaklıdır.",
+        pros: ["Akıcı otomatik şanzıman", "Güçlü ara hızlanma", "Yaygın benzinli kullanım altyapısı"], cons: ["Hibrite göre şehir içi tüketimi daha yüksek olabilir", "4x4 seçeneği değildir", "EDC bakım geçmişi ikinci elde önemlidir"], chronicIssues: []
+      },
+      {
+        slug: "full-hybrid-e-tech-160-hp", name: "Full Hybrid E-Tech 160 HP", fuelType: "Hibrit", transmission: "Otomatik multimodal", score: 86,
+        description: "Kendi kendini şarj eden full hibrit sistem, üretici verisine göre 160 bg güç ve 4,6 L/100 km'ye kadar WLTP tüketim sunar; yoğun şehir kullanımı için öne çıkar.",
+        pros: ["Şehir içinde yüksek elektrikli sürüş oranı", "Düşük katalog tüketimi", "Harici şarj gerektirmez"], cons: ["Satın alma fiyatı daha yüksek olabilir", "Uzun yolda şehir içi kadar tüketim avantajı sağlamayabilir", "Hibrit sistem kontrolü uzman servis gerektirir"], chronicIssues: []
+      },
+      {
+        slug: "hybrid-4x4-150-hp", name: "Hybrid 4x4 150 HP", fuelType: "Hibrit", transmission: "6 ileri çift kavramalı otomatik", score: 84,
+        description: "Elektrikli arka motorla desteklenen 4x4 sistem; beş arazi modu, 217 mm'ye varan yerden yükseklik ve 1.500 kg çekme kapasitesiyle çekiş ihtiyacına odaklanır.",
+        pros: ["Gerçek 4x4 çekiş", "Beş sürüş modu", "Günlük kullanım ile araziyi birleştirir"], cons: ["Sistem daha karmaşıktır", "4x2 versiyonlardan ağırdır", "İhtiyaç yoksa ek maliyet yaratır"], chronicIssues: []
+      },
+      {
+        slug: "eco-g-120-hp-lpg", name: "Eco-G 120 HP", fuelType: "LPG", transmission: "Manuel / Otomatik", score: 83,
+        description: "Fabrika çıkışlı benzin-LPG sistemi 120 bg ve 200 Nm sunar. Çift yakıt deposuyla uzun menzil ve düşük kilometre maliyeti hedefler.",
+        pros: ["Fabrika çıkışlı LPG sistemi", "Uzun toplam menzil", "Düşük yakıt maliyeti potansiyeli"], cons: ["LPG istasyonu planlaması gerekir", "Bagaj ve depo yerleşimi görülmelidir", "Gerçek tüketim kullanım koşuluna bağlıdır"], chronicIssues: []
+      }
+    ]
+  },
+
 ];

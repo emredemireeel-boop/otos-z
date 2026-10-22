@@ -34,6 +34,9 @@ const EMPTY_DRAFT: ConsentDraft = {
     analytics: false,
     marketing: false,
 };
+const subscribeToHydration = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 let consentSnapshot: CookiePreferences | null | undefined;
 const consentListeners = new Set<() => void>();
@@ -176,6 +179,7 @@ function PreferenceRow({ icon: Icon, title, description, meta, enabled, locked =
 
 export default function CookieConsent() {
     const consent = useSyncExternalStore(subscribeToConsent, getConsentSnapshot, () => null);
+    const mounted = useSyncExternalStore(subscribeToHydration, getClientSnapshot, getServerSnapshot);
     const [settingsOpen, setSettingsOpen] = useState(false);
     const [draft, setDraft] = useState<ConsentDraft>(EMPTY_DRAFT);
     const modalTitleRef = useRef<HTMLHeadingElement>(null);
@@ -245,6 +249,10 @@ export default function CookieConsent() {
         saveConsent(draft);
         setSettingsOpen(false);
     };
+
+    // Rıza varsayılan olarak zaten kapalı. Paneli yalnızca tarayıcıda
+    // oluşturarak SEO HTML'sine diyalog metni, ikonlar ve kontroller eklemeyiz.
+    if (!mounted) return null;
 
     return (
         <>

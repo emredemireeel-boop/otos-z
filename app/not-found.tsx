@@ -71,7 +71,7 @@ export default function NotFound() {
 
     const quickLinks = [
         { icon: <Home size={20} />, label: "Ana Sayfa", href: "/", desc: "Topluluk ve gündem" },
-        { icon: <MessageCircle size={20} />, label: "Forum", href: "/forum", desc: "Tartışmalara katıl" },
+        { icon: <MessageCircle size={20} />, label: "Forum", href: "/", desc: "Tartışmalara katıl" },
         { icon: <BookOpen size={20} />, label: "Kütüphane", href: "/kutuphane", desc: "Otomotiv rehberi" },
         { icon: <Compass size={20} />, label: "Araç DNA", href: "/arac-dna", desc: "Araç analizi" },
     ];

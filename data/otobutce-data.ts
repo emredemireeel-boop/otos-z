@@ -1112,7 +1112,7 @@ Bu bütçedeki araçlardan konfor, yüksek performans veya "hatasız" bir kaport
     maxPrice: 1900000,
     seoTitle: "1.8 Milyon - 1.9 Milyon TL Bütçeyle Sıfır Kilometre Araçlar",
     seoDesc:
-      "1.800.000 TL bandında ikinci el riskine girmeden alınabilecek sıfır kilometre elektrikli (TOGG, BYD) ve hafif hibrit araç tavsiyeleri.",
+      "1.800.000-1.900.000 TL bütçeyle alınabilecek TOGG T10F, BYD Dolphin ve alternatif sıfır kilometre elektrikli araç tavsiyelerini karşılaştırın.",
     introText: `Bütçenizi 1.8 Milyon TL seviyesine çıkardığınızda, ikinci el piyasasının riskli dünyasından tamamen sıyrılıp, bayi vitrinlerindeki "sıfır kilometre" araçlara yönelebilirsiniz. Bu bantta geleneksel benzinli sedanların yerini hızla yeni nesil hafif hibrit B-SUV'lar ve menzilleri 400 km'yi aşan tam elektrikli (EV) otomobiller almaktadır.`,
     tavsiyeText: `Otosöz Tavsiyesi: Eğer evinizde veya iş yerinizde şarj imkanınız varsa; TOGG T10F veya BYD Dolphin gibi elektrikli araçlar rakipsizdir. Ancak şarj stresi yaşamak istemiyorum diyorsanız, hibrit teknolojisiyle az yakan bir Ford Puma veya sağlamlığı kanıtlanmış VAG grubu Skoda Kamiq en rasyonel tercihler olacaktır.`,
     cars: [

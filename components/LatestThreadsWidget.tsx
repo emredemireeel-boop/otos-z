@@ -7,6 +7,7 @@ import { Clock, ChevronRight } from "lucide-react";
 
 export default function LatestThreadsWidget() {
     const [threads, setThreads] = useState<ForumThread[]>([]);
+    const [currentTime, setCurrentTime] = useState(0);
 
     useEffect(() => {
         const unsub = subscribeToThreads((allThreads) => {
@@ -16,15 +17,19 @@ export default function LatestThreadsWidget() {
                 return bTime - aTime;
             });
             setThreads(sorted.slice(0, 5));
+            setCurrentTime(Date.now());
         }, 10);
-        return () => unsub();
+        const timer = window.setInterval(() => setCurrentTime(Date.now()), 60_000);
+        return () => {
+            unsub();
+            window.clearInterval(timer);
+        };
     }, []);
 
     const getRelativeTime = (thread: ForumThread) => {
         if (!thread.createdAt) return '';
-        const now = Date.now();
         const created = thread.createdAt.toMillis();
-        const diff = now - created;
+        const diff = currentTime - created;
         const mins = Math.floor(diff / 60000);
         if (mins < 1) return 'az önce';
         if (mins < 60) return `${mins}dk`;
@@ -50,7 +55,7 @@ export default function LatestThreadsWidget() {
                     <Clock size={14} color="var(--text-muted)" />
                     Son başlıklar
                 </h3>
-                <Link href="/forum" style={{
+                <Link href="/" style={{
                     fontSize: '11px', color: 'var(--text-muted)', fontWeight: '500',
                     textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '2px',
                 }}>

@@ -265,7 +265,7 @@ export default async function IlgincDetayPage({ params }: PageProps) {
                     <Link href="/kutuphane?kategori=ilginc-bilgiler" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--primary)", textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>
                         <ArrowLeft size={16} /> Tüm İlginç Bilgiler
                     </Link>
-                    <Link href="/forum" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "13px" }}>
+                    <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "13px" }}>
                         Forumda Tartış <ExternalLink size={14} />
                     </Link>
                 </div>

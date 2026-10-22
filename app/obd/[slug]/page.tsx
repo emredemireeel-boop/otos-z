@@ -1,39 +1,17 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Metadata } from "next";
-import obdCodes from "@/data/obd-codes.json";
+import { obdCodes as ALL_CODES, getObdCode, getRelatedObdCodes, getObdDirectoryPageNumber, isObdCodeIndexable, OBD_LAST_REVIEWED, POPULAR_OBD_CODES } from "@/lib/obd-catalog";
+import { getObdFaq } from "@/lib/obd-content";
 import carModelsData from "@/data/carmodels.json";
 import OBDDetailClient from "./OBDDetailClient";
 import BrandHubClient from "./BrandHubClient";
 import { createSeoSlug } from "@/lib/slug";
 
 const BASE_URL = "https://otosoz.com";
-const OBD_LAST_REVIEWED = "2026-08-26";
-const POPULAR_OBD_CODES = [
-    "P0420", "P0171", "P0300", "P0299", "P0401", "P0101",
-    "P0340", "P0016", "P0128", "P0442", "B0001", "C0035",
-    "U0100", "U0121",
-];
-
-interface ObdCode {
-    code: string;
-    title: string;
-    description: string;
-    type: string;
-    isGeneric: boolean;
-    severity: string;
-    systems: string[];
-    symptoms: string[];
-    causes: string[];
-    fixes: string[];
-}
-
 interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
-const ALL_CODES = Array.from(
-    new Map((obdCodes as ObdCode[]).map(code => [code.code.toUpperCase(), code])).values()
-);
 
 function getTypeLabel(type: string) {
     switch (type) {
@@ -100,7 +78,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 
     const upperCode = normalizedSlug.toUpperCase();
-    const codeData = ALL_CODES.find(code => code.code.toUpperCase() === upperCode);
+    const codeData = getObdCode(upperCode);
 
     if (!codeData) {
         return {
@@ -121,9 +99,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         keywords: [`${codeData.code} arıza kodu`, `${codeData.code} nedir`, `OBD ${codeData.code}`, codeData.title],
         alternates: { canonical: canonicalUrl },
         robots: {
-            index: true,
+            index: isObdCodeIndexable(codeData),
             follow: true,
-            googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
+            googleBot: { index: isObdCodeIndexable(codeData), follow: true, "max-snippet": -1, "max-image-preview": "large" },
         },
         openGraph: {
             title: `${codeData.code} Arıza Kodu: ${codeData.title} | OtoSöz`,
@@ -155,22 +133,15 @@ export default async function OBDSlugPage({ params }: PageProps) {
         return <BrandHubClient brandName={brandName} obdCodes={brandCodes} brandModels={brandModels} />;
     }
 
-    const codeData = ALL_CODES.find(code => code.code.toLowerCase() === normalizedSlug);
+    const codeData = getObdCode(normalizedSlug);
     if (!codeData) notFound();
+    if (slug !== codeData.code.toLowerCase()) permanentRedirect(`/obd/${codeData.code.toLowerCase()}`);
 
-    const prefix = codeData.code.slice(0, 2);
-    const relatedCodes = ALL_CODES
-        .filter(code => code.type === codeData.type && code.code !== codeData.code && code.code.startsWith(prefix))
-        .slice(0, 6);
+    const relatedCodes = getRelatedObdCodes(codeData);
 
     const canonicalUrl = `${BASE_URL}/obd/${codeData.code.toLowerCase()}`;
     const typeLabel = getTypeLabel(codeData.type);
-    const faqItems = [
-        { question: `${codeData.code} arıza kodu nedir?`, answer: codeData.description || codeData.title },
-        ...(codeData.symptoms.length ? [{ question: `${codeData.code} arıza kodunun belirtileri nelerdir?`, answer: codeData.symptoms.slice(0, 5).join("; ") }] : []),
-        ...(codeData.causes.length ? [{ question: `${codeData.code} arıza kodu neden oluşur?`, answer: codeData.causes.slice(0, 5).join("; ") }] : []),
-        ...(codeData.fixes.length ? [{ question: `${codeData.code} arıza kodu nasıl giderilir?`, answer: `Kontrol sırası: ${codeData.fixes.slice(0, 5).join("; ")}` }] : []),
-    ];
+    const faqItems = getObdFaq(codeData);
     const structuredData = {
         "@context": "https://schema.org",
         "@graph": [
@@ -181,7 +152,7 @@ export default async function OBDSlugPage({ params }: PageProps) {
                 "description": codeData.description,
                 "url": canonicalUrl,
                 "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
-                "dateModified": OBD_LAST_REVIEWED,
+                "dateModified": codeData.lastReviewed || OBD_LAST_REVIEWED,
                 "inLanguage": "tr-TR",
                 "articleSection": typeLabel,
                 "author": { "@type": "Organization", "name": "OtoSöz", "url": BASE_URL },
@@ -222,9 +193,9 @@ export default async function OBDSlugPage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\u003c') }}
             />
-            <OBDDetailClient codeData={codeData} relatedCodes={relatedCodes} typeLabel={typeLabel} />
+            <OBDDetailClient codeData={codeData} relatedCodes={relatedCodes} typeLabel={typeLabel} directoryPage={getObdDirectoryPageNumber(codeData.code)} />
         </>
     );
 }

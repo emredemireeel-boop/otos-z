@@ -6,9 +6,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Clock, Eye, Calendar, ChevronRight, TrendingUp, Tag } from "lucide-react";
 
-export default function HaberlerClient() {
-    const [posts, setPosts] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
+export default function HaberlerClient({ initialPosts = [] }: { initialPosts?: any[] }) {
+    const sortedInitialPosts = [...initialPosts].sort((a: any, b: any) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+    const [posts, setPosts] = useState<any[]>(sortedInitialPosts);
+    const [loading, setLoading] = useState(initialPosts.length === 0);
 
     useEffect(() => {
         fetch(`/data/news_posts.json?t=${Date.now()}`)

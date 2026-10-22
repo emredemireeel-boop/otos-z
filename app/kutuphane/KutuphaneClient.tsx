@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef } from "react";
-import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { dictionaryTerms, getAllLetters, categoryColors } from "@/data/dictionary";
@@ -126,9 +125,6 @@ const SectionCarousel = ({ title, icon, children }: { title: string, icon?: Reac
 };
 
 export default function LibraryPage({ initialCategory = 'makaleler' }: { initialCategory?: string }) {
-
-    const searchParams = useSearchParams();
-
     // SEO-friendly slug mappings
     const tabSlugs = [
         { slug: 'makaleler', name: 'Makale', icon: BookOpen, title: 'Otomotiv Makaleleri | OtoSöz Kütüphane', description: 'Otomotiv dünyasına dair detaylı makaleler, bakım rehberleri ve uzman önerileri.' },
@@ -159,8 +155,9 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
         { slug: 'nasil-yapilir', name: 'Nasıl Yapılır?', icon: Wrench, title: 'Nasıl Yapılır? Adım Adım Araç Bakım Rehberleri | OtoSöz', description: 'Patlak lastik değiştirme, akü takviyesi, motor yağı kontrolü ve daha fazlası. Adım adım fotoğraflı araç bakım ve acil durum rehberleri.' },
     ];
 
-    // Determine active tab from URL
-    const sekmeParam = searchParams.get('kategori') || initialCategory;
+    // URL parametresi Server Component'ta çözülüp initialCategory olarak gelir.
+    // Böylece içerik useSearchParams kaynaklı CSR bailout olmadan ilk HTML'de yer alır.
+    const sekmeParam = initialCategory;
     const activeTab = useMemo(() => {
         if (!sekmeParam) return 0;
         const idx = tabSlugs.findIndex(t => t.slug === sekmeParam);

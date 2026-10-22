@@ -9284,6 +9284,32 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         userExperiences: [],
         totalReports: 7
+    },
+    {
+        id: 1010,
+        brand: "Renault",
+        model: "Duster 3. Nesil (2024-2026)",
+        year: "2024-2026",
+        dnaScore: 81,
+        strengths: [
+            "209-217 mm'ye varan yerden yükseklik ve kullanışlı SUV gövdesi",
+            "594 litreye varan bagaj hacmi",
+            "Benzin, full hibrit, LPG ve 4x4 güç aktarma seçenekleri",
+            "Yaygın servis ağı ve Türkiye üretimi versiyonlar",
+            "Kablosuz Apple CarPlay ve Android Auto destekli 10,1 inç ekran"
+        ],
+        weaknesses: [
+            "Motor seçeneklerinin kullanım maliyeti ve karakteri birbirinden çok farklı",
+            "Bazı konfor ve güvenlik donanımları pakete göre değişiyor",
+            "4x4 kabiliyeti yalnızca ilgili güç aktarma seçeneğinde sunuluyor",
+            "Yeni nesil olduğu için uzun dönem kullanıcı verisi henüz sınırlı"
+        ],
+        chronicIssues: [
+            { id: 1, title: "Yazılım ve multimedya güncelliği", severity: "low", reportCount: 2, description: "Yeni nesil araçlarda teslimat öncesinde multimedya, geri görüş kamerası ve sürüş destek yazılımının güncel olduğu doğrulanmalıdır. Bu başlık doğrulanmış bir arıza oranı değil, satın alma kontrol maddesidir." },
+            { id: 2, title: "Alt gövde ve yürüyen aksam kontrolü", severity: "medium", reportCount: 2, description: "Arazi veya bozuk yol kullanımı olan ikinci el araçlarda alt korumalar, jantlar, lastikler ve süspansiyon bağlantıları ekspertizde ayrıca kontrol edilmelidir." }
+        ],
+        userExperiences: [],
+        totalReports: 4
     }
 ];
 

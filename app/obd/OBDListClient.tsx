@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Activity, AlertCircle, Wrench, X, ChevronRight } from "lucide-react";
 import Link from "next/link";

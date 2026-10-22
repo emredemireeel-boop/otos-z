@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { vehicleDNAData, getDNAScoreColor, getDNAScoreLabel, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData, EngineOption } from "@/data/engine-dna";
+import { getVehicleGenerationInfo, resolveVehicleGeneration } from "@/lib/vehicleGeneration";
+import { topSellingVehicleGuides } from "@/data/top-selling-vehicle-guides";
 import { getAllBrands, getModelsForBrand } from "@/data/listings";
 
 interface EngineVariantDisplay {
@@ -49,6 +51,10 @@ export default function AracDNAPage() {
     });
 
     const reviewedEngineVariants = allEngineVariants.filter(item => isVehicleEditoriallyReviewed(item.vehicle));
+    const reviewedVehicles = vehicleDNAData.filter(isVehicleEditoriallyReviewed);
+    const resolvedGeneration = brandInput && modelInput && vehicleYear
+        ? resolveVehicleGeneration(reviewedVehicles, brandInput, modelInput, Number(vehicleYear))
+        : null;
 
     // Popüler ve puan sıralamaları yalnızca kaynak kontrolü tamamlanan kayıtları kullanır.
     const popularVehicles = reviewedEngineVariants.slice(0, 50);
@@ -67,12 +73,12 @@ export default function AracDNAPage() {
         setSubmitted(false);
 
         // Find all matching engines
-        const matches = allEngineVariants.filter(item => {
+        const matches = reviewedEngineVariants.filter(item => {
             const v = item.vehicle;
             const e = item.engine;
             
             const matchesBrand = v.brand.toLowerCase() === brandInput.toLowerCase();
-            const matchesModel = v.model.toLowerCase().includes(modelInput.toLowerCase());
+            const matchesModel = resolvedGeneration ? v.id === resolvedGeneration.id : false;
             
             // Year matching logic
             let matchesYear = true;
@@ -454,25 +460,32 @@ export default function AracDNAPage() {
                             </div>
                         </div>
 
+                        {brandInput && modelInput && vehicleYear && (
+                            <div className="dna-generation-resolution">
+                                <CheckCircle2 size={18} />
+                                {resolvedGeneration ? <span><strong>{vehicleYear} için otomatik eşleşme:</strong> {resolvedGeneration.brand} {getVehicleGenerationInfo(resolvedGeneration).label} · {resolvedGeneration.year}</span> : <span>Bu marka, model ve yıl için doğrulanmış jenerasyon henüz bulunamadı.</span>}
+                            </div>
+                        )}
+
                         <button
                             onClick={handleSearch}
-                            disabled={!brandInput || !modelInput}
+                            disabled={!brandInput || !modelInput || !vehicleYear}
                             style={{
                                 width: '100%',
                                 padding: '14px 24px',
-                                background: (!brandInput || !modelInput) ? 'var(--secondary)' : 'var(--primary)',
-                                color: (!brandInput || !modelInput) ? 'var(--text-muted)' : 'white',
+                                background: (!brandInput || !modelInput || !vehicleYear) ? 'var(--secondary)' : 'var(--primary)',
+                                color: (!brandInput || !modelInput || !vehicleYear) ? 'var(--text-muted)' : 'white',
                                 border: 'none',
                                 borderRadius: '12px',
                                 fontSize: '16px',
                                 fontWeight: '700',
-                                cursor: (!brandInput || !modelInput) ? 'not-allowed' : 'pointer',
+                                cursor: (!brandInput || !modelInput || !vehicleYear) ? 'not-allowed' : 'pointer',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 gap: '8px',
                                 transition: 'all 0.2s',
-                                opacity: (!brandInput || !modelInput) ? 0.5 : 1
+                                opacity: (!brandInput || !modelInput || !vehicleYear) ? 0.5 : 1
                             }}
                         >
                             <Search size={20} />
@@ -654,6 +667,22 @@ export default function AracDNAPage() {
                                 Katkınız başarıyla kaydedildi. Moderasyon sonrası yayınlanacaktır.
                             </p>
                         </div>
+                    )}
+
+                    {searchResults === null && (
+                        <section className="dna-market-list" aria-labelledby="market-list-title">
+                            <div className="dna-market-list__head">
+                                <div><span className="dna-section-kicker">Türkiye pazarı</span><h2 id="market-list-title">2026’nın en çok satan 5 otomobili</h2></div>
+                                <small>Ocak–Ağustos satışları · ODMD</small>
+                            </div>
+                            <div className="dna-market-list__grid">
+                                {topSellingVehicleGuides.map((guide) => (
+                                    <Link key={guide.vehiclePath} href={`/arac-dna/${guide.vehiclePath}`}>
+                                        <span>#{guide.rank}</span><strong>{guide.generation}</strong><small>{guide.registrations.toLocaleString('tr-TR')} adet</small>
+                                    </Link>
+                                ))}
+                            </div>
+                        </section>
                     )}
 
                     {/* Popular Vehicles */}

@@ -133,7 +133,7 @@ export default function UserExperiencesPage() {
                             {vehicle.chronicIssues.length} kronik sorunu incele
                         </Link>
                         <Link href={`/arac-dna/${brandSlug}/${modelSlug}/neden-alinir`} style={{ padding: '10px 14px', borderRadius: '9px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', color: 'var(--primary)', textDecoration: 'none', fontSize: '13px', fontWeight: '700' }}>
-                            Artıları ve eksileri gör
+                            Güçlü yönleri ve dikkat noktalarını gör
                         </Link>
                         <Link href={`/arac-dna/${brandSlug}/${modelSlug}`} style={{ padding: '10px 14px', borderRadius: '9px', background: 'var(--primary)', color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '700' }}>
                             Motor seçeneklerine dön
@@ -154,7 +154,7 @@ export default function UserExperiencesPage() {
                 <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
                     Araç yılı, motor, kilometre ve bakım geçmişini belirterek forumda yeni başlık açın. Yayınlanan deneyimler moderasyon ve kaynak kontrolünden sonra Araç DNA dosyasına eklenebilir.
                 </p>
-                <Link href="/forum" style={{ display: 'inline-flex', padding: '12px 18px', background: 'var(--primary)', color: 'white', borderRadius: '10px', textDecoration: 'none', fontWeight: 700 }}>
+                <Link href="/" style={{ display: 'inline-flex', padding: '12px 18px', background: 'var(--primary)', color: 'white', borderRadius: '10px', textDecoration: 'none', fontWeight: 700 }}>
                     Forumda deneyim paylaş
                 </Link>
             </div>

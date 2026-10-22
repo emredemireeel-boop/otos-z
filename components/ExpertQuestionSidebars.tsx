@@ -107,7 +107,7 @@ function LatestTenThreads() {
                     <span className="expert-side-kicker">Topluluk gündemi</span>
                     <h2 id="expert-latest-title"><Clock3 size={15} /> Son 10 başlık</h2>
                 </div>
-                <Link href="/forum">Tümü <ChevronRight size={12} /></Link>
+                <Link href="/">Tümü <ChevronRight size={12} /></Link>
             </div>
 
             {threads.length === 0 ? (

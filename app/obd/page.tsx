@@ -1,16 +1,11 @@
 import { Metadata } from "next";
-import obdCodes from "@/data/obd-codes.json";
+import { obdCodes as allCodes, obdSearchCodes, OBD_LAST_REVIEWED, obdDirectoryPageCount, indexableObdCodes } from "@/lib/obd-catalog";
+import Link from "next/link";
 import carModelsData from "@/data/carmodels.json";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OBDListClient from "./OBDListClient";
 
-const OBD_LAST_REVIEWED = "2026-08-26";
-const POPULAR_OBD_CODES = [
-    "P0420", "P0171", "P0300", "P0299", "P0401", "P0101",
-    "P0340", "P0016", "P0128", "P0442", "B0001", "C0035",
-    "U0100", "U0121",
-];
 
 // ── SEO Metadata ──
 export const metadata: Metadata = {
@@ -48,23 +43,8 @@ export const metadata: Metadata = {
     },
 };
 
-interface ObdCode {
-    code: string;
-    title: string;
-    description: string;
-    type: string;
-    isGeneric: boolean;
-    severity: string;
-    systems: string[];
-    symptoms: string[];
-    causes: string[];
-    fixes: string[];
-}
-
 export default function ObdPage() {
-    const allCodes = Array.from(
-        new Map((obdCodes as ObdCode[]).map(code => [code.code.toUpperCase(), code])).values()
-    );
+
 
     // Server'da istatistikleri hesapla — client'a sadece sayılar gider
     const stats = {
@@ -75,16 +55,7 @@ export default function ObdPage() {
         U: allCodes.filter(c => c.type === 'U').length,
     };
 
-    // İlk görünümde her kod ailesini temsil et; veri dosyasının sırası nedeniyle
-    // yalnızca B kodlarının görünmesini engelle.
-    const initialCodes = Array.from(new Map([
-        ...POPULAR_OBD_CODES
-            .map(code => allCodes.find(item => item.code.toUpperCase() === code))
-            .filter((code): code is ObdCode => Boolean(code)),
-        ...['P', 'B', 'C', 'U'].flatMap(type =>
-            allCodes.filter(code => code.type === type).slice(0, 10)
-        ),
-    ].map(code => [code.code.toUpperCase(), code])).values()).slice(0, 48);
+    const initialCodes = obdSearchCodes.slice(0, 48);
 
     // Marka listesi
     const brands = Object.keys(carModelsData).sort().slice(0, 15);
@@ -103,7 +74,7 @@ export default function ObdPage() {
                 "isPartOf": { "@type": "WebSite", "name": "OtoSöz", "url": "https://otosoz.com" },
                 "mainEntity": {
                     "@type": "ItemList",
-                    "numberOfItems": stats.total,
+                    "numberOfItems": initialCodes.length,
                     "itemListElement": initialCodes.map((code, index) => ({
                         "@type": "ListItem",
                         "position": index + 1,
@@ -141,7 +112,7 @@ export default function ObdPage() {
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <div>
-                                    <h1 style={{ fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: '800', color: 'white', marginBottom: '6px' }}>
+                                    <h1 style={{ fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: '800', color: 'var(--foreground)', marginBottom: '6px' }}>
                                         OBD-II Arıza Kodları: Türkçe Anlam ve Çözüm Rehberi
                                     </h1>
                                     <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.6', maxWidth: '850px' }}>
@@ -153,6 +124,12 @@ export default function ObdPage() {
                     </div>
                 </div>
 
+                <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '20px 24px 0' }}>
+                    <Link href="/obd-kodlari/1" style={{ color: 'var(--primary)', fontWeight: 700 }}>
+                        İndekslenen {indexableObdCodes.length.toLocaleString('tr-TR')} evrensel kodu dizinde incele →
+                    </Link>
+                    <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Doğrulanabilir, evrensel kodları {obdDirectoryPageCount} sayfalık dizinde tarayın. Üreticiye özel kodlar arama kutusunda çalışmaya devam eder.</p>
+                </section>
                 <OBDListClient
                     initialCodes={initialCodes}
                     totalCount={stats.total}
@@ -167,9 +144,9 @@ export default function ObdPage() {
                             Kodun ilk harfi arızanın ana ailesini belirtir: P motor ve şanzıman, B gövde ve konfor, C şasi-fren-süspansiyon, U ise araç içi iletişim ağı kodlarıdır. Kod tek başına parça değişimi talimatı değildir; belirti, tesisat ve ölçüm sonuçlarıyla birlikte değerlendirilmelidir.
                         </p>
                         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                            <a href="/kutuphane?kategori=gosterge-isiklari" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Gösterge ışıkları rehberi →</a>
-                            <a href="/kutuphane?kategori=nereye-gitmeli" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Hangi ustaya gitmeli? →</a>
-                            <a href="/uzmana-sor" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Uzmana sor →</a>
+                            <Link href="/kutuphane?kategori=gosterge-isiklari" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Gösterge ışıkları rehberi →</Link>
+                            <Link href="/kutuphane?kategori=nereye-gitmeli" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Hangi ustaya gitmeli? →</Link>
+                            <Link href="/uzmana-sor" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Uzmana sor →</Link>
                         </div>
                     </div>
                 </section>

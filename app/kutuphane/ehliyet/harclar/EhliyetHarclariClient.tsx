@@ -381,7 +381,7 @@ export default function EhliyetHarclariClient() {
                             Forumda deneyimli sürücülerden ve uzmanlardan yardım alın. Sorularınızı sorun, cevaplar bulsun.
                         </p>
                         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <Link href="/forum" style={{ textDecoration: 'none' }}>
+                            <Link href="/" style={{ textDecoration: 'none' }}>
                                 <button style={{
                                     padding: '14px 28px', background: '#3b82f6', color: 'white',
                                     border: 'none', borderRadius: '12px', fontSize: '15px', fontWeight: '700',
@@ -468,7 +468,7 @@ export default function EhliyetHarclariClient() {
                         <p style={{ margin: '0 0 14px', fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.5 }}>
                             Ehliyet harcları hakkında görüşlerinizi paylaşın, diğer sürücülere yardım edin.
                         </p>
-                        <Link href="/forum" style={{ textDecoration: 'none' }}>
+                        <Link href="/" style={{ textDecoration: 'none' }}>
                             <button style={{
                                 width: '100%', padding: '10px', background: '#10B981', color: 'white',
                                 border: 'none', borderRadius: '10px', fontSize: '13px', fontWeight: '700',

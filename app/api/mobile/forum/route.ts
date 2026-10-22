@@ -19,7 +19,7 @@ function isAction(value: unknown): value is Action {
     return ["createThread", "addReply", "toggleLike", "vehicleVote", "incrementView"].includes(String(value));
 }
 function refreshForum(slug?: string) {
-    revalidatePath("/forum");
+    revalidatePath("/");
     revalidatePath("/forum/feed.xml");
     revalidatePath("/sitemap.xml");
     if (slug) revalidatePath(`/forum/${slug}`);

@@ -21,9 +21,15 @@ function getAllCezalar() {
 }
 
 function compactTitle(item: any): string {
-    const topic = String(item.ihlal || "Trafik").split(" (")[0].trim();
+    const violation = String(item.ihlal || "Trafik");
+    const topic = violation.split(" (")[0].trim();
+    const qualifier = violation.match(/\(([^),]+)/)?.[1]?.trim();
+    const qualifiedTitle = qualifier
+        ? `${topic}: ${qualifier} Cezası 2026 | OtoSöz`
+        : "";
     const descriptiveTitle = `${topic} Cezası 2026 | OtoSöz`;
 
+    if (qualifiedTitle && qualifiedTitle.length <= 65) return qualifiedTitle;
     if (descriptiveTitle.length <= 65) return descriptiveTitle;
     return `Madde ${item.madde} Trafik Cezası 2026: ${item.ceza} | OtoSöz`;
 }

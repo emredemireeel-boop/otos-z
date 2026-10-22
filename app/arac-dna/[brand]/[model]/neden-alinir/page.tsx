@@ -28,7 +28,7 @@ export default function ProsAndConsPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '32px' }}>
                 <ThumbsUp size={28} color="var(--primary)" />
                 <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)', margin: 0 }}>
-                    {vehicle.brand} {vehicle.model} Artıları ve Eksileri
+                    {vehicle.brand} {vehicle.model} Güçlü Yönleri ve Dikkat Noktaları
                 </h2>
             </div>
 
@@ -45,7 +45,7 @@ export default function ProsAndConsPage() {
                             <CheckCircle size={24} color="#22C55E" />
                         </div>
                         <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', margin: 0 }}>
-                            Güçlü Yanları
+                            Güçlü Yönleri
                         </h3>
                     </div>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -80,7 +80,7 @@ export default function ProsAndConsPage() {
                             <AlertTriangle size={24} color="#F59E0B" />
                         </div>
                         <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', margin: 0 }}>
-                            Zayıf Yanları
+                            Dikkat Noktaları
                         </h3>
                     </div>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>

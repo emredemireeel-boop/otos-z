@@ -90,9 +90,9 @@ export const OTOHESAP_META: Record<string, { title: string; description: string;
     keywords: 'araç sahip olma maliyeti, araba yıllık masrafı, toplam sahip olma maliyeti, araç değer kaybı ve gider, otomobil TCO hesaplama'
   },
   'yakit-turu-karsilastirma': {
-    title: 'Yakıt Türü Maliyet Karşılaştırma | OtoHesap',
-    description: 'Benzin, dizel, LPG ve elektrikli araçların kilometre başı ve yıllık enerji maliyetini kendi fiyat ve tüketim değerlerinizle karşılaştırın.',
-    keywords: 'benzin dizel lpg karşılaştırma, elektrikli araç yakıt karşılaştırma, hangi yakıt daha ekonomik, yakıt türü maliyet hesaplama'
+    title: 'Benzin mi Dizel mi? Yakıt Maliyeti Karşılaştırma | OtoHesap',
+    description: 'Benzin, dizel, LPG ve elektrikli araçların kilometre başı ve yıllık yakıt maliyetini kendi tüketim ve birim fiyatlarınızla ücretsiz karşılaştırın.',
+    keywords: 'benzin dizel yakıt karşılaştırma, benzin mi dizel mi, lpg karşılaştırma, elektrikli araç yakıt karşılaştırma, hangi yakıt daha ekonomik, yakıt maliyeti hesaplama'
   },
   'motor-gucu-donusturme': {
     title: 'kW - HP - PS Beygir Gücü Çevirme | OtoHesap',

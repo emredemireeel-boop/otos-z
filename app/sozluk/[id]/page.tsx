@@ -1,9 +1,10 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Metadata } from "next";
 import { dictionaryTerms, categoryColors } from "@/data/dictionary";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SozlukDetailClient from "./SozlukDetailClient";
+import { getCanonicalDictionaryId } from "@/lib/seoUrls";
 
 interface PageProps {
     params: Promise<{ id: string }>;
@@ -11,7 +12,8 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { id } = await params;
-    const term = dictionaryTerms.find(t => t.id === id);
+    const canonicalId = getCanonicalDictionaryId(id);
+    const term = dictionaryTerms.find(t => t.id === canonicalId);
 
     if (!term) {
         return { title: 'Terim Bulunamadı | OtoSöz Sözlük' };
@@ -29,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             title: `${term.term} Nedir? | OtoSöz`,
             description: description.slice(0, 160),
             type: 'article',
-            url: `https://otosoz.com/sozluk/${id}`,
+            url: `https://otosoz.com/sozluk/${canonicalId}`,
             images: [
                 {
                     url: ogUrl,
@@ -46,17 +48,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             images: [ogUrl],
         },
         alternates: {
-            canonical: `https://otosoz.com/sozluk/${id}`,
+            canonical: `https://otosoz.com/sozluk/${canonicalId}`,
         },
     };
 }
 
 export default async function SozlukTermPage({ params }: PageProps) {
     const { id } = await params;
-    const term = dictionaryTerms.find(t => t.id === id);
+    const canonicalId = getCanonicalDictionaryId(id);
+    const term = dictionaryTerms.find(t => t.id === canonicalId);
 
     if (!term) {
         notFound();
+    }
+
+    if (id !== canonicalId) {
+        permanentRedirect(`/sozluk/${canonicalId}`);
     }
 
     // Find same-category related terms

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import HaberlerClient from "./HaberlerClient";
+import newsData from "@/public/data/news_posts.json";
 
 export const metadata: Metadata = {
     title: 'OtoSöz Haberler | Güncel Otomobil Haberleri ve Rehberler',
@@ -24,5 +25,5 @@ export const metadata: Metadata = {
 };
 
 export default function HaberlerServerPage() {
-    return <HaberlerClient />;
+    return <HaberlerClient initialPosts={newsData.posts} />;
 }

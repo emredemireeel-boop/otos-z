@@ -1,124 +1,92 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import Link from "next/link";
+import { AlertTriangle, ArrowRight, Car, CheckCircle2, Gauge, ShieldCheck, Wrench, Zap } from "lucide-react";
 import { vehicleDNAData, createSlug } from "@/data/vehicle-dna";
 import { engineDNAData } from "@/data/engine-dna";
-import Link from "next/link";
-import { Car, Zap } from "lucide-react";
+import { getVehicleGenerationInfo } from "@/lib/vehicleGeneration";
+import { getTopSellingVehicleGuide } from "@/data/top-selling-vehicle-guides";
+import TopSellingVehicleGuide from "@/components/TopSellingVehicleGuide";
 
 export default function VehicleModelSelectionPage() {
     const params = useParams();
-
     const brandSlug = (params?.brand as string)?.toLowerCase() || "";
     const modelSlug = (params?.model as string)?.toLowerCase() || "";
-
-    const vehicle = vehicleDNAData.find(v => {
-        const vBrandSlug = createSlug(v.brand);
-        const vModelSlug = createSlug(v.model);
-        return vBrandSlug === brandSlug && vModelSlug === modelSlug;
-    });
+    const vehicle = vehicleDNAData.find((item) => createSlug(item.brand) === brandSlug && createSlug(item.model) === modelSlug);
 
     if (!vehicle) return null;
 
-    const engineData = engineDNAData.find(e => e.vehicleId === vehicle.id);
+    const engineData = engineDNAData.find((item) => item.vehicleId === vehicle.id);
+    const generation = getVehicleGenerationInfo(vehicle);
+    const guide = getTopSellingVehicleGuide(brandSlug, modelSlug);
+    const modelPath = `/arac-dna/${brandSlug}/${modelSlug}`;
 
     return (
-        <div style={{ padding: '40px 20px', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-            <Car size={48} color="var(--primary)" style={{ marginBottom: '20px' }} />
-            <h1 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '12px' }}>
-                Lütfen Motor Seçeneği Belirtin
-            </h1>
-            <p style={{ fontSize: '16px', color: 'var(--text-muted)', marginBottom: '40px' }}>
-                {vehicle.brand} {vehicle.model} aracının tam DNA analizini görebilmek için yakıt ve vites kombinasyonunu seçmelisiniz.
-            </p>
-
-            {engineData && engineData.engines.length > 0 ? (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
-                    {engineData.engines.map((engine) => (
-                        <Link 
-                            key={engine.slug} 
-                            href={`/arac-dna/${brandSlug}/${modelSlug}/${engine.slug}`} 
-                            style={{ textDecoration: 'none' }}
-                        >
-                            <div style={{
-                                background: 'var(--card-bg)',
-                                border: '1px solid var(--card-border)',
-                                borderRadius: '12px',
-                                padding: '24px',
-                                cursor: 'pointer',
-                                transition: 'all 0.2s',
-                                textAlign: 'left',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '16px'
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor = 'var(--primary)';
-                                e.currentTarget.style.transform = 'translateY(-2px)';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.borderColor = 'var(--card-border)';
-                                e.currentTarget.style.transform = 'translateY(0)';
-                            }}>
-                                <div style={{
-                                    width: '48px', height: '48px', borderRadius: '12px',
-                                    background: 'rgba(59, 130, 246, 0.1)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center'
-                                }}>
-                                    <Zap size={24} color="#3b82f6" />
-                                </div>
-                                <div>
-                                    <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px' }}>
-                                        {engine.name}
-                                    </h3>
-                                    <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-                                        {engine.fuelType} • {engine.transmission}
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
+        <div className="dna-model-overview">
+            <section className="dna-decision-intro">
+                <div>
+                    <span className="dna-section-kicker"><Gauge size={15} /> Araç karar dosyası</span>
+                    <h2>{vehicle.brand} {vehicle.model}: hangi motor kime uygun?</h2>
+                    <p>
+                        Önce üretim yılı ve jenerasyonu doğrulayın, ardından kullanımınıza uygun motoru seçin.
+                        Aşağıdaki özet; güçlü yönleri, dikkat noktalarını ve motor bazlı riskleri ilk ekranda görünür tutar.
+                    </p>
                 </div>
-            ) : (
-                <div style={{ padding: '20px', background: 'var(--card-bg)', borderRadius: '12px', color: 'var(--text-muted)' }}>
-                    Bu araca ait spesifik motor varyantları bulunamadı.
+                <div className="dna-generation-card">
+                    <strong>{generation.label}</strong>
+                    <span>{vehicle.year} üretim dönemi</span>
+                    <small>{engineData?.engines.length || 0} motor/aktarma seçeneği</small>
                 </div>
-            )}
-
-            <section style={{
-                marginTop: '48px',
-                padding: '32px',
-                background: 'var(--card-bg)',
-                border: '1px solid var(--card-border)',
-                borderRadius: '16px',
-                textAlign: 'left',
-                color: 'var(--text-muted)',
-                lineHeight: '1.7'
-            }}>
-                <h2 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>
-                    {vehicle.brand} {vehicle.model} dosya kapsamı
-                </h2>
-                <p style={{ marginBottom: '20px' }}>
-                    Bu dosya <strong>{vehicle.year}</strong> üretim dönemini, {engineData?.engines.length || 0} motor seçeneğini ve editoryal kayıttaki {vehicle.chronicIssues.length} kontrol başlığını kapsar. Motor ve şanzıman seçimine göre riskler değişebileceği için ayrıntıyı ilgili motor kartından inceleyin.
-                </p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
-                    <div>
-                        <h3 style={{ fontSize: '15px', color: 'var(--foreground)', marginBottom: '8px' }}>Öne çıkan yönler</h3>
-                        <ul style={{ margin: 0, paddingLeft: '20px' }}>
-                            {vehicle.strengths.slice(0, 3).map(item => <li key={item}>{item}</li>)}
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 style={{ fontSize: '15px', color: 'var(--foreground)', marginBottom: '8px' }}>Satın almadan önce kontrol</h3>
-                        <ul style={{ margin: 0, paddingLeft: '20px' }}>
-                            {vehicle.chronicIssues.slice(0, 3).map(issue => <li key={issue.id}>{issue.title}</li>)}
-                        </ul>
-                    </div>
-                </div>
-                <p style={{ marginTop: '20px', fontSize: '13px' }}>
-                    DNA puanı bir satın alma garantisi değildir; araç yaşı, bakım geçmişi, kullanım biçimi ve ekspertiz sonucu birlikte değerlendirilmelidir.
-                </p>
             </section>
+
+            <div className="dna-overview-columns">
+                <article>
+                    <h3><CheckCircle2 size={19} /> Güçlü yönler</h3>
+                    <ul>{vehicle.strengths.slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
+                    <Link href={`${modelPath}/neden-alinir`}>Tüm güçlü yönler ve dikkat noktaları <ArrowRight size={15} /></Link>
+                </article>
+                <article>
+                    <h3><AlertTriangle size={19} /> Satın alma kontrolü</h3>
+                    <ul>{vehicle.weaknesses.slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
+                    <Link href={`${modelPath}/kronik-sorunlar`}>Kronik risk dosyasını incele <ArrowRight size={15} /></Link>
+                </article>
+            </div>
+
+            {guide && <TopSellingVehicleGuide guide={guide} />}
+
+            <section className="dna-engine-picker" aria-labelledby="dna-engine-title">
+                <div className="dna-engine-picker__heading">
+                    <div>
+                        <span className="dna-section-kicker"><Wrench size={15} /> Motor ve şanzıman</span>
+                        <h2 id="dna-engine-title">Aracınızdaki seçeneği belirleyin</h2>
+                        <p>Riskler ve kullanıcı deneyimi motor–şanzıman kombinasyonuna göre değişir.</p>
+                    </div>
+                    <ShieldCheck size={34} />
+                </div>
+
+                {engineData && engineData.engines.length > 0 ? (
+                    <div className="dna-engine-grid">
+                        {engineData.engines.map((engine) => (
+                            <Link key={engine.slug} href={`${modelPath}/${engine.slug}`}>
+                                <span className="dna-engine-icon"><Zap size={21} /></span>
+                                <span className="dna-engine-copy">
+                                    <strong>{engine.name}</strong>
+                                    <small>{engine.fuelType} · {engine.transmission}</small>
+                                    {engine.description && <p>{engine.description}</p>}
+                                </span>
+                                <ArrowRight size={18} />
+                            </Link>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="dna-empty-note"><Car size={20} /> Bu jenerasyonun motor verisi editoryal kontrolde.</div>
+                )}
+            </section>
+
+            <p className="dna-disclaimer">
+                Araç DNA puanı satın alma garantisi değildir. Araç yaşı, bakım geçmişi, kullanım biçimi ve bağımsız ekspertiz sonucu birlikte değerlendirilmelidir.
+            </p>
         </div>
     );
 }

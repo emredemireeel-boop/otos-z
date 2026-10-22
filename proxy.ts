@@ -56,7 +56,7 @@ function isTokenValid(token: string | undefined): boolean {
     return exp * 1000 > Date.now();
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     const hostHeader = (request.headers.get('host') || '').toLowerCase();
     const hostname = hostHeader.split(':')[0];
     const allowedHosts = new Set(['otosoz.com', 'www.otosoz.com', 'localhost', '127.0.0.1']);
@@ -82,6 +82,14 @@ export function middleware(request: NextRequest) {
         return new NextResponse('Geçersiz istek yolu.', { status: 400 });
     }
 
+    // OBD kodlarının tek canonical biçimi küçük harftir. Statik üretilmiş sayfalar
+    // büyük harfli yolu da 200 ile karşılayabildiği için yönlendirmeyi render öncesi yap.
+    const obdCodeMatch = path.match(/^\/obd\/([pbcu][0-3][0-9a-f]{3})$/i);
+    if (obdCodeMatch && path !== path.toLowerCase()) {
+        const canonicalUrl = request.nextUrl.clone();
+        canonicalUrl.pathname = '/obd/' + obdCodeMatch[1].toLowerCase();
+        return NextResponse.redirect(canonicalUrl, 308);
+    }
     // Geçmişte motor slug'ına yanlışlıkla eklenen model sekmelerini gerçek HTTP
     // yönlendirmesiyle tek canonical model sekmesine taşı. Server Component içindeki
     // yönlendirme HTML meta-refresh üretmeyeceği için Google doğrudan 308 görür.
@@ -101,6 +109,8 @@ export function middleware(request: NextRequest) {
     // Search Console'da soft 404 olarak görünüyordu.
     const legacyPathRedirects: Record<string, string> = {
         '/sozluk/amortisör_takozu': '/sozluk/amortisor_takozu',
+        '/sozluk/krank_mili': '/sozluk/krank',
+        '/sozluk/mcpherson': '/sozluk/macpherson',
         '/obd/citron': '/obd/citroen',
         '/obd/alfa romeo': '/obd/alfa-romeo',
         '/obd/aston martin': '/obd/aston-martin',

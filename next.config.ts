@@ -146,17 +146,12 @@ const nextConfig: NextConfig = {
 
             {
                 source: '/bilgi-yarismasi',
-                destination: '/forum',
+                destination: '/',
                 permanent: true,
             },
 
             {
-                source: '/acik-oto-pazari',
-                destination: '/etkinlikler',
-                permanent: true,
-            },
-            {
-                source: '/obd/:brand/:code',
+                source: '/obd/:brand/:code([pPbBcCuU][0-3][0-9a-fA-F]{3})',
                 destination: '/obd/:code',
                 permanent: true,
             },

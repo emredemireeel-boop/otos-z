@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
+import { indexableObdCodes, obdDirectoryPageCount, OBD_LAST_REVIEWED } from '@/lib/obd-catalog';
 import fs from 'fs';
 import path from 'path';
-import { categories, getBrandsForCategory } from '@/data/guvenmetre';
 import { getRecentForumThreadSummaries } from '@/lib/forumDataServer';
 import { events } from '@/data/events';
 import { OTOHESAP_META } from '@/data/otohesap-meta';
@@ -10,13 +10,15 @@ import { createSeoSlug as createSlug } from '@/lib/slug';
 import { dictionaryTerms } from '@/data/dictionary';
 import { mythsData } from '@/data/efsane-avcilari-data';
 import { getCanonicalDictionaryId } from '@/lib/seoUrls';
+import { topSellingVehicleGuides } from '@/data/top-selling-vehicle-guides';
+import { OPEN_CAR_MARKETS, TURKEY_PROVINCES, getMarketPath, hasVerifiedMarket } from '@/data/open-car-markets';
 
 // Sitemap'in 15 dakikada bir yeniden oluşturulması — yeni başlık/entry'ler hızla Google'a gider
 export const revalidate = 900;
 
 const BASE_URL = 'https://otosoz.com';
-const OBD_LAST_REVIEWED = '2026-08-26';
 const LIBRARY_LAST_REVIEWED = '2026-08-26';
+const DNA_LAST_REVIEWED = '2026-09-05';
 
 const LIBRARY_CATEGORY_SLUGS = [
     'ilginc-bilgiler',
@@ -24,7 +26,6 @@ const LIBRARY_CATEGORY_SLUGS = [
     'trafik-isaretleri',
 
     'gosterge-isiklari',
-    'trafik-cezalari',
     'lastik-rehberi',
     'ikinci-el-rehberi',
     'kaza-ilkyardim',
@@ -50,20 +51,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const generatedAt = Date.now();
     const sitemapEntries: MetadataRoute.Sitemap = [
         // Ana Hub Sayfaları
+        { url: `${BASE_URL}/trafik-cezasi`, changeFrequency: 'monthly', priority: 0.8 },
         { url: `${BASE_URL}`, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
         { url: `${BASE_URL}/kutuphane`, lastModified: new Date(LIBRARY_LAST_REVIEWED), changeFrequency: 'weekly', priority: 0.9 },
         { url: `${BASE_URL}/kutuphane/kasko-deger`, lastModified: new Date(LIBRARY_LAST_REVIEWED), changeFrequency: 'monthly', priority: 0.8 },
-        { url: `${BASE_URL}/forum`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.9 },
-        { url: `${BASE_URL}/forum?kategori=genel`, changeFrequency: 'daily', priority: 0.7 },
-        { url: `${BASE_URL}/forum?kategori=teknik-ariza`, changeFrequency: 'daily', priority: 0.7 },
-        { url: `${BASE_URL}/forum?kategori=bakim-tamir`, changeFrequency: 'daily', priority: 0.7 },
-        { url: `${BASE_URL}/forum?kategori=modifiye-aksesuar`, changeFrequency: 'daily', priority: 0.7 },
-        { url: `${BASE_URL}/forum?kategori=elektrikli-hibrit`, changeFrequency: 'daily', priority: 0.7 },
-        { url: `${BASE_URL}/forum?kategori=lastik-jant`, changeFrequency: 'daily', priority: 0.7 },
-        { url: `${BASE_URL}/forum?kategori=sigorta-hukuk`, changeFrequency: 'daily', priority: 0.7 },
-        { url: `${BASE_URL}/forum?kategori=alim-satim`, changeFrequency: 'daily', priority: 0.7 },
-        { url: `${BASE_URL}/forum?kategori=deneyim-inceleme`, changeFrequency: 'daily', priority: 0.7 },
-        { url: `${BASE_URL}/forum?kategori=marka-model`, changeFrequency: 'daily', priority: 0.7 },        { url: `${BASE_URL}/arac-dna`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+        { url: `${BASE_URL}/arac-dna`, lastModified: new Date(DNA_LAST_REVIEWED), changeFrequency: 'daily', priority: 0.95 },
         { url: `${BASE_URL}/otobutce`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
         { url: `${BASE_URL}/haberler`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
         { url: `${BASE_URL}/karsilastirma`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
@@ -77,14 +69,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         { url: `${BASE_URL}/obd`, lastModified: new Date(OBD_LAST_REVIEWED), changeFrequency: 'weekly', priority: 0.9 },
         { url: `${BASE_URL}/ajanda`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-        { url: `${BASE_URL}/usta-ol`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-        { url: `${BASE_URL}/uzman-ol`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
         { url: `${BASE_URL}/hakkimizda`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
         { url: `${BASE_URL}/iletisim`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
         { url: `${BASE_URL}/gizlilik-politikasi`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
         { url: `${BASE_URL}/cerez-politikasi`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
         { url: `${BASE_URL}/kullanim-sartlari`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     ];
+
+    // Yalnızca kaynaklı, dizine açık pazar sayfalarını bildir.
+    sitemapEntries.push({ url: `${BASE_URL}/acik-oto-pazari` });
+    for (const province of TURKEY_PROVINCES.filter((entry) => hasVerifiedMarket(entry.slug))) {
+        sitemapEntries.push({ url: `${BASE_URL}/acik-oto-pazari/${province.slug}` });
+    }
+    for (const market of OPEN_CAR_MARKETS.filter((entry) => entry.status === 'verified')) {
+        sitemapEntries.push({ url: `${BASE_URL}${getMarketPath(market)}`, lastModified: new Date(market.checkedAt) });
+    }
 
     // Her kütüphane sekmesi ayrı ve kendi canonical'ına sahip bir koleksiyon sayfasıdır.
     LIBRARY_CATEGORY_SLUGS.forEach(categorySlug => {
@@ -119,6 +118,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const vehicleList = vehicleDNAData || [];
     const engineList = engineDNAData || [];
     const trimList = trimLevelsData || [];
+    const featuredVehiclePaths = new Set(topSellingVehicleGuides.map(guide => guide.vehiclePath));
     // Veri dosyasında aynı marka/model yolu bazı eski kayıtlar nedeniyle tekrar
     // edebiliyor. Sayfa çözümleyicisinin kullandığı ilk kaydı canonical kabul et;
     // sonraki kopyaların motorlarını aynı URL altında sitemap'e karıştırma.
@@ -135,7 +135,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     filteredBrands.forEach(brand => {
         sitemapEntries.push({
             url: `${BASE_URL}/arac-dna/${createSlug(brand)}`,
-            lastModified: new Date(),
+            lastModified: new Date(DNA_LAST_REVIEWED),
             changeFrequency: 'weekly',
             priority: 0.8,
         });
@@ -145,40 +145,41 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     uniqueVehicleList.forEach((vehicle: any) => {
         const brandSlug = createSlug(vehicle.brand);
         const modelSlug = createSlug(vehicle.model);
+        const isFeaturedVehicle = featuredVehiclePaths.has(`${brandSlug}/${modelSlug}`);
 
         // Model detay sayfası
         sitemapEntries.push({
             url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.7,
+            lastModified: new Date(DNA_LAST_REVIEWED),
+            changeFrequency: isFeaturedVehicle ? 'weekly' : 'monthly',
+            priority: isFeaturedVehicle ? 0.92 : 0.75,
         });
 
         // Yalnızca benzersiz ve görünür verisi olan alt sayfaları Google'a bildir.
         if (vehicle.chronicIssues?.length > 0) {
             sitemapEntries.push({
                 url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/kronik-sorunlar`,
-                lastModified: new Date(),
+                lastModified: new Date(DNA_LAST_REVIEWED),
                 changeFrequency: 'weekly',
-                priority: 0.7,
+                priority: isFeaturedVehicle ? 0.86 : 0.7,
             });
         }
 
         if (vehicle.strengths?.length > 0 || vehicle.weaknesses?.length > 0) {
             sitemapEntries.push({
                 url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/neden-alinir`,
-                lastModified: new Date(),
+                lastModified: new Date(DNA_LAST_REVIEWED),
                 changeFrequency: 'weekly',
-                priority: 0.7,
+                priority: isFeaturedVehicle ? 0.86 : 0.7,
             });
         }
 
         if (vehicle.userExperiences?.length > 0) {
             sitemapEntries.push({
                 url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/kullanici-deneyimleri`,
-                lastModified: new Date(),
+                lastModified: new Date(DNA_LAST_REVIEWED),
                 changeFrequency: 'weekly',
-                priority: 0.7,
+                priority: isFeaturedVehicle ? 0.86 : 0.7,
             });
         }
         
@@ -187,9 +188,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         if (hasTrim) {
             sitemapEntries.push({
                 url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/arac-paketleri`,
-                lastModified: new Date(),
+                lastModified: new Date(DNA_LAST_REVIEWED),
                 changeFrequency: 'weekly',
-                priority: 0.7,
+                priority: isFeaturedVehicle ? 0.86 : 0.7,
             });
         }
         
@@ -199,19 +200,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             vehicleEngines.engines.forEach((engine: any) => {
                 const engineSlug = engine.slug || createSlug(engine.name);
                 const engineUrls = [
-                    { suffix: '', include: true, priority: 0.7 },
-                    { suffix: '-kronik-sorunlari', include: engine.chronicIssues?.length > 0, priority: 0.6 },
+                    { suffix: '', include: true, priority: isFeaturedVehicle ? 0.88 : 0.72 },
+                    { suffix: '-kronik-sorunlari', include: engine.chronicIssues?.length > 0, priority: isFeaturedVehicle ? 0.82 : 0.64 },
                     {
                         suffix: '-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri',
                         include: Boolean(engine.pros?.length || engine.cons?.length),
-                        priority: 0.6,
+                        priority: isFeaturedVehicle ? 0.82 : 0.64,
                     },
                 ];
 
                 engineUrls.filter(item => item.include).forEach(item => {
                     sitemapEntries.push({
                         url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/${engineSlug}${item.suffix}`,
-                        lastModified: new Date(),
+                        lastModified: new Date(DNA_LAST_REVIEWED),
                         changeFrequency: 'weekly',
                         priority: item.priority,
                     });
@@ -231,30 +232,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     }
 
-    // 2. Tekil OBD Kodları — yalnızca indekslenebilir canonical /obd/{code} URL'leri.
-    // Marka sayfaları evrensel kodları tekrar ettiği için sitemap'e alınmaz.
-    // Sitemap sınırı 50.000 URL'dir; veritabanındaki tüm benzersiz kodları
-    // eklemek güvenlidir ve daha önce görünmez kalan binlerce detay sayfasının
-    // keşfedilmesini sağlar.
-    const obdCodesData = safeReadFile('obd-codes.json');
-    if (obdCodesData && Array.isArray(obdCodesData)) {
-        const uniqueObdCodes = new Map<string, any>();
-
-        obdCodesData.forEach((code: any) => {
-            const normalizedCode = String(code.code || '').trim().toLowerCase();
-            if (/^[pbcu][0-9a-f]{4}$/i.test(normalizedCode) && !uniqueObdCodes.has(normalizedCode)) {
-                uniqueObdCodes.set(normalizedCode, code);
-            }
+    // Detay sayfası, API ve sitemap aynı tekilleştirilmiş kataloğu kullanır.
+    indexableObdCodes.forEach(code => {
+        sitemapEntries.push({
+            url: BASE_URL + '/obd/' + code.code.toLowerCase(),
+            lastModified: new Date(code.lastReviewed || OBD_LAST_REVIEWED),
+            changeFrequency: 'monthly',
+            priority: code.isGeneric ? 0.7 : 0.6,
         });
-
-        uniqueObdCodes.forEach((code, normalizedCode) => {
-            sitemapEntries.push({
-                url: `${BASE_URL}/obd/${normalizedCode}`,
-                lastModified: new Date(OBD_LAST_REVIEWED),
-                changeFrequency: 'monthly',
-                priority: code.isGeneric !== false ? 0.7 : 0.6,
-            });
-        });
+    });
+    for (let page = 1; page <= obdDirectoryPageCount; page++) {
+        sitemapEntries.push({ url: BASE_URL + '/obd-kodlari/' + page, changeFrequency: 'monthly', priority: 0.6 });
     }
 
     // 3. Trafik Cezaları
@@ -356,29 +344,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
     }
 
-    // 8. GüvenMetre Kategorileri ve Markaları
-    if (categories) {
-        categories.forEach(category => {
-            sitemapEntries.push({
-                url: `${BASE_URL}/guvenmetre/${category.id}`,
-                lastModified: new Date(),
-                changeFrequency: 'weekly',
-                priority: 0.8,
-            });
-
-            const categoryBrands = getBrandsForCategory(category.id);
-            if (categoryBrands && categoryBrands.length > 0) {
-                categoryBrands.forEach(brand => {
-                    sitemapEntries.push({
-                        url: `${BASE_URL}/guvenmetre/${category.id}/${brand.id}`,
-                        lastModified: new Date(),
-                        changeFrequency: 'weekly',
-                        priority: 0.7,
-                    });
-                });
-            }
-        });
-    }
+    // 8. GüvenMetre alt sayfaları henüz bağımsız canonical içerik sunmadığı
+    // için sitemap'e eklenmez. Ana /guvenmetre sayfası yukarıda yer alır.
 
     // 9. Haberler (news_posts.json'dan)
     const newsData = safeReadFile('news_posts.json');

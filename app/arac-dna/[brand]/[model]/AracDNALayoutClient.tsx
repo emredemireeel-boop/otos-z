@@ -9,6 +9,7 @@ import { engineDNAData } from "@/data/engine-dna";
 import { trimLevelsData } from "@/data/trim-levels";
 import { ArrowLeft, Dna, FileText, Wrench, ThumbsUp, MessageCircle, Package, HelpCircle } from "lucide-react";
 import { buildVehicleFaq } from "@/lib/vehicleFaq";
+import { getVehicleGenerationInfo } from "@/lib/vehicleGeneration";
 
 const suffixes = {
     'artilar': '-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri',
@@ -73,7 +74,7 @@ export default function AracDNALayoutClient({
                             <Link href={`/arac-dna/${brandSlug}`} style={{ padding: '11px 16px', borderRadius: 10, background: 'var(--primary)', color: 'white', textDecoration: 'none', fontWeight: 700 }}>
                                 {vehicle.brand} modellerine dön
                             </Link>
-                            <Link href="/forum" style={{ padding: '11px 16px', borderRadius: 10, border: '1px solid var(--card-border)', color: 'var(--foreground)', textDecoration: 'none', fontWeight: 700 }}>
+                            <Link href="/" style={{ padding: '11px 16px', borderRadius: 10, border: '1px solid var(--card-border)', color: 'var(--foreground)', textDecoration: 'none', fontWeight: 700 }}>
                                 Forum deneyimlerini incele
                             </Link>
                         </div>
@@ -121,12 +122,12 @@ export default function AracDNALayoutClient({
     const modelPath = `/arac-dna/${brandSlug}/${modelSlug}`;
     const hasTrimLevels = trimLevelsData.some(item => item.vehicleId === vehicle.id);
     const modelTabs = [
-        { id: "genel-bakis", name: "Motor Seçenekleri", path: modelPath, icon: <FileText size={16} /> },
+        { id: "genel-bakis", name: "Nesil ve Motorlar", path: modelPath, icon: <FileText size={16} /> },
         ...((vehicle.strengths.length || vehicle.weaknesses.length)
-            ? [{ id: "artilar", name: "Artıları & Eksileri", path: `${modelPath}/neden-alinir`, icon: <ThumbsUp size={16} /> }]
+            ? [{ id: "artilar", name: "Güçlü Yönler ve Dikkat Noktaları", path: `${modelPath}/neden-alinir`, icon: <ThumbsUp size={16} /> }]
             : []),
         ...(vehicle.chronicIssues.length > 0
-            ? [{ id: "kronik", name: "Kronik Sorunlar", path: `${modelPath}/kronik-sorunlar`, icon: <Wrench size={16} /> }]
+            ? [{ id: "kronik", name: "Kronik Riskler", path: `${modelPath}/kronik-sorunlar`, icon: <Wrench size={16} /> }]
             : []),
         ...(hasTrimLevels
             ? [{ id: "donanim", name: "Araç Paketleri", path: `${modelPath}/arac-paketleri`, icon: <Package size={16} /> }]
@@ -139,14 +140,14 @@ export default function AracDNALayoutClient({
     const tabs = specificEngine ? [
         { id: "genel-bakis", name: "Genel Bakış", path: basePath, icon: <FileText size={16} /> },
         ...((specificEngine.pros?.length || specificEngine.cons?.length)
-            ? [{ id: "artilar", name: "Artıları & Eksileri", path: `${basePath}-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri`, icon: <ThumbsUp size={16} /> }]
+            ? [{ id: "artilar", name: "Güçlü Yönler ve Dikkat Noktaları", path: `${basePath}-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri`, icon: <ThumbsUp size={16} /> }]
             : (vehicle.strengths.length || vehicle.weaknesses.length)
-                ? [{ id: "artilar", name: "Artıları & Eksileri", path: `${modelPath}/neden-alinir`, icon: <ThumbsUp size={16} /> }]
+                ? [{ id: "artilar", name: "Güçlü Yönler ve Dikkat Noktaları", path: `${modelPath}/neden-alinir`, icon: <ThumbsUp size={16} /> }]
                 : []),
         ...(specificEngine.chronicIssues.length > 0
-            ? [{ id: "kronik", name: "Kronik Sorunlar", path: `${basePath}-kronik-sorunlari`, icon: <Wrench size={16} /> }]
+            ? [{ id: "kronik", name: "Kronik Riskler", path: `${basePath}-kronik-sorunlari`, icon: <Wrench size={16} /> }]
             : vehicle.chronicIssues.length > 0
-                ? [{ id: "kronik", name: "Kronik Sorunlar", path: `${modelPath}/kronik-sorunlar`, icon: <Wrench size={16} /> }]
+                ? [{ id: "kronik", name: "Kronik Riskler", path: `${modelPath}/kronik-sorunlar`, icon: <Wrench size={16} /> }]
                 : []),
         ...(hasTrimLevels
             ? [{ id: "donanim", name: "Araç Paketleri", path: `${modelPath}/arac-paketleri`, icon: <Package size={16} /> }]
@@ -190,8 +191,8 @@ export default function AracDNALayoutClient({
                             </div>
                             <div>
                                 {(() => {
-                                    const generationMatch = vehicle.model.match(/\(([^)]+)\)/);
-                                    const generationInfo = generationMatch ? generationMatch[1] : null;
+                                    const generation = getVehicleGenerationInfo(vehicle);
+                                    const generationInfo = generation.label;
                                     const mainModelName = vehicle.model.replace(/\s*\([^)]+\)/, "").trim();
                                     return (
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -213,7 +214,7 @@ export default function AracDNALayoutClient({
                                                         alignItems: 'center',
                                                         gap: '6px'
                                                     }}>
-                                                        🛡️ Jenerasyon: {generationInfo}
+                                                        Jenerasyon: {generationInfo}
                                                     </span>
                                                 )}
                                                 <span style={{
@@ -287,7 +288,7 @@ export default function AracDNALayoutClient({
                             <HelpCircle size={20} aria-hidden="true" />
                             <div>
                                 <span>Araç kararı</span>
-                                <h2 id="dna-faq-title">${vehicle.brand} ${vehicle.model} hakkında sık sorulanlar</h2>
+                                <h2 id="dna-faq-title">{vehicle.brand} {vehicle.model} hakkında sık sorulanlar</h2>
                             </div>
                         </div>
                         <div className="dna-seo-faq-grid">

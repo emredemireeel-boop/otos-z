@@ -353,7 +353,7 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
                     <Link href="/kutuphane?kategori=efsane-avcilari" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--primary)", textDecoration: "none", fontSize: "14px", fontWeight: "700" }}>
                         <ArrowLeft size={16} /> Tüm Efsaneleri Gör
                     </Link>
-                    <Link href="/forum" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "13px", fontWeight: "600", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
+                    <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "13px", fontWeight: "600", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
                         Forumda Tartış <ExternalLink size={14} />
                     </Link>
                 </div>

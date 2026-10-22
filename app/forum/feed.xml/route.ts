@@ -39,7 +39,7 @@ export async function GET() {
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
         '<channel>',
         '<title>OtoSöz Forum - Son Başlıklar</title>',
-        `<link>${BASE_URL}/forum</link>`,
+        `<link>${BASE_URL}</link>`,
         '<description>OtoSöz otomobil topluluğundaki yeni ve güncellenen başlıklar.</description>',
         '<language>tr-TR</language>',
         `<lastBuildDate>${lastBuildDate.toUTCString()}</lastBuildDate>`,

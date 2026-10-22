@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
+import { getRecentForumThreadSummaries } from "@/lib/forumDataServer";
+
+export const revalidate = 900;
 
 const title = "OtoSöz | Araç Alımı, Arıza Çözümü ve Karşılaştırma";
 const description = "Araç alırken, otomobil arızasını araştırırken veya iki aracı karşılaştırırken gerçek sürücü deneyimi, uzman görüşü ve düzenli veriyi OtoSöz'de inceleyin.";
@@ -52,14 +55,15 @@ const homePageJsonLd = {
     inLanguage: "tr-TR",
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+    const initialThreads = await getRecentForumThreadSummaries(100);
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageJsonLd).replace(/</g, "\u003c") }}
             />
-            <HomeClient />
+            <HomeClient initialThreads={initialThreads} />
         </>
     );
 }

@@ -46,7 +46,7 @@ export default function UstaOlPage() {
                             Sen zaten bu sitenin en kral ustalarından birisin! Buraların senin engin bilgilerine ihtiyacı var. Hadi foruma dön de gençlere biraz motor bloğu nasıl çatlamaz onu anlat. 🔧😎
                         </p>
                         
-                        <Link href="/forum" style={{ textDecoration: 'none' }}>
+                        <Link href="/" style={{ textDecoration: 'none' }}>
                             <button style={{
                                 width: '100%', padding: '14px', borderRadius: '12px',
                                 background: 'var(--primary)', color: 'white',

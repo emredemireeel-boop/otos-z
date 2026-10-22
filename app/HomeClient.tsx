@@ -10,7 +10,8 @@ import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/context/AuthContext";
 
 import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, type ForumThread as FirestoreThread } from "@/lib/forumService";
-import { addDoc, collection, getDocs, query, serverTimestamp, where } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, serverTimestamp, where, Timestamp } from "firebase/firestore";
+import type { ForumSeoSummary } from "@/lib/forumDataServer";
 import { db } from "@/lib/firebase";
 import { createSeoSlug as createVehicleSlug } from "@/lib/slug";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
@@ -134,7 +135,7 @@ const HOME_FEATURED_EVENT = {
     href: "/acik-oto-pazari/istanbul/kartal-eski-oto-pazari",
 };
 
-export default function Home() {
+export default function Home({ initialThreads = [] }: { initialThreads?: ForumSeoSummary[] }) {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
     const { user } = useAuth();
@@ -161,8 +162,19 @@ export default function Home() {
         : [];
 
 
-    const [liveThreads, setLiveThreads] = useState<FirestoreThread[]>([]);
-    const [loadingThreads, setLoadingThreads] = useState(true);
+    const [liveThreads, setLiveThreads] = useState<FirestoreThread[]>(() => initialThreads.map((thread) => ({
+        ...thread,
+        authorId: "",
+        tags: [],
+        urlId: /--(\d+)$/.test(thread.slug) ? Number(thread.slug.match(/--(\d+)$/)?.[1]) : undefined,
+        createdAt: thread.createdAt === null ? null : Timestamp.fromMillis(thread.createdAt),
+        lastEntryAt: thread.lastEntryAt === null ? null : Timestamp.fromMillis(thread.lastEntryAt),
+    })));
+    const [loadingThreads, setLoadingThreads] = useState(initialThreads.length === 0);
+    const [liveDates, setLiveDates] = useState(false);
+    const formatHomeTimestamp = (timestamp: Timestamp | null) => liveDates
+        ? formatTimestamp(timestamp)
+        : timestamp ? new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "short", timeZone: "Europe/Istanbul" }).format(timestamp.toDate()) : "";
     const [homeSurveys, setHomeSurveys] = useState<any[]>([]);
 
     const [globalUserMap, setGlobalUserMap] = useState<Record<string, { photoURL: string | null }>>({});
@@ -364,6 +376,7 @@ export default function Home() {
         const unsub = subscribeToThreads((threads) => {
             setLiveThreads(threads);
             setLoadingThreads(false);
+            setLiveDates(true);
         }, 100);
         return () => unsub();
     }, []);
@@ -429,7 +442,7 @@ export default function Home() {
         entryCount: thread.entryCount || 0,
         category: thread.category === "Karsilastirma" ? "Karşılaştırma" : thread.category,
         isHot: thread.views > 50,
-        lastActivity: formatTimestamp(thread.lastEntryAt || thread.createdAt),
+        lastActivity: formatHomeTimestamp(thread.lastEntryAt || thread.createdAt),
         rawActivityAt: thread.lastEntryAt || thread.createdAt,
         lastAuthor: thread.authorUsername,
         authorLevel: "Surucu",
@@ -713,7 +726,7 @@ export default function Home() {
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '12px', color: 'var(--text-muted)' }}>
                                             <span style={{ color: 'var(--primary)' }}>@{thread.authorUsername}</span>
                                             <span>•</span>
-                                            <span>{formatTimestamp(thread.createdAt)}</span>
+                                            <span>{formatHomeTimestamp(thread.createdAt)}</span>
                                         </div>
                                     </div>
                                     <div style={{ textAlign: 'center', padding: '0 10px' }}>
@@ -872,30 +885,32 @@ export default function Home() {
                         <div className="subheader-row forum-subheader-row">
                             <div className="forum-page-heading">
                                 <span className="forum-page-eyebrow">OtoSöz karar topluluğu</span>
-                                <h2>Forum</h2>
+                                        <h1>Otomobil forumu ve araç rehberi</h1>
                                 <p>Kararını gerçek sürücü deneyimleri ve teknik çözümlerle güçlendir.</p>
                             </div>
 
                             {/* Fuel Widget */}
                             <div className="fuel-ticker-wrapper glass">
-                                <div className="ticker-track">
-                                    {/* Şehir etiketi */}
-                                    <div className="ticker-city-wrap">
-                                        <span className="ticker-city">
-                                            <MapPin size={11} /> {tickerCity}
-                                        </span>
-                                        <span className="ticker-divider" />
+                                <div className="ticker-city-wrap">
+                                    <span className="ticker-city"><MapPin size={11} /> {tickerCity}</span>
+                                    <span className="ticker-divider" />
+                                </div>
+                                <div className="ticker-viewport">
+                                    <div className="ticker-track">
+                                        {[0, 1].map((copy) => (
+                                            <div key={copy} className="ticker-set" aria-hidden={copy === 1 ? true : undefined}>
+                                                {fuelPrices.map((fuel) => (
+                                                    <div key={copy + "-" + fuel.name} className="ticker-price-item">
+                                                        <span className="ticker-price-name">{fuel.name}</span>
+                                                        <span className="ticker-price-value">{fuel.price}</span>
+                                                        <span className={fuel.trend === 'up' ? 'trend-up' : fuel.trend === 'down' ? 'trend-down' : 'trend-stable'}>
+                                                            {fuel.trend === 'up' ? '▲' : fuel.trend === 'down' ? '▼' : '▬'}
+                                                        </span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ))}
                                     </div>
-                                    {/* Fiyat listesi – 2x tekrar seamless scroll için */}
-                                    {[...fuelPrices, ...fuelPrices].map((fuel, i) => (
-                                        <div key={i} className="ticker-price-item">
-                                            <span className="ticker-price-name">{fuel.name}</span>
-                                            <span className="ticker-price-value">{fuel.price}</span>
-                                            <span className={fuel.trend === 'up' ? 'trend-up' : fuel.trend === 'down' ? 'trend-down' : 'trend-stable'}>
-                                                {fuel.trend === 'up' ? '▲' : fuel.trend === 'down' ? '▼' : '▬'}
-                                            </span>
-                                        </div>
-                                    ))}
                                 </div>
                             </div>
                             <button
@@ -932,7 +947,7 @@ export default function Home() {
                     </div>
                     <div className="home-main-grid">
                         {/* Sol sütun — forum kategorileri */}
-                        <aside className="home-left-sidebar forum-sidebar" data-ad-rail-anchor="forum-start">
+                        <aside className="home-left-sidebar forum-sidebar">
                             <div className="forum-sidebar-stack">
                                 <section className="forum-sidebar-card forum-category-card" aria-labelledby="forum-categories-title">
                                     <div className="forum-sidebar-heading">
@@ -1285,7 +1300,7 @@ export default function Home() {
                                             <span className="forum-sidebar-kicker">Topluluk nabzı</span>
                                             <h2><Flame size={15} /> Gündemde</h2>
                                         </div>
-                                        <Link href="/forum" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
+                                        <Link href="/" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                                     </div>
 
                                     {loadingThreads ? (
@@ -1396,6 +1411,11 @@ export default function Home() {
                         <p>Karar vermeden önce gerçek sürücü deneyimini, uzman bilgisini ve düzenli araç verisini aynı yerde inceleyin.</p>
                     </div>
                     <div className="home-seo-guide-grid">
+                        <article>
+                            <h3>Açık oto pazarı hangi gün?</h3>
+                            <p>Şehrindeki pazarın adresini, kurulduğu günü ve kaynaklarını kontrol et. Aktif, teyit bekleyen ve kapanmış kayıtları ayırt et.</p>
+                            <Link href="/acik-oto-pazari">İl il oto pazarı rehberini aç <ArrowRight size={14} /></Link>
+                        </article>
                         <article>
                             <h3>Araba alırken doğru karar</h3>
                             <p>Araç DNA dosyalarında kronik sorunları, kullanıcı raporlarını ve model bazlı güçlü-zayıf yönleri karşılaştırın.</p>

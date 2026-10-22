@@ -7,12 +7,12 @@ import CookieSettingsTrigger from "@/components/CookieSettingsTrigger";
 
 const forumLinks = [
     { href: "/", label: "Gündemdeki başlıklar" },
-    { href: "/forum", label: "Tüm forum başlıkları" },
     { href: "/anket", label: "Topluluk anketleri" },
     { href: "/uzmana-sor", label: "Uzmana sor" },
 ];
 
 const guideLinks = [
+    { href: "/acik-oto-pazari", label: "Açık oto pazarı rehberi" },
     { href: "/arac-dna", label: "Araç DNA analizleri" },
     { href: "/obd", label: "OBD arıza kodları" },
     { href: "/karsilastirma", label: "Araç karşılaştırma" },
@@ -43,7 +43,7 @@ export default function Footer() {
                         </div>
                         <p>Arabanla ilgili karar vermeden önce OtoSöz&apos;e sor.</p>
                         <address className="site-footer-contact">
-                            <a href="mailto:iletisim@otosoz.com"><Mail size={15} /> iletisim@otosoz.com</a>
+                            <Link href="/iletisim"><Mail size={15} /> E-posta ile iletişim</Link>
                             <span><MapPin size={15} /> İzmir, Türkiye</span>
                         </address>
                         <div className="site-footer-socials" aria-label="OtoSöz sosyal medya hesapları">

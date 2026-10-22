@@ -42,8 +42,8 @@ export default function robots(): MetadataRoute.Robots {
                     '/ayarlar/',       // Kullanıcı ayarları
                     '/mesajlar/',      // Özel mesajlar
                     '/islerim/',       // Kullanıcı görevleri
-                    '/kayit/',         // Kayıt sayfası
-                    '/giris/',         // Giriş sayfası
+                    // Giriş ve kayıt sayfaları meta robots noindex kullanır.
+                    // Buradan engellenmez; aksi halde crawler noindex etiketini göremez.
                     '/profil-tamamla/',// Profil tamamlama
                     '/para-kazan/',    // Para kazanma
                     '/premium/',       // Premium sayfası
