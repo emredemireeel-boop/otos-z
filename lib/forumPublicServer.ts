@@ -100,6 +100,7 @@ export async function runPublicFirestoreQuery(options: {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ structuredQuery }),
         next: { revalidate: 300 },
+        signal: AbortSignal.timeout(15000),
     });
     if (!response.ok) throw new Error(`Public Firestore query failed (${response.status})`);
     const rows = await response.json() as Array<{ document?: RestDocument }>;
@@ -109,7 +110,7 @@ export async function runPublicFirestoreQuery(options: {
 export async function getPublicFirestoreDocument(collectionId: string, documentId: string): Promise<PublicFirestoreDocument | null> {
     if (!HAS_CONFIG || !documentId || documentId.includes('/')) return null;
     const endpoint = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${encodeURIComponent(collectionId)}/${encodeURIComponent(documentId)}?key=${API_KEY}`;
-    const response = await fetch(endpoint, { next: { revalidate: 300 } });
+    const response = await fetch(endpoint, { next: { revalidate: 300 }, signal: AbortSignal.timeout(15000) });
     if (response.status === 404) return null;
     if (!response.ok) throw new Error(`Public Firestore document fetch failed (${response.status})`);
     return toDocument(await response.json() as RestDocument);

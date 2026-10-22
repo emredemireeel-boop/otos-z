@@ -71,6 +71,12 @@ function initAdmin(): void {
         adminApp = getApps()[0];
         adminAuth = getAuth(adminApp);
         adminDb = getFirestore(adminApp);
+        // Başka bir sunucu paketi yalnızca projectId ile fallback app açmış
+        // olabilir. Bunu kimliği doğrulanmış Admin bağlantısı sanmayın;
+        // herkese açık forum okumaları doğrudan güvenli REST yolunu kullansın.
+        if (!parseServiceAccount() && !process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+            initError = 'Firebase Admin kimlik bilgisi bulunamadı.';
+        }
         return;
     }
 
