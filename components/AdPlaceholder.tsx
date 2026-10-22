@@ -32,7 +32,7 @@ export default function AdPlaceholder({
     className,
     style,
     fallbackTitle = "Buraya Reklam Ver",
-    fallbackDesc = "Günde 10.000+ otomotiv tutkununa ulaşın.",
+    fallbackDesc = "Reklam alanları ve iş birliği seçenekleri için iletişime geçin.",
     variant = "square"
 }: AdPlaceholderProps) {
     const { theme } = useTheme();

@@ -528,7 +528,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                                 <h3 style={{ margin: 0, fontSize: '13px', fontWeight: '700', color: 'var(--foreground)' }}>Uzman Mekanik Yardımı</h3>
                             </div>
                             <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-                                {codeData.code} arızası hakkında onaylı uzmanlarımıza ücretsiz sorun.
+                                {codeData.code} kaydını, araç bilgilerini ve belirtileri paylaşın.
                             </p>
                         </div>
                     </Link>
