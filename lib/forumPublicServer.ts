@@ -70,6 +70,7 @@ export async function runPublicFirestoreQuery(options: {
     limit: number;
     orderBy?: { field: string; direction: 'ASCENDING' | 'DESCENDING' };
     where?: { field: string; value: string | number };
+    startAfterDocument?: string;
 }): Promise<PublicFirestoreDocument[]> {
     if (!HAS_CONFIG) return [];
 
@@ -92,6 +93,12 @@ export async function runPublicFirestoreQuery(options: {
                 op: 'EQUAL',
                 value: filterValue(options.where.value),
             },
+        };
+    }
+    if (options.startAfterDocument) {
+        structuredQuery.startAt = {
+            values: [{ referenceValue: `projects/${PROJECT_ID}/databases/(default)/documents/${options.startAfterDocument}` }],
+            before: false,
         };
     }
 

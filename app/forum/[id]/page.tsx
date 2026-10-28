@@ -35,9 +35,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: `${thread.title} | OtoSöz Forum`,
         description,
-        robots: thread.indexable
-            ? { index: true, follow: true }
-            : { index: false, follow: true },
+        robots: { index: thread.indexable, follow: true,
+            googleBot: { index: thread.indexable, follow: true } },
         alternates: { canonical: canonicalUrl },
         openGraph: {
             title: thread.title,
@@ -121,7 +120,8 @@ export default async function ForumThreadServerPage({ params }: PageProps) {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: BASE_URL },
-                    { '@type': 'ListItem', position: 2, name: thread.title, item: canonicalUrl },
+                    { '@type': 'ListItem', position: 2, name: 'Forum', item: `${BASE_URL}/forum` },
+                    { '@type': 'ListItem', position: 3, name: thread.title, item: canonicalUrl },
                 ],
             },
         ],
