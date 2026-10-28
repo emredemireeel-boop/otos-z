@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getForumIndexDecision } from '../lib/forum-index-policy.ts';
+import { loadSource } from '../scripts/seo-quality-loader.mjs';
+const { getForumIndexDecision } = loadSource('lib/forum-index-policy.ts');
 
 const base = { title: 'Motor sıcaklığında dalgalanma', visibleEntryCount: 1,
     content: 'a'.repeat(200), data: {} };

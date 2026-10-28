@@ -1,5 +1,6 @@
 import library from '../public/data/library_guides.json';
 import { createSeoSlug } from './slug';
+import { isQualityGuide } from './guide-quality';
 
 // Kaynak dosyada category alanı yok; mevcut etiketlerden yalnızca gezinme grubu türetilir.
 export const articleCategories = [
@@ -24,4 +25,5 @@ export const articles = library.guides.map(guide => ({
     id: String(guide.id), title: guide.title, description: guide.description,
     path: `/makale/${createSeoSlug(guide.title)}--${guide.urlId || guide.id}`,
     minutes: guide.minutes, category: categoryFor(guide.tags || []),
+    indexable: isQualityGuide(guide, 'article'),
 }));

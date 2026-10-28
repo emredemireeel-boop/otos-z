@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { forumPageWindow, isForumCategoryIndexable } from '../lib/forum-pagination.ts';
+import { loadSource } from '../scripts/seo-quality-loader.mjs';
+const { forumPageWindow, isForumCategoryIndexable } = loadSource('lib/forum-pagination.ts');
 
 test('13 gerçek başlık bir sayfaya sığar; olmayan ikinci sayfa reddedilir', () => {
     assert.deepEqual(forumPageWindow(13, 1), { pages: 1, start: 0, end: 13 });

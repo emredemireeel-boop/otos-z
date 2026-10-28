@@ -7,6 +7,4 @@ export function forumPageWindow(total: number, page: number) {
     return { pages, start: (page - 1) * FORUM_PAGE_SIZE, end: Math.min(page * FORUM_PAGE_SIZE, total) };
 }
 
-export function isForumCategoryIndexable(visibleThreads: number): boolean {
-    return visibleThreads >= 5;
-}
+export { isForumCategoryIndexable } from './indexability';

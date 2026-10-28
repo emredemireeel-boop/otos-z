@@ -1,3 +1,4 @@
+import { isThreadIndexable } from './indexability';
 import 'server-only';
 import { cache } from 'react';
 import { getAdminDb, initError } from '@/lib/firebaseAdmin';
@@ -99,7 +100,7 @@ export const getForumThreadSeo = cache(async (requestedSlug: string): Promise<Fo
             entryCount,
             views: Number(data.views || 0),
             entries,
-            indexable: title.length >= 5 && Boolean(firstEntry && firstEntry.content.length >= 20),
+            indexable: isThreadIndexable({ title, visibleEntryCount: entries.length, content: entries.map(entry => entry.content).join(' '), data }),
         };
     } catch (error) {
         console.error('Forum SEO fetch error:', error);

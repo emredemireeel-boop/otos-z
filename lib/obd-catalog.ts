@@ -1,6 +1,9 @@
 import rawCodes from '../data/obd-codes.json';
 import { reviewedObdCodes } from '../data/obd-reviewed';
 import type { ObdCode } from './obd-content';
+import qualitySignals from '../data/seo-quality/obd.json';
+import directory from '../data/seo-quality/obd-directory-codes.json';
+import { isObdIndexable, type ObdQualitySignal } from './indexability';
 
 export const OBD_LAST_REVIEWED = '2026-08-26';
 export const OBD_DIRECTORY_PAGE_SIZE = 80;
@@ -22,7 +25,9 @@ for (const raw of rawCodes) {
     const code = raw.code.trim().toUpperCase();
     if (!/^[PBCU][0-3][0-9A-F]{3}$/.test(code)) continue;
     // Aynı kaydın son sürümü: API, detay, dizin ve sitemap aynı veriyi kullanır.
-    const record: ObdCode = { ...raw, ...reviewedObdCodes[code], code };
+    const record: ObdCode = { ...raw, ...reviewedObdCodes[code], code,
+        qualitySignal: { ...(qualitySignals.records as Record<string, ObdQualitySignal>)[code],
+            editorialRecord: Object.hasOwn(reviewedObdCodes, code) } };
     if (!record.sources?.length) {
         for (const field of ['causes', 'fixes'] as const) {
             record[field] = record[field].filter(text => (repeatedAdvice.get(`${field}:${text}`) || 0) < 300);
@@ -31,30 +36,19 @@ for (const raw of rawCodes) {
     records.set(code, record);
 }
 export const obdCodes = [...records.values()].sort((a, b) => a.code.localeCompare(b.code, 'en'));
-const contentSignature = (code: ObdCode) => JSON.stringify({
-    title: code.title,
-    description: code.description,
-    systems: code.systems,
-    causes: code.causes,
-    fixes: code.fixes,
-});
-const signatureCounts = new Map<string, number>();
-obdCodes.forEach(code => {
-    const signature = contentSignature(code);
-    signatureCounts.set(signature, (signatureCounts.get(signature) || 0) + 1);
-});
 export function isObdCodeIndexable(code: ObdCode) {
-    if (code.sources?.length) return true;
-    return code.isGeneric && signatureCounts.get(contentSignature(code)) === 1;
+    return isObdIndexable(code, code.qualitySignal);
 }
 export const indexableObdCodes = obdCodes.filter(isObdCodeIndexable);
 const popularOrder = new Map(POPULAR_OBD_CODES.map((code, index) => [code, index]));
 // İlk SSR listesi ve API offset'leri birebir aynı sıralamayı paylaşır.
 export const obdSearchCodes = [...obdCodes].sort((a, b) => (popularOrder.get(a.code) ?? 999) - (popularOrder.get(b.code) ?? 999) || a.code.localeCompare(b.code, 'en'));
-export const obdDirectoryPageCount = Math.ceil(indexableObdCodes.length / OBD_DIRECTORY_PAGE_SIZE);
+const obdDirectoryCodes = directory.codes.map(code => records.get(code)).filter((code): code is ObdCode => Boolean(code));
+// Eski dizin URL'leri kullanıcı için 200 kalır; dizin bir index allowlist'i değildir.
+export const obdDirectoryPageCount = Math.ceil(obdDirectoryCodes.length / OBD_DIRECTORY_PAGE_SIZE);
 export function getObdCode(value: string) { return records.get(value.trim().toUpperCase()); }
-export function getObdDirectoryPage(page: number) { return indexableObdCodes.slice((page - 1) * OBD_DIRECTORY_PAGE_SIZE, page * OBD_DIRECTORY_PAGE_SIZE); }
-export function getObdDirectoryPageNumber(code: string) { return Math.floor(indexableObdCodes.findIndex(item => item.code === code) / OBD_DIRECTORY_PAGE_SIZE) + 1; }
+export function getObdDirectoryPage(page: number) { return obdDirectoryCodes.slice((page - 1) * OBD_DIRECTORY_PAGE_SIZE, page * OBD_DIRECTORY_PAGE_SIZE); }
+export function getObdDirectoryPageNumber(code: string) { return Math.floor(obdDirectoryCodes.findIndex(item => item.code === code) / OBD_DIRECTORY_PAGE_SIZE) + 1; }
 export function searchObdCodes(query = '', type = '') {
     const q = query.trim().toLocaleLowerCase('tr-TR');
     return obdSearchCodes.filter(code => (!['P', 'B', 'C', 'U'].includes(type.toUpperCase()) || code.type === type.toUpperCase()) && (!q || `${code.code} ${code.title} ${code.description}`.toLocaleLowerCase('tr-TR').includes(q)));

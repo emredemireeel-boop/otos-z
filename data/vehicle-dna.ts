@@ -1,3 +1,6 @@
+import { isVehicleEditoriallyReviewed } from '../lib/vehicle-editorial';
+export { isVehicleEditoriallyReviewed } from '../lib/vehicle-editorial';
+
 export function createSlug(text: string): string {
     if (!text) return '';
     const trMap: Record<string, string> = {
@@ -9319,16 +9322,6 @@ export const vehicleDNAData: VehicleDNA[] = [
  * katalog açılır. Eski toplu içe aktarımlar silinmez; kaynak doğrulaması
  * tamamlanana kadar yanlış bilgi yaymaması için inceleme statüsünde tutulur.
  */
-const KNOWN_GENERATION_MISMATCH_IDS = new Set([15, 16, 22]);
-
-export function isVehicleEditoriallyReviewed(vehicle: VehicleDNA): boolean {
-    return vehicle.id < 2000
-        && !vehicle.brand.includes('/')
-        && !KNOWN_GENERATION_MISMATCH_IDS.has(vehicle.id)
-        && Number.isInteger(vehicle.dnaScore)
-        && vehicle.dnaScore >= 0
-        && vehicle.dnaScore <= 100;
-}
 // Aynı slug için eski bir içe aktarım ve editoryal kayıt birlikteyse tüm
 // mevcut .find() çağrıları önce güvenilir kaydı seçsin.
 vehicleDNAData.sort((a, b) =>

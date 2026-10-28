@@ -11,6 +11,7 @@ export interface ObdCode {
     fixes: string[];
     lastReviewed?: string;
     sources?: { title: string; url: string }[];
+    qualitySignal?: import('./indexability').ObdQualitySignal;
 }
 
 export function getObdFaq(code: ObdCode) {
