@@ -1,0 +1,374 @@
+OBD: compared 1000/3551
+OBD: compared 2000/3551
+OBD: compared 3000/3551
+All source fingerprints and measured quality signals match.
+{
+  "summary": {
+    "obd": {
+      "total": 3551,
+      "indexable": 5,
+      "noindex": 3546
+    },
+    "vehicle": {
+      "total": 192,
+      "indexable": 88,
+      "noindex": 104
+    },
+    "vehicleSections": {
+      "kronik-sorunlar": {
+        "total": 192,
+        "indexable": 61,
+        "noindex": 131
+      },
+      "neden-alinir": {
+        "total": 192,
+        "indexable": 88,
+        "noindex": 104
+      },
+      "kullanici-deneyimleri": {
+        "total": 192,
+        "indexable": 4,
+        "noindex": 188
+      },
+      "arac-paketleri": {
+        "total": 192,
+        "indexable": 68,
+        "noindex": 124
+      }
+    },
+    "engine": {
+      "total": 370,
+      "indexable": 21,
+      "noindex": 349
+    },
+    "dictionary": {
+      "total": 186,
+      "indexable": 0,
+      "noindex": 186
+    },
+    "article": {
+      "total": 50,
+      "indexable": 49,
+      "noindex": 1
+    },
+    "thread": {
+      "total": 13,
+      "indexable": 13,
+      "noindex": 0
+    }
+  },
+  "otherGuideTypes": {
+    "howto": {
+      "emptyFields": {
+        "title": 0,
+        "description": 0,
+        "sources": 14
+      },
+      "total": 14,
+      "indexable": 14,
+      "noindex": 0,
+      "mostSimilarPairs": []
+    },
+    "interesting": {
+      "emptyFields": {
+        "title": 36,
+        "description": 67,
+        "sources": 67
+      },
+      "total": 67,
+      "indexable": 8,
+      "noindex": 59,
+      "mostSimilarPairs": [
+        {
+          "left": "ilginc-00002",
+          "right": "ilginc-00030",
+          "similarity": 0.115385
+        },
+        {
+          "left": "ilginc-00003",
+          "right": "ilginc-00032",
+          "similarity": 0.08
+        },
+        {
+          "left": "ilginc-00005",
+          "right": "ilginc-00034",
+          "similarity": 0.05
+        }
+      ]
+    },
+    "myth": {
+      "emptyFields": {
+        "title": 52,
+        "description": 52,
+        "sources": 39
+      },
+      "total": 52,
+      "indexable": 52,
+      "noindex": 0,
+      "mostSimilarPairs": []
+    },
+    "warningLight": {
+      "emptyFields": {
+        "title": 0,
+        "description": 19,
+        "sources": 19
+      },
+      "total": 19,
+      "indexable": 0,
+      "noindex": 19,
+      "mostSimilarPairs": []
+    },
+    "news": {
+      "emptyFields": {
+        "title": 0,
+        "description": 0,
+        "sources": 13
+      },
+      "total": 13,
+      "indexable": 13,
+      "noindex": 0,
+      "mostSimilarPairs": [
+        {
+          "left": "news_2026_tuik_july_registrations",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.021108
+        },
+        {
+          "left": "news_2026_bmw_two_million_bev",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.02046
+        },
+        {
+          "left": "news_2026_bmw_two_million_bev",
+          "right": "news_2026_tuik_july_registrations",
+          "similarity": 0.019231
+        },
+        {
+          "left": "news_2026_odmd_august_market",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.018088
+        },
+        {
+          "left": "news_2026_epdk_july_charging_report",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.018088
+        },
+        {
+          "left": "news_2026_iea_ev_market_uncertainty",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.017995
+        },
+        {
+          "left": "news_2026_osd_january_july_results",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.017812
+        },
+        {
+          "left": "news_2026_fia_aduo_engine_balance",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.0175
+        },
+        {
+          "left": "news_2026_euroncap_electric_hatchbacks",
+          "right": "news_2026_osd_january_july_results",
+          "similarity": 0.017094
+        },
+        {
+          "left": "news_2026_odmd_august_market",
+          "right": "news_2026_tuik_july_registrations",
+          "similarity": 0.01699
+        },
+        {
+          "left": "news_2026_epdk_july_charging_report",
+          "right": "news_2026_tuik_july_registrations",
+          "similarity": 0.01699
+        },
+        {
+          "left": "news_2026_tuik_july_registrations",
+          "right": "news_2026_iea_ev_market_uncertainty",
+          "similarity": 0.016908
+        },
+        {
+          "left": "news_2026_acea_h1_registrations",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.016908
+        },
+        {
+          "left": "news_2026_tuik_july_registrations",
+          "right": "news_2026_osd_january_july_results",
+          "similarity": 0.016746
+        },
+        {
+          "left": "news_2026_odmd_august_market",
+          "right": "news_2026_epdk_july_charging_report",
+          "similarity": 0.016706
+        }
+      ]
+    },
+    "trafficFine": {
+      "emptyFields": {
+        "title": 38,
+        "description": 0,
+        "sources": 38
+      },
+      "total": 38,
+      "indexable": 38,
+      "noindex": 0,
+      "mostSimilarPairs": [
+        {
+          "left": "30",
+          "right": "32",
+          "similarity": 0.088889
+        },
+        {
+          "left": "10",
+          "right": "12",
+          "similarity": 0.081395
+        },
+        {
+          "left": "19",
+          "right": "21",
+          "similarity": 0.079812
+        },
+        {
+          "left": "22",
+          "right": "32",
+          "similarity": 0.072
+        },
+        {
+          "left": "16",
+          "right": "29",
+          "similarity": 0.070423
+        },
+        {
+          "left": "3",
+          "right": "11",
+          "similarity": 0.058462
+        },
+        {
+          "left": "32",
+          "right": "36",
+          "similarity": 0.057018
+        },
+        {
+          "left": "19",
+          "right": "32",
+          "similarity": 0.055814
+        },
+        {
+          "left": "22",
+          "right": "30",
+          "similarity": 0.054662
+        },
+        {
+          "left": "29",
+          "right": "27",
+          "similarity": 0.053659
+        },
+        {
+          "left": "21",
+          "right": "32",
+          "similarity": 0.053333
+        },
+        {
+          "left": "34",
+          "right": "27",
+          "similarity": 0.052402
+        },
+        {
+          "left": "28",
+          "right": "37",
+          "similarity": 0.051163
+        },
+        {
+          "left": "35",
+          "right": "36",
+          "similarity": 0.049327
+        },
+        {
+          "left": "18",
+          "right": "19",
+          "similarity": 0.048276
+        }
+      ]
+    },
+    "toll": {
+      "emptyFields": {
+        "title": 13,
+        "description": 13,
+        "sources": 13
+      },
+      "total": 13,
+      "indexable": 13,
+      "noindex": 0,
+      "mostSimilarPairs": [
+        {
+          "left": "kuzey-marmara-avrupa",
+          "right": "kuzey-marmara-anadolu",
+          "similarity": 0.068182
+        },
+        {
+          "left": "15-temmuz-sehitler-koprusu",
+          "right": "fatih-sultan-mehmet-koprusu",
+          "similarity": 0.022599
+        },
+        {
+          "left": "avrasya-tuneli-gunduz",
+          "right": "avrasya-tuneli-gece",
+          "similarity": 0.006667
+        },
+        {
+          "left": "fatih-sultan-mehmet-koprusu",
+          "right": "1915-canakkale-koprusu",
+          "similarity": 0.00641
+        },
+        {
+          "left": "yavuz-sultan-selim-koprusu",
+          "right": "1915-canakkale-koprusu",
+          "similarity": 0.00625
+        },
+        {
+          "left": "fatih-sultan-mehmet-koprusu",
+          "right": "yavuz-sultan-selim-koprusu",
+          "similarity": 0.00578
+        }
+      ]
+    }
+  },
+  "projection": {
+    "currentSitemap": 2315,
+    "proposedCoreSitemap": 689,
+    "byPrefix": {
+      "trafik-cezasi": 39,
+      "home": 1,
+      "kutuphane": 95,
+      "makale": 50,
+      "arac-dna": 374,
+      "otobutce": 20,
+      "haberler": 14,
+      "karsilastirma": 1,
+      "uzmana-sor": 1,
+      "piyasalar": 1,
+      "guvenmetre": 1,
+      "altin-anahtar": 1,
+      "anket": 1,
+      "otohesap": 22,
+      "etkinlikler": 1,
+      "obd": 6,
+      "hakkimizda": 1,
+      "iletisim": 1,
+      "gizlilik-politikasi": 1,
+      "cerez-politikasi": 1,
+      "kullanim-sartlari": 1,
+      "acik-oto-pazari": 27,
+      "nasil-yapilir": 14,
+      "forum": 15
+    },
+    "note": "Evaluated through the same URL registry used by sitemap. Personal agenda and empty dictionary/indicator promotion categories are excluded. HTTP routes are unchanged."
+  },
+  "historicalObd": {
+    "total": 236,
+    "indexable": 0,
+    "manualReview": 236
+  }
+}

@@ -1,0 +1,357 @@
+{
+  "checkedAt": "2026-10-28T23:10:20.140Z",
+  "base": "http://127.0.0.1:3000",
+  "executesJavascript": false,
+  "approvedMinimumThreads": 13,
+  "total": 37,
+  "passed": 37,
+  "failed": 0,
+  "measurements": {
+    "forum": {
+      "status": 200,
+      "canonical": "https://otosoz.com/forum",
+      "h1Count": 1,
+      "threadLinks": 13,
+      "textLength": 6313
+    },
+    "articles": {
+      "status": 200,
+      "canonical": "https://otosoz.com/makale",
+      "h1Count": 1,
+      "articleLinks": 49
+    },
+    "forumSitemapThreads": 13,
+    "categories": [
+      {
+        "path": "/forum/kategori/genel",
+        "count": 4,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/teknik-ariza",
+        "count": 3,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/bakim-tamir",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/modifiye-aksesuar",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/elektrikli-hibrit",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/lastik-jant",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/sigorta-hukuk",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/alim-satim",
+        "count": 1,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/deneyim-inceleme",
+        "count": 5,
+        "status": 200,
+        "noindex": false,
+        "googleNoindex": false,
+        "inSitemap": true
+      },
+      {
+        "path": "/forum/kategori/marka-model",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "forum 200, self-canonical, one H1",
+      "passed": true,
+      "observed": {
+        "status": 200,
+        "canonical": "https://otosoz.com/forum",
+        "h1Count": 1,
+        "threadLinks": 13,
+        "textLength": 6313
+      }
+    },
+    {
+      "name": "forum initial HTML has approved minimum of real distinct thread links",
+      "passed": true,
+      "observed": {
+        "required": 13,
+        "observed": 13
+      }
+    },
+    {
+      "name": "forum main text exceeds 2000 characters",
+      "passed": true,
+      "observed": 6313
+    },
+    {
+      "name": "forum dates are in initial HTML",
+      "passed": true,
+      "observed": 13
+    },
+    {
+      "name": "makale 200, self-canonical, one H1",
+      "passed": true,
+      "observed": {
+        "status": 200,
+        "canonical": "https://otosoz.com/makale",
+        "h1Count": 1,
+        "articleLinks": 49
+      }
+    },
+    {
+      "name": "all quality-approved article links in initial HTML",
+      "passed": true,
+      "observed": 49
+    },
+    {
+      "name": "no hub meta refresh",
+      "passed": true
+    },
+    {
+      "name": "both hubs in sitemap",
+      "passed": true
+    },
+    {
+      "name": "category policy /forum/kategori/genel",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/genel",
+        "count": 4,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    },
+    {
+      "name": "category policy /forum/kategori/teknik-ariza",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/teknik-ariza",
+        "count": 3,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    },
+    {
+      "name": "category policy /forum/kategori/bakim-tamir",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/bakim-tamir",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    },
+    {
+      "name": "category policy /forum/kategori/modifiye-aksesuar",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/modifiye-aksesuar",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    },
+    {
+      "name": "category policy /forum/kategori/elektrikli-hibrit",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/elektrikli-hibrit",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    },
+    {
+      "name": "category policy /forum/kategori/lastik-jant",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/lastik-jant",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    },
+    {
+      "name": "category policy /forum/kategori/sigorta-hukuk",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/sigorta-hukuk",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    },
+    {
+      "name": "category policy /forum/kategori/alim-satim",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/alim-satim",
+        "count": 1,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    },
+    {
+      "name": "category policy /forum/kategori/deneyim-inceleme",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/deneyim-inceleme",
+        "count": 5,
+        "status": 200,
+        "noindex": false,
+        "googleNoindex": false,
+        "inSitemap": true
+      }
+    },
+    {
+      "name": "category policy /forum/kategori/marka-model",
+      "passed": true,
+      "observed": {
+        "path": "/forum/kategori/marka-model",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/en-sorunsuz-otomobil-markasi--25319783",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/hyundai-i20-14-mpi--85879525",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "passed": true
+    },
+    {
+      "name": "thread metadata/sitemap agreement /forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "passed": true
+    },
+    {
+      "name": "article breadcrumb /makale/sifirdan-zirveye-nasil-profesyonel-bir-galerici-oto-alim-satim-uzmani-olunur-19-adimlik-mega-rehber--10042",
+      "passed": true
+    },
+    {
+      "name": "article breadcrumb /makale/ikinci-el-arac-alirken-kapsamli-kontrol-rehberi--10000",
+      "passed": true
+    },
+    {
+      "name": "article breadcrumb /makale/arac-dolandiricilik-yontemleri-ve-korunma-yollari--10002",
+      "passed": true
+    },
+    {
+      "name": "RSS channel links to forum hub",
+      "passed": true
+    },
+    {
+      "name": "llms links both hubs",
+      "passed": true
+    },
+    {
+      "name": "robots keeps the image exception and private disallows",
+      "passed": true
+    }
+  ]
+}

@@ -53,7 +53,7 @@ const fixtures = [
     { path: '/kutuphane?kategori=lastik-rehberi', status: 200,
         canonical: 'https://otosoz.com/kutuphane?kategori=lastik-rehberi' },
     { path: model, status: 200, canonical: `https://otosoz.com${model}` },
-    { path: engine, status: 200, canonical: `https://otosoz.com${engine}` },
+    { path: engine, status: 200, canonical: `https://otosoz.com${model}` },
     { path: '/obd/p0300', status: 200, canonical: 'https://otosoz.com/obd/p0300' },
     { path: '/acik-oto-pazari/istanbul', status: 200,
         canonical: 'https://otosoz.com/acik-oto-pazari/istanbul' },

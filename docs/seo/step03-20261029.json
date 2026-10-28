@@ -1,0 +1,199 @@
+{
+  "step": 3,
+  "date": "2026-10-29",
+  "completedAt": "2026-10-28T23:15:03.815196+00:00",
+  "deployment": "local-production-build-only; not deployed",
+  "branch": "codex/seo-index-pruning-step03",
+  "implementationCommits": [
+    "3e868a5 fix(seo): apply quality gates to metadata sitemaps and links",
+    "def8ad0 feat(seo): add measured shared indexability policy"
+  ],
+  "changes": [
+    "Saf kalite fonksiyonları lib/indexability.ts içinde toplandı; sitemap URL çözümleyicisi, metadata robots, hub/ilgili içerik ve otomatik metin bağlantıları ortak kararları kullanıyor.",
+    "Ön audit eşikleri ve 691 tahmini kullanıcıya uygulamadan önce gösterildi. Nihai kapı kişisel ajanda ve boş gösterge kategorisini de dışarıda bıraktı: 689 URL.",
+    "Noindex kayıtlar 200 ve follow olarak korunuyor; Article/FAQ şeması kaldırılıyor. Motorların canonical adresi güçlü model sayfasına gidiyor.",
+    "Kullanıcı %93,3 benzer muayene makalesi için yalnızca noindex istedi. Kaynak URL 200, noindex,follow ve self-canonical olarak korundu; 308 eklenmedi.",
+    "Eski OBD dizin sırası sabit snapshot ile korundu: 13 dizin sayfası 200; snapshot kalite allowlist değildir.",
+    "Kaynak hashleri ve altı kelimelik tam Jaccard ölçümleri saklandı; audit --check-signals ile yeniden doğrulanabilir.",
+    "Kaynağı olmayan OBD neden/kontrol önerileri genel bilgi olarak etiketlendi. Tahmini onarım maliyeti bölümü mevcut kaynakta ve ölçülen HTML içinde bulunmuyor.",
+    "Yeni içerik, yapay açıklama, sahte kaynak, kullanıcı yorumu, puan veya uzman onayı üretilmedi. Firebase/Firestore verisine yazılmadı."
+  ],
+  "indexableUrls": {
+    "baselineFromStep02": 2315,
+    "previousProjectBaseline": 2312,
+    "step02AddedHubs": 3,
+    "after": 689,
+    "removedFromSitemap": 1626,
+    "reductionPercent": 70.24,
+    "byPrefix": {
+      "trafik-cezasi": 39,
+      "home": 1,
+      "kutuphane": 95,
+      "makale": 50,
+      "arac-dna": 374,
+      "otobutce": 20,
+      "haberler": 14,
+      "karsilastirma": 1,
+      "uzmana-sor": 1,
+      "piyasalar": 1,
+      "guvenmetre": 1,
+      "altin-anahtar": 1,
+      "anket": 1,
+      "otohesap": 22,
+      "etkinlikler": 1,
+      "obd": 6,
+      "hakkimizda": 1,
+      "iletisim": 1,
+      "gizlilik-politikasi": 1,
+      "cerez-politikasi": 1,
+      "kullanim-sartlari": 1,
+      "acik-oto-pazari": 27,
+      "nasil-yapilir": 14,
+      "forum": 15
+    },
+    "dnaBreakdown": {
+      "hub": 1,
+      "brands": 21,
+      "models": 88,
+      "modelSections": 221,
+      "engineUrls": 43,
+      "engineVariants": 21
+    },
+    "contentCounts": {
+      "obdCodes": 5,
+      "dictionaryTerms": 0,
+      "articles": 49,
+      "forumThreads": 13
+    },
+    "note": "Prefix dağılımı hub URLlerini de içerir. Katalogdaki ham kayıt sayısı URL sayısı değildir."
+  },
+  "thresholdRationaleDocument": "docs/seo/indexability-policy.md",
+  "previewAudit": "docs/seo/quality-audit-20261029.json",
+  "appliedAudit": "docs/seo/quality-audit-applied-20261029.json",
+  "verification": [
+    {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0,
+      "result": "No TypeScript diagnostics",
+      "evidence": "step03-tsc-20261029.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "result": "672 generated static pages; build successful",
+      "evidence": "step03-build-20261029.log"
+    },
+    {
+      "command": "node scripts/seo-quality-audit.mjs --check-signals",
+      "exitCode": 0,
+      "result": "All measured signals, link candidates and source fingerprints match; shared registry projects 689 URLs",
+      "evidence": "step03-quality-audit-20261029.log"
+    },
+    {
+      "command": "node --test tests/indexability.test.mjs tests/forum-index-policy.test.mjs tests/forum-pagination.test.mjs",
+      "exitCode": 0,
+      "passed": 19,
+      "failed": 0,
+      "evidence": "step03-tests-20261029.log"
+    },
+    {
+      "command": "node scripts/seo-indexability-check.mjs --report docs/seo/step03-indexability-check-20261029.json",
+      "exitCode": 0,
+      "checked": 2371,
+      "included": 689,
+      "excludedChecked": 1682,
+      "failed": 0,
+      "sampledSitemapUrls": 200,
+      "sampleMismatches": 0,
+      "baselineRemovedUrlsChecked": 1626,
+      "result": "Every sitemap URL is 200/index/self-canonical; excluded content URLs are 200/noindex,follow with no Article/FAQ content schema.",
+      "scopeNote": "Machine JSON API and XML feed responses are excluded from HTML meta robots checks; HTTP fixtures test their status separately.",
+      "evidence": "step03-indexability-check-20261029.json"
+    },
+    {
+      "command": "node scripts/seo-status-check.mjs --base http://127.0.0.1:3000 --report docs/seo/step03-status-check-20261029.json",
+      "exitCode": 0,
+      "passed": 231,
+      "failed": 0,
+      "metaRefreshCount": 0,
+      "evidence": "step03-status-check-20261029.json"
+    },
+    {
+      "command": "node scripts/seo-status-check.mjs --base http://127.0.0.1:3000 --sitemap --report docs/seo/step03-sitemap-check-20261029.json",
+      "exitCode": 0,
+      "passed": 689,
+      "failed": 0,
+      "metaRefreshCount": 0,
+      "evidence": "step03-sitemap-check-20261029.json"
+    },
+    {
+      "command": "node scripts/verify-seo-http.mjs http://127.0.0.1:3000 docs/seo/step03-curl-checks-20261029.json",
+      "exitCode": 0,
+      "passed": 105,
+      "failed": 0,
+      "result": "Actual curl GET/HEAD, browser and Googlebot user agents",
+      "evidence": "step03-curl-checks-20261029.json"
+    },
+    {
+      "command": "node scripts/verify-seo-hubs.mjs http://127.0.0.1:3000 docs/seo/step03-hub-checks-20261029.json",
+      "exitCode": 0,
+      "passed": 37,
+      "failed": 0,
+      "result": "Forum 13 actual threads; article hub 49 curated links",
+      "evidence": "step03-hub-checks-20261029.json"
+    },
+    {
+      "command": "node scripts/verify-seo-quality-content.mjs",
+      "exitCode": 0,
+      "passed": 13,
+      "failed": 0,
+      "historicallyClickedUrlsChecked": 236,
+      "existingRecordUrls": 222,
+      "brandHubs": 14,
+      "result": "Historical URL availability, source labels, no repair cost block, curated automatic links and duplicate noindex decision pass.",
+      "evidence": "step03-quality-content-check-20261029.json"
+    },
+    {
+      "command": "Read /trafik-cezasi/sitemap.xml and /news-sitemap.xml and compare all loc entries against checked core sitemap",
+      "failed": 0,
+      "trafficFineUrls": 39,
+      "newsUrlsInLastTwoDays": 0,
+      "evidence": "step03-auxiliary-sitemaps-20261029.json"
+    },
+    {
+      "command": "node scripts/verify-seo-http.mjs https://otosoz.com docs/seo/step03-live-observation-20261029.json --observe",
+      "exitCode": 0,
+      "mode": "read-only observation; mismatches do not fail observe mode",
+      "passed": 54,
+      "mismatches": 51,
+      "result": "Live server still runs older code. Existing soft 404/meta refresh/canonical problems remain; no deployment was made.",
+      "evidence": "step03-live-observation-20261029.json"
+    }
+  ],
+  "urlActions": {
+    "newRedirects": 0,
+    "new404": 0,
+    "new410": 0,
+    "approvedDecision": "Duplicate article: noindex only; HTTP 200 retained.",
+    "otherProposals": "No bulk redirects/deletions recommended: different OBD identities are not interchangeable despite repeated text. Engine slug shortening deferred to avoid unnecessary URL churn."
+  },
+  "historicalObdReviewQueue": {
+    "urls": 236,
+    "existingCodeUrls": 222,
+    "brandHubs": 14,
+    "newlyGrandfatheredIndexable": 0,
+    "reason": "None satisfies current editorial/source gate; click history prioritizes manual source review, without fabricating content. All 236 existing historical routes pass their expected 200/308 availability checks."
+  },
+  "openRisks": [
+    "Changes are committed locally and not deployed. Live still has previous HTTP/redirect problems; production verification is required after deployment.",
+    "Only five OBD records have editorial/source support. The 236 historically clicked URLs require source-led manual review before re-indexing.",
+    "The preserved vehicle editorial predicate is a legacy catalogue selection rule, not independent proof of every mechanical claim. Similarity measurements alone do not establish factual accuracy.",
+    "Supporting reference templates default to noindex until curated; their catalogue row counts are not published sitemap URL counts.",
+    "Content, thresholds or data changes require audit --write-signals and --check-signals followed by build and HTML verification.",
+    "Forum audit counts use the previous step timestamped snapshot; runtime sitemap and HTML checks query the current server catalogue. Actual visible threads remain 13.",
+    "Existing Next.js Edge Runtime deprecation/build warnings remain. Invalid dynamicParams=false requests can log framework NoFallbackError while returning verified HTTP 404.",
+    "Index pruning does not guarantee search ranking recovery or a particular recrawl date."
+  ],
+  "secretsCommitted": false,
+  "preExistingUntrackedFilesPreserved": true
+}

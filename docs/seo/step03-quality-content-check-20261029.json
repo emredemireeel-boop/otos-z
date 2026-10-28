@@ -1,0 +1,1726 @@
+{
+  "checkedAt": "2026-10-28T23:12:54.882Z",
+  "base": "http://127.0.0.1:3000",
+  "total": 13,
+  "passed": 13,
+  "failed": 0,
+  "historicalUrlsChecked": 236,
+  "historicalExistingRecordUrls": 222,
+  "historicalBrandHubs": 14,
+  "historicalMissingRecordsNotCreated": 0,
+  "checks": [
+    {
+      "name": "/obd/p0420 has no unsourced repair cost block",
+      "passed": true
+    },
+    {
+      "name": "/obd/p0420 promotes only qualified OBD codes",
+      "passed": true,
+      "observed": []
+    },
+    {
+      "name": "/obd/p0420 has no automatic links to short dictionary entries",
+      "passed": true
+    },
+    {
+      "name": "/obd/p20ee has no unsourced repair cost block",
+      "passed": true
+    },
+    {
+      "name": "/obd/p20ee promotes only qualified OBD codes",
+      "passed": true,
+      "observed": []
+    },
+    {
+      "name": "/obd/p20ee has no automatic links to short dictionary entries",
+      "passed": true
+    },
+    {
+      "name": "unsourced causes are visibly labelled general information",
+      "passed": true
+    },
+    {
+      "name": "/obd/b0001 has no unsourced repair cost block",
+      "passed": true
+    },
+    {
+      "name": "/obd/b0001 promotes only qualified OBD codes",
+      "passed": true,
+      "observed": []
+    },
+    {
+      "name": "/obd/b0001 has no automatic links to short dictionary entries",
+      "passed": true
+    },
+    {
+      "name": "unsourced control suggestions are visibly labelled general information",
+      "passed": true
+    },
+    {
+      "name": "user-selected duplicate remains 200, noindex and no redirect",
+      "passed": true
+    },
+    {
+      "name": "all existing historically clicked OBD records remain accessible",
+      "passed": true,
+      "observed": {
+        "checked": 236,
+        "failed": 0
+      }
+    }
+  ],
+  "historicalResults": [
+    {
+      "url": "https://otosoz.com/obd/u0121",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1001",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1795",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p20ee",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2563",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1024",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2413",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2279",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1780",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1732",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0090",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0820",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0094",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0612",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2711",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2200",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0489",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1813",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2004",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0001",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0532",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0073",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0140",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/fiat/b1001",
+      "status": 308,
+      "location": "/obd/b1001",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1011",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0047",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0215",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1006",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1000",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0810",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0602",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0601",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0607",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0226",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1199",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0563",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0482",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2293",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p20f4",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1327",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0011",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2002",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/peugeot/p0005",
+      "status": 308,
+      "location": "/obd/p0005",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0027",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1700",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0005",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p00c6",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/chevrolet/c0131",
+      "status": 308,
+      "location": "/obd/c0131",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1225",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1445",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/mazda/b0077",
+      "status": 308,
+      "location": "/obd/b0077",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p042a",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/alpine",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2188",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0530",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0401",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0015",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2000",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0341",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2112",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0421",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0493",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0620",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1008",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0093",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0117",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0501",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2a00",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2176",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1815",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1120",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2177",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0168",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0254",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2263",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p0075",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/opel/c0040",
+      "status": 308,
+      "location": "/obd/c0040",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0184",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1172",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0002",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p0117",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0487",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1325",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/opel/b1325",
+      "status": 308,
+      "location": "/obd/b1325",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1132",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0406",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0134",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0100",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0491",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1342",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0108",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0342",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1700",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p00af",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0415",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2195",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1401",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p259f",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1009",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0328",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1022",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1701",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0030",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0693",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1302",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b0001",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0105",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1382",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/peugeot",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1550",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1029",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1127",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0043",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1206",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0606",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0244",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0201",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1708",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0597",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1500",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1218",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/peugeot/p0001",
+      "status": 308,
+      "location": "/obd/p0001",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1202",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1128",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0303",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/b1249",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u1218",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1740",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/togg",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u0402",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0650",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0611",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2091",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0181",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1017",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1531",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/b1212",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1025",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1880",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1500",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0127",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0558",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0065",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/renault/c0110",
+      "status": 308,
+      "location": "/obd/c0110",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0132",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1168",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0524",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0315",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1634",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1579",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1602",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1848",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1189",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1684",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/opel/c0196",
+      "status": 308,
+      "location": "/obd/c0196",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p040b",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1537",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1864",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0002",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1013",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0a0f",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1354",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/togg",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/opel/b1000",
+      "status": 308,
+      "location": "/obd/b1000",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/volkswagen/b1001",
+      "status": 308,
+      "location": "/obd/b1001",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0112",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1152",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1130",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/c1134",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/mercedes-benz/b1001",
+      "status": 308,
+      "location": "/obd/b1001",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/cupra",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p2459",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0169",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0369",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1115",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1701",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/mg/b0090",
+      "status": 308,
+      "location": "/obd/b0090",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0483",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0026",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/b1222",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0172",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1792",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/c0186",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/b1231",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1688",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1396",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1284",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/austin/b2955",
+      "status": 308,
+      "location": "/obd/b2955",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1836",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1301",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1528",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0029",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/c1224",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0513",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1170",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p0132",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0747",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0700",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1605",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/hyundai/b0042",
+      "status": 308,
+      "location": "/obd/b0042",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1420",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/skoda/b0080",
+      "status": 308,
+      "location": "/obd/b0080",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1397",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/nio/b0001",
+      "status": 308,
+      "location": "/obd/b0001",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/proton",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/proton",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0339",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/c1435",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/daewoo",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1840",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/infiniti",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1615",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p1829",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/u1131",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/cadillac",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/ssangyong",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/p0356",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/jeep",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/c1780",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b2505",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1548",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b2222",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/u1173",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/b1298",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/tvr",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/mclaren",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/nio/c0186",
+      "status": 308,
+      "location": "/obd/c0186",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/togg/c0121",
+      "status": 308,
+      "location": "/obd/c0121",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1424",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/fisker/b0020",
+      "status": 308,
+      "location": "/obd/b0020",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/b1908",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/mercedes-benz/b2792",
+      "status": 308,
+      "location": "/obd/b2792",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/togg/b1596",
+      "status": 308,
+      "location": "/obd/b1596",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/p1914",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    },
+    {
+      "url": "https://otosoz.com/obd/honda/c0075",
+      "status": 308,
+      "location": "/obd/c0075",
+      "expectedStatus": 308,
+      "passed": true
+    },
+    {
+      "url": "https://www.otosoz.com/obd/b2180",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "passed": true
+    }
+  ]
+}

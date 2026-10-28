@@ -1,0 +1,3654 @@
+{
+  "checkedAt": "2026-10-28T23:12:52.530Z",
+  "mode": "applied-policy-audit",
+  "httpChangesApplied": false,
+  "thresholds": {
+    "obdDescription": 300,
+    "obdSpecificCauses": 3,
+    "obdSpecificChecks": 3,
+    "obdSimilarity": 0.5,
+    "vehicleChronicItems": 3,
+    "vehicleStrengths": 2,
+    "vehicleWeaknesses": 2,
+    "engineUniqueIssues": 2,
+    "engineUniqueProsCons": 2,
+    "dictionaryCharacters": 250,
+    "dictionarySimilarity": 0.85,
+    "articleCharacters": 600,
+    "guideCharacters": 300,
+    "guideSimilarity": 0.85,
+    "threadCharacters": 200
+  },
+  "method": {
+    "shingleWords": 6,
+    "similarity": "exact pairwise Jaccard",
+    "normalizesCodeTokens": true,
+    "specificObdAdvice": "Exact normalized advice text occurs in at most 3 catalogue records",
+    "uniqueEngineItems": "Exact normalized item occurs once across engines and is absent from its parent model"
+  },
+  "summary": {
+    "obd": {
+      "total": 3551,
+      "indexable": 5,
+      "noindex": 3546,
+      "catalogueIndexable": 5,
+      "baselineIndexable": 973,
+      "rawRecords": 3573,
+      "editorialRecords": 5,
+      "emptyFields": {
+        "description": 0,
+        "causes": 1471,
+        "fixes": 1729,
+        "sources": 3546
+      },
+      "mostSimilarPairs": [
+        {
+          "left": "B1006",
+          "right": "B1024",
+          "similarity": 1
+        },
+        {
+          "left": "B1008",
+          "right": "B1028",
+          "similarity": 1
+        },
+        {
+          "left": "B1992",
+          "right": "B1993",
+          "similarity": 1
+        },
+        {
+          "left": "B1992",
+          "right": "B1994",
+          "similarity": 1
+        },
+        {
+          "left": "B1993",
+          "right": "B1994",
+          "similarity": 1
+        },
+        {
+          "left": "B1992",
+          "right": "B1995",
+          "similarity": 1
+        },
+        {
+          "left": "B1993",
+          "right": "B1995",
+          "similarity": 1
+        },
+        {
+          "left": "B1994",
+          "right": "B1995",
+          "similarity": 1
+        },
+        {
+          "left": "B1996",
+          "right": "B1997",
+          "similarity": 1
+        },
+        {
+          "left": "B1996",
+          "right": "B1998",
+          "similarity": 1
+        },
+        {
+          "left": "B1997",
+          "right": "B1998",
+          "similarity": 1
+        },
+        {
+          "left": "B1996",
+          "right": "B1999",
+          "similarity": 1
+        },
+        {
+          "left": "B1997",
+          "right": "B1999",
+          "similarity": 1
+        },
+        {
+          "left": "B1998",
+          "right": "B1999",
+          "similarity": 1
+        },
+        {
+          "left": "B1992",
+          "right": "B2117",
+          "similarity": 1
+        }
+      ]
+    },
+    "vehicle": {
+      "total": 192,
+      "indexable": 88,
+      "noindex": 104,
+      "rawRecords": 239,
+      "currentlyReviewed": 88,
+      "emptyFields": {
+        "strengths": 0,
+        "weaknesses": 0,
+        "chronicIssues": 1,
+        "userExperiences": 188
+      },
+      "mostSimilarPairs": [
+        {
+          "left": "skoda/kodiaq",
+          "right": "skoda/kamiq",
+          "similarity": 0.948718
+        },
+        {
+          "left": "renault/symbol-15-dci",
+          "right": "renault/fluence-15-dci",
+          "similarity": 0.946667
+        },
+        {
+          "left": "kia/rio",
+          "right": "volvo/s90",
+          "similarity": 0.944444
+        },
+        {
+          "left": "kia/rio",
+          "right": "volvo/xc60",
+          "similarity": 0.944444
+        },
+        {
+          "left": "volvo/s90",
+          "right": "volvo/xc60",
+          "similarity": 0.944444
+        },
+        {
+          "left": "kia/rio",
+          "right": "bmw/520i",
+          "similarity": 0.944444
+        },
+        {
+          "left": "volvo/s90",
+          "right": "bmw/520i",
+          "similarity": 0.944444
+        },
+        {
+          "left": "volvo/xc60",
+          "right": "bmw/520i",
+          "similarity": 0.944444
+        },
+        {
+          "left": "kia/rio",
+          "right": "audi/a6",
+          "similarity": 0.944444
+        },
+        {
+          "left": "volvo/s90",
+          "right": "audi/a6",
+          "similarity": 0.944444
+        },
+        {
+          "left": "volvo/xc60",
+          "right": "audi/a6",
+          "similarity": 0.944444
+        },
+        {
+          "left": "bmw/520i",
+          "right": "audi/a6",
+          "similarity": 0.944444
+        },
+        {
+          "left": "volkswagen/golf-4",
+          "right": "skoda/kodiaq",
+          "similarity": 0.936709
+        },
+        {
+          "left": "volkswagen/golf-polo",
+          "right": "skoda/kodiaq",
+          "similarity": 0.936709
+        },
+        {
+          "left": "volkswagen/golf-4",
+          "right": "skoda/kamiq",
+          "similarity": 0.936709
+        }
+      ]
+    },
+    "vehicleSections": {
+      "kronik-sorunlar": {
+        "total": 192,
+        "indexable": 61,
+        "noindex": 131
+      },
+      "neden-alinir": {
+        "total": 192,
+        "indexable": 88,
+        "noindex": 104
+      },
+      "kullanici-deneyimleri": {
+        "total": 192,
+        "indexable": 4,
+        "noindex": 188
+      },
+      "arac-paketleri": {
+        "total": 192,
+        "indexable": 68,
+        "noindex": 124
+      }
+    },
+    "engine": {
+      "total": 370,
+      "indexable": 21,
+      "noindex": 349,
+      "emptyFields": {
+        "description": 365,
+        "pros": 365,
+        "cons": 365,
+        "chronicIssues": 4
+      },
+      "mostSimilarPairs": [
+        {
+          "left": "1/10-tce-90-hp-benzin-manuel-x-tronic",
+          "right": "4/10-tce-90-hp-benzin-manuel-x-tronic",
+          "similarity": 1
+        },
+        {
+          "left": "1/15-dci-110-hp-dizel-manuel-edc",
+          "right": "4/15-dci-110-hp-dizel-manuel-edc",
+          "similarity": 1
+        },
+        {
+          "left": "1/16-e-tech-140-hp-hibrit-otomatik",
+          "right": "4/16-e-tech-140-hp-hibrit-otomatik",
+          "similarity": 1
+        },
+        {
+          "left": "1/10-tce-90-hp-benzin-manuel-x-tronic",
+          "right": "7/10-tce-90-hp-benzin-manuel-x-tronic",
+          "similarity": 1
+        },
+        {
+          "left": "4/10-tce-90-hp-benzin-manuel-x-tronic",
+          "right": "7/10-tce-90-hp-benzin-manuel-x-tronic",
+          "similarity": 1
+        },
+        {
+          "left": "1/15-dci-110-hp-dizel-manuel-edc",
+          "right": "7/15-dci-110-hp-dizel-manuel-edc",
+          "similarity": 1
+        },
+        {
+          "left": "4/15-dci-110-hp-dizel-manuel-edc",
+          "right": "7/15-dci-110-hp-dizel-manuel-edc",
+          "similarity": 1
+        },
+        {
+          "left": "4/13-tce-140-hp-benzin-edc",
+          "right": "7/13-tce-140-hp-benzin-edc",
+          "similarity": 1
+        },
+        {
+          "left": "1/16-e-tech-140-hp-hibrit-otomatik",
+          "right": "7/16-e-tech-140-hp-hibrit-otomatik",
+          "similarity": 1
+        },
+        {
+          "left": "4/16-e-tech-140-hp-hibrit-otomatik",
+          "right": "7/16-e-tech-140-hp-hibrit-otomatik",
+          "similarity": 1
+        },
+        {
+          "left": "901/12-puretech-130-hp-benzin-eat8",
+          "right": "902/12-puretech-130-hp-benzin-eat8",
+          "similarity": 1
+        },
+        {
+          "left": "901/15-bluehdi-130-hp-dizel-eat8",
+          "right": "902/15-bluehdi-130-hp-dizel-eat8",
+          "similarity": 1
+        },
+        {
+          "left": "901/12-puretech-130-hp-benzin-eat8",
+          "right": "10/12-puretech-130-hp-benzin-eat8",
+          "similarity": 1
+        },
+        {
+          "left": "902/12-puretech-130-hp-benzin-eat8",
+          "right": "10/12-puretech-130-hp-benzin-eat8",
+          "similarity": 1
+        },
+        {
+          "left": "901/15-bluehdi-130-hp-dizel-eat8",
+          "right": "10/15-bluehdi-130-hp-dizel-eat8",
+          "similarity": 1
+        }
+      ]
+    },
+    "dictionary": {
+      "total": 186,
+      "indexable": 0,
+      "noindex": 186,
+      "rawRecords": 200,
+      "emptyFields": {
+        "description": 0
+      },
+      "mostSimilarPairs": [
+        {
+          "left": "clutch",
+          "right": "tork_konvertoru",
+          "similarity": 0.043478
+        }
+      ]
+    },
+    "article": {
+      "total": 50,
+      "indexable": 49,
+      "noindex": 1,
+      "emptyFields": {
+        "title": 0,
+        "description": 0,
+        "sections": 0
+      },
+      "mostSimilarPairs": [
+        {
+          "left": "guide_013",
+          "right": "guide_seo_013",
+          "similarity": 0.933002
+        },
+        {
+          "left": "guide_005",
+          "right": "guide_dolandirici_koruma",
+          "similarity": 0.003999
+        },
+        {
+          "left": "guide_seo_003",
+          "right": "guide_seo_006",
+          "similarity": 0.001251
+        },
+        {
+          "left": "guide_001",
+          "right": "guide_002",
+          "similarity": 0.000954
+        },
+        {
+          "left": "guide_seo_002",
+          "right": "guide_seo_003",
+          "similarity": 0.000478
+        },
+        {
+          "left": "guide_001",
+          "right": "guide_dolandirici_koruma",
+          "similarity": 0.000352
+        }
+      ]
+    },
+    "thread": {
+      "snapshotOnly": true,
+      "total": 13,
+      "indexable": 13,
+      "noindex": 0,
+      "sourceCheckedAt": "2026-10-28T22:06:37.864Z"
+    }
+  },
+  "otherGuideTypes": {
+    "howto": {
+      "emptyFields": {
+        "title": 0,
+        "description": 0,
+        "sources": 14
+      },
+      "total": 14,
+      "indexable": 14,
+      "noindex": 0,
+      "mostSimilarPairs": []
+    },
+    "interesting": {
+      "emptyFields": {
+        "title": 36,
+        "description": 67,
+        "sources": 67
+      },
+      "total": 67,
+      "indexable": 8,
+      "noindex": 59,
+      "mostSimilarPairs": [
+        {
+          "left": "ilginc-00002",
+          "right": "ilginc-00030",
+          "similarity": 0.115385
+        },
+        {
+          "left": "ilginc-00003",
+          "right": "ilginc-00032",
+          "similarity": 0.08
+        },
+        {
+          "left": "ilginc-00005",
+          "right": "ilginc-00034",
+          "similarity": 0.05
+        }
+      ]
+    },
+    "myth": {
+      "emptyFields": {
+        "title": 52,
+        "description": 52,
+        "sources": 39
+      },
+      "total": 52,
+      "indexable": 52,
+      "noindex": 0,
+      "mostSimilarPairs": []
+    },
+    "warningLight": {
+      "emptyFields": {
+        "title": 0,
+        "description": 19,
+        "sources": 19
+      },
+      "total": 19,
+      "indexable": 0,
+      "noindex": 19,
+      "mostSimilarPairs": []
+    },
+    "news": {
+      "emptyFields": {
+        "title": 0,
+        "description": 0,
+        "sources": 13
+      },
+      "total": 13,
+      "indexable": 13,
+      "noindex": 0,
+      "mostSimilarPairs": [
+        {
+          "left": "news_2026_tuik_july_registrations",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.021108
+        },
+        {
+          "left": "news_2026_bmw_two_million_bev",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.02046
+        },
+        {
+          "left": "news_2026_bmw_two_million_bev",
+          "right": "news_2026_tuik_july_registrations",
+          "similarity": 0.019231
+        },
+        {
+          "left": "news_2026_odmd_august_market",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.018088
+        },
+        {
+          "left": "news_2026_epdk_july_charging_report",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.018088
+        },
+        {
+          "left": "news_2026_iea_ev_market_uncertainty",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.017995
+        },
+        {
+          "left": "news_2026_osd_january_july_results",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.017812
+        },
+        {
+          "left": "news_2026_fia_aduo_engine_balance",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.0175
+        },
+        {
+          "left": "news_2026_euroncap_electric_hatchbacks",
+          "right": "news_2026_osd_january_july_results",
+          "similarity": 0.017094
+        },
+        {
+          "left": "news_2026_odmd_august_market",
+          "right": "news_2026_tuik_july_registrations",
+          "similarity": 0.01699
+        },
+        {
+          "left": "news_2026_epdk_july_charging_report",
+          "right": "news_2026_tuik_july_registrations",
+          "similarity": 0.01699
+        },
+        {
+          "left": "news_2026_tuik_july_registrations",
+          "right": "news_2026_iea_ev_market_uncertainty",
+          "similarity": 0.016908
+        },
+        {
+          "left": "news_2026_acea_h1_registrations",
+          "right": "news_2026_togg_truos_update",
+          "similarity": 0.016908
+        },
+        {
+          "left": "news_2026_tuik_july_registrations",
+          "right": "news_2026_osd_january_july_results",
+          "similarity": 0.016746
+        },
+        {
+          "left": "news_2026_odmd_august_market",
+          "right": "news_2026_epdk_july_charging_report",
+          "similarity": 0.016706
+        }
+      ]
+    },
+    "trafficFine": {
+      "emptyFields": {
+        "title": 38,
+        "description": 0,
+        "sources": 38
+      },
+      "total": 38,
+      "indexable": 38,
+      "noindex": 0,
+      "mostSimilarPairs": [
+        {
+          "left": "30",
+          "right": "32",
+          "similarity": 0.088889
+        },
+        {
+          "left": "10",
+          "right": "12",
+          "similarity": 0.081395
+        },
+        {
+          "left": "19",
+          "right": "21",
+          "similarity": 0.079812
+        },
+        {
+          "left": "22",
+          "right": "32",
+          "similarity": 0.072
+        },
+        {
+          "left": "16",
+          "right": "29",
+          "similarity": 0.070423
+        },
+        {
+          "left": "3",
+          "right": "11",
+          "similarity": 0.058462
+        },
+        {
+          "left": "32",
+          "right": "36",
+          "similarity": 0.057018
+        },
+        {
+          "left": "19",
+          "right": "32",
+          "similarity": 0.055814
+        },
+        {
+          "left": "22",
+          "right": "30",
+          "similarity": 0.054662
+        },
+        {
+          "left": "29",
+          "right": "27",
+          "similarity": 0.053659
+        },
+        {
+          "left": "21",
+          "right": "32",
+          "similarity": 0.053333
+        },
+        {
+          "left": "34",
+          "right": "27",
+          "similarity": 0.052402
+        },
+        {
+          "left": "28",
+          "right": "37",
+          "similarity": 0.051163
+        },
+        {
+          "left": "35",
+          "right": "36",
+          "similarity": 0.049327
+        },
+        {
+          "left": "18",
+          "right": "19",
+          "similarity": 0.048276
+        }
+      ]
+    },
+    "toll": {
+      "emptyFields": {
+        "title": 13,
+        "description": 13,
+        "sources": 13
+      },
+      "total": 13,
+      "indexable": 13,
+      "noindex": 0,
+      "mostSimilarPairs": [
+        {
+          "left": "kuzey-marmara-avrupa",
+          "right": "kuzey-marmara-anadolu",
+          "similarity": 0.068182
+        },
+        {
+          "left": "15-temmuz-sehitler-koprusu",
+          "right": "fatih-sultan-mehmet-koprusu",
+          "similarity": 0.022599
+        },
+        {
+          "left": "avrasya-tuneli-gunduz",
+          "right": "avrasya-tuneli-gece",
+          "similarity": 0.006667
+        },
+        {
+          "left": "fatih-sultan-mehmet-koprusu",
+          "right": "1915-canakkale-koprusu",
+          "similarity": 0.00641
+        },
+        {
+          "left": "yavuz-sultan-selim-koprusu",
+          "right": "1915-canakkale-koprusu",
+          "similarity": 0.00625
+        },
+        {
+          "left": "fatih-sultan-mehmet-koprusu",
+          "right": "yavuz-sultan-selim-koprusu",
+          "similarity": 0.00578
+        }
+      ]
+    }
+  },
+  "supportingTemplates": {
+    "bodyType": {
+      "total": 7,
+      "indexable": 0,
+      "noindex": 7,
+      "emptyReadableRecords": 0,
+      "mostSimilarPairs": [],
+      "reason": "Supporting reference templates have no curated indexing eligibility; remain available to explicit user navigation."
+    },
+    "segment": {
+      "total": 6,
+      "indexable": 0,
+      "noindex": 6,
+      "emptyReadableRecords": 0,
+      "mostSimilarPairs": [],
+      "reason": "Supporting reference templates have no curated indexing eligibility; remain available to explicit user navigation."
+    },
+    "plate": {
+      "total": 124,
+      "indexable": 0,
+      "noindex": 124,
+      "emptyReadableRecords": 0,
+      "mostSimilarPairs": [],
+      "reason": "Supporting reference templates have no curated indexing eligibility; remain available to explicit user navigation."
+    },
+    "license": {
+      "total": 9,
+      "indexable": 0,
+      "noindex": 9,
+      "emptyReadableRecords": 0,
+      "mostSimilarPairs": [
+        {
+          "left": "B",
+          "right": "C",
+          "similarity": 0.03125
+        }
+      ],
+      "reason": "Supporting reference templates have no curated indexing eligibility; remain available to explicit user navigation."
+    },
+    "inspectionFaq": {
+      "total": 25,
+      "indexable": 0,
+      "noindex": 25,
+      "emptyReadableRecords": 0,
+      "mostSimilarPairs": [
+        {
+          "left": "1",
+          "right": "5",
+          "similarity": 0.009259
+        }
+      ],
+      "reason": "Supporting reference templates have no curated indexing eligibility; remain available to explicit user navigation."
+    },
+    "maintenance": {
+      "total": 15,
+      "indexable": 0,
+      "noindex": 15,
+      "emptyReadableRecords": 0,
+      "mostSimilarPairs": [
+        {
+          "left": "triger",
+          "right": "v_kayisi",
+          "similarity": 0.023529
+        },
+        {
+          "left": "hava_filtresi",
+          "right": "polen_filtresi",
+          "similarity": 0.02
+        },
+        {
+          "left": "motor_yagi",
+          "right": "hava_filtresi",
+          "similarity": 0.017964
+        },
+        {
+          "left": "motor_yagi",
+          "right": "polen_filtresi",
+          "similarity": 0.017857
+        }
+      ],
+      "reason": "Supporting reference templates have no curated indexing eligibility; remain available to explicit user navigation."
+    },
+    "usedCarChecklist": {
+      "total": 11,
+      "indexable": 0,
+      "noindex": 11,
+      "emptyReadableRecords": 0,
+      "mostSimilarPairs": [],
+      "reason": "Supporting reference templates have no curated indexing eligibility; remain available to explicit user navigation."
+    },
+    "insuranceValue": {
+      "total": 78548,
+      "indexable": 0,
+      "noindex": 78548,
+      "emptyReadableRecords": 0,
+      "mostSimilarPairs": [],
+      "similarityMeasurement": "Not applicable: structured vehicle/year/price rows; no editorial body to compare."
+    }
+  },
+  "projection": {
+    "currentSitemap": 2315,
+    "proposedCoreSitemap": 689,
+    "byPrefix": {
+      "trafik-cezasi": 39,
+      "home": 1,
+      "kutuphane": 95,
+      "makale": 50,
+      "arac-dna": 374,
+      "otobutce": 20,
+      "haberler": 14,
+      "karsilastirma": 1,
+      "uzmana-sor": 1,
+      "piyasalar": 1,
+      "guvenmetre": 1,
+      "altin-anahtar": 1,
+      "anket": 1,
+      "otohesap": 22,
+      "etkinlikler": 1,
+      "obd": 6,
+      "hakkimizda": 1,
+      "iletisim": 1,
+      "gizlilik-politikasi": 1,
+      "cerez-politikasi": 1,
+      "kullanim-sartlari": 1,
+      "acik-oto-pazari": 27,
+      "nasil-yapilir": 14,
+      "forum": 15
+    },
+    "note": "Evaluated through the same URL registry used by sitemap. Personal agenda and empty dictionary/indicator promotion categories are excluded. HTTP routes are unchanged."
+  },
+  "historicalObd": {
+    "source": "docs/seo/performance-20261022/Sayfa sayısı.csv",
+    "usesSavedPerformanceSnapshot": false,
+    "clickedUrls": 236,
+    "preservedIndexable": 0,
+    "manualReviewQueue": 236,
+    "records": [
+      {
+        "code": "P20EE",
+        "url": "https://otosoz.com/obd/p20ee",
+        "kind": "code",
+        "clicks": 6,
+        "impressions": 593,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1795",
+        "url": "https://otosoz.com/obd/p1795",
+        "kind": "code",
+        "clicks": 6,
+        "impressions": 34,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0121",
+        "url": "https://otosoz.com/obd/u0121",
+        "kind": "code",
+        "clicks": 5,
+        "impressions": 723,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1001",
+        "url": "https://otosoz.com/obd/b1001",
+        "kind": "code",
+        "clicks": 5,
+        "impressions": 310,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2563",
+        "url": "https://otosoz.com/obd/p2563",
+        "kind": "code",
+        "clicks": 5,
+        "impressions": 297,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2279",
+        "url": "https://otosoz.com/obd/p2279",
+        "kind": "code",
+        "clicks": 4,
+        "impressions": 736,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2413",
+        "url": "https://otosoz.com/obd/p2413",
+        "kind": "code",
+        "clicks": 4,
+        "impressions": 180,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1024",
+        "url": "https://otosoz.com/obd/b1024",
+        "kind": "code",
+        "clicks": 4,
+        "impressions": 87,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1732",
+        "url": "https://otosoz.com/obd/p1732",
+        "kind": "code",
+        "clicks": 4,
+        "impressions": 39,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1780",
+        "url": "https://www.otosoz.com/obd/p1780",
+        "kind": "code",
+        "clicks": 4,
+        "impressions": 5,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0090",
+        "url": "https://otosoz.com/obd/p0090",
+        "kind": "code",
+        "clicks": 3,
+        "impressions": 438,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0820",
+        "url": "https://otosoz.com/obd/p0820",
+        "kind": "code",
+        "clicks": 3,
+        "impressions": 166,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0094",
+        "url": "https://otosoz.com/obd/p0094",
+        "kind": "code",
+        "clicks": 3,
+        "impressions": 158,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0612",
+        "url": "https://otosoz.com/obd/p0612",
+        "kind": "code",
+        "clicks": 3,
+        "impressions": 153,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2711",
+        "url": "https://otosoz.com/obd/p2711",
+        "kind": "code",
+        "clicks": 3,
+        "impressions": 102,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2200",
+        "url": "https://otosoz.com/obd/p2200",
+        "kind": "code",
+        "clicks": 3,
+        "impressions": 70,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0489",
+        "url": "https://otosoz.com/obd/p0489",
+        "kind": "code",
+        "clicks": 3,
+        "impressions": 69,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1813",
+        "url": "https://otosoz.com/obd/p1813",
+        "kind": "code",
+        "clicks": 3,
+        "impressions": 57,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2004",
+        "url": "https://otosoz.com/obd/p2004",
+        "kind": "code",
+        "clicks": 3,
+        "impressions": 53,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0001",
+        "url": "https://otosoz.com/obd/u0001",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 647,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0532",
+        "url": "https://otosoz.com/obd/p0532",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 378,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0140",
+        "url": "https://otosoz.com/obd/u0140",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 215,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0073",
+        "url": "https://otosoz.com/obd/u0073",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 183,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1011",
+        "url": "https://otosoz.com/obd/b1011",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 167,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0047",
+        "url": "https://otosoz.com/obd/p0047",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 162,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0215",
+        "url": "https://otosoz.com/obd/p0215",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 159,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1001",
+        "url": "https://otosoz.com/obd/fiat/b1001",
+        "kind": "legacy-brand-code",
+        "clicks": 2,
+        "impressions": 150,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1006",
+        "url": "https://otosoz.com/obd/b1006",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 131,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1000",
+        "url": "https://otosoz.com/obd/b1000",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 127,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0810",
+        "url": "https://otosoz.com/obd/p0810",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 127,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0602",
+        "url": "https://otosoz.com/obd/p0602",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 122,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0601",
+        "url": "https://otosoz.com/obd/p0601",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 105,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0607",
+        "url": "https://otosoz.com/obd/p0607",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 91,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0226",
+        "url": "https://otosoz.com/obd/p0226",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 82,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1199",
+        "url": "https://otosoz.com/obd/p1199",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 63,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0482",
+        "url": "https://otosoz.com/obd/p0482",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 52,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2293",
+        "url": "https://otosoz.com/obd/p2293",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 47,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0563",
+        "url": "https://otosoz.com/obd/p0563",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 45,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P20F4",
+        "url": "https://otosoz.com/obd/p20f4",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 36,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0011",
+        "url": "https://otosoz.com/obd/p0011",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 35,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1327",
+        "url": "https://otosoz.com/obd/b1327",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 33,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2002",
+        "url": "https://otosoz.com/obd/p2002",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 33,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0027",
+        "url": "https://otosoz.com/obd/p0027",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 31,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0005",
+        "url": "https://otosoz.com/obd/peugeot/p0005",
+        "kind": "legacy-brand-code",
+        "clicks": 2,
+        "impressions": 30,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1700",
+        "url": "https://www.otosoz.com/obd/p1700",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 28,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0005",
+        "url": "https://otosoz.com/obd/p0005",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 26,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P00C6",
+        "url": "https://otosoz.com/obd/p00c6",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 24,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1445",
+        "url": "https://otosoz.com/obd/p1445",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 13,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C0131",
+        "url": "https://otosoz.com/obd/chevrolet/c0131",
+        "kind": "legacy-brand-code",
+        "clicks": 2,
+        "impressions": 12,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1225",
+        "url": "https://www.otosoz.com/obd/p1225",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 10,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P042A",
+        "url": "https://otosoz.com/obd/p042a",
+        "kind": "code",
+        "clicks": 2,
+        "impressions": 9,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://otosoz.com/obd/alpine",
+        "kind": "brand-hub",
+        "clicks": 2,
+        "impressions": 3,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B0077",
+        "url": "https://otosoz.com/obd/mazda/b0077",
+        "kind": "legacy-brand-code",
+        "clicks": 2,
+        "impressions": 2,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2188",
+        "url": "https://otosoz.com/obd/p2188",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 565,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0530",
+        "url": "https://otosoz.com/obd/p0530",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 423,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0401",
+        "url": "https://otosoz.com/obd/u0401",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 318,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0015",
+        "url": "https://otosoz.com/obd/p0015",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 274,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2000",
+        "url": "https://otosoz.com/obd/p2000",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 259,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0341",
+        "url": "https://otosoz.com/obd/p0341",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 218,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2112",
+        "url": "https://otosoz.com/obd/p2112",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 182,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0493",
+        "url": "https://otosoz.com/obd/p0493",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 163,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0421",
+        "url": "https://otosoz.com/obd/p0421",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 160,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0620",
+        "url": "https://otosoz.com/obd/p0620",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 156,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1008",
+        "url": "https://otosoz.com/obd/b1008",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 153,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0093",
+        "url": "https://otosoz.com/obd/p0093",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 139,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0501",
+        "url": "https://otosoz.com/obd/p0501",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 139,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0117",
+        "url": "https://otosoz.com/obd/p0117",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 125,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2A00",
+        "url": "https://otosoz.com/obd/p2a00",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 114,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2176",
+        "url": "https://otosoz.com/obd/p2176",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 110,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1815",
+        "url": "https://otosoz.com/obd/p1815",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 108,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2177",
+        "url": "https://otosoz.com/obd/p2177",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 108,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1120",
+        "url": "https://otosoz.com/obd/p1120",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 102,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0168",
+        "url": "https://otosoz.com/obd/u0168",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 96,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0254",
+        "url": "https://otosoz.com/obd/p0254",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 96,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2263",
+        "url": "https://otosoz.com/obd/p2263",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 95,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0075",
+        "url": "https://www.otosoz.com/obd/p0075",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 94,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0184",
+        "url": "https://otosoz.com/obd/u0184",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 92,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C0040",
+        "url": "https://otosoz.com/obd/opel/c0040",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 92,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1172",
+        "url": "https://otosoz.com/obd/p1172",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 91,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0117",
+        "url": "https://www.otosoz.com/obd/p0117",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 88,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0487",
+        "url": "https://otosoz.com/obd/p0487",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 86,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0002",
+        "url": "https://otosoz.com/obd/u0002",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 85,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1325",
+        "url": "https://otosoz.com/obd/b1325",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 83,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1132",
+        "url": "https://otosoz.com/obd/p1132",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 79,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0406",
+        "url": "https://otosoz.com/obd/p0406",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 79,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1325",
+        "url": "https://otosoz.com/obd/opel/b1325",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 77,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0134",
+        "url": "https://otosoz.com/obd/p0134",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 74,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0100",
+        "url": "https://otosoz.com/obd/u0100",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 74,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0491",
+        "url": "https://otosoz.com/obd/p0491",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 73,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1342",
+        "url": "https://otosoz.com/obd/b1342",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 70,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0108",
+        "url": "https://otosoz.com/obd/p0108",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 68,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1700",
+        "url": "https://otosoz.com/obd/p1700",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 66,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0342",
+        "url": "https://otosoz.com/obd/p0342",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 66,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P00AF",
+        "url": "https://otosoz.com/obd/p00af",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 62,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2195",
+        "url": "https://otosoz.com/obd/p2195",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 60,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0415",
+        "url": "https://otosoz.com/obd/u0415",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 57,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1401",
+        "url": "https://otosoz.com/obd/b1401",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 56,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P259F",
+        "url": "https://otosoz.com/obd/p259f",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 56,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1009",
+        "url": "https://otosoz.com/obd/b1009",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 55,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0328",
+        "url": "https://otosoz.com/obd/p0328",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 53,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1022",
+        "url": "https://otosoz.com/obd/b1022",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 52,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1701",
+        "url": "https://otosoz.com/obd/p1701",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 52,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0693",
+        "url": "https://otosoz.com/obd/p0693",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 51,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0030",
+        "url": "https://otosoz.com/obd/p0030",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 50,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1302",
+        "url": "https://otosoz.com/obd/p1302",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 49,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0105",
+        "url": "https://otosoz.com/obd/p0105",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 48,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B0001",
+        "url": "https://otosoz.com/obd/b0001",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 47,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1382",
+        "url": "https://otosoz.com/obd/p1382",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 47,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://otosoz.com/obd/peugeot",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 45,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1550",
+        "url": "https://otosoz.com/obd/p1550",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 44,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1029",
+        "url": "https://otosoz.com/obd/b1029",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 43,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1127",
+        "url": "https://otosoz.com/obd/p1127",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 42,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0043",
+        "url": "https://otosoz.com/obd/p0043",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 42,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1206",
+        "url": "https://otosoz.com/obd/p1206",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 42,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0244",
+        "url": "https://otosoz.com/obd/p0244",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 40,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0606",
+        "url": "https://otosoz.com/obd/p0606",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 40,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0201",
+        "url": "https://otosoz.com/obd/p0201",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 39,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0597",
+        "url": "https://otosoz.com/obd/p0597",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 38,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1500",
+        "url": "https://otosoz.com/obd/p1500",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 37,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1708",
+        "url": "https://otosoz.com/obd/p1708",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 36,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1218",
+        "url": "https://otosoz.com/obd/p1218",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 35,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1128",
+        "url": "https://otosoz.com/obd/p1128",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 34,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1202",
+        "url": "https://otosoz.com/obd/b1202",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 33,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0001",
+        "url": "https://otosoz.com/obd/peugeot/p0001",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 33,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0303",
+        "url": "https://otosoz.com/obd/p0303",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 32,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1249",
+        "url": "https://www.otosoz.com/obd/b1249",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 31,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U1218",
+        "url": "https://otosoz.com/obd/u1218",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 31,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1740",
+        "url": "https://otosoz.com/obd/p1740",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 29,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://otosoz.com/obd/togg",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 29,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U0402",
+        "url": "https://otosoz.com/obd/u0402",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 29,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0650",
+        "url": "https://otosoz.com/obd/p0650",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 28,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2091",
+        "url": "https://otosoz.com/obd/p2091",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 27,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0611",
+        "url": "https://otosoz.com/obd/p0611",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 27,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0181",
+        "url": "https://otosoz.com/obd/p0181",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 26,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1017",
+        "url": "https://otosoz.com/obd/b1017",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 25,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1531",
+        "url": "https://otosoz.com/obd/b1531",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 24,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1212",
+        "url": "https://www.otosoz.com/obd/b1212",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 23,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1025",
+        "url": "https://otosoz.com/obd/b1025",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 22,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1880",
+        "url": "https://otosoz.com/obd/p1880",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 21,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0127",
+        "url": "https://otosoz.com/obd/p0127",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 21,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1500",
+        "url": "https://otosoz.com/obd/b1500",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 20,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0558",
+        "url": "https://otosoz.com/obd/p0558",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 20,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0065",
+        "url": "https://otosoz.com/obd/p0065",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 20,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0132",
+        "url": "https://otosoz.com/obd/p0132",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 20,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1168",
+        "url": "https://otosoz.com/obd/p1168",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 19,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C0110",
+        "url": "https://otosoz.com/obd/renault/c0110",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 18,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0524",
+        "url": "https://otosoz.com/obd/p0524",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 18,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0315",
+        "url": "https://otosoz.com/obd/p0315",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 18,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1634",
+        "url": "https://otosoz.com/obd/p1634",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 17,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1579",
+        "url": "https://otosoz.com/obd/p1579",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 17,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1602",
+        "url": "https://otosoz.com/obd/b1602",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 16,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1848",
+        "url": "https://www.otosoz.com/obd/p1848",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 16,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1189",
+        "url": "https://otosoz.com/obd/p1189",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 16,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1684",
+        "url": "https://otosoz.com/obd/p1684",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 16,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P040B",
+        "url": "https://otosoz.com/obd/p040b",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 16,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C0196",
+        "url": "https://otosoz.com/obd/opel/c0196",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 15,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1537",
+        "url": "https://otosoz.com/obd/b1537",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 15,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1864",
+        "url": "https://otosoz.com/obd/b1864",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 15,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0002",
+        "url": "https://otosoz.com/obd/p0002",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 15,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1013",
+        "url": "https://otosoz.com/obd/b1013",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 14,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0A0F",
+        "url": "https://otosoz.com/obd/p0a0f",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 14,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://www.otosoz.com/obd/togg",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 14,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1354",
+        "url": "https://otosoz.com/obd/p1354",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 13,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0112",
+        "url": "https://otosoz.com/obd/p0112",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 13,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1000",
+        "url": "https://otosoz.com/obd/opel/b1000",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 12,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1001",
+        "url": "https://otosoz.com/obd/volkswagen/b1001",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 12,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1152",
+        "url": "https://www.otosoz.com/obd/p1152",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 12,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1130",
+        "url": "https://www.otosoz.com/obd/p1130",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 12,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C1134",
+        "url": "https://otosoz.com/obd/c1134",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 11,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://otosoz.com/obd/cupra",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 10,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1001",
+        "url": "https://otosoz.com/obd/mercedes-benz/b1001",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 10,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P2459",
+        "url": "https://otosoz.com/obd/p2459",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 10,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0169",
+        "url": "https://otosoz.com/obd/p0169",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 10,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0369",
+        "url": "https://otosoz.com/obd/p0369",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 10,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1701",
+        "url": "https://www.otosoz.com/obd/p1701",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 9,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1115",
+        "url": "https://www.otosoz.com/obd/p1115",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 8,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0483",
+        "url": "https://otosoz.com/obd/p0483",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 8,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B0090",
+        "url": "https://otosoz.com/obd/mg/b0090",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 7,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0026",
+        "url": "https://otosoz.com/obd/p0026",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 7,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0172",
+        "url": "https://otosoz.com/obd/p0172",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 7,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1222",
+        "url": "https://www.otosoz.com/obd/b1222",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 6,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1792",
+        "url": "https://www.otosoz.com/obd/p1792",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 6,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C0186",
+        "url": "https://otosoz.com/obd/c0186",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 6,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1688",
+        "url": "https://otosoz.com/obd/p1688",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 6,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1231",
+        "url": "https://www.otosoz.com/obd/b1231",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 6,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1396",
+        "url": "https://otosoz.com/obd/p1396",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 6,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1284",
+        "url": "https://otosoz.com/obd/p1284",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 5,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1836",
+        "url": "https://otosoz.com/obd/p1836",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 5,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B2955",
+        "url": "https://otosoz.com/obd/austin/b2955",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 5,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1301",
+        "url": "https://otosoz.com/obd/b1301",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 5,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1528",
+        "url": "https://otosoz.com/obd/p1528",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 5,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0029",
+        "url": "https://otosoz.com/obd/p0029",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 4,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C1224",
+        "url": "https://otosoz.com/obd/c1224",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 4,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0513",
+        "url": "https://otosoz.com/obd/p0513",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 4,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1170",
+        "url": "https://www.otosoz.com/obd/p1170",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 4,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0132",
+        "url": "https://www.otosoz.com/obd/p0132",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 4,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0747",
+        "url": "https://otosoz.com/obd/p0747",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 4,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0700",
+        "url": "https://otosoz.com/obd/p0700",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 4,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1605",
+        "url": "https://otosoz.com/obd/p1605",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1420",
+        "url": "https://otosoz.com/obd/b1420",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B0042",
+        "url": "https://otosoz.com/obd/hyundai/b0042",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1397",
+        "url": "https://otosoz.com/obd/p1397",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://www.otosoz.com/obd/proton",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://otosoz.com/obd/proton",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B0080",
+        "url": "https://otosoz.com/obd/skoda/b0080",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B0001",
+        "url": "https://otosoz.com/obd/nio/b0001",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0339",
+        "url": "https://otosoz.com/obd/p0339",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://otosoz.com/obd/daewoo",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 3,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C1435",
+        "url": "https://www.otosoz.com/obd/c1435",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://www.otosoz.com/obd/infiniti",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1840",
+        "url": "https://otosoz.com/obd/p1840",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1615",
+        "url": "https://www.otosoz.com/obd/p1615",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1829",
+        "url": "https://otosoz.com/obd/p1829",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U1131",
+        "url": "https://www.otosoz.com/obd/u1131",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://www.otosoz.com/obd/cadillac",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://www.otosoz.com/obd/ssangyong",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P0356",
+        "url": "https://otosoz.com/obd/p0356",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://otosoz.com/obd/jeep",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C1780",
+        "url": "https://otosoz.com/obd/c1780",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B2505",
+        "url": "https://otosoz.com/obd/b2505",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 2,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1548",
+        "url": "https://otosoz.com/obd/b1548",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B2222",
+        "url": "https://otosoz.com/obd/b2222",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://otosoz.com/obd/tvr",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "U1173",
+        "url": "https://otosoz.com/obd/u1173",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1298",
+        "url": "https://www.otosoz.com/obd/b1298",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": null,
+        "url": "https://otosoz.com/obd/mclaren",
+        "kind": "brand-hub",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": "brand-route-check",
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": "existing-missing-record",
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C0186",
+        "url": "https://otosoz.com/obd/nio/c0186",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C0121",
+        "url": "https://otosoz.com/obd/togg/c0121",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1424",
+        "url": "https://www.otosoz.com/obd/p1424",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1908",
+        "url": "https://otosoz.com/obd/b1908",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "P1914",
+        "url": "https://www.otosoz.com/obd/p1914",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B0020",
+        "url": "https://otosoz.com/obd/fisker/b0020",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B2792",
+        "url": "https://otosoz.com/obd/mercedes-benz/b2792",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B1596",
+        "url": "https://otosoz.com/obd/togg/b1596",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "B2180",
+        "url": "https://www.otosoz.com/obd/b2180",
+        "kind": "code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      },
+      {
+        "code": "C0075",
+        "url": "https://otosoz.com/obd/honda/c0075",
+        "kind": "legacy-brand-code",
+        "clicks": 1,
+        "impressions": 1,
+        "exists": true,
+        "editorialRecord": false,
+        "proposedIndexable": false,
+        "proposedHttpStatus": 200,
+        "reviewPriority": "historical-clicks"
+      }
+    ]
+  },
+  "proposedUrlActionsRequiringApproval": [
+    {
+      "source": "/makale/arac-muayeneden-nasil-gecer-tuvturk-sirlari--10029",
+      "proposedStatus": 308,
+      "destination": "/makale/tuvturk-muayene-hazirlik-rehberi-tek-seferde-gecmenin-yollari--10012",
+      "sixWordJaccard": 0.933002,
+      "status": "user-selected-noindex-only",
+      "appliedHttpStatus": 200,
+      "appliedRobots": "noindex,follow",
+      "reason": "Near-duplicate article; representative chosen by longer existing content, without adding text"
+    }
+  ],
+  "notes": [
+    "The audit only measures data; --write-signals explicitly refreshes local measurements. No remote data is written.",
+    "A low similarity score is a textual measurement, not evidence that mechanical claims are correct.",
+    "Traffic history does not override the source/content quality rules; existing valid historical URLs remain HTTP 200."
+  ]
+}

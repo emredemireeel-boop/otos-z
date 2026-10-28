@@ -1,3 +1,4 @@
+import { loadSource } from './seo-quality-loader.mjs';
 import { load } from 'cheerio';
 import { writeFile } from 'node:fs/promises';
 
@@ -6,6 +7,7 @@ import { writeFile } from 'node:fs/promises';
 const base = process.argv[2] || 'http://127.0.0.1:3000';
 const reportPath = process.argv[3] || 'docs/seo/step02-hub-checks-20261029.json';
 const minimumThreads = Number(process.argv[4] || 13);
+const expectedArticles = loadSource('lib/article-catalog.ts').articles.filter(article => article.indexable).length;
 const checks = [];
 const measurements = {};
 const check = (name, passed, observed) => checks.push({ name, passed: Boolean(passed), observed });
@@ -36,7 +38,7 @@ async function main() {
     check('forum main text exceeds 2000 characters', forum.textLength > 2000, forum.textLength);
     check('forum dates are in initial HTML', forum.$('li time[datetime]').length === threadLinks.length, forum.$('li time[datetime]').length);
     check('makale 200, self-canonical, one H1', articles.status === 200 && articles.canonical === 'https://otosoz.com/makale' && articles.$('h1').length === 1, measurements.articles);
-    check('all 50 distinct article links in initial HTML', articleLinks.length === 50, articleLinks.length);
+    check('all quality-approved article links in initial HTML', articleLinks.length === expectedArticles, articleLinks.length);
     check('no hub meta refresh', !/http-equiv="refresh"/i.test(forum.html + articles.html));
     const sitemapUrls = [...sitemap.html.matchAll(/<loc>\s*([^<]+)<\/loc>/g)].map(match => match[1].replaceAll('&amp;', '&'));
     const threadSitemap = sitemapUrls.filter(url => url.startsWith('https://otosoz.com/forum/') && !/\/forum\/(kategori|sayfa)\//.test(url));

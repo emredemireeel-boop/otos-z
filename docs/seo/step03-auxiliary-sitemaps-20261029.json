@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-28T23:13:59.050Z",
+  "failed": 0,
+  "results": [
+    {
+      "path": "/trafik-cezasi/sitemap.xml",
+      "status": 200,
+      "urls": 39,
+      "outsideCore": [],
+      "passed": true
+    },
+    {
+      "path": "/news-sitemap.xml",
+      "status": 200,
+      "urls": 0,
+      "outsideCore": [],
+      "passed": true
+    }
+  ]
+}

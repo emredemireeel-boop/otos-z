@@ -114,7 +114,7 @@ for (const pair of guideSimilarity.mostSimilarPairs.filter(pair => pair.similari
 const trimFor = vehicle => trimLevelsData.find(item => item.vehicleId === vehicle.id)?.trims || [];
 const sections = ['kronik-sorunlar', 'neden-alinir', 'kullanici-deneyimleri', 'arac-paketleri'];
 const summary = {
-    obd: { ...count(obdCodes, code => quality.isObdIndexable(code, obdSignals[code.code])), catalogueIndexable: beforeObd.length, baselineIndexable: read('docs/seo/quality-audit-20261029.json').summary.obd.currentlyIndexable,
+    obd: { ...count(obdCodes, code => quality.isObdIndexable(code, obdSignals[code.code])), catalogueIndexable: beforeObd.length, baselineIndexable: read('data/seo-quality/obd-directory-codes.json').codes.length,
         rawRecords: read('data/obd-codes.json').length, editorialRecords: Object.keys(reviewedObdCodes).length,
         emptyFields: emptyFields(obdCodes, ['description', 'causes', 'fixes', 'sources']), mostSimilarPairs: obdSimilarity.mostSimilarPairs },
     vehicle: { ...count(models, quality.isVehicleIndexable), rawRecords: vehicleDNAData.length,
@@ -185,7 +185,7 @@ const indexableThreads = new Set(snapshot.filter(url => /^https:\/\/otosoz\.com\
 const projected = snapshot.filter(url => isSeoUrlIndexable(url, { indexableThreads, categoryCounts }));
 const projectedByPrefix = {};
 for (const url of projected) { const prefix = new URL(url).pathname.split('/')[1] || 'home'; projectedByPrefix[prefix] = (projectedByPrefix[prefix] || 0) + 1; }
-const report = { checkedAt: new Date().toISOString(), mode: process.argv.includes('--applied') ? 'applied-policy-audit' : 'preview-before-integration', httpChangesApplied: false,
+const report = { checkedAt: new Date().toISOString(), mode: 'applied-policy-audit', httpChangesApplied: false,
     thresholds: quality.QUALITY_THRESHOLDS, method: { shingleWords: 6, similarity: 'exact pairwise Jaccard',
         normalizesCodeTokens: true, specificObdAdvice: 'Exact normalized advice text occurs in at most 3 catalogue records',
         uniqueEngineItems: 'Exact normalized item occurs once across engines and is absent from its parent model' },
@@ -196,10 +196,10 @@ const report = { checkedAt: new Date().toISOString(), mode: process.argv.include
         manualReviewQueue: historical.filter(item => !item.proposedIndexable).length, records: historical },
     proposedUrlActionsRequiringApproval: articleActions,
     notes: ['The audit only measures data; --write-signals explicitly refreshes local measurements. No remote data is written.',
-        'A low similarity score is a textual measurement, not evidence that medical/mechanical claims are correct.',
+        'A low similarity score is a textual measurement, not evidence that mechanical claims are correct.',
         'Traffic history does not override the source/content quality rules; existing valid historical URLs remain HTTP 200.'] };
 const output = process.argv[2]?.startsWith('--') ? undefined : process.argv[2];
-const outputPath = output || 'docs/seo/quality-audit-20261029.json';
+const outputPath = output || 'docs/seo/quality-audit-applied-20261029.json';
 fs.writeFileSync(outputPath, JSON.stringify(report, null, 2) + '\n');
 const measuredSignals = { obd: obdSignals, engine: engineSignals, dictionary: dictionarySimilarity.signals,
     article: guideSimilarity.signals, guide: guideSignals };
@@ -230,7 +230,6 @@ if (process.argv.includes('--check-signals')) {
     }
     console.log('All source fingerprints and measured quality signals match.');
 }
-if (!process.argv.includes('--applied')) fs.writeFileSync('docs/seo/quality-signals-preview-20261029.json', JSON.stringify(measuredSignals, null, 2) + '\n');
 console.log(JSON.stringify({ summary: Object.fromEntries(Object.entries(summary).map(([type, value]) => [type,
     value.total === undefined ? value : { total: value.total, indexable: value.indexable, noindex: value.noindex }])),
     otherGuideTypes: guideGroups, projection: report.projection, historicalObd: { total: historical.length,
