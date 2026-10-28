@@ -6,7 +6,7 @@ import { Youtube, Instagram, MapPin, Mail } from "lucide-react";
 import CookieSettingsTrigger from "@/components/CookieSettingsTrigger";
 
 const forumLinks = [
-    { href: "/", label: "Gündemdeki başlıklar" },
+    { href: "/forum", label: "Forum başlıkları" },
     { href: "/anket", label: "Topluluk anketleri" },
     { href: "/uzmana-sor", label: "Uzmana sor" },
 ];

@@ -2,7 +2,9 @@ import { MetadataRoute } from 'next';
 import { indexableObdCodes, obdDirectoryPageCount, OBD_LAST_REVIEWED } from '@/lib/obd-catalog';
 import fs from 'fs';
 import path from 'path';
-import { getRecentForumThreadSummaries } from '@/lib/forumDataServer';
+import { getIndexableForumThreadSummaries, getForumHubThreadSummaries } from '@/lib/forumDataServer';
+import { forumCategories, forumHubPath, FORUM_PAGE_SIZE } from '@/lib/forum-hub';
+import { isForumCategoryIndexable } from '@/lib/forum-pagination';
 import { events } from '@/data/events';
 import { OTOHESAP_META } from '@/data/otohesap-meta';
 import { OTOHESAP_LAST_REVIEWED } from '@/data/otohesap-content';
@@ -54,6 +56,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE_URL}/trafik-cezasi`, changeFrequency: 'monthly', priority: 0.8 },
         { url: `${BASE_URL}`, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
         { url: `${BASE_URL}/kutuphane`, lastModified: new Date(LIBRARY_LAST_REVIEWED), changeFrequency: 'weekly', priority: 0.9 },
+        { url: `${BASE_URL}/makale`, changeFrequency: 'weekly', priority: 0.9 },
         { url: `${BASE_URL}/kutuphane/kasko-deger`, lastModified: new Date(LIBRARY_LAST_REVIEWED), changeFrequency: 'monthly', priority: 0.8 },
         { url: `${BASE_URL}/arac-dna`, lastModified: new Date(DNA_LAST_REVIEWED), changeFrequency: 'daily', priority: 0.95 },
         { url: `${BASE_URL}/otobutce`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
@@ -410,7 +413,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // 15. Dinamik forum konuları: Admin erişimi yoksa güvenli public Firestore
     // yedeği devreye girer. Yeni başlık ve entry'ler 15 dakika içinde görünür.
-    const forumThreads = await getRecentForumThreadSummaries(1200);
+    const [forumThreads, visibleForumThreads] = await Promise.all([
+        getIndexableForumThreadSummaries(), getForumHubThreadSummaries(null),
+    ]);
+    // Thin/spam noindex kararı tekil metadata ile aynı politikadan gelir.
     forumThreads.forEach(thread => {
         sitemapEntries.push({
             url: `${BASE_URL}/forum/${thread.slug}`,
@@ -421,6 +427,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.8,
         });
     });
+
+    sitemapEntries.push({ url: `${BASE_URL}/forum`, changeFrequency: 'hourly', priority: 0.9 });
+    for (let page = 2; page <= Math.ceil(visibleForumThreads.length / FORUM_PAGE_SIZE); page++) {
+        sitemapEntries.push({ url: `${BASE_URL}${forumHubPath(page)}`, changeFrequency: 'hourly', priority: 0.6 });
+    }
+    for (const category of forumCategories) {
+        const count = visibleForumThreads.filter(thread => thread.category === category.name).length;
+        if (!isForumCategoryIndexable(count)) continue;
+        for (let page = 1; page <= Math.ceil(count / FORUM_PAGE_SIZE); page++) {
+            sitemapEntries.push({ url: `${BASE_URL}${forumHubPath(page, category.slug)}`,
+                changeFrequency: 'hourly', priority: 0.7 });
+        }
+    }
 
     // Aynı URL farklı veri kümelerinden birden fazla kez gelebiliyor. Arama
     // motorlarına her canonical URL'yi yalnızca bir kez gönder.

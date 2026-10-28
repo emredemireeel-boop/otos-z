@@ -6,35 +6,9 @@ export default function robots(): MetadataRoute.Robots {
             {
                 // Ana Googlebot ve tüm arama motorları
                 userAgent: '*',
-                allow: [
-                    '/',
-                    '/api/og',         // Sayfalarda kullanılan paylaşım görselleri
-                    '/etkinlikler/',
-                    '/arac-dna/',
-                    '/forum',           // Forum hub sayfası (indekslenebilir topluluk sayfası)
-                    '/forum/',          // Forum başlıkları
-                    '/kutuphane/',
-                    '/haberler/',
-                    '/piyasalar/',
-                    '/obd/',
-                    '/sozluk/',
-                    '/guvenmetre/',
-                    '/karsilastirma/',
-                    '/otohesap/',
-                    '/uzmana-sor/',
-                    '/altin-anahtar/',
-                    '/anket/',
-                    '/ajanda/',
-                    '/bakim-rehberi/',
-                    '/ikinci-el-rehberi/',
-                    '/trafik-cezasi/',
-                    '/gosterge/',
-                    '/makale/',
-                    '/hakkimizda/',
-                    '/iletisim/',
-                    '/usta-ol/',
-                    '/uzman-ol/',
-                ],
+                // /forum ve /makale dahil tüm içerik açık; /api/ yasağında
+                // paylaşım görselleri için gerekli dar istisna korunur.
+                allow: ['/', '/api/og'],
                 disallow: [
                     '/api/',           // API endpoint'leri indeksleme
                     '/admin/',         // Admin paneli

@@ -193,7 +193,7 @@ export default function Navbar() {
 
 
     const navLinks = [
-        { name: 'Forum', href: '/' },
+        { name: 'Forum', href: '/forum' },
         { name: 'Anket', href: '/anket' },
         { name: 'Uzmana Sor', href: '/uzmana-sor' },
         { name: 'Karşılaştırma', href: '/karsilastirma' },

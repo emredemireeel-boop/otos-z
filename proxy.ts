@@ -7,6 +7,7 @@ import { getLibraryCategoryRedirect } from './lib/library-categories';
 import { getDnaLegacyRedirect } from './lib/arac-dna-redirects';
 import { getCanonicalDictionaryId } from './lib/seoUrls';
 import { getObdCode, obdDirectoryPageCount } from './lib/obd-catalog';
+import { forumCategories, forumHubPath, normalizeForumCategory } from './lib/forum-hub';
 
 const ARTICLE_CANONICAL_SLUGS = new Map<string, string>(
     libraryGuides.guides.flatMap(guide => {
@@ -85,6 +86,39 @@ export async function proxy(request: NextRequest) {
         decodedPath = decodeURIComponent(path).toLowerCase();
     } catch {
         return new NextResponse('Geçersiz istek yolu.', { status: 400 });
+    }
+
+    // Hub sayfa 1 ve eski query sayfalaması tek path canonical'a taşınır.
+    // Ayrılmış segmentler tekil konu belge kimliği gibi Firestore'da aranmaz.
+    const forumPageMatch = path.match(/^\/forum(?:\/kategori\/([^/]+))?\/sayfa\/(\d+)$/);
+    if (forumPageMatch) {
+        const page = Number(forumPageMatch[2]);
+        const category = forumPageMatch[1];
+        const knownCategory = !category || forumCategories.some(item => item.slug === category);
+        if (knownCategory && Number.isSafeInteger(page) && page >= 1) {
+            const target = forumHubPath(page, category);
+            if (path !== target) {
+                const canonicalUrl = request.nextUrl.clone();
+                canonicalUrl.pathname = target;
+                return NextResponse.redirect(canonicalUrl, 308);
+            }
+        }
+    }
+    const forumRootMatch = path.match(/^\/forum(?:\/kategori\/([^/]+))?$/);
+    const legacyForumPage = request.nextUrl.searchParams.get('sayfa');
+    const legacyForumCategory = path === '/forum' ? request.nextUrl.searchParams.get('kategori') : null;
+    if (forumRootMatch && (legacyForumCategory !== null || (legacyForumPage && /^\d+$/.test(legacyForumPage)))) {
+        const page = legacyForumPage ? Number(legacyForumPage) : 1;
+        if (Number.isSafeInteger(page) && page >= 1) {
+            const category = legacyForumCategory !== null
+                ? forumCategories.find(item => item.name === normalizeForumCategory(legacyForumCategory))?.slug
+                : forumRootMatch[1];
+            const canonicalUrl = request.nextUrl.clone();
+            canonicalUrl.pathname = forumHubPath(page, category);
+            canonicalUrl.searchParams.delete('sayfa');
+            canonicalUrl.searchParams.delete('kategori');
+            return NextResponse.redirect(canonicalUrl, 308);
+        }
     }
 
     // DNA yolunun tamamını koru: model layout'unda yönlendirme alt sekmeyi
@@ -199,7 +233,7 @@ export async function proxy(request: NextRequest) {
     // Konu başlığı değişebilir; yalnızca konu belgesiyle canonical slug çözülür.
     // Veri erişim hatası kalıcı 404/308 kararına dönüştürülmez.
     const forumMatch = path.match(/^\/forum\/([^/]+)$/);
-    if (forumMatch) {
+    if (forumMatch && !['sayfa', 'kategori', 'feed.xml'].includes(forumMatch[1])) {
         try {
             const { getForumCanonicalRoute } = await import('./lib/forum-route-server');
             const requestedSlug = decodeURIComponent(forumMatch[1]);

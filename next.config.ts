@@ -144,13 +144,6 @@ const nextConfig: NextConfig = {
     async redirects() {
         return [
 
-            // Forum listesi ana sayfada; yanıt başlamadan kalıcı HTTP yönlendirmesi.
-            {
-                source: '/forum',
-                destination: '/',
-                permanent: true,
-            },
-
             {
                 source: '/bilgi-yarismasi',
                 destination: '/',
