@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-28T22:11:51.728Z",
+  "base": "https://otosoz.com",
+  "deployedByThisTask": false,
+  "/forum": {
+    "status": 200,
+    "location": null,
+    "canonical": null,
+    "h1Count": 0,
+    "metaRefresh": true
+  },
+  "/makale": {
+    "status": 404,
+    "location": null,
+    "canonical": null,
+    "h1Count": 1,
+    "metaRefresh": false
+  },
+  "forumSitemapThreads": 13
+}

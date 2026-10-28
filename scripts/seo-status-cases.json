@@ -247,9 +247,9 @@
   },
   {
     "url": "/forum",
-    "status": 308,
-    "location": "/",
-    "type": "redirect"
+    "status": 200,
+    "location": null,
+    "type": "valid:forum-hub"
   },
   {
     "url": "/arac-dna/Renault/clio-5-nesil-2020-2025",
@@ -1288,5 +1288,101 @@
     "status": 200,
     "location": null,
     "type": "valid:obd-on-demand"
+  },
+  {
+    "url": "/makale",
+    "status": 200,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/sayfa/1",
+    "status": 308,
+    "location": "/forum",
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/sayfa/2",
+    "status": 404,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/sayfa/0",
+    "status": 404,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/sayfa/abc",
+    "status": 404,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/sayfa",
+    "status": 404,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/kategori",
+    "status": 404,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum?kategori=deneyim",
+    "status": 308,
+    "location": "/forum/kategori/deneyim-inceleme",
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum?sayfa=1",
+    "status": 308,
+    "location": "/forum",
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum?sayfa=2",
+    "status": 308,
+    "location": "/forum/sayfa/2",
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/kategori/deneyim-inceleme",
+    "status": 200,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/kategori/genel",
+    "status": 200,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/kategori/teknik-ariza",
+    "status": 200,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/kategori/olmayan-kategori",
+    "status": 404,
+    "location": null,
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/kategori/deneyim-inceleme/sayfa/1",
+    "status": 308,
+    "location": "/forum/kategori/deneyim-inceleme",
+    "type": "forum-hub-regression"
+  },
+  {
+    "url": "/forum/kategori/deneyim-inceleme/sayfa/2",
+    "status": 404,
+    "location": null,
+    "type": "forum-hub-regression"
   }
 ]

@@ -1,0 +1,315 @@
+{
+  "step": 2,
+  "date": "2026-10-29",
+  "timezone": "Europe/Istanbul",
+  "site": "https://otosoz.com",
+  "scope": "SSR forum ve makale hub sayfaları, kategori/sayfalama yolları ve forum indeks/sitemap tutarlılığı",
+  "status": "completed-and-verified-locally",
+  "branch": "codex/seo-community-hubs-step02",
+  "implementationCommits": [
+    "dca6f68",
+    "39a88f7"
+  ],
+  "deployment": "Bu adımda canlıya dağıtım yapılmadı. Yerel üretim buildi doğrulandı; canlı ölçüm mevcut eski sürümü gösterir.",
+  "acceptanceRevision": {
+    "originalMinimumDistinctThreadLinks": 20,
+    "approvedMinimumDistinctThreadLinks": 13,
+    "humanInstruction": "Mevcut 13 gerçek başlıkla tamamla",
+    "reason": "Admin SDK ve public Firestore aynı 13 gerçek kaydı döndürüyor; yeni içerik veya yinelenen bağlantı ile sayı doldurulmadı."
+  },
+  "guidesRead": [
+    "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/generate-metadata.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/unstable_cache.md",
+    "node_modules/next/dist/docs/01-app/02-guides/caching-without-cache-components.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/01-metadata/sitemap.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/01-metadata/robots.md",
+    "Adım 1 içinde okunan notFound, proxy, redirect, generateStaticParams ve dynamicParams rehberleri"
+  ],
+  "changes": [
+    "/forum gerçek Server Component hub olarak eklendi; tek H1, kendine canonical, kategori listesi, gerçek başlık bağlantıları, son ileti tarihleri, entry/yanıt sayıları ve RSS bağlantısı ilk HTML içinde.",
+    "Geçici next.config.ts /forum -> / yönlendirmesi kaldırıldı. /forum/sayfa/N, /forum/kategori/slug ve /forum/kategori/slug/sayfa/N yolları eklendi; sayfa boyutu 20. İlk sayfa ve eski sayfa/kategori query yolları proxy içinde HTTP 308 ile tekilleştiriliyor.",
+    "Ayrılmış sayfa/kategori segmentleri proxy içinde tekil Firestore konu kimliği gibi aranmaz. Olmayan kategori, geçersiz sayfa ve mevcut veri dışındaki sayfa numaraları 404 döner.",
+    "Forum sayfalarında revalidate=900. Cache Components kapalı mevcut mimaride ortak katalog için belgelenmiş unstable_cache kullanıldı; Cache Components/streaming mimarisi değiştirilmedi.",
+    "Forum katalog okuması belge kimliği sırasıyla cursor pagination kullanıyor; createdAt/lastEntryAt alanları eksik kayıtlar sorgu seviyesinde kaybolmuyor. Sitemap için 1200 başlık sınırı kaldırıldı.",
+    "Başlıklar görünür entry içeriğiyle değerlendirilir. Gizli/silinmiş kayıtlar listelenmez. 200 görünür karakterden kısa içerik, görünür entry yokluğu, çok kısa başlık veya açık spam moderasyon sinyali noindex üretir. Meta robots ve sitemap aynı fonksiyonu kullanır.",
+    "Kategori indeks eşiği en az 5 görünür başlıktır. Eşiğin altındaki sayfalar noindex,follow ve sitemap dışında; Googlebot özel robots etiketi de aynı kararı taşır.",
+    "Eski Tümü, Teknik ve Deneyim kategori değerleri yalnızca hub görünümünde mevcut Genel, Teknik & Arıza, Deneyim & İnceleme gruplarına eşlenir. Firestore kayıtları değiştirilmedi; ana sayfanın mevcut ham kategori davranışı korundu.",
+    "/makale 50 mevcut makaleyi konu gruplarıyla listeleyen Server Component koleksiyon sayfası olarak eklendi. Kaynakta kategori alanı olmadığı için gezinme grupları mevcut etiketlerden türetildi; başlık, gövde, yazar ve diğer içerik alanları değiştirilmedi.",
+    "Makale görünür breadcrumb ve BreadcrumbList: Ana Sayfa -> Makaleler (/makale) -> Başlık. Forum tekil breadcrumb ve geri bağlantısı yeni /forum hubını kullanıyor.",
+    "Navbar, Footer, RSS kanal bağlantısı ve llms.txt yeni hubları gösteriyor. robots allow listesi iki kurala indirildi; /api/ disallow korunurken paylaşım görsellerini engellememek için /api/og dar istisnası tutuldu.",
+    "Adım 1 scriptlerindeki geçici /forum 308 beklentisi yeni 200 hub davranışına güncellendi; soft 404 ve diğer yönlendirme kontrolleri korundu. Yeni hub, kategori ve sayfa regresyonları eklendi."
+  ],
+  "forumCountInvestigation": {
+    "command": "node scripts/audit-forum-data.mjs",
+    "evidence": "docs/seo/step02-forum-data-audit-20261029.json",
+    "writes": false,
+    "admin": {
+      "available": true,
+      "documents": 13,
+      "sameDocumentIdsAsPublic": true
+    },
+    "public": {
+      "documents": 13,
+      "createdQuery": 13,
+      "activeQuery": 13,
+      "oldQueryUnion": 13,
+      "cursorPagination": {
+        "batchSize": 5,
+        "documents": 13,
+        "matchesUnpaginatedIds": true
+      }
+    },
+    "findings": {
+      "visibleThreads": 13,
+      "hiddenThreads": 0,
+      "oldSummaryCount": 13,
+      "threadsWithVisibleEntries": 13,
+      "missingStoredCountWithActualEntries": 0,
+      "storedCountMismatches": 0,
+      "emptyThreads": 0,
+      "singleEntryUnder200Characters": 0,
+      "belowOldQueryUnion": 0
+    },
+    "conclusion": "Sitemapte 13 başlık olmasının nedeni gerçek veri sayısının 13 olmasıdır. Admin/public sonuçları ve belge kimlikleri aynı. Eski createdAt/lastEntryAt sorgu birleşimi de 13; eski entryCount filtresinin gizlediği kayıt, izin sorunu veya tarih alanı yüzünden atlanan belge yok.",
+    "publicFallbackLogging": "Admin başarısız olduğunda public fallback documents, visibleThreads ve indexableThreads sayılarını loglar. Bu incelemede Admin SDK başarılıydı; public yol ayrıca doğrudan okunarak ve 5 kayıtlık cursor sayfalarıyla doğrulandı.",
+    "forumSitemapThreadsAfter": 13,
+    "thinOrSpamRemovedNow": 0,
+    "note": "Mevcut 13 başlığın tamamı yeni indeks politikasını geçiyor. Politikanın kısa içerik, boş içerik ve spam sınırları üretime veri eklenmeden birim testleriyle doğrulandı."
+  },
+  "verification": {
+    "typecheck": {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0,
+      "note": "Son build sonrası bağımsız kontrol geçti."
+    },
+    "build": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "generatedStaticPages": 672,
+      "warnings": [
+        "Önceden mevcut Edge Runtime deprecation ve statik üretim uyarıları."
+      ]
+    },
+    "unitTests": {
+      "command": "node --test tests/forum-index-policy.test.mjs tests/forum-pagination.test.mjs",
+      "exitCode": 0,
+      "passed": 11,
+      "failed": 0,
+      "covers": [
+        "199/200 görünür karakter sınırı",
+        "Görünür entry olmadan eski sayacın indeks açmaması",
+        "Spam moderasyon sinyali",
+        "HTML/Markdown/görsel adresiyle metin uzunluğu şişirilmemesi",
+        "13/20/21 başlık sayfalama sınırları",
+        "Bilinen boş kategori ve geçersiz sayfa numaraları",
+        "4/5 başlık kategori indeks eşiği"
+      ],
+      "warning": "Node doğrudan .ts test modüllerini yüklerken MODULE_TYPELESS_PACKAGE_JSON uyarısı veriyor; proje genelinin module türü bu adım için değiştirilmedi."
+    },
+    "hubHtml": {
+      "command": "node scripts/verify-seo-hubs.mjs",
+      "exitCode": 0,
+      "checks": 37,
+      "passed": 37,
+      "failed": 0,
+      "executesJavascript": false,
+      "measurements": {
+        "forum": {
+          "status": 200,
+          "canonical": "https://otosoz.com/forum",
+          "h1Count": 1,
+          "threadLinks": 13,
+          "textLength": 6313
+        },
+        "articles": {
+          "status": 200,
+          "canonical": "https://otosoz.com/makale",
+          "h1Count": 1,
+          "articleLinks": 50
+        },
+        "forumSitemapThreads": 13,
+        "categories": [
+          {
+            "path": "/forum/kategori/genel",
+            "count": 4,
+            "status": 200,
+            "noindex": true,
+            "googleNoindex": true,
+            "inSitemap": false
+          },
+          {
+            "path": "/forum/kategori/teknik-ariza",
+            "count": 3,
+            "status": 200,
+            "noindex": true,
+            "googleNoindex": true,
+            "inSitemap": false
+          },
+          {
+            "path": "/forum/kategori/bakim-tamir",
+            "count": 0,
+            "status": 200,
+            "noindex": true,
+            "googleNoindex": true,
+            "inSitemap": false
+          },
+          {
+            "path": "/forum/kategori/modifiye-aksesuar",
+            "count": 0,
+            "status": 200,
+            "noindex": true,
+            "googleNoindex": true,
+            "inSitemap": false
+          },
+          {
+            "path": "/forum/kategori/elektrikli-hibrit",
+            "count": 0,
+            "status": 200,
+            "noindex": true,
+            "googleNoindex": true,
+            "inSitemap": false
+          },
+          {
+            "path": "/forum/kategori/lastik-jant",
+            "count": 0,
+            "status": 200,
+            "noindex": true,
+            "googleNoindex": true,
+            "inSitemap": false
+          },
+          {
+            "path": "/forum/kategori/sigorta-hukuk",
+            "count": 0,
+            "status": 200,
+            "noindex": true,
+            "googleNoindex": true,
+            "inSitemap": false
+          },
+          {
+            "path": "/forum/kategori/alim-satim",
+            "count": 1,
+            "status": 200,
+            "noindex": true,
+            "googleNoindex": true,
+            "inSitemap": false
+          },
+          {
+            "path": "/forum/kategori/deneyim-inceleme",
+            "count": 5,
+            "status": 200,
+            "noindex": false,
+            "googleNoindex": false,
+            "inSitemap": true
+          },
+          {
+            "path": "/forum/kategori/marka-model",
+            "count": 0,
+            "status": 200,
+            "noindex": true,
+            "googleNoindex": true,
+            "inSitemap": false
+          }
+        ]
+      }
+    },
+    "step1StatusRegression": {
+      "command": "node scripts/seo-status-check.mjs --report docs/seo/step02-status-cases-20261029.json",
+      "exitCode": 0,
+      "total": 231,
+      "passed": 231,
+      "failed": 0,
+      "metaRefreshCount": 0,
+      "statusCounts": {
+        "200": 147,
+        "307": 6,
+        "308": 27,
+        "404": 51
+      }
+    },
+    "curlRegression": {
+      "command": "node scripts/verify-seo-http.mjs http://127.0.0.1:3000 docs/seo/step02-curl-regression-20261029.json",
+      "exitCode": 0,
+      "total": 105,
+      "passed": 105,
+      "failed": 0,
+      "profiles": [
+        "browser GET",
+        "Googlebot GET",
+        "Googlebot HEAD"
+      ]
+    },
+    "sitemap": {
+      "command": "node scripts/seo-status-check.mjs --sitemap --report docs/seo/step02-sitemap-check-20261029.json",
+      "exitCode": 0,
+      "beforeUrls": 2312,
+      "afterUrls": 2315,
+      "passed": 2315,
+      "failed": 0,
+      "metaRefreshCount": 0,
+      "added": [
+        "https://otosoz.com/forum",
+        "https://otosoz.com/forum/kategori/deneyim-inceleme",
+        "https://otosoz.com/makale"
+      ],
+      "removed": []
+    },
+    "directCurl": [
+      {
+        "command": "curl.exe -sS -A Googlebot -o NUL -w \"%{http_code} %{redirect_url}\" http://127.0.0.1:3000/forum",
+        "status": 200,
+        "redirect": null
+      },
+      {
+        "command": "curl.exe -sS -A Googlebot -o NUL -w \"%{http_code} %{redirect_url}\" http://127.0.0.1:3000/makale",
+        "status": 200,
+        "redirect": null
+      },
+      {
+        "command": "curl.exe -sS -A Googlebot -o NUL -w \"%{http_code}\" http://127.0.0.1:3000/forum/sayfa/2",
+        "status": 404
+      },
+      {
+        "command": "curl.exe -sS -A Googlebot -D - -o NUL http://127.0.0.1:3000/forum",
+        "status": 200,
+        "x-nextjs-cache": "HIT",
+        "cache-control": "s-maxage=900, stale-while-revalidate=31535100"
+      }
+    ],
+    "liveBaseline": {
+      "checkedAt": "2026-10-28T22:11:51.728Z",
+      "base": "https://otosoz.com",
+      "deployedByThisTask": false,
+      "/forum": {
+        "status": 200,
+        "location": null,
+        "canonical": null,
+        "h1Count": 0,
+        "metaRefresh": true
+      },
+      "/makale": {
+        "status": 404,
+        "location": null,
+        "canonical": null,
+        "h1Count": 1,
+        "metaRefresh": false
+      },
+      "forumSitemapThreads": 13
+    },
+    "diffCheck": {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  },
+  "openRisks": [
+    "Canlıya dağıtım yapılmadı. Mevcut canlı /forum hâlâ HTTP 200 + meta refresh ve canonical yok; /makale 404. Dağıtım ve Cloudflare önbelleği sonrası aynı kontroller tekrarlanmalı.",
+    "Forum güncellemeleri 900 saniyelik yeniden doğrulama ve sonraki istek akışını izler; gerçek zamanlı client island veya anlık cache invalidation bu adımda eklenmedi.",
+    "Katalog her başlık için en fazla 50 entry içeriğini kalite/önizleme için okur; daha büyük başlıklarda entry sayacı toplam sayıyı destekler. Mevcut veride en çok 4 entry var ve sayaçların tamamı gerçek entry sayısıyla eşleşiyor.",
+    "Sitemap HTTP bütünlüğü, diğer 1900 civarı programatik sayfanın içerik kalitesi/indekslenebilirlik incelemesinin yerine geçmez; genel indeks budama Adım 3 kapsamındadır.",
+    "Önceden mevcut dynamicParams=false rotalarında olmayan parametreler Next.js NoFallbackError logu üretebiliyor; test edilen yanıtlar doğru 404 ve noindex. Framework kaynakları değiştirilmedi."
+  ],
+  "preservation": [
+    "İlgisiz mevcut yorum ve belgeler korundu. Önceden var olan izlenmeyen CLAUDE.md, eski docs/seo ve scratch dosyaları commit kapsamına alınmadı.",
+    "Gizli anahtarlar ve .env dosyaları değiştirilmedi veya commit edilmedi; denetim kayıtları yalnızca kamuya açık başlık kimliği/başlığı ve sayısal bulguları içerir.",
+    "Firestore üzerinde yazma, yeni başlık/entry, yazar, puan veya yorum üretimi yapılmadı. Google Indexing API kullanılmadı."
+  ]
+}
