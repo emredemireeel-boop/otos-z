@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { SAMPLE_COMPARISONS, getSampleComparison } from '@/data/showcase-content';
+import { notFound } from 'next/navigation';
+import { getPublicContentDocument, isHiddenContent } from '@/lib/public-content-server';
 
 interface ComparisonLayoutProps {
     children: React.ReactNode;
@@ -40,6 +42,11 @@ export async function generateMetadata({ params }: ComparisonLayoutProps): Promi
     };
 }
 
-export default function ComparisonDetailLayout({ children }: ComparisonLayoutProps) {
+export default async function ComparisonDetailLayout({ children, params }: ComparisonLayoutProps) {
+    const { id } = await params;
+    if (!getSampleComparison(id)) {
+        const thread = await getPublicContentDocument('threads', id);
+        if (!thread || isHiddenContent(thread.data)) notFound();
+    }
     return children;
 }
