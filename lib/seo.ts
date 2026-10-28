@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { indexabilityRobots, isHubIndexable } from './indexability';
 
 const SITE_URL = 'https://otosoz.com';
 
@@ -7,9 +8,10 @@ interface PageMetadataOptions {
     description: string;
     path?: string;
     keywords?: string[];
+    indexable?: boolean;
 }
 
-export function createPageMetadata({ title, description, path, keywords }: PageMetadataOptions): Metadata {
+export function createPageMetadata({ title, description, path, keywords, indexable }: PageMetadataOptions): Metadata {
     const fullTitle = /otosöz/i.test(title) ? title : `${title} | OtoSöz`;
     const canonical = path ? new URL(path, SITE_URL).toString() : undefined;
     const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(fullTitle)}&desc=${encodeURIComponent(description.slice(0, 160))}`;
@@ -18,6 +20,7 @@ export function createPageMetadata({ title, description, path, keywords }: PageM
         title: fullTitle,
         description,
         keywords,
+        robots: indexabilityRobots(indexable ?? isHubIndexable(path || '')),
         ...(canonical ? { alternates: { canonical } } : {}),
         openGraph: {
             title: fullTitle,

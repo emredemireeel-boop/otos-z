@@ -1,3 +1,5 @@
+import { isQualityGuide } from '@/lib/guide-quality';
+import { indexabilityRobots } from '@/lib/indexability';
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -50,6 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     return {
         title: `${title} | OtoSöz İlginç Bilgiler`,
+        robots: indexabilityRobots(isQualityGuide(item, 'interesting')),
         description: description.slice(0, 160),
         openGraph: {
             title: `${title} | OtoSöz`,
@@ -245,7 +248,7 @@ export default async function IlgincDetayPage({ params }: PageProps) {
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
             <Navbar />
-            {jsonLd && (
+            {isQualityGuide(item, 'interesting') && jsonLd && (
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             )}
 

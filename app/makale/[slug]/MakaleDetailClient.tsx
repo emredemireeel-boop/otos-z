@@ -11,7 +11,7 @@ import FloatingActionBar from "@/components/FloatingActionBar";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import { motion } from "framer-motion";
 
-export default function MakaleDetailClient({ article }: { article: any }) {
+export default function MakaleDetailClient({ article, indexable = false }: { article: any; indexable?: boolean }) {
     const [activeSection, setActiveSection] = useState<string>("");
 
     useEffect(() => {
@@ -78,7 +78,7 @@ export default function MakaleDetailClient({ article }: { article: any }) {
     return (
         <>
             <Navbar />
-            {jsonLd && (
+            {indexable && jsonLd && (
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

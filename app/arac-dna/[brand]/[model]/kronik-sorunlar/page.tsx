@@ -1,5 +1,7 @@
 "use client";
 
+import { isVehicleSectionIndexable } from "@/lib/indexability";
+
 import { useParams, useRouter } from "next/navigation";
 import { vehicleDNAData, getSeverityColor, getSeverityLabel, createSlug } from "@/data/vehicle-dna";
 import { Wrench, AlertCircle, AlertTriangle, Plus, X } from "lucide-react";
@@ -125,11 +127,11 @@ export default function ChronicIssuesPage() {
     return (
         <div>
             {/* Inject FAQ Schema for Google Rich Snippets */}
-            <Script
+            {isVehicleSectionIndexable(vehicle, 'kronik-sorunlar') && <Script
                 id="faq-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-            />
+            />}
 
             <div style={{
                 background: 'var(--card-bg)',

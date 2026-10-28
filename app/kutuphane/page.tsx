@@ -1,3 +1,4 @@
+import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import { CATEGORIES, type CatMeta } from "@/lib/library-categories";
 import KutuphaneClient from "./KutuphaneClient";
@@ -50,11 +51,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
             images: [ogUrl],
         },
         alternates: { canonical: canonicalUrl },
-        robots: {
-            index: true,
-            follow: true,
-            googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
-        },
+        robots: indexabilityRobots(isHubIndexable('/kutuphane', { category: cat.slug })),
     };
 }
 

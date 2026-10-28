@@ -1,5 +1,6 @@
 "use client";
 
+import { isQualityGuide } from '@/lib/guide-quality';
 import { useState, useMemo } from "react";
 import { Search, X, ChevronDown, ChevronUp, Wrench, AlertTriangle, Info, Lightbulb, ExternalLink } from "lucide-react";
 import Image from "next/image";
@@ -34,6 +35,7 @@ const filterColors = [
 ];
 
 export default function GostergeSection() {
+    const [showAll, setShowAll] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedFilter, setSelectedFilter] = useState("all");
     const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -75,12 +77,15 @@ export default function GostergeSection() {
                 matchesColor = item.color === "#007AFF";
             }
 
-            return matchesSearch && matchesColor;
+            return matchesSearch && matchesColor && (showAll || searchQuery.length >= 2 || isQualityGuide(item, 'warningLight'));
         });
-    }, [indicators, searchQuery, selectedFilter]);
+    }, [indicators, searchQuery, selectedFilter, showAll]);
 
     return (
         <div style={{ width: '100%' }}>
+            <button type="button" onClick={() => setShowAll(value => !value)} style={{ marginBottom: 16, cursor: 'pointer' }}>
+                {showAll ? 'Seçilmiş rehberlere dön' : 'Tüm gösterge kayıtlarını aç'}
+            </button>
             {/* Filter Pills */}
             <div style={{
                 borderBottom: '1px solid var(--card-border)',

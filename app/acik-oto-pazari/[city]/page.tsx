@@ -1,3 +1,4 @@
+import { isGuideIndexable, indexabilityRobots } from '@/lib/indexability';
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
     if (!province) return {};
 
     const markets = getMarketsByProvince(city);
-    const verified = markets.filter((market) => market.status === "verified");
+    const verified = markets.filter((market) => isGuideIndexable(market, { kind: 'verified-market' }));
     const hasVerified = verified.length > 0;
     const canonical = `https://otosoz.com/acik-oto-pazari/${province.slug}`;
     const first = verified[0];
@@ -59,9 +60,7 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
             `${province.name} araba pazarı hangi gün`, `${province.name} oto pazarı saat kaçta açılıyor`,
         ],
         alternates: { canonical },
-        robots: hasVerified
-            ? { index: true, follow: true, googleBot: { index: true, follow: true } }
-            : { index: false, follow: true, googleBot: { index: false, follow: true } },
+        robots: indexabilityRobots(hasVerified),
         openGraph: {
             title: `${province.name} Açık Oto Pazarı Rehberi`,
             description: directAnswer,
@@ -86,7 +85,7 @@ export default async function CityOpenCarMarketPage({ params }: CityPageProps) {
     if (!province) notFound();
 
     const markets = getMarketsByProvince(city);
-    const verifiedMarkets = markets.filter((market) => market.status === "verified");
+    const verifiedMarkets = markets.filter((market) => isGuideIndexable(market, { kind: 'verified-market' }));
     const reviewMarkets = markets.filter((market) => market.status !== "verified");
     const firstVerified = verifiedMarkets[0];
     const canonical = `https://otosoz.com/acik-oto-pazari/${province.slug}`;
@@ -288,7 +287,7 @@ export default async function CityOpenCarMarketPage({ params }: CityPageProps) {
                 </section>
 
                 <Link className={styles.backLink} href="/etkinlikler">← Tüm etkinliklere dön</Link>
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd({ ...jsonLd, '@graph': jsonLd['@graph'].filter(item => verifiedMarkets.length > 0 || item['@type'] !== 'FAQPage') }) }} />
             </main>
             <Footer />
         </div>

@@ -1,3 +1,4 @@
+import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import IkinciElRehberiDetailClient from "./IkinciElRehberiDetailClient";
@@ -73,10 +74,10 @@ export default async function IkinciElRehberiPage({ params }: PageProps) {
 
     return (
         <>
-            <script
+            {SUPPORTING_TEMPLATE_INDEXABLE && <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-            />
+            />}
             <IkinciElRehberiDetailClient rehberItem={rehberItem} />
         </>
     );

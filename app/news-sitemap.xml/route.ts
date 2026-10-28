@@ -1,3 +1,4 @@
+import { isQualityGuide } from '@/lib/guide-quality';
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
@@ -28,7 +29,7 @@ export async function GET() {
     const urls = posts
         .filter(post => {
             const publishedAt = new Date(post.createdAt || '').getTime();
-            return post.slug
+            return isQualityGuide(post, 'news') && post.slug
                 && post.title
                 && Number.isFinite(publishedAt)
                 && publishedAt >= now - TWO_DAYS_MS

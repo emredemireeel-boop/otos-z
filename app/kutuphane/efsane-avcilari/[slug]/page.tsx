@@ -1,3 +1,5 @@
+import { isQualityGuide } from '@/lib/guide-quality';
+import { indexabilityRobots } from '@/lib/indexability';
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -53,6 +55,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     return {
         title: `${myth.seoTitle} | Oto Efsane Avcıları`,
+        robots: indexabilityRobots(isQualityGuide(myth, 'myth')),
         description: myth.seoDescription,
         openGraph: {
             title: `${myth.seoTitle} | OtoSöz`,
@@ -136,7 +139,7 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
             <Navbar />
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+            {isQualityGuide(myth, 'myth') && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />}
 
             <main style={{ paddingTop: '100px', paddingBottom: '60px', maxWidth: '860px', margin: '0 auto', padding: '100px 24px 60px 24px' }}>
                 

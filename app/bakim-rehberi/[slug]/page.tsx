@@ -1,3 +1,4 @@
+import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import BakimRehberiDetailClient from "./BakimRehberiDetailClient";
@@ -114,10 +115,10 @@ export default async function BakimRehberiPage({ params }: PageProps) {
 
     return (
         <>
-            <script
+            {SUPPORTING_TEMPLATE_INDEXABLE && <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, howToSchema, breadcrumbSchema]) }}
-            />
+            />}
             <BakimRehberiDetailClient bakimItem={bakimItem} />
         </>
     );

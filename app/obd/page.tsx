@@ -1,3 +1,4 @@
+import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import { obdCodes as allCodes, obdSearchCodes, OBD_LAST_REVIEWED, obdDirectoryPageCount, indexableObdCodes } from "@/lib/obd-catalog";
 import Link from "next/link";
@@ -36,11 +37,7 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://otosoz.com/obd",
     },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
-    },
+    robots: indexabilityRobots(isHubIndexable('/obd')),
 };
 
 export default function ObdPage() {
@@ -55,7 +52,7 @@ export default function ObdPage() {
         U: allCodes.filter(c => c.type === 'U').length,
     };
 
-    const initialCodes = obdSearchCodes.slice(0, 48);
+    const initialCodes = indexableObdCodes.slice(0, 48);
 
     // Marka listesi
     const brands = Object.keys(carModelsData).sort().slice(0, 15);
@@ -126,13 +123,13 @@ export default function ObdPage() {
 
                 <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '20px 24px 0' }}>
                     <Link href="/obd-kodlari/1" style={{ color: 'var(--primary)', fontWeight: 700 }}>
-                        İndekslenen {indexableObdCodes.length.toLocaleString('tr-TR')} evrensel kodu dizinde incele →
+                        Tam kod dizinini incele →
                     </Link>
-                    <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Doğrulanabilir, evrensel kodları {obdDirectoryPageCount} sayfalık dizinde tarayın. Üreticiye özel kodlar arama kutusunda çalışmaya devam eder.</p>
+                    <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Kod kataloğunu {obdDirectoryPageCount} sayfalık dizinde tarayabilir veya arama kutusundan kodunuzu bulabilirsiniz. Kaynak ve teşhis kapsamı her kodun ayrıntısında belirtilir.</p>
                 </section>
                 <OBDListClient
                     initialCodes={initialCodes}
-                    totalCount={stats.total}
+                    totalCount={initialCodes.length}
                     stats={stats}
                     brands={brands}
                 />

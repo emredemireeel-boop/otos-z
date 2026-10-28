@@ -1,5 +1,6 @@
 "use client";
 
+import { isVehicleIndexable } from '@/lib/indexability';
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -33,7 +34,7 @@ export default function BrandHubClient({ brandName, models }: Props) {
     const [sortBy, setSortBy] = useState<"score" | "name">("score");
 
     const brandSlug = createSlug(brandName);
-    const reviewedModels = models.filter(model => isVehicleEditoriallyReviewed(model));
+    const reviewedModels = models.filter(model => isVehicleIndexable(model));
     const avgScore = reviewedModels.length
         ? Math.round(reviewedModels.reduce((sum, vehicle) => sum + vehicle.dnaScore, 0) / reviewedModels.length)
         : 0;
@@ -41,7 +42,7 @@ export default function BrandHubClient({ brandName, models }: Props) {
     const filtered = reviewedModels
         .filter(m => m.model.toLowerCase().includes(searchQuery.toLowerCase()))
         .sort((a, b) => {
-            const reviewOrder = Number(isVehicleEditoriallyReviewed(b)) - Number(isVehicleEditoriallyReviewed(a));
+            const reviewOrder = Number(isVehicleIndexable(b)) - Number(isVehicleIndexable(a));
             if (reviewOrder !== 0) return reviewOrder;
             return sortBy === "score" ? b.dnaScore - a.dnaScore : a.model.localeCompare(b.model, 'tr');
         });
@@ -161,7 +162,7 @@ export default function BrandHubClient({ brandName, models }: Props) {
                             </div>
                         )}
                         {filtered.map(model => {
-                            const isReviewed = isVehicleEditoriallyReviewed(model);
+                            const isReviewed = isVehicleIndexable(model);
                             const scoreColor = isReviewed ? getDNAScoreColor(model.dnaScore) : '#d97706';
                             return (
                                 <Link

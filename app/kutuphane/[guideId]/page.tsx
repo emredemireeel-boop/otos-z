@@ -1,5 +1,8 @@
 "use client";
 
+import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
+
+
 import { use, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
@@ -174,7 +177,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
     return (
         <div>
             <Navbar />
-            {jsonLd && (
+            {jsonLd && SUPPORTING_TEMPLATE_INDEXABLE && (
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

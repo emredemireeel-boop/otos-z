@@ -1,5 +1,8 @@
 "use client";
 
+import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
+
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdPlaceholder from "@/components/AdPlaceholder";
@@ -61,10 +64,10 @@ export default function EhliyetHarclariClient() {
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
             <Navbar />
-            <script
+            {SUPPORTING_TEMPLATE_INDEXABLE && <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            />}
 
             {/* ─── HERO HEADER ─── */}
             <div className="harclar-hero" style={{

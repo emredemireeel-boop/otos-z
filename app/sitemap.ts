@@ -5,6 +5,7 @@ import path from 'path';
 import { getIndexableForumThreadSummaries, getForumHubThreadSummaries } from '@/lib/forumDataServer';
 import { forumCategories, forumHubPath, FORUM_PAGE_SIZE } from '@/lib/forum-hub';
 import { isForumCategoryIndexable } from '@/lib/forum-pagination';
+import { isSeoUrlIndexable } from '@/lib/seo-index-catalog';
 import { events } from '@/data/events';
 import { OTOHESAP_META } from '@/data/otohesap-meta';
 import { OTOHESAP_LAST_REVIEWED } from '@/data/otohesap-content';
@@ -452,7 +453,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Eski kod her sitemap yenilemesinde binlerce URL'yi o an değişmiş gibi
     // işaretliyordu. Çalışma anında üretilmiş sentetik tarihleri kaldır; içerik
     // veya Firestore kaydından gelen gerçek tarihleri koru.
-    return Array.from(uniqueEntries.values()).map(entry => {
+    const indexableThreads = new Set(forumThreads.map(thread => thread.slug));
+    const categoryCounts = new Map(forumCategories.map(category => [category.slug,
+        visibleForumThreads.filter(thread => thread.category === category.name).length]));
+    return Array.from(uniqueEntries.values()).filter(entry => isSeoUrlIndexable(entry.url, { indexableThreads, categoryCounts })).map(entry => {
         if (entry.lastModified instanceof Date) {
             const isSynthetic = Math.abs(entry.lastModified.getTime() - generatedAt) < 5 * 60 * 1000;
             const isForumThread = entry.url.startsWith(`${BASE_URL}/forum/`);

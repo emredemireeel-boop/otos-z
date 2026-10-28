@@ -1,5 +1,8 @@
 "use client";
 
+import { isQualityGuide } from '@/lib/guide-quality';
+import { indexableDictionaryTerms } from '@/lib/dictionary-catalog';
+
 import { useState, useEffect, useMemo, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -228,7 +231,7 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
             const bId = parseInt((b as any).urlId || b.id.replace(/\D/g, '')) || 0;
             return bId - aId;
         });
-        if (!searchQuery) return sorted;
+        if (!searchQuery) return sorted.filter(guide => isQualityGuide(guide, 'article'));
         const query = searchQuery.toLowerCase();
         return sorted.filter(g =>
             g.title.toLowerCase().includes(query) ||
@@ -266,12 +269,20 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
                 return 0;
             });
         }
-        return terms.filter(item => item.letter === selectedLetter);
+        return indexableDictionaryTerms.filter(item => item.letter === selectedLetter);
     }, [dictionaryTerms, searchQuery, selectedLetter]);
 
     const filteredInteresting = useMemo(() => {
         if (!interestingData) return null;
-        if (!searchQuery) return interestingData;
+        if (!searchQuery) {
+            const seen = new Set<string>();
+            return Object.fromEntries(['dailyTips', 'quickFacts', 'mythBusters', 'checklists', 'doAndDont'].map(key =>
+                [key, (interestingData[key as keyof typeof interestingData] || []).filter((item: any) => {
+                    if (seen.has(item.id)) return false;
+                    seen.add(item.id);
+                    return isQualityGuide(item, 'interesting');
+                })]));
+        }
 
         const query = searchQuery.toLowerCase();
         const filter = (item: any) => JSON.stringify(item).toLowerCase().includes(query);

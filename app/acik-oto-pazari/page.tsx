@@ -1,3 +1,4 @@
+import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -7,6 +8,7 @@ import MarketDirectory from "./market-directory";
 import styles from "./open-car-markets.module.css";
 
 export const metadata: Metadata = {
+    robots: indexabilityRobots(isHubIndexable('/acik-oto-pazari')),
     title: "Açık Oto Pazarı Nerede, Hangi Gün? İl İl Rehber | OtoSöz",
     description: "Şehrindeki açık oto pazarının adresini, kurulduğu günü ve kaynaklarını bul. Doğrulanmış kayıtları, teyit bekleyen ve kapanmış pazarlardan ayır.",
     alternates: { canonical: "https://otosoz.com/acik-oto-pazari" },

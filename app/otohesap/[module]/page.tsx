@@ -1,3 +1,4 @@
+import { indexabilityRobots, isGuideIndexable, qualityContentText } from '@/lib/indexability';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import OtoHesapClient from '@/components/OtoHesapClient';
@@ -27,11 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     creator: 'Otosöz',
     publisher: 'Otosöz',
     category: 'Otomotiv hesaplama araçları',
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
-    },
+    robots: indexabilityRobots(isGuideIndexable(meta, { kind: 'functional-utility', text: qualityContentText(OTOHESAP_GUIDES[resolvedParams.module]) })),
     alternates: { canonical: pageUrl },
     openGraph: {
       title: meta.title,

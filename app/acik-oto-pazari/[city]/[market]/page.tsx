@@ -1,3 +1,4 @@
+import { isGuideIndexable, indexabilityRobots } from '@/lib/indexability';
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: MarketPageProps): Promise<Met
 
     const canonical = `https://otosoz.com${getMarketPath(market)}`;
     const direct = `${market.shortName}${market.day ? ` ${market.day} günü` : ""}${market.address ? ` ${market.address} adresinde` : ""}.`;
-    const isIndexable = market.status === "verified";
+    const isIndexable = isGuideIndexable(market, { kind: 'verified-market' });
 
     return {
         title: `${market.shortName} Nerede, Hangi Gün, Saat Kaçta? | OtoSöz`,
@@ -58,9 +59,7 @@ export async function generateMetadata({ params }: MarketPageProps): Promise<Met
             `${market.shortName} saat kaçta açılıyor`,
         ],
         alternates: { canonical },
-        robots: isIndexable
-            ? { index: true, follow: true, googleBot: { index: true, follow: true } }
-            : { index: false, follow: true, googleBot: { index: false, follow: true } },
+        robots: indexabilityRobots(isIndexable),
         openGraph: {
             title: `${market.shortName}: Nerede, Hangi Gün?`,
             description: market.verificationNote,
@@ -140,7 +139,7 @@ export default async function OpenCarMarketDetailPage({ params }: MarketPageProp
         },
     ];
 
-    if (market.status === "verified") {
+    if (isGuideIndexable(market, { kind: 'verified-market' })) {
         graph.push({
             "@type": "Place",
             "@id": `${canonical}#place`,
@@ -157,7 +156,7 @@ export default async function OpenCarMarketDetailPage({ params }: MarketPageProp
         });
     }
 
-    const jsonLd = { "@context": "https://schema.org", "@graph": graph };
+    const jsonLd = { "@context": "https://schema.org", "@graph": graph.filter(item => isGuideIndexable(market, { kind: 'verified-market' }) || (item as Record<string, unknown>)['@type'] !== 'FAQPage') };
 
     return (
         <div className={styles.page}>

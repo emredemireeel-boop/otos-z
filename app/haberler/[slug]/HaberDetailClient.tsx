@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { Clock, Eye, Calendar, ArrowLeft, User, Share2, Facebook, Twitter, Linkedin, CheckCircle } from "lucide-react";
 import AutoLinkText from "@/components/AutoLinkText";
 
-export default function HaberDetailClient({ slug, initialPost }: { slug: string; initialPost: any }) {
+export default function HaberDetailClient({ slug, initialPost, indexable = false }: { slug: string; initialPost: any; indexable?: boolean }) {
     const [post, setPost] = useState<any>(initialPost);
     const [loading, setLoading] = useState(!initialPost);
     const [copied, setCopied] = useState(false);
@@ -110,7 +110,7 @@ export default function HaberDetailClient({ slug, initialPost }: { slug: string;
 
     return (
         <div>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]).replace(/</g, '\\u003c') }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(indexable ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]).replace(/</g, '\\u003c') }} />
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
                 

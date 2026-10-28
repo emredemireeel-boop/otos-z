@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { getObdDirectoryPage, obdDirectoryPageCount, OBD_DIRECTORY_PAGE_SIZE } from '@/lib/obd-catalog';
+import { indexabilityRobots, isGuideIndexable } from '@/lib/indexability';
 
 const BASE_URL = 'https://otosoz.com';
 export const dynamicParams = false;
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `Evrensel OBD-II Arıza Kodları Dizini – Sayfa ${page} | OtoSöz`,
         description: `P, B, C ve U tipi OBD-II arıza kodlarını alfabetik sırayla inceleyin. OBD kod dizini sayfa ${page}.`,
         alternates: { canonical: url },
-        robots: { index: true, follow: true },
+        robots: indexabilityRobots(isGuideIndexable({ title: 'OBD kullanıcı kataloğu' }, { kind: 'utility-template' })),
         openGraph: { title: `Evrensel OBD-II Kod Dizini – Sayfa ${page}`, description: 'Türkçe OBD-II arıza kodu açıklamalarına ulaşın.', url, type: 'website' },
     };
 }

@@ -1,5 +1,8 @@
 "use client";
 
+import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
+
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -31,7 +34,7 @@ export default function TuvturkFaqDetailClient({ faq }: { faq: FaqProps }) {
 
     return (
         <div>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            {SUPPORTING_TEMPLATE_INDEXABLE && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>

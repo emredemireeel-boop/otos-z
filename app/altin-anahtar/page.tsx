@@ -1,7 +1,9 @@
+import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import AltinAnahtarClient from "./AltinAnahtarClient";
 
 export const metadata: Metadata = {
+    robots: indexabilityRobots(isHubIndexable('/altin-anahtar')),
     title: "Altın Anahtar — Türkiye'nin En İyi Oto Ustaları | OtoSöz",
     description: "Türkiye'nin ilk yıldızlı usta rehberi. Şehir şehir en güvenilir oto tamircileri, motor ustaları, kaportacılar ve elektrikçileri keşfedin. Altın Anahtar derecelendirmesiyle kaliteli hizmet garantisi.",
     openGraph: {

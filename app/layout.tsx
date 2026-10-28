@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     },
     manifest: '/manifest.json',
     robots: {
-        index: true,
+        index: false,
         follow: true,
         'max-image-preview': 'large',
         'max-snippet': -1,
         'max-video-preview': -1,
         googleBot: {
-            index: true,
+            index: false,
             follow: true,
             'max-image-preview': 'large',
             'max-snippet': -1,

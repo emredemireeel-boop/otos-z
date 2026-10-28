@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createPageMetadata } from "@/lib/seo";
-import { createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
+import { createSlug } from "@/data/vehicle-dna";
+import { isVehicleIndexable } from '@/lib/indexability';
 import { engineDNAData } from "@/data/engine-dna";
 import { findVehicleByRoute } from "@/lib/aracDnaSeo";
-import { buildVehicleFaq } from "@/lib/vehicleFaq";
 import AracDNALayoutClient from "./AracDNALayoutClient";
 
 interface LayoutProps {
@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
         title: `${vehicle.brand} ${vehicle.model} Araç DNA Analizi`,
         description: `${vehicle.brand} ${vehicle.model} için motor seçenekleri, DNA puanı, kronik sorunlar, kullanıcı deneyimleri ve donanım paketlerini inceleyin.`,
         path: canonicalPath,
+        indexable: isVehicleIndexable(vehicle),
         keywords: [
             `${vehicle.brand} ${vehicle.model} kronik sorunlar`,
             `${vehicle.brand} ${vehicle.model} yorumları`,
@@ -45,9 +46,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
         ],
     });
 
-    return isVehicleEditoriallyReviewed(vehicle)
-        ? metadata
-        : { ...metadata, robots: { index: false, follow: true } };
+    return metadata;
 }
 
 export default async function AracDNALayout({ children, params }: LayoutProps) {
@@ -59,23 +58,8 @@ export default async function AracDNALayout({ children, params }: LayoutProps) {
     const canonicalBrand = createSlug(vehicle.brand);
     const canonicalModel = createSlug(vehicle.model);
 
-    const engines = engineDNAData.find(item => item.vehicleId === vehicle.id)?.engines || [];
-    const faqItems = buildVehicleFaq(vehicle, engines);
-    const canonicalUrl = `https://otosoz.com/arac-dna/${canonicalBrand}/${canonicalModel}`;
-    const faqSchema = isVehicleEditoriallyReviewed(vehicle) ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "@id": `${canonicalUrl}#faq`,
-        "mainEntity": faqItems.map(item => ({
-            "@type": "Question",
-            "name": item.question,
-            "acceptedAnswer": { "@type": "Answer", "text": item.answer },
-        })),
-    } : null;
-
     return (
         <>
-            {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
             <AracDNALayoutClient>{children}</AracDNALayoutClient>
         </>
     );

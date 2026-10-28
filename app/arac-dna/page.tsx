@@ -1,5 +1,8 @@
 "use client";
 
+import { isVehicleIndexable } from '@/lib/indexability';
+import { isEngineRouteIndexable } from '@/lib/engine-quality';
+
 import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -50,8 +53,8 @@ export default function AracDNAPage() {
         }
     });
 
-    const reviewedEngineVariants = allEngineVariants.filter(item => isVehicleEditoriallyReviewed(item.vehicle));
-    const reviewedVehicles = vehicleDNAData.filter(isVehicleEditoriallyReviewed);
+    const reviewedEngineVariants = allEngineVariants.filter(item => isEngineRouteIndexable(item.vehicle, item.engine));
+    const reviewedVehicles = vehicleDNAData.filter(isVehicleIndexable);
     const resolvedGeneration = brandInput && modelInput && vehicleYear
         ? resolveVehicleGeneration(reviewedVehicles, brandInput, modelInput, Number(vehicleYear))
         : null;
@@ -73,7 +76,7 @@ export default function AracDNAPage() {
         setSubmitted(false);
 
         // Find all matching engines
-        const matches = reviewedEngineVariants.filter(item => {
+        const matches = allEngineVariants.filter(item => {
             const v = item.vehicle;
             const e = item.engine;
             
@@ -708,7 +711,7 @@ export default function AracDNAPage() {
                         }}>
                             {displayedVehicles.map((item, index) => {
                                 const { vehicle, engine } = item;
-                                const isReviewed = isVehicleEditoriallyReviewed(vehicle);
+                                const isReviewed = isVehicleIndexable(vehicle);
                                 const scoreColor = isReviewed ? getDNAScoreColor(engine.score) : '#d97706';
                                 const slug = `${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}/${engine.slug}`;
 

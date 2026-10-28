@@ -1,3 +1,4 @@
+import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { HelpCircle, ArrowLeft, Car } from "lucide-react";
@@ -71,10 +72,10 @@ export default async function KasaDetailPage({ params }: KasaPageProps) {
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
             <Navbar />
-            <script
+            {SUPPORTING_TEMPLATE_INDEXABLE && <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            />}
 
             <main style={{ paddingTop: '100px', paddingBottom: '60px', maxWidth: '800px', margin: '0 auto', padding: '100px 24px 60px 24px' }}>
                 <Link href="/kutuphane?kategori=arac-segmentleri" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', marginBottom: '24px', textDecoration: 'none', fontWeight: '600' }}>

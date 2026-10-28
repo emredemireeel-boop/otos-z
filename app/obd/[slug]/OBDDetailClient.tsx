@@ -261,7 +261,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                                 <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(234,179,8,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(234,179,8,0.2)' }}>
                                     <AlertTriangle size={18} style={{ color: '#eab308' }} />
                                 </div>
-                                <h2 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)' }}>Olası Nedenler</h2>
+                                <h2 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)' }}>{codeData.sources?.length ? 'Olası Nedenler' : 'Genel bilgi: Olası Nedenler'}</h2>
                             </div>
                             {codeData.causes.length > 0 ? (
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -284,7 +284,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                                 <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(34,197,94,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(34,197,94,0.2)' }}>
                                     <Wrench size={18} style={{ color: '#22c55e' }} />
                                 </div>
-                                <h2 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>Çözüm Önerileri</h2>
+                                <h2 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>{codeData.sources?.length ? 'Çözüm Önerileri' : 'Genel bilgi: Kontrol ve Çözüm Önerileri'}</h2>
                             </div>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '12px' }}>
                                 {codeData.fixes.map((fix, i) => (

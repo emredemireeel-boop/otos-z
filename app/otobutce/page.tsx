@@ -1,3 +1,4 @@
+import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -9,6 +10,7 @@ import { OTOBUTCE_CATEGORIES } from "@/data/otobutce-data";
 import { ChevronRight, Wallet, Target, Info, Lightbulb, TrendingUp, ShieldCheck, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
+  robots: indexabilityRobots(isHubIndexable('/otobutce')),
   title: "Bütçeye Göre Araç Önerileri 2026 | OtoBütçe",
   description: "Bütçenizi seçin, uzmanlarımızın önerdiği en mantıklı, az yakan ve masrafsız ikinci el araçları anında keşfedin. Güncel piyasa analizleri.",
   keywords: "bütçeye göre araç, fiyata göre araba, 200 bin tl araç, 500 bin tl araba, oto bütçe, ikinci el araba tavsiyesi",

@@ -1,3 +1,4 @@
+import { isQualityGuide } from '@/lib/guide-quality';
 import type { MetadataRoute } from "next";
 import trafikCezalariData from "@/data/trafik_cezalari.json";
 
@@ -8,7 +9,7 @@ export const revalidate = 86400;
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const detailEntries = trafikCezalariData.categories.flatMap((category) =>
-        category.rows.map((fine) => ({
+        category.rows.filter(fine => isQualityGuide(fine, 'trafficFine')).map((fine) => ({
             url: `${BASE_URL}/trafik-cezasi/${fine.slug}`,
             lastModified: LAST_REVIEWED,
             changeFrequency: "monthly" as const,

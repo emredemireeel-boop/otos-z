@@ -1,3 +1,5 @@
+import { isQualityGuide } from '@/lib/guide-quality';
+import { indexabilityRobots } from '@/lib/indexability';
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -32,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     return {
         title: `${item.seoTitle} | OtoSöz`,
+        robots: indexabilityRobots(isQualityGuide(item, 'toll')),
         description: item.seoDescription,
         openGraph: {
             title: `${item.seoTitle} | OtoSöz`,
@@ -80,7 +83,7 @@ export default async function OtoyolDetayPage({ params }: PageProps) {
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
             <Navbar />
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            {isQualityGuide(item, 'toll') && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />}
 
             <main style={{ maxWidth: "860px", margin: "0 auto", padding: "100px 24px 60px 24px" }}>
                 {/* Back Button */}

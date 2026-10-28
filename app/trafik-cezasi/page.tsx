@@ -1,3 +1,4 @@
+import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
 import KutuphaneClient from "@/app/kutuphane/KutuphaneClient";
 import trafikCezalariData from "@/data/trafik_cezalari.json";
@@ -41,17 +42,7 @@ export const metadata: Metadata = {
         description: DESCRIPTION,
         images: [`${BASE_URL}/api/og?title=${encodeURIComponent("2026 Trafik Cezaları")}&desc=${encodeURIComponent("Güncel tutarlar, ceza puanları ve yaptırımlar")}`],
     },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            "max-snippet": -1,
-            "max-image-preview": "large",
-            "max-video-preview": -1,
-        },
-    },
+    robots: indexabilityRobots(isHubIndexable('/trafik-cezasi')),
     category: "Trafik mevzuatı",
 };
 

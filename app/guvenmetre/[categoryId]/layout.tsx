@@ -1,3 +1,5 @@
+import { indexabilityRobots, SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
+export const metadata = { robots: indexabilityRobots(SUPPORTING_TEMPLATE_INDEXABLE) };
 import { notFound } from 'next/navigation';
 import { categories } from '@/data/guvenmetre';
 

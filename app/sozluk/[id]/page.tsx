@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SozlukDetailClient from "./SozlukDetailClient";
 import { getCanonicalDictionaryId } from "@/lib/seoUrls";
+import { indexableDictionaryTerms, isQualityDictionaryTerm } from '@/lib/dictionary-catalog';
+import { indexabilityRobots } from '@/lib/indexability';
 
 interface PageProps {
     params: Promise<{ id: string }>;
@@ -25,6 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     return {
         title: `${term.term} Nedir? Anlamı ve Önemi | OtoSöz Otomotiv Sözlüğü`,
+        robots: indexabilityRobots(isQualityDictionaryTerm(term)),
         description: description.slice(0, 160),
         keywords: [term.term, `${term.term} nedir`, `${term.term} ne demek`, `otomotiv ${term.term}`, term.category, 'otomotiv sözlük', 'araba terimleri'],
         openGraph: {
@@ -64,12 +67,12 @@ export default async function SozlukTermPage({ params }: PageProps) {
 
 
     // Find same-category related terms
-    const relatedTerms = dictionaryTerms
+    const relatedTerms = indexableDictionaryTerms
         .filter(t => t.category === term.category && t.id !== term.id)
         .slice(0, 5);
 
     // Find same-letter terms
-    const sameLetterTerms = dictionaryTerms
+    const sameLetterTerms = indexableDictionaryTerms
         .filter(t => t.letter === term.letter && t.id !== term.id)
         .slice(0, 4);
 
@@ -137,7 +140,7 @@ export default async function SozlukTermPage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(isQualityDictionaryTerm(term) ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
             <SozlukDetailClient term={term} relatedTerms={relatedTerms} sameLetterTerms={sameLetterTerms} />
         </>

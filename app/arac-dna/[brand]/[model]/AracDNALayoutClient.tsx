@@ -1,6 +1,8 @@
 "use client";
 
 import { useParams, usePathname } from "next/navigation";
+import { isVehicleIndexable, isVehicleSectionIndexable } from '@/lib/indexability';
+import { isEngineRouteIndexable } from '@/lib/engine-quality';
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -55,7 +57,7 @@ export default function AracDNALayoutClient({
         );
     }
 
-    if (!isVehicleEditoriallyReviewed(vehicle)) {
+    if (!isVehicleIndexable(vehicle)) {
         return (
             <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
                 <Navbar />
@@ -137,7 +139,7 @@ export default function AracDNALayoutClient({
             : []),
     ];
 
-    const tabs = specificEngine ? [
+    const availableTabs = specificEngine ? [
         { id: "genel-bakis", name: "Genel Bakış", path: basePath, icon: <FileText size={16} /> },
         ...((specificEngine.pros?.length || specificEngine.cons?.length)
             ? [{ id: "artilar", name: "Güçlü Yönler ve Dikkat Noktaları", path: `${basePath}-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri`, icon: <ThumbsUp size={16} /> }]
@@ -156,6 +158,16 @@ export default function AracDNALayoutClient({
             ? [{ id: "deneyimler", name: "Kullanıcı Deneyimleri", path: `${modelPath}/kullanici-deneyimleri`, icon: <MessageCircle size={16} /> }]
             : []),
     ] : modelTabs;
+    const sectionForTab: Record<string, string> = { artilar: 'neden-alinir', kronik: 'kronik-sorunlar', donanim: 'arac-paketleri', deneyimler: 'kullanici-deneyimleri' };
+    const tabs = availableTabs.filter(tab => {
+        if (tab.id === currentTab) return true;
+        if (tab.path.startsWith(basePath) && specificEngine && !tab.path.startsWith(modelPath + '/arac-paketleri')) {
+            return isEngineRouteIndexable(vehicle, specificEngine, tab.id);
+        }
+        return tab.id === 'genel-bakis' ? isVehicleIndexable(vehicle) : isVehicleSectionIndexable(vehicle,
+            sectionForTab[tab.id], { trims: trimLevelsData.find(item => item.vehicleId === vehicle.id)?.trims || [] });
+    });
+
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>

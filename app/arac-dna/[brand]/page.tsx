@@ -3,6 +3,7 @@ import { vehicleDNAData, createSlug, isVehicleEditoriallyReviewed } from "@/data
 import { engineDNAData } from "@/data/engine-dna";
 import { notFound } from "next/navigation";
 import BrandHubClient from "./BrandHubClient";
+import { indexabilityRobots, isVehicleIndexable } from '@/lib/indexability';
 
 interface PageProps {
     params: Promise<{ brand: string }>;
@@ -10,7 +11,7 @@ interface PageProps {
 
 // Birleşik marka isimlerini ('/' içerenleri) filtrele
 const uniqueBrands = [...new Set(
-    vehicleDNAData.filter(isVehicleEditoriallyReviewed).map(v => v.brand),
+    vehicleDNAData.filter(isVehicleIndexable).map(v => v.brand),
 )].filter(b => !b.includes('/'));
 
 export async function generateStaticParams() {
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const brandName = uniqueBrands.find(b => createSlug(b) === brandSlug.toLowerCase());
     if (!brandName) return { title: "Marka Bulunamadı | OtoSöz" };
 
-    const brandModels = vehicleDNAData.filter(v => v.brand === brandName && isVehicleEditoriallyReviewed(v));
+    const brandModels = vehicleDNAData.filter(v => v.brand === brandName && isVehicleIndexable(v));
     const avgScore = Math.round(brandModels.reduce((s, v) => s + v.dnaScore, 0) / brandModels.length);
 
     const title = `${brandName} Araç DNA Analizi – ${brandModels.length} Model İncelemesi [2026] | OtoSöz`;
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title,
         description,
+        robots: indexabilityRobots(brandModels.length > 0),
         keywords: [
             `${brandName} araç analizi`, `${brandName} DNA puanı`, `${brandName} kronik sorunlar`,
             `${brandName} modelleri`, `${brandName} arıza`, `${brandName} 2026`,
@@ -58,7 +60,7 @@ export default async function BrandPage({ params }: PageProps) {
     const brandName = uniqueBrands.find(b => createSlug(b) === brandSlug.toLowerCase());
     if (!brandName) notFound();
 
-    const brandModels = vehicleDNAData.filter(v => v.brand === brandName && isVehicleEditoriallyReviewed(v));
+    const brandModels = vehicleDNAData.filter(v => v.brand === brandName && isVehicleIndexable(v));
     
     // Her model için motor bilgilerini de ekle
     const modelsWithEngines = brandModels.map(vehicle => {

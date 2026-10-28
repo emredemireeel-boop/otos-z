@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import HaberDetailClient from './HaberDetailClient';
 import path from 'path';
 import fs from 'fs';
+import { isQualityGuide } from '@/lib/guide-quality';
+import { indexabilityRobots } from '@/lib/indexability';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -38,6 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     return {
         title: `${post.title} | OtoSöz Haberler`,
+        robots: indexabilityRobots(isQualityGuide(post, 'news')),
         description,
         keywords: post.tags,
         authors: [{ name: post.author || 'OtoSöz Editör' }],
@@ -67,5 +70,5 @@ export default async function HaberDetailServerPage({ params }: PageProps) {
     const { slug } = await params;
     const post = getPost(slug);
     if (!post) notFound();
-    return <HaberDetailClient slug={slug} initialPost={post} />;
+    return <HaberDetailClient slug={slug} initialPost={post} indexable={isQualityGuide(post, 'news')} />;
 }

@@ -1,3 +1,4 @@
+import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
 import OtoHesapIndexView from "@/components/OtoHesapIndexView";
 import { OTOHESAP_META } from "@/data/otohesap-meta";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Otosöz İçerik Ekibi", url: "https://otosoz.com/hakkimizda" }],
   creator: "Otosöz",
   publisher: "Otosöz",
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" } },
+  robots: indexabilityRobots(isHubIndexable('/otohesap')),
   openGraph: {
     title: "OtoHesap: Ücretsiz Otomotiv Hesaplama Araçları",
     description: "Araç alırken ve kullanırken ihtiyaç duyacağınız 21 ücretsiz hesaplayıcı tek merkezde.",

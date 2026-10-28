@@ -1,3 +1,5 @@
+import { isQualityGuide } from '@/lib/guide-quality';
+import { indexabilityRobots } from '@/lib/indexability';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import NasilYapilirDetailClient from "./NasilYapilirDetailClient";
@@ -46,7 +48,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
         return {
             title: `${guide.title} - Nasıl Yapılır? | OtoSöz`,
-            description: guide.description,
+            robots: indexabilityRobots(isQualityGuide(guide, 'howto')),
+        description: guide.description,
             keywords: guide.tools.concat(["nasıl yapılır", "araç bakım", "rehber"]),
             openGraph: {
                 title: guide.title,
@@ -146,7 +149,7 @@ export default async function NasilYapilirPage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(isQualityGuide(guide, 'howto') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
             <NasilYapilirDetailClient guide={guide} category={category} />
         </>

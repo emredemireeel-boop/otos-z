@@ -1,3 +1,4 @@
+import { indexabilityRobots, isGuideIndexable, qualityContentText } from '@/lib/indexability';
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
+    robots: indexabilityRobots(isGuideIndexable(category, { kind: 'functional-utility', text: qualityContentText(category) })),
     title: category.seoTitle,
     description: category.seoDesc,
     keywords: `araba, ikinci el, araç önerisi, ${category.title} araba, ${category.title} araçlar`,

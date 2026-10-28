@@ -1,8 +1,10 @@
+import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import HaberlerClient from "./HaberlerClient";
 import newsData from "@/public/data/news_posts.json";
 
 export const metadata: Metadata = {
+    robots: indexabilityRobots(isHubIndexable('/haberler')),
     title: 'OtoSöz Haberler | Güncel Otomobil Haberleri ve Rehberler',
     description: 'Otomotiv dünyasından en güncel gelişmeler, yasal düzenlemeler, vergi oranları, bakım tavsiyeleri ve uzman sürüş rehberleri.',
     openGraph: {

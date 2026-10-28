@@ -1,3 +1,5 @@
+import { isQualityGuide } from '@/lib/guide-quality';
+import { indexabilityRobots } from '@/lib/indexability';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import GostergeDetailClient from "./GostergeDetailClient";
@@ -25,7 +27,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
         return {
             title: `${light.title} İkaz Lambası Anlamı | OtoSöz`,
-            description: light.meaning,
+            robots: indexabilityRobots(isQualityGuide(light, 'warningLight')),
+        description: light.meaning,
             keywords: light.tags,
             openGraph: {
                 title: `${light.title} İkaz Lambası`,
@@ -117,7 +120,7 @@ export default async function GostergePage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(isQualityGuide(light, 'warningLight') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
             <GostergeDetailClient light={light} />
         </>

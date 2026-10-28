@@ -4,6 +4,8 @@ import MakaleDetailClient from "./MakaleDetailClient";
 import path from "path";
 import fs from "fs";
 import { createSeoSlug } from "@/lib/slug";
+import { isQualityGuide } from '@/lib/guide-quality';
+import { indexabilityRobots } from '@/lib/indexability';
 
 export const dynamic = 'force-dynamic';
 
@@ -43,6 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
         return {
             title: `${article.title} | OtoSöz Makaleler`,
+            robots: indexabilityRobots(isQualityGuide(article, 'article')),
             description: article.description,
             keywords: article.tags,
             openGraph: {
@@ -140,9 +143,9 @@ export default async function MakalePage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(isQualityGuide(article, 'article') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
-            <MakaleDetailClient article={article} />
+            <MakaleDetailClient article={article} indexable={isQualityGuide(article, 'article')} />
         </>
     );
 }

@@ -6,6 +6,7 @@ import carModelsData from "@/data/carmodels.json";
 import OBDDetailClient from "./OBDDetailClient";
 import BrandHubClient from "./BrandHubClient";
 import { createSeoSlug } from "@/lib/slug";
+import { indexabilityRobots } from '@/lib/indexability';
 
 const BASE_URL = "https://otosoz.com";
 // Popüler kodlar build'de üretilir; katalogdaki diğer geçerli kodlar istekte açılır.
@@ -100,11 +101,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         description: metaDescription,
         keywords: [`${codeData.code} arıza kodu`, `${codeData.code} nedir`, `OBD ${codeData.code}`, codeData.title],
         alternates: { canonical: canonicalUrl },
-        robots: {
-            index: isObdCodeIndexable(codeData),
-            follow: true,
-            googleBot: { index: isObdCodeIndexable(codeData), follow: true, "max-snippet": -1, "max-image-preview": "large" },
-        },
+        robots: indexabilityRobots(isObdCodeIndexable(codeData)),
         openGraph: {
             title: `${codeData.code} Arıza Kodu: ${codeData.title} | OtoSöz`,
             description: metaDescription,
@@ -194,7 +191,9 @@ export default async function OBDSlugPage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\u003c') }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...structuredData,
+                    '@graph': structuredData['@graph'].filter(item => isObdCodeIndexable(codeData) || item['@type'] === 'BreadcrumbList'),
+                }).replace(/</g, '\\u003c') }}
             />
             <OBDDetailClient codeData={codeData} relatedCodes={relatedCodes} typeLabel={typeLabel} directoryPage={getObdDirectoryPageNumber(codeData.code)} />
         </>

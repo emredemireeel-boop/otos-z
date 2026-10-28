@@ -1,3 +1,5 @@
+import { isQualityGuide } from "@/lib/guide-quality";
+import { indexabilityRobots } from "@/lib/indexability";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import TrafikCezasiDetailClient from "./TrafikCezasiDetailClient";
@@ -105,17 +107,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             alternates: {
                 canonical: canonicalUrl,
             },
-            robots: {
-                index: true,
-                follow: true,
-                googleBot: {
-                    index: true,
-                    follow: true,
-                    "max-snippet": -1,
-                    "max-image-preview": "large",
-                    "max-video-preview": -1,
-                },
-            },
+            robots: indexabilityRobots(isQualityGuide(cezaItem, 'trafficFine')),
             category: "Trafik mevzuatı",
         };
     } catch {
@@ -241,11 +233,11 @@ export default async function TrafikCezasiPage({ params }: PageProps) {
 
     return (
         <>
-            <script
+            {isQualityGuide(cezaItem, 'trafficFine') && <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-            />
-            {faqSchema && (
+            />}
+            {isQualityGuide(cezaItem, 'trafficFine') && faqSchema && (
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

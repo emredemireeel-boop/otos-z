@@ -2,8 +2,9 @@
 
 import React, { useMemo } from 'react';
 import Link from 'next/link';
-import { dictionaryTerms } from '@/data/dictionary';
-import obdCodes from '@/data/obd-codes.json';
+import { indexableDictionaryTerms } from '@/lib/dictionary-catalog';
+import { isObdIndexable } from '@/lib/indexability';
+import obdLinks from '@/data/seo-quality/link-candidates.json';
 import { getCanonicalDictionaryId } from '@/lib/seoUrls';
 
 type Keyword = { keyword: string; id: string; type: 'dict' | 'obd'; tooltip: string };
@@ -68,8 +69,8 @@ export default function AutoLinkText({ text, style }: { text: string; style?: Re
     const linkedElements = useMemo(() => {
         if (!text) return [];
         const keywords: Keyword[] = [
-            ...dictionaryTerms.map(t => ({ keyword: t.term.split('(')[0].trim(), id: t.id, type: 'dict' as const, tooltip: t.description })),
-            ...(obdCodes as Array<{ code: string; title: string }>).map(c => ({ keyword: c.code, id: c.code.toLowerCase(), type: 'obd' as const, tooltip: c.title })),
+            ...indexableDictionaryTerms.map(t => ({ keyword: t.term.split('(')[0].trim(), id: t.id, type: 'dict' as const, tooltip: t.description })),
+            ...obdLinks.records.filter(code => isObdIndexable(code, code.qualitySignal)).map(c => ({ keyword: c.code, id: c.code.toLowerCase(), type: 'obd' as const, tooltip: c.title })),
         ].filter(k => k.keyword.length > 2).sort((a, b) => b.keyword.length - a.keyword.length);
 
         const safeText = htmlToPlainText(text);

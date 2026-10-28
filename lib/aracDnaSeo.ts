@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { engineDNAData } from "@/data/engine-dna";
-import { createSlug, isVehicleEditoriallyReviewed, vehicleDNAData } from "@/data/vehicle-dna";
+import { createSlug, vehicleDNAData } from "@/data/vehicle-dna";
+import { trimLevelsData } from '@/data/trim-levels';
+import { indexabilityRobots, isVehicleSectionIndexable } from './indexability';
+import { isEngineRouteIndexable } from './engine-quality';
 import { createPageMetadata } from "@/lib/seo";
 
 export type VehicleSection = "kronik-sorunlar" | "neden-alinir" | "kullanici-deneyimleri" | "arac-paketleri";
@@ -37,7 +40,7 @@ export function findVehicleByRoute(brand: string, model: string) {
 function notFoundMetadata(title: string): Metadata {
     return {
         title,
-        robots: { index: false, follow: false },
+        robots: indexabilityRobots(false),
     };
 }
 
@@ -60,19 +63,11 @@ export function createVehicleSectionMetadata(
             : config.description(name),
         path: canonicalPath,
         keywords: [config.title(name), `${name} yorumları`, `${name} inceleme`],
+        indexable: isVehicleSectionIndexable(vehicle, section,
+            { trims: trimLevelsData.find(item => item.vehicleId === vehicle.id)?.trims || [] }),
     });
 
-    const hasDistinctContent = section === "kronik-sorunlar"
-        ? vehicle.chronicIssues.length > 0
-        : section === "neden-alinir"
-            ? vehicle.strengths.length > 0 || vehicle.weaknesses.length > 0
-            : section === "kullanici-deneyimleri"
-                ? vehicle.userExperiences.length > 0
-                : true;
-
-    return hasDistinctContent && isVehicleEditoriallyReviewed(vehicle)
-        ? metadata
-        : { ...metadata, robots: { index: false, follow: true } };
+    return metadata;
 }
 
 const engineSuffixes = {
@@ -134,11 +129,12 @@ export function createEngineMetadata(brand: string, model: string, engineParam: 
     };
 
     const modelPath = `/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}`;
+    const indexable = isEngineRouteIndexable(vehicle, engine, currentTab);
     const hasDistinctContent = currentTab === "genel-bakis"
         || (currentTab === "kronik" && engine.chronicIssues.length > 0)
         || (currentTab === "artilar" && Boolean(engine.pros?.length || engine.cons?.length));
 
-    const canonicalPath = currentTab === "donanim"
+    const canonicalPath = !indexable ? modelPath : currentTab === "donanim"
         ? `${modelPath}/arac-paketleri`
         : currentTab === "deneyimler"
             ? vehicle.userExperiences.length > 0
@@ -155,9 +151,8 @@ export function createEngineMetadata(brand: string, model: string, engineParam: 
         description: tabCopy[currentTab].description,
         path: canonicalPath,
         keywords: [`${engineName} kronik sorunlar`, `${engineName} yorumları`, `${engineName} inceleme`],
+        indexable,
     });
 
-    return hasDistinctContent && isVehicleEditoriallyReviewed(vehicle)
-        ? metadata
-        : { ...metadata, robots: { index: false, follow: true } };
+    return metadata;
 }

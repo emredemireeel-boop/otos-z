@@ -1,3 +1,4 @@
+import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
 import { getRecentForumThreadSummaries } from "@/lib/forumDataServer";
@@ -9,6 +10,7 @@ const description = "Araç alırken, otomobil arızasını araştırırken veya 
 const canonicalUrl = "https://otosoz.com/";
 
 export const metadata: Metadata = {
+    robots: indexabilityRobots(isHubIndexable('/')),
     title,
     description,
     keywords: [
