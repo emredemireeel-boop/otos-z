@@ -5,5 +5,7 @@ const DICTIONARY_CANONICAL_IDS: Record<string, string> = {
 };
 
 export function getCanonicalDictionaryId(id: string): string {
-    return DICTIONARY_CANONICAL_IDS[id] || id;
+    const normalized = id.toLowerCase();
+    return Object.hasOwn(DICTIONARY_CANONICAL_IDS, normalized)
+        ? DICTIONARY_CANONICAL_IDS[normalized] : normalized;
 }

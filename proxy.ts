@@ -5,6 +5,8 @@ import { createSeoSlug } from './lib/slug';
 import { mythsData } from './data/efsane-avcilari-data';
 import { getLibraryCategoryRedirect } from './lib/library-categories';
 import { getDnaLegacyRedirect } from './lib/arac-dna-redirects';
+import { getCanonicalDictionaryId } from './lib/seoUrls';
+import { getObdCode, obdDirectoryPageCount } from './lib/obd-catalog';
 
 const ARTICLE_CANONICAL_SLUGS = new Map<string, string>(
     libraryGuides.guides.flatMap(guide => {
@@ -58,7 +60,7 @@ function isTokenValid(token: string | undefined): boolean {
     return exp * 1000 > Date.now();
 }
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
     const hostHeader = (request.headers.get('host') || '').toLowerCase();
     const hostname = hostHeader.split(':')[0];
     const allowedHosts = new Set(['otosoz.com', 'www.otosoz.com', 'localhost', '127.0.0.1']);
@@ -98,33 +100,48 @@ export function proxy(request: NextRequest) {
 
     // OBD kodlarının tek canonical biçimi küçük harftir. Statik üretilmiş sayfalar
     // büyük harfli yolu da 200 ile karşılayabildiği için yönlendirmeyi render öncesi yap.
-    const obdCodeMatch = path.match(/^\/obd\/([pbcu][0-3][0-9a-f]{3})$/i);
-    if (obdCodeMatch && path !== path.toLowerCase()) {
+    const obdCodeMatch = decodedPath.match(/^\/obd\/([^/]+)$/);
+    const canonicalObdCode = obdCodeMatch ? getObdCode(obdCodeMatch[1])?.code.toLowerCase() : undefined;
+    if (canonicalObdCode && path !== `/obd/${canonicalObdCode}`) {
         const canonicalUrl = request.nextUrl.clone();
-        canonicalUrl.pathname = '/obd/' + obdCodeMatch[1].toLowerCase();
+        canonicalUrl.pathname = '/obd/' + canonicalObdCode;
         return NextResponse.redirect(canonicalUrl, 308);
     }
-    // Geçmişte motor slug'ına yanlışlıkla eklenen model sekmelerini gerçek HTTP
-    // yönlendirmesiyle tek canonical model sekmesine taşı. Server Component içindeki
-    // yönlendirme HTML meta-refresh üretmeyeceği için Google doğrudan 308 görür.
-    const legacyEngineTabMatch = decodedPath.match(
-        /^\/arac-dna\/([^/]+)\/([^/]+)\/(.+)-(arac-paketleri|kullanici-deneyimleri)$/,
-    );
-    if (legacyEngineTabMatch) {
-        const [, brand, model, , section] = legacyEngineTabMatch;
-        return NextResponse.redirect(
-            new URL(`/arac-dna/${brand}/${model}/${section}`, request.url),
-            308,
-        );
+
+    // Yalnızca katalogda bulunan eski marka/kod yolları taşınır.
+    // Biçimi doğru olsa bile olmayan bir kod yönlendirme yerine 404 alır.
+    const legacyObdMatch = decodedPath.match(/^\/obd\/[^/]+\/([^/]+)$/);
+    const legacyObdCode = legacyObdMatch ? getObdCode(legacyObdMatch[1]) : undefined;
+    if (legacyObdCode) {
+        const canonicalUrl = request.nextUrl.clone();
+        canonicalUrl.pathname = `/obd/${legacyObdCode.code.toLowerCase()}`;
+        return NextResponse.redirect(canonicalUrl, 308);
     }
 
+    const dictionaryMatch = decodedPath.match(/^\/sozluk\/([^/]+)$/);
+    if (dictionaryMatch) {
+        const canonicalPath = `/sozluk/${getCanonicalDictionaryId(dictionaryMatch[1])}`;
+        if (decodeURIComponent(path) !== canonicalPath) {
+            const canonicalUrl = request.nextUrl.clone();
+            canonicalUrl.pathname = canonicalPath;
+            return NextResponse.redirect(canonicalUrl, 308);
+        }
+    }
+
+    const directoryMatch = decodedPath.match(/^\/obd-kodlari\/(\d+)$/);
+    if (directoryMatch) {
+        const page = Number(directoryMatch[1]);
+        const canonicalPath = `/obd-kodlari/${page}`;
+        if (Number.isSafeInteger(page) && page >= 1 && page <= obdDirectoryPageCount && path !== canonicalPath) {
+            const canonicalUrl = request.nextUrl.clone();
+            canonicalUrl.pathname = canonicalPath;
+            return NextResponse.redirect(canonicalUrl, 308);
+        }
+    }
     // Eski sözlük ve OBD URL'lerini içerik sunabilen güncel adreslere taşı.
     // Bu yollar geçmişte 200 durum kodlu "bulunamadı" sayfası üreterek
     // Search Console'da soft 404 olarak görünüyordu.
     const legacyPathRedirects: Record<string, string> = {
-        '/sozluk/amortisör_takozu': '/sozluk/amortisor_takozu',
-        '/sozluk/krank_mili': '/sozluk/krank',
-        '/sozluk/mcpherson': '/sozluk/macpherson',
         '/obd/citron': '/obd/citroen',
         '/obd/alfa romeo': '/obd/alfa-romeo',
         '/obd/aston martin': '/obd/aston-martin',
@@ -139,7 +156,9 @@ export function proxy(request: NextRequest) {
     // Arama motoru yönlendirme hedefinde eski query parametresini görmez.
     if (path === '/kutuphane') {
         const category = request.nextUrl.searchParams.get('kategori');
-        const target = getLibraryCategoryRedirect(category);
+        const target = getLibraryCategoryRedirect(category)
+            || (request.nextUrl.searchParams.getAll('kategori').length > 1
+                ? `/kutuphane?kategori=${encodeURIComponent(category || '')}` : null);
 
         if (target) {
             const canonicalUrl = new URL(target, request.url);
@@ -169,11 +188,32 @@ export function proxy(request: NextRequest) {
     if (path.startsWith('/kutuphane/efsane-avcilari/')) {
         const requestedSlug = decodeURIComponent(path.slice('/kutuphane/efsane-avcilari/'.length));
         const routeId = requestedSlug.split('--').at(-1) || '';
-        const canonicalSlug = MYTH_CANONICAL_SLUGS.get(routeId);
+        const canonicalSlug = /^\d+$/.test(routeId) ? MYTH_CANONICAL_SLUGS.get(String(Number(routeId))) : undefined;
         if (canonicalSlug && requestedSlug !== canonicalSlug) {
             const canonicalUrl = request.nextUrl.clone();
             canonicalUrl.pathname = `/kutuphane/efsane-avcilari/${canonicalSlug}`;
             return NextResponse.redirect(canonicalUrl, 308);
+        }
+    }
+
+    // Konu başlığı değişebilir; yalnızca konu belgesiyle canonical slug çözülür.
+    // Veri erişim hatası kalıcı 404/308 kararına dönüştürülmez.
+    const forumMatch = path.match(/^\/forum\/([^/]+)$/);
+    if (forumMatch) {
+        try {
+            const { getForumCanonicalRoute } = await import('./lib/forum-route-server');
+            const requestedSlug = decodeURIComponent(forumMatch[1]);
+            const canonicalSlug = await getForumCanonicalRoute(requestedSlug);
+            if (canonicalSlug && requestedSlug !== canonicalSlug) {
+                const canonicalUrl = request.nextUrl.clone();
+                canonicalUrl.pathname = `/forum/${canonicalSlug}`;
+                return NextResponse.redirect(canonicalUrl, 308);
+            }
+        } catch {
+            return new NextResponse('Konu geçici olarak yüklenemiyor.', {
+                status: 503,
+                headers: { 'Retry-After': '60', 'X-Robots-Tag': 'noindex' },
+            });
         }
     }
 

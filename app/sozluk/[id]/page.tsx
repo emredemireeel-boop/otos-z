@@ -1,4 +1,4 @@
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { dictionaryTerms, categoryColors } from "@/data/dictionary";
 import Navbar from "@/components/Navbar";
@@ -62,9 +62,6 @@ export default async function SozlukTermPage({ params }: PageProps) {
         notFound();
     }
 
-    if (id !== canonicalId) {
-        permanentRedirect(`/sozluk/${canonicalId}`);
-    }
 
     // Find same-category related terms
     const relatedTerms = dictionaryTerms

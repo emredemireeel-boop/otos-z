@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound, permanentRedirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import ForumThreadClient from './ForumThreadClient';
 import { getForumThreadSeo, plainTextExcerpt } from '@/lib/forumDataServer';
 
@@ -63,9 +63,6 @@ export default async function ForumThreadServerPage({ params }: PageProps) {
     const thread = await getForumThreadSeo(id);
     if (!thread) notFound();
 
-    if (id !== thread.slug) {
-        permanentRedirect(`/forum/${thread.slug}`);
-    }
 
     const canonicalUrl = `${BASE_URL}/forum/${thread.slug}`;
     const originalPost = thread.entries[0];

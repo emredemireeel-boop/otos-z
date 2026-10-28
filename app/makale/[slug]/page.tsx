@@ -1,4 +1,4 @@
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import MakaleDetailClient from "./MakaleDetailClient";
 import path from "path";
@@ -91,9 +91,6 @@ export default async function MakalePage({ params }: PageProps) {
     }
 
     const canonicalSlug = getCanonicalSlug(article);
-    if (slug !== canonicalSlug) {
-        permanentRedirect(`/makale/${canonicalSlug}`);
-    }
 
     const canonicalUrl = `https://otosoz.com/makale/${canonicalSlug}`;
 

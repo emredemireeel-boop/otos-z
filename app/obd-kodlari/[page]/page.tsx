@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound, permanentRedirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { getObdDirectoryPage, obdDirectoryPageCount, OBD_DIRECTORY_PAGE_SIZE } from '@/lib/obd-catalog';
@@ -37,7 +37,6 @@ export default async function ObdDirectoryPage({ params }: Props) {
     const { page: rawPage } = await params;
     const page = parsePage(rawPage);
     if (!page) notFound();
-    if (rawPage !== String(page)) permanentRedirect(`/obd-kodlari/${page}`);
     const codes = getObdDirectoryPage(page);
     const first = (page - 1) * OBD_DIRECTORY_PAGE_SIZE + 1;
     const last = first + codes.length - 1;

@@ -1,4 +1,4 @@
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { obdCodes as ALL_CODES, getObdCode, getRelatedObdCodes, getObdDirectoryPageNumber, isObdCodeIndexable, OBD_LAST_REVIEWED, POPULAR_OBD_CODES } from "@/lib/obd-catalog";
 import { getObdFaq } from "@/lib/obd-content";
@@ -8,6 +8,8 @@ import BrandHubClient from "./BrandHubClient";
 import { createSeoSlug } from "@/lib/slug";
 
 const BASE_URL = "https://otosoz.com";
+// Popüler kodlar build'de üretilir; katalogdaki diğer geçerli kodlar istekte açılır.
+export const dynamicParams = true;
 interface PageProps {
     params: Promise<{ slug: string }>;
 }
@@ -135,7 +137,6 @@ export default async function OBDSlugPage({ params }: PageProps) {
 
     const codeData = getObdCode(normalizedSlug);
     if (!codeData) notFound();
-    if (slug !== codeData.code.toLowerCase()) permanentRedirect(`/obd/${codeData.code.toLowerCase()}`);
 
     const relatedCodes = getRelatedObdCodes(codeData);
 

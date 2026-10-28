@@ -157,11 +157,6 @@ const nextConfig: NextConfig = {
                 permanent: true,
             },
 
-            {
-                source: '/obd/:brand/:code([pPbBcCuU][0-3][0-9a-fA-F]{3})',
-                destination: '/obd/:code',
-                permanent: true,
-            },
             ...openCarMarketRedirects.map(([eventId, destination]) => ({
                 source: `/etkinlikler/${eventId}`,
                 destination,

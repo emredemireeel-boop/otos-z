@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,8 +13,8 @@ interface PageProps {
 function getMythFromSlug(slug: string): Myth | null {
     const parts = slug.split("--");
     const idStr = parts[parts.length - 1];
-    const id = parseInt(idStr, 10);
-    if (isNaN(id)) return null;
+    if (!/^\d+$/.test(idStr)) return null;
+    const id = Number(idStr);
     return mythsData.find(m => m.id === id) || null;
 }
 
@@ -83,11 +83,8 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
         notFound();
     }
 
-    const canonicalSlug = `${myth.slug}--${myth.id}`;
-    if (slug !== canonicalSlug) {
-        permanentRedirect(`/kutuphane/efsane-avcilari/${canonicalSlug}`);
-    }
 
+    const canonicalSlug = `${myth.slug}--${myth.id}`;
     const catColor = getCategoryColor(myth.category);
     const catLabel = getCategoryLabel(myth.category);
 
