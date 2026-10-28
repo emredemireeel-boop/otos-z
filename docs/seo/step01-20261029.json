@@ -1,0 +1,106 @@
+{
+  "step": 1,
+  "date": "2026-10-29",
+  "timezone": "Europe/Istanbul",
+  "site": "https://otosoz.com",
+  "scope": "HTTP durum kodları ve render öncesi kalıcı yönlendirmeler",
+  "status": "implemented-and-verified-locally",
+  "deployment": "Bu adımda canlıya dağıtım yapılmadı. Canlı kontroller mevcut sürümün başlangıç ölçümüdür.",
+  "framework": "Next.js 16.3.3, production next build + next start",
+  "guidesRead": [
+    "node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/loading.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/not-found.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/proxy.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/not-found.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/permanentRedirect.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/use-search-params.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/05-config/01-next-config-js/redirects.md"
+  ],
+  "changes": [
+    "Kökteki app/loading.tsx kaldırıldı; dinamik rotalarda notFound() kararından önce genel Suspense fallback ile HTTP 200 gönderilmesi önlendi.",
+    "Ayarlar sayfasının useSearchParams() kullanımına yerel Suspense sınırı eklendi; genel loading kaldırılınca ortaya çıkan production build hatası giderildi.",
+    "/forum yönlendirmesi next.config.ts redirects() içine taşındı; eski render sırasında yönlendiren page.tsx kaldırıldı.",
+    "DNA yollarının küçük harfe çevrilmesi proxy.ts içine taşındı; alt sekme, motor yolu ve query korunuyor.",
+    "İçeriği olmayan eski motor artı/eksi ve kronik sorun sekmelerinin mevcut hedefleri katalogdan hesaplanarak proxy içinde HTTP 308 ile uygulanıyor.",
+    "Kütüphane kategori metadata kayıtları değiştirilmeden ortak modüle taşındı; geçerli, eski ve bilinmeyen kategori kararları aynı katalog üzerinden proxy içinde veriliyor.",
+    "Kategori eşlemesinde yalnızca nesnenin kendi anahtarları kullanılıyor; kategori=__proto__ için canlıda gözlenen /undefined yönlendirmesi giderildi.",
+    "www yönlendirmesinde canonical hedefin portu temizlendi; yerel Next sunucusunun portunun https://otosoz.com hedefine taşınması önlendi.",
+    "Tekrarlanabilir curl tabanlı GET/HEAD, tarayıcı/Googlebot, canonical, noindex, meta-refresh ve Location kontrolleri eklendi."
+  ],
+  "verification": {
+    "typecheck": {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0,
+      "note": "Başlangıç kontrolü geçti. /forum/page.tsx silinmesinden sonra eski .next/types/validator.ts referansı geçici TS2307 üretti; build tipleri yeniledi ve son bağımsız kontrol geçti."
+    },
+    "build": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "generatedStaticPages": 660,
+      "note": "İlk deneme /ayarlar useSearchParams Suspense bağımlılığında durdu. Yerel sınır eklendikten sonra build geçti; son proxy değişikliğinden sonra build tekrar geçti.",
+      "warnings": [
+        "Mevcut Edge Runtime kullanımı için deprecation uyarısı.",
+        "Edge runtime kullanan sayfada statik üretimin devre dışı kalması uyarısı."
+      ]
+    },
+    "localHttp": {
+      "serverCommand": "npm run start -- -p 3100",
+      "command": "node scripts/verify-seo-http.mjs http://127.0.0.1:3100 docs/seo/step01-local-after-20261029.json",
+      "exitCode": 0,
+      "requests": 105,
+      "passed": 105,
+      "failed": 0,
+      "profiles": ["browser GET", "Googlebot GET", "Googlebot HEAD"],
+      "evidence": "docs/seo/step01-local-after-20261029.json",
+      "samples": [
+        { "path": "/obd/p9999", "before": 200, "after": 404 },
+        { "path": "/arac-dna/olmayan-marka", "before": 200, "after": 404 },
+        { "path": "/arac-dna/renault/olmayan-model", "before": 200, "after": 404 },
+        { "path": "/arac-dna/renault/clio-5-nesil-2020-2025/olmayan-motor", "before": 200, "after": 404 },
+        { "path": "/makale/olmayan-makale--999999", "before": 200, "after": 404 },
+        { "path": "/forum", "before": 200, "after": 308, "location": "/" },
+        { "path": "/arac-dna/RENAULT/CLIO-5-NESIL-2020-2025/kronik-sorunlar", "before": 200, "after": 308, "location": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar" },
+        { "path": "/kutuphane?kategori=olmayan-kategori", "before": 200, "after": 308, "location": "/kutuphane" }
+      ]
+    },
+    "redirectTargets": {
+      "command": "curl.exe -sS --max-time 20 -L -o NUL -w '%{http_code} %{num_redirects} %{url_effective}' URL",
+      "result": "/forum, büyük harfli DNA alt sekmesi ve bilinmeyen kategori: birer HTTP yönlendirmesi, son yanıt 200."
+    },
+    "additionalChecks": [
+      "curl.exe GET /forum/feed.xml: 200",
+      "curl.exe GET /ayarlar?tab=usta: 200",
+      "curl.exe GET Host: www.otosoz.com /kutuphane: 301 https://otosoz.com/kutuphane; port yok",
+      "curl.exe GET /forum/: 308 /forum",
+      "Kütüphane CATEGORIES metadata bloğu git HEAD ile birebir karşılaştırıldı: aynı.",
+      "git diff --check: başarılı"
+    ],
+    "liveBaseline": {
+      "command": "node scripts/verify-seo-http.mjs https://otosoz.com docs/seo/step01-live-before-20261029.json --observe",
+      "requests": 93,
+      "passed": 48,
+      "failed": 45,
+      "evidence": "docs/seo/step01-live-before-20261029.json",
+      "note": "Başlangıç ölçümü ilk 31 fixture ile yapıldı; sonradan eklenen www, geçersiz host, bozuk encoding ve karma harfli DNA fixture'ları bu dosyada yoktur. Başarısızlıklar kontrol hedeflerine göre mevcut canlı sürümün kusurlarıdır; --observe çıkış kodunu başarısız yapmaz.",
+      "hostChecks": [
+        { "url": "http://otosoz.com/kutuphane", "status": 301, "location": "https://otosoz.com/kutuphane" },
+        { "url": "https://www.otosoz.com/kutuphane", "status": 301, "location": "https://otosoz.com/kutuphane" }
+      ]
+    }
+  },
+  "openRisks": [
+    "Düzeltme henüz canlıda değil; dağıtım ve Cloudflare önbelleği sonrası aynı HTTP seti yeniden çalıştırılmalı.",
+    "105 örnek istek bütün URL uzayının denetimi değildir. İstemci tarafında bulunamadı ekranı döndüren diğer dinamik rotalar ayrıca taranmalı.",
+    "Forum tekil konu, makale, sözlük, OBD ve efsane sayfalarında önceden mevcut render sırasında permanentRedirect çağrıları bulunuyor; bu adım tüm projedeki bu çağrıları kaldırmaz.",
+    "Kök Suspense sınırı kaldırıldığı için dinamik sayfalarda varlık kontrolü tamamlanana kadar ilk yanıt bekleyebilir; canlı TTFB izlenmeli.",
+    "dynamicParams=false olan geçersiz şehir isteğinde Next.js NoFallbackError logladı; test edilen HTTP yanıtları yine 404 ve noindex idi.",
+    "Proxy artık DNA yönlendirmelerini yerel araç/motor kataloğundan hesaplıyor; uzun ömürlü next start sürecinde başlangıç/bellek etkisi canlıda izlenmeli.",
+    "DNA istemci paketlerinin küçültülmesi, içerik doğrulaması, sitemap/indeks kapsamı, kategori query yolları ve /makale hub'ı ayrı adımlarda ele alınmalı.",
+    "HTTP düzeltmeleri organik trafik toparlanmasını tek başına kanıtlamaz."
+  ],
+  "preservation": [
+    "Önceden mevcut izlenmeyen docs/, CLAUDE.md ve scratch/ dosyaları değiştirilmedi; yalnızca bu adımın üç rapor dosyası commit kapsamına alındı.",
+    "Gizli anahtar ve ortam dosyaları değiştirilmedi ve commit kapsamına alınmadı.",
+    "İlgisiz mevcut yorumlar ve dokümantasyon korundu; kategori tanımları yorumlarıyla birlikte taşındı."
+  ]
+}

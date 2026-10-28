@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { createPageMetadata } from "@/lib/seo";
 import { createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData } from "@/data/engine-dna";
@@ -58,9 +58,6 @@ export default async function AracDNALayout({ children, params }: LayoutProps) {
 
     const canonicalBrand = createSlug(vehicle.brand);
     const canonicalModel = createSlug(vehicle.model);
-    if (brand !== canonicalBrand || model !== canonicalModel) {
-        permanentRedirect(`/arac-dna/${canonicalBrand}/${canonicalModel}`);
-    }
 
     const engines = engineDNAData.find(item => item.vehicleId === vehicle.id)?.engines || [];
     const faqItems = buildVehicleFaq(vehicle, engines);

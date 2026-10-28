@@ -3,6 +3,8 @@ import type { NextRequest } from 'next/server';
 import libraryGuides from './public/data/library_guides.json';
 import { createSeoSlug } from './lib/slug';
 import { mythsData } from './data/efsane-avcilari-data';
+import { getLibraryCategoryRedirect } from './lib/library-categories';
+import { getDnaLegacyRedirect } from './lib/arac-dna-redirects';
 
 const ARTICLE_CANONICAL_SLUGS = new Map<string, string>(
     libraryGuides.guides.flatMap(guide => {
@@ -71,6 +73,7 @@ export function proxy(request: NextRequest) {
         const newUrl = request.nextUrl.clone();
         newUrl.protocol = 'https:';
         newUrl.host = 'otosoz.com';
+        newUrl.port = '';
         return NextResponse.redirect(newUrl, 301);
     }
 
@@ -80,6 +83,17 @@ export function proxy(request: NextRequest) {
         decodedPath = decodeURIComponent(path).toLowerCase();
     } catch {
         return new NextResponse('Geçersiz istek yolu.', { status: 400 });
+    }
+
+    // DNA yolunun tamamını koru: model layout'unda yönlendirme alt sekmeyi
+    // kaybedebiliyor ve streaming başladıysa HTTP yerine meta-refresh üretiyordu.
+    if (/^\/arac-dna(?:\/|$)/i.test(path)) {
+        const target = getDnaLegacyRedirect(decodedPath) || decodedPath;
+        if (decodeURIComponent(path) !== target) {
+            const canonicalUrl = request.nextUrl.clone();
+            canonicalUrl.pathname = target;
+            return NextResponse.redirect(canonicalUrl, 308);
+        }
     }
 
     // OBD kodlarının tek canonical biçimi küçük harftir. Statik üretilmiş sayfalar
@@ -125,21 +139,10 @@ export function proxy(request: NextRequest) {
     // Arama motoru yönlendirme hedefinde eski query parametresini görmez.
     if (path === '/kutuphane') {
         const category = request.nextUrl.searchParams.get('kategori');
-        const categoryRedirects: Record<string, { pathname: string; category?: string }> = {
-            'obd-ariza-kodlari': { pathname: '/obd' },
-            'otoyol-ucretleri': { pathname: '/kutuphane', category: 'otoyol-ve-kopru-ucretleri' },
-            'ehliyet-sinifari': { pathname: '/kutuphane', category: 'ehliyet-siniflari' },
-            'makaleler': { pathname: '/kutuphane' },
-            'kasko-deger': { pathname: '/kutuphane/kasko-deger' },
-            'trafik-cezalari': { pathname: '/trafik-cezasi' },
-        };
-        const target = category ? categoryRedirects[category] : undefined;
+        const target = getLibraryCategoryRedirect(category);
 
         if (target) {
-            const canonicalUrl = request.nextUrl.clone();
-            canonicalUrl.pathname = target.pathname;
-            canonicalUrl.search = '';
-            if (target.category) canonicalUrl.searchParams.set('kategori', target.category);
+            const canonicalUrl = new URL(target, request.url);
             return NextResponse.redirect(canonicalUrl, 308);
         }
     }
