@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
@@ -31,6 +31,14 @@ const QUEST_ICONS: Record<string, React.ReactNode> = {
 };
 
 export default function SettingsPage() {
+    return (
+        <Suspense fallback={<p role="status">Ayarlar yükleniyor...</p>}>
+            <SettingsContent />
+        </Suspense>
+    );
+}
+
+function SettingsContent() {
     const { user } = useAuth();
     const { theme, toggleTheme } = useTheme();
     const searchParams = useSearchParams();
