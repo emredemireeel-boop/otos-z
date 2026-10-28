@@ -1,0 +1,58 @@
+{
+  "method": "Identical source snapshot, production builds, Googlebot curl GET; only root app/loading.tsx toggled",
+  "sourceHashExcludingRootLoading": "673e6926777e5dc9f71a0d9a61a01c8b397da4e683a2fdeedfeb09e15300fbd4",
+  "withoutRootLoading": [
+    {
+      "url": "/obd/p9zzz",
+      "status": 404
+    },
+    {
+      "url": "/arac-dna/renault/olmayan-model",
+      "status": 404
+    },
+    {
+      "url": "/sozluk/olmayan-terim-xyz",
+      "status": 404
+    },
+    {
+      "url": "/makale/olmayan--999999",
+      "status": 404
+    },
+    {
+      "url": "/haberler/olmayan-haber",
+      "status": 404
+    },
+    {
+      "url": "/kutuphane/ilginc/xyz-1",
+      "status": 404
+    }
+  ],
+  "withRootLoading": [
+    {
+      "url": "/obd/p9zzz",
+      "status": 200
+    },
+    {
+      "url": "/arac-dna/renault/olmayan-model",
+      "status": 200
+    },
+    {
+      "url": "/sozluk/olmayan-terim-xyz",
+      "status": 200
+    },
+    {
+      "url": "/makale/olmayan--999999",
+      "status": 200
+    },
+    {
+      "url": "/haberler/olmayan-haber",
+      "status": 200
+    },
+    {
+      "url": "/kutuphane/ilginc/xyz-1",
+      "status": 200
+    }
+  ],
+  "identicalSourceExceptRootLoading": true,
+  "subsequentChange": "After this isolated pair, DNA redirect lookup was aligned with render .find() ordering for duplicate vehicle IDs 101–104; it does not affect the six measured paths. The final full suite verifies that change separately."
+}

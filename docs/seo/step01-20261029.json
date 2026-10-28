@@ -3,104 +3,237 @@
   "date": "2026-10-29",
   "timezone": "Europe/Istanbul",
   "site": "https://otosoz.com",
-  "scope": "HTTP durum kodları ve render öncesi kalıcı yönlendirmeler",
-  "status": "implemented-and-verified-locally",
-  "deployment": "Bu adımda canlıya dağıtım yapılmadı. Canlı kontroller mevcut sürümün başlangıç ölçümüdür.",
-  "framework": "Next.js 16.3.3, production next build + next start",
+  "scope": "HTTP durum kodu bütünlüğü: bütün dinamik içerik rotaları, render öncesi yönlendirmeler ve tam sitemap regresyonu",
+  "status": "local-acceptance-passed",
+  "deployment": "Bu çalışmada canlıya dağıtım yapılmadı. Canlı sonuçlar mevcut yayımlanmış sürümün ölçümleridir.",
+  "framework": "Next.js 16.3.3 production next build + next start",
+  "implementationCommits": [
+    "4d84a7a",
+    "783ed62"
+  ],
+  "initialPassCommits": [
+    "7458e0f",
+    "bffe7d9"
+  ],
   "guidesRead": [
     "node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/loading.md",
     "node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/not-found.md",
     "node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/proxy.md",
     "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/not-found.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/redirect.md",
     "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/permanentRedirect.md",
-    "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/use-search-params.md",
+    "node_modules/next/dist/docs/01-app/02-guides/streaming.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/02-route-segment-config/dynamicParams.md",
+    "node_modules/next/dist/docs/01-app/03-api-reference/04-functions/generate-static-params.md",
     "node_modules/next/dist/docs/01-app/03-api-reference/05-config/01-next-config-js/redirects.md"
   ],
+  "streamingConclusion": "loading.tsx bir Suspense sınırı ekler. Fallback gönderilip yanıt streaming olarak başladıktan sonra HTTP başlıkları değişemez; geç notFound() noindex üretebilir, redirect() meta refresh üretebilir. HTTP kararları bu sınırların önünde verildi.",
   "changes": [
-    "Kökteki app/loading.tsx kaldırıldı; dinamik rotalarda notFound() kararından önce genel Suspense fallback ile HTTP 200 gönderilmesi önlendi.",
-    "Ayarlar sayfasının useSearchParams() kullanımına yerel Suspense sınırı eklendi; genel loading kaldırılınca ortaya çıkan production build hatası giderildi.",
-    "/forum yönlendirmesi next.config.ts redirects() içine taşındı; eski render sırasında yönlendiren page.tsx kaldırıldı.",
-    "DNA yollarının küçük harfe çevrilmesi proxy.ts içine taşındı; alt sekme, motor yolu ve query korunuyor.",
-    "İçeriği olmayan eski motor artı/eksi ve kronik sorun sekmelerinin mevcut hedefleri katalogdan hesaplanarak proxy içinde HTTP 308 ile uygulanıyor.",
-    "Kütüphane kategori metadata kayıtları değiştirilmeden ortak modüle taşındı; geçerli, eski ve bilinmeyen kategori kararları aynı katalog üzerinden proxy içinde veriliyor.",
-    "Kategori eşlemesinde yalnızca nesnenin kendi anahtarları kullanılıyor; kategori=__proto__ için canlıda gözlenen /undefined yönlendirmesi giderildi.",
-    "www yönlendirmesinde canonical hedefin portu temizlendi; yerel Next sunucusunun portunun https://otosoz.com hedefine taşınması önlendi.",
-    "Tekrarlanabilir curl tabanlı GET/HEAD, tarayıcı/Googlebot, canonical, noindex, meta-refresh ve Location kontrolleri eklendi."
+    "Kök app/loading.tsx kaldırılmış durumda. Aynı yükleme göstergesi yalnızca ayarlar ve mesajlar sayfalarını kapsayan app/(account)/loading.tsx içine taşındı; bu iki sayfanın kaynak içeriği birebir korundu.",
+    "41 dinamik sayfanın tamamında sayfanın kendisinde veya üst layout içinde sunucu tarafında notFound() koruması var; indekslenebilir içerik rotalarının üstünde loading.tsx yok.",
+    "Etkinlik, eski kütüphane rehberi, anket, profil, Uzmana Sor, karşılaştırma ve Güvenmetre dinamik rotalarının eksik varlık kontrolleri render öncesine eklendi.",
+    "Yeni Firestore varlık kontrollerinde ağ/izin hataları olmayan içerik sayılmaz; public fallback başarısızsa hata yayılır. Forum canonical çözümleme hatasında HTTP 503 + Retry-After dönülür.",
+    "app/ altındaki kalan 7 redirect/permanentRedirect çağrısı kaldırıldı. Makale, sözlük, OBD, OBD dizini, efsane ve forum canonical kararları proxy/next.config üzerinden veriliyor.",
+    "Forum slug yönlendirmesi yalnızca konu belgesinden çözülür; yanıtlar yönlendirme için çekilmez.",
+    "/forum bu adımda next.config.ts ile HTTP 308 -> /; DNA harf normalizasyonu tüm alt yolu ve query parametrelerini korur.",
+    "Kategori listesi tek paylaşılan lib/library-categories.ts kaynağında tutuldu; bilinmeyen/boş/eski/tekrarlanan kategori query değerleri HTTP düzeyinde birleştirildi.",
+    "Eski DNA motor sekmesi ve marka/OBD kod yönlendirmelerinde katalog varlığı kontrol ediliyor. Olmayan motor veya kod yalnızca şekli eşleştiği için geçerli içeriğe yönlendirilmiyor.",
+    "DNA motor yönlendirme indeksi, yinelenen vehicleId 101–104 kayıtlarında render .find() davranışıyla aynı ilk kaydı seçiyor; veri kayıtları değiştirilmedi.",
+    "OBD dynamicParams=true açıkça korundu; generateStaticParams dışında kalan geçerli kodlar istekte üretilebiliyor.",
+    "app/not-found.tsx sunucu bileşeni olarak sadeleştirildi; animasyon/canvas kaldırıldı, arama formu ve ana sayfa/kütüphane/OBD/DNA bağlantıları korundu.",
+    "scripts/seo-status-check.mjs ve scripts/seo-status-cases.json eklendi. Script yönlendirme izlemez, HTTP/Location/noindex/meta-refresh sapmalarında çıkış kodu 1 üretir; --sitemap modu sitemap index dosyalarını da açabilir."
   ],
   "verification": {
     "typecheck": {
       "command": "npx tsc --noEmit",
       "exitCode": 0,
-      "note": "Başlangıç kontrolü geçti. /forum/page.tsx silinmesinden sonra eski .next/types/validator.ts referansı geçici TS2307 üretti; build tipleri yeniledi ve son bağımsız kontrol geçti."
+      "note": "Son üretim buildinden sonra bağımsız olarak tekrar geçti. Route group taşınmasından kalan .next/types referansları build ile yenilendi."
     },
     "build": {
       "command": "npm run build",
       "exitCode": 0,
       "generatedStaticPages": 660,
-      "note": "İlk deneme /ayarlar useSearchParams Suspense bağımlılığında durdu. Yerel sınır eklendikten sonra build geçti; son proxy değişikliğinden sonra build tekrar geçti.",
       "warnings": [
-        "Mevcut Edge Runtime kullanımı için deprecation uyarısı.",
-        "Edge runtime kullanan sayfada statik üretimin devre dışı kalması uyarısı."
+        "Önceden mevcut Edge Runtime deprecation uyarısı.",
+        "Edge runtime kullanan sayfada statik üretimin devre dışı olması uyarısı."
       ]
     },
-    "localHttp": {
-      "serverCommand": "npm run start -- -p 3100",
-      "command": "node scripts/verify-seo-http.mjs http://127.0.0.1:3100 docs/seo/step01-local-after-20261029.json",
+    "loadingAB": {
+      "evidence": "docs/seo/step01-loading-ab-20261029.json",
+      "identicalSourceExceptRootLoading": true,
+      "withRootLoadingStatuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "withoutRootLoadingStatuses": [
+        404,
+        404,
+        404,
+        404,
+        404,
+        404
+      ],
+      "note": "Üretim buildleri ve Googlebot curl GET. Kaynak hash karşılaştırması yalnızca kök loading dosyasını hariç tutar. Sonraki DNA tekrar-kayıt sırası düzeltmesi ayrıca son test setinde doğrulandı."
+    },
+    "routeAudit": {
+      "dynamicRoutes": 41,
+      "withoutServerGuard": 0,
+      "remainingAppRenderRedirectCalls": 0,
+      "loadingFiles": [
+        "app/(account)/loading.tsx"
+      ],
+      "evidence": "docs/seo/step01-route-audit-20261029.json"
+    },
+    "cases": {
+      "command": "node scripts/seo-status-check.mjs --report docs/seo/step01-cases-after-20261029.json",
       "exitCode": 0,
-      "requests": 105,
-      "passed": 105,
+      "total": 215,
+      "passed": 215,
       "failed": 0,
-      "profiles": ["browser GET", "Googlebot GET", "Googlebot HEAD"],
-      "evidence": "docs/seo/step01-local-after-20261029.json",
-      "samples": [
-        { "path": "/obd/p9999", "before": 200, "after": 404 },
-        { "path": "/arac-dna/olmayan-marka", "before": 200, "after": 404 },
-        { "path": "/arac-dna/renault/olmayan-model", "before": 200, "after": 404 },
-        { "path": "/arac-dna/renault/clio-5-nesil-2020-2025/olmayan-motor", "before": 200, "after": 404 },
-        { "path": "/makale/olmayan-makale--999999", "before": 200, "after": 404 },
-        { "path": "/forum", "before": 200, "after": 308, "location": "/" },
-        { "path": "/arac-dna/RENAULT/CLIO-5-NESIL-2020-2025/kronik-sorunlar", "before": 200, "after": 308, "location": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar" },
-        { "path": "/kutuphane?kategori=olmayan-kategori", "before": 200, "after": 308, "location": "/kutuphane" }
+      "metaRefreshCount": 0,
+      "statusCounts": {
+        "200": 142,
+        "307": 6,
+        "308": 23,
+        "404": 44
+      },
+      "missingUrls": 44,
+      "allMissingUrls404AndNoindex": true
+    },
+    "curlRegression": {
+      "command": "node scripts/verify-seo-http.mjs http://127.0.0.1:3000 docs/seo/step01-curl-regression-20261029.json",
+      "exitCode": 0,
+      "total": 105,
+      "passed": 105,
+      "profiles": [
+        "browser GET",
+        "Googlebot GET",
+        "Googlebot HEAD"
       ]
     },
-    "redirectTargets": {
-      "command": "curl.exe -sS --max-time 20 -L -o NUL -w '%{http_code} %{num_redirects} %{url_effective}' URL",
-      "result": "/forum, büyük harfli DNA alt sekmesi ve bilinmeyen kategori: birer HTTP yönlendirmesi, son yanıt 200."
+    "sitemap": {
+      "command": "node scripts/seo-status-check.mjs --sitemap --report docs/seo/step01-sitemap-after-20261029.json",
+      "exitCode": 0,
+      "total": 2312,
+      "allHttp200": true,
+      "sameUrlSetAsBefore": true,
+      "metaRefreshCount": 0,
+      "duplicates": 0,
+      "beforeEvidence": "docs/seo/step01-sitemap-with-loading-20261029.json",
+      "beforeXml": "docs/seo/step01-sitemap-before-20261029.xml"
     },
-    "additionalChecks": [
-      "curl.exe GET /forum/feed.xml: 200",
-      "curl.exe GET /ayarlar?tab=usta: 200",
-      "curl.exe GET Host: www.otosoz.com /kutuphane: 301 https://otosoz.com/kutuphane; port yok",
-      "curl.exe GET /forum/: 308 /forum",
-      "Kütüphane CATEGORIES metadata bloğu git HEAD ile birebir karşılaştırıldı: aynı.",
-      "git diff --check: başarılı"
-    ],
-    "liveBaseline": {
-      "command": "node scripts/verify-seo-http.mjs https://otosoz.com docs/seo/step01-live-before-20261029.json --observe",
-      "requests": 93,
-      "passed": 48,
-      "failed": 45,
-      "evidence": "docs/seo/step01-live-before-20261029.json",
-      "note": "Başlangıç ölçümü ilk 31 fixture ile yapıldı; sonradan eklenen www, geçersiz host, bozuk encoding ve karma harfli DNA fixture'ları bu dosyada yoktur. Başarısızlıklar kontrol hedeflerine göre mevcut canlı sürümün kusurlarıdır; --observe çıkış kodunu başarısız yapmaz.",
-      "hostChecks": [
-        { "url": "http://otosoz.com/kutuphane", "status": 301, "location": "https://otosoz.com/kutuphane" },
-        { "url": "https://www.otosoz.com/kutuphane", "status": 301, "location": "https://otosoz.com/kutuphane" }
-      ]
+    "onDemandObd": {
+      "notInPrerenderManifest": [
+        "/obd/b1016",
+        "/obd/b1017",
+        "/obd/b1018"
+      ],
+      "allHttp200": true
+    },
+    "checkerNegativeControl": {
+      "expectedStatus": 200,
+      "actualStatus": 404,
+      "processExitCode": 1,
+      "evidence": "docs/seo/step01-checker-negative-control-20261029.json"
+    },
+    "liveCases": {
+      "command": "node scripts/seo-status-check.mjs --base https://otosoz.com --report docs/seo/step01-live-cases-20261029.json",
+      "exitCode": 1,
+      "total": 211,
+      "passed": 162,
+      "failed": 49,
+      "metaRefreshCount": 9,
+      "note": "Sonradan eklenen tekrar-motor-kaydı ve 3 on-demand OBD fixture öncesindeki 211 örnek. Sapmalar dağıtılmamış mevcut canlı sürüme aittir."
+    },
+    "liveSitemap": {
+      "command": "node scripts/seo-status-check.mjs --base https://otosoz.com --sitemap --report docs/seo/step01-live-sitemap-20261029.json",
+      "exitCode": 0,
+      "total": 2312,
+      "passed": 2312,
+      "failed": 0,
+      "metaRefreshCount": 0
+    },
+    "diffCheck": {
+      "command": "git diff --check",
+      "exitCode": 0
     }
   },
+  "fixtureCoverage": {
+    "auth-gate": 6,
+    "hub-or-personal": 11,
+    "legacy:event": 3,
+    "missing": 44,
+    "redirect": 19,
+    "redirect:first-engine-record": 1,
+    "valid:achievement": 1,
+    "valid:api": 1,
+    "valid:bakim-rehberi": 3,
+    "valid:dna-arac-paketleri": 3,
+    "valid:dna-brand": 3,
+    "valid:dna-engine": 3,
+    "valid:dna-engine-chronic": 3,
+    "valid:dna-engine-pros": 3,
+    "valid:dna-kronik-sorunlar": 3,
+    "valid:dna-kullanici-deneyimleri": 3,
+    "valid:dna-model": 3,
+    "valid:dna-neden-alinir": 3,
+    "valid:expert-question": 3,
+    "valid:forum": 3,
+    "valid:gosterge": 3,
+    "valid:haberler": 3,
+    "valid:ikinci-el-rehberi": 3,
+    "valid:karsilastirma": 3,
+    "valid:legacy-library-guide": 3,
+    "valid:library-efsane-avcilari": 3,
+    "valid:library-ehliyet": 2,
+    "valid:library-ehliyet/sinif": 3,
+    "valid:library-ilginc": 3,
+    "valid:library-kasa": 3,
+    "valid:library-kasko": 3,
+    "valid:library-noter": 2,
+    "valid:library-otoyol-ucretleri": 3,
+    "valid:library-plaka": 3,
+    "valid:library-segment": 3,
+    "valid:library-tuvturk": 3,
+    "valid:makale": 3,
+    "valid:market-city": 3,
+    "valid:market-detail": 3,
+    "valid:nasil-yapilir": 3,
+    "valid:obd": 3,
+    "valid:obd-brand": 3,
+    "valid:obd-kodlari": 3,
+    "valid:obd-on-demand": 3,
+    "valid:otobutce": 3,
+    "valid:otohesap": 3,
+    "valid:profile": 3,
+    "valid:sozluk": 3,
+    "valid:survey": 2,
+    "valid:trafik-cezasi": 3,
+    "valid:trust-brand": 3,
+    "valid:trust-category": 3
+  },
+  "coverageExceptions": [
+    "Üç geçerli örnek, veri bulunan dinamik içerik türlerinde kullanıldı. İki gerçek anket bulundu ve ikisi de 200 olarak doğrulandı; üçüncü kayıt üretilmedi.",
+    "Mevcut etkinlik veri setindeki bütün detay kayıtları eski oto pazarı adresleridir; mevcut kuralları korunarak üçü 308 + doğru Location ile, hedefler ise 200 olarak test edildi. /etkinlikler hub 200, olmayan detay 404.",
+    "Sabit noter sayfaları ve ehliyet bilgi sayfaları ikişer adettir; ehliyet sınıfı dinamik rotasından ayrıca üç geçerli örnek test edildi.",
+    "İlave başarım kontrolünde kamuya açık mevcut veriden bir gerçek örnek bulundu; ek kayıt oluşturulmadı. Yardımcı API kontrolü tek örnektir."
+  ],
   "openRisks": [
-    "Düzeltme henüz canlıda değil; dağıtım ve Cloudflare önbelleği sonrası aynı HTTP seti yeniden çalıştırılmalı.",
-    "105 örnek istek bütün URL uzayının denetimi değildir. İstemci tarafında bulunamadı ekranı döndüren diğer dinamik rotalar ayrıca taranmalı.",
-    "Forum tekil konu, makale, sözlük, OBD ve efsane sayfalarında önceden mevcut render sırasında permanentRedirect çağrıları bulunuyor; bu adım tüm projedeki bu çağrıları kaldırmaz.",
-    "Kök Suspense sınırı kaldırıldığı için dinamik sayfalarda varlık kontrolü tamamlanana kadar ilk yanıt bekleyebilir; canlı TTFB izlenmeli.",
-    "dynamicParams=false olan geçersiz şehir isteğinde Next.js NoFallbackError logladı; test edilen HTTP yanıtları yine 404 ve noindex idi.",
-    "Proxy artık DNA yönlendirmelerini yerel araç/motor kataloğundan hesaplıyor; uzun ömürlü next start sürecinde başlangıç/bellek etkisi canlıda izlenmeli.",
-    "DNA istemci paketlerinin küçültülmesi, içerik doğrulaması, sitemap/indeks kapsamı, kategori query yolları ve /makale hub'ı ayrı adımlarda ele alınmalı.",
-    "HTTP düzeltmeleri organik trafik toparlanmasını tek başına kanıtlamaz."
+    "Canlıya dağıtım yapılmadı. Canlı örnek testlerinde 49 sapma ve 9 meta refresh hâlâ var; dağıtım ve Cloudflare önbelleği sonrasında aynı komutlar yeniden çalıştırılmalı.",
+    "Sitemap üyeliği ve metadata indeks kararları bu adımda değiştirilmedi. 2312 URL için HTTP 200 kontrolü içerik kalitesini veya indekslenebilirlik uygunluğunu kanıtlamaz; indeks budama Adım 3 kapsamında.",
+    "İlk HTTP kararı veri varlığına bağlı olduğu için özellikle Firestore tabanlı rotalarda ilk yanıt süresi izlenmeli.",
+    "dynamicParams=false rotalarında geçersiz parametreler için framework NoFallbackError logu görülebiliyor; test edilen yanıtlar gerçek 404 + noindex. Framework dosyaları değiştirilmedi.",
+    "API rotalarının tüm işlevsel durum uzayı bu SEO sayfa denetiminin kapsamına dahil değildir.",
+    "Üç örnek sayısı veri bulunmayan türlerde uydurma kayıtlarla doldurulmadı; istisnalar coverageExceptions alanında belirtilmiştir."
   ],
   "preservation": [
-    "Önceden mevcut izlenmeyen docs/, CLAUDE.md ve scratch/ dosyaları değiştirilmedi; yalnızca bu adımın üç rapor dosyası commit kapsamına alındı.",
-    "Gizli anahtar ve ortam dosyaları değiştirilmedi ve commit kapsamına alınmadı.",
-    "İlgisiz mevcut yorumlar ve dokümantasyon korundu; kategori tanımları yorumlarıyla birlikte taşındı."
+    "İlgisiz mevcut yorumlar ve belgeler korundu; ayarlar/mesajlar taşıması içerik değişmeden yapıldı.",
+    "Önceden mevcut CLAUDE.md, eski docs/seo ve scratch dosyaları commit kapsamına alınmadı.",
+    "Ortam dosyaları ve Firebase servis anahtarları değiştirilmedi ve commit edilmedi.",
+    "Google Indexing API kullanılmadı. İçerik, yazar, yorum, puan veya etkinlik kaydı üretilmedi."
   ]
 }

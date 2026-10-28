@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-28T21:46:56.151Z",
+  "base": "http://127.0.0.1:3000/",
+  "mode": "cases",
+  "userAgent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+  "followsRedirects": false,
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "sitemapDuplicates": 0,
+  "metaRefreshCount": 0,
+  "statusCounts": {
+    "404": 1
+  },
+  "results": [
+    {
+      "url": "/obd/p9zzz",
+      "type": "intentional-failure",
+      "expectedStatus": 200,
+      "status": 404,
+      "location": null,
+      "metaRefresh": false,
+      "noindex": true,
+      "durationMs": 241,
+      "passed": false,
+      "errors": [
+        "HTTP 404, expected 200"
+      ]
+    }
+  ]
+}

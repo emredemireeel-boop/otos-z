@@ -1,0 +1,254 @@
+{
+  "dynamicRoutes": 41,
+  "withoutServerGuard": [],
+  "routes": [
+    {
+      "page": "app/acik-oto-pazari/[city]/[market]/page.tsx",
+      "serverGuards": [
+        "app/acik-oto-pazari/[city]/[market]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/acik-oto-pazari/[city]/page.tsx",
+      "serverGuards": [
+        "app/acik-oto-pazari/[city]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/anket/[id]/page.tsx",
+      "serverGuards": [
+        "app/anket/[id]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/arac-dna/[brand]/[model]/[engine]/page.tsx",
+      "serverGuards": [
+        "app/arac-dna/[brand]/[model]/[engine]/layout.tsx",
+        "app/arac-dna/[brand]/[model]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/arac-dna/[brand]/[model]/arac-paketleri/page.tsx",
+      "serverGuards": [
+        "app/arac-dna/[brand]/[model]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/arac-dna/[brand]/[model]/kronik-sorunlar/page.tsx",
+      "serverGuards": [
+        "app/arac-dna/[brand]/[model]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/arac-dna/[brand]/[model]/kullanici-deneyimleri/page.tsx",
+      "serverGuards": [
+        "app/arac-dna/[brand]/[model]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/arac-dna/[brand]/[model]/neden-alinir/page.tsx",
+      "serverGuards": [
+        "app/arac-dna/[brand]/[model]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/arac-dna/[brand]/[model]/page.tsx",
+      "serverGuards": [
+        "app/arac-dna/[brand]/[model]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/arac-dna/[brand]/page.tsx",
+      "serverGuards": [
+        "app/arac-dna/[brand]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/bakim-rehberi/[slug]/page.tsx",
+      "serverGuards": [
+        "app/bakim-rehberi/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/basarim/[userId]/[badge]/page.tsx",
+      "serverGuards": [
+        "app/basarim/[userId]/[badge]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/etkinlikler/[eventId]/page.tsx",
+      "serverGuards": [
+        "app/etkinlikler/[eventId]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/forum/[id]/page.tsx",
+      "serverGuards": [
+        "app/forum/[id]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/gosterge/[slug]/page.tsx",
+      "serverGuards": [
+        "app/gosterge/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/guvenmetre/[categoryId]/[brandId]/page.tsx",
+      "serverGuards": [
+        "app/guvenmetre/[categoryId]/[brandId]/layout.tsx",
+        "app/guvenmetre/[categoryId]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/guvenmetre/[categoryId]/page.tsx",
+      "serverGuards": [
+        "app/guvenmetre/[categoryId]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/haberler/[slug]/page.tsx",
+      "serverGuards": [
+        "app/haberler/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/ikinci-el-rehberi/[slug]/page.tsx",
+      "serverGuards": [
+        "app/ikinci-el-rehberi/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/karsilastirma/[id]/page.tsx",
+      "serverGuards": [
+        "app/karsilastirma/[id]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/[guideId]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/[guideId]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/efsane-avcilari/[slug]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/efsane-avcilari/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/ehliyet/sinif/[slug]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/ehliyet/sinif/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/ilginc/[slug]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/ilginc/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/kasa/[slug]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/kasa/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/kasko-deger/[slug]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/kasko-deger/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/otoyol-ucretleri/[slug]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/otoyol-ucretleri/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/plaka/[slug]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/plaka/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/segment/[slug]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/segment/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/kutuphane/tuvturk/[slug]/page.tsx",
+      "serverGuards": [
+        "app/kutuphane/tuvturk/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/makale/[slug]/page.tsx",
+      "serverGuards": [
+        "app/makale/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/nasil-yapilir/[slug]/page.tsx",
+      "serverGuards": [
+        "app/nasil-yapilir/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/obd/[slug]/[code]/page.tsx",
+      "serverGuards": [
+        "app/obd/[slug]/[code]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/obd/[slug]/page.tsx",
+      "serverGuards": [
+        "app/obd/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/obd-kodlari/[page]/page.tsx",
+      "serverGuards": [
+        "app/obd-kodlari/[page]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/otobutce/[slug]/page.tsx",
+      "serverGuards": [
+        "app/otobutce/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/otohesap/[module]/page.tsx",
+      "serverGuards": [
+        "app/otohesap/[module]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/profil/[userId]/page.tsx",
+      "serverGuards": [
+        "app/profil/[userId]/layout.tsx"
+      ]
+    },
+    {
+      "page": "app/sozluk/[id]/page.tsx",
+      "serverGuards": [
+        "app/sozluk/[id]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/trafik-cezasi/[slug]/page.tsx",
+      "serverGuards": [
+        "app/trafik-cezasi/[slug]/page.tsx"
+      ]
+    },
+    {
+      "page": "app/uzmana-sor/[id]/page.tsx",
+      "serverGuards": [
+        "app/uzmana-sor/[id]/layout.tsx"
+      ]
+    }
+  ]
+}
