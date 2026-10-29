@@ -1,0 +1,7724 @@
+{
+  "checkedAt": "2026-10-29T08:11:03.075Z",
+  "base": "http://127.0.0.1:3010",
+  "scriptsExecuted": false,
+  "sitemapHtmlCount": 689,
+  "checked": 694,
+  "failures": 0,
+  "apiFailures": 0,
+  "comparisons": [
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "beforeRaw": 1985569,
+      "afterRaw": 687907,
+      "rawReduction": 0.6535466659682942,
+      "beforeGzip": 505758,
+      "afterGzip": 213302,
+      "gzipReduction": 0.5782528402912065,
+      "mainTextBefore": 4131,
+      "mainTextAfter": 4131
+    },
+    {
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025",
+      "beforeRaw": 1985569,
+      "afterRaw": 687907,
+      "rawReduction": 0.6535466659682942,
+      "beforeGzip": 505758,
+      "afterGzip": 213302,
+      "gzipReduction": 0.5782528402912065,
+      "mainTextBefore": 2702,
+      "mainTextAfter": 2702
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025",
+      "beforeRaw": 1985569,
+      "afterRaw": 687907,
+      "rawReduction": 0.6535466659682942,
+      "beforeGzip": 505758,
+      "afterGzip": 213302,
+      "gzipReduction": 0.5782528402912065,
+      "mainTextBefore": 3791,
+      "mainTextAfter": 3791
+    }
+  ],
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "h1s": [
+        "Otomobil forumu ve araç rehberi"
+      ],
+      "textCharacters": 4393,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 5373,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/adana",
+      "status": 200,
+      "h1s": [
+        "Adana açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1559,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Belediye Evleri Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1650,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/antalya",
+      "status": 200,
+      "h1s": [
+        "Antalya açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1498,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Kepez Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1626,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/balikesir",
+      "status": 200,
+      "h1s": [
+        "Balıkesir açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1515,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Bandırma İkinci El Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1584,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/bursa",
+      "status": 200,
+      "h1s": [
+        "Bursa açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1873,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "İnegöl MERPA Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1614,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/eskisehir",
+      "status": 200,
+      "h1s": [
+        "Eskişehir açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1835,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Odunpazarı Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1762,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/eskisehir/tepebasi-camlica-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Tepebaşı Çamlıca Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1693,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kayseri",
+      "status": 200,
+      "h1s": [
+        "Kayseri açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1791,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Kocasinan Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1840,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Yahyalı Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1510,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/konya",
+      "status": 200,
+      "h1s": [
+        "Konya açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1519,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Karatay Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1557,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kutahya",
+      "status": 200,
+      "h1s": [
+        "Kütahya açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1480,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kutahya/tavsanli-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Tavşanlı Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1498,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/manisa",
+      "status": 200,
+      "h1s": [
+        "Manisa açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1556,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/manisa/demirci-ikinci-el-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Demirci 2. El Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1702,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/ordu",
+      "status": 200,
+      "h1s": [
+        "Ordu açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1468,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/ordu/fatsa-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Fatsa Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1463,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/sakarya",
+      "status": 200,
+      "h1s": [
+        "Sakarya açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1581,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Güneşler Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1615,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/samsun",
+      "status": 200,
+      "h1s": [
+        "Samsun açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1552,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Bafra 2. El Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1630,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/altin-anahtar",
+      "status": 200,
+      "h1s": [
+        "Altın Anahtar"
+      ],
+      "textCharacters": 399,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/anket",
+      "status": 200,
+      "h1s": [
+        "Anketler"
+      ],
+      "textCharacters": 4148,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna",
+      "status": 200,
+      "h1s": [
+        "Araç DNA Analizi"
+      ],
+      "textCharacters": 3321,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/audi",
+      "status": 200,
+      "h1s": [
+        "Audi Araç DNA Analizi"
+      ],
+      "textCharacters": 289,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/audi/a3-2020-2025",
+      "status": 200,
+      "h1s": [
+        "Audi A3"
+      ],
+      "textCharacters": 1934,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/audi/a3-2020-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Audi A3"
+      ],
+      "textCharacters": 1274,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014",
+      "status": 200,
+      "h1s": [
+        "Audi TT 2. Nesil Mk2"
+      ],
+      "textCharacters": 3598,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Audi TT 2. Nesil Mk2"
+      ],
+      "textCharacters": 4171,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Audi TT 2. Nesil Mk2"
+      ],
+      "textCharacters": 3732,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Audi TT 2. Nesil Mk2"
+      ],
+      "textCharacters": 2970,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery",
+      "status": 200,
+      "h1s": [
+        "Chery Araç DNA Analizi"
+      ],
+      "textCharacters": 427,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025",
+      "status": 200,
+      "h1s": [
+        "Chery Omoda 5 1. Nesil"
+      ],
+      "textCharacters": 2592,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Chery Omoda 5 1. Nesil"
+      ],
+      "textCharacters": 3699,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Chery Omoda 5 1. Nesil"
+      ],
+      "textCharacters": 2314,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Chery Omoda 5 1. Nesil"
+      ],
+      "textCharacters": 1962,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025",
+      "status": 200,
+      "h1s": [
+        "Chery Tiggo 7 Pro 1. Nesil"
+      ],
+      "textCharacters": 2638,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Chery Tiggo 7 Pro 1. Nesil"
+      ],
+      "textCharacters": 3759,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Chery Tiggo 7 Pro 1. Nesil"
+      ],
+      "textCharacters": 2365,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Chery Tiggo 7 Pro 1. Nesil"
+      ],
+      "textCharacters": 2011,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025",
+      "status": 200,
+      "h1s": [
+        "Chery Tiggo 8 Pro 1. Nesil"
+      ],
+      "textCharacters": 2552,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Chery Tiggo 8 Pro 1. Nesil"
+      ],
+      "textCharacters": 3688,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Chery Tiggo 8 Pro 1. Nesil"
+      ],
+      "textCharacters": 1973,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/citroen",
+      "status": 200,
+      "h1s": [
+        "Citroen Araç DNA Analizi"
+      ],
+      "textCharacters": 248,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025",
+      "status": 200,
+      "h1s": [
+        "Citroen C4 X 1. Nesil"
+      ],
+      "textCharacters": 2656,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Citroen C4 X 1. Nesil"
+      ],
+      "textCharacters": 3717,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Citroen C4 X 1. Nesil"
+      ],
+      "textCharacters": 2420,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Citroen C4 X 1. Nesil"
+      ],
+      "textCharacters": 2050,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia",
+      "status": 200,
+      "h1s": [
+        "Dacia Araç DNA Analizi"
+      ],
+      "textCharacters": 387,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/duster-2-nesil-2018-2024",
+      "status": 200,
+      "h1s": [
+        "Dacia Duster 2. Nesil"
+      ],
+      "textCharacters": 2778,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/duster-2-nesil-2018-2024/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Dacia Duster 2. Nesil"
+      ],
+      "textCharacters": 3814,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/duster-2-nesil-2018-2024/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Dacia Duster 2. Nesil"
+      ],
+      "textCharacters": 2566,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/duster-2-nesil-2018-2024/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Dacia Duster 2. Nesil"
+      ],
+      "textCharacters": 2182,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/duster-2010-2024",
+      "status": 200,
+      "h1s": [
+        "Dacia Duster"
+      ],
+      "textCharacters": 2680,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/duster-2010-2024/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Dacia Duster"
+      ],
+      "textCharacters": 3328,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/duster-2010-2024/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Dacia Duster"
+      ],
+      "textCharacters": 2403,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/duster-2010-2024/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Dacia Duster"
+      ],
+      "textCharacters": 1989,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025",
+      "status": 200,
+      "h1s": [
+        "Dacia Sandero Stepway"
+      ],
+      "textCharacters": 2803,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Dacia Sandero Stepway"
+      ],
+      "textCharacters": 3445,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Dacia Sandero Stepway"
+      ],
+      "textCharacters": 2527,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Dacia Sandero Stepway"
+      ],
+      "textCharacters": 2112,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat",
+      "status": 200,
+      "h1s": [
+        "Fiat Araç DNA Analizi"
+      ],
+      "textCharacters": 536,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023",
+      "status": 200,
+      "h1s": [
+        "Fiat Doblo 3. ve 4. Nesil"
+      ],
+      "textCharacters": 2902,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Fiat Doblo 3. ve 4. Nesil"
+      ],
+      "textCharacters": 3514,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Fiat Doblo 3. ve 4. Nesil"
+      ],
+      "textCharacters": 2595,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Fiat Doblo 3. ve 4. Nesil"
+      ],
+      "textCharacters": 2210,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025",
+      "status": 200,
+      "h1s": [
+        "Fiat Egea 1. Nesil"
+      ],
+      "textCharacters": 2702,
+      "expectedFields": 10,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/14-fire-95-hp-benzin-manuel",
+      "status": 200,
+      "h1s": [
+        "Fiat Egea 1. Nesil 1.4 Fire 95 HP (Benzin - Manuel)"
+      ],
+      "textCharacters": 2282,
+      "expectedFields": 1,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/16-multijet-120-hp-dizel-manuel-dct",
+      "status": 200,
+      "h1s": [
+        "Fiat Egea 1. Nesil 1.6 Multijet 120 HP (Dizel - Manuel / DCT)"
+      ],
+      "textCharacters": 2311,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/16-multijet-120-hp-dizel-manuel-dct-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Fiat Egea 1. Nesil 1.6 Multijet 120 HP (Dizel - Manuel / DCT)"
+      ],
+      "textCharacters": 2496,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Fiat Egea 1. Nesil"
+      ],
+      "textCharacters": 3734,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Fiat Egea 1. Nesil"
+      ],
+      "textCharacters": 2310,
+      "expectedFields": 4,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Fiat Egea 1. Nesil"
+      ],
+      "textCharacters": 2163,
+      "expectedFields": 11,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/linea",
+      "status": 200,
+      "h1s": [
+        "Fiat Linea"
+      ],
+      "textCharacters": 2488,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/linea-2007-2015",
+      "status": 200,
+      "h1s": [
+        "Fiat Linea"
+      ],
+      "textCharacters": 2617,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/linea-2007-2015/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Fiat Linea"
+      ],
+      "textCharacters": 3295,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/linea-2007-2015/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Fiat Linea"
+      ],
+      "textCharacters": 2396,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/linea-2007-2015/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Fiat Linea"
+      ],
+      "textCharacters": 1915,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/linea/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Fiat Linea"
+      ],
+      "textCharacters": 3165,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/linea/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Fiat Linea"
+      ],
+      "textCharacters": 2171,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/linea/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Fiat Linea"
+      ],
+      "textCharacters": 1785,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno"
+      ],
+      "textCharacters": 1797,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno-1995-2001",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno"
+      ],
+      "textCharacters": 2536,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno-1995-2001/1-4-70-s",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno 1.4 70 S (Karbüratörlü) (LPG - Manuel)"
+      ],
+      "textCharacters": 2070,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno-1995-2001/1-4-70-s-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno 1.4 70 S (Karbüratörlü) (LPG - Manuel)"
+      ],
+      "textCharacters": 2461,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno-1995-2001/1-4-70-sx-ie",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno 1.4 70 SX i.e. (Enjeksiyonlu) (LPG - Manuel)"
+      ],
+      "textCharacters": 2082,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno-1995-2001/1-4-70-sx-ie-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno 1.4 70 SX i.e. (Enjeksiyonlu) (LPG - Manuel)"
+      ],
+      "textCharacters": 2488,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno-1995-2001/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno"
+      ],
+      "textCharacters": 3202,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno-1995-2001/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno"
+      ],
+      "textCharacters": 2259,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno-1995-2001/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno"
+      ],
+      "textCharacters": 1795,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/fiat/uno/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Fiat Uno"
+      ],
+      "textCharacters": 1174,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford",
+      "status": 200,
+      "h1s": [
+        "Ford Araç DNA Analizi"
+      ],
+      "textCharacters": 546,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/escort",
+      "status": 200,
+      "h1s": [
+        "Ford Escort"
+      ],
+      "textCharacters": 1784,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/escort/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Ford Escort"
+      ],
+      "textCharacters": 1161,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017",
+      "status": 200,
+      "h1s": [
+        "Ford Fiesta 6. Nesil (2008-2017)"
+      ],
+      "textCharacters": 2757,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Ford Fiesta 6. Nesil (2008-2017)"
+      ],
+      "textCharacters": 3468,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Ford Fiesta 6. Nesil (2008-2017)"
+      ],
+      "textCharacters": 2485,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Ford Fiesta 6. Nesil (2008-2017)"
+      ],
+      "textCharacters": 2076,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/focus-3-35-2011-2018",
+      "status": 200,
+      "h1s": [
+        "Ford Focus 3 & 3.5"
+      ],
+      "textCharacters": 2625,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/focus-3-35-2011-2018/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Ford Focus 3 & 3.5"
+      ],
+      "textCharacters": 3355,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/focus-3-35-2011-2018/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Ford Focus 3 & 3.5"
+      ],
+      "textCharacters": 2415,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/focus-3-35-2011-2018/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Ford Focus 3 & 3.5"
+      ],
+      "textCharacters": 1934,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025",
+      "status": 200,
+      "h1s": [
+        "Ford Focus 4. Nesil Mk4"
+      ],
+      "textCharacters": 2543,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Ford Focus 4. Nesil Mk4"
+      ],
+      "textCharacters": 3681,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Ford Focus 4. Nesil Mk4"
+      ],
+      "textCharacters": 1971,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/taunus",
+      "status": 200,
+      "h1s": [
+        "Ford Taunus"
+      ],
+      "textCharacters": 1687,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/taunus/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Ford Taunus"
+      ],
+      "textCharacters": 1064,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023",
+      "status": 200,
+      "h1s": [
+        "Ford Tourneo Courier"
+      ],
+      "textCharacters": 2658,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Ford Tourneo Courier"
+      ],
+      "textCharacters": 3389,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Ford Tourneo Courier"
+      ],
+      "textCharacters": 2453,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Ford Tourneo Courier"
+      ],
+      "textCharacters": 1967,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda",
+      "status": 200,
+      "h1s": [
+        "Honda Araç DNA Analizi"
+      ],
+      "textCharacters": 628,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/city-7-nesil-gn-2021-2025",
+      "status": 200,
+      "h1s": [
+        "Honda City 7. Nesil GN"
+      ],
+      "textCharacters": 2233,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/city-7-nesil-gn-2021-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Honda City 7. Nesil GN"
+      ],
+      "textCharacters": 3554,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/city-7-nesil-gn-2021-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Honda City 7. Nesil GN"
+      ],
+      "textCharacters": 1545,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 10. Nesil (2016-2021)"
+      ],
+      "textCharacters": 2752,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 10. Nesil (2016-2021)"
+      ],
+      "textCharacters": 3458,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 10. Nesil (2016-2021)"
+      ],
+      "textCharacters": 2512,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 10. Nesil (2016-2021)"
+      ],
+      "textCharacters": 2070,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-11-nesil-fe1-2021-2025",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 11. Nesil FE1"
+      ],
+      "textCharacters": 2893,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-11-nesil-fe1-2021-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 11. Nesil FE1"
+      ],
+      "textCharacters": 3892,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-11-nesil-fe1-2021-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 11. Nesil FE1"
+      ],
+      "textCharacters": 2613,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-11-nesil-fe1-2021-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 11. Nesil FE1"
+      ],
+      "textCharacters": 2306,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 9. Nesil (2012-2016)"
+      ],
+      "textCharacters": 2741,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 9. Nesil (2012-2016)"
+      ],
+      "textCharacters": 3466,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 9. Nesil (2012-2016)"
+      ],
+      "textCharacters": 2508,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Honda Civic 9. Nesil (2012-2016)"
+      ],
+      "textCharacters": 2060,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-fd6",
+      "status": 200,
+      "h1s": [
+        "Honda Civic FD6"
+      ],
+      "textCharacters": 2458,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-fd6-2006-2012",
+      "status": 200,
+      "h1s": [
+        "Honda Civic FD6"
+      ],
+      "textCharacters": 2604,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-fd6-2006-2012/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Honda Civic FD6"
+      ],
+      "textCharacters": 3285,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-fd6-2006-2012/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Honda Civic FD6"
+      ],
+      "textCharacters": 2372,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-fd6-2006-2012/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Honda Civic FD6"
+      ],
+      "textCharacters": 1913,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-fd6/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Honda Civic FD6"
+      ],
+      "textCharacters": 3176,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-fd6/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Honda Civic FD6"
+      ],
+      "textCharacters": 2151,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/honda/civic-fd6/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Honda Civic FD6"
+      ],
+      "textCharacters": 1766,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai",
+      "status": 200,
+      "h1s": [
+        "Hyundai Araç DNA Analizi"
+      ],
+      "textCharacters": 909,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-era-2006-2012",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent Era"
+      ],
+      "textCharacters": 2779,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-era-2006-2012/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent Era"
+      ],
+      "textCharacters": 3422,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-era-2006-2012/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent Era"
+      ],
+      "textCharacters": 2486,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-era-2006-2012/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent Era"
+      ],
+      "textCharacters": 2079,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent (1995-2000)"
+      ],
+      "textCharacters": 2675,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent (1995-2000) 1.5 GLS 92 HP (LPG - Manuel / Otomatik)"
+      ],
+      "textCharacters": 2266,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent (1995-2000) 1.5 GLS 92 HP (LPG - Manuel / Otomatik)"
+      ],
+      "textCharacters": 2602,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent (1995-2000)"
+      ],
+      "textCharacters": 3445,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent (1995-2000)"
+      ],
+      "textCharacters": 2426,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Hyundai Accent (1995-2000)"
+      ],
+      "textCharacters": 2000,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 2. Nesil GB"
+      ],
+      "textCharacters": 3141,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 2. Nesil GB"
+      ],
+      "textCharacters": 3959,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 2. Nesil GB"
+      ],
+      "textCharacters": 3121,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 2. Nesil GB"
+      ],
+      "textCharacters": 2421,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-3-nesil-2020-gunumuz",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 3. Nesil"
+      ],
+      "textCharacters": 3175,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/kullanici-deneyimleri",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 3. Nesil"
+      ],
+      "textCharacters": 2472,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 3. Nesil"
+      ],
+      "textCharacters": 2566,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 3. Nesil BC3"
+      ],
+      "textCharacters": 3012,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 3. Nesil BC3"
+      ],
+      "textCharacters": 3986,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 3. Nesil BC3"
+      ],
+      "textCharacters": 3059,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Hyundai i20 3. Nesil BC3"
+      ],
+      "textCharacters": 2423,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017",
+      "status": 200,
+      "h1s": [
+        "Hyundai i30 2. Nesil GD"
+      ],
+      "textCharacters": 3802,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Hyundai i30 2. Nesil GD"
+      ],
+      "textCharacters": 4360,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Hyundai i30 2. Nesil GD"
+      ],
+      "textCharacters": 3907,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Hyundai i30 2. Nesil GD"
+      ],
+      "textCharacters": 3081,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson 3. Nesil"
+      ],
+      "textCharacters": 2802,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson 3. Nesil"
+      ],
+      "textCharacters": 3471,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson 3. Nesil"
+      ],
+      "textCharacters": 2526,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson 3. Nesil"
+      ],
+      "textCharacters": 2112,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson 4. Nesil"
+      ],
+      "textCharacters": 3346,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/kullanici-deneyimleri",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson 4. Nesil"
+      ],
+      "textCharacters": 2623,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson 4. Nesil"
+      ],
+      "textCharacters": 2753,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson NX4 4. Nesil"
+      ],
+      "textCharacters": 2803,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson NX4 4. Nesil"
+      ],
+      "textCharacters": 3863,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson NX4 4. Nesil"
+      ],
+      "textCharacters": 2508,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Hyundai Tucson NX4 4. Nesil"
+      ],
+      "textCharacters": 2155,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/kia",
+      "status": 200,
+      "h1s": [
+        "Kia Araç DNA Analizi"
+      ],
+      "textCharacters": 335,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/kia/rio-4-nesil-2017-2023",
+      "status": 200,
+      "h1s": [
+        "Kia Rio 4. Nesil"
+      ],
+      "textCharacters": 3000,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/kia/rio-4-nesil-2017-2023/kullanici-deneyimleri",
+      "status": 200,
+      "h1s": [
+        "Kia Rio 4. Nesil"
+      ],
+      "textCharacters": 2441,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/kia/rio-4-nesil-2017-2023/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Kia Rio 4. Nesil"
+      ],
+      "textCharacters": 2390,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025",
+      "status": 200,
+      "h1s": [
+        "Kia Sportage NQ5 5. Nesil"
+      ],
+      "textCharacters": 2725,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Kia Sportage NQ5 5. Nesil"
+      ],
+      "textCharacters": 3813,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Kia Sportage NQ5 5. Nesil"
+      ],
+      "textCharacters": 2435,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Kia Sportage NQ5 5. Nesil"
+      ],
+      "textCharacters": 2052,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/lada",
+      "status": 200,
+      "h1s": [
+        "Lada Araç DNA Analizi"
+      ],
+      "textCharacters": 261,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/lada/samara",
+      "status": 200,
+      "h1s": [
+        "Lada Samara"
+      ],
+      "textCharacters": 1761,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/lada/samara-1990-2004",
+      "status": 200,
+      "h1s": [
+        "Lada Samara"
+      ],
+      "textCharacters": 2496,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/lada/samara-1990-2004/1-5-karburatorlu-72-hp",
+      "status": 200,
+      "h1s": [
+        "Lada Samara 1.5 Karbüratörlü 72 HP (LPG - Manuel)"
+      ],
+      "textCharacters": 2100,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/lada/samara-1990-2004/1-5-karburatorlu-72-hp-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Lada Samara 1.5 Karbüratörlü 72 HP (LPG - Manuel)"
+      ],
+      "textCharacters": 2420,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/lada/samara-1990-2004/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Lada Samara"
+      ],
+      "textCharacters": 2224,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/lada/samara-1990-2004/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Lada Samara"
+      ],
+      "textCharacters": 1827,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/lada/samara/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Lada Samara"
+      ],
+      "textCharacters": 1138,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan",
+      "status": 200,
+      "h1s": [
+        "Nissan Araç DNA Analizi"
+      ],
+      "textCharacters": 326,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai 2. Nesil (2014-2021)"
+      ],
+      "textCharacters": 2759,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/1-2-dig-t-115-hp",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai 2. Nesil (2014-2021) 1.2 DIG-T 115 HP (Benzin - X-Tronic)"
+      ],
+      "textCharacters": 2358,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/1-2-dig-t-115-hp-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai 2. Nesil (2014-2021) 1.2 DIG-T 115 HP (Benzin - X-Tronic)"
+      ],
+      "textCharacters": 2627,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai 2. Nesil (2014-2021)"
+      ],
+      "textCharacters": 3509,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai 2. Nesil (2014-2021)"
+      ],
+      "textCharacters": 2480,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai 2. Nesil (2014-2021)"
+      ],
+      "textCharacters": 2093,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai J12"
+      ],
+      "textCharacters": 2578,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai J12"
+      ],
+      "textCharacters": 3677,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai J12"
+      ],
+      "textCharacters": 2355,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Nissan Qashqai J12"
+      ],
+      "textCharacters": 1929,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel",
+      "status": 200,
+      "h1s": [
+        "Opel Araç DNA Analizi"
+      ],
+      "textCharacters": 364,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015",
+      "status": 200,
+      "h1s": [
+        "Opel Astra J Kasa"
+      ],
+      "textCharacters": 2847,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Opel Astra J Kasa"
+      ],
+      "textCharacters": 3468,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Opel Astra J Kasa"
+      ],
+      "textCharacters": 2883,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Opel Astra J Kasa"
+      ],
+      "textCharacters": 2150,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/corsa-f-2020-2025",
+      "status": 200,
+      "h1s": [
+        "Opel Corsa F"
+      ],
+      "textCharacters": 2441,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/corsa-f-2020-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Opel Corsa F"
+      ],
+      "textCharacters": 3545,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/corsa-f-2020-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Opel Corsa F"
+      ],
+      "textCharacters": 1815,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/vectra-b",
+      "status": 200,
+      "h1s": [
+        "Opel Vectra B"
+      ],
+      "textCharacters": 2518,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/vectra-b/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Opel Vectra B"
+      ],
+      "textCharacters": 3214,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/vectra-b/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Opel Vectra B"
+      ],
+      "textCharacters": 2203,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/opel/vectra-b/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Opel Vectra B"
+      ],
+      "textCharacters": 1820,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot",
+      "status": 200,
+      "h1s": [
+        "Peugeot Araç DNA Analizi"
+      ],
+      "textCharacters": 614,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025",
+      "status": 200,
+      "h1s": [
+        "Peugeot 2008 2. Nesil P24"
+      ],
+      "textCharacters": 2613,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Peugeot 2008 2. Nesil P24"
+      ],
+      "textCharacters": 3723,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Peugeot 2008 2. Nesil P24"
+      ],
+      "textCharacters": 2339,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Peugeot 2008 2. Nesil P24"
+      ],
+      "textCharacters": 1986,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/206",
+      "status": 200,
+      "h1s": [
+        "Peugeot 206"
+      ],
+      "textCharacters": 2407,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/206/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Peugeot 206"
+      ],
+      "textCharacters": 3153,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/206/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Peugeot 206"
+      ],
+      "textCharacters": 2206,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/206/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Peugeot 206"
+      ],
+      "textCharacters": 1716,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025",
+      "status": 200,
+      "h1s": [
+        "Peugeot 208 2. Nesil"
+      ],
+      "textCharacters": 2750,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Peugeot 208 2. Nesil"
+      ],
+      "textCharacters": 3381,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Peugeot 208 2. Nesil"
+      ],
+      "textCharacters": 2384,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Peugeot 208 2. Nesil"
+      ],
+      "textCharacters": 2071,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/3008-1-nesil-2009-2016",
+      "status": 200,
+      "h1s": [
+        "Peugeot 3008"
+      ],
+      "textCharacters": 2460,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/3008-1-nesil-2009-2016/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Peugeot 3008"
+      ],
+      "textCharacters": 3621,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/3008-1-nesil-2009-2016/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Peugeot 3008"
+      ],
+      "textCharacters": 1779,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/3008-2-nesil-2016-2023",
+      "status": 200,
+      "h1s": [
+        "Peugeot 3008"
+      ],
+      "textCharacters": 2484,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/3008-2-nesil-2016-2023/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Peugeot 3008"
+      ],
+      "textCharacters": 3628,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/peugeot/3008-2-nesil-2016-2023/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Peugeot 3008"
+      ],
+      "textCharacters": 1804,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault",
+      "status": 200,
+      "h1s": [
+        "Renault Araç DNA Analizi"
+      ],
+      "textCharacters": 1225,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/11-flash-rainbow",
+      "status": 200,
+      "h1s": [
+        "Renault 11"
+      ],
+      "textCharacters": 2248,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/11-flash-rainbow/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault 11"
+      ],
+      "textCharacters": 1573,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/9-spring-broadway",
+      "status": 200,
+      "h1s": [
+        "Renault 9"
+      ],
+      "textCharacters": 2190,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/9-spring-broadway/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault 9"
+      ],
+      "textCharacters": 1516,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-1-nesil-1990-1998",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 1. Nesil"
+      ],
+      "textCharacters": 2883,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-1-nesil-1990-1998/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 1. Nesil"
+      ],
+      "textCharacters": 2973,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-1-nesil-1990-1998/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 1. Nesil"
+      ],
+      "textCharacters": 2272,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-2-nesil-1998-2012",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 2. Nesil"
+      ],
+      "textCharacters": 2997,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-2-nesil-1998-2012/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 2. Nesil"
+      ],
+      "textCharacters": 3260,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-2-nesil-1998-2012/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 2. Nesil"
+      ],
+      "textCharacters": 2461,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 4. Nesil"
+      ],
+      "textCharacters": 3797,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 4. Nesil"
+      ],
+      "textCharacters": 4286,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 4. Nesil"
+      ],
+      "textCharacters": 3818,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 4. Nesil"
+      ],
+      "textCharacters": 3165,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 5. Nesil"
+      ],
+      "textCharacters": 4131,
+      "expectedFields": 10,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/10-tce-90-hp-benzin-manuel-x-tronic",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 5. Nesil 1.0 TCe 90 HP (Benzin - Manuel / X-Tronic)"
+      ],
+      "textCharacters": 3373,
+      "expectedFields": 1,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 5. Nesil 1.3 TCe 140 HP (Benzin - EDC)"
+      ],
+      "textCharacters": 3750,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 5. Nesil 1.3 TCe 140 HP (Benzin - EDC)"
+      ],
+      "textCharacters": 2055,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 5. Nesil 1.3 TCe 140 HP (Benzin - EDC)"
+      ],
+      "textCharacters": 3006,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 5. Nesil"
+      ],
+      "textCharacters": 3796,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 5. Nesil"
+      ],
+      "textCharacters": 2429,
+      "expectedFields": 4,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/kullanici-deneyimleri",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 5. Nesil"
+      ],
+      "textCharacters": 2282,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Clio 5. Nesil"
+      ],
+      "textCharacters": 2223,
+      "expectedFields": 11,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil"
+      ],
+      "textCharacters": 4807,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil Eco-G 120 HP (LPG - Manuel / Otomatik)"
+      ],
+      "textCharacters": 3483,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil Eco-G 120 HP (LPG - Manuel / Otomatik)"
+      ],
+      "textCharacters": 1967,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil Full Hybrid E-Tech 160 HP (Hibrit - Otomatik multimodal)"
+      ],
+      "textCharacters": 3587,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil Full Hybrid E-Tech 160 HP (Hibrit - Otomatik multimodal)"
+      ],
+      "textCharacters": 2028,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/hybrid-4x4-150-hp",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil Hybrid 4x4 150 HP (Hibrit - 6 ileri çift kavramalı otomatik)"
+      ],
+      "textCharacters": 3501,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/hybrid-4x4-150-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil Hybrid 4x4 150 HP (Hibrit - 6 ileri çift kavramalı otomatik)"
+      ],
+      "textCharacters": 1953,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil"
+      ],
+      "textCharacters": 2340,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/turbo-tce-edc-145-hp",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil Turbo TCe EDC 145 HP (Benzin - 7 ileri EDC otomatik)"
+      ],
+      "textCharacters": 3544,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/turbo-tce-edc-145-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "h1s": [
+        "Renault Duster 3. Nesil Turbo TCe EDC 145 HP (Benzin - 7 ileri EDC otomatik)"
+      ],
+      "textCharacters": 1982,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/megane-2-2002-2008",
+      "status": 200,
+      "h1s": [
+        "Renault Megane 2"
+      ],
+      "textCharacters": 2825,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/megane-2-2002-2008/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Renault Megane 2"
+      ],
+      "textCharacters": 3460,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/megane-2-2002-2008/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault Megane 2"
+      ],
+      "textCharacters": 2782,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/megane-2-2002-2008/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Megane 2"
+      ],
+      "textCharacters": 2128,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/megane-4-nesil-2016-2025",
+      "status": 200,
+      "h1s": [
+        "Renault Megane 4. Nesil"
+      ],
+      "textCharacters": 3683,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/megane-4-nesil-2016-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Renault Megane 4. Nesil"
+      ],
+      "textCharacters": 3759,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/megane-4-nesil-2016-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Megane 4. Nesil"
+      ],
+      "textCharacters": 2123,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/r9-broadway-1985-2000",
+      "status": 200,
+      "h1s": [
+        "Renault R9 Broadway"
+      ],
+      "textCharacters": 2524,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/1-4-broadway-72-hp",
+      "status": 200,
+      "h1s": [
+        "Renault R9 Broadway 1.4 Broadway 72 HP (LPG - Manuel)"
+      ],
+      "textCharacters": 2082,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/1-4-broadway-72-hp-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Renault R9 Broadway 1.4 Broadway 72 HP (LPG - Manuel)"
+      ],
+      "textCharacters": 2388,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/1-6-fairway-80-hp",
+      "status": 200,
+      "h1s": [
+        "Renault R9 Broadway 1.6 Fairway 80 HP (LPG - Manuel)"
+      ],
+      "textCharacters": 2080,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/1-6-fairway-80-hp-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Renault R9 Broadway 1.6 Fairway 80 HP (LPG - Manuel)"
+      ],
+      "textCharacters": 2388,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Renault R9 Broadway"
+      ],
+      "textCharacters": 3246,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault R9 Broadway"
+      ],
+      "textCharacters": 2208,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault R9 Broadway"
+      ],
+      "textCharacters": 1817,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-10-sce",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol 1.0 SCe"
+      ],
+      "textCharacters": 2641,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-10-sce/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol 1.0 SCe"
+      ],
+      "textCharacters": 2459,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-10-sce/kullanici-deneyimleri",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol 1.0 SCe"
+      ],
+      "textCharacters": 2181,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-10-sce/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol 1.0 SCe"
+      ],
+      "textCharacters": 2066,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-2013-2021",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol"
+      ],
+      "textCharacters": 2722,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-2013-2021/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol"
+      ],
+      "textCharacters": 3365,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-2013-2021/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol"
+      ],
+      "textCharacters": 2376,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-2013-2021/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol"
+      ],
+      "textCharacters": 2025,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol / Clio Symbol"
+      ],
+      "textCharacters": 3052,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol / Clio Symbol"
+      ],
+      "textCharacters": 3628,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol / Clio Symbol"
+      ],
+      "textCharacters": 3060,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Symbol / Clio Symbol"
+      ],
+      "textCharacters": 2587,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/toros-r12-1989-2000",
+      "status": 200,
+      "h1s": [
+        "Renault Toros (1989-2000)"
+      ],
+      "textCharacters": 2659,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/toros-r12-1989-2000/1-4-benzinli-72-hp",
+      "status": 200,
+      "h1s": [
+        "Renault Toros (1989-2000) 1.4 Benzinli 72 HP (LPG - Manuel (4/5 İleri))"
+      ],
+      "textCharacters": 2217,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/toros-r12-1989-2000/1-4-benzinli-72-hp-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Renault Toros (1989-2000) 1.4 Benzinli 72 HP (LPG - Manuel (4/5 İleri))"
+      ],
+      "textCharacters": 2497,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/toros-r12-1989-2000/1-4-tx-72-hp",
+      "status": 200,
+      "h1s": [
+        "Renault Toros (1989-2000) 1.4 TX 72 HP (LPG - Manuel (5 İleri))"
+      ],
+      "textCharacters": 2203,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/toros-r12-1989-2000/1-4-tx-72-hp-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Renault Toros (1989-2000) 1.4 TX 72 HP (LPG - Manuel (5 İleri))"
+      ],
+      "textCharacters": 2478,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/toros-r12-1989-2000/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Renault Toros (1989-2000)"
+      ],
+      "textCharacters": 3310,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/toros-r12-1989-2000/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Renault Toros (1989-2000)"
+      ],
+      "textCharacters": 2311,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/renault/toros-r12-1989-2000/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Renault Toros (1989-2000)"
+      ],
+      "textCharacters": 1940,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/seat",
+      "status": 200,
+      "h1s": [
+        "Seat Araç DNA Analizi"
+      ],
+      "textCharacters": 250,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025",
+      "status": 200,
+      "h1s": [
+        "Seat Leon KL 4. Nesil"
+      ],
+      "textCharacters": 2625,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Seat Leon KL 4. Nesil"
+      ],
+      "textCharacters": 3720,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Seat Leon KL 4. Nesil"
+      ],
+      "textCharacters": 2381,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Seat Leon KL 4. Nesil"
+      ],
+      "textCharacters": 1970,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda",
+      "status": 200,
+      "h1s": [
+        "Skoda Araç DNA Analizi"
+      ],
+      "textCharacters": 472,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/favorit-forman",
+      "status": 200,
+      "h1s": [
+        "Skoda Favorit / Forman"
+      ],
+      "textCharacters": 2151,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/favorit-forman/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Skoda Favorit / Forman"
+      ],
+      "textCharacters": 1479,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020",
+      "status": 200,
+      "h1s": [
+        "Skoda Octavia A7"
+      ],
+      "textCharacters": 2704,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Skoda Octavia A7"
+      ],
+      "textCharacters": 3379,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Skoda Octavia A7"
+      ],
+      "textCharacters": 2457,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Skoda Octavia A7"
+      ],
+      "textCharacters": 2006,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025",
+      "status": 200,
+      "h1s": [
+        "Skoda Octavia NX 4. Nesil"
+      ],
+      "textCharacters": 2689,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Skoda Octavia NX 4. Nesil"
+      ],
+      "textCharacters": 3792,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Skoda Octavia NX 4. Nesil"
+      ],
+      "textCharacters": 2435,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Skoda Octavia NX 4. Nesil"
+      ],
+      "textCharacters": 2033,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023",
+      "status": 200,
+      "h1s": [
+        "Skoda Superb B8 3. Nesil"
+      ],
+      "textCharacters": 2639,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Skoda Superb B8 3. Nesil"
+      ],
+      "textCharacters": 3756,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Skoda Superb B8 3. Nesil"
+      ],
+      "textCharacters": 2368,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Skoda Superb B8 3. Nesil"
+      ],
+      "textCharacters": 1988,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla",
+      "status": 200,
+      "h1s": [
+        "Tesla Araç DNA Analizi"
+      ],
+      "textCharacters": 252,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil"
+      ],
+      "textCharacters": 2873,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil"
+      ],
+      "textCharacters": 3838,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil"
+      ],
+      "textCharacters": 2801,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/long-range-dual-motor-elektrik-tek-vites",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil Long Range Dual Motor (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 2424,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/long-range-dual-motor-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil Long Range Dual Motor (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 2932,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil"
+      ],
+      "textCharacters": 2272,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil Performance (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 2404,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil Performance (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 2894,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/rwd-elektrik-tek-vites",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil RWD (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 2388,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/rwd-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Tesla Model Y 1. Nesil RWD (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 3033,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas",
+      "status": 200,
+      "h1s": [
+        "Tofaş Araç DNA Analizi"
+      ],
+      "textCharacters": 814,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/dogan",
+      "status": 200,
+      "h1s": [
+        "Tofaş Doğan"
+      ],
+      "textCharacters": 2022,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/dogan-1988-2002",
+      "status": 200,
+      "h1s": [
+        "Tofaş Doğan"
+      ],
+      "textCharacters": 2567,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/dogan-1988-2002/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Tofaş Doğan"
+      ],
+      "textCharacters": 3289,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/dogan-1988-2002/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Tofaş Doğan"
+      ],
+      "textCharacters": 2372,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/dogan-1988-2002/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tofaş Doğan"
+      ],
+      "textCharacters": 1912,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/dogan/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tofaş Doğan"
+      ],
+      "textCharacters": 1365,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/kartal-1988-2002",
+      "status": 200,
+      "h1s": [
+        "Tofaş Kartal"
+      ],
+      "textCharacters": 2628,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/kartal-1988-2002/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Tofaş Kartal"
+      ],
+      "textCharacters": 3286,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/kartal-1988-2002/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Tofaş Kartal"
+      ],
+      "textCharacters": 2340,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/kartal-1988-2002/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tofaş Kartal"
+      ],
+      "textCharacters": 1922,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/murat-131",
+      "status": 200,
+      "h1s": [
+        "Tofaş Murat 131"
+      ],
+      "textCharacters": 2347,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/murat-131-124",
+      "status": 200,
+      "h1s": [
+        "Tofaş Murat 131 / 124"
+      ],
+      "textCharacters": 2138,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/murat-131-124/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tofaş Murat 131 / 124"
+      ],
+      "textCharacters": 1479,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/murat-131/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tofaş Murat 131"
+      ],
+      "textCharacters": 1682,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/sahin-1988-2002",
+      "status": 200,
+      "h1s": [
+        "Tofaş Şahin"
+      ],
+      "textCharacters": 2594,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/sahin-1988-2002/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Tofaş Şahin"
+      ],
+      "textCharacters": 3311,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/sahin-1988-2002/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Tofaş Şahin"
+      ],
+      "textCharacters": 2772,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/sahin-1988-2002/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tofaş Şahin"
+      ],
+      "textCharacters": 1954,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002",
+      "status": 200,
+      "h1s": [
+        "Tofaş Şahin / Doğan"
+      ],
+      "textCharacters": 2996,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Tofaş Şahin / Doğan"
+      ],
+      "textCharacters": 3492,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Tofaş Şahin / Doğan"
+      ],
+      "textCharacters": 2688,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tofaş Şahin / Doğan"
+      ],
+      "textCharacters": 2276,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/serce-1984-1994",
+      "status": 200,
+      "h1s": [
+        "Tofaş Serçe"
+      ],
+      "textCharacters": 2442,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/serce-1984-1994/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Tofaş Serçe"
+      ],
+      "textCharacters": 3199,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/serce-1984-1994/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tofaş Serçe"
+      ],
+      "textCharacters": 1770,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/serce-murat-131-1977-1994",
+      "status": 200,
+      "h1s": [
+        "Tofaş Serçe / Murat 131"
+      ],
+      "textCharacters": 2550,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/serce-murat-131-1977-1994/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Tofaş Serçe / Murat 131"
+      ],
+      "textCharacters": 2305,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/tofas/serce-murat-131-1977-1994/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Tofaş Serçe / Murat 131"
+      ],
+      "textCharacters": 1858,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/togg",
+      "status": 200,
+      "h1s": [
+        "Togg Araç DNA Analizi"
+      ],
+      "textCharacters": 247,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025",
+      "status": 200,
+      "h1s": [
+        "Togg T10X 1. Nesil"
+      ],
+      "textCharacters": 3626,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Togg T10X 1. Nesil"
+      ],
+      "textCharacters": 3697,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Togg T10X 1. Nesil"
+      ],
+      "textCharacters": 2424,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Togg T10X 1. Nesil"
+      ],
+      "textCharacters": 2042,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/v1-standart-menzil-elektrik-tek-vites",
+      "status": 200,
+      "h1s": [
+        "Togg T10X 1. Nesil V1 Standart Menzil (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 3197,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/v1-standart-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Togg T10X 1. Nesil V1 Standart Menzil (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 2750,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites",
+      "status": 200,
+      "h1s": [
+        "Togg T10X 1. Nesil V2 Uzun Menzil (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 3189,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Togg T10X 1. Nesil V2 Uzun Menzil (Elektrik - Tek Vites)"
+      ],
+      "textCharacters": 2572,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota",
+      "status": 200,
+      "h1s": [
+        "Toyota Araç DNA Analizi"
+      ],
+      "textCharacters": 419,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla 12. Nesil"
+      ],
+      "textCharacters": 3791,
+      "expectedFields": 10,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla 12. Nesil"
+      ],
+      "textCharacters": 3860,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla 12. Nesil"
+      ],
+      "textCharacters": 2928,
+      "expectedFields": 8,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla 12. Nesil"
+      ],
+      "textCharacters": 2248,
+      "expectedFields": 11,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla AE101 (1993-1998)"
+      ],
+      "textCharacters": 2821,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/1-6-gli-114-hp",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla AE101 (1993-1998) 1.6 GLi 114 HP (Efsane Motor) (Benzin - Manuel / Otomatik)"
+      ],
+      "textCharacters": 2417,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/1-6-gli-114-hp-kronik-sorunlari",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla AE101 (1993-1998) 1.6 GLi 114 HP (Efsane Motor) (Benzin - Manuel / Otomatik)"
+      ],
+      "textCharacters": 2660,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla AE101 (1993-1998)"
+      ],
+      "textCharacters": 3527,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla AE101 (1993-1998)"
+      ],
+      "textCharacters": 2444,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla AE101 (1993-1998)"
+      ],
+      "textCharacters": 2111,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla E140/E150"
+      ],
+      "textCharacters": 2741,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla E140/E150"
+      ],
+      "textCharacters": 3440,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla E140/E150"
+      ],
+      "textCharacters": 2454,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Toyota Corolla E140/E150"
+      ],
+      "textCharacters": 2030,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Araç DNA Analizi"
+      ],
+      "textCharacters": 640,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Golf 7"
+      ],
+      "textCharacters": 2716,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Golf 7"
+      ],
+      "textCharacters": 3375,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Golf 7"
+      ],
+      "textCharacters": 2521,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Golf 7"
+      ],
+      "textCharacters": 2018,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/golf-8-nesil-2020-2025",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Golf 8. Nesil"
+      ],
+      "textCharacters": 2630,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/golf-8-nesil-2020-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Golf 8. Nesil"
+      ],
+      "textCharacters": 3746,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/golf-8-nesil-2020-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Golf 8. Nesil"
+      ],
+      "textCharacters": 2000,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/passat-b8-2015-2023",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Passat B8"
+      ],
+      "textCharacters": 2633,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/passat-b8-2015-2023/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Passat B8"
+      ],
+      "textCharacters": 3709,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/passat-b8-2015-2023/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Passat B8"
+      ],
+      "textCharacters": 2080,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Polo 5. Nesil (2009-2017)"
+      ],
+      "textCharacters": 2830,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Polo 5. Nesil (2009-2017)"
+      ],
+      "textCharacters": 3552,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Polo 5. Nesil (2009-2017)"
+      ],
+      "textCharacters": 2577,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Polo 5. Nesil (2009-2017)"
+      ],
+      "textCharacters": 2142,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Polo AW 6. Nesil"
+      ],
+      "textCharacters": 2751,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/arac-paketleri",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Polo AW 6. Nesil"
+      ],
+      "textCharacters": 3815,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/kronik-sorunlar",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Polo AW 6. Nesil"
+      ],
+      "textCharacters": 2395,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/neden-alinir",
+      "status": 200,
+      "h1s": [
+        "Volkswagen Polo AW 6. Nesil"
+      ],
+      "textCharacters": 2120,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/cerez-politikasi",
+      "status": 200,
+      "h1s": [
+        "Çerez politikası"
+      ],
+      "textCharacters": 2644,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/etkinlikler",
+      "status": 200,
+      "h1s": [
+        "Etkinlikler"
+      ],
+      "textCharacters": 7627,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum",
+      "status": 200,
+      "h1s": [
+        "OtoSöz Forum — Otomobil Soru ve Tartışmaları"
+      ],
+      "textCharacters": 6313,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "status": 200,
+      "h1s": [
+        "D Segmentinde Gizli Patron: Yok Yok Dedirten Kia Optima"
+      ],
+      "textCharacters": 2880,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "status": 200,
+      "h1s": [
+        "En çok kronik sorunu olan araçlar"
+      ],
+      "textCharacters": 2863,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "status": 200,
+      "h1s": [
+        "en sorunsuz otomobil markası"
+      ],
+      "textCharacters": 2508,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "status": 200,
+      "h1s": [
+        "Fiat Egea aracımda kalkışta ve rölantide aşırı titreme var, vites topuzu sallanıyor. Neden olabilir?"
+      ],
+      "textCharacters": 2445,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "status": 200,
+      "h1s": [
+        "fiat egea'nın bitmek bilmeyen kronik sorunları"
+      ],
+      "textCharacters": 2709,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/hyundai-i20-14-mpi--85879525",
+      "status": 200,
+      "h1s": [
+        "hyundai i20 1.4 mpi"
+      ],
+      "textCharacters": 1994,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "status": 200,
+      "h1s": [
+        "İ20'de siyah duman atma sorunu!"
+      ],
+      "textCharacters": 1873,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "status": 200,
+      "h1s": [
+        "Karavan Masrafından Kurtaran Aile Gemisi: Peugeot 5008"
+      ],
+      "textCharacters": 3397,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/kategori/deneyim-inceleme",
+      "status": 200,
+      "h1s": [
+        "Deneyim & İnceleme — Forum Başlıkları"
+      ],
+      "textCharacters": 3843,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "status": 200,
+      "h1s": [
+        "LPG'li aracım çok yakıyor ve çekişi düştü. Ne yapmalıyım?"
+      ],
+      "textCharacters": 2729,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "status": 200,
+      "h1s": [
+        "müşteri 2 tampon boyalı diye araç iade istedi"
+      ],
+      "textCharacters": 1824,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "status": 200,
+      "h1s": [
+        "sanayi ustasının en sorunsuz araba tavsiyeleri"
+      ],
+      "textCharacters": 1925,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "status": 200,
+      "h1s": [
+        "Triger kayışını ne zaman değiştirmeliyim? Geciktirirsem ne olur?"
+      ],
+      "textCharacters": 2396,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "status": 200,
+      "h1s": [
+        "Uygun Fiyatlı İtalyan Yakışıklısı: Grande Punto Alınır mı?"
+      ],
+      "textCharacters": 2698,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/gizlilik-politikasi",
+      "status": 200,
+      "h1s": [
+        "Gizlilik Politikası"
+      ],
+      "textCharacters": 9293,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/guvenmetre",
+      "status": 200,
+      "h1s": [
+        "GüvenMetre"
+      ],
+      "textCharacters": 1173,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler",
+      "status": 200,
+      "h1s": [
+        "OtoSöz Haberler"
+      ],
+      "textCharacters": 4158,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/2027-f1-yaris-takvimi-aciklandi",
+      "status": 200,
+      "h1s": [
+        "Resmileşti! 2027 Formula 1 Yarış Takvimi Açıklandı: Türkiye 19 Eylül'de Sahneye Çıkıyor"
+      ],
+      "textCharacters": 3378,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/avrupa-elektrikli-otomobil-payi-2026-yuzde-20-7",
+      "status": 200,
+      "h1s": [
+        "AB’de Elektrikli Otomobil Payı Yüzde 20,7’ye Çıktı"
+      ],
+      "textCharacters": 1706,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/bmw-iki-milyonuncu-elektrikli-otomobil-teslimati",
+      "status": 200,
+      "h1s": [
+        "BMW, 2 Milyonuncu Tam Elektrikli Otomobilini Teslim Etti"
+      ],
+      "textCharacters": 1776,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/epdk-temmuz-2026-sarj-agi-raporu",
+      "status": 200,
+      "h1s": [
+        "EPDK, Temmuz 2026 Şarj Ağı Raporunu Yayımladı"
+      ],
+      "textCharacters": 1811,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/euroncap-2026-elektrikli-otomobil-testleri",
+      "status": 200,
+      "h1s": [
+        "Euro NCAP’in 2026 Testleri Açıklandı: Üç Çinli Elektrikli 5 Yıldız Aldı"
+      ],
+      "textCharacters": 1920,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/fia-2026-f1-motor-gelistirme-haklari-aduo",
+      "status": 200,
+      "h1s": [
+        "FIA’dan 2026 Motor Gücü Dengesi Kararı: Dört Üreticiye Ek Geliştirme Hakkı"
+      ],
+      "textCharacters": 1784,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/formula-1-2027-istanbul-park-anlasma",
+      "status": 200,
+      "h1s": [
+        "Formula 1, 2027'den İtibaren İstanbul Park'a Geri Dönüyor: 5 Yıllık Dev Anlaşma İmzalandı"
+      ],
+      "textCharacters": 4567,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/iea-2026-elektrikli-otomobil-pazari-enerji-krizi",
+      "status": 200,
+      "h1s": [
+        "IEA: Elektrikli Otomobil Pazarı Enerji Krizinin Merkezinde"
+      ],
+      "textCharacters": 1911,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/otomotiv-uretimi-ocak-temmuz-2026-yuzde-8-geriledi",
+      "status": 200,
+      "h1s": [
+        "Türkiye’de Otomotiv Üretimi İlk 7 Ayda Yüzde 8 Geriledi"
+      ],
+      "textCharacters": 1653,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/temmuz-2026-trafige-kayitli-tasit-sayisi",
+      "status": 200,
+      "h1s": [
+        "Temmuzda 207 Bin 508 Taşıt Trafiğe Kaydoldu"
+      ],
+      "textCharacters": 1645,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/togg-t10x-2026-truos-guncellemesi",
+      "status": 200,
+      "h1s": [
+        "Togg T10X’in 2026 TruOS Güncellemesi Neler Getirdi?"
+      ],
+      "textCharacters": 1665,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/turkiye-otomotiv-pazari-agustos-2026-81-bin",
+      "status": 200,
+      "h1s": [
+        "Türkiye Otomotiv Pazarı Ağustos 2026’da 81 Bin Adette Kaldı"
+      ],
+      "textCharacters": 1688,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/haberler/yuzde-40-ve-uzeri-raporla-otvsiz-alinabilecek-araclar",
+      "status": 200,
+      "h1s": [
+        "Yüzde 40 ve üzeri raporla ÖTV’siz alınabilecek… Engelliye araçta yeni dönem"
+      ],
+      "textCharacters": 3034,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/hakkimizda",
+      "status": 200,
+      "h1s": [
+        "Arabanla ilgili karar vermeden önce OtoSöz'e sor."
+      ],
+      "textCharacters": 3099,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/iletisim",
+      "status": 200,
+      "h1s": [
+        "Bize Ulaşın"
+      ],
+      "textCharacters": 211,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/karsilastirma",
+      "status": 200,
+      "h1s": [
+        "Araç Karşılaştırma"
+      ],
+      "textCharacters": 986,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kullanim-sartlari",
+      "status": 200,
+      "h1s": [
+        "Kullanım Şartları"
+      ],
+      "textCharacters": 9372,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane",
+      "status": 200,
+      "h1s": [
+        "Oto Kütüphane: Otomotiv Bilgi ve Rehber Merkezi"
+      ],
+      "textCharacters": 4008,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=arac-segmentleri",
+      "status": 200,
+      "h1s": [
+        "Araç Kasa Tipleri ve Segmentler (A,B,C,D)"
+      ],
+      "textCharacters": 3190,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=bakim-zamanlari",
+      "status": 200,
+      "h1s": [
+        "Araç Bakım Zamanları ve Periyotları"
+      ],
+      "textCharacters": 1609,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=dolandiricilik-rehberi",
+      "status": 200,
+      "h1s": [
+        "Araç Dolandırıcılığı Rehberi - Korunma Yolları"
+      ],
+      "textCharacters": 2693,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=efsane-avcilari",
+      "status": 200,
+      "h1s": [
+        "Oto Efsane Avcıları - Doğru Bilinen Yanlışlar"
+      ],
+      "textCharacters": 3900,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=ehliyet-siniflari",
+      "status": 200,
+      "h1s": [
+        "2026 Ehliyet Sınıfları ve Sınav Harçları"
+      ],
+      "textCharacters": 2083,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=hasar-sorgulama",
+      "status": 200,
+      "h1s": [
+        "5664 Hasar (Tramer) Sorgulama Rehberi"
+      ],
+      "textCharacters": 2462,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=hgs-siniflari",
+      "status": 200,
+      "h1s": [
+        "HGS Araç Sınıfları Rehberi 2026"
+      ],
+      "textCharacters": 2659,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=ikinci-el-rehberi",
+      "status": 200,
+      "h1s": [
+        "İkinci El Araç Kontrol Listesi"
+      ],
+      "textCharacters": 3610,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=ilginc-bilgiler",
+      "status": 200,
+      "h1s": [
+        "İlginç Otomotiv Bilgileri"
+      ],
+      "textCharacters": 1199,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=kaza-ilkyardim",
+      "status": 200,
+      "h1s": [
+        "Trafik Kazasında Ne Yapılmalı?"
+      ],
+      "textCharacters": 2161,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=lastik-rehberi",
+      "status": 200,
+      "h1s": [
+        "Lastik Rehberi - Ebat, Mevsim, Bakım"
+      ],
+      "textCharacters": 2367,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=mevsimsel-bakim",
+      "status": 200,
+      "h1s": [
+        "Mevsimsel Araç Bakım Rehberi"
+      ],
+      "textCharacters": 1748,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=nasil-yapilir",
+      "status": 200,
+      "h1s": [
+        "Nasıl Yapılır? Adım Adım Araç Bakım Rehberleri"
+      ],
+      "textCharacters": 3872,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=nereye-gitmeli",
+      "status": 200,
+      "h1s": [
+        "Araç Arızasında Nereye Gitmeli?"
+      ],
+      "textCharacters": 2181,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=noter-islemleri",
+      "status": 200,
+      "h1s": [
+        "2026 Araç Noter İşlemleri ve Devir Ücretleri"
+      ],
+      "textCharacters": 1666,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=otoyol-ve-kopru-ucretleri",
+      "status": 200,
+      "h1s": [
+        "Otoyol ve Köprü Geçiş Ücretleri 2026"
+      ],
+      "textCharacters": 1922,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=plaka-kodlari",
+      "status": 200,
+      "h1s": [
+        "Türkiye Plaka Kodları ve Özel Plakalar"
+      ],
+      "textCharacters": 2843,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=sigorta-rehberi",
+      "status": 200,
+      "h1s": [
+        "Kasko vs Trafik Sigortası Karşılaştırma"
+      ],
+      "textCharacters": 2584,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=trafik-isaretleri",
+      "status": 200,
+      "h1s": [
+        "Türkiye Trafik İşaretleri ve Anlamları"
+      ],
+      "textCharacters": 5082,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane?kategori=tuvturk-muayene",
+      "status": 200,
+      "h1s": [
+        "TÜVTÜRK Araç Muayenesi Rehberi 2026"
+      ],
+      "textCharacters": 4307,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/4x4-araclar-karda-kaymaz--17",
+      "status": 200,
+      "h1s": [
+        "4x4 Araçlar Karda Kayar Mı?"
+      ],
+      "textCharacters": 1401,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/abs-devreye-girince-fren-pompalanir-mi--51",
+      "status": 200,
+      "h1s": [
+        "ABS Devreye Girince Fren Pedalı Pompalanır Mı?"
+      ],
+      "textCharacters": 1822,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/abs-fren-mesafesini-kisaltir--11",
+      "status": 200,
+      "h1s": [
+        "ABS Fren Mesafesini Kısaltır Mı?"
+      ],
+      "textCharacters": 1481,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/airbag-lambasi-yanarken-kaza-yapmak--36",
+      "status": 200,
+      "h1s": [
+        "Airbag Lambası Yanarken Hava Yastığı Açılır Mı?"
+      ],
+      "textCharacters": 1512,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/aku-aspirin-efsanesi--21",
+      "status": 200,
+      "h1s": [
+        "Aküye Aspirin Atmak Aküyü Canlandırır Mı?"
+      ],
+      "textCharacters": 1622,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/arabaya-spoiler-takmak--23",
+      "status": 200,
+      "h1s": [
+        "Arabaya Rüzgarlık (Spoiler) Takmak Hızlandırır Mı?"
+      ],
+      "textCharacters": 1537,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/arap-sabunu-ve-kola-ile-lastik-parlatmak--35",
+      "status": 200,
+      "h1s": [
+        "Kola İle Lastik Parlatmak Zararlı Mı?"
+      ],
+      "textCharacters": 1455,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/arka-koltuktaki-esyalar--13",
+      "status": 200,
+      "h1s": [
+        "Kaza Anında Arka Koltuktaki Eşyaların Tehlikesi"
+      ],
+      "textCharacters": 1384,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/benzin-deposunu-fullemek--3",
+      "status": 200,
+      "h1s": [
+        "Depoyu Fullemek Çok Yaktırır Mı?"
+      ],
+      "textCharacters": 1320,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/buyuk-jant-arabayi-hizlandirir--19",
+      "status": 200,
+      "h1s": [
+        "Büyük Jant Arabayı Hızlandırır Mı?"
+      ],
+      "textCharacters": 1473,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/cam-suyuna-deterjan-veya-antifriz--32",
+      "status": 200,
+      "h1s": [
+        "Cam Suyuna Bulaşık Deterjanı Konur Mu?"
+      ],
+      "textCharacters": 1636,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/cruise-control-yakit-tasarrufu--22",
+      "status": 200,
+      "h1s": [
+        "Hız Sabitleyici (Cruise Control) Yakıtı Düşürür Mü?"
+      ],
+      "textCharacters": 1536,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/disk-fren-torna-islemi--31",
+      "status": 200,
+      "h1s": [
+        "Fren Diski Tornalatmak Zararlı Mı?"
+      ],
+      "textCharacters": 1518,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/dpf-lambasi-uzun-yolda-soner-mi--46",
+      "status": 200,
+      "h1s": [
+        "DPF Lambası Uzun Yolda Her Zaman Söner Mi?"
+      ],
+      "textCharacters": 1819,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/dpf-rolantide-gaz-vererek-temizlenir-mi--45",
+      "status": 200,
+      "h1s": [
+        "DPF Rölantide Gaz Vererek Temizlenir Mi?"
+      ],
+      "textCharacters": 1735,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/egzozdan-su-damlamasi-motorun-sagligi--28",
+      "status": 200,
+      "h1s": [
+        "Egzozdan Su Gelmesi Motorun İyi Olduğunu Mu Gösterir?"
+      ],
+      "textCharacters": 1390,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/el-freni-cekmek-teli-koparir--30",
+      "status": 200,
+      "h1s": [
+        "El Freni Çekmek Mi Vitese Takmak Mı?"
+      ],
+      "textCharacters": 1569,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/elektrikli-araba-yagmurda-sarj-edilir-mi--49",
+      "status": 200,
+      "h1s": [
+        "Elektrikli Araba Yağmurda Şarj Edilir Mi?"
+      ],
+      "textCharacters": 1990,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/elektrikli-araba-yuzde-100-sarj-edilir-mi--47",
+      "status": 200,
+      "h1s": [
+        "Elektrikli Araba Her Gün Yüzde 100 Şarj Edilir Mi?"
+      ],
+      "textCharacters": 1909,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/emniyet-kemersiz-hava-yastigi--12",
+      "status": 200,
+      "h1s": [
+        "Emniyet Kemeri Takmadan Hava Yastığı Korur Mu?"
+      ],
+      "textCharacters": 1355,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/eski-arabalarin-kaportasi-kalindir--14",
+      "status": 200,
+      "h1s": [
+        "Eski Arabalar Daha Mı Sağlam? Kaporta Kalınlığı"
+      ],
+      "textCharacters": 1551,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/eski-lastik-disleri-derin--18",
+      "status": 200,
+      "h1s": [
+        "Dişi İyi Olan Eski Lastik Kullanılır Mı?"
+      ],
+      "textCharacters": 1406,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/farkli-antifriz-karisimi--8",
+      "status": 200,
+      "h1s": [
+        "Mavi ve Kırmızı Antifriz Karıştırılır Mı?"
+      ],
+      "textCharacters": 1255,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/fren-hidroligine-su-karismasi--26",
+      "status": 200,
+      "h1s": [
+        "Fren Hidroliği Neden Değişir? Su Karışması"
+      ],
+      "textCharacters": 1472,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/genis-lastik-daha-iyi-tutar--16",
+      "status": 200,
+      "h1s": [
+        "Geniş Lastik Daha Mı İyi Yol Tutar?"
+      ],
+      "textCharacters": 1353,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/hava-filtresi-degisince-yakit-duser-mi--52",
+      "status": 200,
+      "h1s": [
+        "Hava Filtresi Değişince Yakıt Tüketimi Düşer Mi?"
+      ],
+      "textCharacters": 1783,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/hizli-sarj-bataryaya-zarar-verir-mi--48",
+      "status": 200,
+      "h1s": [
+        "Hızlı Şarj Elektrikli Araba Bataryasına Zarar Verir Mi?"
+      ],
+      "textCharacters": 1922,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/kalin-yag-motoru-korur--6",
+      "status": 200,
+      "h1s": [
+        "Kalın Motor Yağı Arabayı Korur Mu?"
+      ],
+      "textCharacters": 1291,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/kasislerden-hizli-gecmek--39",
+      "status": 200,
+      "h1s": [
+        "Kasislerden Hızlı Geçmek Arabaya Zarar Verir Mi?"
+      ],
+      "textCharacters": 1555,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/kirmizi-araba-boyasi-solar--25",
+      "status": 200,
+      "h1s": [
+        "Kırmızı Araba Boyası Güneşte Solar Mı?"
+      ],
+      "textCharacters": 1533,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/kis-lastigi-sadece-karda-mi-takilir--41",
+      "status": 200,
+      "h1s": [
+        "Kış Lastiği Sadece Kar Yağdığında Mı Takılır?"
+      ],
+      "textCharacters": 1823,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/kisin-lastik-havasini-indirmek--15",
+      "status": 200,
+      "h1s": [
+        "Karda Lastik Havası İndirilir Mi?"
+      ],
+      "textCharacters": 1416,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/klima-gazi-her-sene-basilir-mi--29",
+      "status": 200,
+      "h1s": [
+        "Araba Klima Gazı Biter Mi? Her Yıl Basılır Mı?"
+      ],
+      "textCharacters": 1509,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/klima-yerine-cam-acmak--2",
+      "status": 200,
+      "h1s": [
+        "Klima Açmak Mı Cam Açmak Mı Daha Çok Yakar?"
+      ],
+      "textCharacters": 1317,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/lastige-nitrojen-basmak-faydali-mi--42",
+      "status": 200,
+      "h1s": [
+        "Lastiğe Nitrojen Basmak Faydalı Mı?"
+      ],
+      "textCharacters": 1811,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/lastik-hava-basinci-yanaktaki-psi--43",
+      "status": 200,
+      "h1s": [
+        "Lastik Hava Basıncı Kaç Olmalı? Yanaktaki PSI Doğru Mu?"
+      ],
+      "textCharacters": 1871,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/lpg-motoru-kurutur--9",
+      "status": 200,
+      "h1s": [
+        "LPG Motoru Kurutur Mu?"
+      ],
+      "textCharacters": 1401,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/manuel-viteste-ara-gaz-vermek--34",
+      "status": 200,
+      "h1s": [
+        "Vites Değiştirirken Ara Gaz Vermek Gerekir Mi?"
+      ],
+      "textCharacters": 1585,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/motor-yagi-fazla-olursa-ne-olur--50",
+      "status": 200,
+      "h1s": [
+        "Motor Yağı Fazla Olursa Ne Olur?"
+      ],
+      "textCharacters": 1647,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/motor-yikanmaz--7",
+      "status": 200,
+      "h1s": [
+        "Araba Motoru Yıkanır Mı?"
+      ],
+      "textCharacters": 1339,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/motora-sadece-cesme-suyu-koymak--38",
+      "status": 200,
+      "h1s": [
+        "Motor Suyuna Antifriz Yerine Çeşme Suyu Konur Mu?"
+      ],
+      "textCharacters": 1517,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/otomatik-viteste-n-konumu--20",
+      "status": 200,
+      "h1s": [
+        "Kırmızı Işıkta Vitesi N'ye Almak Gerekir Mi?"
+      ],
+      "textCharacters": 1615,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/sabah-motoru-isitmak--4",
+      "status": 200,
+      "h1s": [
+        "Sabah Arabayı Çalıştırıp Beklemek Gerekir Mi?"
+      ],
+      "textCharacters": 1370,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/sicak-arabada-klimayi-son-guc-acmak--37",
+      "status": 200,
+      "h1s": [
+        "Sıcak Arabada Klima Açmak Camı Çatlatır Mı?"
+      ],
+      "textCharacters": 1610,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/sicak-lastigin-havasi-indirilir-mi--44",
+      "status": 200,
+      "h1s": [
+        "Sıcak Lastiğin Havası İndirilir Mi?"
+      ],
+      "textCharacters": 1767,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/sifir-arabada-rodaj-gerekir-mi--40",
+      "status": 200,
+      "h1s": [
+        "Sıfır Arabada Rodaj Gerekir Mi? İlk Kaç Kilometre?"
+      ],
+      "textCharacters": 1825,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/siyah-motor-yagi-arizasi--10",
+      "status": 200,
+      "h1s": [
+        "Dizel Araçta Yağın Siyah Olması"
+      ],
+      "textCharacters": 1363,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/start-stop-aku-mars-motoru--24",
+      "status": 200,
+      "h1s": [
+        "Start Stop Sistemi Marş Motorunu Bozar Mı?"
+      ],
+      "textCharacters": 1599,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/turbolu-araci-stop-etmeden-beklemek--27",
+      "status": 200,
+      "h1s": [
+        "Turbolu Aracı Stop Etmeden Önce Beklemek Gerekir Mi?"
+      ],
+      "textCharacters": 1474,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/yarim-debriyaj-ile-gitmek--33",
+      "status": 200,
+      "h1s": [
+        "Debriyaja Basarak Gitmek Zararlı Mı?"
+      ],
+      "textCharacters": 1568,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/yokus-asagi-bosa-atmak--1",
+      "status": 200,
+      "h1s": [
+        "Yokuş Aşağı Vitesi Boşa Almak Yakıt Tasarrufu Sağlar Mı?"
+      ],
+      "textCharacters": 1378,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/efsane-avcilari/yuksek-oktanli-benzin-performansi--5",
+      "status": 200,
+      "h1s": [
+        "Yüksek Oktanlı Benzin Performansı Artırır Mı?"
+      ],
+      "textCharacters": 1237,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/ilginc/aku-bakimi-ilginc-00028",
+      "status": 200,
+      "h1s": [
+        "Akü Bakımı"
+      ],
+      "textCharacters": 595,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/ilginc/ikinci-el-arac-ekspertiz-oncesi-sirlari-ilginc-00067",
+      "status": 200,
+      "h1s": [
+        "İkinci El Araç Ekspertiz Öncesi Sırları"
+      ],
+      "textCharacters": 861,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/ilginc/ilk-30-gun-yeni-arac-sahibi-ilginc-00025",
+      "status": 200,
+      "h1s": [
+        "İlk 30 Gün - Yeni Araç Sahibi"
+      ],
+      "textCharacters": 2332,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/ilginc/kis-surus-seti-ilginc-00023",
+      "status": 200,
+      "h1s": [
+        "Kış Sürüş Seti"
+      ],
+      "textCharacters": 2158,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/ilginc/kis-surusu-ilginc-00027",
+      "status": 200,
+      "h1s": [
+        "Kış Sürüşü"
+      ],
+      "textCharacters": 541,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/ilginc/turbo-motor-kullanimi-ilginc-00029",
+      "status": 200,
+      "h1s": [
+        "Turbo Motor Kullanımı"
+      ],
+      "textCharacters": 725,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/ilginc/uzun-yola-cikmadan-once-ilginc-00024",
+      "status": 200,
+      "h1s": [
+        "Uzun Yola Çıkmadan Önce"
+      ],
+      "textCharacters": 2415,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/ilginc/yakit-tasarrufu-ilginc-00026",
+      "status": 200,
+      "h1s": [
+        "Yakıt Tasarrufu"
+      ],
+      "textCharacters": 594,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/kasko-deger",
+      "status": 200,
+      "h1s": [
+        "Kasko Değer Listesi 2026"
+      ],
+      "textCharacters": 792,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/15-temmuz-sehitler-koprusu",
+      "status": 200,
+      "h1s": [
+        "15 Temmuz Şehitler Köprüsü"
+      ],
+      "textCharacters": 803,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/1915-canakkale-koprusu",
+      "status": 200,
+      "h1s": [
+        "1915 Çanakkale Köprüsü"
+      ],
+      "textCharacters": 705,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/anadolu-otoyolu",
+      "status": 200,
+      "h1s": [
+        "Anadolu Otoyolu (Çamlıca İstasyonu - Akıncı)"
+      ],
+      "textCharacters": 711,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/avrasya-tuneli-gece",
+      "status": 200,
+      "h1s": [
+        "Avrasya Tüneli (Gece)"
+      ],
+      "textCharacters": 635,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/avrasya-tuneli-gunduz",
+      "status": 200,
+      "h1s": [
+        "Avrasya Tüneli (Gündüz)"
+      ],
+      "textCharacters": 716,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/cukurova-otoyollari",
+      "status": 200,
+      "h1s": [
+        "Çukurova Otoyolları (Adana - Şanlıurfa)"
+      ],
+      "textCharacters": 516,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/fatih-sultan-mehmet-koprusu",
+      "status": 200,
+      "h1s": [
+        "Fatih Sultan Mehmet Köprüsü"
+      ],
+      "textCharacters": 744,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/istanbul-izmir-otoyolu",
+      "status": 200,
+      "h1s": [
+        "İstanbul - İzmir Otoyolu (Osmangazi Köprüsü DAHİL)"
+      ],
+      "textCharacters": 690,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/izmir-aydin-otoyolu",
+      "status": 200,
+      "h1s": [
+        "İzmir - Aydın Otoyolu"
+      ],
+      "textCharacters": 517,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/kuzey-marmara-anadolu",
+      "status": 200,
+      "h1s": [
+        "Kuzey Marmara Otoyolu (Anadolu Yakası)"
+      ],
+      "textCharacters": 538,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/kuzey-marmara-avrupa",
+      "status": 200,
+      "h1s": [
+        "Kuzey Marmara Otoyolu (Avrupa Yakası)"
+      ],
+      "textCharacters": 551,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/osmangazi-koprusu",
+      "status": 200,
+      "h1s": [
+        "Osmangazi Köprüsü"
+      ],
+      "textCharacters": 731,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kutuphane/otoyol-ucretleri/yavuz-sultan-selim-koprusu",
+      "status": 200,
+      "h1s": [
+        "Yavuz Sultan Selim Köprüsü"
+      ],
+      "textCharacters": 781,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale",
+      "status": 200,
+      "h1s": [
+        "Otomobil Makaleleri ve Araç Rehberleri"
+      ],
+      "textCharacters": 14445,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/akaryakitta-esel-mobil-sistemi-nedir-gizli-vergi-kalkanini-cozuyoruz--10037",
+      "status": 200,
+      "h1s": [
+        "Akaryakıtta Eşel Mobil Sistemi Nedir? (Gizli Vergi Kalkanını Çözüyoruz)"
+      ],
+      "textCharacters": 4504,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/aku-bitiren-gizli-hatalar-sabahlari-araciniz-neden-olur-ve-nasil-hayata-dondurulur--10027",
+      "status": 200,
+      "h1s": [
+        "Akü Bitiren Gizli Hatalar: Sabahları Aracınız Neden Ölür ve Nasıl Hayata Döndürülür?"
+      ],
+      "textCharacters": 4581,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/arac-alim-satiminda-dolandirilmaktan-korunmanin-10-altin-kurali-turkiye-gercekleri--10031",
+      "status": 200,
+      "h1s": [
+        "Araç Alım-Satımında Dolandırılmaktan Korunmanın 10 Altın Kuralı (Türkiye Gerçekleri)"
+      ],
+      "textCharacters": 12687,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/arac-deger-kaybi-nedir-nasil-hesaplanir-ve-sigortadan-kesintisiz-nasil-alinir-2026-kapsamli-rehber--10047",
+      "status": 200,
+      "h1s": [
+        "Araç Değer Kaybı Nedir, Nasıl Hesaplanır ve Sigortadan Kesintisiz Nasıl Alınır? (2026 Kapsamlı Rehber)"
+      ],
+      "textCharacters": 6247,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/arac-dolandiricilik-yontemleri-ve-korunma-yollari--10002",
+      "status": 200,
+      "h1s": [
+        "Araç Dolandırıcılık Yöntemleri ve Korunma Yolları"
+      ],
+      "textCharacters": 7711,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/arac-hararet-yaparsa-ne-yapilmali-sogutma-krizleri-ve-conta-yakma-anatomisi--10033",
+      "status": 200,
+      "h1s": [
+        "Araç Hararet Yaparsa Ne Yapılmalı? Soğutma Krizleri ve Conta Yakma Anatomisi"
+      ],
+      "textCharacters": 8337,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/arac-klimasinda-dogru-bilinen-yanlislar-yakiti-somuren-ve-hasta-eden-5-hata--10023",
+      "status": 200,
+      "h1s": [
+        "Araç Klimasında Doğru Bilinen Yanlışlar: Yakıtı Sömüren ve Hasta Eden 5 Hata"
+      ],
+      "textCharacters": 5620,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/arac-kullaniminda-altin-kurallar-yap-yapma--10016",
+      "status": 200,
+      "h1s": [
+        "Araç Kullanımında Altın Kurallar: Yap & Yapma"
+      ],
+      "textCharacters": 2274,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/arac-rengi-seciminin-bilimsel-sirlari-renklere-gore-isi-emilimi-ve-yakit-tasarrufu-mega-rehberi--10040",
+      "status": 200,
+      "h1s": [
+        "Araç Rengi Seçiminin Bilimsel Sırları: Renklere Göre Isı Emilimi ve Yakıt Tasarrufu Mega Rehberi"
+      ],
+      "textCharacters": 5076,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/arac-yag-kacirirsa-ne-yapilmali-yag-kacagi-tespiti-ve-acil-eylem-plni--10032",
+      "status": 200,
+      "h1s": [
+        "Araç Yağ Kaçırırsa Ne Yapılmalı? Yağ Kaçağı Tespiti ve Acil Eylem Plânı"
+      ],
+      "textCharacters": 9508,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/aracin-gizli-dili-sesler-kokular-ve-renklerle-ariza-teshisi--10003",
+      "status": 200,
+      "h1s": [
+        "Aracın Gizli Dili: Sesler, Kokular ve Renklerle Arıza Teşhisi"
+      ],
+      "textCharacters": 5230,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/aracinizi-satarken-dikkat-edilmesi-gerekenler-hizli-ve-guvenli-satis-rehberi--10001",
+      "status": 200,
+      "h1s": [
+        "Aracınızı Satarken Dikkat Edilmesi Gerekenler: Hızlı ve Güvenli Satış Rehberi"
+      ],
+      "textCharacters": 5732,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/araclarin-gizli-pratik-ozellikleri-kitapcikta-bile-yazmayan-7-inanilmaz-fabrika-sirri--10020",
+      "status": 200,
+      "h1s": [
+        "Araçların Gizli Pratik Özellikleri: Kitapçıkta Bile Yazmayan 7 İnanılmaz Fabrika Sırrı"
+      ],
+      "textCharacters": 6813,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/bagajdaki-macgyver-siradan-esyalarla-yaratici-oto-cozumleri--10006",
+      "status": 200,
+      "h1s": [
+        "Bagajdaki MacGyver: Sıradan Eşyalarla Yaratıcı Oto Çözümleri"
+      ],
+      "textCharacters": 4341,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/benzin-mi-dizel-mi-lpg-mi-elektrikli-mi-2026-karsilastirma-rehberi--10028",
+      "status": 200,
+      "h1s": [
+        "Benzin mi Dizel mi LPG mi Elektrikli mi? (2026 Karşılaştırma Rehberi)"
+      ],
+      "textCharacters": 5909,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/dogru-lastik-hayat-kurtarir-lastik-secim-ve-bakim-rehberi--10010",
+      "status": 200,
+      "h1s": [
+        "Doğru Lastik Hayat Kurtarır: Lastik Seçim ve Bakım Rehberi"
+      ],
+      "textCharacters": 3068,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/ehliyet-kursunda-ogretilmeyen-8-hayat-kurtaran-kural-acemi-surucu-rehberi-bolum-1--10036",
+      "status": 200,
+      "h1s": [
+        "Ehliyet Kursunda Öğretilmeyen 8 Hayat Kurtaran Kural: Acemi Sürücü Rehberi (Bölüm 1)"
+      ],
+      "textCharacters": 17279,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/evde-profesyonel-detailing-aracinizi-fabrika-ayarlarina-dondurun--10011",
+      "status": 200,
+      "h1s": [
+        "Evde Profesyonel Detailing: Aracınızı Fabrika Ayarlarına Döndürün"
+      ],
+      "textCharacters": 3931,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/gosterge-panelindeki-hiyeroglifler-ariza-isiklari-ve-anlamlari--10007",
+      "status": 200,
+      "h1s": [
+        "Gösterge Panelindeki Hiyeroglifler: Arıza Işıkları ve Anlamları"
+      ],
+      "textCharacters": 3860,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/hangi-marka-kimin-dunyanin-lider-otomotiv-gruplari-ve-gizli-ortakliklar-ultra-kapsamli-rehber--10041",
+      "status": 200,
+      "h1s": [
+        "Hangi Marka Kimin? Dünyanın Lider Otomotiv Grupları ve Gizli Ortaklıklar (Ultra Kapsamlı Rehber)"
+      ],
+      "textCharacters": 14167,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/hayat-kurtaran-yaratici-kendin-yap-diy-oto-cozumleri--10043",
+      "status": 200,
+      "h1s": [
+        "Hayat Kurtaran Yaratıcı 'Kendin Yap' (DIY) Oto Çözümleri"
+      ],
+      "textCharacters": 25957,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/ikinci-el-arac-alirken-dusulen-5-olumcul-tuzak-ekspertizlerin-bile-atladigi-sirlar--10024",
+      "status": 200,
+      "h1s": [
+        "İkinci El Araç Alırken Düşülen 5 Ölümcül Tuzak: Ekspertizlerin Bile Atladığı Sırlar"
+      ],
+      "textCharacters": 6574,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/ikinci-el-arac-alirken-kapsamli-kontrol-rehberi--10000",
+      "status": 200,
+      "h1s": [
+        "İkinci El Araç Alırken Kapsamlı Kontrol Rehberi"
+      ],
+      "textCharacters": 7458,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/kaza-ani-panik-rehberi-hasar-sonrasi-hakliyken-haksiz-duruma-dusuren-5-kritik-hata--10026",
+      "status": 200,
+      "h1s": [
+        "Kaza Anı Panik Rehberi: Hasar Sonrası Haklıyken Haksız Duruma Düşüren 5 Kritik Hata"
+      ],
+      "textCharacters": 5686,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/kis-lastigi-ne-zaman-takilir-2026-zorunluluk-ve-ceza-rehberi--10048",
+      "status": 200,
+      "h1s": [
+        "Kış Lastiği Ne Zaman Takılır? 2026 Zorunluluk ve Ceza Rehberi"
+      ],
+      "textCharacters": 6889,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/kisa-hazirlik-aracinizi-soguklara-hazirlayin--10004",
+      "status": 200,
+      "h1s": [
+        "Kışa Hazırlık: Aracınızı Soğuklara Hazırlayın"
+      ],
+      "textCharacters": 7104,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/kisin-kaputta-yatan-tehlike-arabaniza-asla-yapmamaniz-gereken-7-olumcul-hata-kis-sirlari--10019",
+      "status": 200,
+      "h1s": [
+        "Kışın Kaputta Yatan Tehlike: Arabanıza Asla Yapmamanız Gereken 7 Ölümcül Hata (Kış Sırları)"
+      ],
+      "textCharacters": 6625,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/kurban-bayrami-uzun-yol-mega-rehberi-2026-kusursuz-yolculuk-et-tasima-ve-ileri-seviye-guvenlik--10046",
+      "status": 200,
+      "h1s": [
+        "Kurban Bayramı Uzun Yol 'Mega' Rehberi 2026: Kusursuz Yolculuk, Et Taşıma ve İleri Seviye Güvenlik"
+      ],
+      "textCharacters": 10539,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/motor-yagi-secimi-ve-degisim-rehberi--10008",
+      "status": 200,
+      "h1s": [
+        "Motor Yağı Seçimi ve Değişim Rehberi"
+      ],
+      "textCharacters": 8786,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/nihai-otomotiv-muhendisligi-manifestosu-gunluk-araclar-icin-20-adimlik-hiper-modifiye-ansiklopedisi--10045",
+      "status": 200,
+      "h1s": [
+        "Nihai Otomotiv Mühendisliği Manifestosu: Günlük Araçlar İçin 20 Adımlık Hiper-Modifiye Ansiklopedisi"
+      ],
+      "textCharacters": 23401,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/ocaginiza-incir-agaci-dikecek-arabalar-garibanin-uzak-durmasi-gereken-10-model--10039",
+      "status": 200,
+      "h1s": [
+        "Ocağınıza İncir Ağacı Dikecek Arabalar: Garibanın Uzak Durması Gereken 10 Model"
+      ],
+      "textCharacters": 6182,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/oto-yikama-teroru-aracinizin-boyasini-mahveden-ve-catlatan-5-kotu-aliskanlik--10025",
+      "status": 200,
+      "h1s": [
+        "Oto Yıkama Terörü: Aracınızın Boyasını Mahveden ve Çatlatan 5 Kötü Alışkanlık"
+      ],
+      "textCharacters": 5457,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/otomatik-sanziman-katili-asla-yapmamaniz-gereken-7-olumcul-hata-2026-teknik-rehber--10018",
+      "status": 200,
+      "h1s": [
+        "Otomatik Şanzıman Katili: Asla Yapmamanız Gereken 7 Ölümcül Hata (2026 Teknik Rehber)"
+      ],
+      "textCharacters": 8270,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/otomatik-vitesin-can-dusmanlari-sanziman-omrunu-uzatan-7-altin-kural--10013",
+      "status": 200,
+      "h1s": [
+        "Otomatik Vitesin Can Düşmanları: Şanzıman Ömrünü Uzatan 7 Altın Kural"
+      ],
+      "textCharacters": 4309,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/otomobil-dunyasindan-ilginc-bilgiler--10014",
+      "status": 200,
+      "h1s": [
+        "Otomobil Dünyasından İlginç Bilgiler"
+      ],
+      "textCharacters": 1189,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/sanayide-ustalarin-gizledigi-14-kritik-sir-aracinizin-omrunu-ve-cuzdaninizi-nasil-kurtarirsiniz-derin-analiz--10035",
+      "status": 200,
+      "h1s": [
+        "Sanayide Ustaların Gizlediği 14 Kritik Sır: Aracınızın Ömrünü ve Cüzdanınızı Nasıl Kurtarırsınız? (Derin Analiz)"
+      ],
+      "textCharacters": 18599,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/sifir-arac-alirken-bayide-kurulan-7-tuzak--10030",
+      "status": 200,
+      "h1s": [
+        "Sıfır Araç Alırken Bayide Kurulan 7 Tuzak"
+      ],
+      "textCharacters": 9636,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/sifirdan-zirveye-nasil-profesyonel-bir-galerici-oto-alim-satim-uzmani-olunur-19-adimlik-mega-rehber--10042",
+      "status": 200,
+      "h1s": [
+        "Sıfırdan Zirveye: Nasıl Profesyonel Bir Galerici (Oto Alım-Satım Uzmanı) Olunur? (19 Adımlık Mega Rehber)"
+      ],
+      "textCharacters": 59956,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/turbo-katili-5-aliskanlik-cuvalla-para-odememek-icin-uzak-durmaniz-gereken-hatalar--10022",
+      "status": 200,
+      "h1s": [
+        "Turbo Katili 5 Alışkanlık: Çuvalla Para Ödememek İçin Uzak Durmanız Gereken Hatalar"
+      ],
+      "textCharacters": 5096,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/turkiye-yollarinin-en-hizli-10-arabasi-2026-0-100-rekortmenleri--top_10_en_hizli_arabalar",
+      "status": 200,
+      "h1s": [
+        "Türkiye Yollarının En Hızlı 10 Arabası (2026 0-100 Rekortmenleri)"
+      ],
+      "textCharacters": 7214,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/turkiyenin-en-az-yakan-10-arabasi-2025-guncel-liste--top_10_az_yakan_arabalar",
+      "status": 200,
+      "h1s": [
+        "Türkiye'nin En Az Yakan 10 Arabası (2025 Güncel Liste)"
+      ],
+      "textCharacters": 4142,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/tuvturk-muayene-hazirlik-rehberi-tek-seferde-gecmenin-yollari--10012",
+      "status": 200,
+      "h1s": [
+        "TÜVTÜRK Muayene Hazırlık Rehberi: Tek Seferde Geçmenin Yolları"
+      ],
+      "textCharacters": 6114,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/ucan-arabalar-icin-ileri-ucus-surus-teknikleri-atmosferik-savrulmayi-onleme-mega-rehberi-2050--10034",
+      "status": 200,
+      "h1s": [
+        "Uçan Arabalar İçin İleri Uçuş-Sürüş Teknikleri: Atmosferik Savrulmayı Önleme Mega Rehberi (2050)"
+      ],
+      "textCharacters": 3520,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/usta-soforun-gizli-defteri-ileri-surus-ve-trafik-okuma-sanati--10005",
+      "status": 200,
+      "h1s": [
+        "Usta Şoförün Gizli Defteri: İleri Sürüş ve Trafik Okuma Sanatı"
+      ],
+      "textCharacters": 4816,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/uzun-yol-oncesi-hazirlik-ve-kontrol-listesi--10015",
+      "status": 200,
+      "h1s": [
+        "Uzun Yol Öncesi Hazırlık ve Kontrol Listesi"
+      ],
+      "textCharacters": 3343,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/uzun-yola-cikmadan-once-ustalarin-yaptigi-6-hayati-kontrol-2026-uzun-yol-rehberi--10021",
+      "status": 200,
+      "h1s": [
+        "Uzun Yola Çıkmadan Önce Ustaların Yaptığı 6 Hayati Kontrol (2026 Uzun Yol Rehberi)"
+      ],
+      "textCharacters": 5857,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/yakit-tasarrufu-deponuzu-korumak-icin-10-altin-kural--10009",
+      "status": 200,
+      "h1s": [
+        "Yakıt Tasarrufu: Deponuzu Korumak İçin 10 Altın Kural"
+      ],
+      "textCharacters": 2839,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/yakit-tuketimini-30-azaltan-ve-motor-omrunu-uzatan-7-altin-kural-2026-kapsamli-rehber--10017",
+      "status": 200,
+      "h1s": [
+        "Yakıt Tüketimini %30 Azaltan ve Motor Ömrünü Uzatan 7 Altın Kural (2026 Kapsamlı Rehber)"
+      ],
+      "textCharacters": 5719,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/makale/yeni-baslayanlar-icin-surus-psikolojisi-ve-ileri-seviye-taktikler-acemi-surucu-rehberi-bolum-2--10038",
+      "status": 200,
+      "h1s": [
+        "Yeni Başlayanlar İçin Sürüş Psikolojisi ve İleri Seviye Taktikler: Acemi Sürücü Rehberi (Bölüm 2)"
+      ],
+      "textCharacters": 16631,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/aku-takviyesi-arac-vurdurma-nasil-yapilir",
+      "status": 200,
+      "h1s": [
+        "Akü Takviyesi (Araç Vurdurma) Nasıl Yapılır?"
+      ],
+      "textCharacters": 1731,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/arabayi-cizmeden-dogru-yikama-teknigi",
+      "status": 200,
+      "h1s": [
+        "Arabayı Çizmeden Doğru Yıkama Tekniği"
+      ],
+      "textCharacters": 1200,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/cam-suyu-nasil-eklenir",
+      "status": 200,
+      "h1s": [
+        "Cam Suyu Nasıl Eklenir?"
+      ],
+      "textCharacters": 876,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/ikinci-el-arac-alirken-kontrol-rehberi",
+      "status": 200,
+      "h1s": [
+        "İkinci El Araç Alırken Kontrol Rehberi"
+      ],
+      "textCharacters": 1911,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/kaza-tespit-tutanagi-nasil-doldurulur",
+      "status": 200,
+      "h1s": [
+        "Kaza Tespit Tutanağı Nasıl Doldurulur?"
+      ],
+      "textCharacters": 1213,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/kis-surusu-ve-buzlu-yolda-ne-yapilir",
+      "status": 200,
+      "h1s": [
+        "Kış Sürüşü ve Buzlu Yolda Ne Yapılır?"
+      ],
+      "textCharacters": 1490,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/lastik-basinci-nasil-kontrol-edilir",
+      "status": 200,
+      "h1s": [
+        "Lastik Basıncı Nasıl Kontrol Edilir?"
+      ],
+      "textCharacters": 1220,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/motor-hararet-yapinca-ne-yapilir",
+      "status": 200,
+      "h1s": [
+        "Motor Hararet Yapınca Ne Yapılır?"
+      ],
+      "textCharacters": 1527,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/motor-yagi-seviyesi-nasil-kontrol-edilir",
+      "status": 200,
+      "h1s": [
+        "Motor Yağı Seviyesi Nasıl Kontrol Edilir?"
+      ],
+      "textCharacters": 1143,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/otomatik-vites-kullanim-rehberi-acemiler-icin",
+      "status": 200,
+      "h1s": [
+        "Otomatik Vites Kullanım Rehberi (Acemiler İçin)"
+      ],
+      "textCharacters": 1673,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/patlak-lastik-nasil-degistirilir",
+      "status": 200,
+      "h1s": [
+        "Patlak Lastik Nasıl Değiştirilir?"
+      ],
+      "textCharacters": 1858,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/seyir-halinde-aracta-yangin-cikarsa-ne-yapilmali",
+      "status": 200,
+      "h1s": [
+        "Seyir Halinde Araçta Yangın Çıkarsa Ne Yapılmalı?"
+      ],
+      "textCharacters": 1726,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/seyir-halinde-fren-patlarsa-tutmazsa-ne-yapilir",
+      "status": 200,
+      "h1s": [
+        "Seyir Halinde Fren Patlarsa (Tutmazsa) Ne Yapılır?"
+      ],
+      "textCharacters": 1776,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/nasil-yapilir/uzun-yola-cikmadan-once-kontrol-listesi",
+      "status": 200,
+      "h1s": [
+        "Uzun Yola Çıkmadan Önce Kontrol Listesi"
+      ],
+      "textCharacters": 1467,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd",
+      "status": 200,
+      "h1s": [
+        "OBD-II Arıza Kodları: Türkçe Anlam ve Çözüm Rehberi"
+      ],
+      "textCharacters": 3051,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p0171",
+      "status": 200,
+      "h1s": [
+        "P0171 Arıza Kodu: Yakıt-Hava Karışımı Fazla Fakir (Bank 1)"
+      ],
+      "textCharacters": 4269,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p0299",
+      "status": 200,
+      "h1s": [
+        "P0299 Arıza Kodu: Turbo / Süperşarj Basıncı Beklenenin Altında"
+      ],
+      "textCharacters": 4117,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p0300",
+      "status": 200,
+      "h1s": [
+        "P0300 Arıza Kodu: Rastgele veya Birden Fazla Silindirde Tekleme"
+      ],
+      "textCharacters": 4160,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p0420",
+      "status": 200,
+      "h1s": [
+        "P0420 Arıza Kodu: Katalizör Verimliliği Eşik Değerinin Altında (Bank 1)"
+      ],
+      "textCharacters": 4073,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p1000",
+      "status": 200,
+      "h1s": [
+        "P1000 Arıza Kodu: Ford P1000: OBD Hazırlık Testleri Tamamlanmadı"
+      ],
+      "textCharacters": 4079,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce",
+      "status": 200,
+      "h1s": [
+        "Bütçenize Uygun En İyi Araçlar"
+      ],
+      "textCharacters": 2599,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.150.000 TL - 1.250.000 TL Arası"
+      ],
+      "textCharacters": 3454,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.250.000 TL - 1.350.000 TL Arası (Hatchback ve Crossover)"
+      ],
+      "textCharacters": 2909,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.450.000 TL - 1.550.000 TL Arası (C Segmenti ve Crossover)"
+      ],
+      "textCharacters": 3299,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.550.000 TL - 1.650.000 TL Arası (Ekspertiz Gözünden Neredeyse Sıfır)"
+      ],
+      "textCharacters": 2630,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.700.000 TL - 1.800.000 TL Arası (Sıfır Kilometre ve Hibritler)"
+      ],
+      "textCharacters": 2805,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.800.000 TL - 1.900.000 TL Arası"
+      ],
+      "textCharacters": 3198,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.900.000 TL - 2.100.000 TL Arası (2 Milyon Bandı)"
+      ],
+      "textCharacters": 2903,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/150-250-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "150.000 TL - 250.000 TL Arası"
+      ],
+      "textCharacters": 2167,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/150-bin-tl-alti-arabalar",
+      "status": 200,
+      "h1s": [
+        "150.000 TL Altı: \"Ayağımı Yerden Kessin\" Arabaları"
+      ],
+      "textCharacters": 2683,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "2.100.000 TL - 2.300.000 TL Arası (D Segmenti Lüksü ve Elektrikli Rekabeti)"
+      ],
+      "textCharacters": 3835,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "2.500.000 TL - 3.500.000 TL Arası"
+      ],
+      "textCharacters": 3181,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/250-350-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "250.000 TL - 350.000 TL Arası"
+      ],
+      "textCharacters": 2968,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "3.500.000 TL - 5.000.000 TL Arası"
+      ],
+      "textCharacters": 2593,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/350-450-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "350.000 TL - 450.000 TL Arası"
+      ],
+      "textCharacters": 2512,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/450-550-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "450.000 TL - 550.000 TL Arası"
+      ],
+      "textCharacters": 3511,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/550-650-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "550.000 TL - 650.000 TL Arası"
+      ],
+      "textCharacters": 3388,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/750-850-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "750.000 TL - 850.000 TL Arası"
+      ],
+      "textCharacters": 3896,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/850-950-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "850.000 TL - 950.000 TL Arası"
+      ],
+      "textCharacters": 2803,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "950.000 TL - 1.050.000 TL Arası (1 Milyon Bandı)"
+      ],
+      "textCharacters": 3247,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap",
+      "status": 200,
+      "h1s": [
+        "Aracınızla ilgili her hesabı tek yerde netleştirin"
+      ],
+      "textCharacters": 5351,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/al-sat-analizi",
+      "status": 200,
+      "h1s": [
+        "Araç Al-Sat Net Kâr Marjı Hesaplama"
+      ],
+      "textCharacters": 2829,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/arac-bakim",
+      "status": 200,
+      "h1s": [
+        "Araç Periyodik Bakım Maliyeti Hesaplama"
+      ],
+      "textCharacters": 2402,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/arac-ithalat-vergisi",
+      "status": 200,
+      "h1s": [
+        "Yurt Dışından Araç Getirme Vergi ve Maliyet Hesaplama"
+      ],
+      "textCharacters": 2664,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/arac-vs-taksi",
+      "status": 200,
+      "h1s": [
+        "Araç Sahibi Olmak mı Taksi Kullanmak mı? Maliyet Kıyaslama"
+      ],
+      "textCharacters": 3605,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/butce-planlama",
+      "status": 200,
+      "h1s": [
+        "Araç Alım Toplam Bütçe ve Ek Gider Hesaplama"
+      ],
+      "textCharacters": 2314,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/deger-kaybi",
+      "status": 200,
+      "h1s": [
+        "Kaza Sonrası Araç Değer Kaybı Hesaplama"
+      ],
+      "textCharacters": 2660,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/dijital-senet-hesaplama",
+      "status": 200,
+      "h1s": [
+        "Dijital Senetle Araç Alma Reel Maliyet Hesaplama"
+      ],
+      "textCharacters": 2684,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/elektrikli-arac-sarj-maliyeti",
+      "status": 200,
+      "h1s": [
+        "Elektrikli Araç Şarj Maliyeti Hesaplama"
+      ],
+      "textCharacters": 3750,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/kasko-deger-sorgulama",
+      "status": 200,
+      "h1s": [
+        "2026 Araç Kasko Değer Listesi Sorgulama"
+      ],
+      "textCharacters": 2073,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/km-basina-maliyet",
+      "status": 200,
+      "h1s": [
+        "Kilometre Başı Araç Maliyeti Hesaplama"
+      ],
+      "textCharacters": 2769,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/kredi-karti-hesaplama",
+      "status": 200,
+      "h1s": [
+        "Kredi Kartıyla Araç Alma Komisyon ve Taksit Hesaplama"
+      ],
+      "textCharacters": 2952,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/lastik-basinci-donusturme",
+      "status": 200,
+      "h1s": [
+        "Lastik Basıncı PSI, Bar ve kPa Dönüştürme"
+      ],
+      "textCharacters": 2375,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/lastik-ebat",
+      "status": 200,
+      "h1s": [
+        "Lastik Ebat, Çap ve Hız Sapması Hesaplama"
+      ],
+      "textCharacters": 2514,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/motor-gucu-donusturme",
+      "status": 200,
+      "h1s": [
+        "kW, HP ve PS Motor Gücü Dönüştürme"
+      ],
+      "textCharacters": 2262,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/mtv-hesaplama",
+      "status": 200,
+      "h1s": [
+        "2026 Motorlu Taşıtlar Vergisi (MTV) Hesaplama"
+      ],
+      "textCharacters": 3116,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/otv-muafiyeti",
+      "status": 200,
+      "h1s": [
+        "Engelli Araç ÖTV Muafiyeti Hesaplama 2026"
+      ],
+      "textCharacters": 2610,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/tasit-kredisi",
+      "status": 200,
+      "h1s": [
+        "Taşıt Kredisi Taksit ve Toplam Geri Ödeme Hesaplama"
+      ],
+      "textCharacters": 2374,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/yakit-hesaplama",
+      "status": 200,
+      "h1s": [
+        "Şehirler Arası Yakıt Maliyeti Hesaplama"
+      ],
+      "textCharacters": 2058,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/yakit-turu-karsilastirma",
+      "status": 200,
+      "h1s": [
+        "Benzin, Dizel, LPG ve Elektrik Maliyet Karşılaştırma"
+      ],
+      "textCharacters": 3006,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/yatirim-kiyaslama",
+      "status": 200,
+      "h1s": [
+        "Araç, Altın, Dolar ve Mevduat Yatırım Kıyaslama"
+      ],
+      "textCharacters": 2720,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/yillik-sahip-olma-maliyeti",
+      "status": 200,
+      "h1s": [
+        "Yıllık ve Toplam Araç Sahip Olma Maliyeti Hesaplama"
+      ],
+      "textCharacters": 2933,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/piyasalar",
+      "status": 200,
+      "h1s": [
+        "2026 Türkiye Otomobil Pazar Endeksi"
+      ],
+      "textCharacters": 5001,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi",
+      "status": 200,
+      "h1s": [
+        "2026 Trafik Ceza Tablosu - Güncel Tutarlar"
+      ],
+      "textCharacters": 3476,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "status": 200,
+      "h1s": [
+        "Alkol Testini Reddetme Cezası 2026"
+      ],
+      "textCharacters": 2251,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "status": 200,
+      "h1s": [
+        "Alkollü Araç Kullanmak (1. Kez, 0.50 Promil Üstü) Cezası 2026"
+      ],
+      "textCharacters": 2491,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/alkollu-arac-kullanmak-3-kez-48-5-c",
+      "status": 200,
+      "h1s": [
+        "Alkollü Araç Kullanmak (3. Kez ve Sonrası) Cezası 2026"
+      ],
+      "textCharacters": 2034,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
+      "status": 200,
+      "h1s": [
+        "Araçta Cam Filmi Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 1894,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/cakarli-isik-kullanmak-28-2",
+      "status": 200,
+      "h1s": [
+        "Çakarlı Işık Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 1745,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/cocuk-koltugu-kullanmamak-78-1-a",
+      "status": 200,
+      "h1s": [
+        "Çocuk Koltuğu Kullanmamak Cezası 2026"
+      ],
+      "textCharacters": 1813,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/drift-yapmak-67-1-d",
+      "status": 200,
+      "h1s": [
+        "Drift Yapmak Cezası 2026"
+      ],
+      "textCharacters": 1837,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/dur-ihtarina-uymamak-47-1-a",
+      "status": 200,
+      "h1s": [
+        "\"Dur\" İhtarına Uymayıp Kaçma Cezası 2026"
+      ],
+      "textCharacters": 1799,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/egzoz-emisyon-sinirini-asmak-30-1-a",
+      "status": 200,
+      "h1s": [
+        "Egzoz Emisyon Sınırını Aşmak Cezası 2026"
+      ],
+      "textCharacters": 1785,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "status": 200,
+      "h1s": [
+        "Ehliyeti Alınmışken Araç Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 1760,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
+      "status": 200,
+      "h1s": [
+        "Ehliyetsiz Araç Kullanma Cezası 2026"
+      ],
+      "textCharacters": 1882,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "status": 200,
+      "h1s": [
+        "Emniyet Kemeri Takmamak Cezası 2026"
+      ],
+      "textCharacters": 1989,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
+      "status": 200,
+      "h1s": [
+        "Emniyet Şeridi İhlali Cezası 2026"
+      ],
+      "textCharacters": 1744,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "status": 200,
+      "h1s": [
+        "Engelli Park Yerini İşgal Etmek Cezası 2026"
+      ],
+      "textCharacters": 1654,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
+      "status": 200,
+      "h1s": [
+        "Geçme Yasağı İhlali Cezası 2026"
+      ],
+      "textCharacters": 1844,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "status": 200,
+      "h1s": [
+        "Hatalı Park Etmek Cezası 2026"
+      ],
+      "textCharacters": 1702,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
+      "status": 200,
+      "h1s": [
+        "Hız Sınırını 66 km/s ve Üzeri Aşmak Cezası 2026"
+      ],
+      "textCharacters": 2020,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "status": 200,
+      "h1s": [
+        "Hız Sınırını 6-45 km/s Aşmak (Kademeli) Cezası 2026"
+      ],
+      "textCharacters": 2708,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "status": 200,
+      "h1s": [
+        "Hız Sınırını 46-55 km/s Aşmak Cezası 2026"
+      ],
+      "textCharacters": 2217,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+      "status": 200,
+      "h1s": [
+        "Hız Sınırını 56-65 km/s Aşmak Cezası 2026"
+      ],
+      "textCharacters": 2074,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "status": 200,
+      "h1s": [
+        "Kask Takmamak (Motosiklet) Cezası 2026"
+      ],
+      "textCharacters": 1698,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/kirmizi-isik-ihlali-47-1-b",
+      "status": 200,
+      "h1s": [
+        "Kırmızı Işık İhlali Cezası 2026"
+      ],
+      "textCharacters": 2283,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/korsan-taksi-izinsiz-yolcu-tasima-31-2",
+      "status": 200,
+      "h1s": [
+        "Korsan Taksi (İzinsiz Yolcu Taşıma) Cezası 2026"
+      ],
+      "textCharacters": 1749,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/makas-atmak-46-2-g",
+      "status": 200,
+      "h1s": [
+        "Makas Atmak Cezası 2026"
+      ],
+      "textCharacters": 1767,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
+      "status": 200,
+      "h1s": [
+        "Muayenesiz Araçla Trafiğe Çıkma Cezası 2026"
+      ],
+      "textCharacters": 1726,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/plakasiz-arac-kullanma-23-1",
+      "status": 200,
+      "h1s": [
+        "Plakasız Araç Kullanma Cezası 2026"
+      ],
+      "textCharacters": 1758,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "status": 200,
+      "h1s": [
+        "Plakayı Okunmaz Hale Getirmek Cezası 2026"
+      ],
+      "textCharacters": 1711,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/sahte-plaka-kullanma-23-5-b",
+      "status": 200,
+      "h1s": [
+        "Sahte Plaka Kullanma Cezası 2026"
+      ],
+      "textCharacters": 1844,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/saldirgan-surus-israrli-takip-73-a",
+      "status": 200,
+      "h1s": [
+        "Saldırgan Sürüş / Israrlı Takip Cezası 2026"
+      ],
+      "textCharacters": 2109,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/seyir-halinde-cep-telefonu-73-c",
+      "status": 200,
+      "h1s": [
+        "Seyir Halinde Cep Telefonu Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 2030,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/takograf-veri-mudahalesi-31-1-b",
+      "status": 200,
+      "h1s": [
+        "Takograf Veri Müdahalesi Cezası 2026"
+      ],
+      "textCharacters": 1675,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/taksimetre-bulundurmamak-kullanmamak-31-1-c",
+      "status": 200,
+      "h1s": [
+        "Taksimetre Bulundurmamak/Kullanmamak Cezası 2026"
+      ],
+      "textCharacters": 1653,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/ters-yonde-arac-kullanmak-46-2-h",
+      "status": 200,
+      "h1s": [
+        "Ters Yönde Araç Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 1739,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/tonaj-sinirini-asmak-65-1-a",
+      "status": 200,
+      "h1s": [
+        "Tonaj/Ağırlık Sınırını Aşmak Cezası 2026"
+      ],
+      "textCharacters": 1769,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
+      "status": 200,
+      "h1s": [
+        "Trafik Sigortasız Araç Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 1810,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/uyusturucu-etkisinde-arac-kullanmak-48-8",
+      "status": 200,
+      "h1s": [
+        "Uyuşturucu Etkisinde Araç Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 2022,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/yangin-sondurucu-bulundurmamak-30-3",
+      "status": 200,
+      "h1s": [
+        "Yangın Söndürücü Bulundurmamak Cezası 2026"
+      ],
+      "textCharacters": 1832,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/yayaya-yol-vermemek-74-b",
+      "status": 200,
+      "h1s": [
+        "Yayaya Yol Vermemek Cezası 2026"
+      ],
+      "textCharacters": 1718,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/uzmana-sor",
+      "status": 200,
+      "h1s": [
+        "Uzmana Sor"
+      ],
+      "textCharacters": 1690,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    }
+  ],
+  "apiResults": [
+    {
+      "path": "/api/arac-dna?ids=1",
+      "status": 200,
+      "recordCount": 1,
+      "errors": []
+    },
+    {
+      "path": "/api/arac-dna?ids=1,2,3",
+      "status": 200,
+      "recordCount": 3,
+      "errors": []
+    },
+    {
+      "path": "/api/arac-dna?ids=1,2,3,4",
+      "status": 400,
+      "errors": []
+    },
+    {
+      "path": "/api/arac-dna?ids=invalid",
+      "status": 400,
+      "errors": []
+    },
+    {
+      "path": "/api/arac-dna?ids=999999999",
+      "status": 404,
+      "errors": []
+    },
+    {
+      "path": "/api/car-options?brand=Renault",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "path": "/api/car-options?brand=invalid-brand",
+      "status": 404,
+      "errors": []
+    },
+    {
+      "path": "/api/advertisements?position=invalid!position",
+      "status": 400,
+      "errors": []
+    }
+  ]
+}

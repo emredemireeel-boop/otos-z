@@ -1,0 +1,1786 @@
+{
+  "measuredAt": "2026-10-29T08:10:44.269Z",
+  "stage": "after",
+  "base": "http://127.0.0.1:3010",
+  "definition": "Unique external JS scripts and script preloads in the first HTTP HTML response; gzip calculated at default zlib settings. Next 16.3 build route table does not expose first-load byte sizes.",
+  "measurements": [
+    {
+      "route": "/arac-dna",
+      "status": 200,
+      "htmlBytes": 247476,
+      "textCharacters": 3321,
+      "headings": [
+        "Araç DNA Analizi",
+        "En Yüksek Puanlılar",
+        "Araç Bilgilerini Girin",
+        "2026’nın en çok satan 5 otomobili",
+        "Popüler Araçlar",
+        "Renault Clio 5. Nesil",
+        "Fiat Egea 1. Nesil",
+        "Togg T10X 1. Nesil",
+        "Togg T10X 1. Nesil",
+        "Tesla Model Y 1. Nesil",
+        "Tesla Model Y 1. Nesil",
+        "Tesla Model Y 1. Nesil",
+        "Nissan Qashqai 2. Nesil (2014-2021)",
+        "Renault Toros (1989-2000)",
+        "Renault Toros (1989-2000)",
+        "Renault R9 Broadway",
+        "Renault R9 Broadway",
+        "Fiat Uno",
+        "Fiat Uno",
+        "Toyota Corolla AE101 (1993-1998)",
+        "Hyundai Accent (1995-2000)",
+        "Lada Samara",
+        "Renault Duster 3. Nesil",
+        "Renault Duster 3. Nesil",
+        "Renault Duster 3. Nesil",
+        "Renault Duster 3. Nesil",
+        "En Düşük Puanlılar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 698331,
+      "firstLoadGzipBytes": 215481,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/1azdb-x2k3txw.js",
+          "rawBytes": 584,
+          "gzipBytes": 291
+        },
+        {
+          "url": "/_next/static/chunks/0ehgk6yb0qq5x.js",
+          "rawBytes": 40131,
+          "gzipBytes": 9862
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/renault",
+      "status": 200,
+      "htmlBytes": 96267,
+      "textCharacters": 1225,
+      "headings": [
+        "Renault Araç DNA Analizi",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 689686,
+      "firstLoadGzipBytes": 213855,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/3n240vndgif5o.js",
+          "rawBytes": 32070,
+          "gzipBytes": 8527
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "status": 200,
+      "htmlBytes": 91848,
+      "textCharacters": 4131,
+      "headings": [
+        "Renault Clio 5. Nesil",
+        "Renault Clio 5. Nesil (2020-2025): hangi motor kime uygun?",
+        " Güçlü yönler",
+        " Satın alma kontrolü",
+        "Karar vermeden önce bilmeniz gerekenler",
+        " Kimler için uygun?",
+        " Satın almadan önce",
+        "Motor ve şanzıman",
+        "Kabin ve kullanım",
+        "İkinci el kontrolü",
+        "Aracınızdaki seçeneği belirleyin",
+        "Renault Clio 5. Nesil (2020-2025) hakkında sık sorulanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 687907,
+      "firstLoadGzipBytes": 213302,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2b54irkufovu6.js",
+          "rawBytes": 30291,
+          "gzipBytes": 7974
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/fiat/egea-1-nesil-2015-2025",
+      "status": 200,
+      "htmlBytes": 75083,
+      "textCharacters": 2702,
+      "headings": [
+        "Fiat Egea 1. Nesil",
+        "Fiat Egea 1. Nesil (2015-2025): hangi motor kime uygun?",
+        " Güçlü yönler",
+        " Satın alma kontrolü",
+        "Aracınızdaki seçeneği belirleyin",
+        "Fiat Egea 1. Nesil (2015-2025) hakkında sık sorulanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 687907,
+      "firstLoadGzipBytes": 213302,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2b54irkufovu6.js",
+          "rawBytes": 30291,
+          "gzipBytes": 7974
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/toyota/corolla-12-nesil-2019-2025",
+      "status": 200,
+      "htmlBytes": 91775,
+      "textCharacters": 3791,
+      "headings": [
+        "Toyota Corolla 12. Nesil",
+        "Toyota Corolla 12. Nesil (2019-2025): hangi motor kime uygun?",
+        " Güçlü yönler",
+        " Satın alma kontrolü",
+        "Karar vermeden önce bilmeniz gerekenler",
+        " Kimler için uygun?",
+        " Satın almadan önce",
+        "Motor seçimi",
+        "Aile kullanımı",
+        "Ekspertiz",
+        "Aracınızdaki seçeneği belirleyin",
+        "Toyota Corolla 12. Nesil (2019-2025) hakkında sık sorulanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 687907,
+      "firstLoadGzipBytes": 213302,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2b54irkufovu6.js",
+          "rawBytes": 30291,
+          "gzipBytes": 7974
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "status": 200,
+      "htmlBytes": 73446,
+      "textCharacters": 2429,
+      "headings": [
+        "Renault Clio 5. Nesil",
+        "Renault Clio 5. Nesil Kronik Sorunları",
+        "Trim Sesleri (B Sütunu & Kemer)",
+        "Akü Zayıflığı ve Start-Stop Hatası",
+        "Renault Clio 5. Nesil (2020-2025) hakkında sık sorulanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 1448087,
+      "firstLoadGzipBytes": 437711,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2k1_tavhw8e8g.js",
+          "rawBytes": 320,
+          "gzipBytes": 228
+        },
+        {
+          "url": "/_next/static/chunks/09f3qh9nvan-0.js",
+          "rawBytes": 21188,
+          "gzipBytes": 7899
+        },
+        {
+          "url": "/_next/static/chunks/25gky_418w2wh.js",
+          "rawBytes": 43740,
+          "gzipBytes": 11656
+        },
+        {
+          "url": "/_next/static/chunks/2wkza3mzpiael.js",
+          "rawBytes": 568350,
+          "gzipBytes": 166678
+        },
+        {
+          "url": "/_next/static/chunks/0_j7y384lcrni.js",
+          "rawBytes": 29573,
+          "gzipBytes": 9669
+        },
+        {
+          "url": "/_next/static/chunks/44-l-omb06ube.js",
+          "rawBytes": 127300,
+          "gzipBytes": 36253
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir",
+      "status": 200,
+      "htmlBytes": 73603,
+      "textCharacters": 2223,
+      "headings": [
+        "Renault Clio 5. Nesil",
+        "Renault Clio 5. Nesil (2020-2025) Güçlü Yönleri ve Dikkat Noktaları",
+        "Güçlü Yönleri",
+        "Dikkat Noktaları",
+        "Renault Clio 5. Nesil (2020-2025) hakkında sık sorulanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 687907,
+      "firstLoadGzipBytes": 213302,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2b54irkufovu6.js",
+          "rawBytes": 30291,
+          "gzipBytes": 7974
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kullanici-deneyimleri",
+      "status": 200,
+      "htmlBytes": 63189,
+      "textCharacters": 2282,
+      "headings": [
+        "Renault Clio 5. Nesil",
+        "Renault Clio 5. Nesil (2020-2025) Kullanıcı Yorumları",
+        "Henüz Yorum Yok",
+        "Renault Clio 5. Nesil (2020-2025) hakkında sık sorulanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 687907,
+      "firstLoadGzipBytes": 213302,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2b54irkufovu6.js",
+          "rawBytes": 30291,
+          "gzipBytes": 7974
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/arac-paketleri",
+      "status": 200,
+      "htmlBytes": 144263,
+      "textCharacters": 3796,
+      "headings": [
+        "Renault Clio 5. Nesil",
+        "Araç Paketleri Kıyaslaması",
+        "Donanım Paketleri Karşılaştırması",
+        "Renault Clio 5. Nesil (2020-2025) Donanım Paketleri ve Özellik Karşılaştırması",
+        "Renault Clio 5. Nesil (2020-2025) hakkında sık sorulanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 687907,
+      "firstLoadGzipBytes": 213302,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2b54irkufovu6.js",
+          "rawBytes": 30291,
+          "gzipBytes": 7974
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/10-tce-90-hp-benzin-manuel-x-tronic",
+      "status": 200,
+      "htmlBytes": 90073,
+      "textCharacters": 3373,
+      "headings": [
+        "Renault Clio 5. Nesil 1.0 TCe 90 HP (Benzin - Manuel / X-Tronic)",
+        "DNA SKORU",
+        "EURO NCAP GÜVENLİK",
+        " Motor Seçeneği Özeti",
+        "Karar vermeden önce bilmeniz gerekenler",
+        " Kimler için uygun?",
+        " Satın almadan önce",
+        "Motor ve şanzıman",
+        "Kabin ve kullanım",
+        "İkinci el kontrolü",
+        " Güçlü yönlerden kısa liste",
+        " Dikkat edilmesi gerekenler",
+        "Renault Clio 5. Nesil (2020-2025) hakkında sık sorulanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 697144,
+      "firstLoadGzipBytes": 215602,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2kpj1nn8-rygo.js",
+          "rawBytes": 819,
+          "gzipBytes": 317
+        },
+        {
+          "url": "/_next/static/chunks/0xsjxowz_9dry.js",
+          "rawBytes": 38709,
+          "gzipBytes": 9957
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/fiat/egea-1-nesil-2015-2025/14-fire-95-hp-benzin-manuel",
+      "status": 200,
+      "htmlBytes": 74175,
+      "textCharacters": 2282,
+      "headings": [
+        "Fiat Egea 1. Nesil 1.4 Fire 95 HP (Benzin - Manuel)",
+        "DNA SKORU",
+        "EURO NCAP GÜVENLİK",
+        " Motor Seçeneği Özeti",
+        " Güçlü yönlerden kısa liste",
+        " Dikkat edilmesi gerekenler",
+        "Fiat Egea 1. Nesil (2015-2025) hakkında sık sorulanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 697144,
+      "firstLoadGzipBytes": 215602,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2kpj1nn8-rygo.js",
+          "rawBytes": 819,
+          "gzipBytes": 317
+        },
+        {
+          "url": "/_next/static/chunks/0xsjxowz_9dry.js",
+          "rawBytes": 38709,
+          "gzipBytes": 9957
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/kiyasla",
+      "status": 200,
+      "htmlBytes": 55601,
+      "textCharacters": 264,
+      "headings": [
+        "DNA Kıyaslama",
+        "Kıyaslama Başlatın",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 727992,
+      "firstLoadGzipBytes": 220430,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/1azdb-x2k3txw.js",
+          "rawBytes": 584,
+          "gzipBytes": 291
+        },
+        {
+          "url": "/_next/static/chunks/041tmw5-m0p1k.js",
+          "rawBytes": 69792,
+          "gzipBytes": 14811
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/karsilastirma",
+      "status": 200,
+      "htmlBytes": 93245,
+      "textCharacters": 986,
+      "headings": [
+        "Araç Karşılaştırma",
+        "Sıralama",
+        "Tüm Karşılaştırmalar",
+        "Renault Clio 5 mi Fiat Egea mı? Şehir içi kullanım",
+        "Toyota Corolla mı Renault Megane 4 mü? Aile otomobili seçimi",
+        "Volkswagen Golf 8 mi Honda Civic 11 mi? Günlük kullanım",
+        "Örnek karşılaştırmalar",
+        "Renault Clio 5 mi Fiat Egea mı? Şehir içi kullanım",
+        "Toyota Corolla mı Renault Megane 4 mü? Aile otomobili seçimi",
+        "Volkswagen Golf 8 mi Honda Civic 11 mi? Günlük kullanım",
+        " İstatistikler",
+        "Son başlıklar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 1460856,
+      "firstLoadGzipBytes": 442966,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/0s-k2y2q7tzoo.js",
+          "rawBytes": 5965,
+          "gzipBytes": 2242
+        },
+        {
+          "url": "/_next/static/chunks/09f3qh9nvan-0.js",
+          "rawBytes": 21188,
+          "gzipBytes": 7899
+        },
+        {
+          "url": "/_next/static/chunks/35f8c0_ely8zq.js",
+          "rawBytes": 50864,
+          "gzipBytes": 14897
+        },
+        {
+          "url": "/_next/static/chunks/2wkza3mzpiael.js",
+          "rawBytes": 568350,
+          "gzipBytes": 166678
+        },
+        {
+          "url": "/_next/static/chunks/0_j7y384lcrni.js",
+          "rawBytes": 29573,
+          "gzipBytes": 9669
+        },
+        {
+          "url": "/_next/static/chunks/44-l-omb06ube.js",
+          "rawBytes": 127300,
+          "gzipBytes": 36253
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/guvenmetre",
+      "status": 200,
+      "htmlBytes": 83548,
+      "textCharacters": 1173,
+      "headings": [
+        "GüvenMetre",
+        "Kategoriler",
+        "Yakıt İstasyonları",
+        "Ekspertiz Firmaları",
+        "Özel Servis / Usta",
+        "Yetkili Bayi ve Servis",
+        "Galericiler",
+        "Yedek Parçacılar",
+        "Oto Aksesuarcılar",
+        "Oto Yıkama & Detailing",
+        "Araç Markaları",
+        "Oto Ünlüler & Kanallar",
+        "Son başlıklar",
+        "Popüler Kategoriler",
+        "İstatistikler",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 1464467,
+      "firstLoadGzipBytes": 443765,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/22ciau7b2_pom.js",
+          "rawBytes": 9576,
+          "gzipBytes": 3041
+        },
+        {
+          "url": "/_next/static/chunks/09f3qh9nvan-0.js",
+          "rawBytes": 21188,
+          "gzipBytes": 7899
+        },
+        {
+          "url": "/_next/static/chunks/35f8c0_ely8zq.js",
+          "rawBytes": 50864,
+          "gzipBytes": 14897
+        },
+        {
+          "url": "/_next/static/chunks/2wkza3mzpiael.js",
+          "rawBytes": 568350,
+          "gzipBytes": 166678
+        },
+        {
+          "url": "/_next/static/chunks/44-l-omb06ube.js",
+          "rawBytes": 127300,
+          "gzipBytes": 36253
+        },
+        {
+          "url": "/_next/static/chunks/0_j7y384lcrni.js",
+          "rawBytes": 29573,
+          "gzipBytes": 9669
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/etkinlikler",
+      "status": 200,
+      "htmlBytes": 368354,
+      "textCharacters": 7627,
+      "headings": [
+        "Etkinlikler",
+        "Kategoriler",
+        "Şehirler",
+        "Kartal Oto Pazarı (Anadolu Yakası)",
+        "Ankara (Karacaören) Açık Oto Pazarı",
+        "Kemalpaşa Açık Oto Pazarı",
+        "Gaziemir Oto Pazarı",
+        "Nilüfer Açık Oto Pazarı",
+        "Adana Çukurova Açık Oto Pazarı",
+        "Antalya Kepez Açık Oto Pazarı",
+        "Aydın Efeler Açık Oto Pazarı",
+        "Balıkesir Altıeylül Açık Oto Pazarı",
+        "Denizli Sevindik Açık Oto Pazarı",
+        "Diyarbakır Kayapınar Açık Oto Pazarı",
+        "Erzurum Yakutiye Açık Oto Pazarı",
+        "Eskişehir Odunpazarı Açık Oto Pazarı",
+        "Gaziantep Şehitkamil Açık Oto Pazarı",
+        "Hatay Antakya Açık Oto Pazarı",
+        "Kahramanmaraş Dulkadiroğlu Oto Pazarı",
+        "Kayseri Kocasinan Açık Oto Pazarı",
+        "Kocaeli Başiskele Açık Oto Pazarı",
+        "Konya Karatay Açık Oto Pazarı",
+        "Malatya Yeşilyurt Açık Oto Pazarı",
+        "Manisa Şehzadeler Açık Oto Pazarı",
+        "Mardin Kızıltepe Açık Oto Pazarı",
+        "Mersin Toroslar Açık Oto Pazarı",
+        "Muğla Menteşe (Bayır) Oto Pazarı",
+        "Ordu Altınordu Açık Oto Pazarı",
+        "Sakarya Adapazarı Açık Oto Pazarı",
+        "Samsun Tekkeköy Açık Oto Pazarı",
+        "Şanlıurfa Haliliye Açık Oto Pazarı",
+        "Tekirdağ Süleymanpaşa Açık Oto Pazarı",
+        "Trabzon Ortahisar Açık Oto Pazarı",
+        "Van Tuşba Açık Oto Pazarı",
+        "Popüler Etkinlikler",
+        "İstatistikler",
+        "Son başlıklar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 1460996,
+      "firstLoadGzipBytes": 443027,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/41v74jzl9w3e1.js",
+          "rawBytes": 6105,
+          "gzipBytes": 2303
+        },
+        {
+          "url": "/_next/static/chunks/09f3qh9nvan-0.js",
+          "rawBytes": 21188,
+          "gzipBytes": 7899
+        },
+        {
+          "url": "/_next/static/chunks/35f8c0_ely8zq.js",
+          "rawBytes": 50864,
+          "gzipBytes": 14897
+        },
+        {
+          "url": "/_next/static/chunks/2wkza3mzpiael.js",
+          "rawBytes": 568350,
+          "gzipBytes": 166678
+        },
+        {
+          "url": "/_next/static/chunks/0_j7y384lcrni.js",
+          "rawBytes": 29573,
+          "gzipBytes": 9669
+        },
+        {
+          "url": "/_next/static/chunks/44-l-omb06ube.js",
+          "rawBytes": 127300,
+          "gzipBytes": 36253
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/anket",
+      "status": 200,
+      "htmlBytes": 113398,
+      "textCharacters": 4148,
+      "headings": [
+        "Anketler",
+        " Anket nabzı",
+        " Kütüphaneden",
+        "Nasıl çalışır?",
+        "Son başlıklar",
+        "Hızlı araçlar",
+        "Günün Vitrini",
+        "Şehir içi kullanımda hangi motor seçeneğini tercih edersiniz?",
+        "İkinci el araç alırken ilk kontrolünüz hangisi?",
+        "Tüm Anketler",
+        "Şehir içi kullanımda hangi motor seçeneğini tercih edersiniz?",
+        "İkinci el araç alırken ilk kontrolünüz hangisi?",
+        "Yeni araçta olmazsa olmaz güvenlik donanımı hangisi?",
+        "Otomatik şanzımanda önceliğiniz nedir?",
+        "Elektrikli otomobile geçişte en büyük engeliniz nedir?",
+        "Türkiye'de günlük kullanım için ideal kasa tipi hangisi?",
+        "Uzun yolda sizi en çok yoran sorun hangisi?",
+        "Araç bakımında en çok hangi konuda güven sorunu yaşıyorsunuz?",
+        "Lastik seçiminde ilk kriteriniz hangisi?",
+        "Aracınızda değiştireceğiniz ilk donanım hangisi olurdu?",
+        " Araç DNA'dan",
+        "Anket özeti",
+        "Çok oy alanlar",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 1491858,
+      "firstLoadGzipBytes": 450283,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/315lgu3l1h1z9.js",
+          "rawBytes": 275,
+          "gzipBytes": 226
+        },
+        {
+          "url": "/_next/static/chunks/09f3qh9nvan-0.js",
+          "rawBytes": 21188,
+          "gzipBytes": 7899
+        },
+        {
+          "url": "/_next/static/chunks/0y-kez2e-8x6n.js",
+          "rawBytes": 37507,
+          "gzipBytes": 9758
+        },
+        {
+          "url": "/_next/static/chunks/2wkza3mzpiael.js",
+          "rawBytes": 568350,
+          "gzipBytes": 166678
+        },
+        {
+          "url": "/_next/static/chunks/0_j7y384lcrni.js",
+          "rawBytes": 29573,
+          "gzipBytes": 9669
+        },
+        {
+          "url": "/_next/static/chunks/44-l-omb06ube.js",
+          "rawBytes": 127300,
+          "gzipBytes": 36253
+        },
+        {
+          "url": "/_next/static/chunks/1_lx4--mt8c7x.js",
+          "rawBytes": 50049,
+          "gzipBytes": 14472
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/iletisim",
+      "status": 200,
+      "htmlBytes": 42889,
+      "textCharacters": 211,
+      "headings": [
+        "Bize Ulaşın",
+        "E-Posta",
+        "Ofis / Konum",
+        "Mesaj Gönder",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 687822,
+      "firstLoadGzipBytes": 213268,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/37716uamjddzq.js",
+          "rawBytes": 30206,
+          "gzipBytes": 7940
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/kullanim-sartlari",
+      "status": 200,
+      "htmlBytes": 111269,
+      "textCharacters": 9372,
+      "headings": [
+        "Kullanım Şartları",
+        "İÇİNDEKİLER",
+        "Taraflar ve Tanımlar",
+        "1.1 Tanımlar",
+        "Sözleşmenin Konusu",
+        "Hizmetlerin Kapsamı",
+        "Üyelik Şartları",
+        "4.1 Üyelik Koşulları",
+        "4.2 Hesap Güvenliği",
+        "Kullanıcı Yükümlülükleri",
+        "İçerik Politikası",
+        "6.1 Kullanıcı Tarafından Üretilen İçerik",
+        "6.2 İçerik Lisansı",
+        "6.3 Yasak İçerikler",
+        "Pazaryeri Kuralları",
+        "Fikri Mülkiyet Hakları",
+        "Sorumluluk Sınırları",
+        "Üyelik Feshi ve Hesap Kapatma",
+        "10.1 Kullanıcı Tarafından Fesih",
+        "10.2 Platform Tarafından Fesih",
+        "Sözleşme Değişiklik Hakkı",
+        "Uyuşmazlık Çözümü",
+        "Yürürlük"
+      ],
+      "firstLoadRawBytes": 683785,
+      "firstLoadGzipBytes": 212168,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/1h3bra6dng5ik.js",
+          "rawBytes": 26169,
+          "gzipBytes": 6840
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/gizlilik-politikasi",
+      "status": 200,
+      "htmlBytes": 111750,
+      "textCharacters": 9293,
+      "headings": [
+        "Gizlilik Politikası",
+        "İÇİNDEKİLER",
+        "1Veri Sorumlusu",
+        "2Politika Kapsamı",
+        "3Toplanan Kişisel Veriler",
+        "4Kişisel Verilerin İŞlenme Amaçları",
+        "5Kişisel Verilerin İŞlenmesinin Hukuki Sebepleri",
+        "6Kişisel Verilerin Aktarılması",
+        "7Çerezler (Cookies)",
+        "8Veri Güvenliği Tedbirleri",
+        "8.1 Teknik Tedbirler",
+        "8.2 İdari Tedbirler",
+        "9Kişisel Verilerin Saklama Süreleri",
+        "10İlgili Kişi Hakları (KVKK m.11)",
+        "11Çocukların Gizliliği",
+        "12Politika Değişiklikleri",
+        "13İletişim"
+      ],
+      "firstLoadRawBytes": 683785,
+      "firstLoadGzipBytes": 212168,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/1h3bra6dng5ik.js",
+          "rawBytes": 26169,
+          "gzipBytes": 6840
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    },
+    {
+      "route": "/piyasalar",
+      "status": 200,
+      "htmlBytes": 294570,
+      "textCharacters": 5001,
+      "headings": [
+        "2026 Türkiye Otomobil Pazar Endeksi",
+        "Pazar Liderleri",
+        "Elektrikli Araç Yükselişi",
+        "En Çok Talep Görenler",
+        "Topluluk",
+        "Karar araçları",
+        "Kurumsal"
+      ],
+      "firstLoadRawBytes": 689619,
+      "firstLoadGzipBytes": 213810,
+      "scripts": [
+        {
+          "url": "/_next/static/chunks/26g4tn5b226u5.js",
+          "rawBytes": 31996,
+          "gzipBytes": 8539
+        },
+        {
+          "url": "/_next/static/chunks/2q4-4somkyld6.js",
+          "rawBytes": 228084,
+          "gzipBytes": 71400
+        },
+        {
+          "url": "/_next/static/chunks/2zx3q7e7c69qs.js",
+          "rawBytes": 155744,
+          "gzipBytes": 42856
+        },
+        {
+          "url": "/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "rawBytes": 10947,
+          "gzipBytes": 4308
+        },
+        {
+          "url": "/_next/static/chunks/3pte2bhq_td_3.js",
+          "rawBytes": 15981,
+          "gzipBytes": 4029
+        },
+        {
+          "url": "/_next/static/chunks/3hzm7va-5gxsb.js",
+          "rawBytes": 27147,
+          "gzipBytes": 10164
+        },
+        {
+          "url": "/_next/static/chunks/1le_jd8fpf11x.js",
+          "rawBytes": 33518,
+          "gzipBytes": 10718
+        },
+        {
+          "url": "/_next/static/chunks/0z53ria94rvky.js",
+          "rawBytes": 27711,
+          "gzipBytes": 9746
+        },
+        {
+          "url": "/_next/static/chunks/2bg4g1330tzf-.js",
+          "rawBytes": 32003,
+          "gzipBytes": 8482
+        },
+        {
+          "url": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "rawBytes": 112594,
+          "gzipBytes": 39627
+        },
+        {
+          "url": "/_next/static/chunks/431bw722fec3m.js",
+          "rawBytes": 13894,
+          "gzipBytes": 3941
+        }
+      ]
+    }
+  ]
+}

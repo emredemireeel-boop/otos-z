@@ -1,0 +1,389 @@
+{
+  "step": 4,
+  "date": "2026-10-29",
+  "completedAt": "2026-10-29T08:15:20.318Z",
+  "status": "implemented-and-verified-locally",
+  "deployed": false,
+  "branch": "codex/seo-server-render-step04",
+  "implementationHead": "db55024afba1a9377df9ba3a367285e466f75d8b",
+  "scope": "Server-render indexable content and remove full catalogues from client JavaScript; no Step 5 sitemap/category migration applied.",
+  "documentationRead": [
+    "01-app/01-getting-started/05-server-and-client-components.md",
+    "01-app/03-api-reference/04-functions/generate-static-params.md",
+    "01-app/03-api-reference/03-file-conventions/02-route-segment-config/dynamicParams.md",
+    "01-app/02-guides/caching-without-cache-components.md",
+    "01-app/03-api-reference/03-file-conventions/route.md",
+    "01-app/02-guides/lazy-loading.md"
+  ],
+  "changes": [
+    "Vehicle model, brand, section and engine pages resolve awaited params and data on server; missing records use notFound before shell rendering.",
+    "Vehicle navigation contains real server-rendered anchors. Search, filter, selected-record comparison, reports and votes are bounded client islands.",
+    "Model/section/engine static generation uses shared quality gates; revalidate 1800 and dynamicParams true preserve ISR for other valid records.",
+    "Presentation helpers and types extracted without changing catalogue records; lightweight qualified vehicle index replaces full arrays in selectors.",
+    "Selected-vehicle API accepts at most three explicit IDs; car option API sends names only. No full heavy catalogue import is reachable from client entries.",
+    "Shared anonymous navigation no longer eagerly imports Firestore/storage. Authentication and signed-in subscriptions load SDKs on demand; ads use a read-only public-field server projection.",
+    "Legal/contact text, library legacy guides, market tables, events and community initial content are server-rendered; forms and live updates remain separate islands.",
+    "ESLint directive-aware no-restricted-imports enforcement and transitive import/chunk audit prevent heavy catalogue regressions.",
+    "Unsupported expert wording removed in modified chronic/engine descriptions; existing engine scores and catalogue assertions were not re-audited in this rendering step.",
+    "Console-only DNA contribution confirmation replaced with real forum navigation; no submission success is simulated.",
+    "Filter active states, event counts/empty messages and single H1 on equipment page preserve reviewed UI behavior."
+  ],
+  "measurementDefinition": "Unique external JS scripts and script preloads in the first HTTP HTML response; gzip calculated at default zlib settings. Next 16.3 build route table does not expose first-load byte sizes.",
+  "comparisons": [
+    {
+      "route": "/arac-dna",
+      "beforeRawBytes": 1909804,
+      "afterRawBytes": 698331,
+      "rawReductionPercent": 63.43,
+      "beforeGzipBytes": 508260,
+      "afterGzipBytes": 215481,
+      "beforeMainTextCharacters": 3847,
+      "afterMainTextCharacters": 3321
+    },
+    {
+      "route": "/arac-dna/renault",
+      "beforeRawBytes": 1667149,
+      "afterRawBytes": 689686,
+      "rawReductionPercent": 58.63,
+      "beforeGzipBytes": 477499,
+      "afterGzipBytes": 213855,
+      "beforeMainTextCharacters": 1192,
+      "afterMainTextCharacters": 1225
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "beforeRawBytes": 1985569,
+      "afterRawBytes": 687907,
+      "rawReductionPercent": 65.35,
+      "beforeGzipBytes": 505758,
+      "afterGzipBytes": 213302,
+      "beforeMainTextCharacters": 4131,
+      "afterMainTextCharacters": 4131
+    },
+    {
+      "route": "/arac-dna/fiat/egea-1-nesil-2015-2025",
+      "beforeRawBytes": 1985569,
+      "afterRawBytes": 687907,
+      "rawReductionPercent": 65.35,
+      "beforeGzipBytes": 505758,
+      "afterGzipBytes": 213302,
+      "beforeMainTextCharacters": 2702,
+      "afterMainTextCharacters": 2702
+    },
+    {
+      "route": "/arac-dna/toyota/corolla-12-nesil-2019-2025",
+      "beforeRawBytes": 1985569,
+      "afterRawBytes": 687907,
+      "rawReductionPercent": 65.35,
+      "beforeGzipBytes": 505758,
+      "afterGzipBytes": 213302,
+      "beforeMainTextCharacters": 3791,
+      "afterMainTextCharacters": 3791
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "beforeRawBytes": 1986171,
+      "afterRawBytes": 1448087,
+      "rawReductionPercent": 27.09,
+      "beforeGzipBytes": 504888,
+      "afterGzipBytes": 437711,
+      "beforeMainTextCharacters": 2380,
+      "afterMainTextCharacters": 2429
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir",
+      "beforeRawBytes": 1973858,
+      "afterRawBytes": 687907,
+      "rawReductionPercent": 65.15,
+      "beforeGzipBytes": 501248,
+      "afterGzipBytes": 213302,
+      "beforeMainTextCharacters": 2223,
+      "afterMainTextCharacters": 2223
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kullanici-deneyimleri",
+      "beforeRawBytes": 1976660,
+      "afterRawBytes": 687907,
+      "rawReductionPercent": 65.2,
+      "beforeGzipBytes": 502264,
+      "afterGzipBytes": 213302,
+      "beforeMainTextCharacters": 2282,
+      "afterMainTextCharacters": 2282
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/arac-paketleri",
+      "beforeRawBytes": 1978355,
+      "afterRawBytes": 687907,
+      "rawReductionPercent": 65.23,
+      "beforeGzipBytes": 502899,
+      "afterGzipBytes": 213302,
+      "beforeMainTextCharacters": 3796,
+      "afterMainTextCharacters": 3796
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/10-tce-90-hp-benzin-manuel-x-tronic",
+      "beforeRawBytes": 2015162,
+      "afterRawBytes": 697144,
+      "rawReductionPercent": 65.41,
+      "beforeGzipBytes": 512286,
+      "afterGzipBytes": 215602,
+      "beforeMainTextCharacters": 3327,
+      "afterMainTextCharacters": 3373
+    },
+    {
+      "route": "/arac-dna/fiat/egea-1-nesil-2015-2025/14-fire-95-hp-benzin-manuel",
+      "beforeRawBytes": 2015162,
+      "afterRawBytes": 697144,
+      "rawReductionPercent": 65.41,
+      "beforeGzipBytes": 512286,
+      "afterGzipBytes": 215602,
+      "beforeMainTextCharacters": 2236,
+      "afterMainTextCharacters": 2282
+    },
+    {
+      "route": "/arac-dna/kiyasla",
+      "beforeRawBytes": 1962915,
+      "afterRawBytes": 727992,
+      "rawReductionPercent": 62.91,
+      "beforeGzipBytes": 497301,
+      "afterGzipBytes": 220430,
+      "beforeMainTextCharacters": 264,
+      "afterMainTextCharacters": 264
+    },
+    {
+      "route": "/karsilastirma",
+      "beforeRawBytes": 1469037,
+      "afterRawBytes": 1460856,
+      "rawReductionPercent": 0.56,
+      "beforeGzipBytes": 442402,
+      "afterGzipBytes": 442966,
+      "beforeMainTextCharacters": 986,
+      "afterMainTextCharacters": 986
+    },
+    {
+      "route": "/guvenmetre",
+      "beforeRawBytes": 1488083,
+      "afterRawBytes": 1464467,
+      "rawReductionPercent": 1.59,
+      "beforeGzipBytes": 453534,
+      "afterGzipBytes": 443765,
+      "beforeMainTextCharacters": 1173,
+      "afterMainTextCharacters": 1173
+    },
+    {
+      "route": "/etkinlikler",
+      "beforeRawBytes": 1500825,
+      "afterRawBytes": 1460996,
+      "rawReductionPercent": 2.65,
+      "beforeGzipBytes": 449565,
+      "afterGzipBytes": 443027,
+      "beforeMainTextCharacters": 7587,
+      "afterMainTextCharacters": 7627
+    },
+    {
+      "route": "/anket",
+      "beforeRawBytes": 1715661,
+      "afterRawBytes": 1491858,
+      "rawReductionPercent": 13.04,
+      "beforeGzipBytes": 490813,
+      "afterGzipBytes": 450283,
+      "beforeMainTextCharacters": 1143,
+      "afterMainTextCharacters": 4148
+    },
+    {
+      "route": "/iletisim",
+      "beforeRawBytes": 1424640,
+      "afterRawBytes": 687822,
+      "rawReductionPercent": 51.72,
+      "beforeGzipBytes": 429383,
+      "afterGzipBytes": 213268,
+      "beforeMainTextCharacters": 211,
+      "afterMainTextCharacters": 211
+    },
+    {
+      "route": "/kullanim-sartlari",
+      "beforeRawBytes": 1452392,
+      "afterRawBytes": 683785,
+      "rawReductionPercent": 52.92,
+      "beforeGzipBytes": 436331,
+      "afterGzipBytes": 212168,
+      "beforeMainTextCharacters": 9372,
+      "afterMainTextCharacters": 9372
+    },
+    {
+      "route": "/gizlilik-politikasi",
+      "beforeRawBytes": 1462670,
+      "afterRawBytes": 683785,
+      "rawReductionPercent": 53.25,
+      "beforeGzipBytes": 436426,
+      "afterGzipBytes": 212168,
+      "beforeMainTextCharacters": 9293,
+      "afterMainTextCharacters": 9293
+    },
+    {
+      "route": "/piyasalar",
+      "beforeRawBytes": 1441996,
+      "afterRawBytes": 689619,
+      "rawReductionPercent": 52.18,
+      "beforeGzipBytes": 432460,
+      "afterGzipBytes": 213810,
+      "beforeMainTextCharacters": 2115,
+      "afterMainTextCharacters": 5001
+    }
+  ],
+  "staticGeneration": {
+    "generatedAt": "2026-10-29T08:01:41.289Z",
+    "source": "prerender-manifest immediately after build, before next start",
+    "routes": 382,
+    "byType": {
+      "brand": 21,
+      "model": 88,
+      "kronik-sorunlar": 67,
+      "neden-alinir": 88,
+      "arac-paketleri": 68,
+      "engine": 43,
+      "kullanici-deneyimleri": 6,
+      "comparison": 1
+    }
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "npx tsc --noEmit",
+        "exitCode": 0,
+        "result": "Clean; run separately from Next build",
+        "evidence": "step04-tsc.log"
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0,
+        "result": "Production build succeeds, 1035 static pages generated (baseline 672)",
+        "evidence": "step04-build.log"
+      },
+      {
+        "command": "npx eslint app components context lib --no-config-lookup -c eslint.client-boundaries.mjs",
+        "exitCode": 0,
+        "result": "No forbidden client imports",
+        "evidence": "step04-boundaries-lint.log"
+      },
+      {
+        "command": "node --test tests/client-boundaries.test.mjs tests/indexability.test.mjs tests/forum-index-policy.test.mjs tests/forum-pagination.test.mjs",
+        "exitCode": 0,
+        "result": "21 passed, 0 failed",
+        "evidence": "step04-tests.log"
+      },
+      {
+        "command": "node scripts/seo-quality-audit.mjs docs/seo/step04-quality-audit.json --check-signals",
+        "exitCode": 0,
+        "result": "Signals match current sources; quality gates unchanged",
+        "evidence": "step04-quality-audit.json"
+      },
+      {
+        "command": "node scripts/seo-client-graph-check.mjs",
+        "exitCode": 0,
+        "result": {
+          "checkedAt": "2026-10-29T08:10:45.156Z",
+          "clientEntries": 171,
+          "checkedModules": 215,
+          "forbiddenRuntimeImports": 0,
+          "violations": [],
+          "chunkCount": 163,
+          "clioChunkMatches": []
+        },
+        "evidence": "step04-client-graph.json"
+      },
+      {
+        "command": "node scripts/seo-render-measure.mjs after http://127.0.0.1:3010",
+        "exitCode": 0,
+        "result": "All 20 representative routes return 200; model JS reduction 65.35% raw / 57.83% gzip",
+        "evidence": "step04-after.json"
+      },
+      {
+        "command": "node scripts/seo-ssr-check.mjs http://127.0.0.1:3010",
+        "exitCode": 0,
+        "result": "694 HTML pages, 0 missing source fields / H1 errors / short main bodies; 8 API projection/status checks pass",
+        "evidence": "step04-ssr-check.json"
+      },
+      {
+        "command": "node scripts/seo-ssr-curl-check.mjs http://127.0.0.1:3010 docs/seo/step04-curl-content.json",
+        "exitCode": 0,
+        "result": "Actual curl Googlebot GET: 200, all two Clio chronic titles are HTML text after scripts removed",
+        "evidence": "step04-curl-content.json"
+      },
+      {
+        "command": "node scripts/seo-status-check.mjs --base http://127.0.0.1:3010 --report docs/seo/step04-status-check.json",
+        "exitCode": 0,
+        "result": "231 passed; 0 meta refresh",
+        "evidence": "step04-status-check.json"
+      },
+      {
+        "command": "node scripts/seo-status-check.mjs --base http://127.0.0.1:3010 --sitemap --report docs/seo/step04-sitemap-check.json",
+        "exitCode": 0,
+        "result": "689/689 HTTP 200; 0 duplicate/meta-refresh",
+        "evidence": "step04-sitemap-check.json"
+      },
+      {
+        "command": "node scripts/seo-indexability-check.mjs --base http://127.0.0.1:3010 --report docs/seo/step04-indexability-check.json",
+        "exitCode": 0,
+        "result": "2371 pages checked: 689 sitemap / 1682 excluded; 0 status/robots/canonical/schema inconsistencies",
+        "evidence": "step04-indexability-check.json"
+      },
+      {
+        "command": "node scripts/verify-seo-http.mjs http://127.0.0.1:3010 docs/seo/step04-http-curl.json",
+        "exitCode": 0,
+        "result": "105 curl GET/HEAD/browser/Googlebot checks passed",
+        "evidence": "step04-http-curl.json"
+      },
+      {
+        "command": "node scripts/verify-seo-hubs.mjs http://127.0.0.1:3010 docs/seo/step04-hubs.json",
+        "exitCode": 0,
+        "result": "37 passed, 13 real forum threads and 49 qualified articles retained",
+        "evidence": "step04-hubs.json"
+      },
+      {
+        "command": "node scripts/verify-seo-quality-content.mjs http://127.0.0.1:3010 docs/seo/step04-quality-content.json",
+        "exitCode": 0,
+        "result": "13 passed; all 236 historical OBD routes remain accessible",
+        "evidence": "step04-quality-content.json"
+      },
+      {
+        "command": "node scripts/verify-seo-http.mjs https://otosoz.com docs/seo/step04-live-curl.json --observe",
+        "exitCode": 0,
+        "result": "Observation only: 54 passed / 51 deviations; live deployment is older",
+        "evidence": "step04-live-curl.json"
+      },
+      {
+        "command": "node scripts/seo-ssr-curl-check.mjs https://otosoz.com docs/seo/step04-live-content.json --observe",
+        "exitCode": 0,
+        "result": "Live Googlebot curl: 200, two Clio chronic titles already present in HTML",
+        "evidence": "step04-live-content.json"
+      }
+    ],
+    "ssrPages": 694,
+    "ssrFailures": 0,
+    "sitemapUrls": 689,
+    "indexabilityChecked": 2371,
+    "indexabilityFailures": 0,
+    "clientGraph": {
+      "checkedAt": "2026-10-29T08:10:45.156Z",
+      "clientEntries": 171,
+      "checkedModules": 215,
+      "forbiddenRuntimeImports": 0,
+      "violations": [],
+      "chunkCount": 163,
+      "clioChunkMatches": []
+    },
+    "browserEvidence": "step04-browser-check.json"
+  },
+  "operationalNotes": [
+    "An intermediate Windows build conflicted with the running test server writing .next. Stopping the test server and rebuilding resolved ENOTEMPTY; final build exited 0.",
+    "Test server logged Next 16.3 Internal NoFallbackError during concurrent route probes. HTTP and HTML checks passed, and isolated unknown model/engine requests returned 404 without new diagnostics. Production ISR logs should be checked after deployment."
+  ],
+  "risks": [
+    "Changes have not been deployed. Live host status deviations remain until the reviewed branch is released; rerun local command matrix against https://otosoz.com after deployment.",
+    "Signed-in account mutations, votes, uploads and outbound submissions were not exercised; anonymous rendering, selected-record APIs and login prompts were checked.",
+    "Authentication SDK may load after hydration for session restoration; first-load figures measure external scripts/preloads declared in initial HTML, not all later interactive requests.",
+    "Read-only ads endpoint requires server Admin SDK availability; it returns 503 and the existing placeholder when unavailable.",
+    "Underlying mechanical claims, catalogue report counts and market data remain subject to editorial review; rendering changes do not establish their accuracy."
+  ]
+}

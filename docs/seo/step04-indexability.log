@@ -1,0 +1,48 @@
+Checked 200/2371
+Checked 400/2371
+Checked 600/2371
+Checked 800/2371
+Checked 1000/2371
+Checked 1200/2371
+Checked 1400/2371
+Checked 1600/2371
+Checked 1800/2371
+Checked 2000/2371
+Checked 2200/2371
+{
+  "checkedAt": "2026-10-29T08:11:24.591Z",
+  "base": "http://127.0.0.1:3010",
+  "sitemapCount": 689,
+  "byPrefix": {
+    "trafik-cezasi": 39,
+    "home": 1,
+    "kutuphane": 95,
+    "makale": 50,
+    "arac-dna": 374,
+    "otobutce": 20,
+    "haberler": 14,
+    "karsilastirma": 1,
+    "uzmana-sor": 1,
+    "piyasalar": 1,
+    "guvenmetre": 1,
+    "altin-anahtar": 1,
+    "anket": 1,
+    "otohesap": 22,
+    "etkinlikler": 1,
+    "obd": 6,
+    "hakkimizda": 1,
+    "iletisim": 1,
+    "gizlilik-politikasi": 1,
+    "cerez-politikasi": 1,
+    "kullanim-sartlari": 1,
+    "acik-oto-pazari": 27,
+    "nasil-yapilir": 14,
+    "forum": 15
+  },
+  "checked": 2371,
+  "excludedChecked": 1682,
+  "sampleCount": 200,
+  "sampleFailures": 0,
+  "failures": 0,
+  "failureExamples": []
+}

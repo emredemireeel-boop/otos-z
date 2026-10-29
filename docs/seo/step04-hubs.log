@@ -1,0 +1,104 @@
+{
+  "total": 37,
+  "passed": 37,
+  "failed": 0,
+  "measurements": {
+    "forum": {
+      "status": 200,
+      "canonical": "https://otosoz.com/forum",
+      "h1Count": 1,
+      "threadLinks": 13,
+      "textLength": 6313
+    },
+    "articles": {
+      "status": 200,
+      "canonical": "https://otosoz.com/makale",
+      "h1Count": 1,
+      "articleLinks": 49
+    },
+    "forumSitemapThreads": 13,
+    "categories": [
+      {
+        "path": "/forum/kategori/genel",
+        "count": 4,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/teknik-ariza",
+        "count": 3,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/bakim-tamir",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/modifiye-aksesuar",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/elektrikli-hibrit",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/lastik-jant",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/sigorta-hukuk",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/alim-satim",
+        "count": 1,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      },
+      {
+        "path": "/forum/kategori/deneyim-inceleme",
+        "count": 5,
+        "status": 200,
+        "noindex": false,
+        "googleNoindex": false,
+        "inSitemap": true
+      },
+      {
+        "path": "/forum/kategori/marka-model",
+        "count": 0,
+        "status": 200,
+        "noindex": true,
+        "googleNoindex": true,
+        "inSitemap": false
+      }
+    ]
+  },
+  "failures": []
+}

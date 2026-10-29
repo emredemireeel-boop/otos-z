@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-29T08:11:55.044Z",
+  "base": "http://127.0.0.1:3010",
+  "total": 13,
+  "passed": 13,
+  "failed": 0,
+  "historicalUrlsChecked": 236,
+  "historicalExistingRecordUrls": 222,
+  "historicalBrandHubs": 14,
+  "historicalMissingRecordsNotCreated": 0,
+  "checks": [
+    {
+      "name": "/obd/p0420 has no unsourced repair cost block",
+      "passed": true
+    },
+    {
+      "name": "/obd/p0420 promotes only qualified OBD codes",
+      "passed": true,
+      "observed": []
+    },
+    {
+      "name": "/obd/p0420 has no automatic links to short dictionary entries",
+      "passed": true
+    },
+    {
+      "name": "/obd/p20ee has no unsourced repair cost block",
+      "passed": true
+    },
+    {
+      "name": "/obd/p20ee promotes only qualified OBD codes",
+      "passed": true,
+      "observed": []
+    },
+    {
+      "name": "/obd/p20ee has no automatic links to short dictionary entries",
+      "passed": true
+    },
+    {
+      "name": "unsourced causes are visibly labelled general information",
+      "passed": true
+    },
+    {
+      "name": "/obd/b0001 has no unsourced repair cost block",
+      "passed": true
+    },
+    {
+      "name": "/obd/b0001 promotes only qualified OBD codes",
+      "passed": true,
+      "observed": []
+    },
+    {
+      "name": "/obd/b0001 has no automatic links to short dictionary entries",
+      "passed": true
+    },
+    {
+      "name": "unsourced control suggestions are visibly labelled general information",
+      "passed": true
+    },
+    {
+      "name": "user-selected duplicate remains 200, noindex and no redirect",
+      "passed": true
+    },
+    {
+      "name": "all existing historically clicked OBD records remain accessible",
+      "passed": true,
+      "observed": {
+        "checked": 236,
+        "failed": 0
+      }
+    }
+  ]
+}

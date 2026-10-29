@@ -1,0 +1,40 @@
+{
+  "checked": 694,
+  "failures": [],
+  "apiFailures": [],
+  "comparisons": [
+    {
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "beforeRaw": 1985569,
+      "afterRaw": 687907,
+      "rawReduction": 0.6535466659682942,
+      "beforeGzip": 505758,
+      "afterGzip": 213302,
+      "gzipReduction": 0.5782528402912065,
+      "mainTextBefore": 4131,
+      "mainTextAfter": 4131
+    },
+    {
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025",
+      "beforeRaw": 1985569,
+      "afterRaw": 687907,
+      "rawReduction": 0.6535466659682942,
+      "beforeGzip": 505758,
+      "afterGzip": 213302,
+      "gzipReduction": 0.5782528402912065,
+      "mainTextBefore": 2702,
+      "mainTextAfter": 2702
+    },
+    {
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025",
+      "beforeRaw": 1985569,
+      "afterRaw": 687907,
+      "rawReduction": 0.6535466659682942,
+      "beforeGzip": 505758,
+      "afterGzip": 213302,
+      "gzipReduction": 0.5782528402912065,
+      "mainTextBefore": 3791,
+      "mainTextAfter": 3791
+    }
+  ]
+}

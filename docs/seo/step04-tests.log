@@ -1,0 +1,29 @@
+✔ client imports reject all five heavy catalogues, including relative and dynamic paths (891.8342ms)
+✔ server catalogue imports and small client presentation/type modules remain allowed (2.8772ms)
+✔ 200 görünür karakterli gerçek bir ileti indekslenebilir (1.2992ms)
+✔ 199 karakterli tek ileti noindex olur (0.1577ms)
+✔ birkaç kısa yanıt toplam içeriği yeterli yapmaz (0.2353ms)
+✔ eski entry sayacı görünür ileti yokluğunu örtemez (0.159ms)
+✔ spam şüphesi uzun içerikte de noindex üretir (0.2642ms)
+✔ işaretleme ve görsel URL uzunluğu görünür içerik sayılmaz (0.1396ms)
+✔ 13 gerçek başlık bir sayfaya sığar; olmayan ikinci sayfa reddedilir (1.857ms)
+✔ 20 başlıkta ikinci sayfa açılmaz (0.2318ms)
+✔ 21 başlıkta ikinci sayfa yalnızca son başlığı gösterir (0.1368ms)
+✔ bilinen boş kategorinin ilk sayfası açılır; geçersiz sayılar reddedilir (0.1592ms)
+✔ kategori indeks eşiği dört ve beş başlık arasında değişir (0.2032ms)
+✔ unmeasured OBD data fails closed; sources or measured specific content qualify (0.8288ms)
+✔ engine-specific evidence qualifies only the matching sections (0.169ms)
+✔ dictionary measures visible characters and requires similarity measurements (0.1345ms)
+✔ near-duplicate article keeps one representative and does not count markup (0.1856ms)
+✔ noindex follows links for general and Googlebot directives (0.1442ms)
+✔ URL registry rejects unqualified, noncanonical and unknown routes (0.5106ms)
+✔ curation preserves all thirteen existing OBD directory pages (0.2028ms)
+✔ approved duplicate action remains noindex with no new redirect (26.0745ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1311.2694

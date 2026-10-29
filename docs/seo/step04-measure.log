@@ -1,0 +1,22 @@
+Unique external JS scripts and script preloads in the first HTTP HTML response; gzip calculated at default zlib settings. Next 16.3 build route table does not expose first-load byte sizes.
+route	HTTP	JS raw bytes	JS gzip bytes	HTML bytes	visible main text characters
+/arac-dna	200	698331	215481	247476	3321
+/arac-dna/renault	200	689686	213855	96267	1225
+/arac-dna/renault/clio-5-nesil-2020-2025	200	687907	213302	91848	4131
+/arac-dna/fiat/egea-1-nesil-2015-2025	200	687907	213302	75083	2702
+/arac-dna/toyota/corolla-12-nesil-2019-2025	200	687907	213302	91775	3791
+/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar	200	1448087	437711	73446	2429
+/arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir	200	687907	213302	73603	2223
+/arac-dna/renault/clio-5-nesil-2020-2025/kullanici-deneyimleri	200	687907	213302	63189	2282
+/arac-dna/renault/clio-5-nesil-2020-2025/arac-paketleri	200	687907	213302	144263	3796
+/arac-dna/renault/clio-5-nesil-2020-2025/10-tce-90-hp-benzin-manuel-x-tronic	200	697144	215602	90073	3373
+/arac-dna/fiat/egea-1-nesil-2015-2025/14-fire-95-hp-benzin-manuel	200	697144	215602	74175	2282
+/arac-dna/kiyasla	200	727992	220430	55601	264
+/karsilastirma	200	1460856	442966	93245	986
+/guvenmetre	200	1464467	443765	83548	1173
+/etkinlikler	200	1460996	443027	368354	7627
+/anket	200	1491858	450283	113398	4148
+/iletisim	200	687822	213268	42889	211
+/kullanim-sartlari	200	683785	212168	111269	9372
+/gizlilik-politikasi	200	683785	212168	111750	9293
+/piyasalar	200	689619	213810	294570	5001

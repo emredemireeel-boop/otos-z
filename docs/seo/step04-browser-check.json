@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-29T08:15:20.316Z",
+  "base": "http://127.0.0.1:3010",
+  "method": "CUA in-app browser, DOM and screenshots; anonymous session",
+  "modelPages": [
+    "renault/clio-5-nesil-2020-2025",
+    "fiat/egea-1-nesil-2015-2025",
+    "toyota/corolla-12-nesil-2019-2025"
+  ],
+  "enginePages": [
+    "renault/clio-5-nesil-2020-2025/10-tce-90-hp-benzin-manuel-x-tronic",
+    "fiat/egea-1-nesil-2015-2025/14-fire-95-hp-benzin-manuel"
+  ],
+  "sections": [
+    "neden-alinir",
+    "arac-paketleri",
+    "kronik-sorunlar",
+    "kullanici-deneyimleri"
+  ],
+  "interactions": [
+    {
+      "check": "Real model tab link navigates to strengths and equipment pages",
+      "passed": true
+    },
+    {
+      "check": "Trim table renders Joy, Touch and Icon columns",
+      "passed": true
+    },
+    {
+      "check": "Anonymous chronic report opens login requirement without sending data",
+      "passed": true
+    },
+    {
+      "check": "Comparison selects Clio and Egea, then 1.0 TCe / 1.4 Fire and renders side-by-side strengths",
+      "passed": true
+    },
+    {
+      "check": "Renault model filter Clio yields four model generations; unknown term shows empty message",
+      "passed": true
+    },
+    {
+      "check": "DNA brand/model/year form Renault, Clio, 2022 navigates to server query results with four engine links",
+      "passed": true
+    },
+    {
+      "check": "Piyasalar Model Sales tab and Toyota filter show Corolla and C-HR",
+      "passed": true
+    },
+    {
+      "check": "Guvenmetre Product filter shows parts and accessories categories",
+      "passed": true
+    },
+    {
+      "check": "Events Izmir filter shows two markets, active city state and count 2; Race filter yields count 0 and empty message",
+      "passed": true
+    }
+  ],
+  "consoleErrorsOrWarningsObserved": [],
+  "visualResult": "Three model and two engine pages inspected; four Clio sections inspected. Clio layout compared to before screenshot. No observed visual or functional regression in these checks.",
+  "screenshots": [
+    "step04-before-clio.png",
+    "step04-after-clio.png",
+    "step04-after-engine.png",
+    "step04-after-compare.png",
+    "step04-after-events-filter.png",
+    "step04-preview.png"
+  ],
+  "limits": [
+    "Signed-in writes, voting, uploads and external form submission were not performed.",
+    "No exhaustive device or pixel-diff suite was run."
+  ]
+}
