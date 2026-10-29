@@ -1,37 +1,11 @@
-"use client";
+import LegalScrollClient from '@/components/LegalScrollClient';
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useTheme } from "@/context/ThemeContext";
-import { useState, useEffect } from "react";
+
 import { Shield, FileText, AlertTriangle, Scale, Users, Globe, Lock, ChevronRight, ArrowUp } from "lucide-react";
 
 export default function KullanimSartlariPage() {
-    const { theme } = useTheme();
-    const isDark = theme === 'dark';
-    const [mounted, setMounted] = useState(false);
-    const [activeSection, setActiveSection] = useState('');
-    const [showBackToTop, setShowBackToTop] = useState(false);
-
-    useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setMounted(true);
-        const handleScroll = () => {
-            setShowBackToTop(window.scrollY > 400);
-            // Track active section
-            const sections = document.querySelectorAll('[data-section]');
-            let current = '';
-            sections.forEach((section) => {
-                const el = section as HTMLElement;
-                if (el.offsetTop - 200 <= window.scrollY) {
-                    current = el.getAttribute('data-section') || '';
-                }
-            });
-            setActiveSection(current);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const tocItems = [
         { id: 'taraflar', label: '1. Taraflar ve Tanımlar', icon: <Users size={15} /> },
@@ -49,16 +23,11 @@ export default function KullanimSartlariPage() {
         { id: 'yururluk', label: '13. Yürürlük', icon: <Shield size={15} /> },
     ];
 
-    const scrollToSection = (id: string) => {
-        const el = document.querySelector(`[data-section="${id}"]`);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
             <Navbar />
 
-            <style jsx>{`
+            <style>{`:root{--legal-tone-0:rgba(0,90,226,0.06);--legal-tone-1:rgba(0,90,226,0.04);--legal-tone-2:rgba(0,90,226,0.08);--legal-tone-3:rgba(0,90,226,0.06);--legal-tone-4:rgba(0,90,226,0.06);--legal-tone-5:rgba(0,90,226,0.06);--legal-tone-6:rgba(0,90,226,0.06);--legal-tone-7:rgba(0,90,226,0.06);--legal-tone-8:rgba(0,90,226,0.06);--legal-tone-9:rgba(0,90,226,0.06);--legal-tone-10:rgba(0,90,226,0.06);--legal-tone-11:rgba(0,90,226,0.06);--legal-tone-12:rgba(0,90,226,0.06);--legal-tone-13:rgba(0,90,226,0.06);--legal-tone-14:rgba(0,90,226,0.06);--legal-tone-15:rgba(0,90,226,0.06);--legal-tone-16:rgba(34,197,94,0.04);--legal-tone-17:rgba(34,197,94,0.1);}html.dark{--legal-tone-0:rgba(255,107,0,0.1);--legal-tone-1:rgba(255,107,0,0.06);--legal-tone-2:rgba(255,107,0,0.12);--legal-tone-3:rgba(255,107,0,0.1);--legal-tone-4:rgba(255,107,0,0.1);--legal-tone-5:rgba(255,107,0,0.1);--legal-tone-6:rgba(255,107,0,0.1);--legal-tone-7:rgba(255,107,0,0.1);--legal-tone-8:rgba(255,107,0,0.1);--legal-tone-9:rgba(255,107,0,0.1);--legal-tone-10:rgba(255,107,0,0.1);--legal-tone-11:rgba(255,107,0,0.1);--legal-tone-12:rgba(255,107,0,0.1);--legal-tone-13:rgba(255,107,0,0.1);--legal-tone-14:rgba(255,107,0,0.1);--legal-tone-15:rgba(255,107,0,0.1);--legal-tone-16:rgba(34,197,94,0.06);--legal-tone-17:rgba(34,197,94,0.15);}
                 @keyframes fadeIn {
                     from { opacity: 0; transform: translateY(16px); }
                     to { opacity: 1; transform: translateY(0); }
@@ -170,7 +139,7 @@ export default function KullanimSartlariPage() {
             <main style={{
                 padding: '40px 24px 80px',
                 minHeight: '80vh',
-                animation: mounted ? 'fadeIn 0.6s ease' : 'none',
+                animation: 'fadeIn 0.6s ease',
             }}>
                 {/* Hero */}
                 <div style={{
@@ -180,7 +149,7 @@ export default function KullanimSartlariPage() {
                 }}>
                     <div style={{
                         width: '64px', height: '64px', borderRadius: '18px',
-                        background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)',
+                        background: 'var(--legal-tone-0)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         margin: '0 auto 20px', color: 'var(--primary)',
                     }}>
@@ -222,14 +191,14 @@ export default function KullanimSartlariPage() {
                         </h3>
                         <nav style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                             {tocItems.map((item) => (
-                                <button
+                                <a
                                     key={item.id}
-                                    className={`toc-item ${activeSection === item.id ? 'active' : ''}`}
-                                    onClick={() => scrollToSection(item.id)}
+                                    className="toc-item"
+                                    href={`#${item.id}`}
                                 >
                                     {item.icon}
                                     {item.label}
-                                </button>
+                                </a>
                             ))}
                         </nav>
                     </aside>
@@ -244,8 +213,8 @@ export default function KullanimSartlariPage() {
 
                         {/* Intro */}
                         <div className="legal-highlight" style={{
-                            background: isDark ? 'rgba(255,107,0,0.06)' : 'rgba(0,90,226,0.04)',
-                            border: `1px solid ${isDark ? 'rgba(255,107,0,0.12)' : 'rgba(0,90,226,0.08)'}`,
+                            background: 'var(--legal-tone-1)',
+                            border: `1px solid ${'var(--legal-tone-2)'}`,
                         }}>
                             <strong style={{ color: 'var(--foreground)' }}>⚠️ Önemli Bilgilendirme:</strong>{' '}
                             <span style={{ color: 'var(--text-muted)' }}>
@@ -255,9 +224,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 1. Taraflar */}
-                        <div data-section="taraflar" className="legal-section">
+                        <div id="taraflar" data-section="taraflar" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <Users size={18} />
                                 </span>
                                 Taraflar ve Tanımlar
@@ -276,9 +245,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 2. Konu */}
-                        <div data-section="konu" className="legal-section">
+                        <div id="konu" data-section="konu" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-4)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <FileText size={18} />
                                 </span>
                                 Sözleşmenin Konusu
@@ -292,9 +261,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 3. Hizmetler */}
-                        <div data-section="hizmetler" className="legal-section">
+                        <div id="hizmetler" data-section="hizmetler" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-5)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <Globe size={18} />
                                 </span>
                                 Hizmetlerin Kapsamı
@@ -314,9 +283,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 4. Üyelik */}
-                        <div data-section="uyelik" className="legal-section">
+                        <div id="uyelik" data-section="uyelik" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-6)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <Shield size={18} />
                                 </span>
                                 Üyelik Şartları
@@ -335,9 +304,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 5. Yükümlülükler */}
-                        <div data-section="yukumlulukler" className="legal-section">
+                        <div id="yukumlulukler" data-section="yukumlulukler" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-7)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <Scale size={18} />
                                 </span>
                                 Kullanıcı Yükümlülükleri
@@ -366,9 +335,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 6. İçerik */}
-                        <div data-section="icerik" className="legal-section">
+                        <div id="icerik" data-section="icerik" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-8)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <FileText size={18} />
                                 </span>
                                 İçerik Politikası
@@ -393,9 +362,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 7. Pazar */}
-                        <div data-section="pazar" className="legal-section">
+                        <div id="pazar" data-section="pazar" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-9)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <Globe size={18} />
                                 </span>
                                 Pazaryeri Kuralları
@@ -413,9 +382,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 8. Fikri Mülkiyet */}
-                        <div data-section="fikri" className="legal-section">
+                        <div id="fikri" data-section="fikri" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-10)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <Lock size={18} />
                                 </span>
                                 Fikri Mülkiyet Hakları
@@ -429,9 +398,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 9. Sorumluluk */}
-                        <div data-section="sorumluluk" className="legal-section">
+                        <div id="sorumluluk" data-section="sorumluluk" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-11)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <AlertTriangle size={18} />
                                 </span>
                                 Sorumluluk Sınırları
@@ -445,9 +414,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 10. Fesih */}
-                        <div data-section="fesih" className="legal-section">
+                        <div id="fesih" data-section="fesih" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <Shield size={18} />
                                 </span>
                                 Üyelik Feshi ve Hesap Kapatma
@@ -463,9 +432,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 11. Değişiklik */}
-                        <div data-section="degisiklik" className="legal-section">
+                        <div id="degisiklik" data-section="degisiklik" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-13)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <FileText size={18} />
                                 </span>
                                 Sözleşme Değişiklik Hakkı
@@ -479,9 +448,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 12. Uyuşmazlık */}
-                        <div data-section="uyusmazlik" className="legal-section">
+                        <div id="uyusmazlik" data-section="uyusmazlik" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <Scale size={18} />
                                 </span>
                                 Uyuşmazlık Çözümü
@@ -498,9 +467,9 @@ export default function KullanimSartlariPage() {
                         </div>
 
                         {/* 13. Yürürlük */}
-                        <div data-section="yururluk" className="legal-section">
+                        <div id="yururluk" data-section="yururluk" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
+                                <span style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--legal-tone-15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', flexShrink: 0 }}>
                                     <Shield size={18} />
                                 </span>
                                 Yürürlük
@@ -509,8 +478,8 @@ export default function KullanimSartlariPage() {
                                 İşbu Sözleşme, toplam 13 (on üç) maddeden oluşmakta olup, Kullanıcı&#39;nın Platform&#39;a erişim sağladığı veya üyelik oluşturduğu tarih itibarıyla yürürlüğe girer ve üyelik devam ettiği sürece geçerliliğini korur.
                             </p>
                             <div className="legal-highlight" style={{
-                                background: isDark ? 'rgba(34,197,94,0.06)' : 'rgba(34,197,94,0.04)',
-                                border: `1px solid ${isDark ? 'rgba(34,197,94,0.15)' : 'rgba(34,197,94,0.1)'}`,
+                                background: 'var(--legal-tone-16)',
+                                border: `1px solid ${'var(--legal-tone-17)'}`,
                                 marginTop: '24px',
                             }}>
                                 <strong style={{ color: '#22c55e' }}>✅ Onay:</strong>{' '}
@@ -527,13 +496,7 @@ export default function KullanimSartlariPage() {
             </main>
 
             {/* Back to top */}
-            {showBackToTop && (
-                <button className="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    <ArrowUp size={20} />
-                </button>
-            )}
-
-            <Footer />
+            <LegalScrollClient />
         </div>
     );
 }

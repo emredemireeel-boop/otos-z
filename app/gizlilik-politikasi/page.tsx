@@ -1,36 +1,11 @@
-"use client";
+import LegalScrollClient from '@/components/LegalScrollClient';
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useTheme } from "@/context/ThemeContext";
-import { useState, useEffect } from "react";
+
 import { Shield, Eye, Database, Lock, Globe, Bell, UserCheck, FileText, ArrowUp, Mail } from "lucide-react";
 
 export default function GizlilikPolitikasiPage() {
-    const { theme } = useTheme();
-    const isDark = theme === 'dark';
-    const [mounted, setMounted] = useState(false);
-    const [activeSection, setActiveSection] = useState('');
-    const [showBackToTop, setShowBackToTop] = useState(false);
-
-    useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setMounted(true);
-        const handleScroll = () => {
-            setShowBackToTop(window.scrollY > 400);
-            const sections = document.querySelectorAll('[data-section]');
-            let current = '';
-            sections.forEach((section) => {
-                const el = section as HTMLElement;
-                if (el.offsetTop - 200 <= window.scrollY) {
-                    current = el.getAttribute('data-section') || '';
-                }
-            });
-            setActiveSection(current);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const tocItems = [
         { id: 'veri-sorumlusu', label: '1. Veri Sorumlusu', icon: <UserCheck size={15} /> },
@@ -48,16 +23,11 @@ export default function GizlilikPolitikasiPage() {
         { id: 'iletisim', label: '13. İletişim', icon: <Mail size={15} /> },
     ];
 
-    const scrollToSection = (id: string) => {
-        const el = document.querySelector(`[data-section="${id}"]`);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
             <Navbar />
 
-            <style jsx>{`
+            <style>{`:root{--legal-tone-0:rgba(0,90,226,0.06);--legal-tone-1:rgba(0,90,226,0.04);--legal-tone-2:rgba(0,90,226,0.08);--legal-tone-3:rgba(0,90,226,0.06);--legal-tone-4:rgba(0,0,0,0.02);--legal-tone-5:rgba(0,90,226,0.06);--legal-tone-6:rgba(0,90,226,0.06);--legal-tone-7:rgba(34,197,94,0.04);--legal-tone-8:rgba(34,197,94,0.1);--legal-tone-9:rgba(0,90,226,0.06);--legal-tone-10:rgba(0,90,226,0.06);--legal-tone-11:rgba(0,90,226,0.06);--legal-tone-12:rgba(0,90,226,0.06);--legal-tone-13:rgba(0,90,226,0.06);--legal-tone-14:rgba(0,90,226,0.06);--legal-tone-15:rgba(0,90,226,0.06);--legal-tone-16:rgba(0,90,226,0.04);--legal-tone-17:rgba(0,90,226,0.08);--legal-tone-18:rgba(0,90,226,0.06);--legal-tone-19:rgba(0,90,226,0.06);--legal-tone-20:rgba(0,90,226,0.06);--legal-tone-21:rgba(0,0,0,0.02);--legal-tone-22:rgba(34,197,94,0.04);--legal-tone-23:rgba(34,197,94,0.1);}html.dark{--legal-tone-0:rgba(255,107,0,0.1);--legal-tone-1:rgba(255,107,0,0.06);--legal-tone-2:rgba(255,107,0,0.12);--legal-tone-3:rgba(255,107,0,0.1);--legal-tone-4:rgba(255,255,255,0.02);--legal-tone-5:rgba(255,107,0,0.1);--legal-tone-6:rgba(255,107,0,0.1);--legal-tone-7:rgba(34,197,94,0.06);--legal-tone-8:rgba(34,197,94,0.15);--legal-tone-9:rgba(255,107,0,0.1);--legal-tone-10:rgba(255,107,0,0.1);--legal-tone-11:rgba(255,107,0,0.1);--legal-tone-12:rgba(255,107,0,0.1);--legal-tone-13:rgba(255,107,0,0.1);--legal-tone-14:rgba(255,107,0,0.1);--legal-tone-15:rgba(255,107,0,0.1);--legal-tone-16:rgba(255,107,0,0.06);--legal-tone-17:rgba(255,107,0,0.12);--legal-tone-18:rgba(255,107,0,0.1);--legal-tone-19:rgba(255,107,0,0.1);--legal-tone-20:rgba(255,107,0,0.1);--legal-tone-21:rgba(255,255,255,0.02);--legal-tone-22:rgba(34,197,94,0.06);--legal-tone-23:rgba(34,197,94,0.15);}
                 @keyframes fadeIn {
                     from { opacity: 0; transform: translateY(16px); }
                     to { opacity: 1; transform: translateY(0); }
@@ -197,7 +167,7 @@ export default function GizlilikPolitikasiPage() {
             <main style={{
                 padding: '40px 24px 80px',
                 minHeight: '80vh',
-                animation: mounted ? 'fadeIn 0.6s ease' : 'none',
+                animation: 'fadeIn 0.6s ease',
             }}>
                 {/* Hero */}
                 <div style={{
@@ -207,7 +177,7 @@ export default function GizlilikPolitikasiPage() {
                 }}>
                     <div style={{
                         width: '64px', height: '64px', borderRadius: '18px',
-                        background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)',
+                        background: 'var(--legal-tone-0)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         margin: '0 auto 20px', color: 'var(--primary)',
                     }}>
@@ -252,14 +222,14 @@ export default function GizlilikPolitikasiPage() {
                         </h3>
                         <nav style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                             {tocItems.map((item) => (
-                                <button
+                                <a
                                     key={item.id}
-                                    className={`toc-item ${activeSection === item.id ? 'active' : ''}`}
-                                    onClick={() => scrollToSection(item.id)}
+                                    className="toc-item"
+                                    href={`#${item.id}`}
                                 >
                                     {item.icon}
                                     {item.label}
-                                </button>
+                                </a>
                             ))}
                         </nav>
                     </aside>
@@ -273,8 +243,8 @@ export default function GizlilikPolitikasiPage() {
                     }}>
                         {/* KVKK Notice */}
                         <div className="legal-highlight" style={{
-                            background: isDark ? 'rgba(255,107,0,0.06)' : 'rgba(0,90,226,0.04)',
-                            border: `1px solid ${isDark ? 'rgba(255,107,0,0.12)' : 'rgba(0,90,226,0.08)'}`,
+                            background: 'var(--legal-tone-1)',
+                            border: `1px solid ${'var(--legal-tone-2)'}`,
                         }}>
                             <strong style={{ color: 'var(--foreground)' }}> KVKK Aydınlatma Metni:</strong>{' '}
                             <span style={{ color: 'var(--text-muted)' }}>
@@ -284,9 +254,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 1. Veri Sorumlusu */}
-                        <div data-section="veri-sorumlusu" className="legal-section">
+                        <div id="veri-sorumlusu" data-section="veri-sorumlusu" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>1</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>1</span>
                                 Veri Sorumlusu
                             </h2>
                             <p className="legal-p">
@@ -294,7 +264,7 @@ export default function GizlilikPolitikasiPage() {
                             </p>
                             <div style={{
                                 padding: '20px 24px', borderRadius: '14px',
-                                background: isDark ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)',
+                                background: 'var(--legal-tone-4)',
                                 border: '1px solid var(--card-border)', margin: '16px 0',
                             }}>
                                 <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: '10px', fontSize: '14px' }}>
@@ -307,9 +277,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 2. Kapsam */}
-                        <div data-section="kapsam" className="legal-section">
+                        <div id="kapsam" data-section="kapsam" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>2</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-5)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>2</span>
                                 Politika Kapsamı
                             </h2>
                             <p className="legal-p">
@@ -321,9 +291,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 3. Toplanan Veriler */}
-                        <div data-section="toplanan-veriler" className="legal-section">
+                        <div id="toplanan-veriler" data-section="toplanan-veriler" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>3</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-6)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>3</span>
                                 Toplanan Kişisel Veriler
                             </h2>
                             <p className="legal-p">KVKK m.3/d tanımına istinaden, aşağıdaki kategorilerdeki kişisel veriler işlenmektedir:</p>
@@ -371,8 +341,8 @@ export default function GizlilikPolitikasiPage() {
                             </table>
 
                             <div className="legal-highlight" style={{
-                                background: isDark ? 'rgba(34,197,94,0.06)' : 'rgba(34,197,94,0.04)',
-                                border: `1px solid ${isDark ? 'rgba(34,197,94,0.15)' : 'rgba(34,197,94,0.1)'}`,
+                                background: 'var(--legal-tone-7)',
+                                border: `1px solid ${'var(--legal-tone-8)'}`,
                             }}>
                                 <strong style={{ color: '#22c55e' }}>✅ Özel Nitelikli Kişisel Veri:</strong>{' '}
                                 <span style={{ color: 'var(--text-muted)' }}>
@@ -382,9 +352,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 4. İŞleme Amaçları */}
-                        <div data-section="isleme-amaci" className="legal-section">
+                        <div id="isleme-amaci" data-section="isleme-amaci" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>4</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-9)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>4</span>
                                 Kişisel Verilerin İŞlenme Amaçları
                             </h2>
                             <p className="legal-p">KVKK m.5 ve m.6 çerçevesinde kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:</p>
@@ -400,9 +370,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 5. Hukuki Sebepler */}
-                        <div data-section="hukuki-sebepler" className="legal-section">
+                        <div id="hukuki-sebepler" data-section="hukuki-sebepler" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>5</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-10)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>5</span>
                                 Kişisel Verilerin İŞlenmesinin Hukuki Sebepleri
                             </h2>
                             <p className="legal-p">Kişisel verileriniz KVKK m.5/2 kapsamında aşağıdaki hukuki sebeplere dayanarak işlenmektedir:</p>
@@ -417,9 +387,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 6. Veri Paylaşımı */}
-                        <div data-section="veri-paylasimi" className="legal-section">
+                        <div id="veri-paylasimi" data-section="veri-paylasimi" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>6</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-11)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>6</span>
                                 Kişisel Verilerin Aktarılması
                             </h2>
                             <p className="legal-p">
@@ -442,9 +412,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 7. Çerezler */}
-                        <div data-section="cerezler" className="legal-section">
+                        <div id="cerezler" data-section="cerezler" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>7</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>7</span>
                                 Çerezler (Cookies)
                             </h2>
                             <p className="legal-p">
@@ -482,9 +452,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 8. Güvenlik */}
-                        <div data-section="veri-guvenligi" className="legal-section">
+                        <div id="veri-guvenligi" data-section="veri-guvenligi" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>8</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-13)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>8</span>
                                 Veri Güvenliği Tedbirleri
                             </h2>
                             <p className="legal-p">
@@ -508,9 +478,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 9. Saklama Süresi */}
-                        <div data-section="saklama-suresi" className="legal-section">
+                        <div id="saklama-suresi" data-section="saklama-suresi" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>9</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>9</span>
                                 Kişisel Verilerin Saklama Süreleri
                             </h2>
                             <p className="legal-p">
@@ -558,9 +528,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 10. İlgili Kişi Hakları */}
-                        <div data-section="ilgili-haklari" className="legal-section">
+                        <div id="ilgili-haklari" data-section="ilgili-haklari" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>10</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>10</span>
                                 İlgili Kişi Hakları (KVKK m.11)
                             </h2>
                             <p className="legal-p">KVKK m.11 uyarınca, kişisel veri sahibi olarak aşağıdaki haklara sahipsiniz:</p>
@@ -576,8 +546,8 @@ export default function GizlilikPolitikasiPage() {
                             </ul>
 
                             <div className="legal-highlight" style={{
-                                background: isDark ? 'rgba(255,107,0,0.06)' : 'rgba(0,90,226,0.04)',
-                                border: `1px solid ${isDark ? 'rgba(255,107,0,0.12)' : 'rgba(0,90,226,0.08)'}`,
+                                background: 'var(--legal-tone-16)',
+                                border: `1px solid ${'var(--legal-tone-17)'}`,
                             }}>
                                 <strong style={{ color: 'var(--foreground)' }}>📫 Başvuru Yöntemi:</strong>{' '}
                                 <span style={{ color: 'var(--text-muted)' }}>
@@ -589,9 +559,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 11. Çocukların Gizliliği */}
-                        <div data-section="cocuk-gizlilik" className="legal-section">
+                        <div id="cocuk-gizlilik" data-section="cocuk-gizlilik" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>11</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>11</span>
                                 Çocukların Gizliliği
                             </h2>
                             <p className="legal-p">
@@ -600,9 +570,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 12. Değişiklikler */}
-                        <div data-section="degisiklikler" className="legal-section">
+                        <div id="degisiklikler" data-section="degisiklikler" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>12</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-19)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>12</span>
                                 Politika Değişiklikleri
                             </h2>
                             <p className="legal-p">
@@ -614,9 +584,9 @@ export default function GizlilikPolitikasiPage() {
                         </div>
 
                         {/* 13. İletişim */}
-                        <div data-section="iletisim" className="legal-section">
+                        <div id="iletisim" data-section="iletisim" className="legal-section">
                             <h2 className="legal-h2">
-                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: isDark ? 'rgba(255,107,0,0.1)' : 'rgba(0,90,226,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>13</span>
+                                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--legal-tone-20)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px', fontWeight: '800' }}>13</span>
                                 İletişim
                             </h2>
                             <p className="legal-p">
@@ -624,7 +594,7 @@ export default function GizlilikPolitikasiPage() {
                             </p>
                             <div style={{
                                 padding: '24px', borderRadius: '14px',
-                                background: isDark ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)',
+                                background: 'var(--legal-tone-21)',
                                 border: '1px solid var(--card-border)', margin: '16px 0',
                             }}>
                                 <div style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: '12px', fontSize: '14px' }}>
@@ -635,8 +605,8 @@ export default function GizlilikPolitikasiPage() {
                             </div>
 
                             <div className="legal-highlight" style={{
-                                background: isDark ? 'rgba(34,197,94,0.06)' : 'rgba(34,197,94,0.04)',
-                                border: `1px solid ${isDark ? 'rgba(34,197,94,0.15)' : 'rgba(34,197,94,0.1)'}`,
+                                background: 'var(--legal-tone-22)',
+                                border: `1px solid ${'var(--legal-tone-23)'}`,
                                 marginTop: '24px',
                             }}>
                                 <strong style={{ color: '#22c55e' }}>✅ Taahhüt:</strong>{' '}
@@ -654,13 +624,7 @@ export default function GizlilikPolitikasiPage() {
                 </div>
             </main>
 
-            {showBackToTop && (
-                <button className="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    <ArrowUp size={20} />
-                </button>
-            )}
-
-            <Footer />
+            <LegalScrollClient />
         </div>
     );
 }

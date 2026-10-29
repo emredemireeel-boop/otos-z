@@ -1,4 +1,4 @@
-"use client";
+import ContactFormClient from '@/components/ContactFormClient';
 
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -74,10 +74,7 @@ export default function IletisimPage() {
                             <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '24px' }}>
                                 Mesaj Gönder
                             </h2>
-                            <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }} onSubmit={(e) => {
-                                e.preventDefault();
-                                window.location.href = "mailto:iletisim@otosoz.com?subject=Destek Talebi";
-                            }}>
+                            <ContactFormClient>
                                 <div>
                                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px' }}>Ad Soyad</label>
                                     <input type="text" placeholder="Adınız Soyadınız" required style={{
@@ -135,11 +132,11 @@ export default function IletisimPage() {
                                     marginTop: '10px',
                                     transition: 'transform 0.2s',
                                     boxShadow: '0 4px 15px rgba(0, 90, 226, 0.3)'
-                                }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.02)' }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)' }}>
+                                }}  >
                                     <Send style={{ width: '20px', height: '20px' }} />
                                     Gönder
                                 </button>
-                            </form>
+                            </ContactFormClient>
                         </div>
 
                     </div>
