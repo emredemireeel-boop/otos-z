@@ -459,7 +459,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
     const catStyle = getCategoryStyle(thread.category);
 
     return (
-        <div>
+        <div className={threadStyles.scope}>
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
