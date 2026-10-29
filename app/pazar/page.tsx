@@ -1,4 +1,5 @@
 "use client";
+import {useCarModels} from '@/lib/useCarModels';
 
 import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
@@ -57,6 +58,7 @@ import {
 
 
 export default function PazarPage() {
+    const carOptionsVersion=useCarModels();
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedBrand, setSelectedBrand] = useState<string>("Tümü");
     const [selectedModel, setSelectedModel] = useState<string>("Tümü");
@@ -68,12 +70,12 @@ export default function PazarPage() {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
 
-    const brands = useMemo(() => ["Tümü", ...getAllBrands()], []);
+    const brands = useMemo(() => ["Tümü", ...getAllBrands()], [carOptionsVersion]);
     const colors = useMemo(() => ["Tümü", ...carColors.map(c => c.name)], []);
     const models = useMemo(() => {
         if (selectedBrand === "Tümü") return ["Tümü"];
         return ["Tümü", ...getModelsForBrand(selectedBrand)];
-    }, [selectedBrand]);
+    }, [selectedBrand, carOptionsVersion]);
 
     const filteredListings = useMemo(() => {
         let result = listings.filter(listing => {
@@ -790,6 +792,7 @@ function NewListingModal({
     onClose: () => void;
     onSubmit: (listing: CarListing) => void;
 }) {
+    const carOptionsVersion=useCarModels();
     const [brand, setBrand] = useState("");
     const [model, setModel] = useState("");
     const [color, setColor] = useState("");

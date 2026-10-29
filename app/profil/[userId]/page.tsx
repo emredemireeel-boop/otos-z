@@ -1,4 +1,5 @@
 "use client";
+import {useCarModels} from '@/lib/useCarModels';
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
@@ -722,6 +723,7 @@ function EditProfileModal({
     onClose: () => void;
     onSubmit: (data: UserProfileData) => void;
 }) {
+    const carOptionsVersion=useCarModels();
     const [bio, setBio] = useState(currentData.bio);
     const [carBrand, setCarBrand] = useState(currentData.carBrand);
     const [carModel, setCarModel] = useState(currentData.carModel);
@@ -737,8 +739,8 @@ function EditProfileModal({
     const currentYear = new Date().getFullYear();
     const yearOptions = Array.from({ length: currentYear - 1969 }, (_, i) => String(currentYear - i));
 
-    const brands = useMemo(() => getAllBrands(), []);
-    const models = useMemo(() => carBrand ? getModelsForBrand(carBrand) : [], [carBrand]);
+    const brands = useMemo(() => getAllBrands(), [carOptionsVersion]);
+    const models = useMemo(() => carBrand ? getModelsForBrand(carBrand) : [], [carBrand, carOptionsVersion]);
 
     const cities = useMemo(() => getAllCities(), []);
     const districts = useMemo(() => getDistrictsForCity(city), [city]);

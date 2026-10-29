@@ -115,17 +115,7 @@ const HOME_MYTHS: HomeMyth[] = [
     { id: 8, slug: "farkli-antifriz-karisimi", myth: "Farklı renkteki antifrizler sorunsuzca karıştırılabilir." },
 ];
 
-const FEATURED_DNA_MODELS = [
-    { id: 1, brand: "Renault", model: "Clio 5. Nesil (2020-2025)", dnaScore: 78, totalReports: 7, chronicIssueCount: 2 },
-    { id: 2, brand: "Fiat", model: "Egea 1. Nesil (2015-2025)", dnaScore: 75, totalReports: 6, chronicIssueCount: 2 },
-    { id: 3, brand: "Toyota", model: "Corolla 12. Nesil (2019-2025)", dnaScore: 85, totalReports: 9, chronicIssueCount: 4 },
-    { id: 4, brand: "Renault", model: "Megane 4. Nesil (2016-2025)", dnaScore: 76, totalReports: 9, chronicIssueCount: 2 },
-    { id: 5, brand: "Honda", model: "Civic 11. Nesil FE1 (2021-2025)", dnaScore: 82, totalReports: 6, chronicIssueCount: 3 },
-    { id: 6, brand: "Volkswagen", model: "Passat B8 (2015-2023)", dnaScore: 84, totalReports: 8, chronicIssueCount: 2 },
-    { id: 7, brand: "Dacia", model: "Duster 2. Nesil (2018-2024)", dnaScore: 73, totalReports: 6, chronicIssueCount: 3 },
-    { id: 8, brand: "Hyundai", model: "i20 3. Nesil BC3 (2020-2025)", dnaScore: 77, totalReports: 8, chronicIssueCount: 5 },
-    { id: 13, brand: "Volkswagen", model: "Golf 8. Nesil (2020-2025)", dnaScore: 80, totalReports: 6, chronicIssueCount: 2 },
-];
+
 
 const HOME_FEATURED_EVENT = {
     id: "istanbul-kartal-otopazari",
@@ -135,7 +125,7 @@ const HOME_FEATURED_EVENT = {
     href: "/acik-oto-pazari/istanbul/kartal-eski-oto-pazari",
 };
 
-export default function Home({ initialThreads = [] }: { initialThreads?: ForumSeoSummary[] }) {
+export default function Home({ initialThreads = [], featuredDnaVehicles }: { initialThreads?: ForumSeoSummary[];featuredDnaVehicles:{id:number;brand:string;model:string;dnaScore:number;totalReports:number;chronicIssueCount:number}[] }) {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
     const { user } = useAuth();
@@ -274,9 +264,9 @@ export default function Home({ initialThreads = [] }: { initialThreads?: ForumSe
     useEffect(() => {
         if (!showNewTopicModal || Object.keys(carModelsData).length > 0) return;
         let active = true;
-        import("@/data/carmodels.json")
-            .then(module => {
-                if (active) setCarModelsData(module.default as Record<string, string[]>);
+        fetch("/api/car-options?all=1").then(response=>{if(!response.ok)throw new Error("Model listesi yüklenemedi");return response.json();})
+            .then(models => {
+                if (active) setCarModelsData(models as Record<string, string[]>);
             })
             .catch(() => {
                 if (active) setCarModelsData({});
@@ -1364,7 +1354,7 @@ export default function Home({ initialThreads = [] }: { initialThreads?: ForumSe
                                         </div>
                                     </div>
                                     <div className="forum-dna-list">
-                                        {FEATURED_DNA_MODELS.map((vehicle) => (
+                                        {featuredDnaVehicles.map((vehicle) => (
                                             <Link
                                                 key={vehicle.id}
                                                 href={`/arac-dna/${createVehicleSlug(vehicle.brand)}/${createVehicleSlug(vehicle.model)}`}

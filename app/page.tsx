@@ -1,3 +1,5 @@
+import {vehicleDNAData} from '@/data/vehicle-dna';
+import {isVehicleIndexable} from '@/lib/indexability';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
@@ -65,7 +67,7 @@ export default async function HomePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageJsonLd).replace(/</g, "\u003c") }}
             />
-            <HomeClient initialThreads={initialThreads} />
+            <HomeClient initialThreads={initialThreads} featuredDnaVehicles={vehicleDNAData.filter(vehicle=>[1,2,3,4,5,6,7,8,13].includes(vehicle.id)&&isVehicleIndexable(vehicle)).map(({id,brand,model,dnaScore,totalReports,chronicIssues})=>({id,brand,model,dnaScore,totalReports,chronicIssueCount:chronicIssues.length}))} />
         </>
     );
 }

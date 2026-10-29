@@ -1,34 +1,24 @@
-"use client";
+import ServerCatalogClient from "@/components/ServerCatalogClient";
+import ComparisonRealtimeClient from "./ComparisonRealtimeClient";
+import {getForumHubThreadSummaries} from "@/lib/forumDataServer";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useAuth } from "@/context/AuthContext";
-import { subscribeToThreads, formatTimestamp, type ForumThread } from "@/lib/forumService";
+
+const formatTimestamp=(timestamp:{toDate:()=>Date}|null)=>timestamp?timestamp.toDate().toLocaleDateString("tr-TR"):"";
 import { ArrowLeftRight, Plus, Users, Clock, MessageSquare, Eye, Award, Sparkles, TrendingUp, BarChart3 } from "lucide-react";
-import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 import { SAMPLE_COMPARISONS } from "@/data/showcase-content";
 
 const VEHICLE_COUNTS = ["Tümü", "2 Araç", "3 Araç", "4 Araç", "5 Araç"];
 
-export default function ComparisonPage() {
-    const { user } = useAuth();
-    const [threads, setThreads] = useState<ForumThread[]>([]);
-    const [loading, setLoading] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
-    const [sortBy, setSortBy] = useState<"popular" | "new">("popular");
-
-    useEffect(() => {
-        const unsub = subscribeToThreads((allThreads) => {
-            setThreads(allThreads.filter(t => t.category === "Karsilastirma"));
-            setLoading(false);
-        }, 200);
-        return () => unsub();
-    }, []);
-
+export const revalidate=900;
+export default async function ComparisonPage(){
+    const summaries=await getForumHubThreadSummaries(null);
+    const threads=summaries.filter(thread=>thread.category==='Karsilastirma').map(thread=>({...thread,tags:[] as string[],createdAt:thread.createdAt?{toMillis:()=>thread.createdAt!,toDate:()=>new Date(thread.createdAt!)}:null}));
+    const selectedCategory:string='Tümü',sortBy:string='popular',loading=false;
     const filteredThreads = selectedCategory === "Tümü"
         ? threads
         : threads.filter(t => {
@@ -46,7 +36,7 @@ export default function ComparisonPage() {
     });
 
     return (
-        <div>
+        <ServerCatalogClient>
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
                 {/* Sub Header — White */}
@@ -69,7 +59,7 @@ export default function ComparisonPage() {
                         </div>
                         <div className="category-pills" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                             {VEHICLE_COUNTS.map(cat => (
-                                <button key={cat} onClick={() => setSelectedCategory(cat)} style={{
+                                <button key={cat} data-catalog-filter={cat} style={{
                                     padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '500',
                                     whiteSpace: 'nowrap', border: 'none', cursor: 'pointer',
                                     background: selectedCategory === cat ? 'var(--primary)' : 'var(--secondary)',
@@ -95,7 +85,7 @@ export default function ComparisonPage() {
                                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                         {[{ id: "popular", label: "Popüler" }, { id: "new", label: "En Yeni" }].map(s => (
                                             <li key={s.id} style={{ marginBottom: '4px' }}>
-                                                <button onClick={() => setSortBy(s.id as any)} style={{
+                                                <button data-catalog-sort={s.id==="popular"?"views":"date"} style={{
                                                     width: '100%', padding: '10px 12px', borderRadius: '8px', border: 'none', cursor: 'pointer',
                                                     background: sortBy === s.id ? 'var(--primary)' : 'transparent',
                                                     color: sortBy === s.id ? 'white' : 'var(--foreground)',
@@ -128,14 +118,15 @@ export default function ComparisonPage() {
                                     </div>
 
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                                        <ComparisonRealtimeClient initialIds={threads.map(thread=>thread.id)}/>
                                         {filteredSamples.map(comparison => (
-                                            <Link key={comparison.id} href={`/karsilastirma/${comparison.id}`} style={{ textDecoration: 'none' }}>
+                                            <Link key={comparison.id} data-catalog-row data-catalog-group={comparison.category} data-filter-text={comparison.title} href={`/karsilastirma/${comparison.id}`} style={{ textDecoration: 'none' }}>
                                                 <div style={{
                                                     background: 'var(--card-bg)', border: '1px solid rgba(255, 107, 53, 0.35)',
                                                     borderRadius: '16px', padding: '24px', cursor: 'pointer', transition: 'all 0.2s',
                                                 }}
-                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 107, 53, 0.35)'; }}
+                                                    
+                                                    
                                                 >
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
                                                         <div style={{ flex: 1, minWidth: '200px' }}>
@@ -172,13 +163,13 @@ export default function ComparisonPage() {
                                             </Link>
                                         ))}
                                         {sortedThreads.map(thread => (
-                                            <Link key={thread.id} href={`/karsilastirma/${thread.id}`} style={{ textDecoration: 'none' }}>
+                                            <Link key={thread.id} data-catalog-row data-catalog-group={`${thread.tags.filter(tag=>tag.startsWith("arac:")).length} Araç`} data-views={thread.views} data-date={thread.createdAt?.toMillis() || 0} data-filter-text={thread.title} href={`/karsilastirma/${thread.id}`} style={{ textDecoration: 'none' }}>
                                                 <div style={{
                                                     background: 'var(--card-bg)', border: '1px solid var(--card-border)',
                                                     borderRadius: '16px', padding: '24px', cursor: 'pointer', transition: 'all 0.2s',
                                                 }}
-                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
+                                                    
+                                                    
                                                 >
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
                                                         <div style={{ flex: 1, minWidth: '200px' }}>
@@ -235,8 +226,8 @@ export default function ComparisonPage() {
                                                         background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', padding: '12px',
                                                         position: 'relative', transition: 'all 0.2s',
                                                     }}
-                                                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                                                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; }}
+                                                        
+                                                        
                                                     >
                                                         <div style={{ position: 'absolute', top: 0, right: 0, background: '#FF6B35', color: 'white', fontSize: '9px', fontWeight: '800', padding: '2px 6px', borderBottomLeftRadius: '6px' }}>ÖRNEK</div>
                                                         <h3 style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px', paddingRight: '42px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{comparison.title}</h3>
@@ -277,7 +268,7 @@ export default function ComparisonPage() {
                 </div>
             </main>
             <Footer />
-            <style jsx>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-        </div>
+            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        </ServerCatalogClient>
     );
 }

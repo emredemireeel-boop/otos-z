@@ -1,5 +1,5 @@
 // Car Listings Data for Pazar (Marketplace) Page
-import carModels from './carmodels.json';
+export {getAllBrands,getModelsForBrand} from '../lib/car-model-store';
 import engineOptions from './engineoptions.json';
 
 
@@ -118,15 +118,10 @@ export interface CarListing {
 
 
 // Get all brands from carmodels.json
-export const getAllBrands = (): string[] => {
-    return Object.keys(carModels as Record<string, string[]>).sort();
-};
+
 
 // Get models for a specific brand
-export const getModelsForBrand = (brand: string): string[] => {
-    const models = (carModels as Record<string, string[]>)[brand];
-    return models ? models.sort() : [];
-};
+
 
 // Get all fuel types
 export const getAllFuelTypes = () => {

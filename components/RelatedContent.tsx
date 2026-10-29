@@ -4,7 +4,9 @@ import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { BookOpen, Wrench, AlertTriangle, ArrowRight, BookMarked, Settings } from "lucide-react";
 import faultData from "@/data/fault_lights.json";
-import obdCodes from "@/data/obd-codes.json";
+import obdLinks from "@/data/seo-quality/link-candidates.json";
+import {isObdIndexable} from "@/lib/indexability";
+import {isQualityGuide} from "@/lib/guide-quality";
 
 // Type definition for what we will render
 interface Recommendation {
@@ -32,7 +34,7 @@ export default function RelatedContent({ currentId, tags, titleKeywords = [] }: 
         const pool: Recommendation[] = [];
         
         // 1. Add OBD Codes
-        obdCodes.forEach((item: any) => {
+        obdLinks.records.filter(code=>isObdIndexable(code,code.qualitySignal)).forEach((item: any) => {
             if (item.code === currentId) return; // Skip self
             pool.push({
                 id: item.code,
@@ -47,7 +49,7 @@ export default function RelatedContent({ currentId, tags, titleKeywords = [] }: 
 
         // 2. Add Gösterge Lights
         if (faultData && faultData.warningLights) {
-            faultData.warningLights.forEach((item: any) => {
+            faultData.warningLights.filter(light=>isQualityGuide(light,'warningLight')).forEach((item: any) => {
                 if (item.id === currentId || item.urlId?.toString() === currentId) return;
                 
                 // create slug logic
@@ -79,7 +81,7 @@ export default function RelatedContent({ currentId, tags, titleKeywords = [] }: 
         ]).then(([libraryData, bakimData]) => {
             
             if (libraryData && libraryData.guides) {
-                libraryData.guides.forEach((item: any) => {
+                libraryData.guides.filter((guide:any)=>isQualityGuide(guide,'article')).forEach((item: any) => {
                     const urlId = item.urlId || item.id.replace(/\D/g, '');
                     if (urlId.toString() === currentId) return;
 

@@ -20,7 +20,6 @@ import ClosableAdSlot from "@/components/ClosableAdSlot";
 import { doc, getDoc, collection, addDoc, serverTimestamp, Timestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
-import ForumThreadSidebarCards from "@/components/ForumThreadSidebarCards";
 
 const parseComparisonContent = (text: string) => {
     if (!text.includes("Karsilastirilan Araclar:")) return { description: text, vehicles: [] };
@@ -62,6 +61,7 @@ interface InitialForumEntry {
 }
 
 interface ForumThreadPageProps {
+    sidebarLeft?:React.ReactNode; sidebarRight?:React.ReactNode;
     initialThread?: InitialForumThread;
     initialEntries?: InitialForumEntry[];
 }
@@ -86,7 +86,7 @@ function hydrateInitialEntries(entries: InitialForumEntry[] = []): ForumEntry[] 
     }));
 }
 
-export default function ForumThreadPage({ initialThread, initialEntries = [] }: ForumThreadPageProps) {
+export default function ForumThreadPage({ initialThread, initialEntries = [], sidebarLeft, sidebarRight }: ForumThreadPageProps) {
     const params = useParams();
     const router = useRouter();
     const slugParam = params.id as string;
@@ -585,7 +585,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [] }: 
                                  ))}
                              </div>
                          </div>
-                        <ForumThreadSidebarCards side="left" seedKey={thread.id} />
+                        {sidebarLeft}
                         <ClosableAdSlot
                             position="entry_sidebar_left"
                             dismissKey="entry_sidebar_left"
@@ -1102,7 +1102,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [] }: 
                             fallbackDesc="Otomobil topluluğunda markanızı gösterin."
                         />
 
-                        <ForumThreadSidebarCards side="right" seedKey={thread.id} />
+                        {sidebarRight}
                     </div>
                 </div>
             </main>

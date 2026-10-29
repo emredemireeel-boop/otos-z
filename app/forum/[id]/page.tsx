@@ -1,3 +1,4 @@
+import ForumThreadSidebarCards from '@/components/ForumThreadSidebarCards';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ForumThreadClient from './ForumThreadClient';
@@ -131,7 +132,7 @@ export default async function ForumThreadServerPage({ params }: PageProps) {
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
-            <ForumThreadClient
+            <ForumThreadClient sidebarLeft={<ForumThreadSidebarCards side="left" seedKey={thread.id}/>} sidebarRight={<ForumThreadSidebarCards side="right" seedKey={thread.id}/>}
                 initialThread={{
                     id: thread.id,
                     title: thread.title,
