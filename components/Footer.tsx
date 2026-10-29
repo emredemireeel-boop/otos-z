@@ -21,6 +21,8 @@ const guideLinks = [
 
 const corporateLinks = [
     { href: "/hakkimizda", label: "Hakkımızda" },
+    { href: "/editoryal-politika", label: "Editoryal politika" },
+    { href: "/kaynaklar", label: "Kaynaklar" },
     { href: "/iletisim", label: "İletişim" },
     { href: "/kullanim-sartlari", label: "Kullanım şartları" },
     { href: "/gizlilik-politikasi", label: "Gizlilik politikası" },

@@ -13,6 +13,7 @@ import {
     Wrench,
 } from "lucide-react";
 import { events } from "@/data/events";
+import {getLegacyMarketPath,toMarketSlug} from '@/data/open-car-markets';
 import { mythsData } from "@/data/efsane-avcilari-data";
 import { createSlug as createVehicleSlug, vehicleDNAData } from "@/data/vehicle-dna";
 
@@ -163,7 +164,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                         <span>{featuredEvent.city}</span>
                     </div>
                     <h2>{featuredEvent.title}</h2>
-                    <Link href={`/etkinlikler/${featuredEvent.id}`} className="forum-card-link">
+                    <Link href={featuredEvent.category==='pazar'?(getLegacyMarketPath(featuredEvent.id)||`/acik-oto-pazari/${toMarketSlug(featuredEvent.city)}`):`/etkinlikler/${featuredEvent.id}`} className="forum-card-link">
                         Etkinliği incele <ArrowRight size={14} />
                     </Link>
                 </section>

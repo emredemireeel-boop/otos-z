@@ -10,7 +10,10 @@
     "enrich-obd": "node scripts/enrich-obd-codes.js",
     "maintenance:reminders": "node scripts/process-maintenance-reminders.mjs",
     "maintenance:reminders:dry": "node scripts/process-maintenance-reminders.mjs --dry-run",
-    "fuel:alerts": "node scripts/process-fuel-price-alerts.mjs"
+    "fuel:alerts": "node scripts/process-fuel-price-alerts.mjs",
+    "seo:check": "node scripts/seo-ci.mjs",
+    "seo:weekly": "node scripts/seo-weekly-report.mjs",
+    "seo:priorities": "node scripts/seo-content-priorities.mjs"
   },
   "dependencies": {
     "@opentelemetry/api": "^1.9.1",

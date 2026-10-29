@@ -1,0 +1,234 @@
+{
+  "checkedAt": "2026-10-29T10:26:28.377Z",
+  "approved": true,
+  "rows": [
+    {
+      "rank": 1,
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "noindex": false,
+      "date": "2026-07-21T00:00:00.000Z",
+      "sources": [
+        {
+          "title": "Kayseri merkez pazarının pazar günü kurulduğuna ilişkin belediye açıklaması",
+          "url": "https://www.yahyali.bel.tr/haberler/ilcemizde-2el-oto-pazari-acildi"
+        },
+        {
+          "title": "Kocasinan 2. el oto alım satım pazar yeri kaydı",
+          "url": "https://kocasinan.bel.tr/uiimg/content_59_2016-03-05_pp2013.pdf"
+        }
+      ],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 2,
+      "url": "https://otosoz.com/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "noindex": false,
+      "date": "2026-07-21T00:00:00.000Z",
+      "sources": [
+        {
+          "title": "2026 Mali Yılı Performans Programı",
+          "url": "https://www.kepez-bld.gov.tr/file_parliament_2851_2026-yili-performans-programi.pdf"
+        },
+        {
+          "title": "Türkiye'deki Oto Pazarları Listesi",
+          "url": "https://www.arabam.com/blog/danisman/turkiyedeki-oto-pazarlari-listesi/"
+        }
+      ],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 3,
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "noindex": false,
+      "date": "2026-07-21T00:00:00.000Z",
+      "sources": [
+        {
+          "title": "Odunpazarı Açık Oto Pazarı yeniden açılıyor",
+          "url": "https://odunpazari.bel.tr/guncel/haberler/genel-haberler/odunpazari-acik-oto-pazari-yeniden-aciliyor"
+        }
+      ],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 4,
+      "url": "https://otosoz.com/acik-oto-pazari/izmir/kemalpasa-acik-oto-pazari",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/izmir/kemalpasa-acik-oto-pazari",
+      "noindex": true,
+      "date": "2026-07-21T00:00:00.000Z",
+      "sources": [
+        {
+          "title": "Kemalpaşa Açık Oto Pazarı harita kaydı",
+          "url": "https://www.haritamap.com/yer/kemalpasa-acik-oto-pazari-kemalpasa"
+        }
+      ],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 5,
+      "url": "https://otosoz.com/obd/p20ee",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/p20ee",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    },
+    {
+      "rank": 6,
+      "url": "https://otosoz.com/acik-oto-pazari/mersin",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/mersin",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 7,
+      "url": "https://otosoz.com/obd/u0121",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/u0121",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    },
+    {
+      "rank": 8,
+      "url": "https://otosoz.com/acik-oto-pazari/denizli",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/denizli",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 9,
+      "url": "https://otosoz.com/obd/b1001",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/b1001",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    },
+    {
+      "rank": 10,
+      "url": "https://otosoz.com/obd/p2563",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/p2563",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    },
+    {
+      "rank": 11,
+      "url": "https://otosoz.com/obd/p2279",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/p2279",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    },
+    {
+      "rank": 12,
+      "url": "https://otosoz.com/acik-oto-pazari/ankara/pursaklar-karacaoren-acik-oto-pazari",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/ankara/pursaklar-karacaoren-acik-oto-pazari",
+      "noindex": true,
+      "date": "2026-07-21T00:00:00.000Z",
+      "sources": [],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 13,
+      "url": "https://otosoz.com/obd/p2413",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/p2413",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    },
+    {
+      "rank": 14,
+      "url": "https://otosoz.com/acik-oto-pazari/ordu",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/ordu",
+      "noindex": false,
+      "date": null,
+      "sources": [],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 15,
+      "url": "https://otosoz.com/obd/p0090",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/p0090",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    },
+    {
+      "rank": 16,
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/balikesir",
+      "noindex": false,
+      "date": null,
+      "sources": [],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 17,
+      "url": "https://otosoz.com/acik-oto-pazari/samsun",
+      "http": 200,
+      "canonical": "https://otosoz.com/acik-oto-pazari/samsun",
+      "noindex": false,
+      "date": null,
+      "sources": [],
+      "nextAction": "Confirm municipality/operator venue and current program before editorial/indexability changes."
+    },
+    {
+      "rank": 18,
+      "url": "https://otosoz.com/obd/p0820",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/p0820",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    },
+    {
+      "rank": 19,
+      "url": "https://otosoz.com/obd/p0094",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/p0094",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    },
+    {
+      "rank": 20,
+      "url": "https://otosoz.com/obd/p0612",
+      "http": 200,
+      "canonical": "https://otosoz.com/obd/p0612",
+      "noindex": true,
+      "date": null,
+      "sources": [],
+      "nextAction": "Review model/code-specific manufacturer diagnosis before editorial/indexability changes."
+    }
+  ]
+}

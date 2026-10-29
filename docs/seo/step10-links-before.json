@@ -1,0 +1,137 @@
+{
+  "checkedAt": "2026-10-29T10:09:10.381Z",
+  "base": "http://127.0.0.1:3010",
+  "pages": 689,
+  "uniqueTargets": 1219,
+  "broken": 0,
+  "redirects": 10,
+  "pageErrors": [],
+  "failures": [
+    {
+      "path": "/etkinlikler/adana-cukurova-otopazari",
+      "status": 308,
+      "location": "/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "from": [
+        {
+          "page": "https://otosoz.com/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+          "anchor": "Etkinliği incele"
+        }
+      ]
+    },
+    {
+      "path": "/etkinlikler/ankara-pursaklar-otopazari",
+      "status": 308,
+      "location": "/acik-oto-pazari/ankara/pursaklar-karacaoren-acik-oto-pazari",
+      "from": [
+        {
+          "page": "https://otosoz.com/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+          "anchor": "Etkinliği incele"
+        },
+        {
+          "page": "https://otosoz.com/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+          "anchor": "Etkinliği incele"
+        },
+        {
+          "page": "https://otosoz.com/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+          "anchor": "Etkinliği incele"
+        }
+      ]
+    },
+    {
+      "path": "/etkinlikler/aydin-efeler-otopazari",
+      "status": 308,
+      "location": "/acik-oto-pazari/aydin",
+      "from": [
+        {
+          "page": "https://otosoz.com/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+          "anchor": "Etkinliği incele"
+        }
+      ]
+    },
+    {
+      "path": "/etkinlikler/erzurum-yakutiye-otopazari",
+      "status": 308,
+      "location": "/acik-oto-pazari/erzurum",
+      "from": [
+        {
+          "page": "https://otosoz.com/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+          "anchor": "Etkinliği incele"
+        },
+        {
+          "page": "https://otosoz.com/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+          "anchor": "Etkinliği incele"
+        }
+      ]
+    },
+    {
+      "path": "/etkinlikler/hatay-antakya-otopazari",
+      "status": 308,
+      "location": "/acik-oto-pazari/hatay",
+      "from": [
+        {
+          "page": "https://otosoz.com/forum/en-sorunsuz-otomobil-markasi--25319783",
+          "anchor": "Etkinliği incele"
+        }
+      ]
+    },
+    {
+      "path": "/etkinlikler/mardin-kiziltepe-otopazari",
+      "status": 308,
+      "location": "/acik-oto-pazari/mardin",
+      "from": [
+        {
+          "page": "https://otosoz.com/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+          "anchor": "Etkinliği incele"
+        }
+      ]
+    },
+    {
+      "path": "/etkinlikler/sakarya-adapazari-otopazari",
+      "status": 308,
+      "location": "/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "from": [
+        {
+          "page": "https://otosoz.com/forum/i20de-siyah-duman-atma-sorunu--17202308",
+          "anchor": "Etkinliği incele"
+        },
+        {
+          "page": "https://otosoz.com/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+          "anchor": "Etkinliği incele"
+        }
+      ]
+    },
+    {
+      "path": "/etkinlikler/trabzon-ortahisar-otopazari",
+      "status": 308,
+      "location": "/acik-oto-pazari/trabzon",
+      "from": [
+        {
+          "page": "https://otosoz.com/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+          "anchor": "Etkinliği incele"
+        }
+      ]
+    },
+    {
+      "path": "/etkinlikler/van-tusba-otopazari",
+      "status": 308,
+      "location": "/acik-oto-pazari/van",
+      "from": [
+        {
+          "page": "https://otosoz.com/forum/hyundai-i20-14-mpi--85879525",
+          "anchor": "Etkinliği incele"
+        }
+      ]
+    },
+    {
+      "path": "/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniy--74934954",
+      "status": 308,
+      "location": "/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "from": [
+        {
+          "page": "https://otosoz.com/",
+          "anchor": "04Fiat Egea aracımda kalkışta ve rölantide aşırı titreme var, vites topuzu sallanıyor. Neden olabilir?3 entry · 20 görün"
+        }
+      ]
+    }
+  ]
+}

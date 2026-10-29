@@ -1,3 +1,4 @@
+import {createSeoSlug} from './slug';
 import {
     collection, doc, addDoc, getDoc, getDocs, updateDoc, setDoc, deleteDoc,
     query, orderBy, limit, onSnapshot, serverTimestamp, increment,
@@ -56,17 +57,7 @@ export interface ForumThread {
 
 /** Turkce karakterleri SEO-uyumlu slug'a cevir */
 export function createSlug(text: string): string {
-    const trMap: { [key: string]: string } = {
-        'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
-        'Ç': 'c', 'Ğ': 'g', 'İ': 'i', 'Ö': 'o', 'Ş': 's', 'Ü': 'u',
-    };
-    return text.replace(/[çğıöşüÇĞİÖŞÜ]/g, match => trMap[match] || match)
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-|-$/g, '')
-        .slice(0, 80);
+    return createSeoSlug(text);
 }
 
 /** 8 haneli benzersiz URL ID uret */

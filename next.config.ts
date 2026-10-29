@@ -99,6 +99,7 @@ const openCarMarketRedirects = [
 ] as const;
 
 const nextConfig: NextConfig = {
+    distDir: process.env.OTOSOZ_DIST_DIR || '.next',
     // Üst dizindeki ilgisiz lockfile'ın Turbopack çalışma kökü olarak
     // seçilmesini engelle; derleme yalnızca bu projeyi tarasın.
     turbopack: {

@@ -14,6 +14,7 @@ import {OPEN_CAR_MARKETS,TURKEY_PROVINCES,getMarketPath} from '../data/open-car-
 import type {BreadcrumbItem} from './schema';
 const SITE='https://otosoz.com';
 const names:Record<string,string>={
+ '/editoryal-politika':'Editoryal Politika','/kaynaklar':'Kaynaklar',
  '/':'Ana Sayfa','/arac-dna':'Araç DNA','/obd':'OBD-II Arıza Kodları','/makale':'Makaleler','/kutuphane':'Kütüphane','/haberler':'Haberler','/forum':'Forum',
  '/otohesap':'OtoHesap','/otobutce':'OtoBütçe','/trafik-cezasi':'Trafik Cezaları','/acik-oto-pazari':'Açık Oto Pazarları',
  '/karsilastirma':'Araç Karşılaştırma','/uzmana-sor':'Uzmana Sor','/guvenmetre':'Güvenmetre','/piyasalar':'Piyasalar','/anket':'Anketler','/etkinlikler':'Etkinlikler',

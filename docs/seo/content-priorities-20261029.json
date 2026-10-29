@@ -1,0 +1,1711 @@
+{
+  "generatedAt": "2026-10-29T10:21:25.349Z",
+  "sources": [
+    "performance-20261022/Sayfa sayısı.csv",
+    "historical-landing-audit-20261022.json"
+  ],
+  "sourceHeader": [
+    "En alakalı sayfalar",
+    "Tıklamalar",
+    "Gösterimler",
+    "TO",
+    "Pozisyon"
+  ],
+  "totalRows": 1000,
+  "method": "High impressions means >=100 in the supplied export; position inclusive 5–20. Pilot ranked by historical clicks, then impressions; unique canonical candidates. Historical redirects are from supplied landing audit, not assumed current status.",
+  "groups": {
+    "oto-pazari": {
+      "pages": 36,
+      "clicks": 85,
+      "impressions": 10623,
+      "opportunities": [
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/izmir-kemalpasa-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/izmir/kemalpasa-acik-oto-pazari",
+          "clicks": 6,
+          "impressions": 903,
+          "ctr": "0.66%",
+          "position": 8.14,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/kocaeli-basiskele-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/kocaeli",
+          "clicks": 2,
+          "impressions": 897,
+          "ctr": "0.22%",
+          "position": 5.64,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/tekirdag-suleymanpasa-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/tekirdag",
+          "clicks": 1,
+          "impressions": 750,
+          "ctr": "0.13%",
+          "position": 6.73,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/antalya-kepez-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+          "clicks": 10,
+          "impressions": 685,
+          "ctr": "1.46%",
+          "position": 8.21,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/sakarya-adapazari-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+          "clicks": 1,
+          "impressions": 634,
+          "ctr": "0.16%",
+          "position": 6.21,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/kayseri-kocasinan-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+          "clicks": 16,
+          "impressions": 607,
+          "ctr": "2.64%",
+          "position": 9.14,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/eskisehir-odunpazari-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+          "clicks": 7,
+          "impressions": 502,
+          "ctr": "1.39%",
+          "position": 8.74,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/ankara-pursaklar-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/ankara/pursaklar-karacaoren-acik-oto-pazari",
+          "clicks": 4,
+          "impressions": 457,
+          "ctr": "0.88%",
+          "position": 7.37,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/mersin-toroslar-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/mersin",
+          "clicks": 6,
+          "impressions": 440,
+          "ctr": "1.36%",
+          "position": 8.83,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/balikesir-altieylul-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/balikesir",
+          "clicks": 3,
+          "impressions": 429,
+          "ctr": "0.7%",
+          "position": 6.08,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/bursa-nilufer-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/bursa/nilufer-ucevler-acik-oto-pazari",
+          "clicks": 1,
+          "impressions": 378,
+          "ctr": "0.26%",
+          "position": 5.07,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/denizli-merkezefendi-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/denizli",
+          "clicks": 5,
+          "impressions": 375,
+          "ctr": "1.33%",
+          "position": 8.27,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/trabzon-ortahisar-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/trabzon",
+          "clicks": 1,
+          "impressions": 360,
+          "ctr": "0.28%",
+          "position": 6.42,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/gaziantep-sehitkamil-otopazari",
+          "url": "https://otosoz.com/etkinlikler/gaziantep-sehitkamil-otopazari",
+          "clicks": 0,
+          "impressions": 290,
+          "ctr": "0%",
+          "position": 8.73,
+          "cluster": "oto-pazari",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/samsun-tekkekoy-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/samsun",
+          "clicks": 3,
+          "impressions": 262,
+          "ctr": "1.15%",
+          "position": 10.11,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/erzurum-yakutiye-otopazari",
+          "url": "https://otosoz.com/etkinlikler/erzurum-yakutiye-otopazari",
+          "clicks": 0,
+          "impressions": 242,
+          "ctr": "0%",
+          "position": 7.54,
+          "cluster": "oto-pazari",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/konya-karatay-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+          "clicks": 1,
+          "impressions": 230,
+          "ctr": "0.43%",
+          "position": 9.5,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/malatya-yesilyurt-otopazari",
+          "url": "https://otosoz.com/etkinlikler/malatya-yesilyurt-otopazari",
+          "clicks": 0,
+          "impressions": 200,
+          "ctr": "0%",
+          "position": 5.4,
+          "cluster": "oto-pazari",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/adana-cukurova-otopazari",
+          "url": "https://otosoz.com/etkinlikler/adana-cukurova-otopazari",
+          "clicks": 0,
+          "impressions": 187,
+          "ctr": "0%",
+          "position": 7.17,
+          "cluster": "oto-pazari",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/sanliurfa-haliliye-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/sanliurfa",
+          "clicks": 2,
+          "impressions": 172,
+          "ctr": "1.16%",
+          "position": 7.64,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/hatay-antakya-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/hatay",
+          "clicks": 1,
+          "impressions": 168,
+          "ctr": "0.6%",
+          "position": 8.8,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/aydin-efeler-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/aydin",
+          "clicks": 2,
+          "impressions": 132,
+          "ctr": "1.52%",
+          "position": 5.79,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/ordu-altinordu-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/ordu",
+          "clicks": 4,
+          "impressions": 128,
+          "ctr": "3.12%",
+          "position": 7.96,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/diyarbakir-kayapinar-otopazari",
+          "url": "https://otosoz.com/acik-oto-pazari/diyarbakir",
+          "clicks": 1,
+          "impressions": 107,
+          "ctr": "0.93%",
+          "position": 8.59,
+          "cluster": "oto-pazari",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/etkinlikler/manisa-sehzadeler-otopazari",
+          "url": "https://otosoz.com/etkinlikler/manisa-sehzadeler-otopazari",
+          "clicks": 0,
+          "impressions": 106,
+          "ctr": "0%",
+          "position": 6.9,
+          "cluster": "oto-pazari",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        }
+      ]
+    },
+    "obd": {
+      "pages": 804,
+      "clicks": 325,
+      "impressions": 39140,
+      "opportunities": [
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2279",
+          "url": "https://otosoz.com/obd/p2279",
+          "clicks": 4,
+          "impressions": 736,
+          "ctr": "0.54%",
+          "position": 9.14,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/u0121",
+          "url": "https://otosoz.com/obd/u0121",
+          "clicks": 5,
+          "impressions": 723,
+          "ctr": "0.69%",
+          "position": 9.38,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/u0001",
+          "url": "https://otosoz.com/obd/u0001",
+          "clicks": 2,
+          "impressions": 647,
+          "ctr": "0.31%",
+          "position": 9.82,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p20ee",
+          "url": "https://otosoz.com/obd/p20ee",
+          "clicks": 6,
+          "impressions": 593,
+          "ctr": "1.01%",
+          "position": 10.66,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2188",
+          "url": "https://otosoz.com/obd/p2188",
+          "clicks": 1,
+          "impressions": 565,
+          "ctr": "0.18%",
+          "position": 10.38,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0098",
+          "url": "https://otosoz.com/obd/p0098",
+          "clicks": 0,
+          "impressions": 470,
+          "ctr": "0%",
+          "position": 10.28,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2238",
+          "url": "https://otosoz.com/obd/p2238",
+          "clicks": 0,
+          "impressions": 466,
+          "ctr": "0%",
+          "position": 9.66,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0090",
+          "url": "https://otosoz.com/obd/p0090",
+          "clicks": 3,
+          "impressions": 438,
+          "ctr": "0.68%",
+          "position": 9.13,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0530",
+          "url": "https://otosoz.com/obd/p0530",
+          "clicks": 1,
+          "impressions": 423,
+          "ctr": "0.24%",
+          "position": 10.34,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0444",
+          "url": "https://otosoz.com/obd/p0444",
+          "clicks": 0,
+          "impressions": 397,
+          "ctr": "0%",
+          "position": 9.94,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0532",
+          "url": "https://otosoz.com/obd/p0532",
+          "clicks": 2,
+          "impressions": 378,
+          "ctr": "0.53%",
+          "position": 10.02,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0118",
+          "url": "https://otosoz.com/obd/p0118",
+          "clicks": 0,
+          "impressions": 353,
+          "ctr": "0%",
+          "position": 10.4,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/u0401",
+          "url": "https://otosoz.com/obd/u0401",
+          "clicks": 1,
+          "impressions": 318,
+          "ctr": "0.31%",
+          "position": 10.25,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/b1001",
+          "url": "https://otosoz.com/obd/b1001",
+          "clicks": 5,
+          "impressions": 310,
+          "ctr": "1.61%",
+          "position": 7,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0070",
+          "url": "https://otosoz.com/obd/p0070",
+          "clicks": 0,
+          "impressions": 307,
+          "ctr": "0%",
+          "position": 8.34,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2563",
+          "url": "https://otosoz.com/obd/p2563",
+          "clicks": 5,
+          "impressions": 297,
+          "ctr": "1.68%",
+          "position": 10.01,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0123",
+          "url": "https://otosoz.com/obd/p0123",
+          "clicks": 0,
+          "impressions": 293,
+          "ctr": "0%",
+          "position": 9.82,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/c0040",
+          "url": "https://otosoz.com/obd/c0040",
+          "clicks": 0,
+          "impressions": 275,
+          "ctr": "0%",
+          "position": 8.29,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0015",
+          "url": "https://otosoz.com/obd/p0015",
+          "clicks": 1,
+          "impressions": 274,
+          "ctr": "0.36%",
+          "position": 11.34,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2000",
+          "url": "https://otosoz.com/obd/p2000",
+          "clicks": 1,
+          "impressions": 259,
+          "ctr": "0.39%",
+          "position": 9.73,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0072",
+          "url": "https://otosoz.com/obd/p0072",
+          "clicks": 0,
+          "impressions": 256,
+          "ctr": "0%",
+          "position": 8.99,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0095",
+          "url": "https://otosoz.com/obd/p0095",
+          "clicks": 0,
+          "impressions": 256,
+          "ctr": "0%",
+          "position": 9.29,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0003",
+          "url": "https://otosoz.com/obd/p0003",
+          "clicks": 0,
+          "impressions": 240,
+          "ctr": "0%",
+          "position": 9.4,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0236",
+          "url": "https://otosoz.com/obd/p0236",
+          "clicks": 0,
+          "impressions": 232,
+          "ctr": "0%",
+          "position": 10.76,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/c1201",
+          "url": "https://otosoz.com/obd/c1201",
+          "clicks": 0,
+          "impressions": 226,
+          "ctr": "0%",
+          "position": 11.74,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0341",
+          "url": "https://otosoz.com/obd/p0341",
+          "clicks": 1,
+          "impressions": 218,
+          "ctr": "0.46%",
+          "position": 11.89,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/u0140",
+          "url": "https://otosoz.com/obd/u0140",
+          "clicks": 2,
+          "impressions": 215,
+          "ctr": "0.93%",
+          "position": 10.52,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0073",
+          "url": "https://otosoz.com/obd/p0073",
+          "clicks": 0,
+          "impressions": 215,
+          "ctr": "0%",
+          "position": 9.78,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0235",
+          "url": "https://otosoz.com/obd/p0235",
+          "clicks": 0,
+          "impressions": 214,
+          "ctr": "0%",
+          "position": 13,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/u0146",
+          "url": "https://otosoz.com/obd/u0146",
+          "clicks": 0,
+          "impressions": 203,
+          "ctr": "0%",
+          "position": 7.85,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p1000",
+          "url": "https://otosoz.com/obd/p1000",
+          "clicks": 0,
+          "impressions": 195,
+          "ctr": "0%",
+          "position": 8.67,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2111",
+          "url": "https://otosoz.com/obd/p2111",
+          "clicks": 0,
+          "impressions": 191,
+          "ctr": "0%",
+          "position": 8.93,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/u0073",
+          "url": "https://otosoz.com/obd/u0073",
+          "clicks": 2,
+          "impressions": 183,
+          "ctr": "1.09%",
+          "position": 9.67,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0641",
+          "url": "https://otosoz.com/obd/p0641",
+          "clicks": 0,
+          "impressions": 183,
+          "ctr": "0%",
+          "position": 10.19,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2112",
+          "url": "https://otosoz.com/obd/p2112",
+          "clicks": 1,
+          "impressions": 182,
+          "ctr": "0.55%",
+          "position": 9.16,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2413",
+          "url": "https://otosoz.com/obd/p2413",
+          "clicks": 4,
+          "impressions": 180,
+          "ctr": "2.22%",
+          "position": 8.28,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0004",
+          "url": "https://otosoz.com/obd/p0004",
+          "clicks": 0,
+          "impressions": 178,
+          "ctr": "0%",
+          "position": 9.81,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/b1011",
+          "url": "https://otosoz.com/obd/b1011",
+          "clicks": 2,
+          "impressions": 167,
+          "ctr": "1.2%",
+          "position": 5.85,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0820",
+          "url": "https://otosoz.com/obd/p0820",
+          "clicks": 3,
+          "impressions": 166,
+          "ctr": "1.81%",
+          "position": 8.37,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/c0035",
+          "url": "https://otosoz.com/obd/c0035",
+          "clicks": 0,
+          "impressions": 164,
+          "ctr": "0%",
+          "position": 8.67,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0493",
+          "url": "https://otosoz.com/obd/p0493",
+          "clicks": 1,
+          "impressions": 163,
+          "ctr": "0.61%",
+          "position": 7.64,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0047",
+          "url": "https://otosoz.com/obd/p0047",
+          "clicks": 2,
+          "impressions": 162,
+          "ctr": "1.23%",
+          "position": 10.63,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0421",
+          "url": "https://otosoz.com/obd/p0421",
+          "clicks": 1,
+          "impressions": 160,
+          "ctr": "0.62%",
+          "position": 10.29,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0215",
+          "url": "https://otosoz.com/obd/p0215",
+          "clicks": 2,
+          "impressions": 159,
+          "ctr": "1.26%",
+          "position": 10.1,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0094",
+          "url": "https://otosoz.com/obd/p0094",
+          "clicks": 3,
+          "impressions": 158,
+          "ctr": "1.9%",
+          "position": 9.56,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0620",
+          "url": "https://otosoz.com/obd/p0620",
+          "clicks": 1,
+          "impressions": 156,
+          "ctr": "0.64%",
+          "position": 9.22,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0612",
+          "url": "https://otosoz.com/obd/p0612",
+          "clicks": 3,
+          "impressions": 153,
+          "ctr": "1.96%",
+          "position": 8.65,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/b1008",
+          "url": "https://otosoz.com/obd/b1008",
+          "clicks": 1,
+          "impressions": 153,
+          "ctr": "0.65%",
+          "position": 6.33,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0122",
+          "url": "https://otosoz.com/obd/p0122",
+          "clicks": 0,
+          "impressions": 149,
+          "ctr": "0%",
+          "position": 11.8,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0237",
+          "url": "https://otosoz.com/obd/p0237",
+          "clicks": 0,
+          "impressions": 148,
+          "ctr": "0%",
+          "position": 10.43,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0093",
+          "url": "https://otosoz.com/obd/p0093",
+          "clicks": 1,
+          "impressions": 139,
+          "ctr": "0.72%",
+          "position": 9.42,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0501",
+          "url": "https://otosoz.com/obd/p0501",
+          "clicks": 1,
+          "impressions": 139,
+          "ctr": "0.72%",
+          "position": 10.87,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/opel/c0121",
+          "url": "https://otosoz.com/obd/opel/c0121",
+          "clicks": 0,
+          "impressions": 139,
+          "ctr": "0%",
+          "position": 5.62,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/u0101",
+          "url": "https://otosoz.com/obd/u0101",
+          "clicks": 0,
+          "impressions": 137,
+          "ctr": "0%",
+          "position": 8.98,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0053",
+          "url": "https://otosoz.com/obd/p0053",
+          "clicks": 0,
+          "impressions": 134,
+          "ctr": "0%",
+          "position": 10.77,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0194",
+          "url": "https://otosoz.com/obd/p0194",
+          "clicks": 0,
+          "impressions": 130,
+          "ctr": "0%",
+          "position": 9.48,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/u1209",
+          "url": "https://otosoz.com/obd/u1209",
+          "clicks": 0,
+          "impressions": 128,
+          "ctr": "0%",
+          "position": 7.53,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/b1000",
+          "url": "https://otosoz.com/obd/b1000",
+          "clicks": 2,
+          "impressions": 127,
+          "ctr": "1.57%",
+          "position": 7.77,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0810",
+          "url": "https://otosoz.com/obd/p0810",
+          "clicks": 2,
+          "impressions": 127,
+          "ctr": "1.57%",
+          "position": 10.04,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0117",
+          "url": "https://otosoz.com/obd/p0117",
+          "clicks": 1,
+          "impressions": 125,
+          "ctr": "0.8%",
+          "position": 9.24,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0252",
+          "url": "https://otosoz.com/obd/p0252",
+          "clicks": 0,
+          "impressions": 123,
+          "ctr": "0%",
+          "position": 9.89,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0602",
+          "url": "https://otosoz.com/obd/p0602",
+          "clicks": 2,
+          "impressions": 122,
+          "ctr": "1.64%",
+          "position": 10.01,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0243",
+          "url": "https://otosoz.com/obd/p0243",
+          "clicks": 0,
+          "impressions": 118,
+          "ctr": "0%",
+          "position": 10.95,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0321",
+          "url": "https://otosoz.com/obd/p0321",
+          "clicks": 0,
+          "impressions": 117,
+          "ctr": "0%",
+          "position": 9.4,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0481",
+          "url": "https://otosoz.com/obd/p0481",
+          "clicks": 0,
+          "impressions": 117,
+          "ctr": "0%",
+          "position": 10.49,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p1112",
+          "url": "https://otosoz.com/obd/p1112",
+          "clicks": 0,
+          "impressions": 116,
+          "ctr": "0%",
+          "position": 6.66,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2a00",
+          "url": "https://otosoz.com/obd/p2a00",
+          "clicks": 1,
+          "impressions": 114,
+          "ctr": "0.88%",
+          "position": 11.28,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0032",
+          "url": "https://otosoz.com/obd/p0032",
+          "clicks": 0,
+          "impressions": 114,
+          "ctr": "0%",
+          "position": 8.59,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p1116",
+          "url": "https://otosoz.com/obd/p1116",
+          "clicks": 0,
+          "impressions": 112,
+          "ctr": "0%",
+          "position": 8.09,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0691",
+          "url": "https://otosoz.com/obd/p0691",
+          "clicks": 0,
+          "impressions": 111,
+          "ctr": "0%",
+          "position": 9.55,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2176",
+          "url": "https://otosoz.com/obd/p2176",
+          "clicks": 1,
+          "impressions": 110,
+          "ctr": "0.91%",
+          "position": 7,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/tata/b1003",
+          "url": "https://otosoz.com/obd/tata/b1003",
+          "clicks": 0,
+          "impressions": 109,
+          "ctr": "0%",
+          "position": 7.43,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p1815",
+          "url": "https://otosoz.com/obd/p1815",
+          "clicks": 1,
+          "impressions": 108,
+          "ctr": "0.93%",
+          "position": 6.24,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2177",
+          "url": "https://otosoz.com/obd/p2177",
+          "clicks": 1,
+          "impressions": 108,
+          "ctr": "0.93%",
+          "position": 9.49,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0202",
+          "url": "https://otosoz.com/obd/p0202",
+          "clicks": 0,
+          "impressions": 108,
+          "ctr": "0%",
+          "position": 11.31,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/fiat/p0003",
+          "url": "https://otosoz.com/obd/fiat/p0003",
+          "clicks": 0,
+          "impressions": 106,
+          "ctr": "0%",
+          "position": 9.52,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0601",
+          "url": "https://otosoz.com/obd/p0601",
+          "clicks": 2,
+          "impressions": 105,
+          "ctr": "1.9%",
+          "position": 10.22,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0488",
+          "url": "https://otosoz.com/obd/p0488",
+          "clicks": 0,
+          "impressions": 104,
+          "ctr": "0%",
+          "position": 10.1,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0327",
+          "url": "https://otosoz.com/obd/p0327",
+          "clicks": 0,
+          "impressions": 104,
+          "ctr": "0%",
+          "position": 10.12,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0031",
+          "url": "https://otosoz.com/obd/p0031",
+          "clicks": 0,
+          "impressions": 103,
+          "ctr": "0%",
+          "position": 11.32,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p2711",
+          "url": "https://otosoz.com/obd/p2711",
+          "clicks": 3,
+          "impressions": 102,
+          "ctr": "2.94%",
+          "position": 9.2,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": false
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p1120",
+          "url": "https://otosoz.com/obd/p1120",
+          "clicks": 1,
+          "impressions": 102,
+          "ctr": "0.98%",
+          "position": 6.41,
+          "cluster": "obd",
+          "historicalStatus": 200,
+          "historicalNoindex": true
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p1299",
+          "url": "https://otosoz.com/obd/p1299",
+          "clicks": 0,
+          "impressions": 102,
+          "ctr": "0%",
+          "position": 5.5,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/b1865",
+          "url": "https://otosoz.com/obd/b1865",
+          "clicks": 0,
+          "impressions": 102,
+          "ctr": "0%",
+          "position": 6.48,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/p0190",
+          "url": "https://otosoz.com/obd/p0190",
+          "clicks": 0,
+          "impressions": 102,
+          "ctr": "0%",
+          "position": 10.66,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/u0155",
+          "url": "https://otosoz.com/obd/u0155",
+          "clicks": 0,
+          "impressions": 102,
+          "ctr": "0%",
+          "position": 11.19,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/obd/ford/p0004",
+          "url": "https://otosoz.com/obd/ford/p0004",
+          "clicks": 0,
+          "impressions": 100,
+          "ctr": "0%",
+          "position": 9.09,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://www.otosoz.com/obd/p0230",
+          "url": "https://otosoz.com/obd/p0230",
+          "clicks": 0,
+          "impressions": 100,
+          "ctr": "0%",
+          "position": 10.31,
+          "cluster": "obd",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        }
+      ]
+    },
+    "dna": {
+      "pages": 31,
+      "clicks": 7,
+      "impressions": 976,
+      "opportunities": [
+        {
+          "sourceUrl": "https://otosoz.com/arac-dna/honda/civic-fd6/arac-paketleri",
+          "url": "https://otosoz.com/arac-dna/honda/civic-fd6/arac-paketleri",
+          "clicks": 0,
+          "impressions": 221,
+          "ctr": "0%",
+          "position": 10.82,
+          "cluster": "dna",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        }
+      ]
+    },
+    "forum": {
+      "pages": 0,
+      "clicks": 0,
+      "impressions": 0,
+      "opportunities": []
+    },
+    "diger": {
+      "pages": 129,
+      "clicks": 37,
+      "impressions": 6216,
+      "opportunities": [
+        {
+          "sourceUrl": "https://otosoz.com/sozluk/kupa",
+          "url": "https://otosoz.com/sozluk/kupa",
+          "clicks": 0,
+          "impressions": 114,
+          "ctr": "0%",
+          "position": 7.32,
+          "cluster": "diger",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        },
+        {
+          "sourceUrl": "https://otosoz.com/sozluk/vantilator_kayisi",
+          "url": "https://otosoz.com/sozluk/vantilator_kayisi",
+          "clicks": 0,
+          "impressions": 108,
+          "ctr": "0%",
+          "position": 14.57,
+          "cluster": "diger",
+          "historicalStatus": null,
+          "historicalNoindex": null
+        }
+      ]
+    }
+  },
+  "pilot": [
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/kayseri-kocasinan-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "clicks": 16,
+      "impressions": 607,
+      "ctr": "2.64%",
+      "position": 9.14,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 1,
+      "reason": "16 tıklama, 607 gösterim; ortalama konum 9.14. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/antalya-kepez-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "clicks": 10,
+      "impressions": 685,
+      "ctr": "1.46%",
+      "position": 8.21,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 2,
+      "reason": "10 tıklama, 685 gösterim; ortalama konum 8.21. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/eskisehir-odunpazari-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "clicks": 7,
+      "impressions": 502,
+      "ctr": "1.39%",
+      "position": 8.74,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 3,
+      "reason": "7 tıklama, 502 gösterim; ortalama konum 8.74. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/izmir-kemalpasa-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/izmir/kemalpasa-acik-oto-pazari",
+      "clicks": 6,
+      "impressions": 903,
+      "ctr": "0.66%",
+      "position": 8.14,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": true,
+      "rank": 4,
+      "reason": "6 tıklama, 903 gösterim; ortalama konum 8.14. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/p20ee",
+      "url": "https://otosoz.com/obd/p20ee",
+      "clicks": 6,
+      "impressions": 593,
+      "ctr": "1.01%",
+      "position": 10.66,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 5,
+      "reason": "6 tıklama, 593 gösterim; ortalama konum 10.66. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/mersin-toroslar-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/mersin",
+      "clicks": 6,
+      "impressions": 440,
+      "ctr": "1.36%",
+      "position": 8.83,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": true,
+      "rank": 6,
+      "reason": "6 tıklama, 440 gösterim; ortalama konum 8.83. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/u0121",
+      "url": "https://otosoz.com/obd/u0121",
+      "clicks": 5,
+      "impressions": 723,
+      "ctr": "0.69%",
+      "position": 9.38,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 7,
+      "reason": "5 tıklama, 723 gösterim; ortalama konum 9.38. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/denizli-merkezefendi-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/denizli",
+      "clicks": 5,
+      "impressions": 375,
+      "ctr": "1.33%",
+      "position": 8.27,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": true,
+      "rank": 8,
+      "reason": "5 tıklama, 375 gösterim; ortalama konum 8.27. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/b1001",
+      "url": "https://otosoz.com/obd/b1001",
+      "clicks": 5,
+      "impressions": 310,
+      "ctr": "1.61%",
+      "position": 7,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 9,
+      "reason": "5 tıklama, 310 gösterim; ortalama konum 7. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/p2563",
+      "url": "https://otosoz.com/obd/p2563",
+      "clicks": 5,
+      "impressions": 297,
+      "ctr": "1.68%",
+      "position": 10.01,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 10,
+      "reason": "5 tıklama, 297 gösterim; ortalama konum 10.01. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/p2279",
+      "url": "https://otosoz.com/obd/p2279",
+      "clicks": 4,
+      "impressions": 736,
+      "ctr": "0.54%",
+      "position": 9.14,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 11,
+      "reason": "4 tıklama, 736 gösterim; ortalama konum 9.14. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/ankara-pursaklar-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/ankara/pursaklar-karacaoren-acik-oto-pazari",
+      "clicks": 4,
+      "impressions": 457,
+      "ctr": "0.88%",
+      "position": 7.37,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": true,
+      "rank": 12,
+      "reason": "4 tıklama, 457 gösterim; ortalama konum 7.37. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/p2413",
+      "url": "https://otosoz.com/obd/p2413",
+      "clicks": 4,
+      "impressions": 180,
+      "ctr": "2.22%",
+      "position": 8.28,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 13,
+      "reason": "4 tıklama, 180 gösterim; ortalama konum 8.28. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/ordu-altinordu-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/ordu",
+      "clicks": 4,
+      "impressions": 128,
+      "ctr": "3.12%",
+      "position": 7.96,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 14,
+      "reason": "4 tıklama, 128 gösterim; ortalama konum 7.96. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/p0090",
+      "url": "https://otosoz.com/obd/p0090",
+      "clicks": 3,
+      "impressions": 438,
+      "ctr": "0.68%",
+      "position": 9.13,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 15,
+      "reason": "3 tıklama, 438 gösterim; ortalama konum 9.13. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/balikesir-altieylul-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir",
+      "clicks": 3,
+      "impressions": 429,
+      "ctr": "0.7%",
+      "position": 6.08,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 16,
+      "reason": "3 tıklama, 429 gösterim; ortalama konum 6.08. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/etkinlikler/samsun-tekkekoy-otopazari",
+      "url": "https://otosoz.com/acik-oto-pazari/samsun",
+      "clicks": 3,
+      "impressions": 262,
+      "ctr": "1.15%",
+      "position": 10.11,
+      "cluster": "oto-pazari",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 17,
+      "reason": "3 tıklama, 262 gösterim; ortalama konum 10.11. Yerel gün/saat/adres niyeti; resmî kaynakla güçlendirme.",
+      "plan": [
+        "İlk 100 kelimede doğrulanmış gün, saat, adres; teyit yoksa açıkça belirt",
+        "Belediye/işletmeci kaynağı ve kaynak tarihi",
+        "Görünür soru-cevap ve komşu/ilgili güçlü rehber bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/p0820",
+      "url": "https://otosoz.com/obd/p0820",
+      "clicks": 3,
+      "impressions": 166,
+      "ctr": "1.81%",
+      "position": 8.37,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 18,
+      "reason": "3 tıklama, 166 gösterim; ortalama konum 8.37. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/p0094",
+      "url": "https://otosoz.com/obd/p0094",
+      "clicks": 3,
+      "impressions": 158,
+      "ctr": "1.9%",
+      "position": 9.56,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 19,
+      "reason": "3 tıklama, 158 gösterim; ortalama konum 9.56. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    },
+    {
+      "sourceUrl": "https://otosoz.com/obd/p0612",
+      "url": "https://otosoz.com/obd/p0612",
+      "clicks": 3,
+      "impressions": 153,
+      "ctr": "1.96%",
+      "position": 8.65,
+      "cluster": "obd",
+      "historicalStatus": 200,
+      "historicalNoindex": false,
+      "rank": 20,
+      "reason": "3 tıklama, 153 gösterim; ortalama konum 8.65. Kod özelinde kaynaklı teşhis ve kontrol açıklaması önceliği.",
+      "plan": [
+        "İlk 100 kelimede kodun/konunun anlamı ve kapsamı",
+        "Üretici belgesiyle desteklenen kontrol tablosu",
+        "Görünür gerçek SSS ve ilgili içerik bağlantıları"
+      ],
+      "approval": "approved by user on 2026-10-29"
+    }
+  ],
+  "pilotApproval": "approved by user on 2026-10-29"
+}

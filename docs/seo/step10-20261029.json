@@ -1,0 +1,91 @@
+{
+  "step": 10,
+  "date": "2026-10-29",
+  "status": "verified-locally-deployment-pending",
+  "changes": [
+    "Real responsible person Emre Demirel and contact route shown on About; no invented company/qualifications or Person author profiles.",
+    "New server-rendered editorial policy and source catalog, both indexable, in shared sitemap/quality gate and footer.",
+    "Visible per-record source/date block shared with server breadcrumbs; unknown dates explicitly remain unknown.",
+    "1,000 Search Console export rows clustered with historical redirects; approved 20-page pilot prepared with source-review queue. Historical source CSV is unchanged.",
+    "seo:check orchestrates HTTP cases, every sitemap URL versus robots/canonical/noindex, all JSON-LD, metadata duplicates and internal href targets; errors stop deploy.",
+    "deploy/release.sh builds a separate candidate and checks it before restarting the named PM2 application; weekly cron template provided.",
+    "Read-only weekly Search Console query/inspection script generates a report and exits nonzero on missing data.",
+    "84 root one-off scripts archived; temp.html and .index-progress.json untracked and ignored; service account/env exclusions verified."
+  ],
+  "validation": {
+    "typescript": "npx tsc --noEmit: PASS, 0 errors",
+    "build": "npm run build: PASS",
+    "tests": "node --test all tests/*.test.mjs: 36/36 PASS",
+    "seoCheck": {
+      "checkedAt": "2026-10-29T10:24:57.092Z",
+      "base": "http://127.0.0.1:3010",
+      "passed": true,
+      "results": [
+        {
+          "name": "status",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\status.json"
+        },
+        {
+          "name": "sitemap",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\sitemap.json"
+        },
+        {
+          "name": "schema",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\schema.json"
+        },
+        {
+          "name": "metadata",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\metadata.json"
+        },
+        {
+          "name": "links",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\links.json"
+        }
+      ]
+    },
+    "indexableUrls": 691,
+    "metadataErrors": 0,
+    "brokenInternalLinks": 0,
+    "redirectingInternalLinks": 0,
+    "internalLinkTargets": 1211,
+    "weekly": {
+      "output": "weekly/2026-44.json",
+      "status": "incomplete",
+      "error": "Google Search Console API has not been used in project 244436311966 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=244436311966 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+    },
+    "secretFilesTracked": 0,
+    "archives": 84
+  },
+  "approval": {
+    "pilot20": "approved by user on 2026-10-29",
+    "newClaims": "No unsupported editorial claims added; source review remains required before lifting noindex."
+  },
+  "risks": [
+    "Search Console API disabled in project 244436311966: metrics and indexed statuses unavailable; script and honest error report produced.",
+    "8–9 remain separate incomplete recovery steps. This report does not claim those are complete.",
+    "Unknown content dates and unverified author credentials were not fabricated."
+  ],
+  "deployment": {
+    "status": "pending",
+    "host": "213.238.170.134",
+    "root": "/var/www/otos-z",
+    "application": "otosoz",
+    "notes": "SSH password authentication verified; current main checkout has an unrelated untracked Build folder which will be preserved."
+  },
+  "evidence": [
+    "step10-build.log",
+    "step10-tests.log",
+    "step10-links-before.json",
+    "step10-provenance-audit.json",
+    "content-priorities-20261029.json",
+    "pilot20-20261029.md",
+    "pilot20-source-queue-20261029.json",
+    "step10-operations.md",
+    "weekly/2026-44.json"
+  ]
+}

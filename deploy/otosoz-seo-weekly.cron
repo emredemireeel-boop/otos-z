@@ -1,0 +1,7 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+CRON_TZ=Europe/Istanbul
+
+# Enable Search Console API and grant this read-only service account site access first.
+# Keep the credential outside Git; adjust path for the actual host before installing.
+10 9 * * 1 root cd /var/www/otos-z && GOOGLE_APPLICATION_CREDENTIALS=/etc/otosoz/search-console.json /usr/bin/flock -n /tmp/otosoz-seo-weekly.lock /usr/local/bin/node scripts/seo-weekly-report.mjs >> /var/log/otosoz-seo-weekly.log 2>&1

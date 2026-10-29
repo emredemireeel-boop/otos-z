@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-29T10:24:57.092Z",
+  "base": "http://127.0.0.1:3010",
+  "passed": true,
+  "results": [
+    {
+      "name": "status",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\step10\\status.json"
+    },
+    {
+      "name": "sitemap",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\step10\\sitemap.json"
+    },
+    {
+      "name": "schema",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\step10\\schema.json"
+    },
+    {
+      "name": "metadata",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\step10\\metadata.json"
+    },
+    {
+      "name": "links",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\step10\\links.json"
+    }
+  ]
+}

@@ -45,6 +45,8 @@ async function collectUrls(type?:SitemapType): Promise<MetadataRoute.Sitemap> {
         { url: `${BASE_URL}/obd`},
         { url: `${BASE_URL}/ajanda`},
         { url: `${BASE_URL}/hakkimizda`},
+        { url: `${BASE_URL}/editoryal-politika`},
+        { url: `${BASE_URL}/kaynaklar`},
         { url: `${BASE_URL}/iletisim`},
         { url: `${BASE_URL}/gizlilik-politikasi`},
         { url: `${BASE_URL}/cerez-politikasi`},

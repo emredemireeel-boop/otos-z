@@ -36,7 +36,7 @@ const CORE_HUB_PATHS = new Set([
     '/', '/trafik-cezasi', '/kutuphane', '/makale', '/kutuphane/kasko-deger', '/arac-dna', '/otobutce',
     '/haberler', '/karsilastirma', '/uzmana-sor', '/piyasalar', '/guvenmetre', '/altin-anahtar',
     '/anket', '/otohesap', '/etkinlikler', '/obd', '/forum', '/acik-oto-pazari',
-    '/hakkimizda', '/iletisim', '/gizlilik-politikasi', '/cerez-politikasi', '/kullanim-sartlari',
+    '/hakkimizda', '/editoryal-politika', '/kaynaklar', '/iletisim', '/gizlilik-politikasi', '/cerez-politikasi', '/kullanim-sartlari',
 ]);
 export function isHubIndexable(path: string, context: { category?: string; visibleThreads?: number } = {}): boolean {
     if (path.startsWith('/forum/kategori/')) return isForumCategoryIndexable(context.visibleThreads || 0);
