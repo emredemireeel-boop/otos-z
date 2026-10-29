@@ -12,7 +12,19 @@ fi
 preview_pid=""
 cleanup() { if [[ -n "$preview_pid" ]]; then kill "$preview_pid" 2>/dev/null || true; wait "$preview_pid" 2>/dev/null || true; fi; }
 trap cleanup EXIT
-npm ci
+dependency_hash="$(sha256sum package-lock.json | awk '{print $1}')"
+recorded_hash="$(cat node_modules/.otosoz-lock-sha256 2>/dev/null || true)"
+if [[ ! -d node_modules || "$recorded_hash" != "$dependency_hash" ]]; then
+    live_pid="$(pm2 pid "$PM2_APP" 2>/dev/null | awk '/^[0-9]+$/ && $1 > 0 {print $1; exit}')"
+    if [[ -n "$live_pid" ]]; then
+        printf 'Dependency tree is unverified or changed. Refusing npm ci against the live application; prepare isolated dependencies or use a planned maintenance window.\n' >&2
+        exit 1
+    fi
+    npm ci
+    printf '%s\n' "$dependency_hash" > node_modules/.otosoz-lock-sha256
+else
+    printf 'Reusing the verified dependency tree; the live node_modules directory is unchanged.\n'
+fi
 node scripts/seo-release-config.mjs
 npx next typegen
 npx tsc --noEmit --project "$OTOSOZ_TSCONFIG"

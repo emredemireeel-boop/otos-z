@@ -8,6 +8,8 @@
 4. Server release: `PM2_APP=<existing-app-name> bash deploy/release.sh`. This follows the existing npm/Next/PM2 workflow; no previous deployment script was present (only a maintenance cron file). A separate `.next-candidate-*` build runs on port 3011. `next typegen` and a candidate-only TypeScript configuration exclude stale live validators without deleting the active build; the candidate must pass `npm run seo:check` before that PM2 application restarts. Existing build directories are retained; do not remove a directory used by PM2. `OTOSOZ_DIST_DIR` selects the candidate at runtime.
 5. After release, rerun the checks with `--base https://otosoz.com`. In a rollback, restart the same PM2 application with its previous `OTOSOZ_DIST_DIR` and `--update-env`. The release script does not edit Cloudflare configuration.
 
+The release script also compares the installed dependency-tree marker `node_modules/.otosoz-lock-sha256` with `package-lock.json`. A matching tree is reused. If dependencies changed or the marker is absent while PM2 is online, the script stops before `npm ci`: replacing shared live dependencies can break a process even when its Next build directory is separate. Install dependencies in an isolated release directory or during planned maintenance, then record the successful install's lock hash. The marker for this release was recorded only after the clean `npm ci` and candidate checks succeeded. Rollback targets must also be previewed and health-checked; an old `BUILD_ID` alone does not prove a usable release.
+
 ## Weekly Search Console report
 
 `npm run seo:weekly -- --site sc-domain:otosoz.com --key /etc/otosoz/search-console.json`
