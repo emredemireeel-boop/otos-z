@@ -247,10 +247,10 @@ export default async function EngineDetailedPage({params}:{params:Promise<{brand
 export const revalidate=1800;
 export const dynamic='force-static';
 export const dynamicParams=true;
-export function generateStaticParams({params}:{params:{brand:string}}){
- return vehicleDNAData.filter(vehicle=>isVehicleIndexable(vehicle)&&createSlug(vehicle.brand)===params.brand).flatMap(vehicle=>
+export function generateStaticParams({params}:{params:{brand?:string}}){
+ return vehicleDNAData.filter(vehicle=>isVehicleIndexable(vehicle)&&(!params.brand||createSlug(vehicle.brand)===params.brand)).flatMap(vehicle=>
   (engineDNAData.find(record=>record.vehicleId===vehicle.id)?.engines||[]).flatMap(engine=>
    ([['genel-bakis',''],['kronik','-kronik-sorunlari'],['artilar','-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri']] as const)
     .filter(([section])=>isEngineRouteIndexable(vehicle,engine,section))
-    .map(([,suffix])=>({brand:params.brand,model:createSlug(vehicle.model),engine:engine.slug+suffix}))));
+    .map(([,suffix])=>({brand:createSlug(vehicle.brand),model:createSlug(vehicle.model),engine:engine.slug+suffix}))));
 }
