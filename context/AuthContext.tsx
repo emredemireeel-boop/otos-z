@@ -1,11 +1,13 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import {AUTH_NEEDED_EVENT,needsAuthRoute,hasPersistedAuth} from "@/lib/auth-bootstrap";
+import { useRouter, usePathname } from "next/navigation";
 import type { User as FirebaseUser } from "firebase/auth";
 import { validateUsername } from "@/lib/usernameValidation";
 import { validatePassword } from "@/lib/validation";
 async function loadAuthSdk() {
+    if(typeof window!=="undefined")window.dispatchEvent(new Event(AUTH_NEEDED_EVENT));
     const [methods, database, instance] = await Promise.all([import('firebase/auth'), import('firebase/firestore'), import('@/lib/firebase')]);
     return { ...methods, ...database, ...instance };
 }
@@ -159,11 +161,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [error, setError] = useState<string | null>(null);
     const [needsProfileCompletion, setNeedsProfileCompletion] = useState(false);
     const router = useRouter();
+    const pathname=usePathname();
 
     /* ── Auth state listener ── */
     useEffect(() => {
         let disposed = false;
         let unsubscribe = () => {};
+        let started=false;
+        const start=()=>{
+        if(disposed||started)return;started=true;
         void Promise.all([import('firebase/auth'), import('@/lib/firebase-client-auth')]).then(([{ onIdTokenChanged }, { auth }]) => {
             if (disposed) return;
             unsubscribe = onIdTokenChanged(auth, async (fbUser) => {
@@ -199,8 +205,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         });
 
         }).catch(() => { if (!disposed) { setIsLoading(false); setError('Oturum yüklenemedi.'); } });
-        return () => { disposed = true; unsubscribe(); };
-    }, []);
+        };
+        const onStorage=()=>{void hasPersistedAuth().then(persisted=>{if(persisted)start();});};
+        window.addEventListener(AUTH_NEEDED_EVENT,start);
+        window.addEventListener('storage',onStorage);
+        if(needsAuthRoute(pathname))start();
+        else void hasPersistedAuth().then(persisted=>{if(disposed)return;if(persisted)start();else setIsLoading(false);});
+        return () => { disposed = true; unsubscribe();window.removeEventListener(AUTH_NEEDED_EVENT,start);window.removeEventListener('storage',onStorage); };
+    }, [pathname]);
 
     /* ── Email/Password Login ── */
     const login = async (email: string, password: string): Promise<boolean> => {

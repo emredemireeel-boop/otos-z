@@ -437,10 +437,10 @@ const nextConfig: NextConfig = {
     // Powered-by header'ını kaldır (bilgi sızıntısı önleme)
     poweredByHeader: false,
     // TypeScript kontrolünü build aşamasında atla (bellek tasarrufu ~800MB)
-    // Kontrol zaten IDE ve lokal geliştirmede yapılıyor
+    // Yerel tsc kontrolüne ek olarak production build de tip hatasında durur.
     typescript: {
         tsconfigPath: process.env.OTOSOZ_TSCONFIG || 'tsconfig.json',
-        ignoreBuildErrors: true,
+        ignoreBuildErrors: false,
     },
 };
 

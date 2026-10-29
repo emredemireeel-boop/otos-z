@@ -4,7 +4,7 @@ import React from "react";
 import { ArrowRight, Info, CheckCircle, Circle, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-import { motion } from "framer-motion";
+
 import Image from "next/image";
 
 // ==========================================
@@ -106,15 +106,14 @@ export function PremiumServiceCard({
   onClick,
 }: PremiumServiceCardProps) {
   return (
-    <motion.div
-      whileHover={{ scale: 1.01 }}
-      animate={{ scale: selected ? 1.02 : 1 }}
+    <div
       onClick={onClick}
       className={`
         relative w-full rounded-[20px] overflow-hidden cursor-pointer transition-all duration-300
         ${selected ? "ring-2 ring-white shadow-2xl" : "shadow-lg"}
       `}
       style={{
+        transform: selected ? "scale(1.02)" : undefined,
         background: selected
           ? `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`
           : `linear-gradient(135deg, ${gradientFrom}BB, ${gradientTo}BB)` // slightly transparent if not selected
@@ -166,7 +165,7 @@ export function PremiumServiceCard({
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -216,9 +215,8 @@ export function AccSelectCard({
   onClick
 }: AccSelectCardProps) {
   return (
-    <motion.div
-      whileHover={{ scale: 1.01 }}
-      animate={{ scale: selected ? 1 : 0.98 }}
+    <div
+      style={{transform:selected?"scale(1)":"scale(.98)"}}
       onClick={onClick}
       className={`
             relative overflow-hidden rounded-[20px] cursor-pointer border-2 transition-all duration-300
@@ -266,7 +264,7 @@ export function AccSelectCard({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

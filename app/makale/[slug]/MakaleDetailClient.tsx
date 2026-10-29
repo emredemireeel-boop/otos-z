@@ -9,7 +9,7 @@ import AutoLinkText from "@/components/AutoLinkText";
 import RelatedContent from "@/components/RelatedContent";
 import FloatingActionBar from "@/components/FloatingActionBar";
 import AdPlaceholder from "@/components/AdPlaceholder";
-import { motion } from "framer-motion";
+import motionStyles from "@/components/content-motion.module.css";
 
 export default function MakaleDetailClient({ article, indexable = false ,breadcrumbs,connections}: { article: any; indexable?: boolean ;breadcrumbs?:React.ReactNode;connections?:React.ReactNode;}) {
     const [activeSection, setActiveSection] = useState<string>("");
@@ -83,10 +83,10 @@ export default function MakaleDetailClient({ article, indexable = false ,breadcr
 {breadcrumbs}
 
                 {/* Hero Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                <div className={motionStyles.enter}
+
+
+
                     style={{
                     background: 'linear-gradient(135deg, #1e293b, #0f172a)',
                     borderRadius: '0 0 32px 32px',
@@ -208,7 +208,7 @@ export default function MakaleDetailClient({ article, indexable = false ,breadcr
                             ))}
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Content */}
                 <div className="makale-layout" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px 40px' }}>
@@ -218,12 +218,12 @@ export default function MakaleDetailClient({ article, indexable = false ,breadcr
                             {article.sections?.map((section: any, idx: number) => {
                                 const sectionId = section.title ? generateId(section.title) : `section-${idx}`;
                                 return (
-                                <motion.div
+                                <div className={motionStyles.enter}
                                     key={idx}
-                                    initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-50px" }}
-                                    transition={{ duration: 0.6, delay: 0.1 }}
+
+
+
+
                                     style={{ marginBottom: '32px' }}
                                 >
                                     {section.type !== 'intro' && section.title && (
@@ -384,16 +384,16 @@ export default function MakaleDetailClient({ article, indexable = false ,breadcr
                                             </div>
                                         </div>
                                     )}
-                                </motion.div>
+                                </div>
                             )})}
 
                             {/* FAQs */}
                             {article.faqs && article.faqs.length > 0 && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-50px" }}
-                                    transition={{ duration: 0.6, delay: 0.1 }}
+                                <div className={motionStyles.enter}
+
+
+
+
                                     style={{
                                     background: 'var(--card-bg)',
                                     border: '1px solid var(--card-border)',
@@ -422,16 +422,16 @@ export default function MakaleDetailClient({ article, indexable = false ,breadcr
                                             </div>
                                         ))}
                                     </div>
-                                </motion.div>
+                                </div>
                             )}
 
                             {/* Final Checklist */}
                             {article.finalChecklist && (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                <div className={motionStyles.enter}
+
+
+
+
                                     style={{
                                     background: 'var(--card-bg)',
                                     border: '1px solid var(--card-border)',
@@ -466,7 +466,7 @@ export default function MakaleDetailClient({ article, indexable = false ,breadcr
                                             </div>
                                         ))}
                                     </div>
-                                </motion.div>
+                                </div>
                             )}
 
                             {/* Related Content / Recommendations */}
@@ -477,10 +477,10 @@ export default function MakaleDetailClient({ article, indexable = false ,breadcr
 
                         {/* Sidebar */}
                         <aside className="right-sidebar">
-                            <motion.div
-                                initial={{ opacity: 0, x: 30 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.7, delay: 0.4 }}
+                            <div className={motionStyles.enter}
+
+
+
                                 style={{ position: 'sticky', top: '80px', display: 'flex', flexDirection: 'column', gap: '16px' }}
                             >
                                 {/* Table of contents */}
@@ -576,7 +576,7 @@ export default function MakaleDetailClient({ article, indexable = false ,breadcr
                                 <div style={{ marginTop: '8px' }}>
                                     <AdPlaceholder position="sidebar" />
                                 </div>
-                            </motion.div>
+                            </div>
                         </aside>
                     </div>
                 </div>

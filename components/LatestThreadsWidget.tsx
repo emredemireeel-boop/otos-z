@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { subscribeToThreads, getThreadSlugUrl, type ForumThread } from "@/lib/forumService";
+import type {ForumThread} from "@/lib/forumService";
+import {getThreadSlugUrl,displayTimestamp} from "@/lib/forum-presentation";
 import { Clock, ChevronRight } from "lucide-react";
 
 export default function LatestThreadsWidget() {
@@ -10,18 +11,15 @@ export default function LatestThreadsWidget() {
     const [currentTime, setCurrentTime] = useState(0);
 
     useEffect(() => {
-        const unsub = subscribeToThreads((allThreads) => {
-            const sorted = [...allThreads].sort((a, b) => {
-                const aTime = a.createdAt?.toMillis() || 0;
-                const bTime = b.createdAt?.toMillis() || 0;
-                return bTime - aTime;
-            });
-            setThreads(sorted.slice(0, 5));
+        let active=true;
+        void fetch('/api/forum/public').then(r=>{if(!r.ok)throw new Error('Başlıklar yüklenemedi');return r.json();}).then(data=>{
+            if(!active)return;
+            setThreads(data.threads.slice(0,5).map((thread:any)=>({...thread,authorId:'',tags:[],urlId:/--(\d+)$/.test(thread.slug)?Number(thread.slug.match(/--(\d+)$/)[1]):undefined,createdAt:thread.createdAt===null?null:displayTimestamp(thread.createdAt),lastEntryAt:thread.lastEntryAt===null?null:displayTimestamp(thread.lastEntryAt)})));
             setCurrentTime(Date.now());
-        }, 10);
+        }).catch(()=>{});
         const timer = window.setInterval(() => setCurrentTime(Date.now()), 60_000);
         return () => {
-            unsub();
+            active=false;
             window.clearInterval(timer);
         };
     }, []);
@@ -55,7 +53,7 @@ export default function LatestThreadsWidget() {
                     <Clock size={14} color="var(--text-muted)" />
                     Son başlıklar
                 </h3>
-                <Link href="/" style={{
+                <Link prefetch={false} href="/forum" style={{
                     fontSize: '11px', color: 'var(--text-muted)', fontWeight: '500',
                     textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '2px',
                 }}>
@@ -68,7 +66,7 @@ export default function LatestThreadsWidget() {
             ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
                     {threads.map((thread, index) => (
-                        <Link key={thread.id} href={getThreadSlugUrl(thread)} style={{ textDecoration: 'none' }}>
+                        <Link prefetch={false} key={thread.id} href={getThreadSlugUrl(thread)} style={{ textDecoration: 'none' }}>
                             <div
                                 style={{
                                     display: 'flex', alignItems: 'flex-start', gap: '10px',

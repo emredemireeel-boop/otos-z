@@ -8,36 +8,29 @@ import { Wrench, AlertCircle, AlertTriangle, Plus, X } from "lucide-react";
 
 import { useState, useEffect, createContext, useContext } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { getVehicleChronicIssues, addVehicleChronicIssue, toggleVehicleChronicVote, getVehicleStaticVotes, toggleVehicleStaticVote, type DNAChronicIssue } from "@/lib/dnaService";
+import type {DNAChronicIssue} from "@/lib/dnaService";
+const loadCommunity=()=>import("@/lib/dnaService");
 
 const VoteContext = createContext<{ requestReport: () => void; vote: (id: string) => void; staticVotes: Record<string, string[]>; userId: string | null } | null>(null);
-export default function ChronicInteractions({ brandSlug, modelSlug, brandName, modelName, staticIssueCount, children }: {
-    brandSlug: string; modelSlug: string; brandName: string; modelName: string; staticIssueCount: number; children: React.ReactNode;
+export default function ChronicInteractions({ brandSlug, modelSlug, brandName, modelName, staticIssueCount, initialIssues=[],initialVotes={}, children }: {
+    brandSlug: string; modelSlug: string; brandName: string; modelName: string; staticIssueCount: number;initialIssues?:DNAChronicIssue[];initialVotes?:Record<string,string[]>; children: React.ReactNode;
 }) {
     const { user } = useAuth();
 
-    const [dynamicIssues, setDynamicIssues] = useState<DNAChronicIssue[]>([]);
-    const [staticVotes, setStaticVotes] = useState<Record<string, string[]>>({});
+    const [dynamicIssues, setDynamicIssues] = useState<DNAChronicIssue[]>(initialIssues);
+    const [staticVotes, setStaticVotes] = useState<Record<string, string[]>>(initialVotes);
     const [isReportingChronic, setIsReportingChronic] = useState(false);
     const [chronicText, setChronicText] = useState("");
     const [chronicSubmitting, setChronicSubmitting] = useState(false);
     const [showLoginPrompt, setShowLoginPrompt] = useState(false);
     const router = useRouter();
 
-    useEffect(() => {
-        if (!brandSlug || !modelSlug) return;
-        getVehicleChronicIssues(brandSlug, modelSlug).then(issues => {
-            setDynamicIssues(issues);
-        });
-        getVehicleStaticVotes(brandSlug, modelSlug).then(votes => {
-            setStaticVotes(votes);
-        });
-    }, [brandSlug, modelSlug]);
 
     const handleChronicSubmit = async () => {
         if (!chronicText.trim() || !user || chronicSubmitting) return;
         setChronicSubmitting(true);
         try {
+            const {addVehicleChronicIssue}=await loadCommunity();
             const newIssue = await addVehicleChronicIssue(brandSlug, modelSlug, {
                 text: chronicText.trim(),
                 authorId: user.id as string,
@@ -69,11 +62,12 @@ export default function ChronicInteractions({ brandSlug, modelSlug, brandName, m
                     votedBy: hasVoted ? iss.votedBy.filter(id => id !== user.id) : [...iss.votedBy, user.id as string]
                 };
             }));
+            const {toggleVehicleChronicVote}=await loadCommunity();
             await toggleVehicleChronicVote(brandSlug, modelSlug, issueId, user.id as string);
         } catch (e) {
             console.error("Kronik sorun oy hatasi:", e);
             // Re-fetch on error
-            getVehicleChronicIssues(brandSlug, modelSlug).then(setDynamicIssues);
+            void loadCommunity().then(sdk=>sdk.getVehicleChronicIssues(brandSlug,modelSlug)).then(setDynamicIssues);
         }
     };
 
@@ -90,10 +84,11 @@ export default function ChronicInteractions({ brandSlug, modelSlug, brandName, m
                 const newVoters = hasVoted ? voters.filter(id => id !== user.id) : [...voters, user.id as string];
                 return { ...prev, [idStr]: newVoters };
             });
+            const {toggleVehicleStaticVote}=await loadCommunity();
             await toggleVehicleStaticVote(brandSlug, modelSlug, idStr, user.id as string);
         } catch (e) {
             console.error("Statik kronik sorun oy hatasi:", e);
-            getVehicleStaticVotes(brandSlug, modelSlug).then(setStaticVotes);
+            void loadCommunity().then(sdk=>sdk.getVehicleStaticVotes(brandSlug,modelSlug)).then(setStaticVotes);
         }
     };
 

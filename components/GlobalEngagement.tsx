@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
-import XPPopup from "./XPPopup";
+const XPPopup=dynamic(()=>import("./XPPopup"),{ssr:false});
 import MobileBottomNav from "./MobileBottomNav";
 import { useAuth } from "@/context/AuthContext";
 const PushNotificationManager = dynamic(() => import("./PushNotificationManager"), { ssr: false });
@@ -47,9 +47,10 @@ export default function GlobalEngagement() {
     }, []);
 
     useEffect(() => {
+        if(!firebaseUser)return;
         const timer = window.setTimeout(() => setPushReady(true), 6000);
         return () => window.clearTimeout(timer);
-    }, []);
+    }, [firebaseUser]);
 
     useEffect(() => {
         if (!firebaseUser) return;
@@ -79,7 +80,7 @@ export default function GlobalEngagement() {
             
             
             
-            {pushReady && <PushNotificationManager />}
+            {firebaseUser && pushReady && <PushNotificationManager />}
             <MobileBottomNav />
         </>
     );

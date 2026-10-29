@@ -237,7 +237,7 @@ export default function Navbar() {
                 gap: '8px',
             }}>
                 {/* Logo */}
-                <Link href="/" style={{
+                <Link prefetch={false} href="/" style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '8px',
@@ -379,7 +379,7 @@ export default function Navbar() {
                                             justifyContent: 'space-between',
                                         }}>
                                             <h3 style={{ color: 'var(--text-white)', fontWeight: '700', fontSize: '14px', margin: 0 }}>Mesajlar</h3>
-                                            <Link href="/mesajlar" onClick={closeAllDropdowns} style={{
+                                            <Link prefetch={false} href="/mesajlar" onClick={closeAllDropdowns} style={{
                                                 fontSize: '12px',
                                                 color: 'var(--badge-unread)',
                                                 textDecoration: 'none',
@@ -720,7 +720,7 @@ export default function Navbar() {
                                         padding: '8px',
                                         boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
                                     }}>
-                                        <Link href="/profil" style={{
+                                        <Link prefetch={false} href="/profil" style={{
                                             display: 'flex',
                                             alignItems: 'center',
                                             gap: '10px',
@@ -734,7 +734,7 @@ export default function Navbar() {
                                         </Link>
                                         {/* İşlerim - sadece uzman/admin erişebilir */}
                                         {((user?.role as string) === 'uzman' || (user?.role as string) === 'admin' || (user?.role as string) === 'moderator') ? (
-                                            <Link href="/islerim" style={{
+                                            <Link prefetch={false} href="/islerim" style={{
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 gap: '10px',
@@ -763,7 +763,7 @@ export default function Navbar() {
                                                 <span style={{ fontSize: '10px', marginLeft: 'auto' }}>🔒</span>
                                             </div>
                                         )}
-                                        <Link href="/ajanda" style={{
+                                        <Link prefetch={false} href="/ajanda" style={{
                                             display: 'flex',
                                             alignItems: 'center',
                                             gap: '10px',
@@ -775,7 +775,7 @@ export default function Navbar() {
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
                                             Ajanda
                                         </Link>
-                                        <Link href="/ayarlar" style={{
+                                        <Link prefetch={false} href="/ayarlar" style={{
                                             display: 'flex',
                                             alignItems: 'center',
                                             gap: '10px',
@@ -787,7 +787,7 @@ export default function Navbar() {
                                             <Settings style={{ width: '16px', height: '16px' }} />
                                             Ayarlar
                                         </Link>
-                                        <Link href="/uzman-ol" style={{
+                                        <Link prefetch={false} href="/uzman-ol" style={{
                                             display: 'flex',
                                             alignItems: 'center',
                                             gap: '10px',
@@ -800,7 +800,7 @@ export default function Navbar() {
                                             Uzman Ol
                                         </Link>
                                         {/* Premium removed for Growth Phase 
-                                        <Link href="/premium">
+                                        <Link prefetch={false} href="/premium">
                                             Premium'a Geç
                                         </Link>
                                         */}
@@ -851,7 +851,7 @@ export default function Navbar() {
                         </>
                     ) : (
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <Link href="/giris" style={{
+                            <Link prefetch={false} href="/giris" style={{
                                 color: 'var(--foreground)',
                                 fontSize: '13px',
                                 fontWeight: '600',
@@ -862,7 +862,7 @@ export default function Navbar() {
                             }} onMouseEnter={(e) => e.currentTarget.style.background = 'var(--secondary)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
                                 Giriş Yap
                             </Link>
-                            <Link href="/kayit" style={{
+                            <Link prefetch={false} href="/kayit" style={{
                                 background: 'var(--primary)',
                                 color: 'white',
                                 fontSize: '13px',

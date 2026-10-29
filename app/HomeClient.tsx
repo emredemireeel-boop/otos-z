@@ -9,10 +9,12 @@ import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/context/AuthContext";
 
-import { subscribeToThreads, formatTimestamp, getThreadSlugUrl, createThread, type ForumThread as FirestoreThread } from "@/lib/forumService";
-import { addDoc, collection, getDocs, query, serverTimestamp, where, Timestamp } from "firebase/firestore";
+import type {ForumThread as FirestoreThread} from "@/lib/forumService";
+import {subscribeToThreads,createThread,clientDatabase} from "@/lib/client-services";
+import {formatTimestamp,getThreadSlugUrl,displayTimestamp} from "@/lib/forum-presentation";
+import type {Timestamp} from "firebase/firestore";
 import type { ForumSeoSummary } from "@/lib/forumDataServer";
-import { db } from "@/lib/firebase";
+
 import { createSeoSlug as createVehicleSlug } from "@/lib/slug";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 import ClosableAdSlot from "@/components/ClosableAdSlot";
@@ -125,7 +127,7 @@ const HOME_FEATURED_EVENT = {
     href: "/acik-oto-pazari/istanbul/kartal-eski-oto-pazari",
 };
 
-export default function Home({ initialThreads = [], featuredDnaVehicles, discovery }: { initialThreads?: ForumSeoSummary[];featuredDnaVehicles:{id:number;brand:string;model:string;dnaScore:number;totalReports:number;chronicIssueCount:number}[];discovery?:React.ReactNode }) {
+export default function Home({ initialThreads = [], featuredDnaVehicles, discovery, selectedGuide, initialNews=[], dailySeed=0 }: { initialThreads?: ForumSeoSummary[];featuredDnaVehicles:{id:number;brand:string;model:string;dnaScore:number;totalReports:number;chronicIssueCount:number}[];discovery?:React.ReactNode;selectedGuide?:{title:string;description:string;href:string};initialNews?:{id:string|number;title:string;slug:string;readTime:number}[];dailySeed?:number }) {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
     const { user } = useAuth();
@@ -142,9 +144,9 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const ITEMS_PER_PAGE = 10;
-    const [randomGuide, setRandomGuide] = useState<any>(null);
-    const [randomMyth, setRandomMyth] = useState<HomeMyth | null>(HOME_MYTHS[0]);
-    const [latestNews, setLatestNews] = useState<any[]>([]);
+    const randomGuide=selectedGuide;
+    const randomMyth=HOME_MYTHS[dailySeed%HOME_MYTHS.length];
+    const latestNews=initialNews;
 
     const availableBrands = Object.keys(carModelsData).sort();
     const availableModels = newTopicData.carBrand && (carModelsData as Record<string, string[]>)[newTopicData.carBrand]
@@ -157,8 +159,8 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
         authorId: "",
         tags: [],
         urlId: /--(\d+)$/.test(thread.slug) ? Number(thread.slug.match(/--(\d+)$/)?.[1]) : undefined,
-        createdAt: thread.createdAt === null ? null : Timestamp.fromMillis(thread.createdAt),
-        lastEntryAt: thread.lastEntryAt === null ? null : Timestamp.fromMillis(thread.lastEntryAt),
+        createdAt: thread.createdAt === null ? null : displayTimestamp(thread.createdAt),
+        lastEntryAt: thread.lastEntryAt === null ? null : displayTimestamp(thread.lastEntryAt),
     })));
     const [loadingThreads, setLoadingThreads] = useState(initialThreads.length === 0);
     const [liveDates, setLiveDates] = useState(false);
@@ -232,34 +234,6 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
             });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user?.city]);
-
-    // ── Rehber & İlan ─────────────────────────────────────────────────────────
-    useEffect(() => {
-        // Random Guide
-        fetch('/data/library_guides.json')
-            .then(res => res.json())
-            .then(data => {
-                if (data.guides && data.guides.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * data.guides.length);
-                    setRandomGuide(data.guides[randomIndex]);
-                }
-            })
-            .catch(err => console.error("Error loading guides:", err));
-
-        fetch('/data/news_posts.json')
-            .then(res => res.json())
-            .then(data => {
-                const sortedPosts = [...(data.posts || [])].sort(
-                    (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-                );
-                setLatestNews(sortedPosts.slice(0, 2));
-            })
-            .catch(err => console.error("Error loading news:", err));
-
-        // Hafif, öne çıkarılmış efsane listesi istemci paketini büyütmez.
-        const randomMythIndex = Math.floor(Math.random() * HOME_MYTHS.length);
-        setRandomMyth(HOME_MYTHS[randomMythIndex]);
-    }, []);
 
     useEffect(() => {
         if (!showNewTopicModal || Object.keys(carModelsData).length > 0) return;
@@ -363,17 +337,18 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
 
     // ── Firestore Forum Threads ──────────────────────────────────────────────
     useEffect(() => {
+        if(!user){setLoadingThreads(false);return;}
         const unsub = subscribeToThreads((threads) => {
             setLiveThreads(threads);
             setLoadingThreads(false);
             setLiveDates(true);
         }, 100);
         return () => unsub();
-    }, []);
+    }, [user?.id]);
 
     // ── Lazy load avatars for threads ──────────────────────────────────────────
     useEffect(() => {
-        if (liveThreads.length === 0) return;
+        if (!user || liveThreads.length === 0) return;
 
         setGlobalUserMap(prev => {
             const usernamesToFetch = new Set<string>();
@@ -391,6 +366,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
             missing.forEach(u => next[u] = { photoURL: null });
 
             const doFetch = async () => {
+                const {query,collection,db,where,getDocs}=await clientDatabase();
                 const chunks = [];
                 for (let i = 0; i < missing.length; i += 10) {
                     chunks.push(missing.slice(i, i + 10));
@@ -423,7 +399,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
 
             return next;
         });
-    }, [liveThreads]);
+    }, [liveThreads,user?.id]);
 
     // Derive allTopics from liveThreads for compatibility
     const allTopics = liveThreads.map(thread => ({
@@ -570,6 +546,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
         setNewTopicError("");
         try {
             if (newTopicData.type === "survey") {
+                const {addDoc,collection,db,serverTimestamp}=await clientDatabase();
                 const nominees = validSurveyOptions.map((name, index) => ({ id: index + 1, name, votes: 0 }));
                 await addDoc(collection(db, "surveys"), {
                     title: newTopicData.title.trim(),
@@ -665,7 +642,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
             return (
                 <div style={{ display: 'grid', gap: '16px' }}>
                     {homeSurveys.map((survey: any) => (
-                        <Link key={survey.id} href={`/anket/${survey.id}`}>
+                        <Link prefetch={false} key={survey.id} href={`/anket/${survey.id}`}>
                             <div className="survey-card">
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                                     <h3 style={{ fontSize: '18px', fontWeight: '600', color: 'var(--foreground)' }}>{survey.title}</h3>
@@ -693,14 +670,14 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px', color: 'var(--text-muted)' }}><MessageSquare size={44} /></div>
                         <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Henüz soru sorulmadı</h3>
                         <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '24px' }}>Otomotiv uzmanlarından profesyonel cevaplar almak için ilk soruyu siz sorun!</p>
-                        <Link href="/uzmana-sor" style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none', display: 'inline-block' }}>Uzmana Sor Sayfasına Git</Link>
+                        <Link prefetch={false} href="/uzmana-sor" style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none', display: 'inline-block' }}>Uzmana Sor Sayfasına Git</Link>
                     </div>
                 );
             }
             return (
                 <div style={{ display: 'grid', gap: '16px' }}>
                     {expertThreads.slice(0, 5).map((thread) => (
-                        <Link key={thread.id} href={`/uzmana-sor/${thread.id}`} style={{ textDecoration: 'none' }}>
+                        <Link prefetch={false} key={thread.id} href={`/uzmana-sor/${thread.id}`} style={{ textDecoration: 'none' }}>
                             <div className="expert-card">
                                 <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
                                     <div style={{ flex: 1 }}>
@@ -758,7 +735,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                     </div>
                 ) : (
                     paginatedTopics.map((topic) => (
-                        <Link key={topic.id} href={topic.slugUrl} className="topic-link" aria-label={`${topic.title} konusunu aç`}>
+                        <Link prefetch={false} key={topic.id} href={topic.slugUrl} className="topic-link" aria-label={`${topic.title} konusunu aç`}>
                         <article className="topic-card">
                             {/* Topic content */}
                             <div style={{ flex: 1, minWidth: 0 }}>
@@ -978,11 +955,11 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                             <span className="forum-sidebar-kicker">Sürücü araçları</span>
                                             <h2 id="driver-essentials-title"><Wrench size={15} /> Yolda lazım olur</h2>
                                         </div>
-                                        <Link href="/kutuphane" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
+                                        <Link prefetch={false} href="/kutuphane" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                                     </div>
                                     <div className="forum-resource-list">
                                         {DRIVER_ESSENTIALS.map(({ href, title, description, icon: ToolIcon }) => (
-                                            <Link key={href} href={href} className="forum-resource-row">
+                                            <Link prefetch={false} key={href} href={href} className="forum-resource-row">
                                                 <span className="forum-resource-icon"><ToolIcon size={15} /></span>
                                                 <span className="forum-resource-copy">
                                                     <strong>{title}</strong>
@@ -998,7 +975,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                     <section className="forum-sidebar-card forum-myth-card forum-sidebar-bottom">
                                         <span className="forum-sidebar-kicker">Kütüphaneden</span>
                                         <h3>Günün efsanesi</h3>
-                                        <Link href={`/kutuphane/efsane-avcilari/${randomMyth.slug}--${randomMyth.id}`}>
+                                        <Link prefetch={false} href={`/kutuphane/efsane-avcilari/${randomMyth.slug}--${randomMyth.id}`}>
                                             <p>“{randomMyth.myth}”</p>
                                             <span className="forum-card-link">Gerçeğini öğren <ArrowRight size={14} /></span>
                                         </Link>
@@ -1182,13 +1159,13 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                         <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '8px', margin: 0 }}>
                                             <BarChart3 size={16} color="var(--primary)" /> Aktif Anketler
                                         </h3>
-                                        <Link href="/anket" style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                        <Link prefetch={false} href="/anket" style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
                                             Tümünü gör <ChevronRight size={14} />
                                         </Link>
                                     </div>
                                     <div style={{ display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: '4px' }}>
                                         {homeSurveys.slice(0, 3).map((survey: any) => (
-                                            <Link key={survey.id} href={`/anket/${survey.id}`} style={{ textDecoration: 'none', minWidth: '200px', flex: '1' }}>
+                                            <Link prefetch={false} key={survey.id} href={`/anket/${survey.id}`} style={{ textDecoration: 'none', minWidth: '200px', flex: '1' }}>
                                                 <div style={{
                                                     padding: '12px 16px',
                                                     background: 'var(--secondary)',
@@ -1287,7 +1264,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                             <span className="forum-sidebar-kicker">Topluluk nabzı</span>
                                             <h2><Flame size={15} /> Gündemde</h2>
                                         </div>
-                                        <Link href="/" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
+                                        <Link prefetch={false} href="/" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                                     </div>
 
                                     {loadingThreads ? (
@@ -1299,7 +1276,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                     ) : (
                                         <div className="forum-compact-list">
                                             {[...liveThreads].sort((a, b) => b.views - a.views).slice(0, 5).map((thread, index) => (
-                                                <Link key={thread.id} href={getThreadSlugUrl(thread)} className="forum-trending-row">
+                                                <Link prefetch={false} key={thread.id} href={getThreadSlugUrl(thread)} className="forum-trending-row">
                                                     <span className="forum-trending-rank">{String(index + 1).padStart(2, '0')}</span>
                                                     <span className="forum-trending-copy">
                                                         <strong>{thread.title}</strong>
@@ -1318,11 +1295,11 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                                 <span className="forum-sidebar-kicker">Güncel</span>
                                                 <h2><Newspaper size={15} /> Son haberler</h2>
                                             </div>
-                                            <Link href="/haberler" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
+                                            <Link prefetch={false} href="/haberler" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                                         </div>
                                         <div className="forum-discovery-list">
                                             {latestNews.map((post) => (
-                                                <Link key={post.id} href={`/haberler/${post.slug}`}>
+                                                <Link prefetch={false} key={post.id} href={`/haberler/${post.slug}`}>
                                                     <strong>{post.title}</strong>
                                                     <small>{post.readTime} dk okuma</small>
                                                 </Link>
@@ -1337,7 +1314,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                         <div className="forum-guide-icon"><BookOpen size={18} /></div>
                                         <h2>{randomGuide.title}</h2>
                                         <p>{randomGuide.description}</p>
-                                        <Link href={`/makale/${randomGuide.title.toLowerCase().replace(/[^a-z0-9ğüşöçı]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}--${randomGuide.urlId || randomGuide.id}`} className="forum-card-link">
+                                        <Link prefetch={false} href={randomGuide.href} className="forum-card-link">
                                             Rehberi oku <ArrowRight size={14} />
                                         </Link>
                                     </section>
@@ -1365,7 +1342,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                             </Link>
                                         ))}
                                     </div>
-                                    <Link href="/arac-dna" className="forum-card-link forum-card-footer-link">
+                                    <Link prefetch={false} href="/arac-dna" className="forum-card-link forum-card-footer-link">
                                         Tüm araçları keşfet <ArrowRight size={14} />
                                     </Link>
                                 </section>
@@ -1381,7 +1358,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                             <span>{featuredEvent.city}</span>
                                         </div>
                                         <h2>{featuredEvent.title}</h2>
-                                        <Link href={featuredEvent.href} className="forum-card-link">
+                                        <Link prefetch={false} href={featuredEvent.href} className="forum-card-link">
                                             Etkinliği incele <ArrowRight size={14} />
                                         </Link>
                                     </section>
@@ -1401,22 +1378,22 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                         <article>
                             <h3>Açık oto pazarı hangi gün?</h3>
                             <p>Şehrindeki pazarın adresini, kurulduğu günü ve kaynaklarını kontrol et. Aktif, teyit bekleyen ve kapanmış kayıtları ayırt et.</p>
-                            <Link href="/acik-oto-pazari">İl il oto pazarı rehberini aç <ArrowRight size={14} /></Link>
+                            <Link prefetch={false} href="/acik-oto-pazari">İl il oto pazarı rehberini aç <ArrowRight size={14} /></Link>
                         </article>
                         <article>
                             <h3>Araba alırken doğru karar</h3>
                             <p>Araç DNA dosyalarında kronik sorunları, kullanıcı raporlarını ve model bazlı güçlü-zayıf yönleri karşılaştırın.</p>
-                            <Link href="/arac-dna">Araç DNA analizlerini incele <ArrowRight size={14} /></Link>
+                            <Link prefetch={false} href="/arac-dna">Araç DNA analizlerini incele <ArrowRight size={14} /></Link>
                         </article>
                         <article>
                             <h3>Otomobil arızasını doğru tanı</h3>
                             <p>Belirtileri uzmanlara sorun; OBD arıza kodları ve bakım rehberleriyle olası nedeni araştırın.</p>
-                            <Link href="/obd">OBD arıza kodlarını bul <ArrowRight size={14} /></Link>
+                            <Link prefetch={false} href="/obd">OBD arıza kodlarını bul <ArrowRight size={14} /></Link>
                         </article>
                         <article>
                             <h3>İki aracı verilerle karşılaştır</h3>
                             <p>Yakıt, kullanım maliyeti, sürücü görüşü ve topluluk oyuyla seçeneklerinizi yan yana değerlendirin.</p>
-                            <Link href="/karsilastirma">Araç karşılaştırmaya başla <ArrowRight size={14} /></Link>
+                            <Link prefetch={false} href="/karsilastirma">Araç karşılaştırmaya başla <ArrowRight size={14} /></Link>
                         </article>
                     </div>
                 </section>
@@ -1713,7 +1690,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                             <h3>Benzer başlıklar olabilir</h3>
                                             <div>
                                                 {similarTopicMatches.map(({ thread }) => (
-                                                    <Link key={thread.id} href={getThreadSlugUrl(thread)} target="_blank" rel="noopener noreferrer">
+                                                    <Link prefetch={false} key={thread.id} href={getThreadSlugUrl(thread)} target="_blank" rel="noopener noreferrer">
                                                         <strong>{thread.title}</strong>
                                                         <small>{thread.entryCount || 0} yanıt · yeni sekmede açılır</small>
                                                     </Link>
@@ -1726,7 +1703,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                         <section className="new-topic-login-card">
                                             <strong>Yayınlamak için giriş gerekli</strong>
                                             <span>Formu doldurabilirsin; taslağın kaybolmaz.</span>
-                                            <Link href="/giris">Giriş yap <ArrowRight size={13} /></Link>
+                                            <Link prefetch={false} href="/giris">Giriş yap <ArrowRight size={13} /></Link>
                                         </section>
                                     )}
                                 </aside>
@@ -1736,7 +1713,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                 <div className="new-topic-submit-error" role="alert">
                                     <AlertTriangle size={17} />
                                     <span>{newTopicError}</span>
-                                    {!user && <Link href="/giris">Giriş yap</Link>}
+                                    {!user && <Link prefetch={false} href="/giris">Giriş yap</Link>}
                                 </div>
                             )}
 

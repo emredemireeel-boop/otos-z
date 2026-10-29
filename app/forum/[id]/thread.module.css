@@ -1,0 +1,126 @@
+.scope { display: contents; }
+
+                @keyframes :global(spin) { to { transform: rotate(360deg); } }
+                @keyframes :global(popIn) { from { transform: translate(-50%,-50%) scale(0.9); opacity: 0; } to { transform: translate(-50%,-50%) scale(1); opacity: 1; } }
+                @keyframes :global(slideUp) { from { transform: translateY(80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+                .scope :global(.forum-thread-actions) {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-top: 20px;
+                }
+                .scope :global(.forum-thread-actions button) {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 7px;
+                    min-height: 40px;
+                    padding: 9px 15px;
+                    border-radius: 10px;
+                    font-size: 13px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: transform 0.15s ease, background 0.15s ease;
+                }
+                .scope :global(.forum-thread-actions button:hover) {
+                    transform: translateY(-1px);
+                }
+                .scope :global(.forum-thread-action-primary) {
+                    border: 1px solid white;
+                    background: white;
+                    color: #0f172a;
+                }
+                .scope :global(.forum-thread-action-secondary) {
+                    border: 1px solid rgba(255,255,255,0.28);
+                    background: rgba(255,255,255,0.1);
+                    color: white;
+                }
+                .scope :global(.forum-entry-card:target) {
+                    border-color: var(--primary) !important;
+                    box-shadow: 0 0 0 3px var(--primary-glow) !important;
+                }
+                .scope :global(.forum-entry-permalink) {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 3px;
+                    padding: 3px 7px;
+                    border: 1px solid var(--card-border);
+                    border-radius: 6px;
+                    background: var(--secondary);
+                    color: var(--text-muted);
+                    font-size: 10px;
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+                @media (max-width: 1024px) {
+                    .scope :global(.forum-layout) {
+                        flex-direction: column !important;
+                    }
+                    .scope :global(.forum-sidebar) {
+                        max-width: 100% !important;
+                    }
+                    .scope :global(.forum-sidebar-left) {
+                        display: none !important;
+                    }
+                }
+                @media (max-width: 768px) {
+                    .scope :global(.forum-thread-actions) {
+                        width: 100%;
+                    }
+                    .scope :global(.forum-thread-actions button) {
+                        flex: 1;
+                    }
+                    .scope :global(.forum-entry-mobile-actions) {
+                        display: flex !important;
+                    }
+                    .scope :global(.forum-entry-upvote) {
+                        display: none !important;
+                    }
+                    .scope :global(.forum-entry-content) {
+                        padding: 16px !important;
+                    }
+                    .scope :global(.forum-entry-card) {
+                        border-radius: 12px !important;
+                    }
+                    .scope :global(.forum-thread-header) {
+                        padding: 20px 16px !important;
+                    }
+                    .scope :global(.forum-thread-header h1) {
+                        font-size: 20px !important;
+                        line-height: 1.35 !important;
+                    }
+                    .scope :global(.forum-thread-meta) {
+                        display: grid !important;
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                        gap: 10px !important;
+                        font-size: 12px !important;
+                    }
+                    .scope :global(.forum-thread-meta > span) { min-width: 0; }
+                    .scope :global(.forum-sort-bar) {
+                        flex-wrap: wrap !important;
+                        gap: 6px !important;
+                        padding: 8px 10px !important;
+                    }
+                    .scope :global(.forum-sort-bar button) {
+                        padding: 5px 10px !important;
+                        font-size: 12px !important;
+                    }
+                    .scope :global(.forum-sort-count) {
+                        width: 100% !important;
+                        text-align: center !important;
+                        margin-left: 0 !important;
+                        border-top: 1px solid var(--card-border);
+                        padding-top: 6px;
+                        margin-top: 2px;
+                    }
+                    .scope :global(.forum-entry-form) {
+                        padding: 16px !important;
+                        border-radius: 12px !important;
+                    }
+                    .scope :global(.forum-report-modal),
+                    .scope :global(.forum-rating-modal) {
+                        width: calc(100vw - 32px) !important;
+                        padding: 20px !important;
+                    }
+                }
+            

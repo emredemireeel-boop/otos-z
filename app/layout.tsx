@@ -2,6 +2,8 @@ import {createPageMetadata} from '@/lib/seo';
 import {schemaJson, schemaGraph, organization, website} from '@/lib/schema';
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import localFont from 'next/font/local';
+const inter=localFont({src:'./fonts/InterLatinTR.woff2',display:'swap',variable:'--font-inter',weight:'100 900'});
 import "./globals.css";
 import "./cookie-consent.css";
 
@@ -40,7 +42,7 @@ export const viewport: Viewport = {
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import GlobalEngagement from "@/components/GlobalEngagement";
-import GlobalAdRails from "@/components/GlobalAdRails";
+import GlobalAdRails from "@/components/AdRailsGate";
 import CookieConsent from "@/components/CookieConsent";
 
 // ── JSON-LD Yapılandırılmış Veri (Structured Data) ──
@@ -54,7 +56,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="tr" dir="ltr">
+        <html lang="tr" dir="ltr" className={inter.variable}>
             <head>
                 {/* Viewport ve tema renkleri Next.js viewport metadata üzerinden üretilir. */}
                 <meta name="apple-mobile-web-app-capable" content="yes" />

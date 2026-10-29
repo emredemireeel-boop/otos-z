@@ -15,6 +15,9 @@ interface PageProps {
     params: Promise<{ id: string }>;
 }
 
+export const dynamicParams = true;
+export function generateStaticParams(){return indexableDictionaryTerms.map(term=>({id:term.id}));}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { id } = await params;
     const canonicalId = getCanonicalDictionaryId(id);
@@ -119,3 +122,5 @@ export default async function SozlukTermPage({ params }: PageProps) {
         </>
     );
 }
+
+export const revalidate = 3600;

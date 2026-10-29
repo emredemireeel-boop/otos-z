@@ -76,6 +76,7 @@ export default function AdPlaceholder({
         width: '100%',
         aspectRatio: isBanner || isRail ? 'auto' : '1 / 1',
         height: isRail ? '100%' : isBanner ? '75px' : 'auto',
+        minHeight: isBanner ? 0 : undefined,
         ...style
     };
 
@@ -84,7 +85,7 @@ export default function AdPlaceholder({
             <div style={{
                 background: 'var(--secondary)', border: '1px dashed var(--card-border)', borderRadius: '16px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', ...containerStyle
-            }} className={`${isRail ? 'ad-placeholder-mobile ad-rail-placeholder ' : ''}${className || ''}` }>
+            }} className={`ad-placeholder-mobile ${isRail ? 'ad-rail-placeholder ' : ''}${className || ''}` }>
                 <div style={{ opacity: 0.5, fontSize: '14px', color: 'var(--text-muted)' }}>Yükleniyor...</div>
             </div>
         );

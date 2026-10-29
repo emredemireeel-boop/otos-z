@@ -51,7 +51,7 @@ export default function Footer() {
                         </div>
                         <p>Arabanla ilgili karar vermeden önce OtoSöz&apos;e sor.</p>
                         <address className="site-footer-contact">
-                            <Link href="/iletisim"><Mail size={15} /> E-posta ile iletişim</Link>
+                            <Link prefetch={false} href="/iletisim"><Mail size={15} /> E-posta ile iletişim</Link>
                             <span><MapPin size={15} /> İzmir, Türkiye</span>
                         </address>
                         <div className="site-footer-socials" aria-label="OtoSöz sosyal medya hesapları">
@@ -62,17 +62,17 @@ export default function Footer() {
 
                     <nav className="site-footer-nav" aria-labelledby="site-footer-forum-title">
                         <h2 id="site-footer-forum-title">Topluluk</h2>
-                        {forumLinks.map(link => <Link key={link.href + link.label} href={link.href}>{link.label}</Link>)}
+                        {forumLinks.map(link => <Link prefetch={false} key={link.href + link.label} href={link.href}>{link.label}</Link>)}
                     </nav>
 
                     <nav className="site-footer-nav" aria-labelledby="site-footer-guides-title">
                         <h2 id="site-footer-guides-title">Karar araçları</h2>
-                        {guideLinks.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+                        {guideLinks.map(link => <Link prefetch={false} key={link.href} href={link.href}>{link.label}</Link>)}
                     </nav>
 
                     <nav className="site-footer-nav" aria-labelledby="site-footer-corporate-title">
                         <h2 id="site-footer-corporate-title">Kurumsal</h2>
-                        {corporateLinks.map(link => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+                        {corporateLinks.map(link => <Link prefetch={false} key={link.href} href={link.href}>{link.label}</Link>)}
                         <CookieSettingsTrigger className="footer-cookie-settings-trigger">Çerez tercihleri</CookieSettingsTrigger>
                     </nav>
                 </div>

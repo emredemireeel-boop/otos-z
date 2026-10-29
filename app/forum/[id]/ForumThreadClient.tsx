@@ -1,4 +1,5 @@
 "use client";
+import threadStyles from "./thread.module.css";
 
 import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
@@ -6,19 +7,15 @@ import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
-import {
-    getThreadById, getThreadBySlug, subscribeToEntries, addEntry, toggleLike,
-    incrementViews, formatTimestamp, subscribeToThreads, getThreadSlugUrl,
-    type ForumThread, type ForumEntry
-} from "@/lib/forumService";
-import { startConversation } from "@/lib/messageService";
-import { rateUser, getMyRatingForUser } from "@/lib/userService";
+import type {ForumThread,ForumEntry} from "@/lib/forumService";
+import {getThreadBySlug,subscribeToEntries,addEntry,toggleLike,incrementViews,subscribeToThreads,clientDatabase,startConversation,rateUser,getMyRatingForUser} from "@/lib/client-services";
+import {formatTimestamp,getThreadSlugUrl,displayTimestamp} from "@/lib/forum-presentation";
 import { ThumbsUp, MessageSquare, Clock, User, Send, Eye, ArrowLeft, LogIn, ExternalLink, CheckCircle, Car, Sparkles, Flag, Star, ChevronLeft, ChevronRight, TrendingUp, ArrowUp, Flame, AlertTriangle, Plus, X, ShieldCheck, Share2, Reply, Link2 } from "lucide-react";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import MarkdownEditor from "@/components/MarkdownEditor";
 import ClosableAdSlot from "@/components/ClosableAdSlot";
-import { doc, getDoc, collection, addDoc, serverTimestamp, Timestamp } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+
+
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
 const parseComparisonContent = (text: string) => {
@@ -74,8 +71,8 @@ function hydrateInitialThread(thread?: InitialForumThread): ForumThread | null {
         ...thread,
         authorId: '',
         tags: [],
-        createdAt: thread.createdAt ? Timestamp.fromMillis(thread.createdAt) : null,
-        lastEntryAt: thread.lastEntryAt ? Timestamp.fromMillis(thread.lastEntryAt) : null,
+        createdAt: thread.createdAt ? displayTimestamp(thread.createdAt) : null,
+        lastEntryAt: thread.lastEntryAt ? displayTimestamp(thread.lastEntryAt) : null,
     };
 }
 
@@ -84,7 +81,7 @@ function hydrateInitialEntries(entries: InitialForumEntry[] = []): ForumEntry[] 
         ...entry,
         authorId: '',
         likedBy: [],
-        createdAt: entry.createdAt ? Timestamp.fromMillis(entry.createdAt) : null,
+        createdAt: entry.createdAt ? displayTimestamp(entry.createdAt) : null,
     }));
 }
 
@@ -97,6 +94,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
     const [thread, setThread] = useState<ForumThread | null>(() => hydrateInitialThread(initialThread));
     const [entries, setEntries] = useState<ForumEntry[]>(() => hydrateInitialEntries(initialEntries));
     const [loading, setLoading] = useState(!initialThread);
+    const [loadAllEntries,setLoadAllEntries]=useState(false);
     const [newEntry, setNewEntry] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [likingEntry, setLikingEntry] = useState<string | null>(null);
@@ -175,6 +173,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
 
     // Thread yukle (slug--urlId veya eski ID formatini destekler)
     useEffect(() => {
+        if(!user&&initialThread)return;
         async function load() {
             // Slug--urlId formatini parse et, fallback olarak eski ID kullan
             const t = await getThreadBySlug(slugParam);
@@ -189,16 +188,16 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
         }
         load();
 
-    }, [slugParam]);
+    }, [slugParam,user?.id]);
 
     // Entry'leri realtime dinle (thread yuklendikten sonra gercek ID kullan)
     useEffect(() => {
-        if (!thread) return;
+        if (!thread || (!user&&!loadAllEntries)) return;
         const unsub = subscribeToEntries(thread.id, (newEntries) => {
             setEntries(newEntries);
         });
         return () => unsub();
-    }, [thread?.id]);
+    }, [thread?.id,user?.id,loadAllEntries]);
 
     useEffect(() => {
         if (entries.length === 0 || !window.location.hash.startsWith('#entry-')) return;
@@ -206,23 +205,25 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
             document.querySelector(window.location.hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
         return () => window.cancelAnimationFrame(frame);
-    }, [entries]);
+    }, [entries,user?.id]);
 
     // Popular threads (left sidebar)
     useEffect(() => {
+        if(!user)return;
         const unsub = subscribeToThreads((threads) => {
             // Sort by entry count and take top 10
             const sorted = [...threads].sort((a, b) => b.entryCount - a.entryCount).slice(0, 10);
             setPopularThreads(sorted);
         }, 50); // Get enough threads to find the most popular
         return () => unsub();
-    }, []);
+    }, [user?.id]);
 
     // Dijital Garaj ve Uzman Rolleri: Kullanıcı bilgilerini Firestore'dan çek
     useEffect(() => {
-        if (entries.length === 0) return;
+        if (!user || entries.length === 0) return;
         const uniqueAuthorIds = [...new Set(entries.map(e => e.authorId))];
         const fetchUserData = async () => {
+            const {getDoc,doc,db}=await clientDatabase();
             const newGarageMap: Record<string, string> = {};
             const newRoleMap: Record<string, string> = {};
             const newPhotoMap: Record<string, string> = {};
@@ -256,7 +257,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
             }
         };
         fetchUserData();
-    }, [entries]);
+    }, [entries,user?.id]);
 
     // Reddit tarzı sıralama: OP sabit, geri kalanlar upvote veya tarihe göre
     const sortedEntries = useMemo(() => {
@@ -288,7 +289,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
         const rest = entries.slice(1);
         const best = rest.reduce((max, e) => (e.likes > max.likes ? e : max), rest[0]);
         return best && best.likes >= 1 ? best.id : null;
-    }, [entries]);
+    }, [entries,user?.id]);
 
     // Entry gonder
     const handleSubmit = async () => {
@@ -342,9 +343,10 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                 notes: '',
                 adminNote: '',
                 count: 1,
-                createdAt: serverTimestamp(),
+
             };
-            await addDoc(collection(db, 'reports'), reportData);
+            const {addDoc,collection,db,serverTimestamp}=await clientDatabase();
+            await addDoc(collection(db, 'reports'), {...reportData,createdAt:serverTimestamp()});
             setReportModal(null);
             setReportNote('');
             setReportCategory('hakaret');
@@ -387,7 +389,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                     </div>
                 </main>
                 <Footer />
-                <style jsx>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+
             </div>
         );
     }
@@ -400,7 +402,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                     <div style={{ textAlign: 'center' }}>
                         <h1 style={{ fontSize: '48px', marginBottom: '16px', color: 'var(--foreground)' }}>404</h1>
                         <p style={{ fontSize: '18px', color: 'var(--text-muted)', marginBottom: '24px' }}>Konu bulunamadi</p>
-                        <Link href="/forum">
+                        <Link prefetch={false} href="/forum">
                             <button style={{
                                 padding: '12px 24px', background: 'var(--primary)',
                                 color: 'white', border: 'none', borderRadius: '8px',
@@ -471,7 +473,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                 }}>
                     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '16px' }}>
-                            <Link href="/forum" style={{ color: 'rgba(255, 255, 255, 0.6)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <Link prefetch={false} href="/forum" style={{ color: 'rgba(255, 255, 255, 0.6)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
                                 <ArrowLeft size={14} /> Forum
                             </Link>
                             <span>/</span>
@@ -575,7 +577,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                              </div>
                              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                                  {popularThreads.map((pt, idx) => (
-                                     <Link href={getThreadSlugUrl(pt)} key={pt.id} style={{ textDecoration: 'none' }}>
+                                     <Link prefetch={false} href={getThreadSlugUrl(pt)} key={pt.id} style={{ textDecoration: 'none' }}>
                                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px', borderRadius: '8px', transition: 'background 0.2s' }}
                                               onMouseEnter={(e) => e.currentTarget.style.background = 'var(--secondary)'}
                                               onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
@@ -965,6 +967,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                             </div>
                     )}
 
+                    {!user&&!loadAllEntries&&thread&&thread.entryCount>entries.length&&<button onClick={()=>setLoadAllEntries(true)} style={{padding:'12px 18px',minHeight:44}}>Diğer yanıtları yükle</button>}
                     {/* Pagination */}
                     {sortedEntries.length > ENTRIES_PER_PAGE && (
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginTop: '24px', flexWrap: 'wrap' }}>
@@ -1072,7 +1075,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                                 <p style={{ color: 'var(--text-muted)', fontSize: '15px', marginBottom: '16px' }}>
                                     Yanıt yazmak için giriş yapmanız gerekiyor
                                 </p>
-                                <Link href="/giris">
+                                <Link prefetch={false} href="/giris">
                                     <button style={{
                                         padding: '12px 28px', background: 'var(--primary)',
                                         color: 'white', border: 'none', borderRadius: '10px',
@@ -1229,128 +1232,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                 </div>
             )}
 
-            <style jsx>{`
-                @keyframes spin { to { transform: rotate(360deg); } }
-                @keyframes popIn { from { transform: translate(-50%,-50%) scale(0.9); opacity: 0; } to { transform: translate(-50%,-50%) scale(1); opacity: 1; } }
-                @keyframes slideUp { from { transform: translateY(80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-                .forum-thread-actions {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    margin-top: 20px;
-                }
-                .forum-thread-actions button {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 7px;
-                    min-height: 40px;
-                    padding: 9px 15px;
-                    border-radius: 10px;
-                    font-size: 13px;
-                    font-weight: 700;
-                    cursor: pointer;
-                    transition: transform 0.15s ease, background 0.15s ease;
-                }
-                .forum-thread-actions button:hover {
-                    transform: translateY(-1px);
-                }
-                .forum-thread-action-primary {
-                    border: 1px solid white;
-                    background: white;
-                    color: #0f172a;
-                }
-                .forum-thread-action-secondary {
-                    border: 1px solid rgba(255,255,255,0.28);
-                    background: rgba(255,255,255,0.1);
-                    color: white;
-                }
-                .forum-entry-card:target {
-                    border-color: var(--primary) !important;
-                    box-shadow: 0 0 0 3px var(--primary-glow) !important;
-                }
-                .forum-entry-permalink {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 3px;
-                    padding: 3px 7px;
-                    border: 1px solid var(--card-border);
-                    border-radius: 6px;
-                    background: var(--secondary);
-                    color: var(--text-muted);
-                    font-size: 10px;
-                    font-weight: 700;
-                    cursor: pointer;
-                }
-                @media (max-width: 1024px) {
-                    .forum-layout {
-                        flex-direction: column !important;
-                    }
-                    .forum-sidebar {
-                        max-width: 100% !important;
-                    }
-                    .forum-sidebar-left {
-                        display: none !important;
-                    }
-                }
-                @media (max-width: 768px) {
-                    .forum-thread-actions {
-                        width: 100%;
-                    }
-                    .forum-thread-actions button {
-                        flex: 1;
-                    }
-                    .forum-entry-mobile-actions {
-                        display: flex !important;
-                    }
-                    .forum-entry-upvote {
-                        display: none !important;
-                    }
-                    .forum-entry-content {
-                        padding: 16px !important;
-                    }
-                    .forum-entry-card {
-                        border-radius: 12px !important;
-                    }
-                    .forum-thread-header {
-                        padding: 20px 16px !important;
-                    }
-                    .forum-thread-header h1 {
-                        font-size: 20px !important;
-                        line-height: 1.35 !important;
-                    }
-                    .forum-thread-meta {
-                        gap: 10px !important;
-                        font-size: 12px !important;
-                    }
-                    .forum-sort-bar {
-                        flex-wrap: wrap !important;
-                        gap: 6px !important;
-                        padding: 8px 10px !important;
-                    }
-                    .forum-sort-bar button {
-                        padding: 5px 10px !important;
-                        font-size: 12px !important;
-                    }
-                    .forum-sort-count {
-                        width: 100% !important;
-                        text-align: center !important;
-                        margin-left: 0 !important;
-                        border-top: 1px solid var(--card-border);
-                        padding-top: 6px;
-                        margin-top: 2px;
-                    }
-                    .forum-entry-form {
-                        padding: 16px !important;
-                        border-radius: 12px !important;
-                    }
-                    .forum-report-modal,
-                    .forum-rating-modal {
-                        width: calc(100vw - 32px) !important;
-                        padding: 20px !important;
-                    }
-                }
-            `}</style>
+
         </div>
     );
 }

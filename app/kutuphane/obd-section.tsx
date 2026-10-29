@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import motionStyles from "@/components/content-motion.module.css";
 import { Search, Activity, AlertCircle, Wrench, X, ChevronRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
@@ -434,7 +434,7 @@ export default function ObdSection() {
             </div>
 
             {/* Detail Modal */}
-            <AnimatePresence>
+            <>
                 {selectedCode && (
                     <DetailModal
                         code={selectedCode}
@@ -442,7 +442,7 @@ export default function ObdSection() {
                         getTypeColor={getTypeColor}
                     />
                 )}
-            </AnimatePresence>
+            </>
         </div>
     );
 }
@@ -451,10 +451,10 @@ function DetailModal({ code, onClose, getTypeColor }: { code: ObdCode, onClose: 
     const colors = getTypeColor(code.type);
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+        <div className={motionStyles.enter}
+
+
+
             style={{
                 position: 'fixed',
                 inset: 0,
@@ -468,10 +468,10 @@ function DetailModal({ code, onClose, getTypeColor }: { code: ObdCode, onClose: 
             }}
             onClick={onClose}
         >
-            <motion.div
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
+            <div className={motionStyles.enter}
+
+
+
                 onClick={(e) => e.stopPropagation()}
                 style={{
                     width: '100%',
@@ -626,8 +626,8 @@ function DetailModal({ code, onClose, getTypeColor }: { code: ObdCode, onClose: 
                         </div>
                     )}
                 </div>
-            </motion.div>
-        </motion.div>
+            </div>
+        </div>
     );
 }
 

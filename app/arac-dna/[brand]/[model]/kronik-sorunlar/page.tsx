@@ -1,3 +1,4 @@
+import {getVehicleCommunity} from '@/lib/vehicle-community-server';
 import { staticVehicleParams } from '@/lib/vehicle-index';
 import AracDNAShell from '../AracDNAShell';
 import { notFound } from 'next/navigation';
@@ -10,10 +11,11 @@ export default async function ChronicIssuesPage({ params }: { params: Promise<{ 
     const {brand: brandSlug, model: modelSlug} = await params;
     const vehicle = findVehicleByRoute(brandSlug, modelSlug);
     if (!vehicle) notFound();
+    const community=await getVehicleCommunity(brandSlug,modelSlug);
     const mainModelName = vehicle.model.replace(/\s*\([^)]+\)/, '').trim();
     return <AracDNAShell vehicle={vehicle} section="kronik">
 
-        <ChronicInteractions brandSlug={brandSlug} modelSlug={modelSlug} brandName={vehicle.brand} modelName={vehicle.model} staticIssueCount={vehicle.chronicIssues.length}>
+        <ChronicInteractions initialIssues={community.issues} initialVotes={community.votes} brandSlug={brandSlug} modelSlug={modelSlug} brandName={vehicle.brand} modelName={vehicle.model} staticIssueCount={vehicle.chronicIssues.length}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', flexWrap: 'wrap', gap: '16px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <Wrench size={28} color="var(--primary)" />

@@ -17,11 +17,11 @@ export default function MobileBottomNav() {
 
     return (
         <div className="mobile-bottom-nav">
-            <Link href="/" className={`nav-item ${pathname === '/' ? 'active' : ''}`}>
+            <Link prefetch={false} href="/" className={`nav-item ${pathname === '/' ? 'active' : ''}`}>
                 <Home size={24} />
             </Link>
             
-            <Link href="/kutuphane" className={`nav-item ${pathname === '/kutuphane' ? 'active' : ''}`}>
+            <Link prefetch={false} href="/kutuphane" className={`nav-item ${pathname === '/kutuphane' ? 'active' : ''}`}>
                 <Search size={24} />
             </Link>
 
@@ -34,14 +34,14 @@ export default function MobileBottomNav() {
                 </div>
             </button>
 
-            <Link href={user ? "/mesajlar" : "/giris"} className={`nav-item ${pathname === '/mesajlar' ? 'active' : ''}`}>
+            <Link prefetch={false} href={user ? "/mesajlar" : "/giris"} className={`nav-item ${pathname === '/mesajlar' ? 'active' : ''}`}>
                 <div className="icon-wrapper">
                     <MessageCircle size={24} />
                     {unreadMessages > 0 && <span className="badge"></span>}
                 </div>
             </Link>
 
-            <Link href={user ? "/profil" : "/giris"} className={`nav-item ${pathname === '/profil' ? 'active' : ''}`}>
+            <Link prefetch={false} href={user ? "/profil" : "/giris"} className={`nav-item ${pathname === '/profil' ? 'active' : ''}`}>
                 {user ? (
                     user.avatar ? (
                         <img src={user.avatar} alt="Avatar" className="user-avatar" />

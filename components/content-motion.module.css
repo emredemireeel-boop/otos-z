@@ -1,0 +1,3 @@
+.enter { animation: content-enter 180ms ease-out; }
+@keyframes content-enter { from { transform: translateY(6px); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .enter { animation: none; } }

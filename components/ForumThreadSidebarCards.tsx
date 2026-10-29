@@ -60,11 +60,11 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                             <span className="forum-sidebar-kicker">Sürücü araçları</span>
                             <h2 id="thread-driver-tools-title"><Wrench size={15} /> Yolda lazım olur</h2>
                         </div>
-                        <Link href="/kutuphane" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
+                        <Link prefetch={false} href="/kutuphane" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                     </div>
                     <div className="forum-resource-list">
                         {DRIVER_ESSENTIALS.map(({ href, title, description, icon: ToolIcon }) => (
-                            <Link key={href} href={href} className="forum-resource-row">
+                            <Link prefetch={false} key={href} href={href} className="forum-resource-row">
                                 <span className="forum-resource-icon"><ToolIcon size={15} /></span>
                                 <span className="forum-resource-copy">
                                     <strong>{title}</strong>
@@ -80,7 +80,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                     <section className="forum-sidebar-card forum-myth-card">
                         <span className="forum-sidebar-kicker">Kütüphaneden ilginç bilgi</span>
                         <h3>Doğru mu, efsane mi?</h3>
-                        <Link href={`/kutuphane/efsane-avcilari/${myth.slug}--${myth.id}`}>
+                        <Link prefetch={false} href={`/kutuphane/efsane-avcilari/${myth.slug}--${myth.id}`}>
                             <p>“{myth.myth}”</p>
                             <span className="forum-card-link">Gerçeğini öğren <ArrowRight size={14} /></span>
                         </Link>
@@ -97,7 +97,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                 <div className="forum-guide-icon"><BookOpen size={18} /></div>
                 <h2>Aracını doğru tanı, masrafı önceden gör</h2>
                 <p>Bakım, arıza, gösterge ışıkları ve ikinci el kontrol rehberlerini tek yerde incele.</p>
-                <Link href="/kutuphane" className="forum-card-link">
+                <Link prefetch={false} href="/kutuphane" className="forum-card-link">
                     Kütüphaneyi keşfet <ArrowRight size={14} />
                 </Link>
             </section>
@@ -108,11 +108,11 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                         <span className="forum-sidebar-kicker">OtoHesap</span>
                         <h2 id="thread-calculators-title"><Calculator size={15} /> Hızlı hesaplamalar</h2>
                     </div>
-                    <Link href="/otohesap" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
+                    <Link prefetch={false} href="/otohesap" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                 </div>
                 <div className="forum-resource-list">
                     {QUICK_CALCULATORS.map(({ href, title, description, icon: ToolIcon }) => (
-                        <Link key={href} href={href} className="forum-resource-row">
+                        <Link prefetch={false} key={href} href={href} className="forum-resource-row">
                             <span className="forum-resource-icon"><ToolIcon size={15} /></span>
                             <span className="forum-resource-copy">
                                 <strong>{title}</strong>
@@ -147,7 +147,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                             </Link>
                         ))}
                     </div>
-                    <Link href="/arac-dna" className="forum-card-link forum-card-footer-link">
+                    <Link prefetch={false} href="/arac-dna" className="forum-card-link forum-card-footer-link">
                         Tüm araçları keşfet <ArrowRight size={14} />
                     </Link>
                 </section>
@@ -164,7 +164,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                         <span>{featuredEvent.city}</span>
                     </div>
                     <h2>{featuredEvent.title}</h2>
-                    <Link href={featuredEvent.category==='pazar'?(getLegacyMarketPath(featuredEvent.id)||`/acik-oto-pazari/${toMarketSlug(featuredEvent.city)}`):`/etkinlikler/${featuredEvent.id}`} className="forum-card-link">
+                    <Link prefetch={false} href={featuredEvent.category==='pazar'?(getLegacyMarketPath(featuredEvent.id)||`/acik-oto-pazari/${toMarketSlug(featuredEvent.city)}`):`/etkinlikler/${featuredEvent.id}`} className="forum-card-link">
                         Etkinliği incele <ArrowRight size={14} />
                     </Link>
                 </section>

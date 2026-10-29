@@ -181,3 +181,5 @@ export default async function OBDSlugPage({ params }: PageProps) {
         </>
     );
 }
+
+export const revalidate = 3600;
