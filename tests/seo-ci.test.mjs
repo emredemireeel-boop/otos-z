@@ -5,6 +5,16 @@ import os from 'node:os';
 import path from 'node:path';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
+import {releaseTypeConfig} from '../scripts/seo-release-config.mjs';
+
+test('Release typecheck excludes stale live route validators without deleting the live build',()=>{
+    const config=releaseTypeConfig('.next-candidate-new',['.next','.next-candidate-old','.next-candidate-new']);
+    assert.ok(config.exclude.includes('.next'));
+    assert.ok(config.exclude.includes('.next-candidate-old'));
+    assert.ok(!config.exclude.includes('.next-candidate-new'));
+    assert.ok(config.include.includes('.next-candidate-new/types/**/*.ts'));
+    assert.throws(()=>releaseTypeConfig('../outside',[]));
+});
 
 test('SEO gate exits nonzero and stops later stages when HTTP regression is detected',async()=>{
     const output=fs.mkdtempSync(path.join(os.tmpdir(),'otosoz-seo-gate-'));

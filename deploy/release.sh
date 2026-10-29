@@ -5,11 +5,14 @@ cd "$(dirname "$0")/.."
 port="${SEO_PREVIEW_PORT:-3011}"
 candidate=".next-candidate-$(date -u +%Y%m%d%H%M%S)"
 export OTOSOZ_DIST_DIR="$candidate"
+export OTOSOZ_TSCONFIG=".tsconfig-release.json"
 preview_pid=""
 cleanup() { if [[ -n "$preview_pid" ]]; then kill "$preview_pid" 2>/dev/null || true; wait "$preview_pid" 2>/dev/null || true; fi; }
 trap cleanup EXIT
 npm ci
-npx tsc --noEmit
+node scripts/seo-release-config.mjs
+npx next typegen
+npx tsc --noEmit --project "$OTOSOZ_TSCONFIG"
 npm run build
 node node_modules/next/dist/bin/next start -H 127.0.0.1 --port "$port" > /tmp/otosoz-seo-preview.log 2>&1 &
 preview_pid=$!

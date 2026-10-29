@@ -439,6 +439,7 @@ const nextConfig: NextConfig = {
     // TypeScript kontrolünü build aşamasında atla (bellek tasarrufu ~800MB)
     // Kontrol zaten IDE ve lokal geliştirmede yapılıyor
     typescript: {
+        tsconfigPath: process.env.OTOSOZ_TSCONFIG || 'tsconfig.json',
         ignoreBuildErrors: true,
     },
 };
