@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import EditorialEmailLink from '@/components/EditorialEmailLink';
 import Footer from '@/components/Footer';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {createPageMetadata} from '@/lib/seo';
@@ -11,5 +12,5 @@ export default function EditorialPolicy(){return <><Navbar/><main className={sty
     <h2>OBD açıklamaları</h2><p>Kaynaklı OBD kayıtlarında üretici teşhis belgeleri ve teknik servis bültenleri kullanılır. Sayfada kaynak adı ve bağlantısı gösterilir. Bir arıza kodu, tek başına bir parçanın değişmesi gerektiğini kanıtlamaz. Araç ve motor için üreticinin teşhis prosedürü izlenmelidir.</p><p>Kaynağı bulunmayan katalog kayıtları genel başvuru bilgisi olarak sunulur. Aynı teşhis veya maliyet metnini bütün kodlar için doğrulanmış bir sonuç gibi kullanmayız.</p>
     <h2>Topluluk ve yazar bilgisi</h2><p>Forum gönderileri üyelerin kendi ifadeleridir. Bir paylaşımın yayımlanması, içindeki teknik iddiaların editoryal olarak onaylandığı anlamına gelmez. Doğrulanmış bir bireysel yazar kaydı olmayan editoryal içeriklerde yayıncı ve yazar olarak OtoSöz kuruluş adı kullanılır.</p>
     <h2>Tarihler ve yerel rehberler</h2><p>Son güncelleme bilgisi, içerik kaydındaki güncelleme veya son kaynak kontrol tarihinden alınır. Tarih kaydı yoksa güncelmiş gibi yeni tarih eklenmez. Açık oto pazarlarında yer, gün ve saat bilgileri belediye veya ilgili kurumun açıklamasıyla karşılaştırılır; doğrulanmamış pazarlar arama dizinine sunulmaz.</p>
-    <h2>Düzeltme talebi</h2><p>Sayfa adresini, düzeltilmesini istediğiniz ifadeyi, gerekçenizi ve varsa resmî kaynağı <a href="mailto:iletisim@otosoz.com?subject=İçerik%20düzeltme%20talebi">iletisim@otosoz.com</a> adresine iletin. Talep kaynakla karşılaştırılır; gerekli değişiklik kayda işlenir. Kanıtı olmayan iddia yerine kesin bilgi eklenmez.</p><p>Site sorumlusu: Emre Demirel. <a href="/kaynaklar">Kayıtlı başvuru kaynakları</a> · <a href="/iletisim">İletişim</a></p>
+    <h2>Düzeltme talebi</h2><p>Sayfa adresini, düzeltilmesini istediğiniz ifadeyi, gerekçenizi ve varsa resmî kaynağı <EditorialEmailLink forCorrection/> adresine iletin. Talep kaynakla karşılaştırılır; gerekli değişiklik kayda işlenir. Kanıtı olmayan iddia yerine kesin bilgi eklenmez.</p><p>Site sorumlusu: Emre Demirel. <a href="/kaynaklar">Kayıtlı başvuru kaynakları</a> · <a href="/iletisim">İletişim</a></p>
 </article></main><Footer/></>;}
