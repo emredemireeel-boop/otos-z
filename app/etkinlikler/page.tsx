@@ -52,7 +52,7 @@ export default async function EtkinliklerPage() {
                                     fontWeight: '700',
                                     letterSpacing: '0.5px'
                                 }}>
-                                    {filteredEvents.length} ETKİNLİK
+                                    <span data-catalog-count>{filteredEvents.length}</span> ETKİNLİK
                                 </span>
                             </div>
 
@@ -191,7 +191,7 @@ export default async function EtkinliklerPage() {
                         {/* Main Content */}
                         <div>
                             <div style={{ marginBottom: '16px', padding: '12px 16px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>{filteredEvents.length} Etkinlik</span>
+                                <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}><span data-catalog-count>{filteredEvents.length}</span> Etkinlik</span>
                                 <div style={{ display: 'flex', gap: '8px' }}>
                                     <button style={{
                                         padding: '8px 14px',
@@ -227,11 +227,9 @@ export default async function EtkinliklerPage() {
                                 ))}
                             </div>
 
-                            {filteredEvents.length === 0 && (
-                                <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
+                                <div data-catalog-empty hidden style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
                                     <p>Bu kriterlere uygun etkinlik bulunamadı.</p>
                                 </div>
-                            )}
                         </div>
 
                         {/* Right Sidebar */}

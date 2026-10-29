@@ -18,6 +18,9 @@ export default function ServerCatalogClient({children,initialPanel='',initialFil
             item.style.display=item.hidden?'none':(item.dataset.catalogOriginalDisplay||'');
             if(sort)item.style.order=String(index);
         });
+        const visibleCount=rows.filter(item=>!item.hidden).length;
+        element.querySelectorAll<HTMLElement>('[data-catalog-count]').forEach(item=>{item.textContent=String(visibleCount);});
+        element.querySelectorAll<HTMLElement>('[data-catalog-empty]').forEach(item=>{item.hidden=visibleCount>0;});
         element.querySelectorAll<HTMLElement>('[data-catalog-target],[data-catalog-filter],[data-catalog-sort],[data-catalog-city-target]').forEach(button=>{
             const active=button.dataset.catalogTarget?button.dataset.catalogTarget===panel:button.dataset.catalogFilter?button.dataset.catalogFilter===filter:button.dataset.catalogCityTarget?button.dataset.catalogCityTarget===city:button.dataset.catalogSort===sort;
             button.setAttribute('aria-pressed',String(active));
