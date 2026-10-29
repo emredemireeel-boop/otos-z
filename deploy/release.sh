@@ -6,6 +6,9 @@ port="${SEO_PREVIEW_PORT:-3011}"
 candidate=".next-candidate-$(date -u +%Y%m%d%H%M%S)"
 export OTOSOZ_DIST_DIR="$candidate"
 export OTOSOZ_TSCONFIG=".tsconfig-release.json"
+if [[ -z "${GOOGLE_APPLICATION_CREDENTIALS:-}" && -r /etc/otosoz/firebase-admin.json ]]; then
+    export GOOGLE_APPLICATION_CREDENTIALS=/etc/otosoz/firebase-admin.json
+fi
 preview_pid=""
 cleanup() { if [[ -n "$preview_pid" ]]; then kill "$preview_pid" 2>/dev/null || true; wait "$preview_pid" 2>/dev/null || true; fi; }
 trap cleanup EXIT

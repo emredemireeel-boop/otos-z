@@ -78,7 +78,11 @@ await Promise.all(Array.from({ length: 6 }, async () => {
         }
     }
 }));
-const duplicates = field => Object.entries(Object.groupBy(results.filter(row => row[field]), row => row[field])).filter(([, rows]) => rows.length > 1).map(([value, rows]) => ({ value, urls: rows.map(row => row.url) }));
+const duplicates = field => {
+    const groups=new Map();
+    for(const row of results){if(!row[field])continue;const list=groups.get(row[field])||[];list.push(row);groups.set(row[field],list);}
+    return [...groups].filter(([,rows])=>rows.length>1).map(([value,rows])=>({value,urls:rows.map(row=>row.url)}));
+};
 const titles = duplicates('title'), descriptions = duplicates('description'), longTitles = results.filter(r => r.titleLength > 60), shortDescriptions = results.filter(r => r.descriptionLength < 120 || r.descriptionLength > 158), failures = results.filter(r => r.errors.length);
 const sources=metadataSources();
 const duplicateDescriptionPages = descriptions.reduce((s, row) => s + row.urls.length, 0), out = { checkedAt: new Date().toISOString(), base, total: targets.length, duplicateTitles: titles.length, duplicateTitlePages: titles.reduce((s, row) => s + row.urls.length, 0), duplicateDescriptions: descriptions.length, duplicateDescriptionPercent: 100 * duplicateDescriptionPages / targets.length, longTitlePercent: 100 * longTitles.length / targets.length, descriptionLengthFailures: shortDescriptions.length, forbiddenTagPages: results.filter(row => row.forbidden?.length).length, failures: failures.length, sources, titles, descriptions, longTitles, shortDescriptions, results };
