@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
+import { useAuthUser } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
 import { Home, Search, MessageCircle, User } from "lucide-react";
 import Image from "next/image";
 
 export default function MobileBottomNav() {
     const pathname = usePathname();
-    const { user } = useAuth();
+    const user = useAuthUser();
     const { theme } = useTheme();
     
     // Fake unread count for demo. In real app, fetch from notifications/messages

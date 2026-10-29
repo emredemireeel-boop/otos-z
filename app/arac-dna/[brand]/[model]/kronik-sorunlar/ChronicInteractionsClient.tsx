@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { Wrench, AlertCircle, AlertTriangle, Plus, X } from "lucide-react";
 
 import { useState, useEffect, createContext, useContext } from "react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuthUser } from "@/context/AuthContext";
 import type {DNAChronicIssue} from "@/lib/dnaService";
 const loadCommunity=()=>import("@/lib/dnaService");
 
@@ -15,7 +15,7 @@ const VoteContext = createContext<{ requestReport: () => void; vote: (id: string
 export default function ChronicInteractions({ brandSlug, modelSlug, brandName, modelName, staticIssueCount, initialIssues=[],initialVotes={}, children }: {
     brandSlug: string; modelSlug: string; brandName: string; modelName: string; staticIssueCount: number;initialIssues?:DNAChronicIssue[];initialVotes?:Record<string,string[]>; children: React.ReactNode;
 }) {
-    const { user } = useAuth();
+    const user = useAuthUser();
 
     const [dynamicIssues, setDynamicIssues] = useState<DNAChronicIssue[]>(initialIssues);
     const [staticVotes, setStaticVotes] = useState<Record<string, string[]>>(initialVotes);

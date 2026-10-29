@@ -4,14 +4,14 @@ import { useState, useEffect, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
 const XPPopup=dynamic(()=>import("./XPPopup"),{ssr:false});
 import MobileBottomNav from "./MobileBottomNav";
-import { useAuth } from "@/context/AuthContext";
+import { useFirebaseUser } from "@/context/AuthContext";
 const PushNotificationManager = dynamic(() => import("./PushNotificationManager"), { ssr: false });
 const subscribeToHydration = () => () => {};
 const getClientSnapshot = () => true;
 const getServerSnapshot = () => false;
 
 export default function GlobalEngagement() {
-    const { firebaseUser } = useAuth();
+    const firebaseUser = useFirebaseUser();
     const mounted = useSyncExternalStore(subscribeToHydration, getClientSnapshot, getServerSnapshot);
     const [xpPopup, setXpPopup] = useState<{show: boolean, amount: number, action: string, leveledUp?: boolean, newLevelName?: string, newLevelIcon?: string} | null>(null);
     const [pushReady, setPushReady] = useState(false);

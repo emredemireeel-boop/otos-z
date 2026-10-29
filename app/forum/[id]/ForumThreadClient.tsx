@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useAuth } from "@/context/AuthContext";
+import { useAuthUser } from "@/context/AuthContext";
 import type {ForumThread,ForumEntry} from "@/lib/forumService";
 import {getThreadBySlug,subscribeToEntries,addEntry,toggleLike,incrementViews,subscribeToThreads,clientDatabase,startConversation,rateUser,getMyRatingForUser} from "@/lib/client-services";
 import {formatTimestamp,getThreadSlugUrl,displayTimestamp} from "@/lib/forum-presentation";
@@ -89,7 +89,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
     const params = useParams();
     const router = useRouter();
     const slugParam = params.id as string;
-    const { user } = useAuth();
+    const user = useAuthUser();
 
     const [thread, setThread] = useState<ForumThread | null>(() => hydrateInitialThread(initialThread));
     const [entries, setEntries] = useState<ForumEntry[]>(() => hydrateInitialEntries(initialEntries));

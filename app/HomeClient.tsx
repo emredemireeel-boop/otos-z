@@ -7,7 +7,7 @@ import { BookOpen, ArrowRight, MessageSquare, TrendingUp, BarChart3, Clock, Flam
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
-import { useAuth } from "@/context/AuthContext";
+import { useAuthUser } from "@/context/AuthContext";
 
 import type {ForumThread as FirestoreThread} from "@/lib/forumService";
 import {subscribeToThreads,createThread,clientDatabase} from "@/lib/client-services";
@@ -130,7 +130,7 @@ const HOME_FEATURED_EVENT = {
 export default function Home({ initialThreads = [], featuredDnaVehicles, discovery, selectedGuide, initialNews=[], dailySeed=0 }: { initialThreads?: ForumSeoSummary[];featuredDnaVehicles:{id:number;brand:string;model:string;dnaScore:number;totalReports:number;chronicIssueCount:number}[];discovery?:React.ReactNode;selectedGuide?:{title:string;description:string;href:string};initialNews?:{id:string|number;title:string;slug:string;readTime:number}[];dailySeed?:number }) {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
-    const { user } = useAuth();
+    const user = useAuthUser();
     const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [sortBy, setSortBy] = useState<"popular" | "new">("new");
     const [showNewTopicModal, setShowNewTopicModal] = useState(false);
@@ -263,6 +263,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
 
     // ── Yeni başlık taslağı ve modal davranışı ───────────────────────────────
     useEffect(() => {
+        if(!showNewTopicModal||draftReady)return;
         try {
             const savedDraft = localStorage.getItem(NEW_TOPIC_DRAFT_KEY);
             if (savedDraft) {
@@ -291,7 +292,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
         } finally {
             setDraftReady(true);
         }
-    }, []);
+    }, [showNewTopicModal,draftReady]);
 
     useEffect(() => {
         if (!draftReady) return;

@@ -53,6 +53,8 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthUserContext = createContext<User|null>(null);
+const FirebaseUserContext = createContext<FirebaseUser|null>(null);
 
 /* ── Firebase User -> App User ── */
 async function mapFirebaseUser(fbUser: FirebaseUser): Promise<User> {
@@ -465,7 +467,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     return (
         <AuthContext.Provider value={{ user, firebaseUser, login, loginWithGoogle, register, completeProfile, checkUsernameAvailability, logout, updateRole, getIdToken, isLoading, error, needsProfileCompletion }}>
+            <AuthUserContext.Provider value={user}><FirebaseUserContext.Provider value={firebaseUser}>
             {children}
+            </FirebaseUserContext.Provider></AuthUserContext.Provider>
         </AuthContext.Provider>
     );
 }
@@ -477,3 +481,7 @@ export function useAuth() {
     }
     return context;
 }
+
+// Reading public content does not depend on loading/error/form auth state.
+export function useAuthUser(){return useContext(AuthUserContext);}
+export function useFirebaseUser(){return useContext(FirebaseUserContext);}
