@@ -1,0 +1,278 @@
+
+> otoasfalt-web@0.1.0 build
+> next build
+
+▲ Next.js 16.3.3 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 37ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.4s
+  Skipping validation of types
+  Finished TypeScript config validation in 11ms ...
+  Collecting page data using 15 workers ...
+⚠ The Edge Runtime is deprecated. You can use the "nodejs" runtime instead. Learn more: https://nextjs.org/docs/messages/edge-runtime-deprecated
+⚠ Using edge runtime on a page currently disables static generation for that page
+  Generating static pages using 15 workers (0/1034) ...
+  Generating static pages using 15 workers (258/1034)
+  Generating static pages using 15 workers (516/1034)
+  Generating static pages using 15 workers (775/1034)
+✓ Generating static pages using 15 workers (1034/1034) in 6.3s
+  Finalizing page optimization ...
+
+Route (app)                                                                                                                 Revalidate  Expire
+┌ ○ /                                                                                                                              15m      1y
+├ ○ /_not-found
+├ ○ /acik-oto-pazari
+├   /acik-oto-pazari/[city]
+│ ├ ● /acik-oto-pazari/adana
+│ ├ ● /acik-oto-pazari/adiyaman
+│ ├ ● /acik-oto-pazari/afyonkarahisar
+│ └ ● [+78 more paths]
+├   /acik-oto-pazari/[city]/[market]
+│ ├ ● /acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari
+│ ├ ● /acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari
+│ ├ ● /acik-oto-pazari/antalya/kepez-acik-oto-pazari
+│ └ ● [+17 more paths]
+├ ○ /admin
+├ ○ /admin/altin-anahtar
+├ ○ /admin/anketler
+├ ○ /admin/ayarlar
+├ ○ /admin/dna-raporlar
+├ ○ /admin/entry-kontrol
+├ ○ /admin/finans
+├ ○ /admin/guvenmetre
+├ ○ /admin/guvenmetre/yorumlar
+├ ○ /admin/hesap
+├ ○ /admin/icerik
+├ ○ /admin/kelime-filtresi
+├ ○ /admin/kullanicilar
+├ ○ /admin/loglar
+├ ○ /admin/moderasyon
+├ ○ /admin/moderatorler
+├ ○ /admin/otopazarlar
+├ ○ /admin/pazar
+├ ○ /admin/raporlar
+├ ○ /admin/reklamlar
+├ ○ /admin/rozetler
+├ ○ /admin/seed-dictionary
+├ ○ /admin/uzman-basvurulari
+├ ○ /admin/yayin
+├ ○ /ajanda
+├ ○ /altin-anahtar
+├ ○ /anket                                                                                                                          5m      1y
+├ ƒ /anket/[id]
+├ ƒ /api/admin
+├ ƒ /api/admin/delete-content
+├ ƒ /api/advertisements
+├ ƒ /api/altin-anahtar
+├ ƒ /api/arac-dna
+├ ƒ /api/auth/login
+├ ƒ /api/auth/session
+├ ƒ /api/campaign/claim
+├ ƒ /api/campaign/share
+├ ƒ /api/car-options
+├ ƒ /api/fiyatlar/[sehir]
+├ ƒ /api/forum
+├ ƒ /api/gamification/evaluate
+├ ƒ /api/guvenmetre/reviews
+├ ƒ /api/kasko-deger
+├ ƒ /api/kurlar
+├ ƒ /api/listings
+├ ƒ /api/maintenance-agenda
+├ ƒ /api/mobile/content
+├ ƒ /api/mobile/forum
+├ ƒ /api/mobile/legal-consent
+├ ƒ /api/mobile/messages
+├ ○ /api/mobile/otobutce                                                                                                            1h      1y
+├ ƒ /api/mobile/push
+├ ƒ /api/mobile/web-session
+├ ƒ /api/notifications/reply
+├ ƒ /api/obd
+├ ƒ /api/og
+├ ƒ /api/push/subscribe
+├ ƒ /api/seed-poll
+├ ƒ /api/seo/ping
+├ ƒ /api/users
+├ ƒ /arac-dna
+├   /arac-dna/[brand]
+│ ├ ● /arac-dna/renault
+│ ├ ● /arac-dna/fiat
+│ ├ ● /arac-dna/toyota
+│ └ ● [+18 more paths]
+├   /arac-dna/[brand]/[model]
+│ ├ ● /arac-dna/renault/clio-5-nesil-2020-2025                                                                                     30m      1y
+│ ├ ● /arac-dna/renault/clio-1-nesil-1990-1998                                                                                     30m      1y
+│ ├ ● /arac-dna/renault/clio-2-nesil-1998-2012                                                                                     30m      1y
+│ └ ● [+85 more paths]
+├   /arac-dna/[brand]/[model]/[engine]
+│ ├ ● /arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc                                                            30m      1y
+│ ├ ● /arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-kronik-sorunlari                                           30m      1y
+│ ├ ● /arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri         30m      1y
+│ └ ● [+40 more paths]
+├   /arac-dna/[brand]/[model]/arac-paketleri
+│ ├ ● /arac-dna/renault/clio-5-nesil-2020-2025/arac-paketleri                                                                      30m      1y
+│ ├ ● /arac-dna/fiat/egea-1-nesil-2015-2025/arac-paketleri                                                                         30m      1y
+│ ├ ● /arac-dna/toyota/corolla-12-nesil-2019-2025/arac-paketleri                                                                   30m      1y
+│ └ ● [+65 more paths]
+├   /arac-dna/[brand]/[model]/kronik-sorunlar
+│ ├ ● /arac-dna/renault/clio-1-nesil-1990-1998/kronik-sorunlar                                                                     30m      1y
+│ ├ ● /arac-dna/renault/clio-2-nesil-1998-2012/kronik-sorunlar                                                                     30m      1y
+│ ├ ● /arac-dna/toyota/corolla-12-nesil-2019-2025/kronik-sorunlar                                                                  30m      1y
+│ └ ● [+64 more paths]
+├   /arac-dna/[brand]/[model]/kullanici-deneyimleri
+│ ├ ● /arac-dna/kia/rio-4-nesil-2017-2023/kullanici-deneyimleri                                                                    30m      1y
+│ ├ ● /arac-dna/hyundai/i20-3-nesil-2020-gunumuz/kullanici-deneyimleri                                                             30m      1y
+│ ├ ● /arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/kullanici-deneyimleri                                                          30m      1y
+│ └ ● [+3 more paths]
+├   /arac-dna/[brand]/[model]/neden-alinir
+│ ├ ● /arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir                                                                        30m      1y
+│ ├ ● /arac-dna/renault/clio-1-nesil-1990-1998/neden-alinir                                                                        30m      1y
+│ ├ ● /arac-dna/renault/clio-2-nesil-1998-2012/neden-alinir                                                                        30m      1y
+│ └ ● [+85 more paths]
+├ ○ /arac-dna/kiyasla
+├ ○ /ayarlar
+├ ƒ /bakim-rehberi/[slug]
+├ ƒ /basarim/[userId]/[badge]
+├ ○ /cerez-politikasi
+├ ○ /etkinlikler
+├ ƒ /etkinlikler/[eventId]
+├ ○ /forum                                                                                                                         15m      1y
+├ ƒ /forum/[id]
+├ ○ /forum/feed.xml                                                                                                                 5m      1y
+├   /forum/kategori/[slug]
+│ ├ ● /forum/kategori/genel                                                                                                        15m      1y
+│ ├ ● /forum/kategori/teknik-ariza                                                                                                 15m      1y
+│ ├ ● /forum/kategori/bakim-tamir                                                                                                  15m      1y
+│ └ ● [+7 more paths]
+├ ƒ /forum/kategori/[slug]/sayfa/[page]
+├ ƒ /forum/sayfa/[page]
+├ ○ /giris
+├ ○ /gizlilik-politikasi
+├ ○ /gosterge-paneli
+├ ƒ /gosterge/[slug]
+├ ○ /guvenmetre
+├ ƒ /guvenmetre/[categoryId]
+├ ƒ /guvenmetre/[categoryId]/[brandId]
+├ ○ /haberler
+├ ƒ /haberler/[slug]
+├ ○ /hakkimizda
+├ ƒ /ikinci-el-rehberi/[slug]
+├ ○ /iletisim
+├ ○ /islerim
+├ ○ /karsilastirma                                                                                                                 15m      1y
+├   /karsilastirma/[id]
+│ ├ ● /karsilastirma/ornek-clio-5-vs-egea
+│ ├ ● /karsilastirma/ornek-corolla-vs-megane-4
+│ └ ● /karsilastirma/ornek-golf-8-vs-civic-11
+├ ○ /karsilastirma/yeni
+├ ○ /kayit
+├ ○ /kullanim-sartlari
+├ ○ /kutuphane
+├ ƒ /kutuphane/[guideId]
+├   /kutuphane/efsane-avcilari/[slug]
+│ ├ ● /kutuphane/efsane-avcilari/yokus-asagi-bosa-atmak--1
+│ ├ ● /kutuphane/efsane-avcilari/klima-yerine-cam-acmak--2
+│ ├ ● /kutuphane/efsane-avcilari/benzin-deposunu-fullemek--3
+│ └ ● [+49 more paths]
+├ ○ /kutuphane/ehliyet/harclar
+├   /kutuphane/ehliyet/sinif/[slug]
+│ ├ ● /kutuphane/ehliyet/sinif/m-sinifi-ehliyet
+│ ├ ● /kutuphane/ehliyet/sinif/a1-sinifi-ehliyet
+│ ├ ● /kutuphane/ehliyet/sinif/a2-sinifi-ehliyet
+│ └ ● [+6 more paths]
+├ ○ /kutuphane/ehliyet/src-belgesi
+├ ƒ /kutuphane/ilginc/[slug]
+├   /kutuphane/kasa/[slug]
+│ ├ ● /kutuphane/kasa/sedan
+│ ├ ● /kutuphane/kasa/hatchback
+│ ├ ● /kutuphane/kasa/suv
+│ └ ● [+4 more paths]
+├ ○ /kutuphane/kasko-deger
+├ ƒ /kutuphane/kasko-deger/[slug]
+├ ƒ /kutuphane/kategori/[slug]
+├ ○ /kutuphane/noter/guvenli-odeme
+├ ○ /kutuphane/noter/satis-adimlari
+├ ƒ /kutuphane/otoyol-ucretleri/[slug]
+├ ○ /kutuphane/ozel-plakalar
+├   /kutuphane/plaka/[slug]
+│ ├ ● /kutuphane/plaka/01-adana-plaka-kodu
+│ ├ ● /kutuphane/plaka/02-adiyaman-plaka-kodu
+│ ├ ● /kutuphane/plaka/03-afyonkarahisar-plaka-kodu
+│ └ ● [+121 more paths]
+├   /kutuphane/segment/[slug]
+│ ├ ● /kutuphane/segment/a-segmenti
+│ ├ ● /kutuphane/segment/b-segmenti
+│ ├ ● /kutuphane/segment/c-segmenti
+│ └ ● [+3 more paths]
+├   /kutuphane/tuvturk/[slug]
+│ ├ ● /kutuphane/tuvturk/cam-filmi-agir-kusur-mu--1
+│ ├ ● /kutuphane/tuvturk/far-merceklerinin-kararmasi-muayeneden-gecer-mi--2
+│ ├ ● /kutuphane/tuvturk/tuvturk-arac-muayene-randevusu-nasil-alinir--3
+│ └ ● [+22 more paths]
+├ ○ /kutuphane/ulke-plakalari
+├ ○ /makale
+├ ƒ /makale/[slug]
+├ ○ /mesajlar
+├ ○ /mobil-giris
+├ ○ /moderator
+├ ○ /moderator/duyurular
+├ ○ /moderator/guvenmetre
+├ ○ /moderator/kelime-filtresi
+├ ○ /moderator/kullanicilar
+├ ○ /moderator/loglar
+├ ○ /moderator/moderasyon
+├ ○ /moderator/pazar
+├ ○ /moderator/raporlar
+├ ○ /moderator/rozetler
+├ ○ /moderator/yayin
+├ ƒ /nasil-yapilir/[slug]
+├ ○ /news-sitemap.xml                                                                                                              15m      1y
+├ ○ /obd
+├   /obd-kodlari/[page]
+│ ├ ● /obd-kodlari/1
+│ ├ ● /obd-kodlari/2
+│ ├ ● /obd-kodlari/3
+│ └ ● [+10 more paths]
+├   /obd/[slug]
+│ ├ ● /obd/b0001
+│ ├ ● /obd/c0035
+│ ├ ● /obd/p0016
+│ └ ● [+126 more paths]
+├ ƒ /obd/[slug]/[code]
+├ ○ /otobutce
+├ ƒ /otobutce/[slug]
+├ ○ /otohesap
+├   /otohesap/[module]
+│ ├ ● /otohesap/yakit-hesaplama
+│ ├ ● /otohesap/yatirim-kiyaslama
+│ ├ ● /otohesap/al-sat-analizi
+│ └ ● [+18 more paths]
+├ ○ /para-kazan
+├ ○ /pazar
+├ ○ /piyasalar
+├ ○ /premium
+├ ○ /profil
+├ ○ /profil-tamamla
+├ ƒ /profil/[userId]
+├ ○ /robots.txt
+├ ○ /sitemap.xml                                                                                                                   15m      1y
+├ ƒ /sitemaps/[file]
+├ ƒ /sozluk/[id]
+├ ○ /trafik-cezasi
+├   /trafik-cezasi/[slug]
+│ ├ ● /trafik-cezasi/hiz-sinirini-asmak-51-2-a
+│ ├ ● /trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b
+│ ├ ● /trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c
+│ └ ● [+35 more paths]
+├ ○ /usta-ol
+├ ○ /uzman-ol
+├ ○ /uzmana-sor
+└ ƒ /uzmana-sor/[id]
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand

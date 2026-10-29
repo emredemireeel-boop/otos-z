@@ -90,5 +90,55 @@
     "Google may rewrite titles/descriptions; 60 and 158 character limits are editorial project targets, not display guarantees.",
     "Browser automation is disabled in Work settings; validation uses actual server HTML and PNG responses.",
     "New content can create title collisions; the full sitemap metadata audit exits nonzero on regression."
-  ]
+  ],
+  "revalidation": {
+    "checkedAt": "2026-10-29T10:05:27.257Z",
+    "request": "Repeated Step 7 attachment 6f9dd251-b405-4458-b434-a667d8220313",
+    "changes": [
+      "Rebuilt and rechecked the existing central metadata implementation instead of repeating the migration.",
+      "Visual OG check found overflowing text and overlapping footer. Fixed header, title and description bounds, reserved footer space, removed unsupported z-index and replaced the external SVG request with an in-card OtoSöz wordmark.",
+      "Five reviewed OBD title summaries preserve the fault meaning without exceeding the title budget. Vehicle model copy keeps the complete buying/chronic-issues intent.",
+      "Word-boundary truncation no longer leaves a trailing Turkish conjunction; regression covered in the metadata test."
+    ],
+    "checks": {
+      "typescript": "npx tsc --noEmit: exit 0",
+      "build": "npm run build: exit 0, 1034 generated pages",
+      "unitTests": "11/11 passed",
+      "metadata": {
+        "command": "node scripts/seo-metadata-audit.mjs http://127.0.0.1:3010 docs/seo/step07-recheck-metadata.json",
+        "total": 689,
+        "failures": 0,
+        "duplicateTitles": 0,
+        "duplicateDescriptionPercent": 0,
+        "longTitlePercent": 0,
+        "descriptionLengthFailures": 0,
+        "forbiddenTagPages": 0,
+        "manualMetadataObjects": 0
+      },
+      "status": {
+        "total": 231,
+        "passed": 231,
+        "failed": 0,
+        "metaRefreshCount": 0
+      },
+      "og": {
+        "checked": 7,
+        "all200and1200x630": true,
+        "visualCheck": "P0420 and long Turkish title/description PNGs inspected: no text/footer overlap; visible OtoSöz wordmark",
+        "preview": "step07-og-preview.png"
+      },
+      "curl": "local /: 200; local /obd/p9zzz: 404; live /obd/p0420: 200"
+    },
+    "evidence": [
+      "step07-recheck-build.log",
+      "step07-recheck-metadata.json",
+      "step07-recheck-metadata.log",
+      "step07-recheck-status.json",
+      "step07-recheck-status.log",
+      "step07-recheck-og.json",
+      "step07-og-preview.png"
+    ],
+    "deployment": "Not performed; local production server remains at http://127.0.0.1:3010",
+    "diagnostics": "Existing Next.js NoFallbackError log messages occur during invalid SSG route probes; the corresponding HTTP regression cases still return their expected status codes."
+  }
 }

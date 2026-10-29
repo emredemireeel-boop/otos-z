@@ -17,8 +17,8 @@ export async function GET(request: Request) {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'flex-start',
-                    justifyContent: 'center',
-                    padding: '80px',
+                    justifyContent: 'flex-start',
+                    padding: '56px',
                     background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
                     fontFamily: 'sans-serif',
                 }}>
@@ -42,41 +42,43 @@ export async function GET(request: Request) {
                         borderRadius: '50%',
                     }} />
 
-                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '60px', zIndex: 10 }}>
-                        <img
-                            src="https://otosoz.com/white_logo.svg"
-                            width="300"
-                            style={{ objectFit: 'contain' }}
-                            alt="OtoSöz Logo"
-                        />
+                    <div style={{ display: 'flex', alignItems: 'center', height: 64, position: 'relative' }}>
+                        <span style={{ fontSize: 36, fontWeight: 700, color: '#ffffff', letterSpacing: '-0.02em' }}>OtoSöz</span>
                     </div>
 
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '24px',
-                        maxWidth: '1000px',
-                        zIndex: 10,
+                        gap: '18px',
+                        position: 'absolute',
+                        top: 152,
+                        left: 56,
+                        right: 56,
                     }}>
                         <h1 style={{
-                            fontSize: '64px',
+                            fontSize: '50px',
                             fontWeight: 'bold',
                             color: 'white',
-                            lineHeight: 1.1,
+                            lineHeight: 1.13,
                             letterSpacing: '-0.02em',
                             margin: 0,
+                            maxHeight: 170,
+                            overflow: 'hidden',
+                            flexShrink: 0,
                         }}>
                             {title}
                         </h1>
                         <p style={{
-                            fontSize: '32px',
+                            fontSize: '26px',
                             color: '#cbd5e1',
-                            lineHeight: 1.5,
+                            lineHeight: 1.35,
                             margin: 0,
                             display: '-webkit-box',
                             WebkitLineClamp: 3,
                             WebkitBoxOrient: 'vertical',
                             overflow: 'hidden',
+                            maxHeight: 106,
+                            flexShrink: 0,
                         }}>
                             {description}
                         </p>
@@ -84,12 +86,11 @@ export async function GET(request: Request) {
 
                     <div style={{
                         position: 'absolute',
-                        bottom: '80px',
-                        left: '80px',
+                        bottom: '44px',
+                        left: '56px',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '20px',
-                        zIndex: 10
                     }}>
                         <div style={{ width: '60px', height: '4px', background: '#3b82f6', borderRadius: '2px' }} />
                         <span style={{ color: '#94a3b8', fontSize: '28px', fontWeight: 600, letterSpacing: '0.05em' }}>otosoz.com</span>

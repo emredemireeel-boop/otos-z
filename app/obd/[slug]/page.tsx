@@ -13,6 +13,15 @@ import { createSeoSlug } from "@/lib/slug";
 import { indexabilityRobots } from '@/lib/indexability';
 
 const BASE_URL = "https://otosoz.com";
+// Reviewed fault meanings kept complete within the title budget. Technical
+// qualifiers (such as Bank 1) remain in the description and visible article.
+const reviewedSearchTitles: Record<string, string> = {
+    P0171: 'P0171 Arıza Kodu: Fakir Karışım — Nedenleri ve Çözümü',
+    P0299: 'P0299 Arıza Kodu: Düşük Turbo Basıncı ve Çözümü',
+    P0300: 'P0300 Arıza Kodu: Rastgele Tekleme — Nedenleri ve Çözümü',
+    P0420: 'P0420 Arıza Kodu: Katalizör Verimi Düşük ve Çözümü',
+    P1000: 'P1000 Arıza Kodu: Ford OBD Testleri Tamamlanmadı',
+};
 // Popüler kodlar build'de üretilir; katalogdaki diğer geçerli kodlar istekte açılır.
 export const dynamicParams = true;
 interface PageProps {
@@ -91,7 +100,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const ogUrl = `/api/og?title=${encodeURIComponent(`${codeData.code} Arıza Kodu`)}&desc=${encodeURIComponent(codeData.title)}`;
 
     return createPageMetadata({
-        title: `${codeData.code} Arıza Kodu: ${codeData.title} — Nedenleri ve Çözümü`,
+        title: reviewedSearchTitles[codeData.code] || `${codeData.code} Arıza Kodu: ${codeData.title} — Nedenleri ve Çözümü`,
         description: metaDescription,
         path: canonicalUrl,
         index: isObdCodeIndexable(codeData),

@@ -24,6 +24,7 @@ test('Brand suffix is applied once and complete words are preserved', () => {
     assert.ok(metadataTitle(long).length<=60);
     assert.ok(!metadataTitle(long).includes('| OtoSöz'));
     assert.equal(wordLimit('Birinci ikinci üçüncü kelime',18),'Birinci ikinci');
+    assert.equal(wordLimit('Kronik sorunlar ve motor seçenekleri',20),'Kronik sorunlar');
     for (const value of ['Kısa açıklama.', 'Uzun açıklama '.repeat(30)]) {
         const description=metadataDescription(value,'Renault Clio Kronik Sorunları');
         assert.ok(description.length>=120&&description.length<=158);

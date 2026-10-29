@@ -18,7 +18,8 @@ export function wordLimit(value: string, max: number): string {
         return value;
     const slice = [...value].slice(0, max).join('');
     const boundary = slice.lastIndexOf(' ');
-    return (boundary > max * 0.6 ? slice.slice(0, boundary) : slice).replace(/[\s|—:;,.-]+$/g, '').trim();
+    return (boundary > max * 0.6 ? slice.slice(0, boundary) : slice)
+        .replace(/[\s|—:;,.-]+$/g, '').replace(/\s+(?:ve|ile|için|veya|ya da)$/i, '').trim();
 }
 export function metadataTitle(value: string): string {
     const base = clean(value).replace(/\s*\|\s*OtoSöz.*$/i, '').replace(/^OtoSöz\s*[|—:-]\s*/i, '').trim();

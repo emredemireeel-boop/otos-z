@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
         `${vehicle.brand} ${vehicle.model} ${engine.name} alınır mı`,
     ]);
     const metadata = createPageMetadata({
-        title: `${vehicleMetadataName(vehicle)} Alınır mı? Kronik Sorunlar ve Motorlar`,
+        title: `${vehicleMetadataName(vehicle)} Alınır mı? Kronik Sorunlar`,
         description: `${vehicle.brand} ${vehicle.model} için motor seçenekleri, DNA puanı, kronik sorunlar, kullanıcı deneyimleri ve donanım paketlerini inceleyin.`,
         path: canonicalPath,
         indexable: isVehicleIndexable(vehicle)
