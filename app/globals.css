@@ -3600,3 +3600,8 @@ select {
 [data-hover-card]:hover{border-color:var(--primary)!important}
 [data-catalog-city-target][aria-pressed="true"]{background:var(--secondary)!important;color:var(--primary)!important;font-weight:600!important}
 [data-catalog-city-target][aria-pressed="false"]{background:transparent!important;color:var(--foreground)!important;font-weight:400!important}
+
+/* Forum modal keyframes referenced by inline styles. */
+@keyframes forum-spin { to { transform: rotate(360deg); } }
+@keyframes forum-pop-in { from { transform: translate(-50%,-50%) scale(.9); opacity: 0; } to { transform: translate(-50%,-50%) scale(1); opacity: 1; } }
+@keyframes forum-slide-up { from { transform: translateY(80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

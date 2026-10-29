@@ -1,8 +1,5 @@
 .scope { display: contents; }
 
-                @keyframes :global(spin) { to { transform: rotate(360deg); } }
-                @keyframes :global(popIn) { from { transform: translate(-50%,-50%) scale(0.9); opacity: 0; } to { transform: translate(-50%,-50%) scale(1); opacity: 1; } }
-                @keyframes :global(slideUp) { from { transform: translateY(80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
                 .scope :global(.forum-thread-actions) {
                     display: flex;
                     align-items: center;

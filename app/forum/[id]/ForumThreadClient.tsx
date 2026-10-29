@@ -383,7 +383,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                         <div style={{
                             width: 40, height: 40, border: '3px solid var(--card-border)',
                             borderTop: '3px solid var(--primary)', borderRadius: '50%',
-                            animation: 'spin 0.8s linear infinite', margin: '0 auto 16px'
+                            animation: 'forum-spin 0.8s linear infinite', margin: '0 auto 16px'
                         }} />
                         <p style={{ color: 'var(--text-muted)' }}>Konu yukleniyor...</p>
                     </div>
@@ -1057,7 +1057,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                                                     border: '2px solid rgba(255,255,255,0.3)',
                                                     borderTop: '2px solid white',
                                                     borderRadius: '50%',
-                                                    animation: 'spin 0.8s linear infinite',
+                                                    animation: 'forum-spin 0.8s linear infinite',
                                                 }} />
                                                 Gonderiliyor...
                                             </>
@@ -1120,7 +1120,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
             {reportModal && (
                 <>
                     <div onClick={() => setReportModal(null)} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 1100, backdropFilter: 'blur(2px)' }} />
-                    <div className="forum-report-modal" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '400px', maxWidth: 'calc(100vw - 32px)', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', zIndex: 1200, padding: '28px', animation: 'popIn 0.2s ease' }}>
+                    <div className="forum-report-modal" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '400px', maxWidth: 'calc(100vw - 32px)', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', zIndex: 1200, padding: '28px', animation: 'forum-pop-in 0.2s ease' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                             <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(239,68,68,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <Flag size={22} color="#EF4444" />
@@ -1165,7 +1165,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
             {ratingModal && (
                 <>
                     <div onClick={() => setRatingModal(null)} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 1100, backdropFilter: 'blur(2px)' }} />
-                    <div className="forum-rating-modal" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '400px', maxWidth: 'calc(100vw - 32px)', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', zIndex: 1200, padding: '28px', animation: 'popIn 0.2s ease', textAlign: 'center' }}>
+                    <div className="forum-rating-modal" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '400px', maxWidth: 'calc(100vw - 32px)', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', zIndex: 1200, padding: '28px', animation: 'forum-pop-in 0.2s ease', textAlign: 'center' }}>
                         <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(245, 158, 11, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
                             <Star size={24} color="#F59E0B" fill="#F59E0B" />
                         </div>
@@ -1227,7 +1227,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
 
             {/* Toast Mesajı */}
             {reportToast && (
-                <div style={{ position: 'fixed', bottom: '32px', right: '32px', background: '#10B981', color: 'white', padding: '14px 20px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.25)', fontWeight: '600', fontSize: '14px', zIndex: 9999, animation: 'slideUp 0.3s ease' }}>
+                <div style={{ position: 'fixed', bottom: '32px', right: '32px', background: '#10B981', color: 'white', padding: '14px 20px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.25)', fontWeight: '600', fontSize: '14px', zIndex: 9999, animation: 'forum-slide-up 0.3s ease' }}>
                     {reportToast}
                 </div>
             )}
