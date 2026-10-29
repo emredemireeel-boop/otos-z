@@ -19,7 +19,7 @@ export default function ServerCatalogClient({children,initialPanel='',initialFil
             if(sort)item.style.order=String(index);
         });
         element.querySelectorAll<HTMLElement>('[data-catalog-target],[data-catalog-filter],[data-catalog-sort],[data-catalog-city-target]').forEach(button=>{
-            const active=button.dataset.catalogTarget?button.dataset.catalogTarget===panel:button.dataset.catalogFilter?button.dataset.catalogFilter===filter:button.dataset.catalogSort===sort;
+            const active=button.dataset.catalogTarget?button.dataset.catalogTarget===panel:button.dataset.catalogFilter?button.dataset.catalogFilter===filter:button.dataset.catalogCityTarget?button.dataset.catalogCityTarget===city:button.dataset.catalogSort===sort;
             button.setAttribute('aria-pressed',String(active));
         });
     },[panel,filter,query,sort,city]);

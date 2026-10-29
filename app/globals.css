@@ -4193,3 +4193,5 @@ select {
 [data-catalog-target][aria-pressed="true"]{border-bottom-color:var(--foreground)!important;font-weight:700!important;color:var(--foreground)!important}
 [data-catalog-target][aria-pressed="false"]{border-bottom-color:transparent!important;font-weight:500!important;color:var(--text-muted)!important}
 [data-hover-card]:hover{border-color:var(--primary)!important}
+[data-catalog-city-target][aria-pressed="true"]{background:var(--secondary)!important;color:var(--primary)!important;font-weight:600!important}
+[data-catalog-city-target][aria-pressed="false"]{background:transparent!important;color:var(--foreground)!important;font-weight:400!important}
