@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { BookOpen, ArrowRight, MessageSquare, TrendingUp, BarChart3, Clock, Flame, ChevronRight, Plus, MapPin, Search, X, CalendarDays, Newspaper, Car, Dna, Wrench, AlertTriangle, ClipboardCheck, ShieldCheck, Lightbulb, Save, Loader2, Trash2 } from "lucide-react";
+import DesktopWidgets from "@/components/DesktopWidgets";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
@@ -912,7 +913,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                     </div>
                     <div className="home-main-grid">
                         {/* Sol sütun — forum kategorileri */}
-                        <aside className="home-left-sidebar forum-sidebar">
+                        <aside className="home-left-sidebar forum-sidebar"><DesktopWidgets minWidth={1025}>
                             <div className="forum-sidebar-stack">
                                 <section className="forum-sidebar-card forum-category-card" aria-labelledby="forum-categories-title">
                                     <div className="forum-sidebar-heading">
@@ -983,7 +984,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                     </section>
                                 )}
                             </div>
-                        </aside>
+                        </DesktopWidgets></aside>
                         {/* Main Content - BAşLIKLAR LİSTESİ */}
                         <div className="home-forum-feed">
                             <div className="forum-mobile-categories" role="group" aria-label="Forum kategorileri">
@@ -1257,7 +1258,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                         </div>
 
                         {/* Sağ sütun — keşif akışı */}
-                        <aside className="home-right-sidebar forum-sidebar">
+                        <aside className="home-right-sidebar forum-sidebar"><DesktopWidgets minWidth={769}>
                             <div className="forum-sidebar-stack">
                                 <section className="forum-sidebar-card forum-trending-card">
                                     <div className="forum-sidebar-heading">
@@ -1365,7 +1366,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                     </section>
                                 )}
                             </div>
-                        </aside>
+                        </DesktopWidgets></aside>
                     </div>
                 </div>
 
