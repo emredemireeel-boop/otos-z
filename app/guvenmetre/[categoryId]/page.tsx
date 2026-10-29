@@ -1,7 +1,7 @@
-"use client";
+import {notFound} from "next/navigation";
+import ServerCatalogClient from "@/components/ServerCatalogClient";
 
-import { useEffect, useState } from "react";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Podium from "@/components/guvenmetre/Podium";
@@ -9,32 +9,15 @@ import BrandRankingCard from "@/components/guvenmetre/BrandRankingCard";
 import { categories, getBrandsForCategory, BrandRating } from "@/data/guvenmetre";
 import { ArrowLeft, Star, Users, TrendingUp, Info, MapPin, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { sampleListings, formatListingPrice, formatKm } from "@/data/listings";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
-export default function CategoryDetailPage() {
-    const params = useParams();
-    const router = useRouter();
-    const searchParams = useSearchParams();
-    const [filter, setFilter] = useState<'rating' | 'reviews' | 'trending'>('rating');
-    const [brands, setBrands] = useState<BrandRating[]>([]);
-    const [randomListings, setRandomListings] = useState<typeof sampleListings>([]);
-
-    const categoryId = Array.isArray(params.categoryId) ? params.categoryId[0] : params.categoryId;
-    const category = categories.find(c => c.id === categoryId);
-    const selectedCity = searchParams?.get('sehir') || null;
-    const isCityRequired = ["private_service", "authorized_service", "car_wash", "dealers", "spare_parts"].includes(categoryId ?? "");
-
-    useEffect(() => {
-        if (!categoryId) return;
-        const data = getBrandsForCategory(categoryId);
-        setBrands(data.sort((a, b) => b.rating - a.rating));
-        setRandomListings([...sampleListings].sort(() => 0.5 - Math.random()).slice(0, 3));
-    }, [categoryId]);
-
-    if (!category || !categoryId) return <div>Yükleniyor...</div>;
-
+export default async function CategoryDetailPage({params,searchParams}:{params:Promise<{categoryId:string}>;searchParams:Promise<Record<string,string|undefined>>}){
+    const {categoryId}=await params;const query=await searchParams;
+    const category=categories.find(category=>category.id===categoryId);if(!category)notFound();
+    const brands=getBrandsForCategory(categoryId);
+    const selectedCity=query.sehir||null,filter=query.sort||'rating';
+    const isCityRequired=['private_service','authorized_service','car_wash','dealers','spare_parts'].includes(categoryId);
     const filteredBrands = [...brands].sort((a, b) => {
         if (filter === 'rating') return b.rating - a.rating;
         if (filter === 'reviews') return b.totalReviews - a.totalReviews;
@@ -52,7 +35,7 @@ export default function CategoryDetailPage() {
     ];
 
     return (
-        <div>
+        <ServerCatalogClient initialSort="rating">
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -60,8 +43,8 @@ export default function CategoryDetailPage() {
                 <div style={{ background: 'var(--card-bg)', borderBottom: '1px solid var(--card-border)', padding: '16px 24px' }}>
                     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                            <button
-                                onClick={() => router.back()}
+                            <a
+                                href={'/guvenmetre'}
                                 style={{
                                     width: '36px', height: '36px', borderRadius: '10px',
                                     background: 'var(--secondary)', border: '1px solid var(--card-border)',
@@ -70,7 +53,7 @@ export default function CategoryDetailPage() {
                                 }}
                             >
                                 <ArrowLeft size={18} />
-                            </button>
+                            </a>
                             <div style={{ flex: 1 }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                                     <h1 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)' }}>
@@ -86,17 +69,17 @@ export default function CategoryDetailPage() {
                                         </span>
                                     )}
                                     {isCityRequired && !selectedCity && (
-                                        <span
+                                        <a
                                             style={{
                                                 display: 'inline-flex', alignItems: 'center', gap: '4px',
                                                 padding: '3px 10px', background: 'rgba(245,158,11,0.1)',
                                                 color: '#F59E0B', fontSize: '12px', borderRadius: '6px',
                                                 fontWeight: '600', cursor: 'pointer',
                                             }}
-                                            onClick={() => router.back()}
+                                            href={'/guvenmetre'}
                                         >
                                             ⚠️ Şehir seçilmedi
-                                        </span>
+                                        </a>
                                     )}
                                     <span style={{
                                         padding: '3px 8px', background: 'var(--secondary)',
@@ -116,7 +99,7 @@ export default function CategoryDetailPage() {
                             {filterOptions.map((f) => (
                                 <button
                                     key={f.id}
-                                    onClick={() => setFilter(f.id)}
+                                    data-catalog-sort={f.id}
                                     style={{
                                         display: 'flex', alignItems: 'center', gap: '6px',
                                         padding: '8px 16px', borderRadius: '8px',
@@ -296,6 +279,6 @@ export default function CategoryDetailPage() {
             </main>
 
             <Footer />
-        </div>
+        </ServerCatalogClient>
     );
 }

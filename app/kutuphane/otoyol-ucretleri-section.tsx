@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import { Car, Truck, Anchor, Navigation, AlertCircle, Bus, Info } from "lucide-react";
 import Link from "next/link";
 
-export default function OtoyolUcretleriSection() {
+export default function OtoyolUcretleriSection({initialTolls=[]}:{initialTolls?:any[]}) {
     const [activeVehicleType, setActiveVehicleType] = useState<number>(1);
-    const [tollDataRaw, setTollDataRaw] = useState<any[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [tollDataRaw, setTollDataRaw] = useState<any[]>(initialTolls);
+    const [isLoading, setIsLoading] = useState(initialTolls.length===0);
 
     useEffect(() => {
+        if(initialTolls.length)return;
         fetch('/data/otoyol_ucretleri.json')
             .then(res => res.json())
             .then(data => {

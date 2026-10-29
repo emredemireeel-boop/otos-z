@@ -44,6 +44,7 @@ interface GuideDetail {
     difficulty: string;
     tags: string[];
     author: string;
+    indexable?: boolean;
 }
 
 // Types for Interesting Facts
@@ -127,7 +128,7 @@ const SectionCarousel = ({ title, icon, children }: { title: string, icon?: Reac
     );
 };
 
-export default function LibraryPage({ initialCategory = 'makaleler' }: { initialCategory?: string }) {
+export default function LibraryPage({ initialCategory = 'makaleler',initialGuides=[],initialInterestingData=null,segmentData,initialTolls=[] }: { initialCategory?: string;initialGuides?:GuideDetail[];initialInterestingData?:any;segmentData?:typeof import('@/data/arac_segmentleri.json');initialTolls?:any[] }) {
     // SEO-friendly slug mappings
     const tabSlugs = [
         { slug: 'makaleler', name: 'Makale', icon: BookOpen, title: 'Otomotiv Makaleleri | OtoSöz Kütüphane', description: 'Otomotiv dünyasına dair detaylı makaleler, bakım rehberleri ve uzman önerileri.' },
@@ -149,7 +150,7 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
         { slug: 'plaka-kodlari', name: 'Plaka Kodları', icon: MapPin, title: 'Türkiye Plaka Kodları ve Özel Plakalar | OtoSöz', description: '01-81 tüm il plaka kodları sorgulama ve kırmızı, yeşil, sarı renkli özel plakaların anlamları.' },
         { slug: 'noter-islemleri', name: 'Noter & Alım Satım', icon: Handshake, title: '2026 Araç Noter İşlemleri ve Devir Ücretleri | OtoSöz', description: '2026 güncel noter araç satış ve plaka devir harçları. Güvenli ödeme sistemi rehberi.' },
         { slug: 'ehliyet-siniflari', name: 'Ehliyet & Harçlar', icon: IdCard, title: '2026 Ehliyet Sınıfları ve Sınav Harçları | OtoSöz', description: 'A, B, C, D sınıfı ehliyetler neleri kullanır? 2026 ehliyet harcı ücretleri ve SRC belgesi rehberi.' },
-        { slug: 'kasko-deger', name: 'Kasko Değer', icon: Shield, title: 'Kasko Değer Listesi 2026 - Araç Kasko Bedeli Sorgulama | OtoSöz', description: 'TSB güncel kasko değer listesi 2026. Fiat Egea, Renault Clio, VW Golf ve tüm araçların kasko değerleri.' },
+        { slug: 'kasko-deger', name: 'Kasko Değer', icon: Shield, title: 'Kasko Değer Listesi 2026 - Araç Kasko Bedeli Sorgulama | OtoSöz', description: 'TSB güncel kasko değer listesi 2026. Marka, model ve yıla göre araçların kasko değerleri.' },
         { slug: 'hgs-siniflari', name: 'HGS Sınıfları', icon: CreditCard, title: 'HGS Araç Sınıfları Rehberi 2026 | OtoSöz', description: 'HGS araç sınıfları nedir? 1-5. sınıf araç tanımları, aks sayısı, geçiş ücretleri ve mobil bankacılık başvuru rehberi.' },
         { slug: 'dolandiricilik-rehberi', name: 'Dolandırıcılık', icon: Fingerprint, title: 'Araç Dolandırıcılığı Rehberi - Korunma Yolları | OtoSöz', description: 'Otomotiv sektöründe en yaygın dolandırıcılık yöntemleri ve korunmak için altın kurallar. Sahte ilan, km düşürme, evrak sahteciliği.' },
         { slug: 'nereye-gitmeli', name: 'Nereye Gitmeli?', icon: Compass, title: 'Araç Arızasında Nereye Gitmeli? | OtoSöz', description: 'Klima, motor, şanzıman, fren arızasında hangi uzmana gitmelisiniz? Doğru servis rehberi, tahmini maliyet ve süreler.' },
@@ -170,28 +171,13 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
     const currentTab = tabSlugs[activeTab] || tabSlugs[0];
 
 
-    const [guides, setGuides] = useState<GuideDetail[]>([]);
-    const [interestingData, setInterestingData] = useState<any>(null);
+    const guides=initialGuides;
+    const interestingData=initialInterestingData;
     const [expandedChecklists, setExpandedChecklists] = useState<Set<string>>(new Set());
     const [selectedLetter, setSelectedLetter] = useState<string>('A');
     const [searchQuery, setSearchQuery] = useState("");
     const [guidePage, setGuidePage] = useState(1);
     const GUIDES_PER_PAGE = 10;
-
-    // Load JSON data
-    useEffect(() => {
-        // Load guides (with cache buster)
-        fetch(`/data/library_guides.json?t=${Date.now()}`)
-            .then(res => res.json())
-            .then(data => setGuides(data.guides || []))
-            .catch(err => console.error('Error loading guides:', err));
-
-        // Load interesting facts (with cache buster)
-        fetch(`/data/interesting_information.json?t=${Date.now()}`)
-            .then(res => res.json())
-            .then(data => setInterestingData(data.interestingFacts || null))
-            .catch(err => console.error('Error loading interesting data:', err));
-    }, []);
 
     const toggleChecklist = (id: string) => {
         const newSet = new Set(expandedChecklists);
@@ -231,7 +217,7 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
             const bId = parseInt((b as any).urlId || b.id.replace(/\D/g, '')) || 0;
             return bId - aId;
         });
-        if (!searchQuery) return sorted.filter(guide => isQualityGuide(guide, 'article'));
+        if (!searchQuery) return sorted.filter(guide => guide.indexable===true);
         const query = searchQuery.toLowerCase();
         return sorted.filter(g =>
             g.title.toLowerCase().includes(query) ||
@@ -1026,7 +1012,7 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
 
                     {/* Tab 12: Otoyol Ücretleri */}
                     {currentTab.slug === 'otoyol-ve-kopru-ucretleri' && (
-                        <OtoyolUcretleriSection />
+                        <OtoyolUcretleriSection initialTolls={initialTolls}/>
                     )}
 
                     {/* Tab 13: Bakım Zamanları */}
@@ -1040,8 +1026,8 @@ export default function LibraryPage({ initialCategory = 'makaleler' }: { initial
                     )}
 
                     {/* Tab 15: Kasa ve Segmentler */}
-                    {currentTab.slug === 'arac-segmentleri' && (
-                        <AracSegmentleriSection />
+                    {currentTab.slug === 'arac-segmentleri' && segmentData && (
+                        <AracSegmentleriSection data={segmentData} />
                     )}
 
                     {/* Tab 16: Plaka Kodları */}

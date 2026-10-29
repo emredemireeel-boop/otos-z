@@ -1,76 +1,18 @@
-"use client";
+import {notFound} from "next/navigation";
+import EventActionsClient from "@/components/EventActionsClient";
+import EventCountdownClient from "@/components/EventCountdownClient";
 
-import { use, useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { events, getEventById, eventCategories, DaySchedule } from "@/data/events";
 import { ArrowLeft, Calendar, MapPin, Users, Tag, Clock, Info, CheckCircle, XCircle, Share2, Heart, Bookmark, ExternalLink, Star, Building2, HelpCircle } from "lucide-react";
 import Link from "next/link";
-import EventSubmissionModal from "@/components/EventSubmissionModal";
+
 import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
-export default function EventDetailPage({ params }: { params: Promise<{ eventId: string }> }) {
-    const router = useRouter();
-    const { eventId } = use(params);
-    const event = getEventById(eventId);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalTab, setModalTab] = useState<'NEW_EVENT' | 'UPDATE_EVENT'>('NEW_EVENT');
-    const [timeLeft, setTimeLeft] = useState<{ d: number, h: number, m: number, s: number } | null>(null);
-
-    useEffect(() => {
-        if (!event) return;
-        const eventDateObj = new Date(event.date);
-        
-        const calculateTimeLeft = () => {
-            const now = new Date();
-            const diff = eventDateObj.getTime() - now.getTime();
-            
-            if (diff > 0) {
-                setTimeLeft({
-                    d: Math.floor(diff / (1000 * 60 * 60 * 24)),
-                    h: Math.floor((diff / (1000 * 60 * 60)) % 24),
-                    m: Math.floor((diff / 1000 / 60) % 60),
-                    s: Math.floor((diff / 1000) % 60)
-                });
-            } else {
-                setTimeLeft(null);
-            }
-        };
-
-        calculateTimeLeft();
-        const timer = setInterval(calculateTimeLeft, 1000);
-        return () => clearInterval(timer);
-    }, [event]);
-
-    if (!event) {
-        return (
-            <div>
-                <Navbar />
-                <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--background)' }}>
-                    <div style={{ textAlign: 'center' }}>
-                        <h1 style={{ fontSize: '24px', color: 'var(--foreground)', marginBottom: '16px' }}>Etkinlik Bulunamadı</h1>
-                        <button
-                            onClick={() => router.back()}
-                            style={{
-                                padding: '10px 20px',
-                                background: 'var(--primary)',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '10px',
-                                cursor: 'pointer',
-                                fontWeight: '600'
-                            }}
-                        >
-                            Geri Dön
-                        </button>
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-
+export default async function EventDetailPage({params}:{params:Promise<{eventId:string}>}){
+    const {eventId}=await params;const event=getEventById(eventId);if(!event)notFound();
     const formatDate = (isoDate: string) => {
         const date = new Date(isoDate);
         return date.toLocaleDateString('tr-TR', {
@@ -97,7 +39,7 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
     ).slice(0, 3);
 
     return (
-        <div>
+        <EventActionsClient eventId={event.id} eventTitle={event.title}>
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -110,8 +52,8 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                <button
-                                    onClick={() => router.back()}
+                                <a href="/etkinlikler"
+                                    
                                     style={{
                                         width: '38px',
                                         height: '38px',
@@ -126,7 +68,7 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                     }}
                                 >
                                     <ArrowLeft style={{ width: '20px', height: '20px' }} />
-                                </button>
+                                </a>
                                 <div>
                                     <h1 style={{ fontSize: '24px', fontWeight: '700', color: 'var(--foreground)' }}>{event.title}</h1>
                                     <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
@@ -291,50 +233,7 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                 </div>
 
                                 {/* Countdown Overlay */}
-                                {timeLeft && (
-                                    <div style={{
-                                        position: 'absolute',
-                                        top: '20px',
-                                        left: '20px',
-                                        display: 'flex',
-                                        gap: '8px'
-                                    }}>
-                                        <div style={{
-                                            background: 'rgba(255, 107, 0, 0.9)',
-                                            backdropFilter: 'blur(10px)',
-                                            border: '1px solid rgba(255,255,255,0.2)',
-                                            borderRadius: '12px',
-                                            padding: '12px 20px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '12px',
-                                            boxShadow: '0 10px 25px -5px rgba(255, 107, 0, 0.4)'
-                                        }}>
-                                            <Clock style={{ width: '20px', height: '20px', color: 'white' }} />
-                                            <div style={{ display: 'flex', gap: '8px' }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                                    <span style={{ fontSize: '18px', fontWeight: '800', color: 'white', lineHeight: '1' }}>{timeLeft.d}</span>
-                                                    <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', fontWeight: '600' }}>GÜN</span>
-                                                </div>
-                                                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', fontWeight: '800' }}>:</span>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                                    <span style={{ fontSize: '18px', fontWeight: '800', color: 'white', lineHeight: '1' }}>{String(timeLeft.h).padStart(2, '0')}</span>
-                                                    <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', fontWeight: '600' }}>SAAT</span>
-                                                </div>
-                                                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', fontWeight: '800' }}>:</span>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                                    <span style={{ fontSize: '18px', fontWeight: '800', color: 'white', lineHeight: '1' }}>{String(timeLeft.m).padStart(2, '0')}</span>
-                                                    <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', fontWeight: '600' }}>DAK</span>
-                                                </div>
-                                                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', fontWeight: '800' }}>:</span>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                                    <span style={{ fontSize: '18px', fontWeight: '800', color: 'white', lineHeight: '1' }}>{String(timeLeft.s).padStart(2, '0')}</span>
-                                                    <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', fontWeight: '600' }}>SAN</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
+                                <EventCountdownClient date={event.date}/>
                             </div>
 
                             {/* Event Info Cards */}
@@ -539,14 +438,8 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                                     cursor: 'pointer',
                                                     transition: 'all 0.2s ease'
                                                 }}
-                                                    onMouseEnter={(e) => {
-                                                        e.currentTarget.style.borderColor = 'var(--primary)';
-                                                        e.currentTarget.style.transform = 'translateY(-4px)';
-                                                    }}
-                                                    onMouseLeave={(e) => {
-                                                        e.currentTarget.style.borderColor = 'var(--card-border)';
-                                                        e.currentTarget.style.transform = 'translateY(0)';
-                                                    }}>
+                                                    
+                                                    >
                                                     <div style={{ position: 'relative', width: '100%', height: '120px' }}>
                                                         <img src={similarEvent.imageUrl} alt={similarEvent.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                                         <div style={{
@@ -741,7 +634,7 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                     </p>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                         <button 
-                                            onClick={() => { setModalTab('NEW_EVENT'); setIsModalOpen(true); }}
+                                            data-event-submit="NEW_EVENT"
                                             style={{
                                                 padding: '10px',
                                                 background: 'var(--primary)',
@@ -756,7 +649,7 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
                                             Yeni Pazar / Etkinlik Ekle
                                         </button>
                                         <button 
-                                            onClick={() => { setModalTab('UPDATE_EVENT'); setIsModalOpen(true); }}
+                                            data-event-submit="UPDATE_EVENT"
                                             style={{
                                                 padding: '10px',
                                                 background: 'var(--secondary)',
@@ -782,14 +675,8 @@ export default function EventDetailPage({ params }: { params: Promise<{ eventId:
 
             <Footer />
 
-            <EventSubmissionModal 
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                initialTab={modalTab}
-                existingEventId={event.id}
-                existingEventTitle={event.title}
-            />
-        </div>
+
+        </EventActionsClient>
     );
 }
 

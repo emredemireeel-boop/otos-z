@@ -1,14 +1,14 @@
-"use client";
+import {notFound} from "next/navigation";
+import library from "@/public/data/library_guides.json";
 
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 
 
-import { use, useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Clock, TrendingUp, AlertTriangle, Lightbulb, CheckCircle2, BookOpen } from "lucide-react";
-import { motion } from "framer-motion";
+
 
 // Types  
 interface TipWarning {
@@ -49,101 +49,10 @@ interface GuideDetail {
     finalChecklist?: string[];
 }
 
-export default function GuideDetailPage({ params }: { params: Promise<{ guideId: string }> }) {
-    const router = useRouter();
-    const { guideId } = use(params);
-    const [guide, setGuide] = useState<GuideDetail | null>(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        console.log("GuideDetailPage params guideId:", guideId);
-        fetch(`/data/library_guides.json?v=${new Date().getTime()}`)
-            .then(res => res.json())
-            .then(data => {
-                const foundGuide = data.guides?.find((g: GuideDetail) => g.id === guideId);
-                console.log("Found guide:", foundGuide);
-                setGuide(foundGuide || null);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Error loading guide:', err);
-                setLoading(false);
-            });
-    }, [guideId]);
-
-    if (loading) {
-        return (
-            <div>
-                <Navbar />
-                <div style={{
-                    minHeight: '100vh',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'var(--background)'
-                }}>
-                    <div style={{ textAlign: 'center' }}>
-                        <div style={{
-                            width: '50px',
-                            height: '50px',
-                            border: '4px solid var(--card-border)',
-                            borderTop: '4px solid var(--primary)',
-                            borderRadius: '50%',
-                            animation: 'spin 1s linear infinite',
-                            margin: '0 auto'
-                        }} />
-                        <p style={{ marginTop: '16px', color: 'var(--text-muted)' }}>Yükleniyor...</p>
-                        <style>
-                            {`
-                @keyframes spin {
-                  0% { transform: rotate(0deg); }
-                  100% { transform: rotate(360deg); }
-                }
-              `}
-                        </style>
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-
-    if (!guide) {
-        return (
-            <div>
-                <Navbar />
-                <div style={{
-                    minHeight: '100vh',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'var(--background)'
-                }}>
-                    <div style={{ textAlign: 'center' }}>
-                        <h2 style={{ fontSize: '24px', color: 'var(--foreground)', marginBottom: '16px' }}>
-                            Rehber Bulunamadı
-                        </h2>
-                        <button
-                            onClick={() => router.back()}
-                            style={{
-                                padding: '10px 20px',
-                                background: 'var(--primary)',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '10px',
-                                cursor: 'pointer',
-                                fontWeight: '600'
-                            }}
-                        >
-                            Geri Dön
-                        </button>
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-
+export default async function GuideDetailPage({ params }: { params: Promise<{ guideId: string }> }) {
+    const {guideId}=await params;
+    const guide=library.guides.find(guide=>guide.id===guideId) as GuideDetail|undefined;
+    if(!guide)notFound();
     const renderMarkdown = (text: string) => {
         if (!text) return { __html: '' };
         let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -185,10 +94,10 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
             )}
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
                 {/* Hero Section */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                <div 
+                    
+                    
+                    
                     style={{
                     background: 'linear-gradient(135deg, #1e293b, #0f172a)',
                     borderRadius: '0 0 32px 32px',
@@ -199,8 +108,8 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                 }}>
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")', opacity: 0.5 }} />
                     <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-                        <button
-                            onClick={() => router.back()}
+                        <a href="/kutuphane"
+                            
                             style={{
                                 padding: '8px 16px',
                                 background: 'rgba(255, 255, 255, 0.2)',
@@ -218,7 +127,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                         >
                             <ArrowLeft style={{ width: '16px', height: '16px' }} />
                             Geri
-                        </button>
+                        </a>
 
                         <div style={{ display: 'flex', gap: '12px', marginBottom: '16px' }}>
                             <span style={{
@@ -286,7 +195,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                             ))}
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Content */}
                 <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px 40px' }}>
@@ -294,12 +203,12 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                         {/* Main Content */}
                         <div>
                             {guide.sections.map((section, idx) => (
-                                <motion.div 
+                                <div 
                                     key={idx} 
-                                    initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-50px" }}
-                                    transition={{ duration: 0.6, delay: 0.1 }}
+                                    
+                                    
+                                    
+                                    
                                     style={{ marginBottom: '32px' }}
                                 >
                                     {section.type !== 'intro' && section.title && (
@@ -459,16 +368,16 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                             </div>
                                         </div>
                                     )}
-                                </motion.div>
+                                </div>
                             ))}
 
                             {/* Final Checklist */}
                             {guide.finalChecklist && (
-                                <motion.div 
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                <div 
+                                    
+                                    
+                                    
+                                    
                                     style={{
                                     background: 'var(--card-bg)',
                                     border: '1px solid var(--card-border)',
@@ -503,16 +412,16 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                             </div>
                                         ))}
                                     </div>
-                                </motion.div>
+                                </div>
                             )}
                         </div>
 
                         {/* Sidebar */}
                         <aside>
-                            <motion.div 
-                                initial={{ opacity: 0, x: 30 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.7, delay: 0.4 }}
+                            <div 
+                                
+                                
+                                
                                 style={{ position: 'sticky', top: '80px' }}
                             >
                                 <div style={{
@@ -540,14 +449,8 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                                     transition: 'all 0.2s ease',
                                                     border: '1px solid var(--card-border)'
                                                 }}
-                                                onMouseEnter={(e) => {
-                                                    e.currentTarget.style.background = 'var(--secondary)';
-                                                    e.currentTarget.style.borderColor = 'var(--primary)';
-                                                }}
-                                                onMouseLeave={(e) => {
-                                                    e.currentTarget.style.background = 'var(--secondary)';
-                                                    e.currentTarget.style.borderColor = 'var(--card-border)';
-                                                }}
+                                                
+                                                
                                             >
                                                 {section.title}
                                             </a>
@@ -570,7 +473,7 @@ export default function GuideDetailPage({ params }: { params: Promise<{ guideId:
                                         {guide.author}
                                     </p>
                                 </div>
-                            </motion.div>
+                            </div>
                         </aside>
                     </div>
                 </div>

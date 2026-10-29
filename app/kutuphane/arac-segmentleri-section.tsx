@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { Car, Truck, GitMerge, Mountain, Wind, Box, Info, CheckCircle2, XCircle, Crown, Gem, Scale, MoveRight, HelpCircle, BookMarked } from "lucide-react";
 import Link from "next/link";
-import segmentData from "@/data/arac_segmentleri.json";
 
-export default function AracSegmentleriSection() {
+
+export default function AracSegmentleriSection({data:segmentData}:{data:typeof import("@/data/arac_segmentleri.json")}) {
     const [activeTab, setActiveTab] = useState<'segmentler' | 'kasatipleri' | 'karsilastirma'>('segmentler');
 
     const getIcon = (name: string) => {

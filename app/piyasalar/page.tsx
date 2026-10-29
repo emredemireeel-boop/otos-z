@@ -1,6 +1,6 @@
-"use client";
+import ServerCatalogClient from "@/components/ServerCatalogClient";
 
-import { useState, useEffect } from "react";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
@@ -15,21 +15,8 @@ import {
 import { Search, Trophy, BarChart3, Car, Target, TrendingUp, Sparkles, Zap } from "lucide-react";
 import Link from "next/link";
 
-export default function PiyasalarPage() {
-    const [selectedTab, setSelectedTab] = useState<"brands" | "models">("brands");
-    const [searchQuery, setSearchQuery] = useState("");
-
-    useEffect(() => {
-        document.title = "2026 Türkiye Otomobil Pazar Endeksi & 2025 En Çok Satan Arabalar | OtoSöz";
-        let metaDesc = document.querySelector('meta[name="description"]');
-        if (!metaDesc) {
-            metaDesc = document.createElement('meta');
-            metaDesc.setAttribute('name', 'description');
-            document.head.appendChild(metaDesc);
-        }
-        metaDesc.setAttribute('content', '2026 Türkiye otomobil pazar endeksi, 2025 yılında en çok satan arabalar, güncel araç satış istatistikleri ve sıfır kilometre otomobil marka-model sıralaması.');
-    }, []);
-
+export default async function PiyasalarPage() {
+    const selectedTab: string='brands',searchQuery='';
     const filteredBrands = turkeyBrandMarkets.filter(row =>
         row.brand.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -44,7 +31,7 @@ export default function PiyasalarPage() {
     const topModel = turkeyModelMarkets[0];
 
     return (
-        <div>
+        <ServerCatalogClient initialPanel="brands">
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
                 {/* Hero Section */}
@@ -87,7 +74,7 @@ export default function PiyasalarPage() {
 
                         {/* Tab Navigation */}
                         <div style={{ display: 'flex', gap: '0' }}>
-                            <button onClick={() => setSelectedTab("brands")} style={{
+                            <button data-catalog-target="brands" style={{
                                 padding: '16px 24px', background: 'transparent', border: 'none',
                                 borderBottom: selectedTab === "brands" ? '2px solid var(--foreground)' : '2px solid transparent',
                                 color: selectedTab === "brands" ? 'var(--foreground)' : 'var(--text-muted)',
@@ -96,7 +83,7 @@ export default function PiyasalarPage() {
                             }}>
                                 Markalar Başarı Endeksi
                             </button>
-                            <button onClick={() => setSelectedTab("models")} style={{
+                            <button data-catalog-target="models" style={{
                                 padding: '16px 24px', background: 'transparent', border: 'none',
                                 borderBottom: selectedTab === "models" ? '2px solid var(--foreground)' : '2px solid transparent',
                                 color: selectedTab === "models" ? 'var(--foreground)' : 'var(--text-muted)',
@@ -116,8 +103,8 @@ export default function PiyasalarPage() {
                         <input
                             type="text"
                             placeholder={selectedTab === "brands" ? "Marka ara..." : "Model veya marka ara..."}
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
+                            defaultValue={searchQuery} data-catalog-search
+                            
                             style={{
                                 width: '300px', padding: '12px 16px',
                                 background: 'var(--secondary)', border: '1px solid var(--card-border)',
@@ -126,7 +113,7 @@ export default function PiyasalarPage() {
                         />
                     </div>
 
-                    {selectedTab === "brands" ? (
+                    <><div data-catalog-panel="brands">{(
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '32px' }}>
                             <div>
                                 {/* Desktop Headers */}
@@ -143,7 +130,7 @@ export default function PiyasalarPage() {
 
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                     {filteredBrands.map((row) => (
-                                        <MarketBrandCard key={row.rank} row={row} />
+                                        <div key={row.rank} data-catalog-row data-filter-text={row.brand}><MarketBrandCard row={row}/></div>
                                     ))}
                                 </div>
                             </div>
@@ -210,11 +197,11 @@ export default function PiyasalarPage() {
                                 </div>
                             </aside>
                         </div>
-                    ) : (
+                    )}</div><div data-catalog-panel="models">{(
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '24px' }}>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 {filteredModels.map((row) => (
-                                    <MarketModelCard key={row.rank} row={row} />
+                                    <div key={row.rank} data-catalog-row data-filter-text={`${row.brand} ${row.model}`}><MarketModelCard row={row}/></div>
                                 ))}
                             </div>
 
@@ -251,11 +238,11 @@ export default function PiyasalarPage() {
                                 </div>
                             </aside>
                         </div>
-                    )}
+                    )}</div></>
                 </div>
             </main>
             <Footer />
-        </div>
+        </ServerCatalogClient>
     );
 }
 
@@ -267,14 +254,8 @@ function MarketBrandCard({ row }: { row: MarketBrandRow }) {
             border: '1px solid var(--card-border)', borderRadius: '16px',
             padding: '16px', transition: 'all 0.2s ease',
         }}
-            onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--hover-primary)';
-                e.currentTarget.style.borderColor = 'var(--primary)';
-            }}
-            onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--secondary)';
-                e.currentTarget.style.borderColor = 'var(--card-border)';
-            }}
+            
+            
         >
             <span style={{ fontSize: '16px', fontWeight: '800', color: 'var(--foreground)', opacity: 0.9 }}>#{row.rank}</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -306,14 +287,8 @@ function MarketModelCard({ row }: { row: MarketModelRow }) {
             background: 'var(--secondary)', border: '1px solid var(--card-border)',
             borderRadius: '16px', padding: '16px', transition: 'all 0.2s ease',
         }}
-            onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--hover-primary)';
-                e.currentTarget.style.borderColor = 'var(--primary)';
-            }}
-            onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--secondary)';
-                e.currentTarget.style.borderColor = 'var(--card-border)';
-            }}
+            
+            
         >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>

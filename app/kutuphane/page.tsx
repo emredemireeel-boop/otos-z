@@ -1,3 +1,8 @@
+import library from '@/public/data/library_guides.json';
+import interesting from '@/public/data/interesting_information.json';
+import segmentData from '@/data/arac_segmentleri.json';
+import tolls from '@/public/data/otoyol_ucretleri.json';
+import {isQualityGuide} from '@/lib/guide-quality';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import { CATEGORIES, type CatMeta } from "@/lib/library-categories";
@@ -119,7 +124,7 @@ export default async function KutuphaneServerPage({ searchParams }: PageProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: buildJsonLd(cat) }}
             />
-            <KutuphaneClient initialCategory={cat.slug} />
+            <KutuphaneClient initialCategory={cat.slug} initialGuides={cat.slug==='makaleler'?library.guides.map(guide=>({id:guide.id,urlId:guide.urlId,title:guide.title,description:guide.description,minutes:guide.minutes,difficulty:guide.difficulty,tags:guide.tags,author:guide.author,indexable:isQualityGuide(guide,'article')})):[]} initialInterestingData={cat.slug==='ilginc-bilgiler'?interesting.interestingFacts:null} segmentData={cat.slug==='arac-segmentleri'?segmentData:undefined} initialTolls={cat.slug==='otoyol-ve-kopru-ucretleri'?tolls:[]}/>
         </>
     );
 }
