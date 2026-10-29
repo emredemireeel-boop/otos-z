@@ -11,7 +11,7 @@ import FloatingActionBar from "@/components/FloatingActionBar";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import { motion } from "framer-motion";
 
-export default function MakaleDetailClient({ article, indexable = false }: { article: any; indexable?: boolean }) {
+export default function MakaleDetailClient({ article, indexable = false ,breadcrumbs}: { article: any; indexable?: boolean ;breadcrumbs?:React.ReactNode;}) {
     const [activeSection, setActiveSection] = useState<string>("");
 
     useEffect(() => {
@@ -80,8 +80,10 @@ export default function MakaleDetailClient({ article, indexable = false }: { art
             <Navbar />
             {indexable && jsonLd && null}
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+{breadcrumbs}
+
                 {/* Hero Section */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -95,13 +97,7 @@ export default function MakaleDetailClient({ article, indexable = false }: { art
                 }}>
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")', opacity: 0.5 }} />
                     <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-                        <nav aria-label="İçerik yolu" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, color: '#e2e8f0', fontSize: 13, marginBottom: 20 }}>
-                            <Link href="/" style={{ color: 'inherit' }}>Ana Sayfa</Link>
-                            <span aria-hidden="true">/</span>
-                            <Link href="/makale" style={{ color: 'inherit' }}>Makaleler</Link>
-                            <span aria-hidden="true">/</span>
-                            <span aria-current="page">{article.title}</span>
-                        </nav>
+
                         <Link href="/makale" style={{ textDecoration: 'none' }}>
                             <button
                                 style={{
@@ -222,8 +218,8 @@ export default function MakaleDetailClient({ article, indexable = false }: { art
                             {article.sections?.map((section: any, idx: number) => {
                                 const sectionId = section.title ? generateId(section.title) : `section-${idx}`;
                                 return (
-                                <motion.div 
-                                    key={idx} 
+                                <motion.div
+                                    key={idx}
                                     initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
@@ -393,7 +389,7 @@ export default function MakaleDetailClient({ article, indexable = false }: { art
 
                             {/* FAQs */}
                             {article.faqs && article.faqs.length > 0 && (
-                                <motion.div 
+                                <motion.div
                                     initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
@@ -431,7 +427,7 @@ export default function MakaleDetailClient({ article, indexable = false }: { art
 
                             {/* Final Checklist */}
                             {article.finalChecklist && (
-                                <motion.div 
+                                <motion.div
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
@@ -481,7 +477,7 @@ export default function MakaleDetailClient({ article, indexable = false }: { art
 
                         {/* Sidebar */}
                         <aside className="right-sidebar">
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, x: 30 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.7, delay: 0.4 }}
@@ -585,11 +581,11 @@ export default function MakaleDetailClient({ article, indexable = false }: { art
                     </div>
                 </div>
             </main>
-            
-            <FloatingActionBar 
-                title={article.title} 
-                url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/makale/${article.id}`} 
-                onCommentClick={() => document.getElementById('comments-section')?.scrollIntoView({ behavior: 'smooth' })} 
+
+            <FloatingActionBar
+                title={article.title}
+                url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/makale/${article.id}`}
+                onCommentClick={() => document.getElementById('comments-section')?.scrollIntoView({ behavior: 'smooth' })}
             />
             <Footer />
             <style jsx global>{`

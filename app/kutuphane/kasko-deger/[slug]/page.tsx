@@ -1,3 +1,4 @@
+import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import Navbar from "@/components/Navbar";
@@ -65,13 +66,11 @@ export default async function KaskoDegerDetailPage({ params }: KaskoPageProps) {
         .sort((a, b) => Math.abs(a.deger - arac.deger) - Math.abs(b.deger - arac.deger))
         .slice(0, 6);
 
-    const jsonLd = {
-        "@context": "https://schema.org", "@type": "FAQPage",
-        "mainEntity": [
+    const jsonLd = buildSchemaFAQPage({"@context": "https://schema.org",
+"mainEntity": [
             { "@type": "Question", "name": `${arac.yil} ${arac.marka} ${arac.model} kasko değeri ne kadar?`, "acceptedAnswer": { "@type": "Answer", "text": `Güncel TSB referans kasko bedeli ${fmt(arac.deger)}'dir.` } },
             { "@type": "Question", "name": `${arac.marka} ${arac.model} kasko yaptırmak zorunlu mu?`, "acceptedAnswer": { "@type": "Answer", "text": "Kasko sigortası zorunlu değildir, isteğe bağlıdır. Kasko bedeli TSB listesindeki değere göre hesaplanır." } }
-        ]
-    };
+        ]});
 
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>

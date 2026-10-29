@@ -1,0 +1,189 @@
+app\acik-oto-pazari\[city]\[market]\page.tsx:124:            "@type": "BreadcrumbList",
+app\acik-oto-pazari\[city]\[market]\page.tsx:133:            "@type": "FAQPage",
+app\acik-oto-pazari\[city]\[market]\page.tsx:159:    const jsonLd = { "@context": "https://schema.org", "@graph": graph.filter(item => isGuideIndexable(market, { kind: 'verified-market' }) || (item as Record<string, unknown>)['@type'] !== 'FAQPage') };
+app\acik-oto-pazari\[city]\[market]\page.tsx:165:                <nav className={styles.breadcrumbs} aria-label="Sayfa yolu">
+app\acik-oto-pazari\[city]\[market]\page.tsx:263:                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+app\acik-oto-pazari\[city]\page.tsx:141:                "@type": "BreadcrumbList",
+app\acik-oto-pazari\[city]\page.tsx:158:                "@type": "FAQPage",
+app\acik-oto-pazari\[city]\page.tsx:172:                <nav className={styles.breadcrumbs} aria-label="Sayfa yolu">
+app\acik-oto-pazari\[city]\page.tsx:290:                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd({ ...jsonLd, '@graph': jsonLd['@graph'].filter(item => verifiedMarkets.length > 0 || item['@type'] !== 'FAQPage') }) }} />
+app\acik-oto-pazari\page.tsx:29:                <nav className={styles.breadcrumbs} aria-label="İçerik yolu"><Link href="/">Ana sayfa</Link><span>/</span><span>Açık oto pazarları</span></nav>
+app\arac-dna\[brand]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\arac-dna\[brand]\page.tsx:99:    const breadcrumbSchema = {
+app\arac-dna\[brand]\page.tsx:101:        "@type": "BreadcrumbList",
+app\arac-dna\[brand]\page.tsx:111:            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson([brandSchema, breadcrumbSchema]) }} />
+app\arac-dna\[brand]\BrandHub.tsx:55:                    {/* Breadcrumb */}
+components\OtoHesapIndexView.tsx:85:          <nav aria-label="İçerik yolu" className="oh-breadcrumb">
+app\forum\[id]\page.tsx:121:                '@type': 'BreadcrumbList',
+app\forum\[id]\page.tsx:134:            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
+components\OtoHesapClient.tsx:439:            <nav aria-label="İçerik yolu" className="oh-breadcrumb oh-module-breadcrumb">
+app\guvenmetre\[categoryId]\[brandId]\BrandHeader.tsx:11:                        {/* Breadcrumb */}
+app\arac-dna\layout.tsx:1:import {schemaJson} from '@/lib/schema';
+app\arac-dna\layout.tsx:32:            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(itemList) }} />
+app\arac-dna\[brand]\[model]\page.tsx:17:        '@context': 'https://schema.org', '@type': 'FAQPage',
+app\nasil-yapilir\[slug]\page.tsx:1:import {schemaJson, article} from '@/lib/schema';
+app\nasil-yapilir\[slug]\page.tsx:110:    const structuredData = article({url:`https://otosoz.com/nasil-yapilir/${slug}`,headline:guide.title,description:guide.description,datePublished:guide.createdAt,dateModified:guide.updatedAt});
+app\nasil-yapilir\[slug]\page.tsx:112:    const breadcrumbSchema = {
+app\nasil-yapilir\[slug]\page.tsx:114:        "@type": "BreadcrumbList",
+app\nasil-yapilir\[slug]\page.tsx:140:                type="application/ld+json"
+app\nasil-yapilir\[slug]\page.tsx:141:                dangerouslySetInnerHTML={{ __html: schemaJson(isQualityGuide(guide, 'howto') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
+app\gosterge\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\gosterge\[slug]\page.tsx:82:    const structuredData = {
+app\gosterge\[slug]\page.tsx:95:    const breadcrumbSchema = {
+app\gosterge\[slug]\page.tsx:97:        "@type": "BreadcrumbList",
+app\gosterge\[slug]\page.tsx:123:                type="application/ld+json"
+app\gosterge\[slug]\page.tsx:124:                dangerouslySetInnerHTML={{ __html: schemaJson(isQualityGuide(light, 'warningLight') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
+app\forum\ForumHub.tsx:1:import {schemaJson} from '@/lib/schema';
+app\forum\ForumHub.tsx:56:                <nav className={styles.breadcrumb} aria-label="İçerik yolu">
+app\forum\ForumHub.tsx:106:                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(schema) }} />
+app\gosterge\[slug]\GostergeDetailClient.tsx:39:                        {/* Breadcrumb */}
+app\uzmana-sor\[id]\page.tsx:1:import {schemaJson as serializeSchema} from '@/lib/schema';
+app\uzmana-sor\[id]\page.tsx:92:    let schemaJson: Record<string, unknown> | null = sampleQuestion
+app\uzmana-sor\[id]\page.tsx:111:            {schemaJson && (
+app\uzmana-sor\[id]\page.tsx:113:                    type="application/ld+json"
+app\uzmana-sor\[id]\page.tsx:114:                    dangerouslySetInnerHTML={{ __html: serializeSchema(schemaJson) }}
+app\arac-dna\[brand]\[model]\kronik-sorunlar\page.tsx:14:    const faqSchema = { '@context':'https://schema.org', '@type':'FAQPage', mainEntity:vehicle.chronicIssues.map(issue=>({ '@type':'Question',name:`${vehicle.brand} ${vehicle.model}: ${issue.title}`,acceptedAnswer:{'@type':'Answer',text:issue.description}})) };
+app\bakim-rehberi\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\bakim-rehberi\[slug]\page.tsx:8:import { buildMaintenanceSteps } from "@/lib/maintenanceHowTo";
+app\bakim-rehberi\[slug]\page.tsx:65:    const structuredData = {
+app\bakim-rehberi\[slug]\page.tsx:78:    const breadcrumbSchema = {
+app\bakim-rehberi\[slug]\page.tsx:80:        "@type": "BreadcrumbList",
+app\bakim-rehberi\[slug]\page.tsx:106:                type="application/ld+json"
+app\bakim-rehberi\[slug]\page.tsx:107:                dangerouslySetInnerHTML={{ __html: schemaJson([structuredData, breadcrumbSchema]) }}
+app\bakim-rehberi\[slug]\BakimRehberiDetailClient.tsx:11:import { buildMaintenanceSteps } from "@/lib/maintenanceHowTo";
+app\layout.tsx:1:import {schemaJson, schemaGraph, organization, website} from '@/lib/schema';
+app\layout.tsx:127:                    type="application/ld+json"
+app\layout.tsx:128:                    dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\ikinci-el-rehberi\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\ikinci-el-rehberi\[slug]\page.tsx:63:    const structuredData = {
+app\ikinci-el-rehberi\[slug]\page.tsx:79:                type="application/ld+json"
+app\ikinci-el-rehberi\[slug]\page.tsx:80:                dangerouslySetInnerHTML={{ __html: schemaJson(structuredData) }}
+app\haberler\[slug]\page.tsx:1:import {schemaJson, schemaGraph, newsArticle, breadcrumb} from '@/lib/schema';
+app\haberler\[slug]\page.tsx:75:    const nodes=[breadcrumb([{name:'Ana Sayfa',url:'https://otosoz.com/'},{name:'Haberler',url:'https://otosoz.com/haberler'},{name:post.title,url}],url),...(isQualityGuide(post,'news')?[newsArticle({url,headline:post.title,description:post.description,datePublished:post.createdAt,dateModified:post.updatedAt||post.createdAt})]:[])];
+app\haberler\[slug]\page.tsx:76:    return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:schemaJson(schemaGraph(nodes))}}/><HaberDetailClient slug={slug} initialPost={post} indexable={isQualityGuide(post, 'news')}/></>;
+app\haberler\[slug]\HaberDetailClient.tsx:73:    const structuredData = {
+app\haberler\[slug]\HaberDetailClient.tsx:101:    const breadcrumbSchema = {
+app\haberler\[slug]\HaberDetailClient.tsx:103:        "@type": "BreadcrumbList",
+app\makale\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\makale\page.tsx:29:                <nav className={styles.breadcrumb} aria-label="İçerik yolu"><Link href="/">Ana sayfa</Link><span aria-hidden="true">/</span><span aria-current="page">Makaleler</span></nav>
+app\makale\page.tsx:47:                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(schema) }} />
+app\makale\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\makale\[slug]\page.tsx:101:    const structuredData = {
+app\makale\[slug]\page.tsx:119:    const breadcrumbSchema = {
+app\makale\[slug]\page.tsx:121:        "@type": "BreadcrumbList",
+app\makale\[slug]\page.tsx:147:                type="application/ld+json"
+app\makale\[slug]\page.tsx:148:                dangerouslySetInnerHTML={{ __html: schemaJson(isQualityGuide(article, 'article') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
+app\makale\[slug]\MakaleDetailClient.tsx:67:        "@type": "FAQPage",
+lib\schema.ts:15:    if(['Article','NewsArticle','HowTo'].includes(type)){
+lib\schema.ts:17:        if(typeof url==='string')return {...node,...(type==='NewsArticle'?newsArticle:article)({url,headline:node.headline||node.name||'',description:node.description||'',datePublished:node.datePublished,dateModified:node.dateModified}),...(type==='HowTo'?{step:undefined,totalTime:undefined,tool:undefined,supply:undefined}:{})};
+lib\schema.ts:19:    if(type==='BreadcrumbList' && node.itemListElement?.length){const url=node.itemListElement.at(-1)?.item; if(typeof url==='string')node['@id']=url+'#breadcrumb';}
+lib\schema.ts:22:export function schemaJson(value:unknown):string{return JSON.stringify(normalize(value)).replace(/</g,'\\u003c');}
+lib\schema.ts:25:export type BreadcrumbItem={name:string;url:string};
+lib\schema.ts:26:export function breadcrumb(items:BreadcrumbItem[],url=items.at(-1)?.url||SITE+'/'):Node{return {'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:items.map((item,index)=>({'@type':'ListItem',position:index+1,name:item.name,item:new URL(item.url,SITE).href}))};}
+lib\schema.ts:28:export function collectionPage({url,name,description,items}:{url:string;name:string;description?:string;items?:{name:string;url:string}[]}):Node{return {'@type':'CollectionPage','@id':url+'#webpage',url,name,description,inLanguage:'tr-TR',isPartOf:{'@id':WEBSITE_ID},breadcrumb:{'@id':url+'#breadcrumb'},...(items?{mainEntity:itemList({url,items})}:{})};}
+app\trafik-cezasi\[slug]\TrafikCezasiDetailClient.tsx:92:                {/* Breadcrumb */}
+app\trafik-cezasi\[slug]\TrafikCezasiDetailClient.tsx:94:                    <nav aria-label="Breadcrumb" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
+app\trafik-cezasi\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\trafik-cezasi\[slug]\page.tsx:192:        "@type": "FAQPage",
+app\trafik-cezasi\[slug]\page.tsx:203:    // BreadcrumbList Schema
+app\trafik-cezasi\[slug]\page.tsx:204:    const breadcrumbSchema = {
+app\trafik-cezasi\[slug]\page.tsx:206:        "@type": "BreadcrumbList",
+app\trafik-cezasi\[slug]\page.tsx:238:                type="application/ld+json"
+app\trafik-cezasi\[slug]\page.tsx:239:                dangerouslySetInnerHTML={{ __html: schemaJson(articleSchema) }}
+app\trafik-cezasi\[slug]\page.tsx:243:                    type="application/ld+json"
+app\trafik-cezasi\[slug]\page.tsx:244:                    dangerouslySetInnerHTML={{ __html: schemaJson(faqSchema) }}
+app\trafik-cezasi\[slug]\page.tsx:248:                type="application/ld+json"
+app\trafik-cezasi\[slug]\page.tsx:249:                dangerouslySetInnerHTML={{ __html: schemaJson(breadcrumbSchema) }}
+app\trafik-cezasi\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\trafik-cezasi\page.tsx:54:            "@type": "BreadcrumbList",
+app\trafik-cezasi\page.tsx:98:                type="application/ld+json"
+app\trafik-cezasi\page.tsx:99:                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\page.tsx:68:                type="application/ld+json"
+app\page.tsx:69:                dangerouslySetInnerHTML={{ __html: schemaJson(homePageJsonLd) }}
+app\kutuphane\efsane-avcilari\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\efsane-avcilari\[slug]\page.tsx:119:                "@type": "FAQPage",
+app\kutuphane\efsane-avcilari\[slug]\page.tsx:130:                "@type": "BreadcrumbList",
+app\kutuphane\efsane-avcilari\[slug]\page.tsx:143:            {isQualityGuide(myth, 'myth') && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />}
+app\kutuphane\efsane-avcilari\[slug]\page.tsx:147:                {/* Breadcrumb */}
+app\sozluk\[id]\SozlukDetailClient.tsx:45:                    {/* Breadcrumb */}
+app\sozluk\[id]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\sozluk\[id]\page.tsx:81:    const structuredData = {
+app\sozluk\[id]\page.tsx:93:            "@type": "FAQPage",
+app\sozluk\[id]\page.tsx:115:    const breadcrumbSchema = {
+app\sozluk\[id]\page.tsx:117:        "@type": "BreadcrumbList",
+app\sozluk\[id]\page.tsx:143:                type="application/ld+json"
+app\sozluk\[id]\page.tsx:144:                dangerouslySetInnerHTML={{ __html: schemaJson(isQualityDictionaryTerm(term) ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
+app\otohesap\[module]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\otohesap\[module]\page.tsx:68:        '@type': 'BreadcrumbList',
+app\otohesap\[module]\page.tsx:69:        '@id': `${pageUrl}#breadcrumb`,
+app\otohesap\[module]\page.tsx:96:        '@type': 'FAQPage',
+app\otohesap\[module]\page.tsx:112:        breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+app\otohesap\[module]\page.tsx:122:      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
+app\kutuphane\ehliyet\src-belgesi\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\ehliyet\src-belgesi\page.tsx:35:        "@type": "FAQPage",
+app\kutuphane\ehliyet\src-belgesi\page.tsx:50:                type="application/ld+json"
+app\kutuphane\ehliyet\src-belgesi\page.tsx:51:                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\kutuphane\ehliyet\harclar\EhliyetHarclariClient.tsx:46:        "@type": "FAQPage",
+app\obd-kodlari\[page]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\obd-kodlari\[page]\page.tsx:55:            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(schema) }} />
+app\otohesap\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\otohesap\page.tsx:43:        "@type": "BreadcrumbList",
+app\otohesap\page.tsx:44:        "@id": PAGE_URL + "#breadcrumb",
+app\otohesap\page.tsx:58:        breadcrumb: { "@id": PAGE_URL + "#breadcrumb" },
+app\otohesap\page.tsx:79:      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
+app\obd\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\obd\[slug]\page.tsx:144:    const structuredData = {
+app\obd\[slug]\page.tsx:172:                "@type": "FAQPage",
+app\obd\[slug]\page.tsx:181:                "@type": "BreadcrumbList",
+app\obd\[slug]\page.tsx:194:                type="application/ld+json"
+app\obd\[slug]\page.tsx:195:                dangerouslySetInnerHTML={{ __html: schemaJson({ ...structuredData,
+app\obd\[slug]\page.tsx:196:                    '@graph': structuredData['@graph'].filter(item => isObdCodeIndexable(codeData) || item['@type'] === 'BreadcrumbList'),
+app\obd\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\obd\page.tsx:61:    // JSON-LD: Yalnızca sayfada gerçekten görünen koleksiyon ve breadcrumb.
+app\obd\page.tsx:85:                "@type": "BreadcrumbList",
+app\obd\page.tsx:97:                type="application/ld+json"
+app\obd\page.tsx:98:                dangerouslySetInnerHTML={{ __html: schemaJson(collectionSchema) }}
+app\obd\[slug]\OBDDetailClient.tsx:86:                    {/* Breadcrumb */}
+app\kutuphane\ilginc\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\ilginc\[slug]\page.tsx:236:        "@type": "FAQPage",
+app\kutuphane\ilginc\[slug]\page.tsx:254:                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
+app\kutuphane\ehliyet\sinif\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\ehliyet\sinif\[slug]\page.tsx:77:        "@type": "FAQPage",
+app\kutuphane\ehliyet\sinif\[slug]\page.tsx:92:                type="application/ld+json"
+app\kutuphane\ehliyet\sinif\[slug]\page.tsx:93:                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\kutuphane\LibraryHub.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\LibraryHub.tsx:63:// Sunucu tarafında görünür içerikle uyumlu CollectionPage ve BreadcrumbList üretir.
+app\kutuphane\LibraryHub.tsx:74:            "@type": "BreadcrumbList",
+app\kutuphane\LibraryHub.tsx:111:    return schemaJson({ "@context": "https://schema.org", "@graph": graph });
+app\kutuphane\LibraryHub.tsx:123:                type="application/ld+json"
+app\kutuphane\kasa\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\kasa\[slug]\page.tsx:62:        "@type": "FAQPage",
+app\kutuphane\kasa\[slug]\page.tsx:77:                type="application/ld+json"
+app\kutuphane\kasa\[slug]\page.tsx:78:                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\kutuphane\kasko-deger\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\kasko-deger\[slug]\page.tsx:69:        "@context": "https://schema.org", "@type": "FAQPage",
+app\kutuphane\kasko-deger\[slug]\page.tsx:79:            {SUPPORTING_TEMPLATE_INDEXABLE && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />}
+app\kutuphane\noter\guvenli-odeme\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\noter\guvenli-odeme\page.tsx:31:        "@type": "FAQPage",
+app\kutuphane\noter\guvenli-odeme\page.tsx:46:                type="application/ld+json"
+app\kutuphane\noter\guvenli-odeme\page.tsx:47:                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\kutuphane\noter\satis-adimlari\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\noter\satis-adimlari\page.tsx:31:        "@type": "FAQPage",
+app\kutuphane\noter\satis-adimlari\page.tsx:46:                type="application/ld+json"
+app\kutuphane\noter\satis-adimlari\page.tsx:47:                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\kutuphane\otoyol-ucretleri\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\otoyol-ucretleri\[slug]\page.tsx:88:            {isQualityGuide(item, 'toll') && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />}
+app\kutuphane\plaka\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\plaka\[slug]\page.tsx:137:        "@type": "FAQPage",
+app\kutuphane\plaka\[slug]\page.tsx:152:                type="application/ld+json"
+app\kutuphane\plaka\[slug]\page.tsx:153:                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\kutuphane\segment\[slug]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\segment\[slug]\page.tsx:73:        "@type": "FAQPage",
+app\kutuphane\segment\[slug]\page.tsx:88:                type="application/ld+json"
+app\kutuphane\segment\[slug]\page.tsx:89:                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\kutuphane\[guideId]\page.tsx:1:import {schemaJson} from '@/lib/schema';
+app\kutuphane\[guideId]\page.tsx:76:        "@type": "FAQPage",
+app\kutuphane\[guideId]\page.tsx:92:                    type="application/ld+json"
+app\kutuphane\[guideId]\page.tsx:93:                    dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
+app\kutuphane\tuvturk\[slug]\TuvturkFaqDetailClient.tsx:24:        "@type": "FAQPage",

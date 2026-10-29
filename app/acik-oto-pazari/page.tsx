@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -26,7 +27,9 @@ export default function OpenCarMarketPage() {
         <div className={styles.page}>
             <Navbar />
             <main className={styles.main}>
-                <nav className={styles.breadcrumbs} aria-label="İçerik yolu"><Link href="/">Ana sayfa</Link><span>/</span><span>Açık oto pazarları</span></nav>
+<PageBreadcrumbs url={'/acik-oto-pazari'}/>
+
+
                 <section className={styles.hero}>
                     <div>
                         <span className={styles.eyebrow}>Adres · gün · kaynak</span>

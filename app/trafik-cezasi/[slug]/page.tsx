@@ -1,3 +1,6 @@
+import FaqAnswers from '@/components/FaqAnswers';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {breadcrumb as buildSchemaBreadcrumbList,faqPage as buildSchemaFAQPage,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from "@/lib/guide-quality";
 import { indexabilityRobots } from "@/lib/indexability";
@@ -151,20 +154,17 @@ export default async function TrafikCezasiPage({ params }: PageProps) {
     }
 
     // Article Schema
-    const articleSchema = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": `${cezaItem.ihlal} Cezası - Madde ${cezaItem.madde}`,
-        "description": cezaItem.detayliAciklama || cezaItem.description,
-        "url": `${BASE_URL}/trafik-cezasi/${slug}`,
-        "datePublished": "2026-04-25T10:26:05+03:00",
-        "dateModified": LAST_REVIEWED,
-        "author": {
+    const articleSchema = buildSchemaArticle({"@context": "https://schema.org",
+"headline": `${cezaItem.ihlal} Cezası - Madde ${cezaItem.madde}`,
+"description": cezaItem.detayliAciklama || cezaItem.description,
+"url": `${BASE_URL}/trafik-cezasi/${slug}`,
+
+"author": {
             "@type": "Organization",
             "name": "OtoSöz",
             "url": BASE_URL
         },
-        "publisher": {
+"publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
             "url": BASE_URL,
@@ -175,36 +175,30 @@ export default async function TrafikCezasiPage({ params }: PageProps) {
                 "height": 512
             }
         },
-        "citation": {
+"citation": {
             "@type": "Legislation",
             "name": "7574 sayılı Karayolları Trafik Kanununda Değişiklik Yapılmasına Dair Kanun",
             "url": OFFICIAL_SOURCE_URL
         },
-        "mainEntityOfPage": {
+"mainEntityOfPage": {
             "@type": "WebPage",
             "@id": `${BASE_URL}/trafik-cezasi/${slug}`
-        }
-    };
+        }});
 
     // FAQ Schema
-    const faqSchema = cezaItem.faq && cezaItem.faq.length > 0 ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": cezaItem.faq.map((f: any) => ({
+    const faqSchema = cezaItem.faq && cezaItem.faq.length > 0 ? buildSchemaFAQPage({url:`${BASE_URL}/trafik-cezasi/${slug}`,"@context": "https://schema.org",
+"mainEntity": cezaItem.faq.map((f: any) => ({
             "@type": "Question",
             "name": f.soru,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": f.cevap
             }
-        }))
-    } : null;
+        }))}) : null;
 
     // BreadcrumbList Schema
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+    const breadcrumbSchema = buildSchemaBreadcrumbList({"@context": "https://schema.org",
+"itemListElement": [
             {
                 "@type": "ListItem",
                 "position": 1,
@@ -229,8 +223,7 @@ export default async function TrafikCezasiPage({ params }: PageProps) {
                 "name": cezaItem.ihlal,
                 "item": `${BASE_URL}/trafik-cezasi/${slug}`
             }
-        ]
-    };
+        ]});
 
     return (
         <>
@@ -248,7 +241,7 @@ export default async function TrafikCezasiPage({ params }: PageProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: schemaJson(breadcrumbSchema) }}
             />
-            <TrafikCezasiDetailClient cezaItem={cezaItem} kategori={kategori} ilgiliCezalar={ilgiliCezalar} />
+            <TrafikCezasiDetailClient faqContent={<FaqAnswers items={cezaItem.faq||[]}/> } breadcrumbs={<PageBreadcrumbs url={`/trafik-cezasi/${slug}`}/>} cezaItem={cezaItem} kategori={kategori} ilgiliCezalar={ilgiliCezalar} />
         </>
     );
 }

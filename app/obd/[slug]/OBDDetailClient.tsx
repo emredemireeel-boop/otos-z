@@ -44,13 +44,12 @@ function getSeverityConfig(severity: string) {
     return { color: '#6b7280', bg: 'rgba(107,114,128,0.1)', label: '⚪ Değişken' };
 }
 
-export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, brandName, directoryPage }: {
+export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, brandName, directoryPage ,breadcrumbs}: {
     codeData: ObdCode;
     relatedCodes: ObdCode[];
     typeLabel: string;
     brandName?: string;
-    directoryPage: number;
-}) {
+    directoryPage: number;breadcrumbs?:React.ReactNode;}) {
     const colors = getTypeColor(codeData.type);
     const severity = getSeverityConfig(codeData.severity);
 
@@ -69,6 +68,8 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
         <>
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+{breadcrumbs}
+
             {/* Hero Header */}
             <div style={{
                 background: 'var(--card-bg)',
@@ -225,9 +226,9 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                             </div>
                             <h2 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--foreground)' }}>Teknik Açıklama</h2>
                         </div>
-                        <AutoLinkText 
-                            text={codeData.description} 
-                            style={{ fontSize: '16px', color: 'var(--foreground)', fontWeight: 400 }} 
+                        <AutoLinkText
+                            text={codeData.description}
+                            style={{ fontSize: '16px', color: 'var(--foreground)', fontWeight: 400 }}
                         />
                     </section>
 
@@ -572,16 +573,16 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
 
                 </aside>
             </div>
-            
+
             {/* Related Content / Recommendations */}
             <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px 60px' }}>
                 <RelatedContent currentId={codeData.code} tags={codeData.symptoms.concat(codeData.systems)} titleKeywords={[codeData.code, ...codeData.title.split(' ')]} />
             </div>
         </main>
-        
-        <FloatingActionBar 
-            title={`${codeData.code} - ${brandName ? brandName + ' ' : ''}${codeData.title}`} 
-            url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/obd/${codeData.code.toLowerCase()}`} 
+
+        <FloatingActionBar
+            title={`${codeData.code} - ${brandName ? brandName + ' ' : ''}${codeData.title}`}
+            url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/obd/${codeData.code.toLowerCase()}`}
         />
         <Footer />
         </>

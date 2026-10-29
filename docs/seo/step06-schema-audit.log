@@ -1,0 +1,155 @@
+{
+  "checkedAt": "2026-10-29T09:30:26.215Z",
+  "base": "http://127.0.0.1:3010",
+  "mode": "up-to-three-per-route-type",
+  "sitemapCount": 689,
+  "sampled": 75,
+  "types": 35,
+  "parseErrors": 0,
+  "errors": 0,
+  "missingRecordDates": 28,
+  "clientEmitters": [],
+  "byType": {
+    "home": {
+      "available": 1,
+      "sampled": 1
+    },
+    "karsilastirma": {
+      "available": 1,
+      "sampled": 1
+    },
+    "uzmana-sor": {
+      "available": 1,
+      "sampled": 1
+    },
+    "piyasalar": {
+      "available": 1,
+      "sampled": 1
+    },
+    "guvenmetre": {
+      "available": 1,
+      "sampled": 1
+    },
+    "altin-anahtar": {
+      "available": 1,
+      "sampled": 1
+    },
+    "anket": {
+      "available": 1,
+      "sampled": 1
+    },
+    "etkinlikler": {
+      "available": 1,
+      "sampled": 1
+    },
+    "hakkimizda": {
+      "available": 1,
+      "sampled": 1
+    },
+    "iletisim": {
+      "available": 1,
+      "sampled": 1
+    },
+    "gizlilik-politikasi": {
+      "available": 1,
+      "sampled": 1
+    },
+    "cerez-politikasi": {
+      "available": 1,
+      "sampled": 1
+    },
+    "kullanim-sartlari": {
+      "available": 1,
+      "sampled": 1
+    },
+    "dna-hub": {
+      "available": 22,
+      "sampled": 3
+    },
+    "dna-model": {
+      "available": 88,
+      "sampled": 3
+    },
+    "dna-neden-alinir": {
+      "available": 88,
+      "sampled": 3
+    },
+    "dna-arac-paketleri": {
+      "available": 68,
+      "sampled": 3
+    },
+    "dna-engine": {
+      "available": 43,
+      "sampled": 3
+    },
+    "dna-kronik-sorunlar": {
+      "available": 61,
+      "sampled": 3
+    },
+    "dna-kullanici-deneyimleri": {
+      "available": 4,
+      "sampled": 3
+    },
+    "obd": {
+      "available": 6,
+      "sampled": 3
+    },
+    "library-hub": {
+      "available": 1,
+      "sampled": 1
+    },
+    "kasko-deger": {
+      "available": 1,
+      "sampled": 1
+    },
+    "kategori": {
+      "available": 20,
+      "sampled": 3
+    },
+    "nasil-yapilir": {
+      "available": 14,
+      "sampled": 3
+    },
+    "ilginc": {
+      "available": 8,
+      "sampled": 3
+    },
+    "otoyol-ucretleri": {
+      "available": 13,
+      "sampled": 3
+    },
+    "efsane-avcilari": {
+      "available": 52,
+      "sampled": 3
+    },
+    "makale": {
+      "available": 50,
+      "sampled": 3
+    },
+    "forum": {
+      "available": 15,
+      "sampled": 3
+    },
+    "haberler": {
+      "available": 14,
+      "sampled": 3
+    },
+    "trafik-cezasi": {
+      "available": 39,
+      "sampled": 3
+    },
+    "otobutce": {
+      "available": 20,
+      "sampled": 3
+    },
+    "otohesap": {
+      "available": 22,
+      "sampled": 3
+    },
+    "acik-oto-pazari": {
+      "available": 27,
+      "sampled": 3
+    }
+  },
+  "results": []
+}

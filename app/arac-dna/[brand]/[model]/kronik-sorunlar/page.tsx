@@ -11,9 +11,8 @@ export default async function ChronicIssuesPage({ params }: { params: Promise<{ 
     const vehicle = findVehicleByRoute(brandSlug, modelSlug);
     if (!vehicle) notFound();
     const mainModelName = vehicle.model.replace(/\s*\([^)]+\)/, '').trim();
-    const faqSchema = { '@context':'https://schema.org', '@type':'FAQPage', mainEntity:vehicle.chronicIssues.map(issue=>({ '@type':'Question',name:`${vehicle.brand} ${vehicle.model}: ${issue.title}`,acceptedAnswer:{'@type':'Answer',text:issue.description}})) };
     return <AracDNAShell vehicle={vehicle} section="kronik">
-        {isVehicleSectionIndexable(vehicle,'kronik-sorunlar') && null}
+
         <ChronicInteractions brandSlug={brandSlug} modelSlug={modelSlug} brandName={vehicle.brand} modelName={vehicle.model} staticIssueCount={vehicle.chronicIssues.length}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', flexWrap: 'wrap', gap: '16px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>

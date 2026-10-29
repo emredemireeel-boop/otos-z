@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {breadcrumb as buildSchemaBreadcrumbList,collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
@@ -62,32 +64,23 @@ export default function ObdPage() {
     const collectionSchema = {
         "@context": "https://schema.org",
         "@graph": [
-            {
-                "@type": "CollectionPage",
-                "name": "OBD Arıza Kodları Veritabanı",
-                "description": `${stats.total.toLocaleString('tr-TR')} OBD-II arıza kodunun Türkçe açıklamaları`,
-                "url": "https://otosoz.com/obd",
-                "inLanguage": "tr-TR",
-                "dateModified": OBD_LAST_REVIEWED,
-                "isPartOf": { "@type": "WebSite", "name": "OtoSöz", "url": "https://otosoz.com" },
-                "mainEntity": {
-                    "@type": "ItemList",
-                    "numberOfItems": initialCodes.length,
-                    "itemListElement": initialCodes.map((code, index) => ({
+            buildSchemaCollectionPage({"name": "OBD Arıza Kodları Veritabanı",
+"description": `${stats.total.toLocaleString('tr-TR')} OBD-II arıza kodunun Türkçe açıklamaları`,
+"url": "https://otosoz.com/obd",
+"inLanguage": "tr-TR",
+"dateModified": OBD_LAST_REVIEWED,
+"isPartOf": { "@type": "WebSite", "name": "OtoSöz", "url": "https://otosoz.com" },
+"mainEntity": buildSchemaItemList({"numberOfItems": initialCodes.length,
+"itemListElement": initialCodes.map((code, index) => ({
                         "@type": "ListItem",
                         "position": index + 1,
                         "name": `${code.code} — ${code.title}`,
                         "url": `https://otosoz.com/obd/${code.code.toLowerCase()}`
-                    }))
-                }
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
+                    }))})}),
+            buildSchemaBreadcrumbList({"itemListElement": [
                     { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://otosoz.com" },
                     { "@type": "ListItem", position: 2, name: "OBD Arıza Kodları", item: "https://otosoz.com/obd" },
-                ]
-            },
+                ]}),
         ]
     };
 
@@ -100,6 +93,8 @@ export default function ObdPage() {
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+<PageBreadcrumbs url={'/obd'}/>
+
                 {/* Sub Header */}
                 <div style={{
                     background: 'var(--overlay-bg)',

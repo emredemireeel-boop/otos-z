@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import EventActionsClient from "@/components/EventActionsClient";
 import ServerCatalogClient from "@/components/ServerCatalogClient";
 
@@ -32,6 +33,8 @@ export default async function EtkinliklerPage() {
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+<PageBreadcrumbs url={'/etkinlikler'}/>
+
                 {/* Sub Header */}
                 <div style={{
                     background: 'var(--card-bg)',
@@ -56,7 +59,7 @@ export default async function EtkinliklerPage() {
                                 </span>
                             </div>
 
-                            <button 
+                            <button
                                 data-event-add
                                 style={{
                                 padding: '10px 20px',
@@ -168,8 +171,8 @@ export default async function EtkinliklerPage() {
                                                     }}
                                                 >
                                                     <span>{city}</span>
-                                                    <span style={{ 
-                                                        fontSize: '10px', 
+                                                    <span style={{
+                                                        fontSize: '10px',
                                                         padding: '2px 6px',
                                                         background: selectedCity === city ? 'rgba(255,255,255,0.2)' : 'var(--secondary)',
                                                         borderRadius: '4px',
@@ -331,8 +334,8 @@ function EventCard({ event, formatDate }: { event: Event; formatDate: (date: str
                     display: 'flex',
                     flexDirection: 'column',
                 }}
-                
-                
+
+
             >
                 {/* Image */}
                 <div style={{ position: 'relative', width: '100%', height: '160px', overflow: 'hidden' }}>

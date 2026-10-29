@@ -1,3 +1,4 @@
+import {itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { createPageMetadata } from '@/lib/seo';
 import { topSellingVehicleGuides, topSellingPeriod } from '@/data/top-selling-vehicle-guides';
@@ -12,25 +13,4 @@ export const metadata = createPageMetadata({
     ],
 });
 
-export default function AracDnaRootLayout({ children }: { children: React.ReactNode }) {
-    const itemList = {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        name: `${topSellingPeriod} Türkiye'de en çok satan otomobiller`,
-        itemListOrder: 'https://schema.org/ItemListOrderAscending',
-        numberOfItems: topSellingVehicleGuides.length,
-        itemListElement: topSellingVehicleGuides.map((guide) => ({
-            '@type': 'ListItem',
-            position: guide.rank,
-            url: `https://otosoz.com/arac-dna/${guide.vehiclePath}`,
-            name: guide.generation,
-        })),
-    };
-
-    return (
-        <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(itemList) }} />
-            {children}
-        </>
-    );
-}
+export default function AracDnaRootLayout({children}:{children:React.ReactNode}){return <>{children}</>;}

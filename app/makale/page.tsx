@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import Link from 'next/link';
 import {getIndexableUrls} from '@/lib/seoRoutes';
@@ -16,17 +18,21 @@ export default async function ArticlesPage() {
     const featuredArticles = articles.filter(article => paths.has(article.path));
     const groups = articleCategories.map(category => ({ ...category,
         articles: featuredArticles.filter(article => article.category === category.slug) })).filter(group => group.articles.length);
-    const schema = { '@context': 'https://schema.org', '@type': 'CollectionPage',
-        name: 'OtoSöz Makaleler', url: 'https://otosoz.com/makale', inLanguage: 'tr-TR',
-        mainEntity: { '@type': 'ItemList', numberOfItems: featuredArticles.length,
-            itemListElement: groups.flatMap(group => group.articles).map((article, index) => ({
+    const schema = buildSchemaCollectionPage({'@context': 'https://schema.org',
+name: 'OtoSöz Makaleler',
+url: 'https://otosoz.com/makale',
+inLanguage: 'tr-TR',
+mainEntity: buildSchemaItemList({numberOfItems: featuredArticles.length,
+itemListElement: groups.flatMap(group => group.articles).map((article, index) => ({
                 '@type': 'ListItem', position: index + 1, name: article.title,
-                url: `https://otosoz.com${article.path}` })) } };
+                url: `https://otosoz.com${article.path}` }))})});
     return <>
         <Navbar />
         <main className={styles.page}>
+<PageBreadcrumbs url={'/makale'}/>
+
             <div className={styles.container}>
-                <nav className={styles.breadcrumb} aria-label="İçerik yolu"><Link href="/">Ana sayfa</Link><span aria-hidden="true">/</span><span aria-current="page">Makaleler</span></nav>
+
                 <header className={styles.hero}>
                     <span className={styles.kicker}>Otomobil bilgi arşivi</span>
                     <h1>Otomobil Makaleleri ve Araç Rehberleri</h1>

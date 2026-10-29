@@ -1,3 +1,4 @@
+import {breadcrumb as buildSchemaBreadcrumbList,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
 import { indexabilityRobots } from '@/lib/indexability';
@@ -79,23 +80,18 @@ export default async function GostergePage({ params }: PageProps) {
         notFound();
     }
 
-    const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": `${light.title} İkaz Lambası`,
-        "description": light.meaning,
-        "url": `https://otosoz.com/gosterge/${slug}`,
-        "publisher": {
+    const structuredData = buildSchemaArticle({"@context": "https://schema.org",
+"headline": `${light.title} İkaz Lambası`,
+"description": light.meaning,
+"url": `https://otosoz.com/gosterge/${slug}`,
+"publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
             "url": "https://otosoz.com"
-        }
-    };
+        }});
 
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+    const breadcrumbSchema = buildSchemaBreadcrumbList({"@context": "https://schema.org",
+"itemListElement": [
             {
                 "@type": "ListItem",
                 "position": 1,
@@ -114,8 +110,7 @@ export default async function GostergePage({ params }: PageProps) {
                 "name": light.title,
                 "item": `https://otosoz.com/gosterge/${slug}`
             }
-        ]
-    };
+        ]});
 
     return (
         <>

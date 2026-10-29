@@ -1,3 +1,4 @@
+import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import Navbar from "@/components/Navbar";
@@ -29,12 +30,12 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PlakaPageProps): Promise<Metadata> {
     const { slug } = await params;
-    
+
     // Check if it's a special plate
     const specialPlate = plakaData.ozelPlakalar.find(p => p.id === slug);
     if (specialPlate) {
         const isNumbered = specialPlate.ornek?.includes('000');
-        const customTitle = isNumbered 
+        const customTitle = isNumbered
             ? `${specialPlate.ornek || specialPlate.isim} Plakası Kime Ait? Anlamı Nedir? | OtoSöz`
             : `${specialPlate.isim} Nedir? Kimlere Verilir? | OtoSöz`;
 
@@ -65,19 +66,19 @@ export default async function PlakaDetailPage({ params }: PlakaPageProps) {
 
     // Determine type and data
     const specialPlate = plakaData.ozelPlakalar.find(p => p.id === slug);
-    
+
     let isCity = false;
     let cityData = null;
     let title = "";
     let description = "";
     let articleHtml = "";
     let faqs: { question: string; answer: string }[] = [];
-    
+
     if (specialPlate) {
         const isNumbered = specialPlate.ornek && specialPlate.ornek.includes('000');
         title = isNumbered ? `${specialPlate.ornek} Plakası Kime Ait?` : specialPlate.isim;
         description = specialPlate.anlam;
-        
+
         articleHtml = `
             <h2>${specialPlate.isim} Hakkında Detaylar</h2>
             <p>Türkiye'deki karayolları trafik kanununa göre sivil plakalar dışında devlet görevlilerine, diplomatlara, emniyet güçlerine ve özel durumlara tahsis edilen çeşitli renk ve formatlarda plakalar bulunmaktadır. <strong>${specialPlate.isim}</strong> de bu özel tahsisli plakalardan biridir.</p>
@@ -105,14 +106,14 @@ export default async function PlakaDetailPage({ params }: PlakaPageProps) {
                 isCity = true;
                 title = `${kod} Nerenin Plakası?`;
                 description = `${kod} plaka kodu, ülkemizin ${cityData.bolge} Bölgesi'nde yer alan ${cityData.il} ilimize aittir. Trafikte sıkça karşılaştığımız ${kod} plakalı araçlar, ${cityData.il} ilinde tescil edilmiştir.`;
-                
+
                 articleHtml = `
                     <h2>${kod} Plaka Kodu Hangi Şehre Ait?</h2>
                     <p>Türkiye'deki araç plaka tescil sistemine göre <strong>${kod} nerenin plakası</strong> sorusunun cevabı <strong>${cityData.il}</strong> ilimizdir. Ülkemizde ilk olarak 1962 yılında alfabetik sıraya göre 1'den 67'ye kadar il plakaları belirlenmiş, daha sonra il olan ilçeler sırasıyla 68'den 81'e kadar kod almıştır. ${cityData.il} ilimizin kodu da bu sisteme göre <strong>${kod}</strong> olarak tescillenmiştir.</p>
-                    
+
                     <h3>${cityData.il} İli ve ${kod} Plaka Hakkında Bilgiler</h3>
                     <p>Coğrafi olarak <strong>${cityData.bolge} Bölgesi</strong>'nde yer alan ${cityData.il}, ülkemizin önemli şehirlerinden biridir. ${cityData.il} il sınırları içerisinde araç satın aldığınızda veya dışarıdan bir aracı bu ile tescil ettirdiğinizde aracınıza ${kod} ile başlayan bir plaka verilir.</p>
-                    
+
                     <h3>${kod} Plaka Harf Grupları ve İlçeler</h3>
                     <p>Plakaların ortasında bulunan harf grupları (Örn: ${kod} ABC 123), o aracın ${cityData.il} ilinin merkez ilçesine mi yoksa diğer ilçelerindeki vergi dairelerine mi kayıtlı olduğunu gösterir. Sigorta işlemleri, vergi ödemeleri ve noter devirlerinde bu harf grupları emniyet müdürlüklerinin tescil şubelerini temsil eder.</p>
                 `;
@@ -132,18 +133,15 @@ export default async function PlakaDetailPage({ params }: PlakaPageProps) {
     }
 
     // JSON-LD Schema
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(faq => ({
+    const jsonLd = buildSchemaFAQPage({"@context": "https://schema.org",
+"mainEntity": faqs.map(faq => ({
             "@type": "Question",
             "name": faq.question,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": faq.answer
             }
-        }))
-    };
+        }))});
 
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -201,7 +199,7 @@ export default async function PlakaDetailPage({ params }: PlakaPageProps) {
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                    
+
                     {/* SEO Article Area */}
                     <div className="prose prose-invert max-w-none" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', padding: '32px' }} dangerouslySetInnerHTML={{ __html: articleHtml }} />
 
@@ -210,7 +208,7 @@ export default async function PlakaDetailPage({ params }: PlakaPageProps) {
                             <HelpCircle size={28} color="var(--primary)" />
                             <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)' }}>Sıkça Sorulan Sorular</h2>
                         </div>
-                        
+
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             {faqs.map((faq, idx) => (
                                 <div key={idx} style={{ background: 'var(--background)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-subtle)' }}>

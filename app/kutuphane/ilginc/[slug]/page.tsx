@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {article as buildSchemaArticle,faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
 import { indexabilityRobots } from '@/lib/indexability';
@@ -231,21 +233,15 @@ export default async function IlgincDetayPage({ params }: PageProps) {
     };
 
     // JSON-LD structured data
-    const jsonLd = item._type === "myth" ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [{
+    const jsonLd = item._type === "myth" ? buildSchemaFAQPage({url:`https://otosoz.com/kutuphane/ilginc/${slug}`,"@context": "https://schema.org",
+"mainEntity": [{
             "@type": "Question",
             "name": item.myth,
             "acceptedAnswer": { "@type": "Answer", "text": item.truth }
-        }]
-    } : item._type === "tip" ? {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "url": `https://otosoz.com/kutuphane/ilginc/${slug}`,
-        "name": item.title,
-        "description": item.tip,
-    } : null;
+        }]}) : item._type === "tip" ? buildSchemaArticle({headline:item.title,"@context": "https://schema.org",
+"url": `https://otosoz.com/kutuphane/ilginc/${slug}`,
+"name": item.title,
+"description": item.tip}) : null;
 
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
@@ -255,6 +251,8 @@ export default async function IlgincDetayPage({ params }: PageProps) {
             )}
 
             <main style={{ maxWidth: "860px", margin: "0 auto", padding: "100px 24px 60px 24px" }}>
+<PageBreadcrumbs url={`/kutuphane/ilginc/${slug}`}/>
+
                 {/* Geri dön */}
                 <Link href="/kutuphane/kategori/ilginc-bilgiler" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "14px", fontWeight: "600", marginBottom: "32px", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
                     <ArrowLeft size={16} /> İlginç Bilgiler

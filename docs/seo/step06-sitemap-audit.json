@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-29T08:44:31.271Z",
+  "checkedAt": "2026-10-29T09:30:39.338Z",
   "base": "http://127.0.0.1:3010",
   "files": [
     {
@@ -117,13 +117,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/iletisim",
+      "url": "https://otosoz.com/etkinlikler",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/hakkimizda",
+      "url": "https://otosoz.com/iletisim",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -135,13 +135,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/gizlilik-politikasi",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/etkinlikler",
+      "url": "https://otosoz.com/hakkimizda",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -153,7 +147,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault",
+      "url": "https://otosoz.com/gizlilik-politikasi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -171,13 +171,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/dacia",
+      "url": "https://otosoz.com/arac-dna/honda",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -189,13 +183,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai",
+      "url": "https://otosoz.com/arac-dna/renault",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/honda",
+      "url": "https://otosoz.com/arac-dna/dacia",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -207,19 +207,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/opel",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/togg",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/ford",
+      "url": "https://otosoz.com/arac-dna/opel",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -231,7 +225,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/kia",
+      "url": "https://otosoz.com/arac-dna/ford",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -243,19 +237,25 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/kia",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/citroen",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/skoda",
+      "url": "https://otosoz.com/arac-dna/seat",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/seat",
+      "url": "https://otosoz.com/arac-dna/skoda",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -273,19 +273,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/lada",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/tofas",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025",
+      "url": "https://otosoz.com/arac-dna/lada",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -297,13 +291,31 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-kronik-sorunlari",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-1-nesil-1990-1998/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -316,18 +328,6 @@
     },
     {
       "url": "https://otosoz.com/arac-dna/renault/clio-1-nesil-1990-1998",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-kronik-sorunlari",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/renault/clio-1-nesil-1990-1998/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -351,13 +351,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/clio-2-nesil-1998-2012/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025",
+      "url": "https://otosoz.com/arac-dna/renault/clio-2-nesil-1998-2012/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -393,7 +393,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025/arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -405,7 +405,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -417,25 +417,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/megane-4-nesil-2016-2025/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/honda/civic-11-nesil-fe1-2021-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/megane-4-nesil-2016-2025/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/volkswagen/passat-b8-2015-2023",
+      "url": "https://otosoz.com/arac-dna/renault/megane-4-nesil-2016-2025/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -453,7 +441,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/volkswagen/passat-b8-2015-2023/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/renault/megane-4-nesil-2016-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -471,7 +459,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/dacia/duster-2-nesil-2018-2024/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/volkswagen/passat-b8-2015-2023",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/passat-b8-2015-2023/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -489,25 +483,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/dacia/duster-2-nesil-2018-2024/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/peugeot/3008-1-nesil-2009-2016",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2-nesil-2018-2024/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -519,7 +495,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/neden-alinir",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-1-nesil-2009-2016",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2-nesil-2018-2024/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -531,19 +525,31 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023/neden-alinir",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/peugeot/3008-1-nesil-2009-2016/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -561,7 +567,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023/arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/corsa-f-2020-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -573,19 +585,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/opel/corsa-f-2020-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -609,25 +609,31 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites-kronik-sorunlari",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025",
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-8-nesil-2020-2025",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -640,12 +646,6 @@
     },
     {
       "url": "https://otosoz.com/arac-dna/volkswagen/golf-8-nesil-2020-2025/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/volkswagen/golf-8-nesil-2020-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -669,13 +669,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025",
+      "url": "https://otosoz.com/arac-dna/ford/focus-4-nesil-mk4-2018-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/ford/focus-4-nesil-mk4-2018-2025/arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -687,19 +687,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -711,13 +705,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025",
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -729,7 +723,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025",
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -747,7 +741,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -759,7 +753,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/kronik-sorunlar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/neden-alinir",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -772,12 +778,6 @@
     },
     {
       "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/kronik-sorunlar",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -801,25 +801,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/kronik-sorunlar",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/honda/city-7-nesil-gn-2021-2025/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -855,13 +855,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025",
+      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -873,13 +873,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023",
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -891,13 +885,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -909,13 +903,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -927,13 +915,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025",
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -945,13 +933,31 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/neden-alinir",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -969,19 +975,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/rwd-elektrik-tek-vites",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1005,25 +999,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites-kronik-sorunlari",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1035,13 +1011,37 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017",
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites-kronik-sorunlari",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/kronik-sorunlar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1059,19 +1059,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014/kronik-sorunlar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1095,19 +1095,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/renault/clio-4-nesil-2012-2019/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002",
+      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1119,13 +1113,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015",
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1137,13 +1125,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1167,6 +1167,12 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021/kronik-sorunlar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021/neden-alinir",
       "lastmod": null,
       "status": 200,
@@ -1185,7 +1191,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1197,7 +1203,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1209,25 +1215,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023",
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1305,6 +1305,12 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025/kronik-sorunlar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/ford/tourneo-courier-2014-2023/arac-paketleri",
       "lastmod": null,
       "status": 200,
@@ -1317,19 +1323,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1347,19 +1353,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020/kronik-sorunlar",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1377,13 +1371,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1395,13 +1383,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021",
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/kronik-sorunlar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1425,6 +1425,12 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/1-2-dig-t-115-hp-kronik-sorunlari",
       "lastmod": null,
       "status": 200,
@@ -1437,13 +1443,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1455,25 +1455,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025/kronik-sorunlar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012/kronik-sorunlar",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1491,7 +1485,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994",
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1503,7 +1497,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1515,13 +1509,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1533,7 +1527,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1545,13 +1539,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/honda/civic-9-nesil-fb7-2012-2016",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1575,18 +1581,6 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
@@ -1600,6 +1594,12 @@
     },
     {
       "url": "https://otosoz.com/arac-dna/volkswagen/golf-7-2012-2020",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1629,7 +1629,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/dacia/duster-2010-2024/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1641,7 +1641,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018",
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2010-2024/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1677,25 +1677,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002",
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1713,13 +1713,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002",
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002/arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1743,13 +1743,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994",
+      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1761,25 +1761,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1821,13 +1821,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1857,6 +1857,12 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/kronik-sorunlar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001",
       "lastmod": null,
       "status": 200,
@@ -1864,12 +1870,6 @@
     },
     {
       "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1887,7 +1887,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-s-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1899,7 +1899,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998",
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-s-kronik-sorunlari",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1929,19 +1929,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/arac-paketleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/1-6-gli-114-hp-kronik-sorunlari",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1953,13 +1947,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/arac-paketleri",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -1971,19 +1965,25 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp-kronik-sorunlari",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2013,13 +2013,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2061,25 +2061,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/peugeot/206/kronik-sorunlar",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/peugeot/206/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/honda/civic-fd6",
+      "url": "https://otosoz.com/arac-dna/peugeot/206/kronik-sorunlar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/peugeot/206/arac-paketleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2145,13 +2145,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce",
+      "url": "https://otosoz.com/arac-dna/audi/a3-2020-2025/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/audi/a3-2020-2025/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2163,25 +2163,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/kullanici-deneyimleri",
+      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/kullanici-deneyimleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2205,25 +2205,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/kullanici-deneyimleri",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/murat-131-124/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2241,13 +2235,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/tofas/dogan/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/tofas/murat-131-124/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/tofas/dogan",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2260,12 +2260,6 @@
     },
     {
       "url": "https://otosoz.com/arac-dna/skoda/favorit-forman/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/renault/9-spring-broadway",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2289,7 +2283,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/arac-dna/renault/9-spring-broadway",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/arac-dna/ford/escort",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/taunus/neden-alinir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2307,19 +2313,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/ford/taunus/neden-alinir",
+      "url": "https://otosoz.com/arac-dna/lada/samara",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/arac-dna/lada/samara/neden-alinir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/arac-dna/lada/samara",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2361,13 +2361,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2385,13 +2385,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2445,31 +2445,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/kategori/ilginc-bilgiler",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/kutuphane/kategori/trafik-isaretleri",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/kutuphane/kategori/lastik-rehberi",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/kategori/mevsimsel-bakim",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/kutuphane/kategori/sigorta-rehberi",
+      "url": "https://otosoz.com/kutuphane/kategori/trafik-isaretleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2487,13 +2469,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/kategori/otoyol-ve-kopru-ucretleri",
+      "url": "https://otosoz.com/kutuphane/kategori/mevsimsel-bakim",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/kategori/bakim-zamanlari",
+      "url": "https://otosoz.com/kutuphane/kategori/ilginc-bilgiler",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/sigorta-rehberi",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2505,7 +2493,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/kategori/noter-islemleri",
+      "url": "https://otosoz.com/kutuphane/kategori/bakim-zamanlari",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/otoyol-ve-kopru-ucretleri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/arac-segmentleri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2517,13 +2517,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/kategori/ehliyet-siniflari",
+      "url": "https://otosoz.com/kutuphane/kategori/noter-islemleri",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/kategori/arac-segmentleri",
+      "url": "https://otosoz.com/kutuphane/kategori/ehliyet-siniflari",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2541,13 +2541,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/kategori/hasar-sorgulama",
+      "url": "https://otosoz.com/kutuphane/kategori/nereye-gitmeli",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/kategori/nereye-gitmeli",
+      "url": "https://otosoz.com/kutuphane/kategori/hasar-sorgulama",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2571,19 +2571,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/nasil-yapilir/motor-hararet-yapinca-ne-yapilir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/nasil-yapilir/aku-takviyesi-arac-vurdurma-nasil-yapilir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/nasil-yapilir/cam-suyu-nasil-eklenir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2595,7 +2583,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/nasil-yapilir/motor-hararet-yapinca-ne-yapilir",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/nasil-yapilir/seyir-halinde-aracta-yangin-cikarsa-ne-yapilmali",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/cam-suyu-nasil-eklenir",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2619,7 +2619,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/nasil-yapilir/kaza-tespit-tutanagi-nasil-doldurulur",
+      "url": "https://otosoz.com/nasil-yapilir/uzun-yola-cikmadan-once-kontrol-listesi",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2631,13 +2631,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/nasil-yapilir/uzun-yola-cikmadan-once-kontrol-listesi",
+      "url": "https://otosoz.com/nasil-yapilir/arabayi-cizmeden-dogru-yikama-teknigi",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/nasil-yapilir/arabayi-cizmeden-dogru-yikama-teknigi",
+      "url": "https://otosoz.com/nasil-yapilir/kaza-tespit-tutanagi-nasil-doldurulur",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2661,13 +2661,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/ilginc/uzun-yola-cikmadan-once-ilginc-00024",
+      "url": "https://otosoz.com/kutuphane/ilginc/kis-surus-seti-ilginc-00023",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/ilginc/kis-surus-seti-ilginc-00023",
+      "url": "https://otosoz.com/kutuphane/ilginc/uzun-yola-cikmadan-once-ilginc-00024",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2775,13 +2775,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yokus-asagi-bosa-atmak--1",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/klima-yerine-cam-acmak--2",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/klima-yerine-cam-acmak--2",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yokus-asagi-bosa-atmak--1",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2793,13 +2793,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yuksek-oktanli-benzin-performansi--5",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/sabah-motoru-isitmak--4",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/sabah-motoru-isitmak--4",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yuksek-oktanli-benzin-performansi--5",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2811,13 +2811,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/motor-yikanmaz--7",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/farkli-antifriz-karisimi--8",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/farkli-antifriz-karisimi--8",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/motor-yikanmaz--7",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2835,19 +2835,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/emniyet-kemersiz-hava-yastigi--12",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/kutuphane/efsane-avcilari/abs-fren-mesafesini-kisaltir--11",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/eski-arabalarin-kaportasi-kalindir--14",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/emniyet-kemersiz-hava-yastigi--12",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2859,7 +2853,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/genis-lastik-daha-iyi-tutar--16",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/eski-arabalarin-kaportasi-kalindir--14",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2871,7 +2865,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/genis-lastik-daha-iyi-tutar--16",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/kutuphane/efsane-avcilari/4x4-araclar-karda-kaymaz--17",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/buyuk-jant-arabayi-hizlandirir--19",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2883,7 +2889,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/buyuk-jant-arabayi-hizlandirir--19",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/aku-aspirin-efsanesi--21",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2896,12 +2902,6 @@
     },
     {
       "url": "https://otosoz.com/kutuphane/efsane-avcilari/arabaya-spoiler-takmak--23",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/aku-aspirin-efsanesi--21",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2931,13 +2931,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/egzozdan-su-damlamasi-motorun-sagligi--28",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/turbolu-araci-stop-etmeden-beklemek--27",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/turbolu-araci-stop-etmeden-beklemek--27",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/egzozdan-su-damlamasi-motorun-sagligi--28",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2949,7 +2949,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/el-freni-cekmek-teli-koparir--30",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/kutuphane/efsane-avcilari/disk-fren-torna-islemi--31",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yarim-debriyaj-ile-gitmek--33",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -2961,25 +2973,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/el-freni-cekmek-teli-koparir--30",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/manuel-viteste-ara-gaz-vermek--34",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/kutuphane/efsane-avcilari/arap-sabunu-ve-kola-ile-lastik-parlatmak--35",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yarim-debriyaj-ile-gitmek--33",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/manuel-viteste-ara-gaz-vermek--34",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3009,7 +3009,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/lastige-nitrojen-basmak-faydali-mi--42",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/kis-lastigi-sadece-karda-mi-takilir--41",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3021,13 +3021,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/kis-lastigi-sadece-karda-mi-takilir--41",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/sicak-lastigin-havasi-indirilir-mi--44",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/lastige-nitrojen-basmak-faydali-mi--42",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3039,7 +3033,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/dpf-lambasi-uzun-yolda-soner-mi--46",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/sicak-lastigin-havasi-indirilir-mi--44",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3051,7 +3045,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/hizli-sarj-bataryaya-zarar-verir-mi--48",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/dpf-lambasi-uzun-yolda-soner-mi--46",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3063,13 +3057,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/kutuphane/efsane-avcilari/elektrikli-araba-yagmurda-sarj-edilir-mi--49",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/hizli-sarj-bataryaya-zarar-verir-mi--48",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/kutuphane/efsane-avcilari/motor-yagi-fazla-olursa-ne-olur--50",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/elektrikli-araba-yagmurda-sarj-edilir-mi--49",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3093,19 +3093,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/arac-rengi-seciminin-bilimsel-sirlari-renklere-gore-isi-emilimi-ve-yakit-tasarrufu-mega-rehberi--10040",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/makale/nihai-otomotiv-muhendisligi-manifestosu-gunluk-araclar-icin-20-adimlik-hiper-modifiye-ansiklopedisi--10045",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/ocaginiza-incir-agaci-dikecek-arabalar-garibanin-uzak-durmasi-gereken-10-model--10039",
+      "url": "https://otosoz.com/makale/arac-rengi-seciminin-bilimsel-sirlari-renklere-gore-isi-emilimi-ve-yakit-tasarrufu-mega-rehberi--10040",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3123,13 +3117,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/sifirdan-zirveye-nasil-profesyonel-bir-galerici-oto-alim-satim-uzmani-olunur-19-adimlik-mega-rehber--10042",
+      "url": "https://otosoz.com/makale/ocaginiza-incir-agaci-dikecek-arabalar-garibanin-uzak-durmasi-gereken-10-model--10039",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/yeni-baslayanlar-icin-surus-psikolojisi-ve-ileri-seviye-taktikler-acemi-surucu-rehberi-bolum-2--10038",
+      "url": "https://otosoz.com/makale/sifirdan-zirveye-nasil-profesyonel-bir-galerici-oto-alim-satim-uzmani-olunur-19-adimlik-mega-rehber--10042",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3141,7 +3135,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/ehliyet-kursunda-ogretilmeyen-8-hayat-kurtaran-kural-acemi-surucu-rehberi-bolum-1--10036",
+      "url": "https://otosoz.com/makale/yeni-baslayanlar-icin-surus-psikolojisi-ve-ileri-seviye-taktikler-acemi-surucu-rehberi-bolum-2--10038",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3154,6 +3148,12 @@
     },
     {
       "url": "https://otosoz.com/makale/sanayide-ustalarin-gizledigi-14-kritik-sir-aracinizin-omrunu-ve-cuzdaninizi-nasil-kurtarirsiniz-derin-analiz--10035",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/makale/ehliyet-kursunda-ogretilmeyen-8-hayat-kurtaran-kural-acemi-surucu-rehberi-bolum-1--10036",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3189,13 +3189,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/aracin-gizli-dili-sesler-kokular-ve-renklerle-ariza-teshisi--10003",
+      "url": "https://otosoz.com/makale/arac-dolandiricilik-yontemleri-ve-korunma-yollari--10002",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/arac-dolandiricilik-yontemleri-ve-korunma-yollari--10002",
+      "url": "https://otosoz.com/makale/aracin-gizli-dili-sesler-kokular-ve-renklerle-ariza-teshisi--10003",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3207,7 +3207,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/usta-soforun-gizli-defteri-ileri-surus-ve-trafik-okuma-sanati--10005",
+      "url": "https://otosoz.com/makale/gosterge-panelindeki-hiyeroglifler-ariza-isiklari-ve-anlamlari--10007",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3219,19 +3219,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/gosterge-panelindeki-hiyeroglifler-ariza-isiklari-ve-anlamlari--10007",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/makale/motor-yagi-secimi-ve-degisim-rehberi--10008",
+      "url": "https://otosoz.com/makale/usta-soforun-gizli-defteri-ileri-surus-ve-trafik-okuma-sanati--10005",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/makale/yakit-tasarrufu-deponuzu-korumak-icin-10-altin-kural--10009",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/makale/motor-yagi-secimi-ve-degisim-rehberi--10008",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3255,12 +3255,6 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/otomatik-vitesin-can-dusmanlari-sanziman-omrunu-uzatan-7-altin-kural--10013",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/makale/tuvturk-muayene-hazirlik-rehberi-tek-seferde-gecmenin-yollari--10012",
       "lastmod": null,
       "status": 200,
@@ -3268,6 +3262,12 @@
     },
     {
       "url": "https://otosoz.com/makale/uzun-yol-oncesi-hazirlik-ve-kontrol-listesi--10015",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/makale/otomatik-vitesin-can-dusmanlari-sanziman-omrunu-uzatan-7-altin-kural--10013",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3357,13 +3357,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/turkiyenin-en-az-yakan-10-arabasi-2025-guncel-liste--top_10_az_yakan_arabalar",
+      "url": "https://otosoz.com/makale/arac-yag-kacirirsa-ne-yapilmali-yag-kacagi-tespiti-ve-acil-eylem-plni--10032",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/makale/arac-yag-kacirirsa-ne-yapilmali-yag-kacagi-tespiti-ve-acil-eylem-plni--10032",
+      "url": "https://otosoz.com/makale/turkiyenin-en-az-yakan-10-arabasi-2025-guncel-liste--top_10_az_yakan_arabalar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3387,20 +3387,8 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
-      "lastmod": "2026-06-06T15:29:34.575Z",
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
       "lastmod": "2026-09-05T11:29:13.492Z",
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/forum/en-sorunsuz-otomobil-markasi--25319783",
-      "lastmod": "2026-06-13T20:43:34.281Z",
       "status": 200,
       "errors": []
     },
@@ -3411,14 +3399,26 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
-      "lastmod": "2026-06-01T06:26:11.615Z",
+      "url": "https://otosoz.com/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "lastmod": "2026-06-06T15:29:34.575Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "lastmod": "2026-06-13T20:43:34.281Z",
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/forum/i20de-siyah-duman-atma-sorunu--17202308",
       "lastmod": "2026-06-01T06:25:28.877Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "lastmod": "2026-06-01T06:26:11.615Z",
       "status": 200,
       "errors": []
     },
@@ -3431,6 +3431,12 @@
     {
       "url": "https://otosoz.com/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
       "lastmod": "2026-05-23T03:54:10.883Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum",
+      "lastmod": null,
       "status": 200,
       "errors": []
     },
@@ -3453,20 +3459,14 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/forum/kategori/deneyim-inceleme",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/forum",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
       "lastmod": "2026-05-12T07:06:19.680Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/kategori/deneyim-inceleme",
+      "lastmod": null,
       "status": 200,
       "errors": []
     },
@@ -3513,6 +3513,12 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "lastmod": "2026-04-30T03:52:20.793Z",
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/haberler/otomotiv-uretimi-ocak-temmuz-2026-yuzde-8-geriledi",
       "lastmod": "2026-09-05T05:06:00.000Z",
       "status": 200,
@@ -3527,12 +3533,6 @@
     {
       "url": "https://otosoz.com/haberler/avrupa-elektrikli-otomobil-payi-2026-yuzde-20-7",
       "lastmod": "2026-09-05T05:08:00.000Z",
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
-      "lastmod": "2026-04-30T03:52:20.793Z",
       "status": 200,
       "errors": []
     },
@@ -3561,19 +3561,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi",
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3585,19 +3579,25 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/trafik-cezasi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "url": "https://otosoz.com/trafik-cezasi/alkol-testini-reddetme-48-9",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3645,13 +3645,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "url": "https://otosoz.com/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3663,7 +3669,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3687,12 +3693,6 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/trafik-cezasi/yayaya-yol-vermemek-74-b",
       "lastmod": null,
       "status": 200,
@@ -3705,25 +3705,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3747,25 +3747,25 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "url": "https://otosoz.com/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hatali-park-etmek-61-1-a",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3801,13 +3801,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otobutce/150-250-bin-tl-arasi-araclar",
+      "url": "https://otosoz.com/otohesap",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otobutce/150-bin-tl-alti-arabalar",
+      "url": "https://otosoz.com/otobutce/150-250-bin-tl-arasi-araclar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3825,7 +3825,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap",
+      "url": "https://otosoz.com/otobutce/150-bin-tl-alti-arabalar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3861,13 +3861,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "url": "https://otosoz.com/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3885,25 +3891,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap/yakit-hesaplama",
+      "url": "https://otosoz.com/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3927,6 +3921,12 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/otohesap/yakit-hesaplama",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/otohesap/yatirim-kiyaslama",
       "lastmod": null,
       "status": 200,
@@ -3939,13 +3939,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap/deger-kaybi",
+      "url": "https://otosoz.com/otohesap/otv-muafiyeti",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap/otv-muafiyeti",
+      "url": "https://otosoz.com/otohesap/deger-kaybi",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3969,13 +3969,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap/butce-planlama",
+      "url": "https://otosoz.com/otohesap/kredi-karti-hesaplama",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap/kredi-karti-hesaplama",
+      "url": "https://otosoz.com/otohesap/butce-planlama",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -3987,13 +3987,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/otohesap/kasko-deger-sorgulama",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/otohesap/mtv-hesaplama",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap/kasko-deger-sorgulama",
+      "url": "https://otosoz.com/otohesap/elektrikli-arac-sarj-maliyeti",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -4011,12 +4017,6 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap/elektrikli-arac-sarj-maliyeti",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/otohesap/km-basina-maliyet",
       "lastmod": null,
       "status": 200,
@@ -4029,13 +4029,19 @@
       "errors": []
     },
     {
+      "url": "https://otosoz.com/otohesap/yakit-turu-karsilastirma",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
       "url": "https://otosoz.com/otohesap/motor-gucu-donusturme",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap/yakit-turu-karsilastirma",
+      "url": "https://otosoz.com/otohesap/lastik-basinci-donusturme",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -4047,13 +4053,13 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/acik-oto-pazari/antalya",
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir",
       "lastmod": null,
       "status": 200,
       "errors": []
     },
     {
-      "url": "https://otosoz.com/otohesap/lastik-basinci-donusturme",
+      "url": "https://otosoz.com/acik-oto-pazari/antalya",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -4066,18 +4072,6 @@
     },
     {
       "url": "https://otosoz.com/acik-oto-pazari/bursa",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/acik-oto-pazari/balikesir",
-      "lastmod": null,
-      "status": 200,
-      "errors": []
-    },
-    {
-      "url": "https://otosoz.com/acik-oto-pazari/kayseri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -4101,7 +4095,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/acik-oto-pazari/sakarya",
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri",
       "lastmod": null,
       "status": 200,
       "errors": []
@@ -4119,8 +4113,8 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
-      "lastmod": "2026-07-21T00:00:00.000Z",
+      "url": "https://otosoz.com/acik-oto-pazari/sakarya",
+      "lastmod": null,
       "status": 200,
       "errors": []
     },
@@ -4137,7 +4131,7 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
       "lastmod": "2026-07-21T00:00:00.000Z",
       "status": 200,
       "errors": []
@@ -4149,13 +4143,19 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "url": "https://otosoz.com/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
       "lastmod": "2026-07-21T00:00:00.000Z",
       "status": 200,
       "errors": []
     },
     {
       "url": "https://otosoz.com/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
       "lastmod": "2026-07-21T00:00:00.000Z",
       "status": 200,
       "errors": []
@@ -4173,12 +4173,6 @@
       "errors": []
     },
     {
-      "url": "https://otosoz.com/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
-      "lastmod": "2026-07-21T00:00:00.000Z",
-      "status": 200,
-      "errors": []
-    },
-    {
       "url": "https://otosoz.com/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
       "lastmod": "2026-07-21T00:00:00.000Z",
       "status": 200,
@@ -4186,6 +4180,12 @@
     },
     {
       "url": "https://otosoz.com/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
       "lastmod": "2026-07-21T00:00:00.000Z",
       "status": 200,
       "errors": []

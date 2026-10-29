@@ -13,13 +13,7 @@ export default async function VehicleModelPage({ params }: { params: Promise<{ b
     const vehicle = findVehicleByRoute(brand, model);
     if (!vehicle) notFound();
     const engines = engineDNAData.find(item => item.vehicleId === vehicle.id)?.engines || [];
-    const schema = isVehicleIndexable(vehicle) ? {
-        '@context': 'https://schema.org', '@type': 'FAQPage',
-        '@id': `https://otosoz.com/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}#faq`,
-        mainEntity: buildVehicleFaq(vehicle, engines).map(item => ({ '@type': 'Question', name: item.question,
-            acceptedAnswer: { '@type': 'Answer', text: item.answer } })),
-    } : null;
-    return <>{schema && null}<AracDNAShell vehicle={vehicle}><ModelOverviewClient params={params} /></AracDNAShell></>;
+    return <><AracDNAShell vehicle={vehicle}><ModelOverviewClient params={params} /></AracDNAShell></>;
 }
 
 export const revalidate = 1800;

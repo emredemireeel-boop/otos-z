@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -42,22 +44,21 @@ export default async function ForumHub({ page = 1, categorySlug }: { page?: numb
     const data = await getForumHubData(page, categorySlug);
     const allThreads = categorySlug ? await getForumHubThreadSummaries(null) : data.threads;
     const path = forumHubPath(page, categorySlug);
-    const schema = { '@context': 'https://schema.org', '@type': 'CollectionPage',
-        name: data.category ? `${data.category.name} forum başlıkları` : 'OtoSöz Forum',
-        url: `https://otosoz.com${path}`, inLanguage: 'tr-TR',
-        mainEntity: { '@type': 'ItemList', numberOfItems: data.visible.length,
-            itemListElement: data.visible.map((thread, index) => ({ '@type': 'ListItem',
+    const schema = buildSchemaCollectionPage({'@context': 'https://schema.org',
+name: data.category ? `${data.category.name} forum başlıkları` : 'OtoSöz Forum',
+url: `https://otosoz.com${path}`,
+inLanguage: 'tr-TR',
+mainEntity: buildSchemaItemList({numberOfItems: data.visible.length,
+itemListElement: data.visible.map((thread, index) => ({ '@type': 'ListItem',
                 position: (page - 1) * FORUM_PAGE_SIZE + index + 1,
-                name: thread.title, url: `https://otosoz.com/forum/${thread.slug}` })) } };
+                name: thread.title, url: `https://otosoz.com/forum/${thread.slug}` }))})});
     return <>
         <Navbar />
         <main className={styles.page}>
+<PageBreadcrumbs url={`https://otosoz.com${path}`}/>
+
             <div className={styles.container}>
-                <nav className={styles.breadcrumb} aria-label="İçerik yolu">
-                    <Link href="/">Ana sayfa</Link><span aria-hidden="true">/</span>
-                    {categorySlug ? <><Link href="/forum">Forum</Link><span aria-hidden="true">/</span></> : null}
-                    <span aria-current="page">{data.category?.name || 'Forum'}</span>
-                </nav>
+
                 <header className={styles.hero}>
                     <span className={styles.kicker}>OtoSöz topluluğu</span>
                     <h1>{data.category ? `${data.category.name} — Forum Başlıkları` : 'OtoSöz Forum — Otomobil Soru ve Tartışmaları'}{page > 1 ? ` — Sayfa ${page}` : ''}</h1>

@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 
 import { isVehicleIndexable } from '@/lib/indexability';
 import Link from "next/link";
@@ -50,16 +51,12 @@ export default function BrandHubClient({ brandName, models }: Props) {
         <BrandFilterClient>
             <Navbar />
             <main style={{ minHeight: "100vh", background: "var(--background)", padding: "0 20px 60px" }}>
+<PageBreadcrumbs url={`/arac-dna/${createSlug(brandName)}`}/>
+
                 <div style={{ maxWidth: 900, margin: "0 auto", paddingTop: 32 }}>
 
                     {/* Breadcrumb */}
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24, fontSize: 14, color: "var(--text-muted)" }}>
-                        <Link href="/arac-dna" style={{ color: "var(--primary)", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
-                            <ArrowLeft size={16} /> Araç DNA
-                        </Link>
-                        <span>/</span>
-                        <span style={{ color: "var(--foreground)" }}>{brandName}</span>
-                    </div>
+
 
                     {/* Hero */}
                     <div style={{
@@ -139,7 +136,7 @@ export default function BrandHubClient({ brandName, models }: Props) {
                                         borderRadius: 14, padding: "18px 20px",
                                         transition: "all 0.2s ease", cursor: "pointer",
                                     }}
-                                    
+
                                      data-hover-card>
                                         <div style={{ flex: 1 }}>
                                             <div style={{ fontSize: 16, fontWeight: 700, color: "var(--foreground)", marginBottom: 4 }}>

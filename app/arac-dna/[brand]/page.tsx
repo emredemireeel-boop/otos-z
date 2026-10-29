@@ -1,3 +1,4 @@
+import {breadcrumb as buildSchemaBreadcrumbList,collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { Metadata } from "next";
 import { vehicleDNAData, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
@@ -62,7 +63,7 @@ export default async function BrandPage({ params }: PageProps) {
     if (!brandName) notFound();
 
     const brandModels = vehicleDNAData.filter(v => v.brand === brandName && isVehicleIndexable(v));
-    
+
     // Her model için motor bilgilerini de ekle
     const modelsWithEngines = brandModels.map(vehicle => {
         const engineData = engineDNAData.find(e => e.vehicleId === vehicle.id);
@@ -73,38 +74,29 @@ export default async function BrandPage({ params }: PageProps) {
     });
 
     // JSON-LD
-    const brandSchema = {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": `${brandName} Araç DNA Analizi`,
-        "description": `${brandName} marka araçların detaylı analizi`,
-        "url": `https://otosoz.com/arac-dna/${brandSlug.toLowerCase()}`,
-        "publisher": {
+    const brandSchema = buildSchemaCollectionPage({"@context": "https://schema.org",
+"name": `${brandName} Araç DNA Analizi`,
+"description": `${brandName} marka araçların detaylı analizi`,
+"url": `https://otosoz.com/arac-dna/${brandSlug.toLowerCase()}`,
+"publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
             "url": "https://otosoz.com",
         },
-        "mainEntity": {
-            "@type": "ItemList",
-            "numberOfItems": brandModels.length,
-            "itemListElement": modelsWithEngines.slice(0, 20).map((v, i) => ({
+"mainEntity": buildSchemaItemList({"numberOfItems": brandModels.length,
+"itemListElement": modelsWithEngines.slice(0, 20).map((v, i) => ({
                 "@type": "ListItem",
                 "position": i + 1,
                 "name": `${v.brand} ${v.model}`,
                 "url": `https://otosoz.com/arac-dna/${createSlug(v.brand)}/${createSlug(v.model)}`,
-            })),
-        },
-    };
+            }))})});
 
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+    const breadcrumbSchema = buildSchemaBreadcrumbList({"@context": "https://schema.org",
+"itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://otosoz.com/" },
             { "@type": "ListItem", "position": 2, "name": "Araç DNA", "item": "https://otosoz.com/arac-dna" },
             { "@type": "ListItem", "position": 3, "name": brandName, "item": `https://otosoz.com/arac-dna/${brandSlug.toLowerCase()}` },
-        ],
-    };
+        ]});
 
     return (
         <>

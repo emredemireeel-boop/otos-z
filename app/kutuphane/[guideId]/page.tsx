@@ -1,3 +1,4 @@
+import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import {notFound} from "next/navigation";
 import library from "@/public/data/library_guides.json";
@@ -11,7 +12,7 @@ import Footer from "@/components/Footer";
 import { ArrowLeft, Clock, TrendingUp, AlertTriangle, Lightbulb, CheckCircle2, BookOpen } from "lucide-react";
 
 
-// Types  
+// Types
 interface TipWarning {
     title: string;
     text: string;
@@ -71,18 +72,15 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
         }
     };
 
-    const jsonLd = guide ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": guide.sections.filter(s => s.title).map(section => ({
+    const jsonLd = guide ? buildSchemaFAQPage({"@context": "https://schema.org",
+"mainEntity": guide.sections.filter(s => s.title).map(section => ({
             "@type": "Question",
             "name": section.title,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": section.content || (section.subsections ? section.subsections.map(s => s.text).join(" ") : guide.description)
             }
-        }))
-    } : null;
+        }))}) : null;
 
     return (
         <div>
@@ -95,10 +93,10 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
             )}
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
                 {/* Hero Section */}
-                <div 
-                    
-                    
-                    
+                <div
+
+
+
                     style={{
                     background: 'linear-gradient(135deg, #1e293b, #0f172a)',
                     borderRadius: '0 0 32px 32px',
@@ -110,7 +108,7 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")', opacity: 0.5 }} />
                     <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
                         <a href="/kutuphane"
-                            
+
                             style={{
                                 padding: '8px 16px',
                                 background: 'rgba(255, 255, 255, 0.2)',
@@ -204,12 +202,12 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
                         {/* Main Content */}
                         <div>
                             {guide.sections.map((section, idx) => (
-                                <div 
-                                    key={idx} 
-                                    
-                                    
-                                    
-                                    
+                                <div
+                                    key={idx}
+
+
+
+
                                     style={{ marginBottom: '32px' }}
                                 >
                                     {section.type !== 'intro' && section.title && (
@@ -374,11 +372,11 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
 
                             {/* Final Checklist */}
                             {guide.finalChecklist && (
-                                <div 
-                                    
-                                    
-                                    
-                                    
+                                <div
+
+
+
+
                                     style={{
                                     background: 'var(--card-bg)',
                                     border: '1px solid var(--card-border)',
@@ -419,10 +417,10 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
 
                         {/* Sidebar */}
                         <aside>
-                            <div 
-                                
-                                
-                                
+                            <div
+
+
+
                                 style={{ position: 'sticky', top: '80px' }}
                             >
                                 <div style={{
@@ -450,8 +448,8 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
                                                     transition: 'all 0.2s ease',
                                                     border: '1px solid var(--card-border)'
                                                 }}
-                                                
-                                                
+
+
                                             >
                                                 {section.title}
                                             </a>

@@ -50,7 +50,7 @@ const GoldenKeys = ({ count, size = 18 }: { count: number; size?: number }) => (
 const getKeyLabel = (k: number) => k === 3 ? "Efsane Usta" : k === 2 ? "Uzman Usta" : "İyi Usta";
 const getKeyColor = (k: number) => k === 3 ? "#FFD700" : k === 2 ? "#C0C0C0" : "#CD7F32";
 
-export default function AltinAnahtarClient() {
+export default function AltinAnahtarClient({breadcrumbs}:{breadcrumbs?:React.ReactNode}) {
     const { user } = useAuth();
     const isAdmin = user?.role === "admin";
     const [masters, setMasters] = useState<Master[]>([]);
@@ -127,6 +127,8 @@ export default function AltinAnahtarClient() {
         <div>
             <Navbar />
             <main style={{ minHeight: "100vh", background: "var(--background)" }}>
+{breadcrumbs}
+
                 {/* Hero */}
                 <div style={{
                     background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",

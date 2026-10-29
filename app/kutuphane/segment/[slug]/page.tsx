@@ -1,3 +1,4 @@
+import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import Navbar from "@/components/Navbar";
@@ -23,7 +24,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: SegmentPageProps): Promise<Metadata> {
     const { slug } = await params;
     const segmentIdMatch = slug.match(/^([a-z])-segmenti$/);
-    
+
     if (segmentIdMatch) {
         const id = segmentIdMatch[1].toUpperCase();
         const segment = segmentData.segments.find(s => s.id === id);
@@ -34,52 +35,49 @@ export async function generateMetadata({ params }: SegmentPageProps): Promise<Me
             };
         }
     }
-    
+
     return { title: 'Araç Segmentleri | OtoSöz' };
 }
 
 export default async function SegmentDetailPage({ params }: SegmentPageProps) {
     const { slug } = await params;
     const segmentIdMatch = slug.match(/^([a-z])-segmenti$/);
-    
+
     if (!segmentIdMatch) {
         notFound();
     }
-    
+
     const id = segmentIdMatch[1].toUpperCase();
     const segment = segmentData.segments.find(s => s.id === id);
-    
+
     if (!segment) {
         notFound();
     }
-    
+
     const faqs = [
-        { 
-            question: `${segment.title} Nedir?`, 
-            answer: `${segment.title}, otomotiv sektöründe araçların boyut, performans ve kullanım amacına göre sınıflandırıldığı kategorilerden biridir. ${segment.description}` 
+        {
+            question: `${segment.title} Nedir?`,
+            answer: `${segment.title}, otomotiv sektöründe araçların boyut, performans ve kullanım amacına göre sınıflandırıldığı kategorilerden biridir. ${segment.description}`
         },
-        { 
-            question: `${id} Segmenti Araçların Özellikleri Nelerdir?`, 
-            answer: `Bu segmentteki araçların genel özellikleri şunlardır: ${segment.characteristics.join(', ')}.` 
+        {
+            question: `${id} Segmenti Araçların Özellikleri Nelerdir?`,
+            answer: `Bu segmentteki araçların genel özellikleri şunlardır: ${segment.characteristics.join(', ')}.`
         },
-        { 
-            question: `${id} Segmenti Araçlara Örnekler Nelerdir?`, 
-            answer: `Türkiye ve dünya pazarında sıkça karşılaştığımız ${id} segmenti popüler otomobillere örnek olarak; ${segment.examples.join(', ')} verilebilir.` 
+        {
+            question: `${id} Segmenti Araçlara Örnekler Nelerdir?`,
+            answer: `Türkiye ve dünya pazarında sıkça karşılaştığımız ${id} segmenti popüler otomobillere örnek olarak; ${segment.examples.join(', ')} verilebilir.`
         }
     ];
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(faq => ({
+    const jsonLd = buildSchemaFAQPage({"@context": "https://schema.org",
+"mainEntity": faqs.map(faq => ({
             "@type": "Question",
             "name": faq.question,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": faq.answer
             }
-        }))
-    };
+        }))});
 
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -112,7 +110,7 @@ export default async function SegmentDetailPage({ params }: SegmentPageProps) {
                     }}>
                         <Crown size={48} color="white" />
                     </div>
-                    
+
                     <h1 style={{ fontSize: '36px', fontWeight: '900', color: 'white', marginBottom: '16px' }}>{segment.title} Nedir?</h1>
                     <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.6', maxWidth: '600px', margin: '0 auto' }}>
                         {segment.description}
@@ -125,7 +123,7 @@ export default async function SegmentDetailPage({ params }: SegmentPageProps) {
                             <HelpCircle size={28} color="#3B82F6" />
                             <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)' }}>Sıkça Sorulan Sorular</h2>
                         </div>
-                        
+
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             {faqs.map((faq, idx) => (
                                 <div key={idx} style={{ background: 'var(--background)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-subtle)' }}>

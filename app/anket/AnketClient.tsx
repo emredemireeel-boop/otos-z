@@ -69,7 +69,7 @@ function getCuratedSurveysForUser(curatedSurveys:Survey[],userId?: string): Surv
     });
 }
 
-export default function AnketClient({initialSurveys,featuredVehicles,curatedSurveys,textSlots}:{initialSurveys:Survey[];curatedSurveys:Survey[];textSlots:Record<string,{title:React.ReactNode;description:React.ReactNode;nominees:Record<number,React.ReactNode>}>;featuredVehicles:{id:number;brand:string;model:string;dnaScore:number;chronicCount:number;totalReports:number}[]}) {
+export default function AnketClient({initialSurveys,featuredVehicles,curatedSurveys,textSlots,breadcrumbs}:{initialSurveys:Survey[];curatedSurveys:Survey[];textSlots:Record<string,{title:React.ReactNode;description:React.ReactNode;nominees:Record<number,React.ReactNode>}>;featuredVehicles:{id:number;brand:string;model:string;dnaScore:number;chronicCount:number;totalReports:number}[];breadcrumbs?:React.ReactNode;}) {
     const { user } = useAuth();
     const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [surveys, setSurveys] = useState<Survey[]>(initialSurveys);
@@ -275,6 +275,8 @@ export default function AnketClient({initialSurveys,featuredVehicles,curatedSurv
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+{breadcrumbs}
+
                 {/* Toast */}
                 {toast && (
                     <div style={{
@@ -575,34 +577,34 @@ export default function AnketClient({initialSurveys,featuredVehicles,curatedSurv
                                         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
                                         marginTop: '16px', padding: '16px 0', borderTop: '1px solid var(--card-border)'
                                     }}>
-                                        <button 
-                                            onClick={() => setCurrentPage(1)} 
+                                        <button
+                                            onClick={() => setCurrentPage(1)}
                                             disabled={currentPage === 1}
                                             style={{ padding: '8px 12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '8px', color: currentPage === 1 ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
                                         >
                                             « İlk
                                         </button>
-                                        <button 
-                                            onClick={() => setCurrentPage(p => Math.max(1, p - 1))} 
+                                        <button
+                                            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                                             disabled={currentPage === 1}
                                             style={{ padding: '8px 12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '8px', color: currentPage === 1 ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
                                         >
                                             ‹ Önceki
                                         </button>
-                                        
+
                                         <span style={{ fontSize: '14px', fontWeight: '600', padding: '0 12px', color: 'var(--foreground)' }}>
                                             Sayfa {currentPage} / {totalPages}
                                         </span>
 
-                                        <button 
-                                            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} 
+                                        <button
+                                            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                                             disabled={currentPage === totalPages}
                                             style={{ padding: '8px 12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '8px', color: currentPage === totalPages ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}
                                         >
                                             Sonraki ›
                                         </button>
-                                        <button 
-                                            onClick={() => setCurrentPage(totalPages)} 
+                                        <button
+                                            onClick={() => setCurrentPage(totalPages)}
                                             disabled={currentPage === totalPages}
                                             style={{ padding: '8px 12px', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '8px', color: currentPage === totalPages ? 'var(--text-muted)' : 'var(--foreground)', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}
                                         >

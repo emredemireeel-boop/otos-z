@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import ServerCatalogClient from "@/components/ServerCatalogClient";
 import ComparisonRealtimeClient from "./ComparisonRealtimeClient";
 import {getForumHubThreadSummaries} from "@/lib/forumDataServer";
@@ -39,6 +40,8 @@ export default async function ComparisonPage(){
         <ServerCatalogClient>
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+<PageBreadcrumbs url={'/karsilastirma'}/>
+
                 {/* Sub Header — White */}
                 <div style={{ background: 'var(--card-bg)', borderBottom: '1px solid var(--card-border)', padding: '16px 24px' }}>
                     <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
@@ -125,8 +128,8 @@ export default async function ComparisonPage(){
                                                     background: 'var(--card-bg)', border: '1px solid rgba(255, 107, 53, 0.35)',
                                                     borderRadius: '16px', padding: '24px', cursor: 'pointer', transition: 'all 0.2s',
                                                 }}
-                                                    
-                                                    
+
+
                                                 >
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
                                                         <div style={{ flex: 1, minWidth: '200px' }}>
@@ -168,8 +171,8 @@ export default async function ComparisonPage(){
                                                     background: 'var(--card-bg)', border: '1px solid var(--card-border)',
                                                     borderRadius: '16px', padding: '24px', cursor: 'pointer', transition: 'all 0.2s',
                                                 }}
-                                                    
-                                                    
+
+
                                                 >
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
                                                         <div style={{ flex: 1, minWidth: '200px' }}>
@@ -226,8 +229,8 @@ export default async function ComparisonPage(){
                                                         background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', padding: '12px',
                                                         position: 'relative', transition: 'all 0.2s',
                                                     }}
-                                                        
-                                                        
+
+
                                                     >
                                                         <div style={{ position: 'absolute', top: 0, right: 0, background: '#FF6B35', color: 'white', fontSize: '9px', fontWeight: '800', padding: '2px 6px', borderBottomLeftRadius: '6px' }}>ÖRNEK</div>
                                                         <h3 style={{ fontSize: '13px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '6px', paddingRight: '42px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{comparison.title}</h3>

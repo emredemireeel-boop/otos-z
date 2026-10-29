@@ -1,3 +1,4 @@
+import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import Navbar from "@/components/Navbar";
@@ -23,52 +24,49 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: KasaPageProps): Promise<Metadata> {
     const { slug } = await params;
     const type = segmentData.bodyTypes.find(t => t.id === slug);
-    
+
     if (type) {
         return {
             title: `${type.title} Kasa Nedir? Avantajları ve Özellikleri | OtoSöz`,
             description: `${type.title} nedir? Hangi araçlar ${type.title} olarak adlandırılır? ${type.title} kasa araçların avantajları ve dezavantajları hakkında detaylı bilgiler OtoSöz'de.`,
         };
     }
-    
+
     return { title: 'Araç Kasa Tipleri | OtoSöz' };
 }
 
 export default async function KasaDetailPage({ params }: KasaPageProps) {
     const { slug } = await params;
     const type = segmentData.bodyTypes.find(t => t.id === slug);
-    
+
     if (!type) {
         notFound();
     }
-    
+
     const faqs = [
-        { 
-            question: `${type.title} Kasa Nedir?`, 
-            answer: `${type.title}, otomotiv pazarında sıkça tercih edilen gövde tasarımlarından biridir. ${type.description}` 
+        {
+            question: `${type.title} Kasa Nedir?`,
+            answer: `${type.title}, otomotiv pazarında sıkça tercih edilen gövde tasarımlarından biridir. ${type.description}`
         },
-        { 
-            question: `${type.title} Araçların Avantajları Nelerdir?`, 
-            answer: `Bir ${type.title} araç satın aldığınızda şu avantajlara sahip olursunuz: ${type.pros.join(', ')}.` 
+        {
+            question: `${type.title} Araçların Avantajları Nelerdir?`,
+            answer: `Bir ${type.title} araç satın aldığınızda şu avantajlara sahip olursunuz: ${type.pros.join(', ')}.`
         },
-        { 
-            question: `${type.title} Araçların Dezavantajları Nelerdir?`, 
-            answer: `Kullanım amacınıza göre ${type.title} kasa bir araç alırken şu dezavantajları göz önünde bulundurmalısınız: ${type.cons.join(', ')}.` 
+        {
+            question: `${type.title} Araçların Dezavantajları Nelerdir?`,
+            answer: `Kullanım amacınıza göre ${type.title} kasa bir araç alırken şu dezavantajları göz önünde bulundurmalısınız: ${type.cons.join(', ')}.`
         }
     ];
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(faq => ({
+    const jsonLd = buildSchemaFAQPage({"@context": "https://schema.org",
+"mainEntity": faqs.map(faq => ({
             "@type": "Question",
             "name": faq.question,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": faq.answer
             }
-        }))
-    };
+        }))});
 
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -101,7 +99,7 @@ export default async function KasaDetailPage({ params }: KasaPageProps) {
                     }}>
                         <Car size={48} color="white" />
                     </div>
-                    
+
                     <h1 style={{ fontSize: '36px', fontWeight: '900', color: 'white', marginBottom: '16px' }}>{type.title} Kasa Nedir?</h1>
                     <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.6', maxWidth: '600px', margin: '0 auto' }}>
                         {type.description}
@@ -114,7 +112,7 @@ export default async function KasaDetailPage({ params }: KasaPageProps) {
                             <HelpCircle size={28} color="#10B981" />
                             <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)' }}>Sıkça Sorulan Sorular</h2>
                         </div>
-                        
+
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             {faqs.map((faq, idx) => (
                                 <div key={idx} style={{ background: 'var(--background)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-subtle)' }}>

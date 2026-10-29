@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import {schemaJson, article} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
 import { indexabilityRobots } from '@/lib/indexability';
@@ -33,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         const filePath = path.join(process.cwd(), 'data', 'nasil-yapilir.json');
         const fileContents = fs.readFileSync(filePath, 'utf8');
         const data = JSON.parse(fileContents);
-        
+
         let guide = null;
         for (const cat of data.categories) {
             const found = cat.guides.find((g: any) => (g.slug && g.slug === slug) || createSlug(g.title) === slug);
@@ -90,7 +92,7 @@ export default async function NasilYapilirPage({ params }: PageProps) {
         const filePath = path.join(process.cwd(), 'data', 'nasil-yapilir.json');
         const fileContents = fs.readFileSync(filePath, 'utf8');
         const data = JSON.parse(fileContents);
-        
+
         for (const cat of data.categories) {
             const found = cat.guides.find((g: any) => (g.slug && g.slug === slug) || createSlug(g.title) === slug);
             if (found) {
@@ -109,10 +111,8 @@ export default async function NasilYapilirPage({ params }: PageProps) {
 
     const structuredData = article({url:`https://otosoz.com/nasil-yapilir/${slug}`,headline:guide.title,description:guide.description,datePublished:guide.createdAt,dateModified:guide.updatedAt});
 
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+    const breadcrumbSchema = buildSchemaBreadcrumbList({"@context": "https://schema.org",
+"itemListElement": [
             {
                 "@type": "ListItem",
                 "position": 1,
@@ -131,8 +131,7 @@ export default async function NasilYapilirPage({ params }: PageProps) {
                 "name": guide.title,
                 "item": `https://otosoz.com/nasil-yapilir/${slug}`
             }
-        ]
-    };
+        ]});
 
     return (
         <>
@@ -140,7 +139,7 @@ export default async function NasilYapilirPage({ params }: PageProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: schemaJson(isQualityGuide(guide, 'howto') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
-            <NasilYapilirDetailClient guide={guide} category={category} />
+            <NasilYapilirDetailClient breadcrumbs={<PageBreadcrumbs url={`/nasil-yapilir/${slug}`}/>} guide={guide} category={category} />
         </>
     );
 }

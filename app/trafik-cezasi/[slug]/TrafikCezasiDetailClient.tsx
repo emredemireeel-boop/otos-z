@@ -7,100 +7,23 @@ import { ArrowLeft, ShieldAlert, FileText, AlertTriangle, CheckCircle, ExternalL
 import Link from "next/link";
 
 interface TrafikCezasiDetailClientProps {
+ breadcrumbs?:React.ReactNode;faqContent?:React.ReactNode;
+
     cezaItem: any;
     kategori: string;
     ilgiliCezalar?: any[];
 }
 
-function FAQAccordion({ faq }: { faq: { soru: string; cevap: string }[] }) {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-    return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            {faq.map((item, idx) => (
-                <div key={idx} style={{
-                    border: '1px solid var(--card-border)',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    background: openIndex === idx ? 'rgba(59, 130, 246, 0.03)' : 'transparent',
-                    transition: 'all 0.2s ease'
-                }}>
-                    <button
-                        onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                        style={{
-                            width: '100%',
-                            padding: '16px 20px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            gap: '12px',
-                            background: 'none',
-                            border: 'none',
-                            cursor: 'pointer',
-                            textAlign: 'left',
-                            color: 'var(--foreground)',
-                            fontSize: '15px',
-                            fontWeight: '600',
-                            lineHeight: '1.5'
-                        }}
-                    >
-                        <span style={{ flex: 1 }}>{item.soru}</span>
-                        <span style={{
-                            width: '28px',
-                            height: '28px',
-                            borderRadius: '50%',
-                            background: openIndex === idx ? 'var(--primary)' : 'var(--secondary)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexShrink: 0,
-                            transition: 'all 0.2s ease'
-                        }}>
-                            <ChevronDown
-                                size={16}
-                                color={openIndex === idx ? 'white' : 'var(--text-muted)'}
-                                style={{
-                                    transform: openIndex === idx ? 'rotate(180deg)' : 'rotate(0deg)',
-                                    transition: 'transform 0.2s ease'
-                                }}
-                            />
-                        </span>
-                    </button>
-                    {openIndex === idx && (
-                        <div style={{
-                            padding: '0 20px 16px',
-                            fontSize: '14px',
-                            color: 'var(--text-muted)',
-                            lineHeight: '1.7',
-                            animation: 'fadeIn 0.2s ease'
-                        }}>
-                            {item.cevap}
-                        </div>
-                    )}
-                </div>
-            ))}
-        </div>
-    );
-}
-
-export default function TrafikCezasiDetailClient({ cezaItem, kategori, ilgiliCezalar = [] }: TrafikCezasiDetailClientProps) {
+export default function TrafikCezasiDetailClient({ cezaItem, kategori, ilgiliCezalar = [] ,breadcrumbs,faqContent}: TrafikCezasiDetailClientProps) {
     return (
         <div>
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingBottom: '60px' }}>
+{breadcrumbs}
+
                 {/* Breadcrumb */}
-                <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '16px 24px 0' }}>
-                    <nav aria-label="Breadcrumb" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
-                        <Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Ana Sayfa</Link>
-                        <ChevronRight size={14} />
-                        <Link href="/kutuphane" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Kütüphane</Link>
-                        <ChevronRight size={14} />
-                        <Link href="/trafik-cezasi" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Trafik Cezaları</Link>
-                        <ChevronRight size={14} />
-                        <span style={{ color: 'var(--foreground)', fontWeight: '600' }}>{cezaItem.ihlal}</span>
-                    </nav>
-                </div>
+
 
                 {/* Hero Section */}
                 <div style={{
@@ -360,7 +283,7 @@ export default function TrafikCezasiDetailClient({ cezaItem, kategori, ilgiliCez
                                         <HelpCircle style={{ color: '#F59E0B' }} size={22} />
                                         Sıkça Sorulan Sorular
                                     </h2>
-                                    <FAQAccordion faq={cezaItem.faq} />
+                                    {faqContent}
                                 </div>
                             )}
 

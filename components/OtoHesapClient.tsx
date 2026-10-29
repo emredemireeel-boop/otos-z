@@ -241,7 +241,7 @@ function LocationSelector({ label, il, ilce, mahalle, onIl, onIlce, onMahalle, e
 /* ═══════════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════════ */
-export default function OtoHesapClient({ activeModule, pageTitle, pageDescription, children }: { activeModule: string; pageTitle: string; pageDescription: string; children?: React.ReactNode }) {
+export default function OtoHesapClient({ activeModule, pageTitle, pageDescription, children ,breadcrumbs}: { activeModule: string; pageTitle: string; pageDescription: string; children?: React.ReactNode ;breadcrumbs?:React.ReactNode;}) {
   const { user } = useAuth();
   const [fromIl, setFromIl] = useState("");
   const [fromIlce, setFromIlce] = useState("");
@@ -330,10 +330,10 @@ export default function OtoHesapClient({ activeModule, pageTitle, pageDescriptio
 
   useEffect(() => {
     if (!fromIl || !toIl) { setRouteDistance(null); setRouteGeometry([]); return; }
-    
+
     let c1: [number,number] | null = null;
     let c2: [number,number] | null = null;
-    
+
     if (fromIl === toIl) {
         if (!fromIlce || !toIlce || fromIlce === toIlce) { setRouteDistance(null); setRouteGeometry([]); return; }
         c1 = getDistrictCoords(fromIl, fromIlce);
@@ -344,13 +344,13 @@ export default function OtoHesapClient({ activeModule, pageTitle, pageDescriptio
         if (toIlce) c2 = getDistrictCoords(toIl, toIlce);
         if (!c2) c2 = getCoords(toIl);
     }
-    
+
     if (!c1 || !c2) { setRouteDistance(null); setRouteGeometry([]); return; }
-    
+
     setRouteFromCoord(c1);
     setRouteToCoord(c2);
     setRouteLoading(true);
-    
+
     // OSRM ücretsiz API — gerçek karayolu mesafesi
     fetch(`https://router.project-osrm.org/route/v1/driving/${c1[1]},${c1[0]};${c2[1]},${c2[0]}?overview=full&geometries=geojson`)
         .then(r => r.json())
@@ -426,6 +426,8 @@ export default function OtoHesapClient({ activeModule, pageTitle, pageDescriptio
       <Navbar />
 
       <main>
+{breadcrumbs}
+
         <style dangerouslySetInnerHTML={{__html: `
           @media print {
             .no-print, nav, footer { display: none !important; }
@@ -436,11 +438,7 @@ export default function OtoHesapClient({ activeModule, pageTitle, pageDescriptio
         {/* Module heading */}
         <section className="oh-module-hero no-print">
           <div className="oh-page-container oh-module-hero-inner">
-            <nav aria-label="İçerik yolu" className="oh-breadcrumb oh-module-breadcrumb">
-              <Link href="/">Ana Sayfa</Link><span aria-hidden="true">/</span>
-              <Link href="/otohesap">OtoHesap</Link><span aria-hidden="true">/</span>
-              <span>{activeTool.label}</span>
-            </nav>
+
             <div className="oh-module-head">
               <span className="oh-module-icon"><ActiveToolIcon size={29} strokeWidth={1.7} /></span>
               <div className="oh-module-copy-wrap">

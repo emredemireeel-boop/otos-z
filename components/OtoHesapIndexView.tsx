@@ -40,11 +40,13 @@ function toolStyle(accent: string): CSSProperties {
   return { "--tool-accent": accent } as CSSProperties;
 }
 
-export default function OtoHesapIndexView() {
+export default function OtoHesapIndexView({breadcrumbs}:{breadcrumbs?:React.ReactNode}) {
   return (
     <div className="otohesap-index">
       <Navbar />
       <main>
+{breadcrumbs}
+
         <section className="oh-hero">
           <div className="oh-page-container oh-hero-inner">
             <div>
@@ -82,9 +84,7 @@ export default function OtoHesapIndexView() {
         </section>
 
         <div className="oh-page-container oh-index-body">
-          <nav aria-label="İçerik yolu" className="oh-breadcrumb">
-            <Link href="/">Ana Sayfa</Link><span aria-hidden="true">/</span><span>OtoHesap</span>
-          </nav>
+
 
           <section aria-labelledby="popular-title">
             <div className="oh-group-header" style={{ marginTop: 22, marginBottom: 13 }}>

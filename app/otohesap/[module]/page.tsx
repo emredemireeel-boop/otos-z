@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {faqPage as buildSchemaFAQPage,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isGuideIndexable, qualityContentText } from '@/lib/indexability';
 import type { Metadata } from 'next';
@@ -64,15 +66,12 @@ export default async function OtoHesapModulePage({ params }: PageProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
-      {
-        '@type': 'BreadcrumbList',
-        '@id': `${pageUrl}#breadcrumb`,
-        itemListElement: [
+      buildSchemaBreadcrumbList({'@id': `${pageUrl}#breadcrumb`,
+itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://otosoz.com/' },
           { '@type': 'ListItem', position: 2, name: 'OtoHesap', item: 'https://otosoz.com/otohesap' },
           { '@type': 'ListItem', position: 3, name: guide.label, item: pageUrl },
-        ],
-      },
+        ]}),
       {
         '@type': ['SoftwareApplication', 'WebApplication'],
         '@id': `${pageUrl}#calculator`,
@@ -92,15 +91,12 @@ export default async function OtoHesapModulePage({ params }: PageProps) {
         keywords: meta.keywords,
         potentialAction: { '@type': 'UseAction', target: pageUrl },
       },
-      {
-        '@type': 'FAQPage',
-        '@id': `${pageUrl}#faq`,
-        mainEntity: guide.faqs.map(faq => ({
+      buildSchemaFAQPage({'@id': `${pageUrl}#faq`,
+mainEntity: guide.faqs.map(faq => ({
           '@type': 'Question',
           name: faq.question,
           acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-        })),
-      },
+        }))}),
       {
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
@@ -120,7 +116,7 @@ export default async function OtoHesapModulePage({ params }: PageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
-      <OtoHesapClient activeModule={resolvedParams.module} pageTitle={guide.h1} pageDescription={meta.description}>
+      <OtoHesapClient breadcrumbs={<PageBreadcrumbs url={pageUrl}/>} activeModule={resolvedParams.module} pageTitle={guide.h1} pageDescription={meta.description}>
         <OtoHesapGuideContent activeModule={resolvedParams.module} />
       </OtoHesapClient>
     </>

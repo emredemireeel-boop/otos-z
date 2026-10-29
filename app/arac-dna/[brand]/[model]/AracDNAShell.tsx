@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 
 import { DnaTabLinks } from "@/components/DnaTabLinks";
 import type { VehicleDNA } from "@/lib/dna-types";
@@ -88,7 +89,7 @@ export default function AracDNAShell({ children, vehicle, engineParam = '', sect
     const scoreColor = getDNAScoreColor(activeScore);
     const scoreLabel = getDNAScoreLabel(activeScore);
 
-    const basePath = specificEngine 
+    const basePath = specificEngine
         ? `/arac-dna/${brandSlug}/${modelSlug}/${baseEngineSlug}`
         : `/arac-dna/${brandSlug}/${modelSlug}`;
 
@@ -145,6 +146,8 @@ export default function AracDNAShell({ children, vehicle, engineParam = '', sect
             <Navbar />
 
             <main style={{ flex: 1, background: 'var(--background)', paddingTop: '60px', paddingBottom: '60px' }}>
+<PageBreadcrumbs url={`https://otosoz.com/arac-dna/${brandSlug}/${modelSlug}${engineParam?'/'+engineParam:({'kronik':'/kronik-sorunlar','artilar':'/neden-alinir','donanim':'/arac-paketleri','deneyimler':'/kullanici-deneyimleri'} as Record<string,string>)[section]||''}`}/>
+
                 <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '24px' }}>
 
                     {/* Back Button */}

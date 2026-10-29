@@ -23,11 +23,11 @@ import LatestThreadsWidget from "@/components/LatestThreadsWidget";
 
 const parseComparisonContent = (text: string) => {
     if (!text.includes("Karsilastirilan Araclar:")) return { description: text, vehicles: [] };
-    
+
     const parts = text.split("Karsilastirilan Araclar:");
     const description = parts[0].trim();
     const vehiclesText = parts[1].trim();
-    
+
     const vehicles: {name: string, url: string}[] = [];
     vehiclesText.split('\n').forEach(line => {
         const match = line.match(/^(.+?):\s*(https?:\/\/[^\s]+)/);
@@ -35,7 +35,7 @@ const parseComparisonContent = (text: string) => {
             vehicles.push({ name: match[1].trim(), url: match[2].trim() });
         }
     });
-    
+
     return { description, vehicles };
 };
 
@@ -61,6 +61,8 @@ interface InitialForumEntry {
 }
 
 interface ForumThreadPageProps {
+ breadcrumbs?:React.ReactNode;
+
     sidebarLeft?:React.ReactNode; sidebarRight?:React.ReactNode;
     initialThread?: InitialForumThread;
     initialEntries?: InitialForumEntry[];
@@ -86,7 +88,7 @@ function hydrateInitialEntries(entries: InitialForumEntry[] = []): ForumEntry[] 
     }));
 }
 
-export default function ForumThreadPage({ initialThread, initialEntries = [], sidebarLeft, sidebarRight }: ForumThreadPageProps) {
+export default function ForumThreadPage({ initialThread, initialEntries = [], sidebarLeft, sidebarRight ,breadcrumbs}: ForumThreadPageProps) {
     const params = useParams();
     const router = useRouter();
     const slugParam = params.id as string;
@@ -116,7 +118,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
     const [userGarageMap, setUserGarageMap] = useState<Record<string, string>>({});
     const [userRoleMap, setUserRoleMap] = useState<Record<string, string>>({});
     const [userPhotoMap, setUserPhotoMap] = useState<Record<string, string>>({});
-    
+
     const ENTRIES_PER_PAGE = 10;
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const viewCounted = useRef(false);
@@ -459,6 +461,8 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+{breadcrumbs}
+
                 {/* Header */}
                 <div className="forum-thread-header" style={{
                     background: catStyle.gradient,
@@ -561,7 +565,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
 
                 {/* Content Layout */}
                 <div className="forum-layout" style={{ maxWidth: '1400px', margin: '0 auto', padding: '32px 24px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                    
+
                     {/* Left Column: Popular Threads */}
                     <div className="forum-sidebar-left" style={{ width: '280px', flexShrink: 0, display: 'flex', flexDirection: 'column', gap: '16px', position: 'sticky', top: '80px' }}>
                          <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '16px', padding: '16px', boxShadow: 'var(--card-shadow)' }}>
@@ -597,7 +601,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
 
                     {/* Middle Column: Entries */}
                     <div style={{ flex: 1, minWidth: 0, width: '100%' }}>
-                        
+
                         {entries.length === 0 ? (
                             <div style={{
                                 textAlign: 'center', padding: '60px 20px',
@@ -654,7 +658,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                                     const garageText = userGarageMap[entry.authorId];
                                     const isExpert = userRoleMap[entry.authorId] === 'usta';
                                     const isOp = entry.username === thread.authorUsername;
-                                    
+
                                     const entryBg = isExpert ? 'linear-gradient(to right, rgba(234,179,8,0.03), transparent)' : (isOp && !isFirstEntry ? 'var(--hover-primary)' : 'var(--card-bg)');
                                     const entryBorderLeft = !isFirstEntry ? (isOp ? '3px solid var(--primary)' : '3px solid var(--card-border)') : undefined;
 
@@ -766,7 +770,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                                                     </div>
                                                     <div>
                                                         <div style={{ fontSize: '15px', fontWeight: '700', color: isExpert ? '#eab308' : 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                                            @{entry.username} 
+                                                            @{entry.username}
                                                             {isExpert && (
                                                                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '2px', fontSize: '10px', background: '#eab308', color: 'white', padding: '2px 6px', borderRadius: '4px', letterSpacing: '0.5px' }}>
                                                                     <ShieldCheck size={10} /> ONAYLI UZMAN
@@ -813,9 +817,9 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                                                             </button>
                                                         )}
                                                         {user && user.id !== entry.authorId && (
-                                                            <button onClick={async () => { 
-                                                                setRatingModal({ userId: entry.authorId, username: entry.username }); 
-                                                                setActiveUserMenu(null); 
+                                                            <button onClick={async () => {
+                                                                setRatingModal({ userId: entry.authorId, username: entry.username });
+                                                                setActiveUserMenu(null);
                                                                 setRatingScore(0);
                                                                 setPreviousRating(null);
                                                                 setLoadingPrevRating(true);
@@ -1006,7 +1010,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                                     <div style={{
                                         width: '32px', height: '32px', borderRadius: '50%',
-                                        background: 'var(--primary)', 
+                                        background: 'var(--primary)',
                                         backgroundImage: user.avatar ? `url(${user.avatar})` : 'none',
                                         backgroundSize: 'cover', backgroundPosition: 'center',
                                         display: 'flex',
@@ -1093,7 +1097,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                             {/* Pazar Icerikleri Gizlendi */}
                             {/* Tüm İlanları Gör Gizlendi */}
                         </div>
-                        
+
                         <ClosableAdSlot
                             position="entry_sidebar_right"
                             dismissKey="entry_sidebar_right"
@@ -1164,7 +1168,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                         </div>
                         <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontWeight: '800', color: 'var(--foreground)' }}>Kullanıcıyı Değerlendir</h3>
                         <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: 'var(--text-muted)' }}>@{ratingModal.username} için puanınız (Anonim olarak verilecektir)</p>
-                        
+
                         {/* Daha önce verilen puan bilgisi */}
                         {loadingPrevRating ? (
                             <div style={{ padding: '8px 0 16px', fontSize: '12px', color: 'var(--text-muted)' }}>Önceki puanınız kontrol ediliyor...</div>
@@ -1192,10 +1196,10 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                                         transform: star <= (hoverScore || ratingScore) ? 'scale(1.2)' : 'scale(1)',
                                     }}
                                 >
-                                    <Star 
-                                        size={36} 
-                                        color={star <= (hoverScore || ratingScore) ? '#F59E0B' : 'var(--card-border)'} 
-                                        fill={star <= (hoverScore || ratingScore) ? '#F59E0B' : 'transparent'} 
+                                    <Star
+                                        size={36}
+                                        color={star <= (hoverScore || ratingScore) ? '#F59E0B' : 'var(--card-border)'}
+                                        fill={star <= (hoverScore || ratingScore) ? '#F59E0B' : 'transparent'}
                                     />
                                 </button>
                             ))}

@@ -1,3 +1,4 @@
+import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import Navbar from "@/components/Navbar";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function GuvenliOdemePage() {
     const { guvenliOdeme } = noterData;
-    
+
     const faqs = [
         {
             question: "Güvenli Ödeme Sistemi Nedir?",
@@ -26,18 +27,15 @@ export default function GuvenliOdemePage() {
         }))
     ];
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(faq => ({
+    const jsonLd = buildSchemaFAQPage({"@context": "https://schema.org",
+"mainEntity": faqs.map(faq => ({
             "@type": "Question",
             "name": faq.question,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": faq.answer
             }
-        }))
-    };
+        }))});
 
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -70,7 +68,7 @@ export default function GuvenliOdemePage() {
                     }}>
                         <ShieldCheck size={48} color="white" />
                     </div>
-                    
+
                     <h1 style={{ fontSize: '36px', fontWeight: '900', color: 'white', marginBottom: '16px' }}>{guvenliOdeme.baslik}</h1>
                     <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.6', maxWidth: '600px', margin: '0 auto' }}>
                         {guvenliOdeme.aciklama}
@@ -83,7 +81,7 @@ export default function GuvenliOdemePage() {
                             <HelpCircle size={28} color="#3B82F6" />
                             <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)' }}>Sıkça Sorulan Sorular (Nasıl Yapılır?)</h2>
                         </div>
-                        
+
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             {faqs.map((faq, idx) => (
                                 <div key={idx} style={{ background: 'var(--background)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-subtle)' }}>

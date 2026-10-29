@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import Link from "next/link";
@@ -32,7 +33,9 @@ export default function OtoButcePage() {
     <div className="otobutce-page">
       <Navbar />
       <main style={{ minHeight: "100vh", background: "var(--background)", paddingBottom: "60px" }}>
-        
+<PageBreadcrumbs url={'/otobutce'}/>
+
+
         {/* Hero Section */}
         <section style={{
           padding: "60px 20px 40px",
@@ -80,7 +83,7 @@ export default function OtoButcePage() {
         {/* 3-Column Layout */}
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "24px" }}>
           <div className="home-main-grid" style={{ display: "grid", gridTemplateColumns: "220px 1fr 280px", gap: "24px" }}>
-            
+
             {/* Left Sidebar */}
             <aside className="home-left-sidebar">
               <div style={{ position: "sticky", top: "100px" }}>
@@ -132,8 +135,8 @@ export default function OtoButcePage() {
             <div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px" }}>
                 {OTOBUTCE_CATEGORIES.map((cat) => (
-                  <Link 
-                    href={`/otobutce/${cat.slug}`} 
+                  <Link
+                    href={`/otobutce/${cat.slug}`}
                     key={cat.id}
                     className="hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
                     style={{
@@ -154,7 +157,7 @@ export default function OtoButcePage() {
                       background: "radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%)",
                       transform: "translate(30%, -30%)"
                     }} />
-                    
+
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px" }}>
                       <div style={{
                         width: "48px",

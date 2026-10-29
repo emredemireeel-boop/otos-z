@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import library from '@/public/data/library_guides.json';
 import {getIndexableUrls} from '@/lib/seoRoutes';
@@ -70,27 +72,19 @@ function buildJsonLd(cat: CatMeta): string {
             : `${BASE_URL}/kutuphane/kategori/${cat.slug}`;
 
     const graph: any[] = [
-        {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
+        buildSchemaBreadcrumbList({"itemListElement": [
                 { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: BASE_URL },
                 { "@type": "ListItem", position: 2, name: "Kütüphane", item: `${BASE_URL}/kutuphane` },
                 ...(isRoot ? [] : [{ "@type": "ListItem", position: 3, name: cat.name, item: pageUrl }]),
-            ],
-        },
-        {
-            "@type": "CollectionPage",
-            name: cat.title.split("|")[0].trim(),
-            description: cat.description,
-            url: pageUrl,
-            inLanguage: "tr-TR",
-
-            isPartOf: { "@type": "WebSite", name: "OtoSöz", url: BASE_URL },
-            ...(isRoot ? {
-                mainEntity: {
-                    "@type": "ItemList",
-                    numberOfItems: CATEGORIES.length,
-                    itemListElement: CATEGORIES.map((category, index) => ({
+            ]}),
+        buildSchemaCollectionPage({name: cat.title.split("|")[0].trim(),
+description: cat.description,
+url: pageUrl,
+inLanguage: "tr-TR",
+isPartOf: { "@type": "WebSite", name: "OtoSöz", url: BASE_URL },
+...(isRoot ? {
+                mainEntity: buildSchemaItemList({numberOfItems: CATEGORIES.length,
+itemListElement: CATEGORIES.map((category, index) => ({
                         "@type": "ListItem",
                         position: index + 1,
                         name: category.name,
@@ -101,10 +95,8 @@ function buildJsonLd(cat: CatMeta): string {
                                 : category.slug === "trafik-cezalari"
                                     ? TRAFFIC_FINES_CANONICAL
                                     : `${BASE_URL}/kutuphane/kategori/${category.slug}`,
-                    })),
-                },
-            } : {}),
-        },
+                    }))}),
+            } : {})}),
     ];
 
 
@@ -123,7 +115,7 @@ export default async function LibraryHub({kategori=null}:{kategori?:string|null}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: buildJsonLd(cat) }}
             />
-            <KutuphaneClient initialCategory={cat.slug} initialGuides={cat.slug==='makaleler'?library.guides.map(guide=>({id:guide.id,urlId:guide.urlId,title:guide.title,description:guide.description,minutes:guide.minutes,difficulty:guide.difficulty,tags:guide.tags,author:guide.author,indexable:articleUrls.has(`https://otosoz.com/makale/${createSeoSlug(guide.title)}--${guide.urlId||guide.id}`)})):[]} initialInterestingData={cat.slug==='ilginc-bilgiler'?interesting.interestingFacts:null} segmentData={cat.slug==='arac-segmentleri'?segmentData:undefined} initialTolls={cat.slug==='otoyol-ve-kopru-ucretleri'?tolls:[]}/>
+            <KutuphaneClient breadcrumbs={<PageBreadcrumbs url={cat.slug==='makaleler'?'/kutuphane':`/kutuphane/kategori/${cat.slug}`}/>} initialCategory={cat.slug} initialGuides={cat.slug==='makaleler'?library.guides.map(guide=>({id:guide.id,urlId:guide.urlId,title:guide.title,description:guide.description,minutes:guide.minutes,difficulty:guide.difficulty,tags:guide.tags,author:guide.author,indexable:articleUrls.has(`https://otosoz.com/makale/${createSeoSlug(guide.title)}--${guide.urlId||guide.id}`)})):[]} initialInterestingData={cat.slug==='ilginc-bilgiler'?interesting.interestingFacts:null} segmentData={cat.slug==='arac-segmentleri'?segmentData:undefined} initialTolls={cat.slug==='otoyol-ve-kopru-ucretleri'?tolls:[]}/>
         </>
     );
 }

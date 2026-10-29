@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
 import { indexabilityRobots } from '@/lib/indexability';
@@ -28,7 +30,7 @@ function getTollDataFromSlug(slug: string) {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
     const item = getTollDataFromSlug(slug);
-    
+
     if (!item) {
         return { title: "Bulunamadı | OtoSöz" };
     }
@@ -69,18 +71,15 @@ export default async function OtoyolDetayPage({ params }: PageProps) {
     }
 
     // JSON-LD schema for SEO
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "url": `https://otosoz.com/kutuphane/otoyol-ucretleri/${slug}`,
-        "headline": item.seoTitle,
-        "description": item.seoDescription,
-        "articleBody": item.content,
-        "author": {
+    const jsonLd = buildSchemaArticle({"@context": "https://schema.org",
+"url": `https://otosoz.com/kutuphane/otoyol-ucretleri/${slug}`,
+"headline": item.seoTitle,
+"description": item.seoDescription,
+"articleBody": item.content,
+"author": {
             "@type": "Organization",
             "name": "OtoSöz"
-        }
-    };
+        }});
 
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
@@ -88,6 +87,8 @@ export default async function OtoyolDetayPage({ params }: PageProps) {
             {isQualityGuide(item, 'toll') && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />}
 
             <main style={{ maxWidth: "860px", margin: "0 auto", padding: "100px 24px 60px 24px" }}>
+<PageBreadcrumbs url={`/kutuphane/otoyol-ucretleri/${slug}`}/>
+
                 {/* Back Button */}
                 <Link href="/kutuphane/kategori/otoyol-ve-kopru-ucretleri" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "14px", fontWeight: "600", marginBottom: "32px", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
                     <ArrowLeft size={16} /> Otoyol ve Köprü Ücretleri
@@ -146,7 +147,7 @@ export default async function OtoyolDetayPage({ params }: PageProps) {
                                 }}>
                                     {/* Background decorative Icon */}
                                     <Icon size={120} style={{ position: "absolute", bottom: "-20px", right: "-20px", opacity: 0.03, color: "var(--foreground)" }} />
-                                    
+
                                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                                         <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "var(--secondary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                             <Icon size={20} color="var(--foreground)" />
@@ -156,7 +157,7 @@ export default async function OtoyolDetayPage({ params }: PageProps) {
                                             <div style={{ fontSize: "13px", color: "var(--text-muted)" }}>{type.desc}</div>
                                         </div>
                                     </div>
-                                    
+
                                     <div style={{ borderTop: "1px solid var(--card-border)", paddingTop: "16px" }}>
                                         {price !== null && price !== undefined ? (
                                             <div style={{ fontSize: "28px", fontWeight: "800", color: "#22C55E" }}>{price.toFixed(2)} ₺</div>

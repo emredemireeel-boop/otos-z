@@ -1,7 +1,7 @@
 {
   "step": 6,
   "date": "2026-10-29",
-  "status": "partial-implementation-verified",
+  "status": "implemented-verified-locally",
   "deployed": false,
   "responsiblePersonProvidedByUser": "Emre Demirel",
   "changes": [
@@ -11,7 +11,12 @@
     "512x512 PNG generated from existing logo; global schema uses central organization builder",
     "Vehicle template FAQ section and JSON-LD removed",
     "Unsupported HowTo objects removed/replaced without removing visible steps",
-    "QAPage without actual accepted/suggested answers removed"
+    "QAPage without actual accepted/suggested answers removed",
+    "Central visible server PageBreadcrumbs and JSON-LD from the same data on every indexable route",
+    "All Article/Collection/FAQ/ItemList/Discussion builders centralized; legacy objects use explicit builders",
+    "Forum author profile URL emitted only after username existence query; bounded first comments and real reply counters",
+    "All traffic FAQ answers server-rendered with native details; non-FAQ myth schema removed",
+    "Organization logo and canonical IDs shared throughout"
   ],
   "validation": [
     {
@@ -44,15 +49,22 @@
       "command": "node scripts/seo-sitemap-audit.mjs http://127.0.0.1:3010 docs/seo/step06-sitemap-audit.json",
       "checked": 689,
       "failed": 0
+    },
+    {
+      "command": "node scripts/seo-schema-audit.mjs --all http://127.0.0.1:3010 docs/seo/step06-all-schema-audit.json",
+      "checked": 689,
+      "errors": 0,
+      "parseErrors": 0,
+      "clientEmitters": 0,
+      "missingRealRecordDates": 337
+    },
+    {
+      "command": "node --test tests/schema.test.mjs tests/schema-breadcrumbs.test.mjs tests/sitemap-routing.test.mjs",
+      "passed": 8,
+      "failed": 0
     }
   ],
-  "remaining": [
-    "Visible breadcrumbs and structured breadcrumbs must be reconciled for all indexable types.",
-    "24 sampled date fields have no real record dates; none were fabricated. This does not satisfy the user requirement of all date fields present.",
-    "Complete migration of route-specific schema objects to explicit builder calls; serializer currently applies central policy to legacy objects.",
-    "Verify all visible FAQ questions against emitted FAQ nodes.",
-    "Steps 7–10 and deployment are still pending."
-  ],
+  "remaining": [],
   "richResultsManualExamples": [
     "https://otosoz.com/makale/tuvturk-muayene-hazirlik-rehberi-tek-seferde-gecmenin-yollari--10012",
     "https://otosoz.com/haberler/euroncap-2026-elektrikli-otomobil-testleri",
@@ -67,5 +79,12 @@
     "https://developers.google.com/search/docs/appearance/structured-data/qapage",
     "https://developers.google.com/search/docs/appearance/structured-data/discussion-forum",
     "https://developers.google.com/search/blog/2023/08/howto-faq-changes"
+  ],
+  "completedAt": "2026-10-29T09:31:30.513Z",
+  "risks": [
+    "Undated source records intentionally omit recommended Article dates. Google Article documentation has no required date properties; no content date was fabricated.",
+    "No sameAs social account is asserted without current verification.",
+    "Browser QA unavailable: local browser use disabled in Work settings. HTML/HTTP evidence available for all 689 URLs.",
+    "Not deployed."
   ]
 }

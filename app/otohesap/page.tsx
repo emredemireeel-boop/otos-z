@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {itemList as buildSchemaItemList,collectionPage as buildSchemaCollectionPage,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
@@ -39,45 +41,36 @@ export default function OtoHesapIndex() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "@id": PAGE_URL + "#breadcrumb",
-        itemListElement: [
+      buildSchemaBreadcrumbList({"@id": PAGE_URL + "#breadcrumb",
+itemListElement: [
           { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://otosoz.com/" },
           { "@type": "ListItem", position: 2, name: "OtoHesap", item: PAGE_URL },
-        ],
-      },
-      {
-        "@type": "CollectionPage",
-        "@id": PAGE_URL + "#webpage",
-        url: PAGE_URL,
-        name: "OtoHesap: Otomotiv Hesaplama Araçları",
-        description: PAGE_DESCRIPTION,
-        inLanguage: "tr-TR",
-        dateModified: OTOHESAP_LAST_REVIEWED,
-        breadcrumb: { "@id": PAGE_URL + "#breadcrumb" },
-        isPartOf: { "@id": "https://otosoz.com/#website" },
-        mainEntity: { "@id": PAGE_URL + "#tools" },
-      },
-      {
-        "@type": "ItemList",
-        "@id": PAGE_URL + "#tools",
-        name: "OtoHesap araçları",
-        numberOfItems: modules.length,
-        itemListElement: modules.map((module, index) => ({
+        ]}),
+      buildSchemaCollectionPage({"@id": PAGE_URL + "#webpage",
+url: PAGE_URL,
+name: "OtoHesap: Otomotiv Hesaplama Araçları",
+description: PAGE_DESCRIPTION,
+inLanguage: "tr-TR",
+dateModified: OTOHESAP_LAST_REVIEWED,
+breadcrumb: { "@id": PAGE_URL + "#breadcrumb" },
+isPartOf: { "@id": "https://otosoz.com/#website" },
+mainEntity: { "@id": PAGE_URL + "#tools" }}),
+      buildSchemaItemList({"@id": PAGE_URL + "#tools",
+name: "OtoHesap araçları",
+numberOfItems: modules.length,
+itemListElement: modules.map((module, index) => ({
           "@type": "ListItem",
           position: index + 1,
           name: OTOHESAP_GUIDES[module].h1,
           url: PAGE_URL + "/" + module,
-        })),
-      },
+        }))}),
     ],
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
-      <OtoHesapIndexView />
+      <OtoHesapIndexView breadcrumbs={<PageBreadcrumbs url={PAGE_URL}/>} />
     </>
   );
 }

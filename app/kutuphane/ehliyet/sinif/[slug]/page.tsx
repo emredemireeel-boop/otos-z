@@ -1,3 +1,4 @@
+import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import Navbar from "@/components/Navbar";
@@ -23,7 +24,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: EhliyetSinifPageProps): Promise<Metadata> {
     const { slug } = await params;
     const match = slug.match(/^([a-z0-9]+)-sinifi-ehliyet$/);
-    
+
     if (match) {
         const id = match[1].toUpperCase();
         const sinif = ehliyetData.siniflar.find(s => s.id === id);
@@ -34,56 +35,53 @@ export async function generateMetadata({ params }: EhliyetSinifPageProps): Promi
             };
         }
     }
-    
+
     return { title: 'Ehliyet Sınıfları | OtoSöz' };
 }
 
 export default async function EhliyetSinifDetailPage({ params }: EhliyetSinifPageProps) {
     const { slug } = await params;
     const match = slug.match(/^([a-z0-9]+)-sinifi-ehliyet$/);
-    
+
     if (!match) {
         notFound();
     }
-    
+
     const id = match[1].toUpperCase();
     const sinif = ehliyetData.siniflar.find(s => s.id === id);
-    
+
     if (!sinif) {
         notFound();
     }
-    
+
     const faqs = [
-        { 
-            question: `${sinif.isim} Nedir?`, 
-            answer: `${sinif.isim}, Karayolları Trafik Yönetmeliğine göre belirli motorlu taşıtları kullanmaya yetki veren bir sürücü belgesi türüdür.` 
+        {
+            question: `${sinif.isim} Nedir?`,
+            answer: `${sinif.isim}, Karayolları Trafik Yönetmeliğine göre belirli motorlu taşıtları kullanmaya yetki veren bir sürücü belgesi türüdür.`
         },
-        { 
-            question: `${sinif.id} Sınıfı Ehliyet Hangi Araçları Kullanır?`, 
-            answer: `Bu ehliyete sahip olan sürücüler şu araçları kullanmaya yetkilidir: ${sinif.araclar}.` 
+        {
+            question: `${sinif.id} Sınıfı Ehliyet Hangi Araçları Kullanır?`,
+            answer: `Bu ehliyete sahip olan sürücüler şu araçları kullanmaya yetkilidir: ${sinif.araclar}.`
         },
-        { 
-            question: `${sinif.id} Sınıfı Ehliyet Alma Yaş Sınırı Kaçtır?`, 
-            answer: `${sinif.id} sınıfı sürücü belgesi alabilmek için belirlenen asgari yaş sınırı ${sinif.yasSiniri}'dir.` 
+        {
+            question: `${sinif.id} Sınıfı Ehliyet Alma Yaş Sınırı Kaçtır?`,
+            answer: `${sinif.id} sınıfı sürücü belgesi alabilmek için belirlenen asgari yaş sınırı ${sinif.yasSiniri}'dir.`
         },
-        { 
-            question: `${sinif.id} Sınıfı İçin Tecrübe Şartı Var Mı?`, 
-            answer: `${sinif.id} sınıfı ehliyet alabilmek için aranan tecrübe şartı şöyledir: ${sinif.tecrube}.` 
+        {
+            question: `${sinif.id} Sınıfı İçin Tecrübe Şartı Var Mı?`,
+            answer: `${sinif.id} sınıfı ehliyet alabilmek için aranan tecrübe şartı şöyledir: ${sinif.tecrube}.`
         }
     ];
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(faq => ({
+    const jsonLd = buildSchemaFAQPage({"@context": "https://schema.org",
+"mainEntity": faqs.map(faq => ({
             "@type": "Question",
             "name": faq.question,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": faq.answer
             }
-        }))
-    };
+        }))});
 
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
@@ -116,7 +114,7 @@ export default async function EhliyetSinifDetailPage({ params }: EhliyetSinifPag
                     }}>
                         <IdCard size={48} color="white" />
                     </div>
-                    
+
                     <h1 style={{ fontSize: '36px', fontWeight: '900', color: 'white', marginBottom: '16px' }}>{sinif.isim}</h1>
                     <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.6', maxWidth: '600px', margin: '0 auto' }}>
                         {sinif.id} sınıfı sürücü belgesi şartları, kapsadığı araç türleri ve yaş sınırları rehberi.
@@ -129,7 +127,7 @@ export default async function EhliyetSinifDetailPage({ params }: EhliyetSinifPag
                             <HelpCircle size={28} color="#F59E0B" />
                             <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)' }}>Sıkça Sorulan Sorular</h2>
                         </div>
-                        
+
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             {faqs.map((faq, idx) => (
                                 <div key={idx} style={{ background: 'var(--background)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-subtle)' }}>

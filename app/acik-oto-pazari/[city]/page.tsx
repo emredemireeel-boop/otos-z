@@ -1,3 +1,6 @@
+import {schemaJson} from '@/lib/schema';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {faqPage as buildSchemaFAQPage,itemList as buildSchemaItemList,breadcrumb as buildSchemaBreadcrumbList,collectionPage as buildSchemaCollectionPage} from '@/lib/schema';
 import { isGuideIndexable, indexabilityRobots } from '@/lib/indexability';
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -22,9 +25,7 @@ export function generateStaticParams() {
     return TURKEY_PROVINCES.map((province) => ({ city: province.slug }));
 }
 
-function safeJsonLd(data: object) {
-    return JSON.stringify(data).replace(/</g, "\\u003c");
-}
+
 
 function statusLabel(status: "verified" | "needs-confirmation" | "historical") {
     if (status === "verified") return "Doğrulanmış kayıt";
@@ -128,40 +129,28 @@ export default async function CityOpenCarMarketPage({ params }: CityPageProps) {
     const jsonLd = {
         "@context": "https://schema.org",
         "@graph": [
-            {
-                "@type": "CollectionPage",
-                "@id": `${canonical}#page`,
-                url: canonical,
-                name: `${province.name} Açık Oto Pazarı Rehberi`,
-                description: `${province.name} ilindeki açık oto pazarlarını kaynak ve doğrulama durumuyla listeleyen rehber.`,
-                inLanguage: "tr-TR",
-                isPartOf: { "@id": "https://otosoz.com/#website" },
-            },
-            {
-                "@type": "BreadcrumbList",
-                itemListElement: [
+            buildSchemaCollectionPage({"@id": `${canonical}#page`,
+url: canonical,
+name: `${province.name} Açık Oto Pazarı Rehberi`,
+description: `${province.name} ilindeki açık oto pazarlarını kaynak ve doğrulama durumuyla listeleyen rehber.`,
+inLanguage: "tr-TR",
+isPartOf: { "@id": "https://otosoz.com/#website" }}),
+            buildSchemaBreadcrumbList({itemListElement: [
                     { "@type": "ListItem", position: 1, name: "Ana sayfa", item: "https://otosoz.com" },
                     { "@type": "ListItem", position: 2, name: "Etkinlikler", item: "https://otosoz.com/etkinlikler" },
                     { "@type": "ListItem", position: 3, name: province.name, item: canonical },
-                ],
-            },
-            ...(verifiedMarkets.length > 0 ? [{
-                "@type": "ItemList",
-                itemListElement: verifiedMarkets.map((market, index) => ({
+                ]}),
+            ...(verifiedMarkets.length > 0 ? [buildSchemaItemList({itemListElement: verifiedMarkets.map((market, index) => ({
                     "@type": "ListItem",
                     position: index + 1,
                     name: market.name,
                     url: `https://otosoz.com${getMarketPath(market)}`,
-                })),
-            }] : []),
-            {
-                "@type": "FAQPage",
-                mainEntity: faqs.map((faq) => ({
+                }))})] : []),
+            buildSchemaFAQPage({url:canonical,mainEntity: faqs.map((faq) => ({
                     "@type": "Question",
                     name: faq.question,
                     acceptedAnswer: { "@type": "Answer", text: faq.answer },
-                })),
-            },
+                }))}),
         ],
     };
 
@@ -169,11 +158,9 @@ export default async function CityOpenCarMarketPage({ params }: CityPageProps) {
         <div className={styles.page}>
             <Navbar />
             <main className={styles.main}>
-                <nav className={styles.breadcrumbs} aria-label="Sayfa yolu">
-                    <Link href="/">Ana sayfa</Link><span>/</span>
-                    <Link href="/etkinlikler">Etkinlikler</Link><span>/</span>
-                    <span>{province.name}</span>
-                </nav>
+<PageBreadcrumbs url={canonical}/>
+
+
 
                 <header className={styles.cityHero}>
                     <span className={styles.eyebrow}>{String(province.plate).padStart(2, "0")} plaka · il rehberi</span>
@@ -287,7 +274,7 @@ export default async function CityOpenCarMarketPage({ params }: CityPageProps) {
                 </section>
 
                 <Link className={styles.backLink} href="/etkinlikler">← Tüm etkinliklere dön</Link>
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd({ ...jsonLd, '@graph': jsonLd['@graph'].filter(item => verifiedMarkets.length > 0 || item['@type'] !== 'FAQPage') }) }} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson({ ...jsonLd, '@graph': jsonLd['@graph'].filter(item => verifiedMarkets.length > 0 || item['@type'] !== 'FAQPage') }) }} />
             </main>
             <Footer />
         </div>

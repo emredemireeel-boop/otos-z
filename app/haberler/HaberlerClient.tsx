@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Clock, Eye, Calendar, ChevronRight, TrendingUp, Tag } from "lucide-react";
 
-export default function HaberlerClient({ initialPosts = [] }: { initialPosts?: any[] }) {
+export default function HaberlerClient({ initialPosts = [] ,breadcrumbs}: { initialPosts?: any[] ;breadcrumbs?:React.ReactNode;}) {
     const sortedInitialPosts = [...initialPosts].sort((a: any, b: any) =>
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
@@ -18,7 +18,7 @@ export default function HaberlerClient({ initialPosts = [] }: { initialPosts?: a
             .then(res => res.json())
             .then(data => {
                 // Sort by date descending
-                const sorted = (data.posts || []).sort((a: any, b: any) => 
+                const sorted = (data.posts || []).sort((a: any, b: any) =>
                     new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
                 );
                 setPosts(sorted);
@@ -55,6 +55,8 @@ export default function HaberlerClient({ initialPosts = [] }: { initialPosts?: a
         <div>
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+{breadcrumbs}
+
                 {/* Header */}
                 <div style={{ background: 'var(--card-bg)', borderBottom: '1px solid var(--card-border)', padding: '32px 24px' }}>
                     <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
@@ -69,19 +71,19 @@ export default function HaberlerClient({ initialPosts = [] }: { initialPosts?: a
                     {/* Hero Featured Post */}
                     {featuredPost && (
                         <Link href={`/haberler/${featuredPost.slug}`} style={{ textDecoration: 'none' }}>
-                            <div style={{ 
-                                position: 'relative', borderRadius: '24px', overflow: 'hidden', minHeight: '400px', 
+                            <div style={{
+                                position: 'relative', borderRadius: '24px', overflow: 'hidden', minHeight: '400px',
                                 display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
                                 boxShadow: '0 20px 40px rgba(0,0,0,0.2)', transition: 'transform 0.3s ease'
                             }}
                             onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-                                <div style={{ 
-                                    position: 'absolute', inset: 0, 
+                                <div style={{
+                                    position: 'absolute', inset: 0,
                                     backgroundImage: `url(${featuredPost.image})`, backgroundSize: 'cover', backgroundPosition: 'center',
                                 }} />
                                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.6) 40%, transparent 100%)' }} />
-                                
+
                                 <div style={{ position: 'relative', zIndex: 10, padding: '40px', maxWidth: '800px' }}>
                                     <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
                                         {featuredPost.tags.slice(0,2).map((tag: string) => (
@@ -108,19 +110,19 @@ export default function HaberlerClient({ initialPosts = [] }: { initialPosts?: a
 
                     {/* Layout with Sidebar */}
                     <div style={{ display: 'flex', gap: '32px', marginTop: '16px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-                        
+
                         {/* Main Grid */}
                         <div style={{ flex: '1', minWidth: '300px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                                 <div style={{ width: '4px', height: '24px', background: 'var(--primary)', borderRadius: '4px' }} />
                                 <h3 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)' }}>Son Yazılar</h3>
                             </div>
-                            
+
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
                                 {regularPosts.map((post) => (
                                     <Link key={post.id} href={`/haberler/${post.slug}`} style={{ textDecoration: 'none' }}>
-                                        <div style={{ 
-                                            background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px', 
+                                        <div style={{
+                                            background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '20px',
                                             overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column',
                                             transition: 'transform 0.2s, border-color 0.2s'
                                         }}

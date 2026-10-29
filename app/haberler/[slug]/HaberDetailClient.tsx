@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { Clock, Eye, Calendar, ArrowLeft, User, Share2, Facebook, Twitter, Linkedin, CheckCircle } from "lucide-react";
 import AutoLinkText from "@/components/AutoLinkText";
 
-export default function HaberDetailClient({ slug, initialPost, indexable = false }: { slug: string; initialPost: any; indexable?: boolean }) {
+export default function HaberDetailClient({ slug, initialPost, indexable = false ,breadcrumbs}: { slug: string; initialPost: any; indexable?: boolean ;breadcrumbs?:React.ReactNode;}) {
     const [post, setPost] = useState<any>(initialPost);
     const [loading, setLoading] = useState(!initialPost);
     const [copied, setCopied] = useState(false);
@@ -113,6 +113,8 @@ export default function HaberDetailClient({ slug, initialPost, indexable = false
 
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
+{breadcrumbs}
+
 
                 {/* Hero Banner */}
                 <div style={{

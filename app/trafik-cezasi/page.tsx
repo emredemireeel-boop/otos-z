@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
@@ -50,44 +52,35 @@ export const metadata: Metadata = {
 const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-        {
-            "@type": "BreadcrumbList",
-            itemListElement: [
+        buildSchemaBreadcrumbList({itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: BASE_URL },
                 { "@type": "ListItem", position: 2, name: "Kütüphane", item: `${BASE_URL}/kutuphane` },
                 { "@type": "ListItem", position: 3, name: "Trafik Cezaları", item: PAGE_URL },
-            ],
-        },
-        {
-            "@type": "CollectionPage",
-            "@id": `${PAGE_URL}#collection`,
-            url: PAGE_URL,
-            name: TITLE,
-            description: DESCRIPTION,
-            inLanguage: "tr-TR",
-            dateModified: LAST_REVIEWED,
-            isPartOf: {
+            ]}),
+        buildSchemaCollectionPage({"@id": `${PAGE_URL}#collection`,
+url: PAGE_URL,
+name: TITLE,
+description: DESCRIPTION,
+inLanguage: "tr-TR",
+dateModified: LAST_REVIEWED,
+isPartOf: {
                 "@type": "WebSite",
                 "@id": `${BASE_URL}/#website`,
                 name: "OtoSöz",
                 url: BASE_URL,
             },
-            citation: {
+citation: {
                 "@type": "Legislation",
                 name: "7574 sayılı Karayolları Trafik Kanununda Değişiklik Yapılmasına Dair Kanun",
                 url: "https://resmigazete.gov.tr/27.02.2026",
             },
-            mainEntity: {
-                "@type": "ItemList",
-                numberOfItems: allFines.length,
-                itemListElement: allFines.map((fine, index) => ({
+mainEntity: buildSchemaItemList({numberOfItems: allFines.length,
+itemListElement: allFines.map((fine, index) => ({
                     "@type": "ListItem",
                     position: index + 1,
                     name: `${fine.ihlal} - ${fine.ceza}`,
                     url: `${BASE_URL}/trafik-cezasi/${fine.slug}`,
-                })),
-            },
-        },
+                }))})}),
     ],
 };
 
@@ -98,7 +91,7 @@ export default function TrafikCezalariPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
             />
-            <KutuphaneClient initialCategory="trafik-cezalari" />
+            <KutuphaneClient breadcrumbs={<PageBreadcrumbs url="/trafik-cezasi"/>} initialCategory="trafik-cezalari" />
         </>
     );
 }

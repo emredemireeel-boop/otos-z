@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {runPublicFirestoreQuery} from '@/lib/forumPublicServer';
 import AnketClient from './AnketClient';
 import {curatedSurveys} from '@/data/curated-surveys';
@@ -13,7 +14,7 @@ export default async function Page(){
  const initialSurveys=[...curated,...community];
  const textSlots=Object.fromEntries(initialSurveys.map(survey=>[survey.id,{title:<>{survey.title}</>,description:<>{survey.description}</>,nominees:Object.fromEntries(survey.nominees.map((nominee:{id:number;name:string})=>[nominee.id,<>{nominee.name}</>]))}]));
  const featuredVehicles=vehicleDNAData.filter(isVehicleIndexable).slice(0,3).map(({id,brand,model,dnaScore,chronicIssues,totalReports})=>({id,brand,model,dnaScore,chronicCount:chronicIssues.length,totalReports}));
- return <AnketClient initialSurveys={initialSurveys} curatedSurveys={curated} textSlots={textSlots} featuredVehicles={featuredVehicles}/>;
+ return <AnketClient breadcrumbs={<PageBreadcrumbs url={'/anket'}/>} initialSurveys={initialSurveys} curatedSurveys={curated} textSlots={textSlots} featuredVehicles={featuredVehicles}/>;
 }
 
 export const revalidate=900;

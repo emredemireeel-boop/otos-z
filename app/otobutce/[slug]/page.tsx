@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isGuideIndexable, qualityContentText } from '@/lib/indexability';
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -20,7 +21,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const category = OTOBUTCE_CATEGORIES.find((c) => c.slug === slug);
-  
+
   if (!category) {
     return { title: "Bulunamadı | OtoBütçe" };
   }
@@ -54,17 +55,19 @@ export default async function OtoButceCategoryPage({ params }: Props) {
     <div className="otobutce-category-page">
       <Navbar />
       <main style={{ minHeight: "100vh", background: "var(--background)", paddingBottom: "60px" }}>
-        
+<PageBreadcrumbs url={`/otobutce/${slug}`}/>
+
+
         {/* Header / Back Link */}
         <div style={{ background: "var(--secondary)", borderBottom: "1px solid var(--border-subtle)" }}>
           <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "20px 24px" }}>
-            <Link 
-              href="/otobutce" 
-              style={{ 
-                display: "inline-flex", 
-                alignItems: "center", 
-                gap: "8px", 
-                color: "var(--text-muted)", 
+            <Link
+              href="/otobutce"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                color: "var(--text-muted)",
                 fontSize: "14px",
                 textDecoration: "none",
                 fontWeight: "600",
@@ -76,7 +79,7 @@ export default async function OtoButceCategoryPage({ params }: Props) {
             <h1 style={{ fontSize: "28px", fontWeight: "800", color: "var(--foreground)", margin: "0 0 8px 0" }}>
               {category.title}
             </h1>
-            
+
             {category.introText ? (
               <p style={{ color: "var(--text-muted)", margin: "0 0 16px 0", fontSize: "15px", lineHeight: "1.6", width: "100%", textAlign: "justify" }}>
                 {category.introText}
@@ -111,7 +114,7 @@ export default async function OtoButceCategoryPage({ params }: Props) {
         {/* 3-Column Layout */}
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "24px" }}>
           <div className="home-main-grid" style={{ display: "grid", gridTemplateColumns: "220px 1fr 280px", gap: "24px" }}>
-            
+
             {/* Left Sidebar */}
             <aside className="home-left-sidebar">
               <div style={{ position: "sticky", top: "100px" }}>
@@ -164,7 +167,7 @@ export default async function OtoButceCategoryPage({ params }: Props) {
             <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                 {category.cars.map((car, index) => (
-                  <div 
+                  <div
                     key={car.id}
                     style={{
                       background: "var(--card-bg)",
@@ -194,7 +197,7 @@ export default async function OtoButceCategoryPage({ params }: Props) {
                     </div>
 
                     <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
-                      
+
                       {/* Car Image Placeholder or Initial */}
                       <div style={{
                         width: "120px",
@@ -236,16 +239,16 @@ export default async function OtoButceCategoryPage({ params }: Props) {
                       </div>
 
                       {/* CTA */}
-                      <div style={{ 
-                        display: "flex", 
-                        flexDirection: "column", 
-                        alignItems: "center", 
-                        justifyContent: "center", 
+                      <div style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
                         minWidth: "160px",
                         borderLeft: "1px dashed var(--border-subtle)",
                         paddingLeft: "24px"
                       }}>
-                        <Link 
+                        <Link
                           href={car.dnaPath || `/arac-dna/${createSlug(car.marka)}/${createSlug(car.model)}`}
                           className="hover:opacity-90 transition-opacity"
                           style={{

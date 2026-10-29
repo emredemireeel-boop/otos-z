@@ -1,3 +1,5 @@
+import {schemaJson,schemaGraph,itemList} from '@/lib/schema';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {indexabilityRobots,isHubIndexable} from '@/lib/indexability';
 
 import { isVehicleIndexable } from '@/lib/indexability';
@@ -35,8 +37,8 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
                 allEngineVariants.push({ vehicle, engine });
             });
         } else {
-            allEngineVariants.push({ 
-                vehicle, 
+            allEngineVariants.push({
+                vehicle,
                 engine: { slug: 'standart', name: 'Standart Motor', fuelType: 'Benzin', transmission: 'Manuel', score: vehicle.dnaScore, issues: [] } as any
             });
         }
@@ -53,7 +55,7 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
     const topCars = [...reviewedEngineVariants]
         .sort((a, b) => b.engine.score - a.engine.score)
         .slice(0, 5);
-        
+
     const bottomCars = [...reviewedEngineVariants]
         .filter(a => a.engine.score > 0)
         .sort((a, b) => a.engine.score - b.engine.score)
@@ -64,10 +66,10 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
         const matches = allEngineVariants.filter(item => {
             const v = item.vehicle;
             const e = item.engine;
-            
+
             const matchesBrand = v.brand.toLowerCase() === brandInput.toLowerCase();
             const matchesModel = resolvedGeneration ? v.id === resolvedGeneration.id : false;
-            
+
             // Year matching logic
             let matchesYear = true;
             if (vehicleYear) {
@@ -105,6 +107,9 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
+<PageBreadcrumbs url={'/arac-dna'}/>
+{!Object.values(query).some(Boolean)&&<script type="application/ld+json" dangerouslySetInnerHTML={{__html:schemaJson(schemaGraph([itemList({url:'https://otosoz.com/arac-dna',items:topSellingVehicleGuides.map(guide=>({name:guide.generation,url:`https://otosoz.com/arac-dna/${guide.vehiclePath}`}))})]))}}/>}
+
                 {/* Hero Section */}
                 <div style={{
                     background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.1))',
@@ -130,7 +135,7 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
                         <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 24px auto' }}>
                             Aracınızın marka, model ve yılını girin. Detaylı DNA analizi, güçlü/zayıf yanları ve kronik sorunları görün
                         </p>
-                        
+
                         {/* Kıyaslama Butonu */}
                         <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
                             <Link href="/arac-dna/kiyasla" style={{
@@ -148,7 +153,7 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
                                 transition: 'all 0.2s',
                                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                             }}
-                            
+
                             >
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8"/><path d="m3 3 7 7"/><path d="m21 3-7 7"/><path d="m14 15-2-2-2 2"/><path d="M4 15h16"/></svg>
                                 Araçları Kıyasla
@@ -161,7 +166,7 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
                     {/* Left Sidebar */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         <AdPlaceholder position="sidebar_left" />
-                        
+
                         {/* Top Rated Vehicles Card */}
                         <div style={{
                             background: 'var(--card-bg)',
@@ -180,7 +185,7 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
                                     return (
                                         <li key={idx}>
                                             <Link href={`/arac-dna/${slug}`} style={{ textDecoration: 'none', color: 'var(--foreground)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 6px', borderRadius: '6px', transition: 'background 0.2s' }}
-                                                 
+
                                                  >
                                                 <div style={{ flex: 1, minWidth: 0 }}>
                                                     <div style={{ fontSize: '13px', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.vehicle.brand} {item.vehicle.model}</div>
@@ -227,8 +232,8 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
                         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
                             <TrendingUp size={24} color="var(--primary)" />
                             <h2 style={{ fontSize: '22px', fontWeight: '700', color: 'var(--foreground)', margin: 0 }}>
-                                {searchResults !== null 
-                                    ? (searchResults.length > 0 ? 'Arama Sonuçları' : 'Sonuç Bulunamadı') 
+                                {searchResults !== null
+                                    ? (searchResults.length > 0 ? 'Arama Sonuçları' : 'Sonuç Bulunamadı')
                                     : 'Popüler Araçlar'}
                             </h2>
                         </div>
@@ -261,8 +266,8 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
                                             flexDirection: 'column',
                                             height: '100%'
                                         }}
-                                            
-                                            
+
+
                                         >
                                             <div style={{ marginBottom: '16px', flex: 1 }}>
                                                 <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px', lineHeight: '1.3' }}>
@@ -336,7 +341,7 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
                                     return (
                                         <li key={idx}>
                                             <Link href={`/arac-dna/${slug}`} style={{ textDecoration: 'none', color: 'var(--foreground)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 6px', borderRadius: '6px', transition: 'background 0.2s' }}
-                                                 
+
                                                  >
                                                 <div style={{ flex: 1, minWidth: 0 }}>
                                                     <div style={{ fontSize: '13px', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.vehicle.brand} {item.vehicle.model}</div>

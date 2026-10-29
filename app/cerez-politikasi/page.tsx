@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import Link from "next/link";
 import {
     BarChart3,
@@ -79,6 +80,8 @@ export default function CookiePolicyPage() {
         <div className="cookie-policy-page-shell">
             <Navbar />
             <main className="cookie-policy-page">
+<PageBreadcrumbs url={'/cerez-politikasi'}/>
+
                 <header className="cookie-policy-hero">
                     <span className="cookie-policy-eyebrow"><ShieldCheck size={14} /> Gizlilik merkezi</span>
                     <h1>Çerez politikası</h1>

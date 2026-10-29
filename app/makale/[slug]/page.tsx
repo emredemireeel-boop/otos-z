@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {breadcrumb as buildSchemaBreadcrumbList,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -98,28 +100,23 @@ export default async function MakalePage({ params }: PageProps) {
 
     const canonicalUrl = `https://otosoz.com/makale/${canonicalSlug}`;
 
-    const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": article.title,
-        "description": article.description,
-        "author": {
+    const structuredData = buildSchemaArticle({"@context": "https://schema.org",
+"headline": article.title,
+"description": article.description,
+"author": {
             "@type": "Organization",
             "@id": "https://otosoz.com/#organization",
             "name": "OtoSöz"
         },
-        "url": canonicalUrl,
-        "publisher": {
+"url": canonicalUrl,
+"publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
             "url": "https://otosoz.com"
-        }
-    };
+        }});
 
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+    const breadcrumbSchema = buildSchemaBreadcrumbList({"@context": "https://schema.org",
+"itemListElement": [
             {
                 "@type": "ListItem",
                 "position": 1,
@@ -138,8 +135,7 @@ export default async function MakalePage({ params }: PageProps) {
                 "name": article.title,
                 "item": canonicalUrl
             }
-        ]
-    };
+        ]});
 
     return (
         <>
@@ -147,7 +143,7 @@ export default async function MakalePage({ params }: PageProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: schemaJson(isQualityGuide(article, 'article') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
-            <MakaleDetailClient article={article} indexable={isQualityGuide(article, 'article')} />
+            <MakaleDetailClient breadcrumbs={<PageBreadcrumbs url={canonicalUrl}/>} article={article} indexable={isQualityGuide(article, 'article')} />
         </>
     );
 }

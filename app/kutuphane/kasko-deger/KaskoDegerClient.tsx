@@ -13,7 +13,7 @@ interface Arac {
     deger: number;
 }
 
-export default function KaskoDegerClient() {
+export default function KaskoDegerClient({breadcrumbs}:{breadcrumbs?:React.ReactNode}) {
     const [markalar, setMarkalar] = useState<string[]>([]);
     const [selectedMarka, setSelectedMarka] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
@@ -83,6 +83,7 @@ export default function KaskoDegerClient() {
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
             <Navbar />
             <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "120px 24px 60px" }}>
+{breadcrumbs}
                 <Link href="/kutuphane" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", marginBottom: "24px", textDecoration: "none", fontWeight: "600" }}>
                     <ArrowLeft size={16} /> Kütüphaneye Dön
                 </Link>

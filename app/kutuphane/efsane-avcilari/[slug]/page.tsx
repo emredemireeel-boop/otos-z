@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {breadcrumb as buildSchemaBreadcrumbList,faqPage as buildSchemaFAQPage,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
 import { indexabilityRobots } from '@/lib/indexability';
@@ -47,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const resolvedParams = await params;
     const slug = resolvedParams.slug;
     const myth = getMythFromSlug(slug);
-    
+
     if (!myth) {
         return { title: "Efsane Bulunamadı | OtoSöz" };
     }
@@ -106,34 +108,17 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
     const jsonLd = {
         "@context": "https://schema.org",
         "@graph": [
-            {
-                "@type": "Article",
-                "headline": myth.seoTitle,
-                "description": myth.seoDescription,
-                "mainEntityOfPage": pageUrl,
-                "author": { "@type": "Organization", "name": "OtoSöz" },
-                "publisher": { "@type": "Organization", "name": "OtoSöz", "url": "https://otosoz.com" },
-                "citation": myth.sources?.map(source => source.url) || []
-            },
-            {
-                "@type": "FAQPage",
-                "mainEntity": [{
-                    "@type": "Question",
-                    "name": myth.seoTitle || myth.myth,
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": myth.explanation
-                    }
-                }]
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
+            buildSchemaArticle({url:pageUrl,"headline": myth.seoTitle,
+"description": myth.seoDescription,
+"mainEntityOfPage": pageUrl,
+"author": { "@type": "Organization", "name": "OtoSöz" },
+"publisher": { "@type": "Organization", "name": "OtoSöz", "url": "https://otosoz.com" },
+"citation": myth.sources?.map(source => source.url) || []}),
+            buildSchemaBreadcrumbList({"itemListElement": [
                     { "@type": "ListItem", "position": 1, "name": "Kütüphane", "item": "https://otosoz.com/kutuphane" },
                     { "@type": "ListItem", "position": 2, "name": "Efsane Avcıları", "item": "https://otosoz.com/kutuphane/kategori/efsane-avcilari" },
                     { "@type": "ListItem", "position": 3, "name": myth.seoTitle, "item": pageUrl }
-                ]
-            }
+                ]})
         ]
     };
 
@@ -143,7 +128,9 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
             {isQualityGuide(myth, 'myth') && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />}
 
             <main style={{ paddingTop: '100px', paddingBottom: '60px', maxWidth: '860px', margin: '0 auto', padding: '100px 24px 60px 24px' }}>
-                
+<PageBreadcrumbs url={pageUrl}/>
+
+
                 {/* Breadcrumb */}
                 <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '32px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                     <Link href="/kutuphane" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Kütüphane</Link>
@@ -155,10 +142,10 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
 
                 <article>
                     {/* Hero Banner */}
-                    <div style={{ 
+                    <div style={{
                         background: 'linear-gradient(135deg, #1f2937, #111827)',
-                        borderRadius: '24px', 
-                        padding: '48px 40px', 
+                        borderRadius: '24px',
+                        padding: '48px 40px',
                         marginBottom: '32px',
                         border: '1px solid var(--card-border)',
                         position: 'relative',
@@ -172,18 +159,18 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
                         <div style={{ position: 'relative', zIndex: 1 }}>
                             {/* Badges */}
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px', flexWrap: 'wrap' }}>
-                                <span style={{ 
-                                    padding: "6px 14px", background: `${catColor}20`, 
-                                    border: `1px solid ${catColor}40`, borderRadius: "8px", 
-                                    color: catColor, fontSize: "12px", fontWeight: "700", 
-                                    textTransform: "uppercase", letterSpacing: "1px" 
+                                <span style={{
+                                    padding: "6px 14px", background: `${catColor}20`,
+                                    border: `1px solid ${catColor}40`, borderRadius: "8px",
+                                    color: catColor, fontSize: "12px", fontWeight: "700",
+                                    textTransform: "uppercase", letterSpacing: "1px"
                                 }}>
                                     {catLabel}
                                 </span>
-                                <span style={{ 
-                                    padding: "6px 14px", background: 'rgba(239,68,68,0.15)', 
-                                    border: '1px solid rgba(239,68,68,0.3)', borderRadius: "8px", 
-                                    color: '#F87171', fontSize: "12px", fontWeight: "700", 
+                                <span style={{
+                                    padding: "6px 14px", background: 'rgba(239,68,68,0.15)',
+                                    border: '1px solid rgba(239,68,68,0.3)', borderRadius: "8px",
+                                    color: '#F87171', fontSize: "12px", fontWeight: "700",
                                     textTransform: "uppercase", letterSpacing: "1px",
                                     display: 'flex', alignItems: 'center', gap: '6px'
                                 }}>
@@ -217,7 +204,7 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
                                 &quot;{myth.myth}&quot;
                             </p>
                         </div>
-                        
+
                         {/* Gerçek Kutusu */}
                         <div style={{ flex: "1 1 300px", background: "rgba(16,185,129,0.04)", border: "1px solid rgba(16,185,129,0.15)", borderRadius: "20px", padding: "28px", position: "relative", overflow: "hidden" }}>
                             <div style={{ position: "absolute", right: "-15px", top: "-15px", opacity: 0.06 }}>
@@ -268,10 +255,10 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
                     )}
 
                     {/* Sonuç Kutusu */}
-                    <div style={{ 
+                    <div style={{
                         background: `linear-gradient(135deg, ${catColor}08, ${catColor}03)`,
-                        border: `1px solid ${catColor}20`, 
-                        borderRadius: "16px", 
+                        border: `1px solid ${catColor}20`,
+                        borderRadius: "16px",
                         padding: "24px 28px",
                         marginBottom: '32px',
                         display: 'flex',
@@ -297,10 +284,10 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {relatedMyths.map(rm => (
                                 <Link key={rm.id} href={`/kutuphane/efsane-avcilari/${rm.slug}--${rm.id}`} style={{ textDecoration: 'none' }}>
-                                    <div style={{ 
-                                        background: 'var(--card-bg)', 
-                                        border: '1px solid var(--card-border)', 
-                                        borderRadius: '14px', 
+                                    <div style={{
+                                        background: 'var(--card-bg)',
+                                        border: '1px solid var(--card-border)',
+                                        borderRadius: '14px',
                                         padding: '16px 20px',
                                         display: 'flex',
                                         alignItems: 'center',

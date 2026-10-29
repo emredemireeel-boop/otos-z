@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import ContactFormClient from '@/components/ContactFormClient';
 
 import { Mail, MapPin, Phone, Send } from "lucide-react";
@@ -9,6 +10,8 @@ export default function IletisimPage() {
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
             <Navbar />
             <main style={{ padding: '60px 24px', minHeight: '60vh' }}>
+<PageBreadcrumbs url={'/iletisim'}/>
+
                 <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h1 style={{ fontSize: '42px', fontWeight: '900', color: 'var(--foreground)', marginBottom: '16px', letterSpacing: '-1px' }}>
@@ -20,14 +23,14 @@ export default function IletisimPage() {
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
-                        
+
                         {/* İletişim Bilgileri */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                            <div style={{ 
-                                background: 'var(--card-bg)', 
-                                border: '1px solid var(--card-border)', 
-                                borderRadius: '24px', 
-                                padding: '32px', 
+                            <div style={{
+                                background: 'var(--card-bg)',
+                                border: '1px solid var(--card-border)',
+                                borderRadius: '24px',
+                                padding: '32px',
                                 boxShadow: 'var(--card-shadow)',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -42,11 +45,11 @@ export default function IletisimPage() {
                                 </div>
                             </div>
 
-                            <div style={{ 
-                                background: 'var(--card-bg)', 
-                                border: '1px solid var(--card-border)', 
-                                borderRadius: '24px', 
-                                padding: '32px', 
+                            <div style={{
+                                background: 'var(--card-bg)',
+                                border: '1px solid var(--card-border)',
+                                borderRadius: '24px',
+                                padding: '32px',
                                 boxShadow: 'var(--card-shadow)',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -64,11 +67,11 @@ export default function IletisimPage() {
                         </div>
 
                         {/* İletişim Formu */}
-                        <div style={{ 
-                            background: 'var(--card-bg)', 
-                            border: '1px solid var(--card-border)', 
-                            borderRadius: '24px', 
-                            padding: '40px', 
+                        <div style={{
+                            background: 'var(--card-bg)',
+                            border: '1px solid var(--card-border)',
+                            borderRadius: '24px',
+                            padding: '40px',
                             boxShadow: 'var(--card-shadow)',
                         }}>
                             <h2 style={{ fontSize: '24px', fontWeight: '800', color: 'var(--foreground)', marginBottom: '24px' }}>

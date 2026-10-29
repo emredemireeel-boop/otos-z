@@ -80,9 +80,11 @@ const PROJECTS = [
     },
 ];
 
-export default function AboutPageContent() {
+export default function AboutPageContent({breadcrumbs}:{breadcrumbs?:React.ReactNode}) {
     return (
         <main className="about-page">
+{breadcrumbs}
+
             <section className="about-hero" aria-labelledby="about-title">
                 <span className="about-eyebrow">Türkiye&apos;nin otomotiv karar platformu</span>
                 <h1 id="about-title">Arabanla ilgili karar vermeden önce OtoSöz&apos;e sor.</h1>

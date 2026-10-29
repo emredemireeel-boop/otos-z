@@ -1,3 +1,4 @@
+import {itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -43,12 +44,11 @@ export default async function ObdDirectoryPage({ params }: Props) {
     const first = (page - 1) * OBD_DIRECTORY_PAGE_SIZE + 1;
     const last = first + codes.length - 1;
     const canonicalUrl = `${BASE_URL}/obd-kodlari/${page}`;
-    const schema = {
-        '@context': 'https://schema.org', '@type': 'ItemList',
-        name: `Evrensel OBD-II arıza kodları dizini – Sayfa ${page}`, url: canonicalUrl,
-        numberOfItems: codes.length,
-        itemListElement: codes.map((code, index) => ({ '@type': 'ListItem', position: first + index, name: `${code.code} – ${code.title}`, url: `${BASE_URL}/obd/${code.code.toLowerCase()}` })),
-    };
+    const schema = buildSchemaItemList({'@context': 'https://schema.org',
+name: `Evrensel OBD-II arıza kodları dizini – Sayfa ${page}`,
+url: canonicalUrl,
+numberOfItems: codes.length,
+itemListElement: codes.map((code, index) => ({ '@type': 'ListItem', position: first + index, name: `${code.code} – ${code.title}`, url: `${BASE_URL}/obd/${code.code.toLowerCase()}` }))});
     return <>
         <Navbar />
         <main style={{ minHeight: '100vh', background: 'var(--background)', padding: '36px 24px 64px' }}>

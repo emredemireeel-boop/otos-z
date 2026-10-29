@@ -1,3 +1,5 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {breadcrumb as buildSchemaBreadcrumbList,faqPage as buildSchemaFAQPage,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -144,47 +146,38 @@ export default async function OBDSlugPage({ params }: PageProps) {
     const structuredData = {
         "@context": "https://schema.org",
         "@graph": [
-            {
-                "@type": "Article",
-                "@id": `${canonicalUrl}#article`,
-                "headline": `${codeData.code} Arıza Kodu: ${codeData.title}`,
-                "description": codeData.description,
-                "url": canonicalUrl,
-                "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
-                "dateModified": codeData.lastReviewed || OBD_LAST_REVIEWED,
-                "inLanguage": "tr-TR",
-                "articleSection": typeLabel,
-                "author": { "@type": "Organization", "name": "OtoSöz", "url": BASE_URL },
-                "publisher": {
+            buildSchemaArticle({"@id": `${canonicalUrl}#article`,
+"headline": `${codeData.code} Arıza Kodu: ${codeData.title}`,
+"description": codeData.description,
+"url": canonicalUrl,
+"mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+"dateModified": codeData.lastReviewed,
+"inLanguage": "tr-TR",
+"articleSection": typeLabel,
+"author": { "@type": "Organization", "name": "OtoSöz", "url": BASE_URL },
+"publisher": {
                     "@type": "Organization",
                     "name": "OtoSöz",
                     "url": BASE_URL,
                     "logo": { "@type": "ImageObject", "url": `${BASE_URL}/dark_logo.svg` },
                 },
-                "about": {
+"about": {
                     "@type": "DefinedTerm",
                     "name": codeData.code,
                     "description": codeData.title,
                     "inDefinedTermSet": `${BASE_URL}/obd`,
-                },
-            },
-            {
-                "@type": "FAQPage",
-                "@id": `${canonicalUrl}#faq`,
-                "mainEntity": faqItems.map(item => ({
+                }}),
+            buildSchemaFAQPage({"@id": `${canonicalUrl}#faq`,
+"mainEntity": faqItems.map(item => ({
                     "@type": "Question",
                     "name": item.question,
                     "acceptedAnswer": { "@type": "Answer", "text": item.answer },
-                })),
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
+                }))}),
+            buildSchemaBreadcrumbList({"itemListElement": [
                     { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
                     { "@type": "ListItem", "position": 2, "name": "OBD-II Arıza Kodları", "item": `${BASE_URL}/obd` },
                     { "@type": "ListItem", "position": 3, "name": `${codeData.code} Arıza Kodu`, "item": canonicalUrl },
-                ],
-            },
+                ]}),
         ],
     };
 
@@ -196,7 +189,7 @@ export default async function OBDSlugPage({ params }: PageProps) {
                     '@graph': structuredData['@graph'].filter(item => isObdCodeIndexable(codeData) || item['@type'] === 'BreadcrumbList'),
                 }) }}
             />
-            <OBDDetailClient codeData={codeData} relatedCodes={relatedCodes} typeLabel={typeLabel} directoryPage={getObdDirectoryPageNumber(codeData.code)} />
+            <OBDDetailClient breadcrumbs={<PageBreadcrumbs url={canonicalUrl}/>} codeData={codeData} relatedCodes={relatedCodes} typeLabel={typeLabel} directoryPage={getObdDirectoryPageNumber(codeData.code)} />
         </>
     );
 }

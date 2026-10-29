@@ -1,3 +1,6 @@
+import {schemaJson} from '@/lib/schema';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {faqPage as buildSchemaFAQPage,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import { isGuideIndexable, indexabilityRobots } from '@/lib/indexability';
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -25,9 +28,7 @@ export function generateStaticParams() {
     }));
 }
 
-function safeJsonLd(data: object) {
-    return JSON.stringify(data).replace(/</g, "\\u003c");
-}
+
 
 function getStatusContent(status: "verified" | "needs-confirmation" | "historical") {
     if (status === "verified") {
@@ -120,23 +121,17 @@ export default async function OpenCarMarketDetailPage({ params }: MarketPageProp
             dateModified: market.checkedAt,
             isPartOf: { "@id": "https://otosoz.com/#website" },
         },
-        {
-            "@type": "BreadcrumbList",
-            itemListElement: [
+        buildSchemaBreadcrumbList({itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Ana sayfa", item: "https://otosoz.com" },
                 { "@type": "ListItem", position: 2, name: "Etkinlikler", item: "https://otosoz.com/etkinlikler" },
                 { "@type": "ListItem", position: 3, name: province.name, item: `https://otosoz.com/acik-oto-pazari/${province.slug}` },
                 { "@type": "ListItem", position: 4, name: market.shortName, item: canonical },
-            ],
-        },
-        {
-            "@type": "FAQPage",
-            mainEntity: faqs.map((faq) => ({
+            ]}),
+        buildSchemaFAQPage({url:canonical,mainEntity: faqs.map((faq) => ({
                 "@type": "Question",
                 name: faq.question,
                 acceptedAnswer: { "@type": "Answer", text: faq.answer },
-            })),
-        },
+            }))}),
     ];
 
     if (isGuideIndexable(market, { kind: 'verified-market' })) {
@@ -162,12 +157,9 @@ export default async function OpenCarMarketDetailPage({ params }: MarketPageProp
         <div className={styles.page}>
             <Navbar />
             <main className={styles.main}>
-                <nav className={styles.breadcrumbs} aria-label="Sayfa yolu">
-                    <Link href="/">Ana sayfa</Link><span>/</span>
-                    <Link href="/etkinlikler">Etkinlikler</Link><span>/</span>
-                    <Link href={`/acik-oto-pazari/${province.slug}`}>{province.name}</Link><span>/</span>
-                    <span>{market.shortName}</span>
-                </nav>
+<PageBreadcrumbs url={canonical}/>
+
+
 
                 <header className={styles.detailHero}>
                     <span className={styles.eyebrow}>{market.province} · {market.district}</span>
@@ -260,7 +252,7 @@ export default async function OpenCarMarketDetailPage({ params }: MarketPageProp
                 </div>
 
                 <Link className={styles.backLink} href={`/acik-oto-pazari/${province.slug}`}>← {province.name} pazarlarına dön</Link>
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
             </main>
             <Footer />
         </div>

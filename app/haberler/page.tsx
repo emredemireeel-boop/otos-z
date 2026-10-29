@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import HaberlerClient from "./HaberlerClient";
@@ -27,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function HaberlerServerPage() {
-    return <HaberlerClient initialPosts={newsData.posts} />;
+    return <HaberlerClient breadcrumbs={<PageBreadcrumbs url={'/haberler'}/>} initialPosts={newsData.posts} />;
 }

@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import AltinAnahtarClient from "./AltinAnahtarClient";
@@ -16,5 +17,5 @@ export const metadata: Metadata = {
 };
 
 export default function AltinAnahtarPage() {
-    return <AltinAnahtarClient />;
+    return <AltinAnahtarClient breadcrumbs={<PageBreadcrumbs url={'/altin-anahtar'}/>} />;
 }

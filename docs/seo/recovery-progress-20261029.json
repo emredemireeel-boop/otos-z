@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-10-29T08:33:45.734Z",
+  "updatedAt": "2026-10-29T09:31:30.514Z",
   "completedLocally": [
     1,
     2,
     3,
     4,
-    5
+    5,
+    6
   ],
   "remaining": [
-    6,
     7,
     8,
     9,
@@ -17,7 +17,7 @@
   "deployment": "not performed; final release must include subsequent steps only after their checks pass",
   "pendingUserApproval": "20-page content pilot must be produced and approved before editorial content edits",
   "network": "Local tools and HTTPS access working. Batch SSH public-key login denied; user supplied password authorization is available for later release.",
-  "next": "Finish and validate Step 6; then implement Steps 7, 8, 9 and 10 in order. Do not describe these as complete.",
+  "next": "Implement and verify Step 7 metadata (active request).",
   "userProvidedResponsiblePerson": "Emre Demirel",
   "personClaims": "Responsible-person name only; no verified editor qualifications or social profiles supplied.",
   "startedStep6": [
@@ -28,10 +28,5 @@
     "QAPage without real answers removed",
     "Raster 512x512 logo from existing SVG"
   ],
-  "remainingStep6": [
-    "Recheck final schema audit after toll-page fix",
-    "Visible breadcrumbs must match JSON-LD for every type",
-    "24 sampled record date fields are unknown; do not fabricate them",
-    "Prepare five Rich Results Test examples"
-  ]
+  "remainingStep6": []
 }

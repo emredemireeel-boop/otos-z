@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {schemaJson, schemaGraph, newsArticle, breadcrumb} from '@/lib/schema';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -73,5 +74,5 @@ export default async function HaberDetailServerPage({ params }: PageProps) {
     if (!post) notFound();
     const url=`https://otosoz.com/haberler/${slug}`;
     const nodes=[breadcrumb([{name:'Ana Sayfa',url:'https://otosoz.com/'},{name:'Haberler',url:'https://otosoz.com/haberler'},{name:post.title,url}],url),...(isQualityGuide(post,'news')?[newsArticle({url,headline:post.title,description:post.description,datePublished:post.createdAt,dateModified:post.updatedAt||post.createdAt})]:[])];
-    return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:schemaJson(schemaGraph(nodes))}}/><HaberDetailClient slug={slug} initialPost={post} indexable={isQualityGuide(post, 'news')}/></>;
+    return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:schemaJson(schemaGraph(nodes))}}/><HaberDetailClient breadcrumbs={<PageBreadcrumbs url={url}/>} slug={slug} initialPost={post} indexable={isQualityGuide(post, 'news')}/></>;
 }

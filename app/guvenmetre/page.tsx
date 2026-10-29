@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import CityPickerClient from "./CityPickerClient";
 import ServerCatalogClient from "@/components/ServerCatalogClient";
 
@@ -35,6 +36,8 @@ export default async function GuvenmetrePage(){
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+<PageBreadcrumbs url={'/guvenmetre'}/>
+
                 {/* Sub Header — White, same pattern as main page */}
                 <div style={{
                     background: 'var(--top-bar-bg)',
@@ -167,8 +170,8 @@ export default async function GuvenmetrePage(){
                                                 transition: 'all 0.2s ease', height: '100%',
                                                 display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
                                             }}
-                                            
-                                            
+
+
                                         >
                                             {/* Header */}
                                             <div>

@@ -45,7 +45,7 @@ const getDifficultyConfig = (difficulty: string) => {
   }
 };
 
-export default function NasilYapilirDetailClient({ guide, category }: { guide: Guide, category: Category }) {
+export default function NasilYapilirDetailClient({ guide, category ,breadcrumbs}: { guide: Guide, category: Category ;breadcrumbs?:React.ReactNode;}) {
   const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
   const [expandedStep, setExpandedStep] = useState<number | null>(0);
 
@@ -66,8 +66,10 @@ export default function NasilYapilirDetailClient({ guide, category }: { guide: G
     <>
       <Navbar />
       <main style={{ minHeight: '100vh', background: 'var(--background)', padding: '40px 20px' }}>
+{breadcrumbs}
+
         <div style={{ maxWidth: '800px', margin: '0 auto', animation: "fadeIn 0.3s ease" }}>
-          
+
           <Link href="/kutuphane/kategori/nasil-yapilir" style={{ textDecoration: 'none' }}>
             <button
               style={{

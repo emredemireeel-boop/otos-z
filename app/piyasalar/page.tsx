@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import ServerCatalogClient from "@/components/ServerCatalogClient";
 
 
@@ -34,6 +35,8 @@ export default async function PiyasalarPage() {
         <ServerCatalogClient initialPanel="brands">
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
+<PageBreadcrumbs url={'/piyasalar'}/>
+
                 {/* Hero Section */}
                 <div style={{
                     background: 'var(--background)',
@@ -104,7 +107,7 @@ export default async function PiyasalarPage() {
                             type="text"
                             placeholder={selectedTab === "brands" ? "Marka ara..." : "Model veya marka ara..."}
                             defaultValue={searchQuery} data-catalog-search
-                            
+
                             style={{
                                 width: '300px', padding: '12px 16px',
                                 background: 'var(--secondary)', border: '1px solid var(--card-border)',
@@ -254,8 +257,8 @@ function MarketBrandCard({ row }: { row: MarketBrandRow }) {
             border: '1px solid var(--card-border)', borderRadius: '16px',
             padding: '16px', transition: 'all 0.2s ease',
         }}
-            
-            
+
+
         >
             <span style={{ fontSize: '16px', fontWeight: '800', color: 'var(--foreground)', opacity: 0.9 }}>#{row.rank}</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -287,8 +290,8 @@ function MarketModelCard({ row }: { row: MarketModelRow }) {
             background: 'var(--secondary)', border: '1px solid var(--card-border)',
             borderRadius: '16px', padding: '16px', transition: 'all 0.2s ease',
         }}
-            
-            
+
+
         >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>

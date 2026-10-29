@@ -1,3 +1,4 @@
+import {breadcrumb as buildSchemaBreadcrumbList,article as buildSchemaArticle,faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -78,20 +79,16 @@ export default async function SozlukTermPage({ params }: PageProps) {
         .slice(0, 4);
 
     // JSON-LD structured data
-    const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": `${term.term} Nedir?`,
-        "description": term.description,
-        "url": `https://otosoz.com/sozluk/${id}`,
-        "publisher": {
+    const structuredData = buildSchemaArticle({"@context": "https://schema.org",
+"headline": `${term.term} Nedir?`,
+"description": term.description,
+"url": `https://otosoz.com/sozluk/${id}`,
+"publisher": {
             "@type": "Organization",
             "name": "OtoSöz",
             "url": "https://otosoz.com"
         },
-        "mainEntity": {
-            "@type": "FAQPage",
-            "mainEntity": [
+"mainEntity": buildSchemaFAQPage({"mainEntity": [
                 {
                     "@type": "Question",
                     "name": `${term.term} nedir?`,
@@ -108,14 +105,10 @@ export default async function SozlukTermPage({ params }: PageProps) {
                         "text": term.why
                     }
                 }
-            ]
-        }
-    };
+            ]})});
 
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+    const breadcrumbSchema = buildSchemaBreadcrumbList({"@context": "https://schema.org",
+"itemListElement": [
             {
                 "@type": "ListItem",
                 "position": 1,
@@ -134,8 +127,7 @@ export default async function SozlukTermPage({ params }: PageProps) {
                 "name": term.term,
                 "item": `https://otosoz.com/sozluk/${id}`
             }
-        ]
-    };
+        ]});
 
     return (
         <>

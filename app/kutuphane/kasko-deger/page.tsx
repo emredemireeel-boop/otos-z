@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import KaskoDegerClient from "./KaskoDegerClient";
@@ -10,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function KaskoDegerPage() {
-    return <KaskoDegerClient />;
+    return <KaskoDegerClient breadcrumbs={<PageBreadcrumbs url="/kutuphane/kasko-deger"/>}/>;
 }

@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutPageContent from "@/components/AboutPageContent";
@@ -7,7 +8,7 @@ export default function HakkimizdaPage() {
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
             <Navbar />
-            <AboutPageContent />
+            <AboutPageContent breadcrumbs={<PageBreadcrumbs url={'/hakkimizda'}/>} />
             <Footer />
         </div>
     );

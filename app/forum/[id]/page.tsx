@@ -1,3 +1,7 @@
+import {verifiedForumAuthorUrl} from '@/lib/forum-author-schema';
+import {schemaJson} from '@/lib/schema';
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
+import {breadcrumb as buildSchemaBreadcrumbList,discussionForumPosting as buildSchemaDiscussionForumPosting} from '@/lib/schema';
 import ForumThreadSidebarCards from '@/components/ForumThreadSidebarCards';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -66,19 +70,20 @@ export default async function ForumThreadServerPage({ params }: PageProps) {
 
     const canonicalUrl = `${BASE_URL}/forum/${thread.slug}`;
     const originalPost = thread.entries[0];
+    const authorNames=[...new Set([originalPost?.username||thread.authorUsername,...thread.entries.slice(1,50).map(entry=>entry.username)])];
+    const authorUrls=new Map(await Promise.all(authorNames.map(async name=>[name,await verifiedForumAuthorUrl(name)] as const)));
     const replyCount = Math.max(0, thread.entryCount - 1);
-    const discussionPosting: Record<string, unknown> = {
-        '@type': 'DiscussionForumPosting',
-        '@id': `${canonicalUrl}#discussion`,
-        url: canonicalUrl,
-        mainEntityOfPage: canonicalUrl,
-        headline: thread.title,
-        text: originalPost?.content || thread.description || thread.title,
-        author: {
+    const discussionPosting: Record<string, unknown> = buildSchemaDiscussionForumPosting({'@id': `${canonicalUrl}#discussion`,
+url: canonicalUrl,
+mainEntityOfPage: canonicalUrl,
+headline: thread.title,
+text: originalPost?.content || thread.description || thread.title,
+author: {
             '@type': 'Person',
             name: originalPost?.username || thread.authorUsername,
+            ...(authorUrls.get(originalPost?.username||thread.authorUsername)?{url:authorUrls.get(originalPost?.username||thread.authorUsername)}:{}),
         },
-        interactionStatistic: [
+interactionStatistic: [
             {
                 '@type': 'InteractionCounter',
                 interactionType: 'https://schema.org/CommentAction',
@@ -90,49 +95,45 @@ export default async function ForumThreadServerPage({ params }: PageProps) {
                 userInteractionCount: thread.views,
             },
         ],
-        comment: thread.entries.slice(1).map(entry => ({
+comment: thread.entries.slice(1,50).map(entry => ({
             '@type': 'Comment',
             '@id': `${canonicalUrl}#entry-${entry.id}`,
             url: `${canonicalUrl}#entry-${entry.id}`,
             text: entry.content,
             ...(toIso(entry.createdAt) ? { datePublished: toIso(entry.createdAt) } : {}),
-            author: { '@type': 'Person', name: entry.username },
+            author: { '@type': 'Person', name: entry.username, ...(authorUrls.get(entry.username)?{url:authorUrls.get(entry.username)}:{}) },
             interactionStatistic: {
                 '@type': 'InteractionCounter',
                 interactionType: 'https://schema.org/LikeAction',
                 userInteractionCount: entry.likes,
             },
         })),
-        isPartOf: {
+isPartOf: {
             '@type': 'WebSite',
             '@id': `${BASE_URL}/#website`,
             name: 'OtoSöz',
             url: BASE_URL,
         },
-        ...(toIso(thread.createdAt) ? { datePublished: toIso(thread.createdAt) } : {}),
-        ...(toIso(thread.lastEntryAt) ? { dateModified: toIso(thread.lastEntryAt) } : {}),
-    };
+...(toIso(thread.createdAt) ? { datePublished: toIso(thread.createdAt) } : {}),
+...(toIso(thread.lastEntryAt) ? { dateModified: toIso(thread.lastEntryAt) } : {})});
 
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
             discussionPosting,
-            {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
+            buildSchemaBreadcrumbList({itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: BASE_URL },
                     { '@type': 'ListItem', position: 2, name: 'Forum', item: `${BASE_URL}/forum` },
                     { '@type': 'ListItem', position: 3, name: thread.title, item: canonicalUrl },
-                ],
-            },
+                ]}),
         ],
     };
-    const safeJsonLd = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
+    const safeJsonLd = schemaJson(jsonLd);
 
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
-            <ForumThreadClient sidebarLeft={<ForumThreadSidebarCards side="left" seedKey={thread.id}/>} sidebarRight={<ForumThreadSidebarCards side="right" seedKey={thread.id}/>}
+            <ForumThreadClient breadcrumbs={<PageBreadcrumbs url={canonicalUrl}/>} sidebarLeft={<ForumThreadSidebarCards side="left" seedKey={thread.id}/>} sidebarRight={<ForumThreadSidebarCards side="right" seedKey={thread.id}/>}
                 initialThread={{
                     id: thread.id,
                     title: thread.title,

@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import LegalScrollClient from '@/components/LegalScrollClient';
 
 import Navbar from "@/components/Navbar";
@@ -141,6 +142,8 @@ export default function KullanimSartlariPage() {
                 minHeight: '80vh',
                 animation: 'fadeIn 0.6s ease',
             }}>
+<PageBreadcrumbs url={'/kullanim-sartlari'}/>
+
                 {/* Hero */}
                 <div style={{
                     textAlign: 'center',
