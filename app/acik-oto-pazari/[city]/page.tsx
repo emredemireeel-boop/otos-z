@@ -1,3 +1,4 @@
+import MarketConnections from '@/components/MarketConnections';
 import {createPageMetadata} from '@/lib/seo';
 import {schemaJson} from '@/lib/schema';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
@@ -258,6 +259,7 @@ isPartOf: { "@id": "https://otosoz.com/#website" }}),
                 <Link className={styles.backLink} href="/etkinlikler">← Tüm etkinliklere dön</Link>
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson({ ...jsonLd, '@graph': jsonLd['@graph'].filter(item => verifiedMarkets.length > 0 || item['@type'] !== 'FAQPage') }) }} />
             </main>
+            <MarketConnections city={province.slug}/>
             <Footer />
         </div>
     );

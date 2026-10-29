@@ -44,12 +44,12 @@ function getSeverityConfig(severity: string) {
     return { color: '#6b7280', bg: 'rgba(107,114,128,0.1)', label: '⚪ Değişken' };
 }
 
-export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, brandName, directoryPage ,breadcrumbs}: {
+export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, brandName, directoryPage ,breadcrumbs,connections}: {
     codeData: ObdCode;
     relatedCodes: ObdCode[];
     typeLabel: string;
     brandName?: string;
-    directoryPage: number;breadcrumbs?:React.ReactNode;}) {
+    directoryPage: number;breadcrumbs?:React.ReactNode;connections?:React.ReactNode;}) {
     const colors = getTypeColor(codeData.type);
     const severity = getSeverityConfig(codeData.severity);
 

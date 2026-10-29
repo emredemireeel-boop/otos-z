@@ -56,7 +56,7 @@ export function searchObdCodes(query = '', type = '') {
 export function getRelatedObdCodes(code: ObdCode) {
     const systems = new Set(code.systems.filter(system => system !== 'Diğer'));
     const score = (other: ObdCode) => other.systems.filter(system => systems.has(system)).length * 10 + (other.code.slice(0, 3) === code.code.slice(0, 3) ? 5 : 0);
-    return indexableObdCodes.filter(other => other.type === code.type && other.code !== code.code)
+    return indexableObdCodes.filter(other => other.type === code.type && other.code !== code.code && other.systems.some(system=>systems.has(system)))
         .sort((a, b) => score(b) - score(a) || Math.abs(parseInt(a.code.slice(1), 16) - parseInt(code.code.slice(1), 16)) - Math.abs(parseInt(b.code.slice(1), 16) - parseInt(code.code.slice(1), 16)))
         .slice(0, 6);
 }

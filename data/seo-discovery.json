@@ -1,0 +1,75 @@
+{
+  "source": "docs/seo/performance-20261022/Sayfa sayısı.csv",
+  "exportDate": "2026-10-22",
+  "metric": "Historical page impressions in the supplied export, aggregated by canonical model. Not sales, live search volume or total popularity.",
+  "models": [
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6",
+      "title": "Honda Civic FD6",
+      "clicks": 0,
+      "impressions": 221
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015",
+      "title": "Opel Astra J Kasa (2009-2015)",
+      "clicks": 0,
+      "impressions": 171
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000",
+      "title": "Hyundai Accent (Yumurta Kasa) (1995-2000)",
+      "clicks": 0,
+      "impressions": 122
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/9-spring-broadway",
+      "title": "Renault 9 (Spring / Broadway)",
+      "clicks": 0,
+      "impressions": 47
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-11-nesil-fe1-2021-2025",
+      "title": "Honda Civic 11. Nesil FE1 (2021-2025)",
+      "clicks": 0,
+      "impressions": 31
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-9-nesil-fb7-2012-2016",
+      "title": "Honda Civic 9. Nesil (FB7) (2012-2016)",
+      "clicks": 0,
+      "impressions": 27
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/206",
+      "title": "Peugeot 206",
+      "clicks": 0,
+      "impressions": 23
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-4-nesil-2012-2019",
+      "title": "Renault Clio 4. Nesil (2012-2019)",
+      "clicks": 0,
+      "impressions": 19
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012",
+      "title": "Hyundai Accent Era (2006-2012)",
+      "clicks": 0,
+      "impressions": 16
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-2020-gunumuz",
+      "title": "Hyundai i20 3. Nesil (2020-Günümüz)",
+      "clicks": 0,
+      "impressions": 15
+    }
+  ],
+  "obd": [
+    {
+      "url": "https://otosoz.com/obd/p1000",
+      "title": "P1000 — Ford P1000: OBD Hazırlık Testleri Tamamlanmadı",
+      "clicks": 0,
+      "impressions": 195
+    }
+  ]
+}

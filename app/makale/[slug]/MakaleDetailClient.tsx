@@ -11,7 +11,7 @@ import FloatingActionBar from "@/components/FloatingActionBar";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import { motion } from "framer-motion";
 
-export default function MakaleDetailClient({ article, indexable = false ,breadcrumbs}: { article: any; indexable?: boolean ;breadcrumbs?:React.ReactNode;}) {
+export default function MakaleDetailClient({ article, indexable = false ,breadcrumbs,connections}: { article: any; indexable?: boolean ;breadcrumbs?:React.ReactNode;connections?:React.ReactNode;}) {
     const [activeSection, setActiveSection] = useState<string>("");
 
     useEffect(() => {
@@ -587,6 +587,7 @@ export default function MakaleDetailClient({ article, indexable = false ,breadcr
                 url={typeof window !== 'undefined' ? window.location.href : `https://otosoz.com/makale/${article.id}`}
                 onCommentClick={() => document.getElementById('comments-section')?.scrollIntoView({ behavior: 'smooth' })}
             />
+            {connections}
             <Footer />
             <style jsx global>{`
                 @media (max-width: 900px) {

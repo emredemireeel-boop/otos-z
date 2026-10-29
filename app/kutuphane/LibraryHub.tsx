@@ -1,3 +1,4 @@
+import SeoContentDirectory from '@/components/SeoContentDirectory';
 import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
@@ -101,7 +102,7 @@ export default async function LibraryHub({kategori=null}:{kategori?:string|null}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: buildJsonLd(cat) }}
             />
-            <KutuphaneClient breadcrumbs={<PageBreadcrumbs url={cat.slug==='makaleler'?'/kutuphane':`/kutuphane/kategori/${cat.slug}`}/>} initialCategory={cat.slug} initialGuides={cat.slug==='makaleler'?library.guides.map(guide=>({id:guide.id,urlId:guide.urlId,title:guide.title,description:guide.description,minutes:guide.minutes,difficulty:guide.difficulty,tags:guide.tags,author:guide.author,indexable:articleUrls.has(`https://otosoz.com/makale/${createSeoSlug(guide.title)}--${guide.urlId||guide.id}`)})):[]} initialInterestingData={cat.slug==='ilginc-bilgiler'?interesting.interestingFacts:null} segmentData={cat.slug==='arac-segmentleri'?segmentData:undefined} initialTolls={cat.slug==='otoyol-ve-kopru-ucretleri'?tolls:[]}/>
+            <KutuphaneClient directory={cat.slug==='makaleler'?<SeoContentDirectory type="kutuphane" title="Konu rehberleri dizini"/>:null} breadcrumbs={<PageBreadcrumbs url={cat.slug==='makaleler'?'/kutuphane':`/kutuphane/kategori/${cat.slug}`}/>} initialCategory={cat.slug} initialGuides={cat.slug==='makaleler'?library.guides.map(guide=>({id:guide.id,urlId:guide.urlId,title:guide.title,description:guide.description,minutes:guide.minutes,difficulty:guide.difficulty,tags:guide.tags,author:guide.author,indexable:articleUrls.has(`https://otosoz.com/makale/${createSeoSlug(guide.title)}--${guide.urlId||guide.id}`)})):[]} initialInterestingData={cat.slug==='ilginc-bilgiler'?interesting.interestingFacts:null} segmentData={cat.slug==='arac-segmentleri'?segmentData:undefined} initialTolls={cat.slug==='otoyol-ve-kopru-ucretleri'?tolls:[]}/>
         </>
     );
 }

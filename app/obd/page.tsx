@@ -100,6 +100,7 @@ export default function ObdPage() {
                     </Link>
                     <p style={{ color: 'var(--text-muted)', marginTop: 8 }}>Kod kataloğunu {obdDirectoryPageCount} sayfalık dizinde tarayabilir veya arama kutusundan kodunuzu bulabilirsiniz. Kaynak ve teşhis kapsamı her kodun ayrıntısında belirtilir.</p>
                 </section>
+                <ObdTaxonomy/>
                 <OBDListClient
                     initialCodes={initialCodes}
                     totalCount={initialCodes.length}
@@ -126,3 +127,4 @@ export default function ObdPage() {
         </div>
     );
 }
+import ObdTaxonomy from '@/components/ObdTaxonomy';

@@ -1,3 +1,4 @@
+import ContentConnections from '@/components/ContentConnections';
 import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {breadcrumb as buildSchemaBreadcrumbList,article as buildSchemaArticle} from '@/lib/schema';
@@ -126,7 +127,7 @@ export default async function MakalePage({ params }: PageProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: schemaJson(isQualityGuide(article, 'article') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
-            <MakaleDetailClient breadcrumbs={<PageBreadcrumbs url={canonicalUrl}/>} article={article} indexable={isQualityGuide(article, 'article')} />
+            <MakaleDetailClient breadcrumbs={<PageBreadcrumbs url={canonicalUrl}/>} connections={<ContentConnections url={canonicalUrl}/>} article={article} indexable={isQualityGuide(article, 'article')} />
         </>
     );
 }

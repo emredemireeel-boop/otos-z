@@ -1,3 +1,4 @@
+import ContentConnections from '@/components/ContentConnections';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 
 import { DnaTabLinks } from "@/components/DnaTabLinks";
@@ -60,8 +61,8 @@ export default function AracDNAShell({ children, vehicle, engineParam = '', sect
                             Bu eski kayıt birden fazla nesil veya donanım bilgisini karıştırdığı için puan ve arıza iddialarını geçici olarak göstermiyoruz. Kaynak kontrolü tamamlandığında canonical Araç DNA dosyası yeniden yayına alınacak.
                         </p>
                         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                            <Link href={`/arac-dna/${brandSlug}`} style={{ padding: '11px 16px', borderRadius: 10, background: 'var(--primary)', color: 'white', textDecoration: 'none', fontWeight: 700 }}>
-                                {vehicle.brand} modellerine dön
+                            <Link href={vehicleDNAData.some(item=>isVehicleIndexable(item)&&createSlug(item.brand)===brandSlug)?`/arac-dna/${brandSlug}`:'/arac-dna'} style={{ padding: '11px 16px', borderRadius: 10, background: 'var(--primary)', color: 'white', textDecoration: 'none', fontWeight: 700 }}>
+                                İncelenmiş model dosyalarına dön
                             </Link>
                             <Link href="/" style={{ padding: '11px 16px', borderRadius: 10, border: '1px solid var(--card-border)', color: 'var(--foreground)', textDecoration: 'none', fontWeight: 700 }}>
                                 Forum deneyimlerini incele
@@ -256,6 +257,7 @@ export default function AracDNAShell({ children, vehicle, engineParam = '', sect
                 </div>
             </main>
 
+            <ContentConnections url={`/arac-dna/${brandSlug}/${modelSlug}/kronik-sorunlar`}/>
             <Footer />
             <style>{`
                 .hide-scrollbar::-webkit-scrollbar {

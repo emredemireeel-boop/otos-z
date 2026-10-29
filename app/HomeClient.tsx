@@ -125,7 +125,7 @@ const HOME_FEATURED_EVENT = {
     href: "/acik-oto-pazari/istanbul/kartal-eski-oto-pazari",
 };
 
-export default function Home({ initialThreads = [], featuredDnaVehicles }: { initialThreads?: ForumSeoSummary[];featuredDnaVehicles:{id:number;brand:string;model:string;dnaScore:number;totalReports:number;chronicIssueCount:number}[] }) {
+export default function Home({ initialThreads = [], featuredDnaVehicles, discovery }: { initialThreads?: ForumSeoSummary[];featuredDnaVehicles:{id:number;brand:string;model:string;dnaScore:number;totalReports:number;chronicIssueCount:number}[];discovery?:React.ReactNode }) {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
     const { user } = useAuth();
@@ -1768,6 +1768,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles }: { ini
                     </section>
                 </div>
             )}
+            {discovery}
             <Footer />
         </div >
     );

@@ -363,6 +363,7 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
                 </div>
             </main>
 
+            <SeoContentDirectory type="arac-dna" title="Markalara göre model dosyaları" modelsOnly/>
             <Footer />
         </div>
     );
@@ -374,3 +375,4 @@ export async function generateMetadata({searchParams}:{searchParams:Promise<Reco
         index: !query.brand&&!query.model&&!query.year&&isHubIndexable('/arac-dna')
     });
 }
+import SeoContentDirectory from '@/components/SeoContentDirectory';

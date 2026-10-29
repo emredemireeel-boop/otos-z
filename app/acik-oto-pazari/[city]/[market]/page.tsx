@@ -1,3 +1,4 @@
+import MarketConnections from '@/components/MarketConnections';
 import {createPageMetadata} from '@/lib/seo';
 import {schemaJson} from '@/lib/schema';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
@@ -233,6 +234,7 @@ export default async function OpenCarMarketDetailPage({ params }: MarketPageProp
                 <Link className={styles.backLink} href={`/acik-oto-pazari/${province.slug}`}>← {province.name} pazarlarına dön</Link>
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
             </main>
+            <MarketConnections city={province.slug}/>
             <Footer />
         </div>
     );

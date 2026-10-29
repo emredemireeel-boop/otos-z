@@ -12,6 +12,12 @@ const forumLinks = [
 ];
 
 const guideLinks = [
+    { href: "/kutuphane", label: "Kütüphane kategorileri" },
+    { href: "/makale", label: "Otomobil makaleleri" },
+    { href: "/haberler", label: "Otomobil haberleri" },
+    { href: "/piyasalar", label: "Otomotiv piyasaları" },
+    { href: "/otobutce", label: "Bütçeye göre otomobil rehberi" },
+    { href: "/trafik-cezasi", label: "Trafik cezası rehberi" },
     { href: "/acik-oto-pazari", label: "Açık oto pazarı rehberi" },
     { href: "/arac-dna", label: "Araç DNA analizleri" },
     { href: "/obd", label: "OBD arıza kodları" },

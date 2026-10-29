@@ -5,6 +5,7 @@ import {isVehicleIndexable} from '@/lib/indexability';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
+import HomeDiscovery from '@/components/HomeDiscovery';
 import { getRecentForumThreadSummaries } from "@/lib/forumDataServer";
 
 export const revalidate = 900;
@@ -44,7 +45,7 @@ export default async function HomePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: schemaJson(homePageJsonLd) }}
             />
-            <HomeClient initialThreads={initialThreads} featuredDnaVehicles={vehicleDNAData.filter(vehicle=>[1,2,3,4,5,6,7,8,13].includes(vehicle.id)&&isVehicleIndexable(vehicle)).map(({id,brand,model,dnaScore,totalReports,chronicIssues})=>({id,brand,model,dnaScore,totalReports,chronicIssueCount:chronicIssues.length}))} />
+            <HomeClient initialThreads={initialThreads} featuredDnaVehicles={vehicleDNAData.filter(vehicle=>[1,2,3,4,5,6,7,8,13].includes(vehicle.id)&&isVehicleIndexable(vehicle)).map(({id,brand,model,dnaScore,totalReports,chronicIssues})=>({id,brand,model,dnaScore,totalReports,chronicIssueCount:chronicIssues.length}))} discovery={<HomeDiscovery/>}/>
         </>
     );
 }

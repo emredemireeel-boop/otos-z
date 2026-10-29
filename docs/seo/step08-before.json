@@ -1,0 +1,5777 @@
+{
+  "checkedAt": "2026-10-29T11:05:55.820Z",
+  "base": "http://127.0.0.1:3010",
+  "definition": "Complete HTML a[href] graph; sitemap seeds identify orphans, only / seeds shortest-path BFS. Redirects are not followed. No script/RSC/onClick links are counted.",
+  "indexable": 691,
+  "crawled": 2319,
+  "discovered": 2319,
+  "limit": 7000,
+  "exceeded": false,
+  "orphans": 1,
+  "unreachable": 153,
+  "deep": 251,
+  "deepPercent": 36.32416787264834,
+  "depthCounts": {
+    "0": 1,
+    "1": 44,
+    "2": 166,
+    "3": 229,
+    "4": 94,
+    "5": 4,
+    "unreachable": 153
+  },
+  "aliasLinks": [],
+  "brokenLinks": [
+    {
+      "path": "/arac-dna/chevrolet",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/arac-dna/mitsubishi",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/arac-dna/mercedes",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/arac-dna/ds-automobiles",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/arac-dna/byd",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/arac-dna/mercedes-benz",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/arac-dna/volvo",
+      "status": 404,
+      "location": null
+    },
+    {
+      "path": "/arac-dna/bmw",
+      "status": 404,
+      "location": null
+    }
+  ],
+  "redirectLinks": [
+    {
+      "path": "/arac-dna/peugeot-citroen",
+      "status": 308,
+      "location": "/arac-dna/peugeot"
+    },
+    {
+      "path": "/arac-dna/skoda-vw",
+      "status": 308,
+      "location": "/arac-dna/skoda"
+    },
+    {
+      "path": "/arac-dna/toyota-honda",
+      "status": 308,
+      "location": "/arac-dna/toyota"
+    },
+    {
+      "path": "/arac-dna/opel-hyundai",
+      "status": 308,
+      "location": "/arac-dna/opel"
+    },
+    {
+      "path": "/arac-dna/hyundai-kia",
+      "status": 308,
+      "location": "/arac-dna/hyundai"
+    },
+    {
+      "path": "/arac-dna/dacia-renault",
+      "status": 308,
+      "location": "/arac-dna/dacia"
+    },
+    {
+      "path": "/arac-dna/seat-vw",
+      "status": 308,
+      "location": "/arac-dna/seat"
+    },
+    {
+      "path": "/arac-dna/opel-peugeot",
+      "status": 308,
+      "location": "/arac-dna/opel"
+    },
+    {
+      "path": "/arac-dna/skoda-seat",
+      "status": 308,
+      "location": "/arac-dna/skoda"
+    }
+  ],
+  "orphanPages": [
+    {
+      "url": "https://otosoz.com/piyasalar",
+      "path": "/piyasalar",
+      "depth": null,
+      "inbound": 0
+    }
+  ],
+  "deepPages": [
+    {
+      "url": "https://otosoz.com/piyasalar",
+      "path": "/piyasalar",
+      "depth": null,
+      "inbound": 0
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot",
+      "path": "/arac-dna/peugeot",
+      "depth": null,
+      "inbound": 32
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel",
+      "path": "/arac-dna/opel",
+      "depth": null,
+      "inbound": 24
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery",
+      "path": "/arac-dna/chery",
+      "depth": null,
+      "inbound": 18
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford",
+      "path": "/arac-dna/ford",
+      "depth": null,
+      "inbound": 34
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia",
+      "path": "/arac-dna/kia",
+      "depth": null,
+      "inbound": 14
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen",
+      "path": "/arac-dna/citroen",
+      "depth": null,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda",
+      "path": "/arac-dna/skoda",
+      "depth": null,
+      "inbound": 30
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat",
+      "path": "/arac-dna/seat",
+      "depth": null,
+      "inbound": 9
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi",
+      "path": "/arac-dna/audi",
+      "depth": null,
+      "inbound": 14
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas",
+      "path": "/arac-dna/tofas",
+      "depth": null,
+      "inbound": 44
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-1-nesil-2009-2016",
+      "path": "/arac-dna/peugeot/3008-1-nesil-2009-2016",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-1-nesil-2009-2016/neden-alinir",
+      "path": "/arac-dna/peugeot/3008-1-nesil-2009-2016/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-1-nesil-2009-2016/arac-paketleri",
+      "path": "/arac-dna/peugeot/3008-1-nesil-2009-2016/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023",
+      "path": "/arac-dna/peugeot/3008-2-nesil-2016-2023",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023/neden-alinir",
+      "path": "/arac-dna/peugeot/3008-2-nesil-2016-2023/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023/arac-paketleri",
+      "path": "/arac-dna/peugeot/3008-2-nesil-2016-2023/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/corsa-f-2020-2025",
+      "path": "/arac-dna/opel/corsa-f-2020-2025",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/corsa-f-2020-2025/neden-alinir",
+      "path": "/arac-dna/opel/corsa-f-2020-2025/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/corsa-f-2020-2025/arac-paketleri",
+      "path": "/arac-dna/opel/corsa-f-2020-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025",
+      "path": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/neden-alinir",
+      "path": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/arac-paketleri",
+      "path": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-4-nesil-mk4-2018-2025",
+      "path": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-4-nesil-mk4-2018-2025/neden-alinir",
+      "path": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-4-nesil-mk4-2018-2025/arac-paketleri",
+      "path": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025",
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025/kronik-sorunlar",
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025/neden-alinir",
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025/arac-paketleri",
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025",
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025",
+      "depth": 4,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/kronik-sorunlar",
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025/kronik-sorunlar",
+      "depth": 5,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/neden-alinir",
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025/neden-alinir",
+      "depth": 5,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/arac-paketleri",
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025/arac-paketleri",
+      "depth": 5,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/neden-alinir",
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/arac-paketleri",
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025",
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/kronik-sorunlar",
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/neden-alinir",
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/arac-paketleri",
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025",
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/kronik-sorunlar",
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/neden-alinir",
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/arac-paketleri",
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/city-7-nesil-gn-2021-2025/neden-alinir",
+      "path": "/arac-dna/honda/city-7-nesil-gn-2021-2025/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/city-7-nesil-gn-2021-2025/arac-paketleri",
+      "path": "/arac-dna/honda/city-7-nesil-gn-2021-2025/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/kronik-sorunlar",
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/neden-alinir",
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/arac-paketleri",
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025",
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025/kronik-sorunlar",
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025/neden-alinir",
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025/arac-paketleri",
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025",
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/kronik-sorunlar",
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/neden-alinir",
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/arac-paketleri",
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023",
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/kronik-sorunlar",
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/neden-alinir",
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/arac-paketleri",
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025",
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/kronik-sorunlar",
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/neden-alinir",
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/arac-paketleri",
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025",
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/kronik-sorunlar",
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/neden-alinir",
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/arac-paketleri",
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/kronik-sorunlar",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/neden-alinir",
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/arac-paketleri",
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/neden-alinir",
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/arac-paketleri",
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014",
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014/kronik-sorunlar",
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014/neden-alinir",
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014/arac-paketleri",
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-4-nesil-2012-2019/kronik-sorunlar",
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-4-nesil-2012-2019/neden-alinir",
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-4-nesil-2012-2019/arac-paketleri",
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002",
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002/kronik-sorunlar",
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002/neden-alinir",
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002/neden-alinir",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002/arac-paketleri",
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002/arac-paketleri",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015/kronik-sorunlar",
+      "path": "/arac-dna/fiat/linea-2007-2015/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015/neden-alinir",
+      "path": "/arac-dna/fiat/linea-2007-2015/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015/arac-paketleri",
+      "path": "/arac-dna/fiat/linea-2007-2015/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021/kronik-sorunlar",
+      "path": "/arac-dna/renault/symbol-2013-2021/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021/neden-alinir",
+      "path": "/arac-dna/renault/symbol-2013-2021/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021/arac-paketleri",
+      "path": "/arac-dna/renault/symbol-2013-2021/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/accent-era-2006-2012/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/neden-alinir",
+      "path": "/arac-dna/hyundai/accent-era-2006-2012/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/arac-paketleri",
+      "path": "/arac-dna/hyundai/accent-era-2006-2012/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012/kronik-sorunlar",
+      "path": "/arac-dna/honda/civic-fd6-2006-2012/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012/neden-alinir",
+      "path": "/arac-dna/honda/civic-fd6-2006-2012/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012/arac-paketleri",
+      "path": "/arac-dna/honda/civic-fd6-2006-2012/arac-paketleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/kronik-sorunlar",
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/neden-alinir",
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/arac-paketleri",
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-2-2002-2008/kronik-sorunlar",
+      "path": "/arac-dna/renault/megane-2-2002-2008/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-2-2002-2008/neden-alinir",
+      "path": "/arac-dna/renault/megane-2-2002-2008/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-2-2002-2008/arac-paketleri",
+      "path": "/arac-dna/renault/megane-2-2002-2008/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/tourneo-courier-2014-2023",
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/tourneo-courier-2014-2023/kronik-sorunlar",
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/tourneo-courier-2014-2023/neden-alinir",
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/tourneo-courier-2014-2023/arac-paketleri",
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025/kronik-sorunlar",
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025/neden-alinir",
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025/arac-paketleri",
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020",
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020/kronik-sorunlar",
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020/neden-alinir",
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020/arac-paketleri",
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/kronik-sorunlar",
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/neden-alinir",
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/arac-paketleri",
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017",
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/kronik-sorunlar",
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/neden-alinir",
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/arac-paketleri",
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/kronik-sorunlar",
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025",
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025/kronik-sorunlar",
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025/neden-alinir",
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025/arac-paketleri",
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012/kronik-sorunlar",
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012/neden-alinir",
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012/arac-paketleri",
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002",
+      "path": "/arac-dna/tofas/kartal-1988-2002",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002/kronik-sorunlar",
+      "path": "/arac-dna/tofas/kartal-1988-2002/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002/neden-alinir",
+      "path": "/arac-dna/tofas/kartal-1988-2002/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002/arac-paketleri",
+      "path": "/arac-dna/tofas/kartal-1988-2002/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994",
+      "path": "/arac-dna/tofas/serce-murat-131-1977-1994",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994/kronik-sorunlar",
+      "path": "/arac-dna/tofas/serce-murat-131-1977-1994/kronik-sorunlar",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994/neden-alinir",
+      "path": "/arac-dna/tofas/serce-murat-131-1977-1994/neden-alinir",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/kronik-sorunlar",
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/neden-alinir",
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/arac-paketleri",
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021/arac-paketleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-9-nesil-fb7-2012-2016/kronik-sorunlar",
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-9-nesil-fb7-2012-2016/neden-alinir",
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-9-nesil-fb7-2012-2016/arac-paketleri",
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016/arac-paketleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015",
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015/kronik-sorunlar",
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015/neden-alinir",
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015/arac-paketleri",
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-7-2012-2020/kronik-sorunlar",
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-7-2012-2020/neden-alinir",
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-7-2012-2020/arac-paketleri",
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2010-2024/kronik-sorunlar",
+      "path": "/arac-dna/dacia/duster-2010-2024/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2010-2024/neden-alinir",
+      "path": "/arac-dna/dacia/duster-2010-2024/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2010-2024/arac-paketleri",
+      "path": "/arac-dna/dacia/duster-2010-2024/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018",
+      "path": "/arac-dna/ford/focus-3-35-2011-2018",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018/kronik-sorunlar",
+      "path": "/arac-dna/ford/focus-3-35-2011-2018/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018/neden-alinir",
+      "path": "/arac-dna/ford/focus-3-35-2011-2018/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018/arac-paketleri",
+      "path": "/arac-dna/ford/focus-3-35-2011-2018/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/neden-alinir",
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/arac-paketleri",
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002",
+      "path": "/arac-dna/tofas/sahin-1988-2002",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002/kronik-sorunlar",
+      "path": "/arac-dna/tofas/sahin-1988-2002/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002/neden-alinir",
+      "path": "/arac-dna/tofas/sahin-1988-2002/neden-alinir",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002/arac-paketleri",
+      "path": "/arac-dna/tofas/sahin-1988-2002/arac-paketleri",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002",
+      "path": "/arac-dna/tofas/dogan-1988-2002",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002/kronik-sorunlar",
+      "path": "/arac-dna/tofas/dogan-1988-2002/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002/neden-alinir",
+      "path": "/arac-dna/tofas/dogan-1988-2002/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002/arac-paketleri",
+      "path": "/arac-dna/tofas/dogan-1988-2002/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994",
+      "path": "/arac-dna/tofas/serce-1984-1994",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994/neden-alinir",
+      "path": "/arac-dna/tofas/serce-1984-1994/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994/arac-paketleri",
+      "path": "/arac-dna/tofas/serce-1984-1994/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/kronik-sorunlar",
+      "path": "/arac-dna/renault/toros-r12-1989-2000/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/kronik-sorunlar",
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/kronik-sorunlar",
+      "path": "/arac-dna/fiat/uno-1995-2001/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/kronik-sorunlar",
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004/kronik-sorunlar",
+      "path": "/arac-dna/lada/samara-1990-2004/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/kronik-sorunlar",
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/neden-alinir",
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/arac-paketleri",
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea/kronik-sorunlar",
+      "path": "/arac-dna/fiat/linea/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea/neden-alinir",
+      "path": "/arac-dna/fiat/linea/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea/arac-paketleri",
+      "path": "/arac-dna/fiat/linea/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/206",
+      "path": "/arac-dna/peugeot/206",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/206/kronik-sorunlar",
+      "path": "/arac-dna/peugeot/206/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/206/neden-alinir",
+      "path": "/arac-dna/peugeot/206/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/206/arac-paketleri",
+      "path": "/arac-dna/peugeot/206/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6/kronik-sorunlar",
+      "path": "/arac-dna/honda/civic-fd6/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6/neden-alinir",
+      "path": "/arac-dna/honda/civic-fd6/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6/arac-paketleri",
+      "path": "/arac-dna/honda/civic-fd6/arac-paketleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/vectra-b",
+      "path": "/arac-dna/opel/vectra-b",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/vectra-b/kronik-sorunlar",
+      "path": "/arac-dna/opel/vectra-b/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/vectra-b/neden-alinir",
+      "path": "/arac-dna/opel/vectra-b/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/vectra-b/arac-paketleri",
+      "path": "/arac-dna/opel/vectra-b/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/murat-131",
+      "path": "/arac-dna/tofas/murat-131",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/murat-131/neden-alinir",
+      "path": "/arac-dna/tofas/murat-131/neden-alinir",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/a3-2020-2025",
+      "path": "/arac-dna/audi/a3-2020-2025",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/a3-2020-2025/neden-alinir",
+      "path": "/arac-dna/audi/a3-2020-2025/neden-alinir",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/kronik-sorunlar",
+      "path": "/arac-dna/renault/symbol-10-sce/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/neden-alinir",
+      "path": "/arac-dna/renault/symbol-10-sce/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/kullanici-deneyimleri",
+      "path": "/arac-dna/renault/symbol-10-sce/kullanici-deneyimleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023",
+      "path": "/arac-dna/kia/rio-4-nesil-2017-2023",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023/neden-alinir",
+      "path": "/arac-dna/kia/rio-4-nesil-2017-2023/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023/kullanici-deneyimleri",
+      "path": "/arac-dna/kia/rio-4-nesil-2017-2023/kullanici-deneyimleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/neden-alinir",
+      "path": "/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/kullanici-deneyimleri",
+      "path": "/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/kullanici-deneyimleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/neden-alinir",
+      "path": "/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/kullanici-deneyimleri",
+      "path": "/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/kullanici-deneyimleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/murat-131-124",
+      "path": "/arac-dna/tofas/murat-131-124",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/murat-131-124/neden-alinir",
+      "path": "/arac-dna/tofas/murat-131-124/neden-alinir",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan",
+      "path": "/arac-dna/tofas/dogan",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan/neden-alinir",
+      "path": "/arac-dna/tofas/dogan/neden-alinir",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/favorit-forman",
+      "path": "/arac-dna/skoda/favorit-forman",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/favorit-forman/neden-alinir",
+      "path": "/arac-dna/skoda/favorit-forman/neden-alinir",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/9-spring-broadway/neden-alinir",
+      "path": "/arac-dna/renault/9-spring-broadway/neden-alinir",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/11-flash-rainbow/neden-alinir",
+      "path": "/arac-dna/renault/11-flash-rainbow/neden-alinir",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/escort",
+      "path": "/arac-dna/ford/escort",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/escort/neden-alinir",
+      "path": "/arac-dna/ford/escort/neden-alinir",
+      "depth": null,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/taunus",
+      "path": "/arac-dna/ford/taunus",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/taunus/neden-alinir",
+      "path": "/arac-dna/ford/taunus/neden-alinir",
+      "depth": null,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara",
+      "path": "/arac-dna/lada/samara",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara/neden-alinir",
+      "path": "/arac-dna/lada/samara/neden-alinir",
+      "depth": 5,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno/neden-alinir",
+      "path": "/arac-dna/fiat/uno/neden-alinir",
+      "depth": 4,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/eski-lastik-disleri-derin--18",
+      "path": "/kutuphane/efsane-avcilari/eski-lastik-disleri-derin--18",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/fren-hidroligine-su-karismasi--26",
+      "path": "/kutuphane/efsane-avcilari/fren-hidroligine-su-karismasi--26",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/turbolu-araci-stop-etmeden-beklemek--27",
+      "path": "/kutuphane/efsane-avcilari/turbolu-araci-stop-etmeden-beklemek--27",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/disk-fren-torna-islemi--31",
+      "path": "/kutuphane/efsane-avcilari/disk-fren-torna-islemi--31",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/cam-suyuna-deterjan-veya-antifriz--32",
+      "path": "/kutuphane/efsane-avcilari/cam-suyuna-deterjan-veya-antifriz--32",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/dpf-lambasi-uzun-yolda-soner-mi--46",
+      "path": "/kutuphane/efsane-avcilari/dpf-lambasi-uzun-yolda-soner-mi--46",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/otobutce",
+      "path": "/otobutce",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-bin-tl-alti-arabalar",
+      "path": "/otobutce/150-bin-tl-alti-arabalar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-250-bin-tl-arasi-araclar",
+      "path": "/otobutce/150-250-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/250-350-bin-tl-arasi-araclar",
+      "path": "/otobutce/250-350-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/350-450-bin-tl-arasi-araclar",
+      "path": "/otobutce/350-450-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/450-550-bin-tl-arasi-araclar",
+      "path": "/otobutce/450-550-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/550-650-bin-tl-arasi-araclar",
+      "path": "/otobutce/550-650-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/750-850-bin-tl-arasi-araclar",
+      "path": "/otobutce/750-850-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/850-950-bin-tl-arasi-araclar",
+      "path": "/otobutce/850-950-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "path": "/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "path": "/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "path": "/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "path": "/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://otosoz.com/",
+      "path": "/",
+      "depth": 0,
+      "inbound": 2298
+    },
+    {
+      "url": "https://otosoz.com/karsilastirma",
+      "path": "/karsilastirma",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/uzmana-sor",
+      "path": "/uzmana-sor",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/piyasalar",
+      "path": "/piyasalar",
+      "depth": null,
+      "inbound": 0
+    },
+    {
+      "url": "https://otosoz.com/guvenmetre",
+      "path": "/guvenmetre",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/altin-anahtar",
+      "path": "/altin-anahtar",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/anket",
+      "path": "/anket",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/etkinlikler",
+      "path": "/etkinlikler",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/hakkimizda",
+      "path": "/hakkimizda",
+      "depth": 1,
+      "inbound": 2294
+    },
+    {
+      "url": "https://otosoz.com/editoryal-politika",
+      "path": "/editoryal-politika",
+      "depth": 1,
+      "inbound": 2294
+    },
+    {
+      "url": "https://otosoz.com/kaynaklar",
+      "path": "/kaynaklar",
+      "depth": 1,
+      "inbound": 2294
+    },
+    {
+      "url": "https://otosoz.com/iletisim",
+      "path": "/iletisim",
+      "depth": 1,
+      "inbound": 2295
+    },
+    {
+      "url": "https://otosoz.com/gizlilik-politikasi",
+      "path": "/gizlilik-politikasi",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/cerez-politikasi",
+      "path": "/cerez-politikasi",
+      "depth": 1,
+      "inbound": 2294
+    },
+    {
+      "url": "https://otosoz.com/kullanim-sartlari",
+      "path": "/kullanim-sartlari",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/arac-dna",
+      "path": "/arac-dna",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault",
+      "path": "/arac-dna/renault",
+      "depth": 2,
+      "inbound": 101
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat",
+      "path": "/arac-dna/fiat",
+      "depth": 2,
+      "inbound": 42
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota",
+      "path": "/arac-dna/toyota",
+      "depth": 2,
+      "inbound": 24
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda",
+      "path": "/arac-dna/honda",
+      "depth": 2,
+      "inbound": 36
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen",
+      "path": "/arac-dna/volkswagen",
+      "depth": 2,
+      "inbound": 39
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia",
+      "path": "/arac-dna/dacia",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai",
+      "path": "/arac-dna/hyundai",
+      "depth": 2,
+      "inbound": 64
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot",
+      "path": "/arac-dna/peugeot",
+      "depth": null,
+      "inbound": 32
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel",
+      "path": "/arac-dna/opel",
+      "depth": null,
+      "inbound": 24
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg",
+      "path": "/arac-dna/togg",
+      "depth": 3,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery",
+      "path": "/arac-dna/chery",
+      "depth": null,
+      "inbound": 18
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford",
+      "path": "/arac-dna/ford",
+      "depth": null,
+      "inbound": 34
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan",
+      "path": "/arac-dna/nissan",
+      "depth": 3,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia",
+      "path": "/arac-dna/kia",
+      "depth": null,
+      "inbound": 14
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen",
+      "path": "/arac-dna/citroen",
+      "depth": null,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda",
+      "path": "/arac-dna/skoda",
+      "depth": null,
+      "inbound": 30
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat",
+      "path": "/arac-dna/seat",
+      "depth": null,
+      "inbound": 9
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla",
+      "path": "/arac-dna/tesla",
+      "depth": 3,
+      "inbound": 11
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi",
+      "path": "/arac-dna/audi",
+      "depth": null,
+      "inbound": 14
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas",
+      "path": "/arac-dna/tofas",
+      "depth": null,
+      "inbound": 44
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada",
+      "path": "/arac-dna/lada",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025",
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "depth": 1,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir",
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/arac-paketleri",
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/arac-paketleri",
+      "depth": 2,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc",
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-kronik-sorunlari",
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-1-nesil-1990-1998",
+      "path": "/arac-dna/renault/clio-1-nesil-1990-1998",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-1-nesil-1990-1998/kronik-sorunlar",
+      "path": "/arac-dna/renault/clio-1-nesil-1990-1998/kronik-sorunlar",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-1-nesil-1990-1998/neden-alinir",
+      "path": "/arac-dna/renault/clio-1-nesil-1990-1998/neden-alinir",
+      "depth": 3,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-2-nesil-1998-2012",
+      "path": "/arac-dna/renault/clio-2-nesil-1998-2012",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-2-nesil-1998-2012/kronik-sorunlar",
+      "path": "/arac-dna/renault/clio-2-nesil-1998-2012/kronik-sorunlar",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-2-nesil-1998-2012/neden-alinir",
+      "path": "/arac-dna/renault/clio-2-nesil-1998-2012/neden-alinir",
+      "depth": 3,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025",
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025",
+      "depth": 1,
+      "inbound": 18
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025/neden-alinir",
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/neden-alinir",
+      "depth": 2,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025/arac-paketleri",
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/arac-paketleri",
+      "depth": 2,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025/16-multijet-120-hp-dizel-manuel-dct",
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/16-multijet-120-hp-dizel-manuel-dct",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025/16-multijet-120-hp-dizel-manuel-dct-kronik-sorunlari",
+      "path": "/arac-dna/fiat/egea-1-nesil-2015-2025/16-multijet-120-hp-dizel-manuel-dct-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025",
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025",
+      "depth": 1,
+      "inbound": 17
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025/kronik-sorunlar",
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025/kronik-sorunlar",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025/neden-alinir",
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025/neden-alinir",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025/arac-paketleri",
+      "path": "/arac-dna/toyota/corolla-12-nesil-2019-2025/arac-paketleri",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-4-nesil-2016-2025",
+      "path": "/arac-dna/renault/megane-4-nesil-2016-2025",
+      "depth": 1,
+      "inbound": 15
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-4-nesil-2016-2025/neden-alinir",
+      "path": "/arac-dna/renault/megane-4-nesil-2016-2025/neden-alinir",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-4-nesil-2016-2025/arac-paketleri",
+      "path": "/arac-dna/renault/megane-4-nesil-2016-2025/arac-paketleri",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-11-nesil-fe1-2021-2025",
+      "path": "/arac-dna/honda/civic-11-nesil-fe1-2021-2025",
+      "depth": 1,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-11-nesil-fe1-2021-2025/kronik-sorunlar",
+      "path": "/arac-dna/honda/civic-11-nesil-fe1-2021-2025/kronik-sorunlar",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-11-nesil-fe1-2021-2025/neden-alinir",
+      "path": "/arac-dna/honda/civic-11-nesil-fe1-2021-2025/neden-alinir",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-11-nesil-fe1-2021-2025/arac-paketleri",
+      "path": "/arac-dna/honda/civic-11-nesil-fe1-2021-2025/arac-paketleri",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/passat-b8-2015-2023",
+      "path": "/arac-dna/volkswagen/passat-b8-2015-2023",
+      "depth": 1,
+      "inbound": 11
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/passat-b8-2015-2023/neden-alinir",
+      "path": "/arac-dna/volkswagen/passat-b8-2015-2023/neden-alinir",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/passat-b8-2015-2023/arac-paketleri",
+      "path": "/arac-dna/volkswagen/passat-b8-2015-2023/arac-paketleri",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2-nesil-2018-2024",
+      "path": "/arac-dna/dacia/duster-2-nesil-2018-2024",
+      "depth": 1,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2-nesil-2018-2024/kronik-sorunlar",
+      "path": "/arac-dna/dacia/duster-2-nesil-2018-2024/kronik-sorunlar",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2-nesil-2018-2024/neden-alinir",
+      "path": "/arac-dna/dacia/duster-2-nesil-2018-2024/neden-alinir",
+      "depth": 2,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2-nesil-2018-2024/arac-paketleri",
+      "path": "/arac-dna/dacia/duster-2-nesil-2018-2024/arac-paketleri",
+      "depth": 2,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025",
+      "path": "/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025",
+      "depth": 1,
+      "inbound": 14
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/kronik-sorunlar",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/neden-alinir",
+      "path": "/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/neden-alinir",
+      "depth": 2,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/arac-paketleri",
+      "path": "/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/arac-paketleri",
+      "depth": 2,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-1-nesil-2009-2016",
+      "path": "/arac-dna/peugeot/3008-1-nesil-2009-2016",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-1-nesil-2009-2016/neden-alinir",
+      "path": "/arac-dna/peugeot/3008-1-nesil-2009-2016/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-1-nesil-2009-2016/arac-paketleri",
+      "path": "/arac-dna/peugeot/3008-1-nesil-2009-2016/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023",
+      "path": "/arac-dna/peugeot/3008-2-nesil-2016-2023",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023/neden-alinir",
+      "path": "/arac-dna/peugeot/3008-2-nesil-2016-2023/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/3008-2-nesil-2016-2023/arac-paketleri",
+      "path": "/arac-dna/peugeot/3008-2-nesil-2016-2023/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/corsa-f-2020-2025",
+      "path": "/arac-dna/opel/corsa-f-2020-2025",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/corsa-f-2020-2025/neden-alinir",
+      "path": "/arac-dna/opel/corsa-f-2020-2025/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/corsa-f-2020-2025/arac-paketleri",
+      "path": "/arac-dna/opel/corsa-f-2020-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025",
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025",
+      "depth": 2,
+      "inbound": 9
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/kronik-sorunlar",
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/kronik-sorunlar",
+      "depth": 3,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/neden-alinir",
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/neden-alinir",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/arac-paketleri",
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/arac-paketleri",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v1-standart-menzil-elektrik-tek-vites",
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/v1-standart-menzil-elektrik-tek-vites",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v1-standart-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/v1-standart-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites",
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "path": "/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025",
+      "path": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/neden-alinir",
+      "path": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/arac-paketleri",
+      "path": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-8-nesil-2020-2025",
+      "path": "/arac-dna/volkswagen/golf-8-nesil-2020-2025",
+      "depth": 1,
+      "inbound": 17
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-8-nesil-2020-2025/neden-alinir",
+      "path": "/arac-dna/volkswagen/golf-8-nesil-2020-2025/neden-alinir",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-8-nesil-2020-2025/arac-paketleri",
+      "path": "/arac-dna/volkswagen/golf-8-nesil-2020-2025/arac-paketleri",
+      "depth": 2,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-4-nesil-mk4-2018-2025",
+      "path": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-4-nesil-mk4-2018-2025/neden-alinir",
+      "path": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-4-nesil-mk4-2018-2025/arac-paketleri",
+      "path": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025",
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025/kronik-sorunlar",
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025/neden-alinir",
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/omoda-5-1-nesil-2023-2025/arac-paketleri",
+      "path": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025",
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025",
+      "depth": 4,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/kronik-sorunlar",
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025/kronik-sorunlar",
+      "depth": 5,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/neden-alinir",
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025/neden-alinir",
+      "depth": 5,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-j12-2021-2025/arac-paketleri",
+      "path": "/arac-dna/nissan/qashqai-j12-2021-2025/arac-paketleri",
+      "depth": 5,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025",
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/neden-alinir",
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/arac-paketleri",
+      "path": "/arac-dna/hyundai/tucson-nx4-4-nesil-2020-2025/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025",
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/kronik-sorunlar",
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/neden-alinir",
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/arac-paketleri",
+      "path": "/arac-dna/kia/sportage-nq5-5-nesil-2021-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025",
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/kronik-sorunlar",
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/neden-alinir",
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/arac-paketleri",
+      "path": "/arac-dna/peugeot/2008-2-nesil-p24-2019-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/city-7-nesil-gn-2021-2025",
+      "path": "/arac-dna/honda/city-7-nesil-gn-2021-2025",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/city-7-nesil-gn-2021-2025/neden-alinir",
+      "path": "/arac-dna/honda/city-7-nesil-gn-2021-2025/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/city-7-nesil-gn-2021-2025/arac-paketleri",
+      "path": "/arac-dna/honda/city-7-nesil-gn-2021-2025/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025",
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/kronik-sorunlar",
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/neden-alinir",
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/arac-paketleri",
+      "path": "/arac-dna/volkswagen/polo-aw-6-nesil-2017-2025/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025",
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025/kronik-sorunlar",
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025/neden-alinir",
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen/c4-x-1-nesil-2022-2025/arac-paketleri",
+      "path": "/arac-dna/citroen/c4-x-1-nesil-2022-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025",
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/kronik-sorunlar",
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/neden-alinir",
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/arac-paketleri",
+      "path": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023",
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/kronik-sorunlar",
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/neden-alinir",
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/superb-b8-3-nesil-2015-2023/arac-paketleri",
+      "path": "/arac-dna/skoda/superb-b8-3-nesil-2015-2023/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025",
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/kronik-sorunlar",
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/neden-alinir",
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/arac-paketleri",
+      "path": "/arac-dna/chery/tiggo-7-pro-1-nesil-2023-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025",
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/kronik-sorunlar",
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/neden-alinir",
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/seat/leon-kl-4-nesil-2020-2025/arac-paketleri",
+      "path": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025",
+      "depth": 3,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/kronik-sorunlar",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/neden-alinir",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/neden-alinir",
+      "depth": 3,
+      "inbound": 9
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/arac-paketleri",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/arac-paketleri",
+      "depth": 3,
+      "inbound": 9
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/rwd-elektrik-tek-vites",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/rwd-elektrik-tek-vites",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/rwd-elektrik-tek-vites-kronik-sorunlari",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/rwd-elektrik-tek-vites-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/long-range-dual-motor-elektrik-tek-vites",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/long-range-dual-motor-elektrik-tek-vites",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/long-range-dual-motor-elektrik-tek-vites-kronik-sorunlari",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/long-range-dual-motor-elektrik-tek-vites-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites-kronik-sorunlari",
+      "path": "/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020",
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020",
+      "depth": 3,
+      "inbound": 9
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/neden-alinir",
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/arac-paketleri",
+      "path": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017",
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/neden-alinir",
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/arac-paketleri",
+      "path": "/arac-dna/hyundai/i30-2-nesil-gd-2012-2017/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014",
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014",
+      "depth": null,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014/kronik-sorunlar",
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014/neden-alinir",
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014/neden-alinir",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/tt-2-nesil-mk2-2006-2014/arac-paketleri",
+      "path": "/arac-dna/audi/tt-2-nesil-mk2-2006-2014/arac-paketleri",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-4-nesil-2012-2019",
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-4-nesil-2012-2019/kronik-sorunlar",
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-4-nesil-2012-2019/neden-alinir",
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019/neden-alinir",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-4-nesil-2012-2019/arac-paketleri",
+      "path": "/arac-dna/renault/clio-4-nesil-2012-2019/arac-paketleri",
+      "depth": 4,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002",
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002/kronik-sorunlar",
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002/neden-alinir",
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002/neden-alinir",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-dogan-1988-2002/arac-paketleri",
+      "path": "/arac-dna/tofas/sahin-dogan-1988-2002/arac-paketleri",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015",
+      "path": "/arac-dna/fiat/linea-2007-2015",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015/kronik-sorunlar",
+      "path": "/arac-dna/fiat/linea-2007-2015/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015/neden-alinir",
+      "path": "/arac-dna/fiat/linea-2007-2015/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea-2007-2015/arac-paketleri",
+      "path": "/arac-dna/fiat/linea-2007-2015/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021",
+      "path": "/arac-dna/renault/symbol-2013-2021",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021/kronik-sorunlar",
+      "path": "/arac-dna/renault/symbol-2013-2021/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021/neden-alinir",
+      "path": "/arac-dna/renault/symbol-2013-2021/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-2013-2021/arac-paketleri",
+      "path": "/arac-dna/renault/symbol-2013-2021/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012",
+      "path": "/arac-dna/hyundai/accent-era-2006-2012",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/accent-era-2006-2012/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/neden-alinir",
+      "path": "/arac-dna/hyundai/accent-era-2006-2012/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-era-2006-2012/arac-paketleri",
+      "path": "/arac-dna/hyundai/accent-era-2006-2012/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012",
+      "path": "/arac-dna/honda/civic-fd6-2006-2012",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012/kronik-sorunlar",
+      "path": "/arac-dna/honda/civic-fd6-2006-2012/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012/neden-alinir",
+      "path": "/arac-dna/honda/civic-fd6-2006-2012/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6-2006-2012/arac-paketleri",
+      "path": "/arac-dna/honda/civic-fd6-2006-2012/arac-paketleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023",
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/kronik-sorunlar",
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/neden-alinir",
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/arac-paketleri",
+      "path": "/arac-dna/fiat/doblo-3-ve-4-nesil-2010-2023/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-2-2002-2008",
+      "path": "/arac-dna/renault/megane-2-2002-2008",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-2-2002-2008/kronik-sorunlar",
+      "path": "/arac-dna/renault/megane-2-2002-2008/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-2-2002-2008/neden-alinir",
+      "path": "/arac-dna/renault/megane-2-2002-2008/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/megane-2-2002-2008/arac-paketleri",
+      "path": "/arac-dna/renault/megane-2-2002-2008/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/tourneo-courier-2014-2023",
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/tourneo-courier-2014-2023/kronik-sorunlar",
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/tourneo-courier-2014-2023/neden-alinir",
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/tourneo-courier-2014-2023/arac-paketleri",
+      "path": "/arac-dna/ford/tourneo-courier-2014-2023/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025",
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025/kronik-sorunlar",
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025/neden-alinir",
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/sandero-stepway-2021-2025/arac-paketleri",
+      "path": "/arac-dna/dacia/sandero-stepway-2021-2025/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020",
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020/kronik-sorunlar",
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020/neden-alinir",
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/octavia-a7-2013-2020/arac-paketleri",
+      "path": "/arac-dna/skoda/octavia-a7-2013-2020/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017",
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/kronik-sorunlar",
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/neden-alinir",
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/arac-paketleri",
+      "path": "/arac-dna/volkswagen/polo-5-nesil-6r6c-2009-2017/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017",
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/kronik-sorunlar",
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/neden-alinir",
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/arac-paketleri",
+      "path": "/arac-dna/ford/fiesta-6-nesil-mk7-2008-2017/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021",
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/kronik-sorunlar",
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/neden-alinir",
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/neden-alinir",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/arac-paketleri",
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/arac-paketleri",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/1-2-dig-t-115-hp",
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/1-2-dig-t-115-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/1-2-dig-t-115-hp-kronik-sorunlari",
+      "path": "/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/1-2-dig-t-115-hp-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025",
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025/kronik-sorunlar",
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025/neden-alinir",
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/208-2-nesil-2019-2025/arac-paketleri",
+      "path": "/arac-dna/peugeot/208-2-nesil-2019-2025/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012",
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012/kronik-sorunlar",
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012/neden-alinir",
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-e140e150-2007-2012/arac-paketleri",
+      "path": "/arac-dna/toyota/corolla-e140e150-2007-2012/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002",
+      "path": "/arac-dna/tofas/kartal-1988-2002",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002/kronik-sorunlar",
+      "path": "/arac-dna/tofas/kartal-1988-2002/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002/neden-alinir",
+      "path": "/arac-dna/tofas/kartal-1988-2002/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/kartal-1988-2002/arac-paketleri",
+      "path": "/arac-dna/tofas/kartal-1988-2002/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994",
+      "path": "/arac-dna/tofas/serce-murat-131-1977-1994",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994/kronik-sorunlar",
+      "path": "/arac-dna/tofas/serce-murat-131-1977-1994/kronik-sorunlar",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-murat-131-1977-1994/neden-alinir",
+      "path": "/arac-dna/tofas/serce-murat-131-1977-1994/neden-alinir",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021",
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/kronik-sorunlar",
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/neden-alinir",
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-10-nesil-fc5-2016-2021/arac-paketleri",
+      "path": "/arac-dna/honda/civic-10-nesil-fc5-2016-2021/arac-paketleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-9-nesil-fb7-2012-2016",
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-9-nesil-fb7-2012-2016/kronik-sorunlar",
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-9-nesil-fb7-2012-2016/neden-alinir",
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-9-nesil-fb7-2012-2016/arac-paketleri",
+      "path": "/arac-dna/honda/civic-9-nesil-fb7-2012-2016/arac-paketleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015",
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015/kronik-sorunlar",
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015/neden-alinir",
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/astra-j-kasa-2009-2015/arac-paketleri",
+      "path": "/arac-dna/opel/astra-j-kasa-2009-2015/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-7-2012-2020",
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-7-2012-2020/kronik-sorunlar",
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-7-2012-2020/neden-alinir",
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen/golf-7-2012-2020/arac-paketleri",
+      "path": "/arac-dna/volkswagen/golf-7-2012-2020/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2010-2024",
+      "path": "/arac-dna/dacia/duster-2010-2024",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2010-2024/kronik-sorunlar",
+      "path": "/arac-dna/dacia/duster-2010-2024/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2010-2024/neden-alinir",
+      "path": "/arac-dna/dacia/duster-2010-2024/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/dacia/duster-2010-2024/arac-paketleri",
+      "path": "/arac-dna/dacia/duster-2010-2024/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018",
+      "path": "/arac-dna/ford/focus-3-35-2011-2018",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018/kronik-sorunlar",
+      "path": "/arac-dna/ford/focus-3-35-2011-2018/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018/neden-alinir",
+      "path": "/arac-dna/ford/focus-3-35-2011-2018/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/focus-3-35-2011-2018/arac-paketleri",
+      "path": "/arac-dna/ford/focus-3-35-2011-2018/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020",
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/neden-alinir",
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-3-nesil-2015-2020/arac-paketleri",
+      "path": "/arac-dna/hyundai/tucson-3-nesil-2015-2020/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002",
+      "path": "/arac-dna/tofas/sahin-1988-2002",
+      "depth": null,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002/kronik-sorunlar",
+      "path": "/arac-dna/tofas/sahin-1988-2002/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002/neden-alinir",
+      "path": "/arac-dna/tofas/sahin-1988-2002/neden-alinir",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/sahin-1988-2002/arac-paketleri",
+      "path": "/arac-dna/tofas/sahin-1988-2002/arac-paketleri",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002",
+      "path": "/arac-dna/tofas/dogan-1988-2002",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002/kronik-sorunlar",
+      "path": "/arac-dna/tofas/dogan-1988-2002/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002/neden-alinir",
+      "path": "/arac-dna/tofas/dogan-1988-2002/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan-1988-2002/arac-paketleri",
+      "path": "/arac-dna/tofas/dogan-1988-2002/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994",
+      "path": "/arac-dna/tofas/serce-1984-1994",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994/neden-alinir",
+      "path": "/arac-dna/tofas/serce-1984-1994/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/serce-1984-1994/arac-paketleri",
+      "path": "/arac-dna/tofas/serce-1984-1994/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000",
+      "path": "/arac-dna/renault/toros-r12-1989-2000",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/kronik-sorunlar",
+      "path": "/arac-dna/renault/toros-r12-1989-2000/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/neden-alinir",
+      "path": "/arac-dna/renault/toros-r12-1989-2000/neden-alinir",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/arac-paketleri",
+      "path": "/arac-dna/renault/toros-r12-1989-2000/arac-paketleri",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/1-4-benzinli-72-hp",
+      "path": "/arac-dna/renault/toros-r12-1989-2000/1-4-benzinli-72-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/1-4-benzinli-72-hp-kronik-sorunlari",
+      "path": "/arac-dna/renault/toros-r12-1989-2000/1-4-benzinli-72-hp-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/1-4-tx-72-hp",
+      "path": "/arac-dna/renault/toros-r12-1989-2000/1-4-tx-72-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/1-4-tx-72-hp-kronik-sorunlari",
+      "path": "/arac-dna/renault/toros-r12-1989-2000/1-4-tx-72-hp-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000",
+      "path": "/arac-dna/renault/r9-broadway-1985-2000",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/kronik-sorunlar",
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/neden-alinir",
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/neden-alinir",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/arac-paketleri",
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/arac-paketleri",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/1-4-broadway-72-hp",
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/1-4-broadway-72-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/1-4-broadway-72-hp-kronik-sorunlari",
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/1-4-broadway-72-hp-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/1-6-fairway-80-hp",
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/1-6-fairway-80-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/1-6-fairway-80-hp-kronik-sorunlari",
+      "path": "/arac-dna/renault/r9-broadway-1985-2000/1-6-fairway-80-hp-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001",
+      "path": "/arac-dna/fiat/uno-1995-2001",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/kronik-sorunlar",
+      "path": "/arac-dna/fiat/uno-1995-2001/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/neden-alinir",
+      "path": "/arac-dna/fiat/uno-1995-2001/neden-alinir",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/arac-paketleri",
+      "path": "/arac-dna/fiat/uno-1995-2001/arac-paketleri",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-s",
+      "path": "/arac-dna/fiat/uno-1995-2001/1-4-70-s",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-s-kronik-sorunlari",
+      "path": "/arac-dna/fiat/uno-1995-2001/1-4-70-s-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-sx-ie",
+      "path": "/arac-dna/fiat/uno-1995-2001/1-4-70-sx-ie",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-sx-ie-kronik-sorunlari",
+      "path": "/arac-dna/fiat/uno-1995-2001/1-4-70-sx-ie-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998",
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/kronik-sorunlar",
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/neden-alinir",
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/neden-alinir",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/arac-paketleri",
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/arac-paketleri",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/1-6-gli-114-hp",
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/1-6-gli-114-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/1-6-gli-114-hp-kronik-sorunlari",
+      "path": "/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/1-6-gli-114-hp-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000",
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000",
+      "depth": 3,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/kronik-sorunlar",
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/neden-alinir",
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/neden-alinir",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/arac-paketleri",
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/arac-paketleri",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp",
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp-kronik-sorunlari",
+      "path": "/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004",
+      "path": "/arac-dna/lada/samara-1990-2004",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004/kronik-sorunlar",
+      "path": "/arac-dna/lada/samara-1990-2004/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004/neden-alinir",
+      "path": "/arac-dna/lada/samara-1990-2004/neden-alinir",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004/1-5-karburatorlu-72-hp",
+      "path": "/arac-dna/lada/samara-1990-2004/1-5-karburatorlu-72-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004/1-5-karburatorlu-72-hp-kronik-sorunlari",
+      "path": "/arac-dna/lada/samara-1990-2004/1-5-karburatorlu-72-hp-kronik-sorunlari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012",
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/kronik-sorunlar",
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/neden-alinir",
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-clio-symbol-2000-2012/arac-paketleri",
+      "path": "/arac-dna/renault/symbol-clio-symbol-2000-2012/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea",
+      "path": "/arac-dna/fiat/linea",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea/kronik-sorunlar",
+      "path": "/arac-dna/fiat/linea/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea/neden-alinir",
+      "path": "/arac-dna/fiat/linea/neden-alinir",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/linea/arac-paketleri",
+      "path": "/arac-dna/fiat/linea/arac-paketleri",
+      "depth": 4,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/206",
+      "path": "/arac-dna/peugeot/206",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/206/kronik-sorunlar",
+      "path": "/arac-dna/peugeot/206/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/206/neden-alinir",
+      "path": "/arac-dna/peugeot/206/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot/206/arac-paketleri",
+      "path": "/arac-dna/peugeot/206/arac-paketleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6",
+      "path": "/arac-dna/honda/civic-fd6",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6/kronik-sorunlar",
+      "path": "/arac-dna/honda/civic-fd6/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6/neden-alinir",
+      "path": "/arac-dna/honda/civic-fd6/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/honda/civic-fd6/arac-paketleri",
+      "path": "/arac-dna/honda/civic-fd6/arac-paketleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/vectra-b",
+      "path": "/arac-dna/opel/vectra-b",
+      "depth": null,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/vectra-b/kronik-sorunlar",
+      "path": "/arac-dna/opel/vectra-b/kronik-sorunlar",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/vectra-b/neden-alinir",
+      "path": "/arac-dna/opel/vectra-b/neden-alinir",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/opel/vectra-b/arac-paketleri",
+      "path": "/arac-dna/opel/vectra-b/arac-paketleri",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/murat-131",
+      "path": "/arac-dna/tofas/murat-131",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/murat-131/neden-alinir",
+      "path": "/arac-dna/tofas/murat-131/neden-alinir",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/a3-2020-2025",
+      "path": "/arac-dna/audi/a3-2020-2025",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/audi/a3-2020-2025/neden-alinir",
+      "path": "/arac-dna/audi/a3-2020-2025/neden-alinir",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce",
+      "path": "/arac-dna/renault/symbol-10-sce",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/kronik-sorunlar",
+      "path": "/arac-dna/renault/symbol-10-sce/kronik-sorunlar",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/neden-alinir",
+      "path": "/arac-dna/renault/symbol-10-sce/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/kullanici-deneyimleri",
+      "path": "/arac-dna/renault/symbol-10-sce/kullanici-deneyimleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023",
+      "path": "/arac-dna/kia/rio-4-nesil-2017-2023",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023/neden-alinir",
+      "path": "/arac-dna/kia/rio-4-nesil-2017-2023/neden-alinir",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023/kullanici-deneyimleri",
+      "path": "/arac-dna/kia/rio-4-nesil-2017-2023/kullanici-deneyimleri",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-2020-gunumuz",
+      "path": "/arac-dna/hyundai/i20-3-nesil-2020-gunumuz",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/neden-alinir",
+      "path": "/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/kullanici-deneyimleri",
+      "path": "/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/kullanici-deneyimleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz",
+      "path": "/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/neden-alinir",
+      "path": "/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/neden-alinir",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/kullanici-deneyimleri",
+      "path": "/arac-dna/hyundai/tucson-4-nesil-2021-gunumuz/kullanici-deneyimleri",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/murat-131-124",
+      "path": "/arac-dna/tofas/murat-131-124",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/murat-131-124/neden-alinir",
+      "path": "/arac-dna/tofas/murat-131-124/neden-alinir",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan",
+      "path": "/arac-dna/tofas/dogan",
+      "depth": null,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/tofas/dogan/neden-alinir",
+      "path": "/arac-dna/tofas/dogan/neden-alinir",
+      "depth": null,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/favorit-forman",
+      "path": "/arac-dna/skoda/favorit-forman",
+      "depth": null,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/skoda/favorit-forman/neden-alinir",
+      "path": "/arac-dna/skoda/favorit-forman/neden-alinir",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/9-spring-broadway",
+      "path": "/arac-dna/renault/9-spring-broadway",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/9-spring-broadway/neden-alinir",
+      "path": "/arac-dna/renault/9-spring-broadway/neden-alinir",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/11-flash-rainbow",
+      "path": "/arac-dna/renault/11-flash-rainbow",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/11-flash-rainbow/neden-alinir",
+      "path": "/arac-dna/renault/11-flash-rainbow/neden-alinir",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/escort",
+      "path": "/arac-dna/ford/escort",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/escort/neden-alinir",
+      "path": "/arac-dna/ford/escort/neden-alinir",
+      "depth": null,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/taunus",
+      "path": "/arac-dna/ford/taunus",
+      "depth": null,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/ford/taunus/neden-alinir",
+      "path": "/arac-dna/ford/taunus/neden-alinir",
+      "depth": null,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara",
+      "path": "/arac-dna/lada/samara",
+      "depth": 4,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/lada/samara/neden-alinir",
+      "path": "/arac-dna/lada/samara/neden-alinir",
+      "depth": 5,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno",
+      "path": "/arac-dna/fiat/uno",
+      "depth": 3,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat/uno/neden-alinir",
+      "path": "/arac-dna/fiat/uno/neden-alinir",
+      "depth": 4,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026",
+      "depth": 2,
+      "inbound": 11
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/neden-alinir",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/neden-alinir",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/turbo-tce-edc-145-hp",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/turbo-tce-edc-145-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/turbo-tce-edc-145-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/turbo-tce-edc-145-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/hybrid-4x4-150-hp",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/hybrid-4x4-150-hp",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/hybrid-4x4-150-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/hybrid-4x4-150-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "path": "/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/obd",
+      "path": "/obd",
+      "depth": 1,
+      "inbound": 2294
+    },
+    {
+      "url": "https://otosoz.com/obd/p0171",
+      "path": "/obd/p0171",
+      "depth": 2,
+      "inbound": 872
+    },
+    {
+      "url": "https://otosoz.com/obd/p0299",
+      "path": "/obd/p0299",
+      "depth": 2,
+      "inbound": 872
+    },
+    {
+      "url": "https://otosoz.com/obd/p0300",
+      "path": "/obd/p0300",
+      "depth": 2,
+      "inbound": 872
+    },
+    {
+      "url": "https://otosoz.com/obd/p0420",
+      "path": "/obd/p0420",
+      "depth": 2,
+      "inbound": 872
+    },
+    {
+      "url": "https://otosoz.com/obd/p1000",
+      "path": "/obd/p1000",
+      "depth": 2,
+      "inbound": 872
+    },
+    {
+      "url": "https://otosoz.com/kutuphane",
+      "path": "/kutuphane",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kasko-deger",
+      "path": "/kutuphane/kasko-deger",
+      "depth": 2,
+      "inbound": 25
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/ilginc-bilgiler",
+      "path": "/kutuphane/kategori/ilginc-bilgiler",
+      "depth": 2,
+      "inbound": 31
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/trafik-isaretleri",
+      "path": "/kutuphane/kategori/trafik-isaretleri",
+      "depth": 2,
+      "inbound": 23
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/lastik-rehberi",
+      "path": "/kutuphane/kategori/lastik-rehberi",
+      "depth": 2,
+      "inbound": 23
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/ikinci-el-rehberi",
+      "path": "/kutuphane/kategori/ikinci-el-rehberi",
+      "depth": 1,
+      "inbound": 50
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/kaza-ilkyardim",
+      "path": "/kutuphane/kategori/kaza-ilkyardim",
+      "depth": 1,
+      "inbound": 37
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/mevsimsel-bakim",
+      "path": "/kutuphane/kategori/mevsimsel-bakim",
+      "depth": 2,
+      "inbound": 23
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/sigorta-rehberi",
+      "path": "/kutuphane/kategori/sigorta-rehberi",
+      "depth": 2,
+      "inbound": 23
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/otoyol-ve-kopru-ucretleri",
+      "path": "/kutuphane/kategori/otoyol-ve-kopru-ucretleri",
+      "depth": 2,
+      "inbound": 36
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/bakim-zamanlari",
+      "path": "/kutuphane/kategori/bakim-zamanlari",
+      "depth": 2,
+      "inbound": 1009
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/tuvturk-muayene",
+      "path": "/kutuphane/kategori/tuvturk-muayene",
+      "depth": 2,
+      "inbound": 23
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/arac-segmentleri",
+      "path": "/kutuphane/kategori/arac-segmentleri",
+      "depth": 2,
+      "inbound": 29
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/plaka-kodlari",
+      "path": "/kutuphane/kategori/plaka-kodlari",
+      "depth": 2,
+      "inbound": 149
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/noter-islemleri",
+      "path": "/kutuphane/kategori/noter-islemleri",
+      "depth": 2,
+      "inbound": 23
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/ehliyet-siniflari",
+      "path": "/kutuphane/kategori/ehliyet-siniflari",
+      "depth": 2,
+      "inbound": 32
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/hgs-siniflari",
+      "path": "/kutuphane/kategori/hgs-siniflari",
+      "depth": 2,
+      "inbound": 23
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/dolandiricilik-rehberi",
+      "path": "/kutuphane/kategori/dolandiricilik-rehberi",
+      "depth": 2,
+      "inbound": 23
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/nereye-gitmeli",
+      "path": "/kutuphane/kategori/nereye-gitmeli",
+      "depth": 2,
+      "inbound": 24
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/hasar-sorgulama",
+      "path": "/kutuphane/kategori/hasar-sorgulama",
+      "depth": 2,
+      "inbound": 23
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/efsane-avcilari",
+      "path": "/kutuphane/kategori/efsane-avcilari",
+      "depth": 2,
+      "inbound": 75
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/kategori/nasil-yapilir",
+      "path": "/kutuphane/kategori/nasil-yapilir",
+      "depth": 2,
+      "inbound": 37
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/patlak-lastik-nasil-degistirilir",
+      "path": "/nasil-yapilir/patlak-lastik-nasil-degistirilir",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/aku-takviyesi-arac-vurdurma-nasil-yapilir",
+      "path": "/nasil-yapilir/aku-takviyesi-arac-vurdurma-nasil-yapilir",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/motor-hararet-yapinca-ne-yapilir",
+      "path": "/nasil-yapilir/motor-hararet-yapinca-ne-yapilir",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/seyir-halinde-fren-patlarsa-tutmazsa-ne-yapilir",
+      "path": "/nasil-yapilir/seyir-halinde-fren-patlarsa-tutmazsa-ne-yapilir",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/seyir-halinde-aracta-yangin-cikarsa-ne-yapilmali",
+      "path": "/nasil-yapilir/seyir-halinde-aracta-yangin-cikarsa-ne-yapilmali",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/cam-suyu-nasil-eklenir",
+      "path": "/nasil-yapilir/cam-suyu-nasil-eklenir",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/lastik-basinci-nasil-kontrol-edilir",
+      "path": "/nasil-yapilir/lastik-basinci-nasil-kontrol-edilir",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/motor-yagi-seviyesi-nasil-kontrol-edilir",
+      "path": "/nasil-yapilir/motor-yagi-seviyesi-nasil-kontrol-edilir",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/kis-surusu-ve-buzlu-yolda-ne-yapilir",
+      "path": "/nasil-yapilir/kis-surusu-ve-buzlu-yolda-ne-yapilir",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/uzun-yola-cikmadan-once-kontrol-listesi",
+      "path": "/nasil-yapilir/uzun-yola-cikmadan-once-kontrol-listesi",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/otomatik-vites-kullanim-rehberi-acemiler-icin",
+      "path": "/nasil-yapilir/otomatik-vites-kullanim-rehberi-acemiler-icin",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/kaza-tespit-tutanagi-nasil-doldurulur",
+      "path": "/nasil-yapilir/kaza-tespit-tutanagi-nasil-doldurulur",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/arabayi-cizmeden-dogru-yikama-teknigi",
+      "path": "/nasil-yapilir/arabayi-cizmeden-dogru-yikama-teknigi",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/nasil-yapilir/ikinci-el-arac-alirken-kontrol-rehberi",
+      "path": "/nasil-yapilir/ikinci-el-arac-alirken-kontrol-rehberi",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/ilginc/ikinci-el-arac-ekspertiz-oncesi-sirlari-ilginc-00067",
+      "path": "/kutuphane/ilginc/ikinci-el-arac-ekspertiz-oncesi-sirlari-ilginc-00067",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/ilginc/kis-surus-seti-ilginc-00023",
+      "path": "/kutuphane/ilginc/kis-surus-seti-ilginc-00023",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/ilginc/uzun-yola-cikmadan-once-ilginc-00024",
+      "path": "/kutuphane/ilginc/uzun-yola-cikmadan-once-ilginc-00024",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/ilginc/ilk-30-gun-yeni-arac-sahibi-ilginc-00025",
+      "path": "/kutuphane/ilginc/ilk-30-gun-yeni-arac-sahibi-ilginc-00025",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/ilginc/yakit-tasarrufu-ilginc-00026",
+      "path": "/kutuphane/ilginc/yakit-tasarrufu-ilginc-00026",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/ilginc/kis-surusu-ilginc-00027",
+      "path": "/kutuphane/ilginc/kis-surusu-ilginc-00027",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/ilginc/aku-bakimi-ilginc-00028",
+      "path": "/kutuphane/ilginc/aku-bakimi-ilginc-00028",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/ilginc/turbo-motor-kullanimi-ilginc-00029",
+      "path": "/kutuphane/ilginc/turbo-motor-kullanimi-ilginc-00029",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/15-temmuz-sehitler-koprusu",
+      "path": "/kutuphane/otoyol-ucretleri/15-temmuz-sehitler-koprusu",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/fatih-sultan-mehmet-koprusu",
+      "path": "/kutuphane/otoyol-ucretleri/fatih-sultan-mehmet-koprusu",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/yavuz-sultan-selim-koprusu",
+      "path": "/kutuphane/otoyol-ucretleri/yavuz-sultan-selim-koprusu",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/osmangazi-koprusu",
+      "path": "/kutuphane/otoyol-ucretleri/osmangazi-koprusu",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/1915-canakkale-koprusu",
+      "path": "/kutuphane/otoyol-ucretleri/1915-canakkale-koprusu",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/avrasya-tuneli-gunduz",
+      "path": "/kutuphane/otoyol-ucretleri/avrasya-tuneli-gunduz",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/avrasya-tuneli-gece",
+      "path": "/kutuphane/otoyol-ucretleri/avrasya-tuneli-gece",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/anadolu-otoyolu",
+      "path": "/kutuphane/otoyol-ucretleri/anadolu-otoyolu",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/izmir-aydin-otoyolu",
+      "path": "/kutuphane/otoyol-ucretleri/izmir-aydin-otoyolu",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/cukurova-otoyollari",
+      "path": "/kutuphane/otoyol-ucretleri/cukurova-otoyollari",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/istanbul-izmir-otoyolu",
+      "path": "/kutuphane/otoyol-ucretleri/istanbul-izmir-otoyolu",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/kuzey-marmara-avrupa",
+      "path": "/kutuphane/otoyol-ucretleri/kuzey-marmara-avrupa",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/kuzey-marmara-anadolu",
+      "path": "/kutuphane/otoyol-ucretleri/kuzey-marmara-anadolu",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yokus-asagi-bosa-atmak--1",
+      "path": "/kutuphane/efsane-avcilari/yokus-asagi-bosa-atmak--1",
+      "depth": 1,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/klima-yerine-cam-acmak--2",
+      "path": "/kutuphane/efsane-avcilari/klima-yerine-cam-acmak--2",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/benzin-deposunu-fullemek--3",
+      "path": "/kutuphane/efsane-avcilari/benzin-deposunu-fullemek--3",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/sabah-motoru-isitmak--4",
+      "path": "/kutuphane/efsane-avcilari/sabah-motoru-isitmak--4",
+      "depth": 3,
+      "inbound": 17
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yuksek-oktanli-benzin-performansi--5",
+      "path": "/kutuphane/efsane-avcilari/yuksek-oktanli-benzin-performansi--5",
+      "depth": 3,
+      "inbound": 14
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/kalin-yag-motoru-korur--6",
+      "path": "/kutuphane/efsane-avcilari/kalin-yag-motoru-korur--6",
+      "depth": 3,
+      "inbound": 14
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/motor-yikanmaz--7",
+      "path": "/kutuphane/efsane-avcilari/motor-yikanmaz--7",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/farkli-antifriz-karisimi--8",
+      "path": "/kutuphane/efsane-avcilari/farkli-antifriz-karisimi--8",
+      "depth": 3,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/lpg-motoru-kurutur--9",
+      "path": "/kutuphane/efsane-avcilari/lpg-motoru-kurutur--9",
+      "depth": 3,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/siyah-motor-yagi-arizasi--10",
+      "path": "/kutuphane/efsane-avcilari/siyah-motor-yagi-arizasi--10",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/abs-fren-mesafesini-kisaltir--11",
+      "path": "/kutuphane/efsane-avcilari/abs-fren-mesafesini-kisaltir--11",
+      "depth": 3,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/emniyet-kemersiz-hava-yastigi--12",
+      "path": "/kutuphane/efsane-avcilari/emniyet-kemersiz-hava-yastigi--12",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/arka-koltuktaki-esyalar--13",
+      "path": "/kutuphane/efsane-avcilari/arka-koltuktaki-esyalar--13",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/eski-arabalarin-kaportasi-kalindir--14",
+      "path": "/kutuphane/efsane-avcilari/eski-arabalarin-kaportasi-kalindir--14",
+      "depth": 3,
+      "inbound": 8
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/kisin-lastik-havasini-indirmek--15",
+      "path": "/kutuphane/efsane-avcilari/kisin-lastik-havasini-indirmek--15",
+      "depth": 3,
+      "inbound": 12
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/genis-lastik-daha-iyi-tutar--16",
+      "path": "/kutuphane/efsane-avcilari/genis-lastik-daha-iyi-tutar--16",
+      "depth": 3,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/4x4-araclar-karda-kaymaz--17",
+      "path": "/kutuphane/efsane-avcilari/4x4-araclar-karda-kaymaz--17",
+      "depth": 3,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/eski-lastik-disleri-derin--18",
+      "path": "/kutuphane/efsane-avcilari/eski-lastik-disleri-derin--18",
+      "depth": 4,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/buyuk-jant-arabayi-hizlandirir--19",
+      "path": "/kutuphane/efsane-avcilari/buyuk-jant-arabayi-hizlandirir--19",
+      "depth": 3,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/otomatik-viteste-n-konumu--20",
+      "path": "/kutuphane/efsane-avcilari/otomatik-viteste-n-konumu--20",
+      "depth": 2,
+      "inbound": 12
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/aku-aspirin-efsanesi--21",
+      "path": "/kutuphane/efsane-avcilari/aku-aspirin-efsanesi--21",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/cruise-control-yakit-tasarrufu--22",
+      "path": "/kutuphane/efsane-avcilari/cruise-control-yakit-tasarrufu--22",
+      "depth": 3,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/arabaya-spoiler-takmak--23",
+      "path": "/kutuphane/efsane-avcilari/arabaya-spoiler-takmak--23",
+      "depth": 3,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/start-stop-aku-mars-motoru--24",
+      "path": "/kutuphane/efsane-avcilari/start-stop-aku-mars-motoru--24",
+      "depth": 3,
+      "inbound": 6
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/kirmizi-araba-boyasi-solar--25",
+      "path": "/kutuphane/efsane-avcilari/kirmizi-araba-boyasi-solar--25",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/fren-hidroligine-su-karismasi--26",
+      "path": "/kutuphane/efsane-avcilari/fren-hidroligine-su-karismasi--26",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/turbolu-araci-stop-etmeden-beklemek--27",
+      "path": "/kutuphane/efsane-avcilari/turbolu-araci-stop-etmeden-beklemek--27",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/egzozdan-su-damlamasi-motorun-sagligi--28",
+      "path": "/kutuphane/efsane-avcilari/egzozdan-su-damlamasi-motorun-sagligi--28",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/klima-gazi-her-sene-basilir-mi--29",
+      "path": "/kutuphane/efsane-avcilari/klima-gazi-her-sene-basilir-mi--29",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/el-freni-cekmek-teli-koparir--30",
+      "path": "/kutuphane/efsane-avcilari/el-freni-cekmek-teli-koparir--30",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/disk-fren-torna-islemi--31",
+      "path": "/kutuphane/efsane-avcilari/disk-fren-torna-islemi--31",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/cam-suyuna-deterjan-veya-antifriz--32",
+      "path": "/kutuphane/efsane-avcilari/cam-suyuna-deterjan-veya-antifriz--32",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yarim-debriyaj-ile-gitmek--33",
+      "path": "/kutuphane/efsane-avcilari/yarim-debriyaj-ile-gitmek--33",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/manuel-viteste-ara-gaz-vermek--34",
+      "path": "/kutuphane/efsane-avcilari/manuel-viteste-ara-gaz-vermek--34",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/arap-sabunu-ve-kola-ile-lastik-parlatmak--35",
+      "path": "/kutuphane/efsane-avcilari/arap-sabunu-ve-kola-ile-lastik-parlatmak--35",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/airbag-lambasi-yanarken-kaza-yapmak--36",
+      "path": "/kutuphane/efsane-avcilari/airbag-lambasi-yanarken-kaza-yapmak--36",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/sicak-arabada-klimayi-son-guc-acmak--37",
+      "path": "/kutuphane/efsane-avcilari/sicak-arabada-klimayi-son-guc-acmak--37",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/motora-sadece-cesme-suyu-koymak--38",
+      "path": "/kutuphane/efsane-avcilari/motora-sadece-cesme-suyu-koymak--38",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/kasislerden-hizli-gecmek--39",
+      "path": "/kutuphane/efsane-avcilari/kasislerden-hizli-gecmek--39",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/sifir-arabada-rodaj-gerekir-mi--40",
+      "path": "/kutuphane/efsane-avcilari/sifir-arabada-rodaj-gerekir-mi--40",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/kis-lastigi-sadece-karda-mi-takilir--41",
+      "path": "/kutuphane/efsane-avcilari/kis-lastigi-sadece-karda-mi-takilir--41",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/lastige-nitrojen-basmak-faydali-mi--42",
+      "path": "/kutuphane/efsane-avcilari/lastige-nitrojen-basmak-faydali-mi--42",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/lastik-hava-basinci-yanaktaki-psi--43",
+      "path": "/kutuphane/efsane-avcilari/lastik-hava-basinci-yanaktaki-psi--43",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/sicak-lastigin-havasi-indirilir-mi--44",
+      "path": "/kutuphane/efsane-avcilari/sicak-lastigin-havasi-indirilir-mi--44",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/dpf-rolantide-gaz-vererek-temizlenir-mi--45",
+      "path": "/kutuphane/efsane-avcilari/dpf-rolantide-gaz-vererek-temizlenir-mi--45",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/dpf-lambasi-uzun-yolda-soner-mi--46",
+      "path": "/kutuphane/efsane-avcilari/dpf-lambasi-uzun-yolda-soner-mi--46",
+      "depth": 4,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/elektrikli-araba-yuzde-100-sarj-edilir-mi--47",
+      "path": "/kutuphane/efsane-avcilari/elektrikli-araba-yuzde-100-sarj-edilir-mi--47",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/hizli-sarj-bataryaya-zarar-verir-mi--48",
+      "path": "/kutuphane/efsane-avcilari/hizli-sarj-bataryaya-zarar-verir-mi--48",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/elektrikli-araba-yagmurda-sarj-edilir-mi--49",
+      "path": "/kutuphane/efsane-avcilari/elektrikli-araba-yagmurda-sarj-edilir-mi--49",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/motor-yagi-fazla-olursa-ne-olur--50",
+      "path": "/kutuphane/efsane-avcilari/motor-yagi-fazla-olursa-ne-olur--50",
+      "depth": 3,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/abs-devreye-girince-fren-pompalanir-mi--51",
+      "path": "/kutuphane/efsane-avcilari/abs-devreye-girince-fren-pompalanir-mi--51",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/hava-filtresi-degisince-yakit-duser-mi--52",
+      "path": "/kutuphane/efsane-avcilari/hava-filtresi-degisince-yakit-duser-mi--52",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/makale",
+      "path": "/makale",
+      "depth": 2,
+      "inbound": 60
+    },
+    {
+      "url": "https://otosoz.com/makale/nihai-otomotiv-muhendisligi-manifestosu-gunluk-araclar-icin-20-adimlik-hiper-modifiye-ansiklopedisi--10045",
+      "path": "/makale/nihai-otomotiv-muhendisligi-manifestosu-gunluk-araclar-icin-20-adimlik-hiper-modifiye-ansiklopedisi--10045",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/hayat-kurtaran-yaratici-kendin-yap-diy-oto-cozumleri--10043",
+      "path": "/makale/hayat-kurtaran-yaratici-kendin-yap-diy-oto-cozumleri--10043",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/sifirdan-zirveye-nasil-profesyonel-bir-galerici-oto-alim-satim-uzmani-olunur-19-adimlik-mega-rehber--10042",
+      "path": "/makale/sifirdan-zirveye-nasil-profesyonel-bir-galerici-oto-alim-satim-uzmani-olunur-19-adimlik-mega-rehber--10042",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/hangi-marka-kimin-dunyanin-lider-otomotiv-gruplari-ve-gizli-ortakliklar-ultra-kapsamli-rehber--10041",
+      "path": "/makale/hangi-marka-kimin-dunyanin-lider-otomotiv-gruplari-ve-gizli-ortakliklar-ultra-kapsamli-rehber--10041",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/arac-rengi-seciminin-bilimsel-sirlari-renklere-gore-isi-emilimi-ve-yakit-tasarrufu-mega-rehberi--10040",
+      "path": "/makale/arac-rengi-seciminin-bilimsel-sirlari-renklere-gore-isi-emilimi-ve-yakit-tasarrufu-mega-rehberi--10040",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/ocaginiza-incir-agaci-dikecek-arabalar-garibanin-uzak-durmasi-gereken-10-model--10039",
+      "path": "/makale/ocaginiza-incir-agaci-dikecek-arabalar-garibanin-uzak-durmasi-gereken-10-model--10039",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/yeni-baslayanlar-icin-surus-psikolojisi-ve-ileri-seviye-taktikler-acemi-surucu-rehberi-bolum-2--10038",
+      "path": "/makale/yeni-baslayanlar-icin-surus-psikolojisi-ve-ileri-seviye-taktikler-acemi-surucu-rehberi-bolum-2--10038",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/akaryakitta-esel-mobil-sistemi-nedir-gizli-vergi-kalkanini-cozuyoruz--10037",
+      "path": "/makale/akaryakitta-esel-mobil-sistemi-nedir-gizli-vergi-kalkanini-cozuyoruz--10037",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/ehliyet-kursunda-ogretilmeyen-8-hayat-kurtaran-kural-acemi-surucu-rehberi-bolum-1--10036",
+      "path": "/makale/ehliyet-kursunda-ogretilmeyen-8-hayat-kurtaran-kural-acemi-surucu-rehberi-bolum-1--10036",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/sanayide-ustalarin-gizledigi-14-kritik-sir-aracinizin-omrunu-ve-cuzdaninizi-nasil-kurtarirsiniz-derin-analiz--10035",
+      "path": "/makale/sanayide-ustalarin-gizledigi-14-kritik-sir-aracinizin-omrunu-ve-cuzdaninizi-nasil-kurtarirsiniz-derin-analiz--10035",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/ucan-arabalar-icin-ileri-ucus-surus-teknikleri-atmosferik-savrulmayi-onleme-mega-rehberi-2050--10034",
+      "path": "/makale/ucan-arabalar-icin-ileri-ucus-surus-teknikleri-atmosferik-savrulmayi-onleme-mega-rehberi-2050--10034",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/kurban-bayrami-uzun-yol-mega-rehberi-2026-kusursuz-yolculuk-et-tasima-ve-ileri-seviye-guvenlik--10046",
+      "path": "/makale/kurban-bayrami-uzun-yol-mega-rehberi-2026-kusursuz-yolculuk-et-tasima-ve-ileri-seviye-guvenlik--10046",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/arac-deger-kaybi-nedir-nasil-hesaplanir-ve-sigortadan-kesintisiz-nasil-alinir-2026-kapsamli-rehber--10047",
+      "path": "/makale/arac-deger-kaybi-nedir-nasil-hesaplanir-ve-sigortadan-kesintisiz-nasil-alinir-2026-kapsamli-rehber--10047",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/kis-lastigi-ne-zaman-takilir-2026-zorunluluk-ve-ceza-rehberi--10048",
+      "path": "/makale/kis-lastigi-ne-zaman-takilir-2026-zorunluluk-ve-ceza-rehberi--10048",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/makale/ikinci-el-arac-alirken-kapsamli-kontrol-rehberi--10000",
+      "path": "/makale/ikinci-el-arac-alirken-kapsamli-kontrol-rehberi--10000",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/aracinizi-satarken-dikkat-edilmesi-gerekenler-hizli-ve-guvenli-satis-rehberi--10001",
+      "path": "/makale/aracinizi-satarken-dikkat-edilmesi-gerekenler-hizli-ve-guvenli-satis-rehberi--10001",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/arac-dolandiricilik-yontemleri-ve-korunma-yollari--10002",
+      "path": "/makale/arac-dolandiricilik-yontemleri-ve-korunma-yollari--10002",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/aracin-gizli-dili-sesler-kokular-ve-renklerle-ariza-teshisi--10003",
+      "path": "/makale/aracin-gizli-dili-sesler-kokular-ve-renklerle-ariza-teshisi--10003",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/kisa-hazirlik-aracinizi-soguklara-hazirlayin--10004",
+      "path": "/makale/kisa-hazirlik-aracinizi-soguklara-hazirlayin--10004",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/usta-soforun-gizli-defteri-ileri-surus-ve-trafik-okuma-sanati--10005",
+      "path": "/makale/usta-soforun-gizli-defteri-ileri-surus-ve-trafik-okuma-sanati--10005",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/bagajdaki-macgyver-siradan-esyalarla-yaratici-oto-cozumleri--10006",
+      "path": "/makale/bagajdaki-macgyver-siradan-esyalarla-yaratici-oto-cozumleri--10006",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/gosterge-panelindeki-hiyeroglifler-ariza-isiklari-ve-anlamlari--10007",
+      "path": "/makale/gosterge-panelindeki-hiyeroglifler-ariza-isiklari-ve-anlamlari--10007",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/motor-yagi-secimi-ve-degisim-rehberi--10008",
+      "path": "/makale/motor-yagi-secimi-ve-degisim-rehberi--10008",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/yakit-tasarrufu-deponuzu-korumak-icin-10-altin-kural--10009",
+      "path": "/makale/yakit-tasarrufu-deponuzu-korumak-icin-10-altin-kural--10009",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/dogru-lastik-hayat-kurtarir-lastik-secim-ve-bakim-rehberi--10010",
+      "path": "/makale/dogru-lastik-hayat-kurtarir-lastik-secim-ve-bakim-rehberi--10010",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/evde-profesyonel-detailing-aracinizi-fabrika-ayarlarina-dondurun--10011",
+      "path": "/makale/evde-profesyonel-detailing-aracinizi-fabrika-ayarlarina-dondurun--10011",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/tuvturk-muayene-hazirlik-rehberi-tek-seferde-gecmenin-yollari--10012",
+      "path": "/makale/tuvturk-muayene-hazirlik-rehberi-tek-seferde-gecmenin-yollari--10012",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/otomatik-vitesin-can-dusmanlari-sanziman-omrunu-uzatan-7-altin-kural--10013",
+      "path": "/makale/otomatik-vitesin-can-dusmanlari-sanziman-omrunu-uzatan-7-altin-kural--10013",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/otomobil-dunyasindan-ilginc-bilgiler--10014",
+      "path": "/makale/otomobil-dunyasindan-ilginc-bilgiler--10014",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/uzun-yol-oncesi-hazirlik-ve-kontrol-listesi--10015",
+      "path": "/makale/uzun-yol-oncesi-hazirlik-ve-kontrol-listesi--10015",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/arac-kullaniminda-altin-kurallar-yap-yapma--10016",
+      "path": "/makale/arac-kullaniminda-altin-kurallar-yap-yapma--10016",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/yakit-tuketimini-30-azaltan-ve-motor-omrunu-uzatan-7-altin-kural-2026-kapsamli-rehber--10017",
+      "path": "/makale/yakit-tuketimini-30-azaltan-ve-motor-omrunu-uzatan-7-altin-kural-2026-kapsamli-rehber--10017",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/otomatik-sanziman-katili-asla-yapmamaniz-gereken-7-olumcul-hata-2026-teknik-rehber--10018",
+      "path": "/makale/otomatik-sanziman-katili-asla-yapmamaniz-gereken-7-olumcul-hata-2026-teknik-rehber--10018",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/kisin-kaputta-yatan-tehlike-arabaniza-asla-yapmamaniz-gereken-7-olumcul-hata-kis-sirlari--10019",
+      "path": "/makale/kisin-kaputta-yatan-tehlike-arabaniza-asla-yapmamaniz-gereken-7-olumcul-hata-kis-sirlari--10019",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/araclarin-gizli-pratik-ozellikleri-kitapcikta-bile-yazmayan-7-inanilmaz-fabrika-sirri--10020",
+      "path": "/makale/araclarin-gizli-pratik-ozellikleri-kitapcikta-bile-yazmayan-7-inanilmaz-fabrika-sirri--10020",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/uzun-yola-cikmadan-once-ustalarin-yaptigi-6-hayati-kontrol-2026-uzun-yol-rehberi--10021",
+      "path": "/makale/uzun-yola-cikmadan-once-ustalarin-yaptigi-6-hayati-kontrol-2026-uzun-yol-rehberi--10021",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/turbo-katili-5-aliskanlik-cuvalla-para-odememek-icin-uzak-durmaniz-gereken-hatalar--10022",
+      "path": "/makale/turbo-katili-5-aliskanlik-cuvalla-para-odememek-icin-uzak-durmaniz-gereken-hatalar--10022",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/arac-klimasinda-dogru-bilinen-yanlislar-yakiti-somuren-ve-hasta-eden-5-hata--10023",
+      "path": "/makale/arac-klimasinda-dogru-bilinen-yanlislar-yakiti-somuren-ve-hasta-eden-5-hata--10023",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/ikinci-el-arac-alirken-dusulen-5-olumcul-tuzak-ekspertizlerin-bile-atladigi-sirlar--10024",
+      "path": "/makale/ikinci-el-arac-alirken-dusulen-5-olumcul-tuzak-ekspertizlerin-bile-atladigi-sirlar--10024",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/oto-yikama-teroru-aracinizin-boyasini-mahveden-ve-catlatan-5-kotu-aliskanlik--10025",
+      "path": "/makale/oto-yikama-teroru-aracinizin-boyasini-mahveden-ve-catlatan-5-kotu-aliskanlik--10025",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/kaza-ani-panik-rehberi-hasar-sonrasi-hakliyken-haksiz-duruma-dusuren-5-kritik-hata--10026",
+      "path": "/makale/kaza-ani-panik-rehberi-hasar-sonrasi-hakliyken-haksiz-duruma-dusuren-5-kritik-hata--10026",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/aku-bitiren-gizli-hatalar-sabahlari-araciniz-neden-olur-ve-nasil-hayata-dondurulur--10027",
+      "path": "/makale/aku-bitiren-gizli-hatalar-sabahlari-araciniz-neden-olur-ve-nasil-hayata-dondurulur--10027",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/benzin-mi-dizel-mi-lpg-mi-elektrikli-mi-2026-karsilastirma-rehberi--10028",
+      "path": "/makale/benzin-mi-dizel-mi-lpg-mi-elektrikli-mi-2026-karsilastirma-rehberi--10028",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/sifir-arac-alirken-bayide-kurulan-7-tuzak--10030",
+      "path": "/makale/sifir-arac-alirken-bayide-kurulan-7-tuzak--10030",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/arac-alim-satiminda-dolandirilmaktan-korunmanin-10-altin-kurali-turkiye-gercekleri--10031",
+      "path": "/makale/arac-alim-satiminda-dolandirilmaktan-korunmanin-10-altin-kurali-turkiye-gercekleri--10031",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/arac-yag-kacirirsa-ne-yapilmali-yag-kacagi-tespiti-ve-acil-eylem-plni--10032",
+      "path": "/makale/arac-yag-kacirirsa-ne-yapilmali-yag-kacagi-tespiti-ve-acil-eylem-plni--10032",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/arac-hararet-yaparsa-ne-yapilmali-sogutma-krizleri-ve-conta-yakma-anatomisi--10033",
+      "path": "/makale/arac-hararet-yaparsa-ne-yapilmali-sogutma-krizleri-ve-conta-yakma-anatomisi--10033",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/turkiyenin-en-az-yakan-10-arabasi-2025-guncel-liste--top_10_az_yakan_arabalar",
+      "path": "/makale/turkiyenin-en-az-yakan-10-arabasi-2025-guncel-liste--top_10_az_yakan_arabalar",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/makale/turkiye-yollarinin-en-hizli-10-arabasi-2026-0-100-rekortmenleri--top_10_en_hizli_arabalar",
+      "path": "/makale/turkiye-yollarinin-en-hizli-10-arabasi-2026-0-100-rekortmenleri--top_10_en_hizli_arabalar",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "path": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "path": "/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "path": "/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "path": "/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "path": "/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "path": "/forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/hyundai-i20-14-mpi--85879525",
+      "path": "/forum/hyundai-i20-14-mpi--85879525",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "path": "/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "path": "/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "path": "/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "path": "/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "path": "/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "depth": 1,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "path": "/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/forum",
+      "path": "/forum",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/forum/kategori/deneyim-inceleme",
+      "path": "/forum/kategori/deneyim-inceleme",
+      "depth": 2,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/haberler",
+      "path": "/haberler",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/haberler/euroncap-2026-elektrikli-otomobil-testleri",
+      "path": "/haberler/euroncap-2026-elektrikli-otomobil-testleri",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/turkiye-otomotiv-pazari-agustos-2026-81-bin",
+      "path": "/haberler/turkiye-otomotiv-pazari-agustos-2026-81-bin",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/bmw-iki-milyonuncu-elektrikli-otomobil-teslimati",
+      "path": "/haberler/bmw-iki-milyonuncu-elektrikli-otomobil-teslimati",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/fia-2026-f1-motor-gelistirme-haklari-aduo",
+      "path": "/haberler/fia-2026-f1-motor-gelistirme-haklari-aduo",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/epdk-temmuz-2026-sarj-agi-raporu",
+      "path": "/haberler/epdk-temmuz-2026-sarj-agi-raporu",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/temmuz-2026-trafige-kayitli-tasit-sayisi",
+      "path": "/haberler/temmuz-2026-trafige-kayitli-tasit-sayisi",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/otomotiv-uretimi-ocak-temmuz-2026-yuzde-8-geriledi",
+      "path": "/haberler/otomotiv-uretimi-ocak-temmuz-2026-yuzde-8-geriledi",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/iea-2026-elektrikli-otomobil-pazari-enerji-krizi",
+      "path": "/haberler/iea-2026-elektrikli-otomobil-pazari-enerji-krizi",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/avrupa-elektrikli-otomobil-payi-2026-yuzde-20-7",
+      "path": "/haberler/avrupa-elektrikli-otomobil-payi-2026-yuzde-20-7",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/togg-t10x-2026-truos-guncellemesi",
+      "path": "/haberler/togg-t10x-2026-truos-guncellemesi",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/2027-f1-yaris-takvimi-aciklandi",
+      "path": "/haberler/2027-f1-yaris-takvimi-aciklandi",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/yuzde-40-ve-uzeri-raporla-otvsiz-alinabilecek-araclar",
+      "path": "/haberler/yuzde-40-ve-uzeri-raporla-otvsiz-alinabilecek-araclar",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/haberler/formula-1-2027-istanbul-park-anlasma",
+      "path": "/haberler/formula-1-2027-istanbul-park-anlasma",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi",
+      "path": "/trafik-cezasi",
+      "depth": 2,
+      "inbound": 61
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "path": "/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "path": "/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+      "path": "/trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
+      "path": "/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "path": "/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "path": "/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-3-kez-48-5-c",
+      "path": "/trafik-cezasi/alkollu-arac-kullanmak-3-kez-48-5-c",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/uyusturucu-etkisinde-arac-kullanmak-48-8",
+      "path": "/trafik-cezasi/uyusturucu-etkisinde-arac-kullanmak-48-8",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/saldirgan-surus-israrli-takip-73-a",
+      "path": "/trafik-cezasi/saldirgan-surus-israrli-takip-73-a",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/drift-yapmak-67-1-d",
+      "path": "/trafik-cezasi/drift-yapmak-67-1-d",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/makas-atmak-46-2-g",
+      "path": "/trafik-cezasi/makas-atmak-46-2-g",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/dur-ihtarina-uymamak-47-1-a",
+      "path": "/trafik-cezasi/dur-ihtarina-uymamak-47-1-a",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/sahte-plaka-kullanma-23-5-b",
+      "path": "/trafik-cezasi/sahte-plaka-kullanma-23-5-b",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "path": "/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
+      "path": "/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "path": "/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/plakasiz-arac-kullanma-23-1",
+      "path": "/trafik-cezasi/plakasiz-arac-kullanma-23-1",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/kirmizi-isik-ihlali-47-1-b",
+      "path": "/trafik-cezasi/kirmizi-isik-ihlali-47-1-b",
+      "depth": 3,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/seyir-halinde-cep-telefonu-73-c",
+      "path": "/trafik-cezasi/seyir-halinde-cep-telefonu-73-c",
+      "depth": 3,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
+      "path": "/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
+      "depth": 3,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ters-yonde-arac-kullanmak-46-2-h",
+      "path": "/trafik-cezasi/ters-yonde-arac-kullanmak-46-2-h",
+      "depth": 3,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/yayaya-yol-vermemek-74-b",
+      "path": "/trafik-cezasi/yayaya-yol-vermemek-74-b",
+      "depth": 3,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/cocuk-koltugu-kullanmamak-78-1-a",
+      "path": "/trafik-cezasi/cocuk-koltugu-kullanmamak-78-1-a",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "path": "/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
+      "path": "/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "path": "/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
+      "path": "/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/cakarli-isik-kullanmak-28-2",
+      "path": "/trafik-cezasi/cakarli-isik-kullanmak-28-2",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/egzoz-emisyon-sinirini-asmak-30-1-a",
+      "path": "/trafik-cezasi/egzoz-emisyon-sinirini-asmak-30-1-a",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/yangin-sondurucu-bulundurmamak-30-3",
+      "path": "/trafik-cezasi/yangin-sondurucu-bulundurmamak-30-3",
+      "depth": 3,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
+      "path": "/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
+      "path": "/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "path": "/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "path": "/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/takograf-veri-mudahalesi-31-1-b",
+      "path": "/trafik-cezasi/takograf-veri-mudahalesi-31-1-b",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/taksimetre-bulundurmamak-kullanmamak-31-1-c",
+      "path": "/trafik-cezasi/taksimetre-bulundurmamak-kullanmamak-31-1-c",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/korsan-taksi-izinsiz-yolcu-tasima-31-2",
+      "path": "/trafik-cezasi/korsan-taksi-izinsiz-yolcu-tasima-31-2",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/tonaj-sinirini-asmak-65-1-a",
+      "path": "/trafik-cezasi/tonaj-sinirini-asmak-65-1-a",
+      "depth": 3,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/otobutce",
+      "path": "/otobutce",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otohesap",
+      "path": "/otohesap",
+      "depth": 1,
+      "inbound": 2296
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-bin-tl-alti-arabalar",
+      "path": "/otobutce/150-bin-tl-alti-arabalar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-250-bin-tl-arasi-araclar",
+      "path": "/otobutce/150-250-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/250-350-bin-tl-arasi-araclar",
+      "path": "/otobutce/250-350-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/350-450-bin-tl-arasi-araclar",
+      "path": "/otobutce/350-450-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/450-550-bin-tl-arasi-araclar",
+      "path": "/otobutce/450-550-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/550-650-bin-tl-arasi-araclar",
+      "path": "/otobutce/550-650-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/750-850-bin-tl-arasi-araclar",
+      "path": "/otobutce/750-850-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/850-950-bin-tl-arasi-araclar",
+      "path": "/otobutce/850-950-bin-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "path": "/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "path": "/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "path": "/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "path": "/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "depth": null,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yakit-hesaplama",
+      "path": "/otohesap/yakit-hesaplama",
+      "depth": 2,
+      "inbound": 35
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yatirim-kiyaslama",
+      "path": "/otohesap/yatirim-kiyaslama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/al-sat-analizi",
+      "path": "/otohesap/al-sat-analizi",
+      "depth": 2,
+      "inbound": 22
+    },
+    {
+      "url": "https://otosoz.com/otohesap/otv-muafiyeti",
+      "path": "/otohesap/otv-muafiyeti",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/deger-kaybi",
+      "path": "/otohesap/deger-kaybi",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/tasit-kredisi",
+      "path": "/otohesap/tasit-kredisi",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-bakim",
+      "path": "/otohesap/arac-bakim",
+      "depth": 2,
+      "inbound": 24
+    },
+    {
+      "url": "https://otosoz.com/otohesap/lastik-ebat",
+      "path": "/otohesap/lastik-ebat",
+      "depth": 2,
+      "inbound": 22
+    },
+    {
+      "url": "https://otosoz.com/otohesap/kredi-karti-hesaplama",
+      "path": "/otohesap/kredi-karti-hesaplama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/butce-planlama",
+      "path": "/otohesap/butce-planlama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/dijital-senet-hesaplama",
+      "path": "/otohesap/dijital-senet-hesaplama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/mtv-hesaplama",
+      "path": "/otohesap/mtv-hesaplama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/kasko-deger-sorgulama",
+      "path": "/otohesap/kasko-deger-sorgulama",
+      "depth": 2,
+      "inbound": 22
+    },
+    {
+      "url": "https://otosoz.com/otohesap/elektrikli-arac-sarj-maliyeti",
+      "path": "/otohesap/elektrikli-arac-sarj-maliyeti",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-ithalat-vergisi",
+      "path": "/otohesap/arac-ithalat-vergisi",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-vs-taksi",
+      "path": "/otohesap/arac-vs-taksi",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/km-basina-maliyet",
+      "path": "/otohesap/km-basina-maliyet",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yillik-sahip-olma-maliyeti",
+      "path": "/otohesap/yillik-sahip-olma-maliyeti",
+      "depth": 2,
+      "inbound": 34
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yakit-turu-karsilastirma",
+      "path": "/otohesap/yakit-turu-karsilastirma",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/motor-gucu-donusturme",
+      "path": "/otohesap/motor-gucu-donusturme",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/lastik-basinci-donusturme",
+      "path": "/otohesap/lastik-basinci-donusturme",
+      "depth": 2,
+      "inbound": 35
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari",
+      "path": "/acik-oto-pazari",
+      "depth": 1,
+      "inbound": 2294
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/adana",
+      "path": "/acik-oto-pazari/adana",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/antalya",
+      "path": "/acik-oto-pazari/antalya",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir",
+      "path": "/acik-oto-pazari/balikesir",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/bursa",
+      "path": "/acik-oto-pazari/bursa",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir",
+      "path": "/acik-oto-pazari/eskisehir",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri",
+      "path": "/acik-oto-pazari/kayseri",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/konya",
+      "path": "/acik-oto-pazari/konya",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kutahya",
+      "path": "/acik-oto-pazari/kutahya",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/manisa",
+      "path": "/acik-oto-pazari/manisa",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/ordu",
+      "path": "/acik-oto-pazari/ordu",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/sakarya",
+      "path": "/acik-oto-pazari/sakarya",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/samsun",
+      "path": "/acik-oto-pazari/samsun",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "path": "/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
+      "path": "/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "path": "/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "path": "/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "path": "/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "path": "/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/tepebasi-camlica-acik-oto-pazari",
+      "path": "/acik-oto-pazari/eskisehir/tepebasi-camlica-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+      "path": "/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "path": "/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "path": "/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
+      "path": "/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/manisa/demirci-ikinci-el-oto-pazari",
+      "path": "/acik-oto-pazari/manisa/demirci-ikinci-el-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kutahya/tavsanli-acik-oto-pazari",
+      "path": "/acik-oto-pazari/kutahya/tavsanli-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/ordu/fatsa-acik-oto-pazari",
+      "path": "/acik-oto-pazari/ordu/fatsa-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    }
+  ]
+}

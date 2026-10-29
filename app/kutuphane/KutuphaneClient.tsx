@@ -128,7 +128,7 @@ const SectionCarousel = ({ title, icon, children }: { title: string, icon?: Reac
     );
 };
 
-export default function LibraryPage({ initialCategory = 'makaleler',initialGuides=[],initialInterestingData=null,segmentData,initialTolls=[] ,breadcrumbs}: { initialCategory?: string;initialGuides?:GuideDetail[];initialInterestingData?:any;segmentData?:typeof import('@/data/arac_segmentleri.json');initialTolls?:any[] ;breadcrumbs?:React.ReactNode;}) {
+export default function LibraryPage({ initialCategory = 'makaleler',initialGuides=[],initialInterestingData=null,segmentData,initialTolls=[] ,breadcrumbs,directory}: { initialCategory?: string;initialGuides?:GuideDetail[];initialInterestingData?:any;segmentData?:typeof import('@/data/arac_segmentleri.json');initialTolls?:any[] ;breadcrumbs?:React.ReactNode;directory?:React.ReactNode;}) {
     // SEO-friendly slug mappings
     const tabSlugs = [
         { slug: 'makaleler', name: 'Makale', icon: BookOpen, title: 'Otomotiv Makaleleri | OtoSöz Kütüphane', description: 'Otomotiv dünyasına dair detaylı makaleler, bakım rehberleri ve uzman önerileri.' },
@@ -1101,6 +1101,7 @@ export default function LibraryPage({ initialCategory = 'makaleler',initialGuide
                 </div>
             </main>
 
+            {directory}
             <Footer />
         </div>
     );

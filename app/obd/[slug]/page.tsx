@@ -1,3 +1,4 @@
+import ContentConnections from '@/components/ContentConnections';
 import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {breadcrumb as buildSchemaBreadcrumbList,faqPage as buildSchemaFAQPage,article as buildSchemaArticle} from '@/lib/schema';
@@ -176,7 +177,7 @@ export default async function OBDSlugPage({ params }: PageProps) {
                     '@graph': structuredData['@graph'].filter(item => isObdCodeIndexable(codeData) || item['@type'] === 'BreadcrumbList'),
                 }) }}
             />
-            <OBDDetailClient breadcrumbs={<PageBreadcrumbs url={canonicalUrl}/>} codeData={codeData} relatedCodes={relatedCodes} typeLabel={typeLabel} directoryPage={getObdDirectoryPageNumber(codeData.code)} />
+            <OBDDetailClient breadcrumbs={<PageBreadcrumbs url={canonicalUrl}/>} connections={<ContentConnections url={canonicalUrl}/>} codeData={codeData} relatedCodes={relatedCodes} typeLabel={typeLabel} directoryPage={getObdDirectoryPageNumber(codeData.code)} />
         </>
     );
 }
