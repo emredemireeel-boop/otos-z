@@ -204,7 +204,7 @@ fs.writeFileSync(outputPath, JSON.stringify(report, null, 2) + '\n');
 const measuredSignals = { obd: obdSignals, engine: engineSignals, dictionary: dictionarySimilarity.signals,
     article: guideSimilarity.signals, guide: guideSignals };
 const sourceFiles = ['data/obd-codes.json', 'data/obd-reviewed.ts', 'data/vehicle-dna.ts', 'lib/vehicle-editorial.ts',
-    'data/engine-dna.ts', 'data/trim-levels.ts', 'data/dictionary.ts', 'public/data/library_guides.json',
+    'lib/vehicle-presentation.ts', 'lib/vehicleGeneration.ts', 'data/engine-dna.ts', 'data/trim-levels.ts', 'data/dictionary.ts', 'public/data/library_guides.json',
     'data/nasil-yapilir.json', 'public/data/interesting_information.json', 'data/efsane-avcilari-data.ts',
     'data/fault_lights.json', 'data/trafik_cezalari.json', 'public/data/otoyol_ucretleri.json', 'public/data/news_posts.json'];
 const fingerprints = Object.fromEntries(sourceFiles.map(file => [file, createHash('sha256').update(fs.readFileSync(file)).digest('hex')]));

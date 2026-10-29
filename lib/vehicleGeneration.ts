@@ -1,4 +1,5 @@
-import { createSlug, type VehicleDNA } from "@/data/vehicle-dna";
+import { createSlug } from "./vehicle-presentation";
+import type { VehicleDNA } from "./dna-types";
 
 export interface VehicleGenerationInfo {
     label: string;
@@ -25,12 +26,12 @@ export function getBaseModelName(model: string): string {
         .trim();
 }
 
-export function resolveVehicleGeneration(
-    vehicles: VehicleDNA[],
+export function resolveVehicleGeneration<T extends Pick<VehicleDNA, "id" | "brand" | "model" | "year">>(
+    vehicles: T[],
     brand: string,
     model: string,
     year: number,
-): VehicleDNA | null {
+): T | null {
     const normalizedBrand = createSlug(brand);
     const normalizedModel = createSlug(getBaseModelName(model));
 
