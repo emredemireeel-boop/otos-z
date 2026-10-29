@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -89,7 +90,7 @@ export default async function EhliyetSinifDetailPage({ params }: EhliyetSinifPag
             <Navbar />
             {SUPPORTING_TEMPLATE_INDEXABLE && <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
             />}
 
             <main style={{ paddingTop: '100px', paddingBottom: '60px', maxWidth: '800px', margin: '0 auto', padding: '100px 24px 60px 24px' }}>

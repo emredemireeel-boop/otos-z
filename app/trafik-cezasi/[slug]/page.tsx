@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from "@/lib/guide-quality";
 import { indexabilityRobots } from "@/lib/indexability";
 import { notFound } from "next/navigation";
@@ -235,17 +236,17 @@ export default async function TrafikCezasiPage({ params }: PageProps) {
         <>
             {isQualityGuide(cezaItem, 'trafficFine') && <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(articleSchema) }}
             />}
             {isQualityGuide(cezaItem, 'trafficFine') && faqSchema && (
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                    dangerouslySetInnerHTML={{ __html: schemaJson(faqSchema) }}
                 />
             )}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(breadcrumbSchema) }}
             />
             <TrafikCezasiDetailClient cezaItem={cezaItem} kategori={kategori} ilgiliCezalar={ilgiliCezalar} />
         </>

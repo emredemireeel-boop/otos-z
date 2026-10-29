@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import {notFound} from "next/navigation";
 import library from "@/public/data/library_guides.json";
 
@@ -89,7 +90,7 @@ export default async function GuideDetailPage({ params }: { params: Promise<{ gu
             {jsonLd && SUPPORTING_TEMPLATE_INDEXABLE && (
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                    dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
                 />
             )}
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>

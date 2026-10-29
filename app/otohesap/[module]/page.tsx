@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isGuideIndexable, qualityContentText } from '@/lib/indexability';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -118,7 +119,7 @@ export default async function OtoHesapModulePage({ params }: PageProps) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
       <OtoHesapClient activeModule={resolvedParams.module} pageTitle={guide.h1} pageDescription={meta.description}>
         <OtoHesapGuideContent activeModule={resolvedParams.module} />
       </OtoHesapClient>

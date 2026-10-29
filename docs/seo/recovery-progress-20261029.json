@@ -17,5 +17,21 @@
   "deployment": "not performed; final release must include subsequent steps only after their checks pass",
   "pendingUserApproval": "20-page content pilot must be produced and approved before editorial content edits",
   "network": "Local tools and HTTPS access working. Batch SSH public-key login denied; user supplied password authorization is available for later release.",
-  "next": "Step 6 centralized server JSON-LD, then 7 metadata, 8 links, 9 performance, 10 trust/monitoring."
+  "next": "Finish and validate Step 6; then implement Steps 7, 8, 9 and 10 in order. Do not describe these as complete.",
+  "userProvidedResponsiblePerson": "Emre Demirel",
+  "personClaims": "Responsible-person name only; no verified editor qualifications or social profiles supplied.",
+  "startedStep6": [
+    "Central schema builders and safe serialization",
+    "Client JSON-LD removal",
+    "Server NewsArticle",
+    "Template vehicle FAQ removal",
+    "QAPage without real answers removed",
+    "Raster 512x512 logo from existing SVG"
+  ],
+  "remainingStep6": [
+    "Recheck final schema audit after toll-page fix",
+    "Visible breadcrumbs must match JSON-LD for every type",
+    "24 sampled record date fields are unknown; do not fabricate them",
+    "Prepare five Rich Results Test examples"
+  ]
 }

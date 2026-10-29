@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
@@ -102,7 +103,7 @@ export default async function ForumHub({ page = 1, categorySlug }: { page?: numb
                     <p>Yeni bir soru hazırlarken önce benzer başlıkları okuyun. Belirtinin ne zaman başladığını, soğuk veya sıcak motorda görülüp görülmediğini, ekrandaki uyarıyı ve yakın zamanda yapılan işlemleri yazın. Arıza kodu varsa kodu eksiksiz belirtin. Araştırmanız ilerledikçe yaptığınız kontrolleri ve elde ettiğiniz sonucu aynı başlığa ekleyin; sonraki okuyucular da çözümün hangi araçta işe yaradığını takip edebilsin.</p>
                     <p>Teknik terimleri kontrol etmek için <Link href="/kutuphane">bilgi kütüphanesine</Link>, kod açıklamaları için <Link href="/obd">OBD merkezine</Link>, model ve motor seçenekleri için <Link href="/arac-dna">Araç DNA sayfalarına</Link> bakabilirsiniz. Uzun rehberleri <Link href="/makale">Makaleler</Link> bölümünde bulabilirsiniz. Konuşmalara katılmak için <Link href="/giris">hesabınıza giriş yapın</Link>.</p>
                 </section>
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(schema) }} />
             </div>
         </main>
         <Footer />

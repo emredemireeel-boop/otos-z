@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com https://router.project-osrm.org; frame-src 'self' https://accounts.google.com https://*.firebaseapp.com https://maps.google.com; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests
+Cross-Origin-Opener-Policy: same-origin-allow-popups
+X-DNS-Prefetch-Control: off
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=(self), interest-cohort=()
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+Cache-Control: public, max-age=31536000, immutable
+Accept-Ranges: bytes
+Last-Modified: Thu, 29 Oct 2026 08:36:01 GMT
+ETag: W/"c4ab-1a186cd43ec"
+Content-Type: image/png
+Content-Length: 50347
+Date: Thu, 29 Oct 2026 08:44:15 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5

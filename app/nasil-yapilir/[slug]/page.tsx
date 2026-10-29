@@ -1,3 +1,4 @@
+import {schemaJson, article} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
 import { indexabilityRobots } from '@/lib/indexability';
 import { notFound } from "next/navigation";
@@ -106,19 +107,7 @@ export default async function NasilYapilirPage({ params }: PageProps) {
         notFound();
     }
 
-    const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": guide.title,
-        "description": guide.description,
-        "tool": guide.tools.map((t: string) => ({ "@type": "HowToTool", "name": t })),
-        "step": guide.steps.map((s: any, idx: number) => ({
-            "@type": "HowToStep",
-            "name": s.title,
-            "text": s.detail,
-            "url": `https://otosoz.com/nasil-yapilir/${slug}#step-${idx + 1}`
-        }))
-    };
+    const structuredData = article({url:`https://otosoz.com/nasil-yapilir/${slug}`,headline:guide.title,description:guide.description,datePublished:guide.createdAt,dateModified:guide.updatedAt});
 
     const breadcrumbSchema = {
         "@context": "https://schema.org",
@@ -149,7 +138,7 @@ export default async function NasilYapilirPage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(isQualityGuide(guide, 'howto') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(isQualityGuide(guide, 'howto') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
             <NasilYapilirDetailClient guide={guide} category={category} />
         </>

@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -74,20 +75,6 @@ export default async function BakimRehberiPage({ params }: PageProps) {
         }
     };
 
-    const howToSchema = {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": `${bakimItem.title} kontrolü ve değişim planı`,
-        "description": bakimItem.description,
-        "step": maintenanceSteps.map((step, index) => ({
-            "@type": "HowToStep",
-            "position": index + 1,
-            "name": step.name,
-            "text": step.text,
-            "url": `https://otosoz.com/bakim-rehberi/${slug}#adim-${index + 1}`,
-        })),
-    };
-
     const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -117,7 +104,7 @@ export default async function BakimRehberiPage({ params }: PageProps) {
         <>
             {SUPPORTING_TEMPLATE_INDEXABLE && <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify([structuredData, howToSchema, breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson([structuredData, breadcrumbSchema]) }}
             />}
             <BakimRehberiDetailClient bakimItem={bakimItem} />
         </>

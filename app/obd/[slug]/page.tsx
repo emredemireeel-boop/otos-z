@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { obdCodes as ALL_CODES, getObdCode, getRelatedObdCodes, getObdDirectoryPageNumber, isObdCodeIndexable, OBD_LAST_REVIEWED, POPULAR_OBD_CODES } from "@/lib/obd-catalog";
@@ -191,9 +192,9 @@ export default async function OBDSlugPage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...structuredData,
+                dangerouslySetInnerHTML={{ __html: schemaJson({ ...structuredData,
                     '@graph': structuredData['@graph'].filter(item => isObdCodeIndexable(codeData) || item['@type'] === 'BreadcrumbList'),
-                }).replace(/</g, '\\u003c') }}
+                }) }}
             />
             <OBDDetailClient codeData={codeData} relatedCodes={relatedCodes} typeLabel={typeLabel} directoryPage={getObdDirectoryPageNumber(codeData.code)} />
         </>

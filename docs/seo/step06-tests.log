@@ -1,0 +1,13 @@
+✔ Schema serialization prevents script termination and dates stay factual (1.0721ms)
+✔ QAPage requires real answers and breadcrumb preserves visible order (0.9094ms)
+✔ Every legacy category query resolves directly to a canonical route (1.1189ms)
+✔ The quality registry rejects query duplicates and retains category quality decisions (1.024ms)
+✔ XML serialization escapes values and never invents dates or emits priority (4.4891ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1134.2254

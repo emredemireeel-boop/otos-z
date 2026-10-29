@@ -1,0 +1,2401 @@
+{
+  "checkedAt": "2026-10-29T08:44:25.487Z",
+  "base": "http://127.0.0.1:3010",
+  "sampled": 115,
+  "types": 77,
+  "errors": 0,
+  "missingRecordDates": 24,
+  "clientEmitters": [],
+  "results": [
+    {
+      "type": "home",
+      "url": "https://otosoz.com",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "WebPage",
+        "Thing",
+        "Thing",
+        "Thing"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "karsilastirma",
+      "url": "https://otosoz.com/karsilastirma",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "uzmana-sor",
+      "url": "https://otosoz.com/uzmana-sor",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "piyasalar",
+      "url": "https://otosoz.com/piyasalar",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "guvenmetre",
+      "url": "https://otosoz.com/guvenmetre",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "altin-anahtar",
+      "url": "https://otosoz.com/altin-anahtar",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "anket",
+      "url": "https://otosoz.com/anket",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "etkinlikler",
+      "url": "https://otosoz.com/etkinlikler",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "hakkimizda",
+      "url": "https://otosoz.com/hakkimizda",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "iletisim",
+      "url": "https://otosoz.com/iletisim",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "gizlilik-politikasi",
+      "url": "https://otosoz.com/gizlilik-politikasi",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "cerez-politikasi",
+      "url": "https://otosoz.com/cerez-politikasi",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kullanim-sartlari",
+      "url": "https://otosoz.com/kullanim-sartlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "dna-hub",
+      "url": "https://otosoz.com/arac-dna",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "dna-hub",
+      "url": "https://otosoz.com/arac-dna/renault",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "CollectionPage",
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "dna-hub",
+      "url": "https://otosoz.com/arac-dna/fiat",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "CollectionPage",
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "dna-model",
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "dna-model",
+      "url": "https://otosoz.com/arac-dna/renault/clio-1-nesil-1990-1998",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "dna-model",
+      "url": "https://otosoz.com/arac-dna/renault/clio-2-nesil-1998-2012",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "neden-alinir",
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "neden-alinir",
+      "url": "https://otosoz.com/arac-dna/renault/clio-1-nesil-1990-1998/neden-alinir",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "neden-alinir",
+      "url": "https://otosoz.com/arac-dna/renault/clio-2-nesil-1998-2012/neden-alinir",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/arac-paketleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025/arac-paketleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "arac-paketleri",
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025/arac-paketleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "13-tce-140-hp-benzin-edc",
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "13-tce-140-hp-benzin-edc-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "13-tce-140-hp-benzin-edc-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/renault/clio-1-nesil-1990-1998/kronik-sorunlar",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/renault/clio-2-nesil-1998-2012/kronik-sorunlar",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kronik-sorunlar",
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-12-nesil-2019-2025/kronik-sorunlar",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "16-multijet-120-hp-dizel-manuel-dct",
+      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025/16-multijet-120-hp-dizel-manuel-dct",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "16-multijet-120-hp-dizel-manuel-dct-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/fiat/egea-1-nesil-2015-2025/16-multijet-120-hp-dizel-manuel-dct-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "v1-standart-menzil-elektrik-tek-vites",
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v1-standart-menzil-elektrik-tek-vites",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "v1-standart-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v1-standart-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "v2-uzun-menzil-elektrik-tek-vites",
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "v2-uzun-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/togg/t10x-1-nesil-2023-2025/v2-uzun-menzil-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "rwd-elektrik-tek-vites",
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/rwd-elektrik-tek-vites",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "rwd-elektrik-tek-vites-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/rwd-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "long-range-dual-motor-elektrik-tek-vites",
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/long-range-dual-motor-elektrik-tek-vites",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "long-range-dual-motor-elektrik-tek-vites-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/long-range-dual-motor-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "performance-elektrik-tek-vites",
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "performance-elektrik-tek-vites-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/tesla/model-y-1-nesil-2020-2025/performance-elektrik-tek-vites-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-2-dig-t-115-hp",
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/1-2-dig-t-115-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-2-dig-t-115-hp-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/nissan/qashqai-2-nesil-j11-2014-2021/1-2-dig-t-115-hp-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-benzinli-72-hp",
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/1-4-benzinli-72-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-benzinli-72-hp-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/1-4-benzinli-72-hp-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-tx-72-hp",
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/1-4-tx-72-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-tx-72-hp-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/renault/toros-r12-1989-2000/1-4-tx-72-hp-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-broadway-72-hp",
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/1-4-broadway-72-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-broadway-72-hp-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/1-4-broadway-72-hp-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-6-fairway-80-hp",
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/1-6-fairway-80-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-6-fairway-80-hp-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/renault/r9-broadway-1985-2000/1-6-fairway-80-hp-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-70-s",
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-s",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-70-s-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-s-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-70-sx-ie",
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-sx-ie",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-4-70-sx-ie-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/fiat/uno-1995-2001/1-4-70-sx-ie-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-6-gli-114-hp",
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/1-6-gli-114-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-6-gli-114-hp-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/toyota/corolla-ae101-efsane-kasa-1993-1998/1-6-gli-114-hp-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-5-gls-92-hp",
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-5-gls-92-hp-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/hyundai/accent-yumurta-kasa-1995-2000/1-5-gls-92-hp-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-5-karburatorlu-72-hp",
+      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004/1-5-karburatorlu-72-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "1-5-karburatorlu-72-hp-kronik-sorunlari",
+      "url": "https://otosoz.com/arac-dna/lada/samara-1990-2004/1-5-karburatorlu-72-hp-kronik-sorunlari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kullanici-deneyimleri",
+      "url": "https://otosoz.com/arac-dna/renault/symbol-10-sce/kullanici-deneyimleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kullanici-deneyimleri",
+      "url": "https://otosoz.com/arac-dna/kia/rio-4-nesil-2017-2023/kullanici-deneyimleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kullanici-deneyimleri",
+      "url": "https://otosoz.com/arac-dna/hyundai/i20-3-nesil-2020-gunumuz/kullanici-deneyimleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "turbo-tce-edc-145-hp",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/turbo-tce-edc-145-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "turbo-tce-edc-145-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/turbo-tce-edc-145-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "full-hybrid-e-tech-160-hp",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "full-hybrid-e-tech-160-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/full-hybrid-e-tech-160-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "hybrid-4x4-150-hp",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/hybrid-4x4-150-hp",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "hybrid-4x4-150-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/hybrid-4x4-150-hp-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "eco-g-120-hp-lpg",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "eco-g-120-hp-lpg-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "url": "https://otosoz.com/arac-dna/renault/duster-3-nesil-2024-2026/eco-g-120-hp-lpg-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "obd",
+      "url": "https://otosoz.com/obd",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "CollectionPage",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "obd",
+      "url": "https://otosoz.com/obd/p0171",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "DefinedTerm",
+        "ImageObject",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished"
+      ]
+    },
+    {
+      "type": "obd",
+      "url": "https://otosoz.com/obd/p0299",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "DefinedTerm",
+        "ImageObject",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished"
+      ]
+    },
+    {
+      "type": "library-hub",
+      "url": "https://otosoz.com/kutuphane",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "CollectionPage",
+        "WebSite",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kasko-deger",
+      "url": "https://otosoz.com/kutuphane/kasko-deger",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kategori",
+      "url": "https://otosoz.com/kutuphane/kategori/ilginc-bilgiler",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "CollectionPage",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kategori",
+      "url": "https://otosoz.com/kutuphane/kategori/trafik-isaretleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "CollectionPage",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "kategori",
+      "url": "https://otosoz.com/kutuphane/kategori/lastik-rehberi",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "CollectionPage",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "nasil-yapilir",
+      "url": "https://otosoz.com/nasil-yapilir/patlak-lastik-nasil-degistirilir",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "ImageObject",
+        "Organization",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "nasil-yapilir",
+      "url": "https://otosoz.com/nasil-yapilir/aku-takviyesi-arac-vurdurma-nasil-yapilir",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "ImageObject",
+        "Organization",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "nasil-yapilir",
+      "url": "https://otosoz.com/nasil-yapilir/motor-hararet-yapinca-ne-yapilir",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "ImageObject",
+        "Organization",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "ilginc",
+      "url": "https://otosoz.com/kutuphane/ilginc/ikinci-el-arac-ekspertiz-oncesi-sirlari-ilginc-00067",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "ilginc",
+      "url": "https://otosoz.com/kutuphane/ilginc/kis-surus-seti-ilginc-00023",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "ilginc",
+      "url": "https://otosoz.com/kutuphane/ilginc/uzun-yola-cikmadan-once-ilginc-00024",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "otoyol-ucretleri",
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/15-temmuz-sehitler-koprusu",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "ImageObject"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "otoyol-ucretleri",
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/fatih-sultan-mehmet-koprusu",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "ImageObject"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "otoyol-ucretleri",
+      "url": "https://otosoz.com/kutuphane/otoyol-ucretleri/yavuz-sultan-selim-koprusu",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "ImageObject"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "efsane-avcilari",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/yokus-asagi-bosa-atmak--1",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "ImageObject",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "efsane-avcilari",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/klima-yerine-cam-acmak--2",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "ImageObject",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "efsane-avcilari",
+      "url": "https://otosoz.com/kutuphane/efsane-avcilari/benzin-deposunu-fullemek--3",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "ImageObject",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "makale",
+      "url": "https://otosoz.com/makale",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "CollectionPage",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "makale",
+      "url": "https://otosoz.com/makale/nihai-otomotiv-muhendisligi-manifestosu-gunluk-araclar-icin-20-adimlik-hiper-modifiye-ansiklopedisi--10045",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "ImageObject",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "makale",
+      "url": "https://otosoz.com/makale/hayat-kurtaran-yaratici-kendin-yap-diy-oto-cozumleri--10043",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "ImageObject",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": [
+        "Article unknown datePublished",
+        "Article unknown dateModified"
+      ]
+    },
+    {
+      "type": "forum",
+      "url": "https://otosoz.com/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "DiscussionForumPosting",
+        "Person",
+        "InteractionCounter",
+        "InteractionCounter",
+        "Comment",
+        "Person",
+        "InteractionCounter",
+        "Comment",
+        "Person",
+        "InteractionCounter",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "forum",
+      "url": "https://otosoz.com/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "DiscussionForumPosting",
+        "Person",
+        "InteractionCounter",
+        "InteractionCounter",
+        "Comment",
+        "Person",
+        "InteractionCounter",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "forum",
+      "url": "https://otosoz.com/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "DiscussionForumPosting",
+        "Person",
+        "InteractionCounter",
+        "InteractionCounter",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "haberler",
+      "url": "https://otosoz.com/haberler",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "haberler",
+      "url": "https://otosoz.com/haberler/euroncap-2026-elektrikli-otomobil-testleri",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "NewsArticle",
+        "ImageObject",
+        "Organization"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "haberler",
+      "url": "https://otosoz.com/haberler/turkiye-otomotiv-pazari-agustos-2026-81-bin",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "NewsArticle",
+        "ImageObject",
+        "Organization"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "trafik-cezasi",
+      "url": "https://otosoz.com/trafik-cezasi",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "CollectionPage",
+        "WebSite",
+        "Legislation",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "trafik-cezasi",
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "Legislation",
+        "ImageObject",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "trafik-cezasi",
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "Article",
+        "Organization",
+        "Legislation",
+        "ImageObject",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "otobutce",
+      "url": "https://otosoz.com/otobutce",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "otobutce",
+      "url": "https://otosoz.com/otobutce/150-bin-tl-alti-arabalar",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "otobutce",
+      "url": "https://otosoz.com/otobutce/150-250-bin-tl-arasi-araclar",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "otohesap",
+      "url": "https://otosoz.com/otohesap",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "CollectionPage",
+        "ItemList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ListItem"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "otohesap",
+      "url": "https://otosoz.com/otohesap/yakit-hesaplama",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        [
+          "SoftwareApplication",
+          "WebApplication"
+        ],
+        "Offer",
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "UseAction",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "WebPage"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "otohesap",
+      "url": "https://otosoz.com/otohesap/yatirim-kiyaslama",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        [
+          "SoftwareApplication",
+          "WebApplication"
+        ],
+        "Offer",
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "UseAction",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "WebPage"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "acik-oto-pazari",
+      "url": "https://otosoz.com/acik-oto-pazari",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "acik-oto-pazari",
+      "url": "https://otosoz.com/acik-oto-pazari/adana",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "CollectionPage",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ItemList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer"
+      ],
+      "errors": [],
+      "gaps": []
+    },
+    {
+      "type": "acik-oto-pazari",
+      "url": "https://otosoz.com/acik-oto-pazari/antalya",
+      "status": 200,
+      "nodes": [
+        "Organization",
+        "ImageObject",
+        "ContactPoint",
+        "WebSite",
+        "CollectionPage",
+        "BreadcrumbList",
+        "ListItem",
+        "ListItem",
+        "ListItem",
+        "ItemList",
+        "ListItem",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer",
+        "Question",
+        "Answer"
+      ],
+      "errors": [],
+      "gaps": []
+    }
+  ]
+}

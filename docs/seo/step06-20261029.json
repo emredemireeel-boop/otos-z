@@ -1,0 +1,71 @@
+{
+  "step": 6,
+  "date": "2026-10-29",
+  "status": "partial-implementation-verified",
+  "deployed": false,
+  "responsiblePersonProvidedByUser": "Emre Demirel",
+  "changes": [
+    "Central schema.ts builders, shared linked Organization/WebSite IDs and safe script serialization",
+    "All existing server emitters use shared serializer; client emitters removed",
+    "NewsArticle moved to server",
+    "512x512 PNG generated from existing logo; global schema uses central organization builder",
+    "Vehicle template FAQ section and JSON-LD removed",
+    "Unsupported HowTo objects removed/replaced without removing visible steps",
+    "QAPage without actual accepted/suggested answers removed"
+  ],
+  "validation": [
+    {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "command": "node --test tests/schema.test.mjs tests/sitemap-routing.test.mjs",
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "command": "node scripts/seo-schema-audit.mjs",
+      "sampled": 115,
+      "types": 77,
+      "parseOrCoreFieldErrors": 0,
+      "clientEmitters": 0,
+      "unknownRecordDateFields": 24
+    },
+    {
+      "command": "node scripts/seo-status-check.mjs --base http://127.0.0.1:3010",
+      "passed": 231,
+      "failed": 0
+    },
+    {
+      "command": "node scripts/seo-sitemap-audit.mjs http://127.0.0.1:3010 docs/seo/step06-sitemap-audit.json",
+      "checked": 689,
+      "failed": 0
+    }
+  ],
+  "remaining": [
+    "Visible breadcrumbs and structured breadcrumbs must be reconciled for all indexable types.",
+    "24 sampled date fields have no real record dates; none were fabricated. This does not satisfy the user requirement of all date fields present.",
+    "Complete migration of route-specific schema objects to explicit builder calls; serializer currently applies central policy to legacy objects.",
+    "Verify all visible FAQ questions against emitted FAQ nodes.",
+    "Steps 7–10 and deployment are still pending."
+  ],
+  "richResultsManualExamples": [
+    "https://otosoz.com/makale/tuvturk-muayene-hazirlik-rehberi-tek-seferde-gecmenin-yollari--10012",
+    "https://otosoz.com/haberler/euroncap-2026-elektrikli-otomobil-testleri",
+    "https://otosoz.com/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+    "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025",
+    "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari"
+  ],
+  "manualTestTool": "https://search.google.com/test/rich-results",
+  "sources": [
+    "https://developers.google.com/search/docs/appearance/structured-data/article",
+    "https://developers.google.com/search/docs/appearance/structured-data/organization",
+    "https://developers.google.com/search/docs/appearance/structured-data/qapage",
+    "https://developers.google.com/search/docs/appearance/structured-data/discussion-forum",
+    "https://developers.google.com/search/blog/2023/08/howto-faq-changes"
+  ]
+}

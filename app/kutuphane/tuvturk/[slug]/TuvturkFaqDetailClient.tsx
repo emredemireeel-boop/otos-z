@@ -34,7 +34,7 @@ export default function TuvturkFaqDetailClient({ faq }: { faq: FaqProps }) {
 
     return (
         <div>
-            {SUPPORTING_TEMPLATE_INDEXABLE && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+            {SUPPORTING_TEMPLATE_INDEXABLE && null}
             <Navbar />
 
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>

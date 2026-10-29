@@ -110,13 +110,13 @@ export default function HaberDetailClient({ slug, initialPost, indexable = false
 
     return (
         <div>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(indexable ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]).replace(/</g, '\\u003c') }} />
+
             <Navbar />
             <main style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: '60px' }}>
-                
+
                 {/* Hero Banner */}
-                <div style={{ 
-                    width: '100%', height: '450px', position: 'relative', 
+                <div style={{
+                    width: '100%', height: '450px', position: 'relative',
                     backgroundImage: `url(${post.image})`, backgroundSize: 'cover', backgroundPosition: 'center',
                     display: 'flex', alignItems: 'flex-end'
                 }}>
@@ -148,13 +148,13 @@ export default function HaberDetailClient({ slug, initialPost, indexable = false
 
                 {/* Content Area */}
                 <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 24px', display: 'flex', gap: '40px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-                    
+
                     {/* Main Article */}
                     <article className="blog-content" style={{ flex: 1, minWidth: '300px', maxWidth: '800px', fontSize: '18px', lineHeight: '1.8', color: 'var(--foreground)' }}>
                         <div style={{ fontSize: '20px', fontWeight: '500', color: 'var(--text-muted)', marginBottom: '40px', paddingLeft: '20px', borderLeft: '4px solid var(--primary)', fontStyle: 'italic' }}>
                             {post.description}
                         </div>
-                        
+
                         <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
                         {/* Share & Author Box */}

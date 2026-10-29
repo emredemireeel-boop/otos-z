@@ -19,7 +19,7 @@ export default async function VehicleModelPage({ params }: { params: Promise<{ b
         mainEntity: buildVehicleFaq(vehicle, engines).map(item => ({ '@type': 'Question', name: item.question,
             acceptedAnswer: { '@type': 'Answer', text: item.answer } })),
     } : null;
-    return <>{schema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />}<AracDNAShell vehicle={vehicle}><ModelOverviewClient params={params} /></AracDNAShell></>;
+    return <>{schema && null}<AracDNAShell vehicle={vehicle}><ModelOverviewClient params={params} /></AracDNAShell></>;
 }
 
 export const revalidate = 1800;

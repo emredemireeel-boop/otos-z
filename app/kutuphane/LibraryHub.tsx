@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import library from '@/public/data/library_guides.json';
 import {getIndexableUrls} from '@/lib/seoRoutes';
 import interesting from '@/public/data/interesting_information.json';
@@ -107,7 +108,7 @@ function buildJsonLd(cat: CatMeta): string {
     ];
 
 
-    return JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
+    return schemaJson({ "@context": "https://schema.org", "@graph": graph });
 }
 
 export default async function LibraryHub({kategori=null}:{kategori?:string|null}) {

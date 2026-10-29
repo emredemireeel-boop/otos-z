@@ -1,3 +1,4 @@
+import {schemaJson, schemaGraph, organization, website} from '@/lib/schema';
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
@@ -88,57 +89,7 @@ import CookieConsent from "@/components/CookieConsent";
 // ── JSON-LD Yapılandırılmış Veri (Structured Data) ──
 // Google'ın siteyi bir "Kuruluş" ve "Web Sitesi" olarak tanımasını sağlar.
 // Sitelinks Search Box, Knowledge Panel ve zengin snippet tetikleyicileri.
-const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-        {
-            '@type': 'Organization',
-            '@id': 'https://otosoz.com/#organization',
-            name: 'OtoSöz',
-            url: 'https://otosoz.com',
-            logo: {
-                '@type': 'ImageObject',
-                url: 'https://otosoz.com/dark_logo.svg',
-                width: 512,
-                height: 512,
-            },
-            description: 'Araç seçimi, arıza çözümü ve otomobil karşılaştırması için sürücü deneyimini, uzman görüşünü ve veriyi bir araya getiren otomotiv karar platformu.',
-            slogan: 'Arabanla ilgili karar vermeden önce OtoSöz’e sor.',
-            knowsAbout: ['Araç satın alma', 'Otomobil arızaları', 'Araç karşılaştırma', 'Araç DNA analizi', 'OBD arıza kodları'],
-            foundingDate: '2024-01-01',
-            email: 'iletisim@otosoz.com',
-            address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'İzmir',
-                addressCountry: 'TR',
-            },
-            areaServed: {
-                '@type': 'Country',
-                name: 'Türkiye',
-            },
-            sameAs: [
-                'https://www.youtube.com/@otosoz',
-                'https://www.instagram.com/otosoz.tr',
-            ],
-            contactPoint: {
-                '@type': 'ContactPoint',
-                contactType: 'customer support',
-                availableLanguage: 'Turkish',
-                email: 'iletisim@otosoz.com',
-                url: 'https://otosoz.com/iletisim',
-            },
-        },
-        {
-            '@type': 'WebSite',
-            '@id': 'https://otosoz.com/#website',
-            url: 'https://otosoz.com',
-            name: 'OtoSöz',
-            description: 'Türkiye’nin araç seçimi, arıza çözümü ve otomobil karşılaştırmasına odaklanan otomotiv karar platformu',
-            publisher: { '@id': 'https://otosoz.com/#organization' },
-            inLanguage: 'tr-TR',
-        },
-    ],
-};
+const jsonLd = schemaGraph([organization(), website()]);
 
 export default function RootLayout({
     children,
@@ -174,7 +125,7 @@ export default function RootLayout({
                 {/* ── JSON-LD Yapılandırılmış Veri — Google Knowledge Graph & Rich Snippets ── */}
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                    dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
                 />
             </head>
             <body>

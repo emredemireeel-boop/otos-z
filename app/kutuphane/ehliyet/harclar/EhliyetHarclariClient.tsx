@@ -64,10 +64,7 @@ export default function EhliyetHarclariClient() {
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
             <Navbar />
-            {SUPPORTING_TEMPLATE_INDEXABLE && <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />}
+            {SUPPORTING_TEMPLATE_INDEXABLE && null}
 
             {/* ─── HERO HEADER ─── */}
             <div className="harclar-hero" style={{

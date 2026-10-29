@@ -1,3 +1,4 @@
+import {schemaJson, schemaGraph, newsArticle, breadcrumb} from '@/lib/schema';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import HaberDetailClient from './HaberDetailClient';
@@ -70,5 +71,7 @@ export default async function HaberDetailServerPage({ params }: PageProps) {
     const { slug } = await params;
     const post = getPost(slug);
     if (!post) notFound();
-    return <HaberDetailClient slug={slug} initialPost={post} indexable={isQualityGuide(post, 'news')} />;
+    const url=`https://otosoz.com/haberler/${slug}`;
+    const nodes=[breadcrumb([{name:'Ana Sayfa',url:'https://otosoz.com/'},{name:'Haberler',url:'https://otosoz.com/haberler'},{name:post.title,url}],url),...(isQualityGuide(post,'news')?[newsArticle({url,headline:post.title,description:post.description,datePublished:post.createdAt,dateModified:post.updatedAt||post.createdAt})]:[])];
+    return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:schemaJson(schemaGraph(nodes))}}/><HaberDetailClient slug={slug} initialPost={post} indexable={isQualityGuide(post, 'news')}/></>;
 }

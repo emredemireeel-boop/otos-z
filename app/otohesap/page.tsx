@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
 import OtoHesapIndexView from "@/components/OtoHesapIndexView";
@@ -75,7 +76,7 @@ export default function OtoHesapIndex() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
       <OtoHesapIndexView />
     </>
   );

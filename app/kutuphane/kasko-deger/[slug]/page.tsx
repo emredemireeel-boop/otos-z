@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -75,7 +76,7 @@ export default async function KaskoDegerDetailPage({ params }: KaskoPageProps) {
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
             <Navbar />
-            {SUPPORTING_TEMPLATE_INDEXABLE && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />}
+            {SUPPORTING_TEMPLATE_INDEXABLE && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />}
             <main style={{ maxWidth: "800px", margin: "0 auto", padding: "120px 24px 60px" }}>
                 <Link href="/kutuphane/kasko-deger" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", marginBottom: "24px", textDecoration: "none", fontWeight: "600" }}>
                     <ArrowLeft size={16} /> Kasko Değer Listesine Dön

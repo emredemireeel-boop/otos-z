@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import MakaleDetailClient from "./MakaleDetailClient";
@@ -103,8 +104,9 @@ export default async function MakalePage({ params }: PageProps) {
         "headline": article.title,
         "description": article.description,
         "author": {
-            "@type": "Person",
-            "name": article.author || "OtoSöz Uzmanları"
+            "@type": "Organization",
+            "@id": "https://otosoz.com/#organization",
+            "name": "OtoSöz"
         },
         "url": canonicalUrl,
         "publisher": {
@@ -143,7 +145,7 @@ export default async function MakalePage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(isQualityGuide(article, 'article') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(isQualityGuide(article, 'article') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
             <MakaleDetailClient article={article} indexable={isQualityGuide(article, 'article')} />
         </>

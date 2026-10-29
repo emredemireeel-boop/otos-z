@@ -248,23 +248,7 @@ export default function AracDNAShell({ children, vehicle, engineParam = '', sect
                         {children}
                     </div>
 
-                    <section className="dna-seo-faq" aria-labelledby="dna-faq-title">
-                        <div className="dna-seo-faq-heading">
-                            <HelpCircle size={20} aria-hidden="true" />
-                            <div>
-                                <span>Araç kararı</span>
-                                <h2 id="dna-faq-title">{vehicle.brand} {vehicle.model} hakkında sık sorulanlar</h2>
-                            </div>
-                        </div>
-                        <div className="dna-seo-faq-grid">
-                            {faqItems.map(item => (
-                                <details key={item.question}>
-                                    <summary>{item.question}</summary>
-                                    <p>{item.answer}</p>
-                                </details>
-                            ))}
-                        </div>
-                    </section>
+
 
                 </div>
             </main>

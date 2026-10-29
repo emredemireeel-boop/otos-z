@@ -862,10 +862,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles }: { ini
     const featuredEvent = HOME_FEATURED_EVENT;
     return (
         <div>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema).replace(/</g, '\\u003c') }}
-            />
+
             <Navbar />
 
             <main className="forum-home-main">

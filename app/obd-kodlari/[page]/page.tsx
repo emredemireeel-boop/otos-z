@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -51,7 +52,7 @@ export default async function ObdDirectoryPage({ params }: Props) {
     return <>
         <Navbar />
         <main style={{ minHeight: '100vh', background: 'var(--background)', padding: '36px 24px 64px' }}>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\u003c') }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(schema) }} />
             <div style={{ maxWidth: 1100, margin: '0 auto' }}>
                 <nav style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 20 }}><Link href="/obd" style={{ color: 'var(--primary)' }}>OBD Arıza Kodları</Link> / Kod dizini / {page}</nav>
                 <h1 style={{ color: 'var(--foreground)', fontSize: 'clamp(24px, 4vw, 38px)', marginBottom: 10 }}>OBD-II arıza kodları dizini</h1>

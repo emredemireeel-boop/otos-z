@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import { obdCodes as allCodes, obdSearchCodes, OBD_LAST_REVIEWED, obdDirectoryPageCount, indexableObdCodes } from "@/lib/obd-catalog";
@@ -94,7 +95,7 @@ export default function ObdPage() {
         <div>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(collectionSchema) }}
             />
             <Navbar />
 

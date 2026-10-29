@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import {vehicleDNAData} from '@/data/vehicle-dna';
 import {isVehicleIndexable} from '@/lib/indexability';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
@@ -65,7 +66,7 @@ export default async function HomePage() {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageJsonLd).replace(/</g, "\u003c") }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(homePageJsonLd) }}
             />
             <HomeClient initialThreads={initialThreads} featuredDnaVehicles={vehicleDNAData.filter(vehicle=>[1,2,3,4,5,6,7,8,13].includes(vehicle.id)&&isVehicleIndexable(vehicle)).map(({id,brand,model,dnaScore,totalReports,chronicIssues})=>({id,brand,model,dnaScore,totalReports,chronicIssueCount:chronicIssues.length}))} />
         </>

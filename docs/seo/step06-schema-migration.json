@@ -1,0 +1,202 @@
+[
+  {
+    "file": "app/arac-dna/layout.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/arac-dna/[brand]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/arac-dna/[brand]/[model]/kronik-sorunlar/page.tsx",
+    "client": false,
+    "removed": true
+  },
+  {
+    "file": "app/arac-dna/[brand]/[model]/page.tsx",
+    "client": false,
+    "removed": true
+  },
+  {
+    "file": "app/bakim-rehberi/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/forum/ForumHub.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/gosterge/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/haberler/[slug]/HaberDetailClient.tsx",
+    "client": true,
+    "removed": true
+  },
+  {
+    "file": "app/HomeClient.tsx",
+    "client": true,
+    "removed": true
+  },
+  {
+    "file": "app/ikinci-el-rehberi/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/efsane-avcilari/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/ehliyet/harclar/EhliyetHarclariClient.tsx",
+    "client": true,
+    "removed": true
+  },
+  {
+    "file": "app/kutuphane/ehliyet/sinif/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/ehliyet/src-belgesi/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/ilginc/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/kasa/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/kasko-deger/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/noter/guvenli-odeme/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/noter/satis-adimlari/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/otoyol-ucretleri/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/plaka/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/segment/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/kutuphane/tuvturk/[slug]/TuvturkFaqDetailClient.tsx",
+    "client": true,
+    "removed": true
+  },
+  {
+    "file": "app/kutuphane/[guideId]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/layout.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/makale/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/makale/[slug]/MakaleDetailClient.tsx",
+    "client": true,
+    "removed": true
+  },
+  {
+    "file": "app/makale/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/nasil-yapilir/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/obd/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/obd/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/obd-kodlari/[page]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/otohesap/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/otohesap/[module]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/pazar/page.tsx",
+    "client": true,
+    "removed": true
+  },
+  {
+    "file": "app/sozluk/[id]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/trafik-cezasi/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/trafik-cezasi/[slug]/page.tsx",
+    "client": false,
+    "removed": false
+  },
+  {
+    "file": "app/uzmana-sor/[id]/page.tsx",
+    "client": false,
+    "removed": false
+  }
+]

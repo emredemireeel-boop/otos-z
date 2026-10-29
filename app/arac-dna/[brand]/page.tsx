@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { Metadata } from "next";
 import { vehicleDNAData, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData } from "@/data/engine-dna";
@@ -107,7 +108,7 @@ export default async function BrandPage({ params }: PageProps) {
 
     return (
         <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([brandSchema, breadcrumbSchema]) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson([brandSchema, breadcrumbSchema]) }} />
             <BrandHubClient brandName={brandName} models={JSON.parse(JSON.stringify(modelsWithEngines))} />
         </>
     );

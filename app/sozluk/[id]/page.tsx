@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { dictionaryTerms, categoryColors } from "@/data/dictionary";
@@ -140,7 +141,7 @@ export default async function SozlukTermPage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(isQualityDictionaryTerm(term) ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(isQualityDictionaryTerm(term) ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
             <SozlukDetailClient term={term} relatedTerms={relatedTerms} sameLetterTerms={sameLetterTerms} />
         </>

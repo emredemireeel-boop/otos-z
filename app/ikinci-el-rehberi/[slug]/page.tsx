@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -76,7 +77,7 @@ export default async function IkinciElRehberiPage({ params }: PageProps) {
         <>
             {SUPPORTING_TEMPLATE_INDEXABLE && <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(structuredData) }}
             />}
             <IkinciElRehberiDetailClient rehberItem={rehberItem} />
         </>

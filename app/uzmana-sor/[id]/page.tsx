@@ -1,3 +1,4 @@
+import {schemaJson as serializeSchema} from '@/lib/schema';
 import { Metadata } from "next";
 import UzmanaSorClient from "./UzmanaSorClient";
 import { getThreadById } from "@/lib/forumService";
@@ -102,36 +103,15 @@ export default async function UzmanaSorServerPage({ params, searchParams }: Page
         }
         : null;
 
-    if (!sampleQuestion) try {
-        const thread = await getThreadById(threadId);
-        if (thread) {
-            schemaJson = {
-                "@context": "https://schema.org",
-                "@type": "QAPage",
-                "mainEntity": {
-                    "@type": "Question",
-                    "name": thread.title,
-                    "text": thread.title, // In a real app, this would be the full question body
-                    "answerCount": 0, // Would be fetched from replies
-                    "upvoteCount": 0,
-                    "dateCreated": new Date(thread.createdAt?.toMillis ? thread.createdAt.toMillis() : Date.now()).toISOString(),
-                    "author": {
-                        "@type": "Person",
-                        "name": thread.authorUsername
-                    }
-                }
-            };
-        }
-    } catch (e) {
-        console.error("Schema error", e);
-    }
+    // No accepted/suggested answers are loaded by this server route yet.
+    // A question without real answers is not eligible for QAPage markup.
 
     return (
         <>
             {schemaJson && (
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson).replace(/</g, '\\u003c') }}
+                    dangerouslySetInnerHTML={{ __html: serializeSchema(schemaJson) }}
                 />
             )}
             <UzmanaSorClient initialPage={initialPage} />

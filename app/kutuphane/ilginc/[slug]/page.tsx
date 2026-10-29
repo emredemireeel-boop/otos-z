@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
 import { indexabilityRobots } from '@/lib/indexability';
 import { Metadata } from "next";
@@ -240,7 +241,8 @@ export default async function IlgincDetayPage({ params }: PageProps) {
         }]
     } : item._type === "tip" ? {
         "@context": "https://schema.org",
-        "@type": "HowTo",
+        "@type": "Article",
+        "url": `https://otosoz.com/kutuphane/ilginc/${slug}`,
         "name": item.title,
         "description": item.tip,
     } : null;
@@ -249,7 +251,7 @@ export default async function IlgincDetayPage({ params }: PageProps) {
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
             <Navbar />
             {isQualityGuide(item, 'interesting') && jsonLd && (
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />
             )}
 
             <main style={{ maxWidth: "860px", margin: "0 auto", padding: "100px 24px 60px 24px" }}>

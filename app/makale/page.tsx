@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import Link from 'next/link';
 import {getIndexableUrls} from '@/lib/seoRoutes';
 import Navbar from '@/components/Navbar';
@@ -43,7 +44,7 @@ export default async function ArticlesPage() {
                         {article.minutes ? <span className={styles.meta}>{article.minutes} dakika okuma süresi</span> : null}
                     </article>)}</div>
                 </section>)}
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(schema) }} />
             </div>
         </main>
         <Footer />

@@ -153,10 +153,7 @@ export default function PazarPage() {
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)' }}>
             <Navbar />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-            />
+
             <main>
                 {/* Header */}
                 <div style={{
@@ -1432,4 +1429,3 @@ function NewListingModal({
         </div >
     );
 }
-

@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
 import KutuphaneClient from "@/app/kutuphane/KutuphaneClient";
@@ -95,7 +96,7 @@ export default function TrafikCezalariPage() {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
             />
             <KutuphaneClient initialCategory="trafik-cezalari" />
         </>

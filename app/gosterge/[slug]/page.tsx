@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
 import { indexabilityRobots } from '@/lib/indexability';
 import { notFound } from "next/navigation";
@@ -120,7 +121,7 @@ export default async function GostergePage({ params }: PageProps) {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(isQualityGuide(light, 'warningLight') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
+                dangerouslySetInnerHTML={{ __html: schemaJson(isQualityGuide(light, 'warningLight') ? [structuredData, breadcrumbSchema] : [breadcrumbSchema]) }}
             />
             <GostergeDetailClient light={light} />
         </>

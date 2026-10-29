@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
 import { indexabilityRobots } from '@/lib/indexability';
 import { Metadata } from "next";
@@ -71,6 +72,7 @@ export default async function OtoyolDetayPage({ params }: PageProps) {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Article",
+        "url": `https://otosoz.com/kutuphane/otoyol-ucretleri/${slug}`,
         "headline": item.seoTitle,
         "description": item.seoDescription,
         "articleBody": item.content,
@@ -83,7 +85,7 @@ export default async function OtoyolDetayPage({ params }: PageProps) {
     return (
         <div style={{ minHeight: "100vh", background: "var(--background)" }}>
             <Navbar />
-            {isQualityGuide(item, 'toll') && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />}
+            {isQualityGuide(item, 'toll') && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }} />}
 
             <main style={{ maxWidth: "860px", margin: "0 auto", padding: "100px 24px 60px 24px" }}>
                 {/* Back Button */}

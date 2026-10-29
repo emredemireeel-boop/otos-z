@@ -1,3 +1,4 @@
+import {schemaJson} from '@/lib/schema';
 import { createPageMetadata } from '@/lib/seo';
 import { topSellingVehicleGuides, topSellingPeriod } from '@/data/top-selling-vehicle-guides';
 
@@ -28,7 +29,7 @@ export default function AracDnaRootLayout({ children }: { children: React.ReactN
 
     return (
         <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(itemList) }} />
             {children}
         </>
     );

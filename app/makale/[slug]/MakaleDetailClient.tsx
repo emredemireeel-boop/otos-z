@@ -78,12 +78,7 @@ export default function MakaleDetailClient({ article, indexable = false }: { art
     return (
         <>
             <Navbar />
-            {indexable && jsonLd && (
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
-            )}
+            {indexable && jsonLd && null}
             <main style={{ minHeight: '100vh', background: 'var(--background)' }}>
                 {/* Hero Section */}
                 <motion.div 
