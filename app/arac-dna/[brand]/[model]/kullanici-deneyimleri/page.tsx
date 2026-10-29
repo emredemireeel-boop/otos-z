@@ -1,6 +1,8 @@
-"use client";
+import { staticVehicleParams } from '@/lib/vehicle-index';
+import AracDNAShell from '../AracDNAShell';
+import { notFound } from 'next/navigation';
+import { findVehicleByRoute } from '@/lib/aracDnaSeo';
 
-import { useParams } from "next/navigation";
 import { createSlug, vehicleDNAData } from "@/data/vehicle-dna";
 import Link from "next/link";
 import { MessageCircle, Star, ThumbsUp } from "lucide-react";
@@ -14,22 +16,13 @@ const levelColors: Record<string, { bg: string; text: string }> = {
     "Efsane": { bg: "rgba(34, 197, 94, 0.2)", text: "#22c55e" },
 };
 
-export default function UserExperiencesPage() {
-    const params = useParams();
-
-    const brandSlug = (params?.brand as string)?.toLowerCase() || "";
-    const modelSlug = (params?.model as string)?.toLowerCase() || "";
-
-    const vehicle = vehicleDNAData.find(v => {
-        const vBrandSlug = createSlug(v.brand);
-        const vModelSlug = createSlug(v.model);
-        return vBrandSlug === brandSlug && vModelSlug === modelSlug;
-    });
-
-    if (!vehicle) return null;
+export default async function UserExperiencesPage({ params }: { params: Promise<{ brand: string; model: string }> }) {
+    const { brand: brandSlug, model: modelSlug } = await params;
+    const vehicle = findVehicleByRoute(brandSlug, modelSlug);
+    if (!vehicle) notFound();
 
 
-    return (
+    return (<AracDNAShell vehicle={vehicle} section="deneyimler">
         <div style={{
             background: 'var(--card-bg)',
             border: '1px solid var(--card-border)',
@@ -159,5 +152,10 @@ export default function UserExperiencesPage() {
                 </Link>
             </div>
         </div>
-    );
+    </AracDNAShell>);
 }
+
+export const revalidate = 1800;
+export const dynamic = 'force-static';
+export const dynamicParams = true;
+export function generateStaticParams({params}:{params:{brand:string}}) {return staticVehicleParams('kullanici-deneyimleri',params.brand);}

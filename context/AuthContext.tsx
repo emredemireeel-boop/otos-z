@@ -2,20 +2,13 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import {
-    onIdTokenChanged,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    signInWithPopup,
-    signOut,
-    updateProfile,
-    type User as FirebaseUser,
-} from "firebase/auth";
-import { doc, setDoc, getDoc, collection, query, where, getDocs } from "firebase/firestore";
-import { auth, db, googleProvider } from "@/lib/firebase";
+import type { User as FirebaseUser } from "firebase/auth";
 import { validateUsername } from "@/lib/usernameValidation";
 import { validatePassword } from "@/lib/validation";
-import { unsubscribeFromPush } from "@/lib/pushNotificationService";
+async function loadAuthSdk() {
+    const [methods, database, instance] = await Promise.all([import('firebase/auth'), import('firebase/firestore'), import('@/lib/firebase')]);
+    return { ...methods, ...database, ...instance };
+}
 
 export type UserRole = "caylak" | "usta" | "admin" | "moderator";
 
@@ -61,8 +54,11 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 /* ── Firebase User -> App User ── */
 async function mapFirebaseUser(fbUser: FirebaseUser): Promise<User> {
+        
     let profile: Record<string, unknown> = {};
     try {
+            const { getDoc, doc, db } = await loadAuthSdk();
+
         const snap = await getDoc(doc(db, "users", fbUser.uid));
         if (snap.exists()) {
             profile = snap.data();
@@ -96,7 +92,10 @@ async function mapFirebaseUser(fbUser: FirebaseUser): Promise<User> {
 
 /* ── Firestore'a profil kaydet ── */
 async function saveProfile(uid: string, data: Record<string, unknown>) {
+        
     try {
+            const { setDoc, doc, db } = await loadAuthSdk();
+
         await setDoc(doc(db, "users", uid), data, { merge: true });
     } catch (e) {
         console.error("Profil kaydetme hatasi:", e);
@@ -104,8 +103,11 @@ async function saveProfile(uid: string, data: Record<string, unknown>) {
 }
 
 async function savePrivateProfile(uid: string, email: string) {
+        
     if (!email) return;
     try {
+            const { setDoc, doc, db } = await loadAuthSdk();
+
         await setDoc(doc(db, "user_private", uid), {
             email,
             updatedAt: new Date().toISOString(),
@@ -160,7 +162,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     /* ── Auth state listener ── */
     useEffect(() => {
-        const unsubscribe = onIdTokenChanged(auth, async (fbUser) => {
+        let disposed = false;
+        let unsubscribe = () => {};
+        void Promise.all([import('firebase/auth'), import('@/lib/firebase-client-auth')]).then(([{ onIdTokenChanged }, { auth }]) => {
+            if (disposed) return;
+            unsubscribe = onIdTokenChanged(auth, async (fbUser) => {
             if (fbUser) {
                 const appUser = await mapFirebaseUser(fbUser);
                 setFirebaseUser(fbUser);
@@ -192,14 +198,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             setIsLoading(false);
         });
 
-        return () => unsubscribe();
+        }).catch(() => { if (!disposed) { setIsLoading(false); setError('Oturum yüklenemedi.'); } });
+        return () => { disposed = true; unsubscribe(); };
     }, []);
 
     /* ── Email/Password Login ── */
     const login = async (email: string, password: string): Promise<boolean> => {
+        
         setIsLoading(true);
         setError(null);
         try {
+            const { signInWithEmailAndPassword, auth } = await loadAuthSdk();
+
             await signInWithEmailAndPassword(auth, email, password);
             setIsLoading(false);
             return true;
@@ -213,9 +223,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     /* ── Google Login ── */
     const loginWithGoogle = async (): Promise<{ success: boolean; isNewUser: boolean }> => {
+        
         setIsLoading(true);
         setError(null);
         try {
+            const { signInWithPopup, auth, googleProvider, getDoc, doc, db } = await loadAuthSdk();
+
             const result = await signInWithPopup(auth, googleProvider);
             const fbUser = result.user;
 
@@ -256,10 +269,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     /* ── Complete Profile (Google/Apple sonrasi) ── */
     const completeProfile = async (data: { firstName: string; lastName: string; username: string; city: string }): Promise<boolean> => {
+        
         if (!firebaseUser) return false;
         setIsLoading(true);
         setError(null);
         try {
+            const { updateProfile } = await loadAuthSdk();
+
             // Önce username format doğrulaması
             const validation = validateUsername(data.username);
             if (!validation.isValid) {
@@ -312,7 +328,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     /* ── Kullanıcı adı benzersizlik kontrolü ── */
     const checkUsernameAvailability = async (username: string): Promise<boolean> => {
+        
         try {
+            const { query, collection, db, where, getDocs } = await loadAuthSdk();
+
             const usernameQuery = query(
                 collection(db, "users"),
                 where("username", "==", username.trim().toLowerCase())
@@ -332,9 +351,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     /* ── Register ── */
     const register = async (email: string, password: string, username: string, city?: string): Promise<boolean> => {
+        
         setIsLoading(true);
         setError(null);
         try {
+            const { createUserWithEmailAndPassword, auth, updateProfile } = await loadAuthSdk();
+
             // Username'i normalize et (kontrol ile kayıt tutarlı olsun: hep küçük harf)
             const normalizedUsername = username.trim().toLowerCase();
 
@@ -393,7 +415,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     /* ── Logout ── */
     const logout = () => {
         const finalize = () => {
-            void signOut(auth);
+            void loadAuthSdk().then(({signOut, auth}) => signOut(auth));
             setUser(null);
             setFirebaseUser(null);
             setNeedsProfileCompletion(false);
@@ -402,7 +424,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             router.push("/");
         };
         if (firebaseUser) {
-            void unsubscribeFromPush(firebaseUser)
+            void import("@/lib/pushNotificationService").then(({unsubscribeFromPush}) => unsubscribeFromPush(firebaseUser))
                 .catch((error) => console.warn("Push aboneliği kapatılamadı:", error))
                 .finally(finalize);
             return;

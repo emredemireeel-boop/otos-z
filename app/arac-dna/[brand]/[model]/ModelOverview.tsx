@@ -1,9 +1,9 @@
-"use client";
+import { notFound } from 'next/navigation';
+import { findVehicleByRoute } from '@/lib/aracDnaSeo';
 
 import { isEngineRouteIndexable } from '@/lib/engine-quality';
 import { isVehicleSectionIndexable } from '@/lib/indexability';
 
-import { useParams } from "next/navigation";
 import Link from "next/link";
 import { AlertTriangle, ArrowRight, Car, CheckCircle2, Gauge, ShieldCheck, Wrench, Zap } from "lucide-react";
 import { vehicleDNAData, createSlug } from "@/data/vehicle-dna";
@@ -12,13 +12,10 @@ import { getVehicleGenerationInfo } from "@/lib/vehicleGeneration";
 import { getTopSellingVehicleGuide } from "@/data/top-selling-vehicle-guides";
 import TopSellingVehicleGuide from "@/components/TopSellingVehicleGuide";
 
-export default function VehicleModelSelectionPage() {
-    const params = useParams();
-    const brandSlug = (params?.brand as string)?.toLowerCase() || "";
-    const modelSlug = (params?.model as string)?.toLowerCase() || "";
-    const vehicle = vehicleDNAData.find((item) => createSlug(item.brand) === brandSlug && createSlug(item.model) === modelSlug);
-
-    if (!vehicle) return null;
+export default async function VehicleModelSelectionPage({ params }: { params: Promise<{ brand: string; model: string }> }) {
+    const { brand: brandSlug, model: modelSlug } = await params;
+    const vehicle = findVehicleByRoute(brandSlug, modelSlug);
+    if (!vehicle) notFound();
 
     const engineData = engineDNAData.find((item) => item.vehicleId === vehicle.id);
     const generation = getVehicleGenerationInfo(vehicle);

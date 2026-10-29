@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { vehicleDNAData, createSlug, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
 import { engineDNAData } from "@/data/engine-dna";
 import { notFound } from "next/navigation";
-import BrandHubClient from "./BrandHubClient";
+import BrandHubClient from "./BrandHub";
 import { indexabilityRobots, isVehicleIndexable } from '@/lib/indexability';
 
 interface PageProps {

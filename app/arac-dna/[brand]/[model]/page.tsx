@@ -1,10 +1,12 @@
+import { staticVehicleParams } from '@/lib/vehicle-index';
+import AracDNAShell from './AracDNAShell';
 import { notFound } from 'next/navigation';
 import { createSlug } from '@/data/vehicle-dna';
 import { engineDNAData } from '@/data/engine-dna';
 import { findVehicleByRoute } from '@/lib/aracDnaSeo';
 import { isVehicleIndexable } from '@/lib/indexability';
 import { buildVehicleFaq } from '@/lib/vehicleFaq';
-import ModelOverviewClient from './ModelOverviewClient';
+import ModelOverviewClient from './ModelOverview';
 
 export default async function VehicleModelPage({ params }: { params: Promise<{ brand: string; model: string }> }) {
     const { brand, model } = await params;
@@ -17,5 +19,10 @@ export default async function VehicleModelPage({ params }: { params: Promise<{ b
         mainEntity: buildVehicleFaq(vehicle, engines).map(item => ({ '@type': 'Question', name: item.question,
             acceptedAnswer: { '@type': 'Answer', text: item.answer } })),
     } : null;
-    return <>{schema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />}<ModelOverviewClient /></>;
+    return <>{schema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />}<AracDNAShell vehicle={vehicle}><ModelOverviewClient params={params} /></AracDNAShell></>;
 }
+
+export const revalidate = 1800;
+export const dynamic = 'force-static';
+export const dynamicParams = true;
+export function generateStaticParams({params}:{params:{brand:string}}) {return staticVehicleParams(undefined,params.brand);}

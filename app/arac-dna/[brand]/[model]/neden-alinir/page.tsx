@@ -1,24 +1,17 @@
-"use client";
+import { staticVehicleParams } from '@/lib/vehicle-index';
+import AracDNAShell from '../AracDNAShell';
+import { notFound } from 'next/navigation';
+import { findVehicleByRoute } from '@/lib/aracDnaSeo';
 
-import { useParams } from "next/navigation";
 import { createSlug, vehicleDNAData } from "@/data/vehicle-dna";
 import { ThumbsUp, CheckCircle, AlertTriangle } from "lucide-react";
 
-export default function ProsAndConsPage() {
-    const params = useParams();
+export default async function ProsAndConsPage({ params }: { params: Promise<{ brand: string; model: string }> }) {
+    const { brand: brandSlug, model: modelSlug } = await params;
+    const vehicle = findVehicleByRoute(brandSlug, modelSlug);
+    if (!vehicle) notFound();
 
-    const brandSlug = (params?.brand as string)?.toLowerCase() || "";
-    const modelSlug = (params?.model as string)?.toLowerCase() || "";
-
-    const vehicle = vehicleDNAData.find(v => {
-        const vBrandSlug = createSlug(v.brand);
-        const vModelSlug = createSlug(v.model);
-        return vBrandSlug === brandSlug && vModelSlug === modelSlug;
-    });
-
-    if (!vehicle) return null;
-
-    return (
+    return (<AracDNAShell vehicle={vehicle} section="artilar">
         <div style={{
             background: 'var(--card-bg)',
             border: '1px solid var(--card-border)',
@@ -104,5 +97,10 @@ export default function ProsAndConsPage() {
                 </div>
             </div>
         </div>
-    );
+    </AracDNAShell>);
 }
+
+export const revalidate = 1800;
+export const dynamic = 'force-static';
+export const dynamicParams = true;
+export function generateStaticParams({params}:{params:{brand:string}}) {return staticVehicleParams('neden-alinir',params.brand);}

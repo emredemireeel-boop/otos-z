@@ -1,11 +1,10 @@
-"use client";
 
 import { isVehicleIndexable } from '@/lib/indexability';
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { createSlug, getDNAScoreColor, getDNAScoreLabel, isVehicleEditoriallyReviewed } from "@/data/vehicle-dna";
-import { useState } from "react";
+import { BrandFilterClient, BrandFilterControls } from "./BrandFilterClient";
 import { Search, Car, ArrowLeft, TrendingUp, AlertTriangle, ChevronRight } from "lucide-react";
 
 interface ModelData {
@@ -30,8 +29,8 @@ interface Props {
 }
 
 export default function BrandHubClient({ brandName, models }: Props) {
-    const [searchQuery, setSearchQuery] = useState("");
-    const [sortBy, setSortBy] = useState<"score" | "name">("score");
+    const searchQuery = "";
+    const sortBy: "score" | "name" = "score";
 
     const brandSlug = createSlug(brandName);
     const reviewedModels = models.filter(model => isVehicleIndexable(model));
@@ -48,7 +47,7 @@ export default function BrandHubClient({ brandName, models }: Props) {
         });
 
     return (
-        <>
+        <BrandFilterClient>
             <Navbar />
             <main style={{ minHeight: "100vh", background: "var(--background)", padding: "0 20px 60px" }}>
                 <div style={{ maxWidth: 900, margin: "0 auto", paddingTop: 32 }}>
@@ -116,44 +115,7 @@ export default function BrandHubClient({ brandName, models }: Props) {
                         </div>
                     </div>
 
-                    {/* Search + Sort */}
-                    <div style={{ display: "flex", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
-                        <div style={{
-                            flex: 1, minWidth: 200, display: "flex", alignItems: "center", gap: 8,
-                            background: "var(--card-bg)", border: "1px solid var(--card-border)",
-                            borderRadius: 12, padding: "0 14px",
-                        }}>
-                            <Search size={18} color="var(--text-muted)" />
-                            <input
-                                type="text"
-                                placeholder={`${brandName} model ara...`}
-                                value={searchQuery}
-                                onChange={e => setSearchQuery(e.target.value)}
-                                style={{
-                                    flex: 1, padding: "12px 0", background: "transparent",
-                                    border: "none", color: "var(--foreground)", fontSize: 15, outline: "none",
-                                }}
-                            />
-                        </div>
-                        <div style={{ display: "flex", gap: 6 }}>
-                            {(["score", "name"] as const).map(s => (
-                                <button
-                                    key={s}
-                                    onClick={() => setSortBy(s)}
-                                    style={{
-                                        padding: "10px 16px", borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: "pointer",
-                                        border: sortBy === s ? "1.5px solid var(--primary)" : "1px solid var(--card-border)",
-                                        background: sortBy === s ? "var(--primary)" : "var(--card-bg)",
-                                        color: sortBy === s ? "white" : "var(--text-muted)",
-                                        transition: "all 0.2s",
-                                    }}
-                                >
-                                    {s === "score" ? "Puana Göre" : "İsme Göre"}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-
+                    <BrandFilterControls brandName={brandName}/>
                     {/* Model List */}
                     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                         {filtered.length === 0 && (
@@ -167,7 +129,8 @@ export default function BrandHubClient({ brandName, models }: Props) {
                             return (
                                 <Link
                                     key={model.id}
-                                    href={`/arac-dna/${brandSlug}/${createSlug(model.model)}`}
+                                    data-model-card data-name={model.model} data-score={model.dnaScore}
+                                        href={`/arac-dna/${brandSlug}/${createSlug(model.model)}`}
                                     style={{ textDecoration: "none" }}
                                 >
                                     <div style={{
@@ -176,16 +139,8 @@ export default function BrandHubClient({ brandName, models }: Props) {
                                         borderRadius: 14, padding: "18px 20px",
                                         transition: "all 0.2s ease", cursor: "pointer",
                                     }}
-                                    onMouseEnter={e => {
-                                        e.currentTarget.style.borderColor = "var(--primary)";
-                                        e.currentTarget.style.transform = "translateY(-2px)";
-                                        e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
-                                    }}
-                                    onMouseLeave={e => {
-                                        e.currentTarget.style.borderColor = "var(--card-border)";
-                                        e.currentTarget.style.transform = "translateY(0)";
-                                        e.currentTarget.style.boxShadow = "none";
-                                    }}>
+                                    
+                                     data-hover-card>
                                         <div style={{ flex: 1 }}>
                                             <div style={{ fontSize: 16, fontWeight: 700, color: "var(--foreground)", marginBottom: 4 }}>
                                                 {model.model}
@@ -221,10 +176,11 @@ export default function BrandHubClient({ brandName, models }: Props) {
                                 </Link>
                             );
                         })}
+                        <p data-empty-models hidden role="status">Aramanıza uygun model bulunamadı.</p>
                     </div>
                 </div>
             </main>
             <Footer />
-        </>
+        </BrandFilterClient>
     );
 }

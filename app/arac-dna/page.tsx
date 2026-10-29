@@ -1,9 +1,10 @@
-"use client";
+import {indexabilityRobots,isHubIndexable} from '@/lib/indexability';
 
 import { isVehicleIndexable } from '@/lib/indexability';
 import { isEngineRouteIndexable } from '@/lib/engine-quality';
 
-import { useState } from "react";
+import DnaSearchClient from "./DnaSearchClient";
+import { getVehicleIndex } from "@/lib/vehicle-index";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -21,22 +22,10 @@ interface EngineVariantDisplay {
 import { Dna, Search, TrendingUp, Car, Calendar, AlertCircle, Send, CheckCircle2, Zap, Star, TrendingDown } from "lucide-react";
 import AdPlaceholder from "@/components/AdPlaceholder";
 
-export default function AracDNAPage() {
-    const [brandInput, setBrandInput] = useState("");
-    const [modelInput, setModelInput] = useState("");
-    const [vehicleYear, setVehicleYear] = useState("");
-    const [fuelType, setFuelType] = useState("");
-    const [transmissionType, setTransmissionType] = useState("");
-    const [searchAttempted, setSearchAttempted] = useState(false);
-    const [showContributeForm, setShowContributeForm] = useState(false);
-    const [searchResults, setSearchResults] = useState<EngineVariantDisplay[] | null>(null);
-
-    // Contribution form states
-    const [strengths, setStrengths] = useState("");
-    const [weaknesses, setWeaknesses] = useState("");
-    const [chronicIssues, setChronicIssues] = useState("");
-    const [submitted, setSubmitted] = useState(false);
-
+export default async function AracDNAPage({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}) {
+    const query=await searchParams;
+    const value=(key:string)=>typeof query[key]==='string'?query[key] as string:'';
+    const brandInput=value('brand'),modelInput=value('model'),vehicleYear=value('year'),fuelType=value('fuel'),transmissionType=value('transmission');
     // Flatten all engine variants
     const allEngineVariants: EngineVariantDisplay[] = [];
     vehicleDNAData.forEach(vehicle => {
@@ -70,11 +59,7 @@ export default function AracDNAPage() {
         .sort((a, b) => a.engine.score - b.engine.score)
         .slice(0, 5);
 
-    const handleSearch = () => {
-        setSearchAttempted(true);
-        setShowContributeForm(false);
-        setSubmitted(false);
-
+    const searchResults = brandInput && modelInput && vehicleYear ? (()=>{
         // Find all matching engines
         const matches = allEngineVariants.filter(item => {
             const v = item.vehicle;
@@ -111,47 +96,9 @@ export default function AracDNAPage() {
             return matchesBrand && matchesModel && matchesYear && matchesFuel && matchesTrans;
         });
 
-        if (matches.length > 0) {
-            setSearchResults(matches);
-        } else {
-            setSearchResults([]);
-            setTimeout(() => setShowContributeForm(true), 500);
-        }
-    };
-
-    const displayedVehicles = searchResults !== null ? searchResults : popularVehicles;
-
-    const handleContribute = () => {
-        // Here you would send data to backend
-        console.log({
-            brand: brandInput,
-            model: modelInput,
-            year: vehicleYear,
-            fuelType: fuelType,
-            transmissionType: transmissionType,
-            strengths,
-            weaknesses,
-            chronicIssues
-        });
-
-        setSubmitted(true);
-        setTimeout(() => {
-            setShowContributeForm(false);
-            setSearchAttempted(false);
-            setBrandInput("");
-            setModelInput("");
-            setVehicleYear("");
-            setFuelType("");
-            setTransmissionType("");
-            setStrengths("");
-            setWeaknesses("");
-            setChronicIssues("");
-            setSubmitted(false);
-        }, 3000);
-    };
-
-    const currentYear = new Date().getFullYear();
-    const years = Array.from({ length: 50 }, (_, i) => currentYear - i);
+        return matches;
+    })() : null;
+    const displayedVehicles=searchResults!==null?searchResults:popularVehicles;
 
     return (
         <div>
@@ -201,14 +148,8 @@ export default function AracDNAPage() {
                                 transition: 'all 0.2s',
                                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                             }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor = 'var(--primary)';
-                                e.currentTarget.style.transform = 'translateY(-2px)';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.borderColor = 'var(--card-border)';
-                                e.currentTarget.style.transform = 'translateY(0)';
-                            }}>
+                            
+                            >
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8"/><path d="m3 3 7 7"/><path d="m21 3-7 7"/><path d="m14 15-2-2-2 2"/><path d="M4 15h16"/></svg>
                                 Araçları Kıyasla
                             </Link>
@@ -239,8 +180,8 @@ export default function AracDNAPage() {
                                     return (
                                         <li key={idx}>
                                             <Link href={`/arac-dna/${slug}`} style={{ textDecoration: 'none', color: 'var(--foreground)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 6px', borderRadius: '6px', transition: 'background 0.2s' }}
-                                                 onMouseEnter={(e) => e.currentTarget.style.background = 'var(--secondary)'}
-                                                 onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
+                                                 
+                                                 >
                                                 <div style={{ flex: 1, minWidth: 0 }}>
                                                     <div style={{ fontSize: '13px', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.vehicle.brand} {item.vehicle.model}</div>
                                                     <div style={{ fontSize: '11px', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.engine.name}</div>
@@ -258,420 +199,8 @@ export default function AracDNAPage() {
 
                     {/* Main Content */}
                     <div>
-                        {/* Search Form */}
-                        <div style={{
-                        background: 'var(--card-bg)',
-                        border: '1px solid var(--card-border)',
-                        borderRadius: '16px',
-                        padding: '32px',
-                        marginBottom: '24px'
-                    }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-                            <Search size={24} color="var(--primary)" />
-                            <h2 style={{ fontSize: '22px', fontWeight: '700', color: 'var(--foreground)', margin: 0 }}>
-                                Araç Bilgilerini Girin
-                            </h2>
-                        </div>
-
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '20px' }}>
-                            {/* Brand Select */}
-                            <div>
-                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px', display: 'block' }}>
-                                    Marka
-                                </label>
-                                <select
-                                    value={brandInput}
-                                    onChange={(e) => {
-                                        setBrandInput(e.target.value);
-                                        setModelInput(""); // Reset model when brand changes
-                                    }}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        background: 'var(--input-bg)',
-                                        border: '2px solid var(--input-border)',
-                                        borderRadius: '12px',
-                                        color: 'var(--foreground)',
-                                        fontSize: '15px',
-                                        outline: 'none',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.2s',
-                                        appearance: 'none',
-                                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                                        backgroundPosition: 'right 0.5rem center',
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundSize: '1.5em 1.5em',
-                                        paddingRight: '2.5rem'
-                                    }}
-                                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--primary)'}
-                                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
-                                >
-                                    <option value="" style={{ color: 'black' }}>Marka Seçiniz</option>
-                                    {getAllBrands().map(brand => (
-                                        <option key={brand} value={brand} style={{ color: 'black' }}>{brand}</option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            {/* Model Select */}
-                            <div>
-                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px', display: 'block' }}>
-                                    Model
-                                </label>
-                                <select
-                                    value={modelInput}
-                                    onChange={(e) => setModelInput(e.target.value)}
-                                    disabled={!brandInput}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        background: !brandInput ? 'var(--secondary)' : 'var(--input-bg)',
-                                        border: '2px solid var(--input-border)',
-                                        borderRadius: '12px',
-                                        color: 'var(--foreground)',
-                                        fontSize: '15px',
-                                        outline: 'none',
-                                        cursor: !brandInput ? 'not-allowed' : 'pointer',
-                                        transition: 'all 0.2s',
-                                        opacity: !brandInput ? 0.7 : 1,
-                                        appearance: 'none',
-                                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                                        backgroundPosition: 'right 0.5rem center',
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundSize: '1.5em 1.5em',
-                                        paddingRight: '2.5rem'
-                                    }}
-                                    onFocus={(e) => !brandInput ? null : e.currentTarget.style.borderColor = 'var(--primary)'}
-                                    onBlur={(e) => !brandInput ? null : e.currentTarget.style.borderColor = 'var(--input-border)'}
-                                >
-                                    <option value="" style={{ color: 'black' }}>Model Seçiniz</option>
-                                    {brandInput && getModelsForBrand(brandInput).map(model => (
-                                        <option key={model} value={model} style={{ color: 'black' }}>{model}</option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            {/* Vehicle Year */}
-                            <div>
-                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <Calendar size={14} />
-                                    Araç Yılı
-                                </label>
-                                <select
-                                    value={vehicleYear}
-                                    onChange={(e) => setVehicleYear(e.target.value)}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        background: 'var(--input-bg)',
-                                        border: '2px solid var(--input-border)',
-                                        borderRadius: '12px',
-                                        color: 'var(--foreground)',
-                                        fontSize: '15px',
-                                        outline: 'none',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.2s',
-                                        appearance: 'none',
-                                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                                        backgroundPosition: 'right 0.5rem center',
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundSize: '1.5em 1.5em',
-                                        paddingRight: '2.5rem'
-                                    }}
-                                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--primary)'}
-                                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
-                                >
-                                    <option value="" style={{ color: 'black' }}>Seçiniz</option>
-                                    {years.map(year => (
-                                        <option key={year} value={year} style={{ color: 'black' }}>{year}</option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            {/* Fuel Type */}
-                            <div>
-                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <Zap size={14} />
-                                    Yakıt Tipi
-                                </label>
-                                <select
-                                    value={fuelType}
-                                    onChange={(e) => setFuelType(e.target.value)}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        background: 'var(--input-bg)',
-                                        border: '2px solid var(--input-border)',
-                                        borderRadius: '12px',
-                                        color: 'var(--foreground)',
-                                        fontSize: '15px',
-                                        outline: 'none',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.2s',
-                                        appearance: 'none',
-                                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                                        backgroundPosition: 'right 0.5rem center',
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundSize: '1.5em 1.5em',
-                                        paddingRight: '2.5rem'
-                                    }}
-                                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--primary)'}
-                                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
-                                >
-                                    <option value="" style={{ color: 'black' }}>Tümü</option>
-                                    <option value="Benzin" style={{ color: 'black' }}>Benzin</option>
-                                    <option value="Dizel" style={{ color: 'black' }}>Dizel</option>
-                                    <option value="Elektrik" style={{ color: 'black' }}>Elektrik</option>
-                                    <option value="Hibrit" style={{ color: 'black' }}>Hibrit</option>
-                                </select>
-                            </div>
-
-                            {/* Transmission Type */}
-                            <div>
-                                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                                    Vites Tipi
-                                </label>
-                                <select
-                                    value={transmissionType}
-                                    onChange={(e) => setTransmissionType(e.target.value)}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        background: 'var(--input-bg)',
-                                        border: '2px solid var(--input-border)',
-                                        borderRadius: '12px',
-                                        color: 'var(--foreground)',
-                                        fontSize: '15px',
-                                        outline: 'none',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.2s',
-                                        appearance: 'none',
-                                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                                        backgroundPosition: 'right 0.5rem center',
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundSize: '1.5em 1.5em',
-                                        paddingRight: '2.5rem'
-                                    }}
-                                    onFocus={(e) => e.currentTarget.style.borderColor = 'var(--primary)'}
-                                    onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
-                                >
-                                    <option value="" style={{ color: 'black' }}>Tümü</option>
-                                    <option value="Manuel" style={{ color: 'black' }}>Manuel</option>
-                                    <option value="Otomatik" style={{ color: 'black' }}>Otomatik</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        {brandInput && modelInput && vehicleYear && (
-                            <div className="dna-generation-resolution">
-                                <CheckCircle2 size={18} />
-                                {resolvedGeneration ? <span><strong>{vehicleYear} için otomatik eşleşme:</strong> {resolvedGeneration.brand} {getVehicleGenerationInfo(resolvedGeneration).label} · {resolvedGeneration.year}</span> : <span>Bu marka, model ve yıl için doğrulanmış jenerasyon henüz bulunamadı.</span>}
-                            </div>
-                        )}
-
-                        <button
-                            onClick={handleSearch}
-                            disabled={!brandInput || !modelInput || !vehicleYear}
-                            style={{
-                                width: '100%',
-                                padding: '14px 24px',
-                                background: (!brandInput || !modelInput || !vehicleYear) ? 'var(--secondary)' : 'var(--primary)',
-                                color: (!brandInput || !modelInput || !vehicleYear) ? 'var(--text-muted)' : 'white',
-                                border: 'none',
-                                borderRadius: '12px',
-                                fontSize: '16px',
-                                fontWeight: '700',
-                                cursor: (!brandInput || !modelInput || !vehicleYear) ? 'not-allowed' : 'pointer',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                gap: '8px',
-                                transition: 'all 0.2s',
-                                opacity: (!brandInput || !modelInput || !vehicleYear) ? 0.5 : 1
-                            }}
-                        >
-                            <Search size={20} />
-                            DNA Analizi Ara
-                        </button>
-                    </div>
-
-                    {/* No Data Found - Contribution Form */}
-                    {showContributeForm && !submitted && (
-                        <div style={{
-                            background: 'var(--card-bg)',
-                            border: '2px solid #f59e0b',
-                            borderRadius: '16px',
-                            padding: '32px',
-                            marginBottom: '24px'
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '24px' }}>
-                                <div style={{
-                                    width: '48px',
-                                    height: '48px',
-                                    borderRadius: '12px',
-                                    background: 'rgba(245, 158, 11, 0.1)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    flexShrink: 0
-                                }}>
-                                    <AlertCircle size={24} color="#f59e0b" />
-                                </div>
-                                <div>
-                                    <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>
-                                        Veri Bulunamadı
-                                    </h3>
-                                    <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '16px' }}>
-                                        <strong>{brandInput} {modelInput}</strong> {vehicleYear && `(${vehicleYear})`} için henüz DNA analizi verisi bulunmuyor.
-                                        Topluluğa katkıda bulunarak bu aracın ilk DNA profilini oluşturabilirsiniz!
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div style={{ display: 'grid', gap: '20px' }}>
-                                {/* Strengths */}
-                                <div>
-                                    <label style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px', display: 'block' }}>
-                                        💪 Güçlü Yönleri
-                                    </label>
-                                    <textarea
-                                        value={strengths}
-                                        onChange={(e) => setStrengths(e.target.value)}
-                                        placeholder="Bu aracın güçlü yönlerini yazın (yakıt ekonomisi, dayanıklılık, konfor vb.)"
-                                        rows={3}
-                                        style={{
-                                            width: '100%',
-                                            padding: '12px 16px',
-                                            background: 'var(--input-bg)',
-                                            border: '2px solid var(--input-border)',
-                                            borderRadius: '12px',
-                                            color: 'var(--foreground)',
-                                            fontSize: '14px',
-                                            outline: 'none',
-                                            resize: 'vertical',
-                                            fontFamily: 'inherit',
-                                            transition: 'all 0.2s'
-                                        }}
-                                        onFocus={(e) => e.currentTarget.style.borderColor = '#22c55e'}
-                                        onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
-                                    />
-                                </div>
-
-                                {/* Weaknesses */}
-                                <div>
-                                    <label style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px', display: 'block' }}>
-                                        ⚠️ Zayıf Yönleri
-                                    </label>
-                                    <textarea
-                                        value={weaknesses}
-                                        onChange={(e) => setWeaknesses(e.target.value)}
-                                        placeholder="Bu aracın zayıf yönlerini yazın (yüksek bakım maliyeti, düşük performans vb.)"
-                                        rows={3}
-                                        style={{
-                                            width: '100%',
-                                            padding: '12px 16px',
-                                            background: 'var(--input-bg)',
-                                            border: '2px solid var(--input-border)',
-                                            borderRadius: '12px',
-                                            color: 'var(--foreground)',
-                                            fontSize: '14px',
-                                            outline: 'none',
-                                            resize: 'vertical',
-                                            fontFamily: 'inherit',
-                                            transition: 'all 0.2s'
-                                        }}
-                                        onFocus={(e) => e.currentTarget.style.borderColor = '#f59e0b'}
-                                        onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
-                                    />
-                                </div>
-
-                                {/* Chronic Issues */}
-                                <div>
-                                    <label style={{ fontSize: '14px', fontWeight: '600', color: 'var(--foreground)', marginBottom: '8px', display: 'block' }}>
-                                         Kronik Sorunlar
-                                    </label>
-                                    <textarea
-                                        value={chronicIssues}
-                                        onChange={(e) => setChronicIssues(e.target.value)}
-                                        placeholder="Bu araçta sık görülen kronik sorunları yazın (Şanzıman arızası, elektrik problemleri vb.)"
-                                        rows={3}
-                                        style={{
-                                            width: '100%',
-                                            padding: '12px 16px',
-                                            background: 'var(--input-bg)',
-                                            border: '2px solid var(--input-border)',
-                                            borderRadius: '12px',
-                                            color: 'var(--foreground)',
-                                            fontSize: '14px',
-                                            outline: 'none',
-                                            resize: 'vertical',
-                                            fontFamily: 'inherit',
-                                            transition: 'all 0.2s'
-                                        }}
-                                        onFocus={(e) => e.currentTarget.style.borderColor = '#ef4444'}
-                                        onBlur={(e) => e.currentTarget.style.borderColor = 'var(--input-border)'}
-                                    />
-                                </div>
-
-                                <button
-                                    onClick={handleContribute}
-                                    disabled={!strengths && !weaknesses && !chronicIssues}
-                                    style={{
-                                        padding: '14px 24px',
-                                        background: (!strengths && !weaknesses && !chronicIssues) ? 'var(--secondary)' : 'linear-gradient(135deg, #22c55e, #16a34a)',
-                                        color: (!strengths && !weaknesses && !chronicIssues) ? 'var(--text-muted)' : 'white',
-                                        border: 'none',
-                                        borderRadius: '12px',
-                                        fontSize: '16px',
-                                        fontWeight: '700',
-                                        cursor: (!strengths && !weaknesses && !chronicIssues) ? 'not-allowed' : 'pointer',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        gap: '8px',
-                                        transition: 'all 0.2s',
-                                        opacity: (!strengths && !weaknesses && !chronicIssues) ? 0.5 : 1
-                                    }}
-                                >
-                                    <Send size={20} />
-                                    Katkıda Bulun
-                                </button>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Success Message */}
-                    {submitted && (
-                        <div style={{
-                            background: 'var(--card-bg)',
-                            border: '2px solid #22c55e',
-                            borderRadius: '16px',
-                            padding: '32px',
-                            marginBottom: '24px',
-                            textAlign: 'center'
-                        }}>
-                            <div style={{
-                                width: '64px',
-                                height: '64px',
-                                borderRadius: '50%',
-                                background: 'rgba(34, 197, 94, 0.1)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                margin: '0 auto 16px'
-                            }}>
-                                <CheckCircle2 size={32} color="#22c55e" />
-                            </div>
-                            <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>
-                                Teşekkürler!
-                            </h3>
-                            <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                                Katkınız başarıyla kaydedildi. Moderasyon sonrası yayınlanacaktır.
-                            </p>
-                        </div>
-                    )}
-
+                        <DnaSearchClient index={getVehicleIndex()} initial={{brand:brandInput,model:modelInput,year:vehicleYear,fuel:fuelType,transmission:transmissionType}} />
+                    {searchResults !== null && searchResults.length===0 && <div style={{padding:24,background:'var(--card-bg)',borderRadius:16,marginBottom:24}}><h2>Aracınız için eşleşen kayıt bulunamadı</h2><p>Marka, model ve yılı kontrol edebilir veya deneyiminizi forumda paylaşabilirsiniz.</p><Link href="/forum">Forumda deneyiminizi paylaşın</Link></div>}
                     {searchResults === null && (
                         <section className="dna-market-list" aria-labelledby="market-list-title">
                             <div className="dna-market-list__head">
@@ -732,16 +261,8 @@ export default function AracDNAPage() {
                                             flexDirection: 'column',
                                             height: '100%'
                                         }}
-                                            onMouseEnter={(e) => {
-                                                e.currentTarget.style.borderColor = 'var(--primary)';
-                                                e.currentTarget.style.transform = 'translateY(-4px)';
-                                                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.3)';
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                e.currentTarget.style.borderColor = 'var(--card-border)';
-                                                e.currentTarget.style.transform = 'translateY(0)';
-                                                e.currentTarget.style.boxShadow = 'none';
-                                            }}
+                                            
+                                            
                                         >
                                             <div style={{ marginBottom: '16px', flex: 1 }}>
                                                 <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '4px', lineHeight: '1.3' }}>
@@ -815,8 +336,8 @@ export default function AracDNAPage() {
                                     return (
                                         <li key={idx}>
                                             <Link href={`/arac-dna/${slug}`} style={{ textDecoration: 'none', color: 'var(--foreground)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 6px', borderRadius: '6px', transition: 'background 0.2s' }}
-                                                 onMouseEnter={(e) => e.currentTarget.style.background = 'var(--secondary)'}
-                                                 onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
+                                                 
+                                                 >
                                                 <div style={{ flex: 1, minWidth: 0 }}>
                                                     <div style={{ fontSize: '13px', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.vehicle.brand} {item.vehicle.model}</div>
                                                     <div style={{ fontSize: '11px', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.engine.name}</div>
@@ -839,4 +360,8 @@ export default function AracDNAPage() {
             <Footer />
         </div>
     );
+}
+
+export async function generateMetadata({searchParams}:{searchParams:Promise<Record<string,string|undefined>>}){
+ const query=await searchParams;return {robots:indexabilityRobots(!query.brand&&!query.model&&!query.year&&isHubIndexable('/arac-dna'))};
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { VehicleEngineData, EngineOption } from "@/data/engine-dna";
+import type { VehicleEngineData, EngineOption } from "@/lib/dna-types";
 import { Zap, Droplet, Battery, Leaf, AlertTriangle, ShieldCheck } from "lucide-react";
 
 interface EngineCardsProps {

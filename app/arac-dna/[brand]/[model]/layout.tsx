@@ -5,7 +5,7 @@ import { createSlug } from "@/data/vehicle-dna";
 import { isVehicleIndexable } from '@/lib/indexability';
 import { engineDNAData } from "@/data/engine-dna";
 import { findVehicleByRoute } from "@/lib/aracDnaSeo";
-import AracDNALayoutClient from "./AracDNALayoutClient";
+import AracDNAShell from "./AracDNAShell";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -60,7 +60,7 @@ export default async function AracDNALayout({ children, params }: LayoutProps) {
 
     return (
         <>
-            <AracDNALayoutClient>{children}</AracDNALayoutClient>
+            {children}
         </>
     );
 }

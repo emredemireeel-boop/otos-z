@@ -1,34 +1,21 @@
-"use client";
+import { staticVehicleParams } from '@/lib/vehicle-index';
+import AracDNAShell from '../AracDNAShell';
+import { notFound } from 'next/navigation';
+import { findVehicleByRoute } from '@/lib/aracDnaSeo';
 
-import { useParams } from "next/navigation";
 import { vehicleDNAData, createSlug } from "@/data/vehicle-dna";
 import { trimLevelsData } from "@/data/trim-levels";
 import TrimLevelsTable from "@/components/TrimLevelsTable";
 import Link from "next/link";
 import { ArrowLeft, Layers } from "lucide-react";
 
-export default function TrimLevelsPage() {
-    const params = useParams();
-    const brandSlug = (params?.brand as string)?.toLowerCase() || "";
-    const modelSlug = (params?.model as string)?.toLowerCase() || "";
-
-    const vehicle = vehicleDNAData.find(v => {
-        const vBrandSlug = createSlug(v.brand);
-        const vModelSlug = createSlug(v.model);
-        return vBrandSlug === brandSlug && vModelSlug === modelSlug;
-    });
-
-    if (!vehicle) {
-        return (
-            <div style={{ padding: '60px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>
-                Araç bulunamadı.
-            </div>
-        );
-    }
-
+export default async function TrimLevelsPage({ params }: { params: Promise<{ brand: string; model: string }> }) {
+    const { brand: brandSlug, model: modelSlug } = await params;
+    const vehicle = findVehicleByRoute(brandSlug, modelSlug);
+    if (!vehicle) notFound();
     const trimData = trimLevelsData.find(t => t.vehicleId === vehicle.id);
 
-    return (
+    return (<AracDNAShell vehicle={vehicle} section="donanim">
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
             <div style={{ marginBottom: '24px' }}>
                 <Link href={`/arac-dna/${brandSlug}/${modelSlug}`} style={{
@@ -48,9 +35,9 @@ export default function TrimLevelsPage() {
                         <Layers size={28} />
                     </div>
                     <div>
-                        <h1 style={{ fontSize: '32px', fontWeight: '800', margin: 0, color: 'var(--foreground)' }}>
+                        <h2 style={{ fontSize: '32px', fontWeight: '800', margin: 0, color: 'var(--foreground)' }}>
                             Araç Paketleri Kıyaslaması
-                        </h1>
+                        </h2>
                         <p style={{ fontSize: '15px', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>
                             {vehicle.brand} {vehicle.model.replace(/\([^)]+\)/, '').trim()} donanım seviyeleri arasındaki farkları inceleyin.
                         </p>
@@ -101,5 +88,10 @@ export default function TrimLevelsPage() {
                 </p>
             </div>
         </div>
-    );
+    </AracDNAShell>);
 }
+
+export const revalidate = 1800;
+export const dynamic = 'force-static';
+export const dynamicParams = true;
+export function generateStaticParams({params}:{params:{brand:string}}) {return staticVehicleParams('arac-paketleri',params.brand);}

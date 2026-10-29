@@ -4181,3 +4181,15 @@ select {
 .dna-market-list__grid small { color: var(--text-muted); }
 @media (max-width: 900px) { .dna-market-list__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .dna-buying-guide__categories { grid-template-columns: 1fr; } }
 @media (max-width: 680px) { .dna-decision-intro, .dna-buying-guide__head, .dna-overview-columns, .dna-buying-guide__fit, .dna-engine-grid { grid-template-columns: 1fr; } .dna-generation-card { max-width: none; } .dna-buying-guide, .dna-engine-picker, .dna-decision-intro { padding: 20px; } .dna-buying-guide__metric { text-align: left; } .dna-buying-guide__foot, .dna-market-list__head { align-items: flex-start; flex-direction: column; } }
+
+/* DNA navigation is server HTML; only active styling is enhanced on navigation. */
+.dna-tab-links{display:flex;gap:8px;overflow-x:auto;width:100%}
+.dna-tab-link{display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;background:var(--secondary);color:var(--foreground);font-weight:500;font-size:14px;white-space:nowrap;border:1px solid var(--card-border);text-decoration:none;transition:all .2s}
+.dna-tab-link[aria-current="page"]{background:var(--primary);border-color:var(--primary);color:white;font-weight:600}
+.dna-model-overview .dna-engine-grid a:hover{border-color:var(--primary);transform:translateY(-3px)}
+
+[data-catalog-filter][aria-pressed="true"],[data-catalog-sort][aria-pressed="true"]{background:var(--primary)!important;color:white!important}
+[data-catalog-filter][aria-pressed="false"],[data-catalog-sort][aria-pressed="false"]{background:var(--secondary)!important;color:var(--foreground)!important}
+[data-catalog-target][aria-pressed="true"]{border-bottom-color:var(--foreground)!important;font-weight:700!important;color:var(--foreground)!important}
+[data-catalog-target][aria-pressed="false"]{border-bottom-color:transparent!important;font-weight:500!important;color:var(--text-muted)!important}
+[data-hover-card]:hover{border-color:var(--primary)!important}

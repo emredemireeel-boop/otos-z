@@ -9,8 +9,8 @@ import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "@/context/ThemeContext";
 import { usePathname, useRouter } from "next/navigation";
 import CarThemeToggle from "@/components/CarThemeToggle";
-import { subscribeToNotifications, markNotificationRead, markAllRead, type Notification as FBNotification } from "@/lib/notificationService";
-import { subscribeToConversations, type Conversation as FBConversation } from "@/lib/messageService";
+import type { Notification as FBNotification } from "@/lib/notificationService";
+import type { Conversation as FBConversation } from "@/lib/messageService";
 import { playNotificationSound, preloadNotificationSound } from "@/lib/notificationSound";
 
 interface NavNotification {
@@ -103,7 +103,11 @@ export default function Navbar() {
         knownNotificationIds.current = null;
         prevNotifCount.current = -1;
         if (!user?.id) return;
-        const unsub = subscribeToNotifications(user.id as string, (fbNotifs) => {
+        let cancelled = false;
+        let unsub = () => {};
+        void import('@/lib/notificationService').then(runtime => {
+            if (cancelled) return;
+            unsub = runtime.subscribeToNotifications(user.id as string, (fbNotifs) => {
             const mapped: NavNotification[] = fbNotifs.map(n => ({
                 id: n.id,
                 type: n.type,
@@ -138,13 +142,18 @@ export default function Navbar() {
             prevNotifCount.current = newUnread;
             setNotifications(mapped);
         });
-        return () => unsub();
+        });
+        return () => { cancelled = true; unsub(); };
     }, [user?.id]);
 
     // Subscribe to Firebase conversations for message count
     useEffect(() => {
         if (!user?.id) return;
-        const unsub = subscribeToConversations(user.id as string, (convs) => {
+        let cancelled = false;
+        let unsub = () => {};
+        void import('@/lib/messageService').then(runtime => {
+            if (cancelled) return;
+            unsub = runtime.subscribeToConversations(user.id as string, (convs) => {
             const mapped: NavMessage[] = convs
                 .filter(c => c.lastMessage)
                 .map(c => {
@@ -167,7 +176,8 @@ export default function Navbar() {
             prevMsgCount.current = newUnread;
             setMessages(mapped);
         });
-        return () => unsub();
+        });
+        return () => { cancelled = true; unsub(); };
     }, [user?.id]);
 
     const unreadNotifications = notifications.filter(n => !n.read).length;
@@ -180,14 +190,14 @@ export default function Navbar() {
     };
 
     const handleNotificationClick = (notification: NavNotification) => {
-        void markNotificationRead(notification.id);
+        void import('@/lib/notificationService').then(runtime => runtime.markNotificationRead(notification.id));
         closeAllDropdowns();
         if (notification.link?.startsWith("/")) router.push(notification.link);
     };
 
     const handleMarkAllRead = async () => {
         if (user?.id) {
-            await markAllRead(user.id as string);
+            await (await import('@/lib/notificationService')).markAllRead(user.id as string);
         }
     };
 

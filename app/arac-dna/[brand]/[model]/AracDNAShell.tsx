@@ -1,6 +1,6 @@
-"use client";
 
-import { useParams, usePathname } from "next/navigation";
+import { DnaTabLinks } from "@/components/DnaTabLinks";
+import type { VehicleDNA } from "@/lib/dna-types";
 import { isVehicleIndexable, isVehicleSectionIndexable } from '@/lib/indexability';
 import { isEngineRouteIndexable } from '@/lib/engine-quality';
 import Link from "next/link";
@@ -20,23 +20,9 @@ const suffixes = {
     'deneyimler': '-kullanici-deneyimleri'
 };
 
-export default function AracDNALayoutClient({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
-    const params = useParams();
-    const pathname = usePathname();
-
-    const brandSlug = (params?.brand as string)?.toLowerCase() || "";
-    const modelSlug = (params?.model as string)?.toLowerCase() || "";
-
-    const vehicle = vehicleDNAData.find(v => {
-        const vBrandSlug = createSlug(v.brand);
-        const vModelSlug = createSlug(v.model);
-        return vBrandSlug === brandSlug && vModelSlug === modelSlug;
-    });
-
+export default function AracDNAShell({ children, vehicle, engineParam = '', section = 'genel-bakis' }: { children: React.ReactNode; vehicle: VehicleDNA; engineParam?: string; section?: string }) {
+    const brandSlug = createSlug(vehicle.brand);
+    const modelSlug = createSlug(vehicle.model);
     if (!vehicle) {
         return (
             <div>
@@ -87,29 +73,14 @@ export default function AracDNALayoutClient({
         );
     }
 
-    const engineParam = (params?.engine as string)?.toLowerCase() || "";
+    // Engine-specific heading and navigation are supplied by the engine page itself.
     let baseEngineSlug = engineParam;
-    let currentTab = "genel-bakis";
-
+    let currentTab = section;
     for (const [tab, suffix] of Object.entries(suffixes)) {
-        if (engineParam.endsWith(suffix)) {
-            baseEngineSlug = engineParam.replace(suffix, "");
-            currentTab = tab;
-            break;
-        }
+        if (engineParam.endsWith(suffix)) { baseEngineSlug = engineParam.slice(0,-suffix.length); currentTab = tab; break; }
     }
-
-    // Static model routes do not have an engine param. Keep the matching tab
-    // active so navigation remains consistent between engine and model pages.
-    if (!engineParam) {
-        if (pathname.includes(`/arac-dna/${brandSlug}/${modelSlug}/neden-alinir`)) currentTab = "artilar";
-        if (pathname.includes(`/arac-dna/${brandSlug}/${modelSlug}/kronik-sorunlar`)) currentTab = "kronik";
-        if (pathname.includes(`/arac-dna/${brandSlug}/${modelSlug}/arac-paketleri`)) currentTab = "donanim";
-        if (pathname.includes(`/arac-dna/${brandSlug}/${modelSlug}/kullanici-deneyimleri`)) currentTab = "deneyimler";
-    }
-
     const vehicleEngines = engineDNAData.find(e => e.vehicleId === vehicle.id)?.engines || [];
-    const specificEngine = baseEngineSlug ? vehicleEngines.find(e => e.slug === baseEngineSlug) : null;
+    const specificEngine = baseEngineSlug ? vehicleEngines.find(engine => engine.slug === baseEngineSlug) || null : null;
     const faqItems = buildVehicleFaq(vehicle, vehicleEngines);
 
     // Determine the active score and title
@@ -267,25 +238,7 @@ export default function AracDNALayoutClient({
                             aria-label="Araç DNA bölümleri"
                         >
                             <div style={{ display: 'flex', gap: '8px', overflowX: 'auto' }} className="hide-scrollbar">
-                                {tabs.map((tab) => {
-                                    const isActive = currentTab === tab.id;
-                                    return (
-                                        <Link key={tab.path} href={tab.path} style={{ textDecoration: 'none' }}>
-                                            <div style={{
-                                                display: 'flex', alignItems: 'center', gap: '8px',
-                                                padding: '11px 18px', borderRadius: '10px',
-                                                background: isActive ? 'var(--primary)' : 'var(--secondary)',
-                                                color: isActive ? 'white' : 'var(--foreground)',
-                                                fontWeight: isActive ? '600' : '500',
-                                                fontSize: '14px', whiteSpace: 'nowrap',
-                                                transition: 'all 0.2s', border: `1px solid ${isActive ? 'var(--primary)' : 'var(--card-border)'}`
-                                            }}>
-                                                {tab.icon}
-                                                {tab.name}
-                                            </div>
-                                        </Link>
-                                    );
-                                })}
+                                <DnaTabLinks>{tabs.map(tab => <a key={tab.path} href={tab.path} className="dna-tab-link" aria-current={tab.id === currentTab ? "page" : undefined}>{tab.icon}{tab.name}</a>)}</DnaTabLinks>
                             </div>
                         </div>
                     )}
@@ -317,7 +270,7 @@ export default function AracDNALayoutClient({
             </main>
 
             <Footer />
-            <style jsx>{`
+            <style>{`
                 .hide-scrollbar::-webkit-scrollbar {
                     display: none;
                 }

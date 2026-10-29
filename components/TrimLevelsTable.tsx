@@ -1,9 +1,8 @@
-"use client";
 
 import React from "react";
 
 import { Check, X, Circle } from "lucide-react";
-import { TrimLevelData } from "@/data/trim-levels";
+import type { TrimLevelData } from "@/lib/dna-types";
 
 export default function TrimLevelsTable({ data }: { data: TrimLevelData }) {
     return (
@@ -71,7 +70,7 @@ export default function TrimLevelsTable({ data }: { data: TrimLevelData }) {
                                 {category.features.map((feature, featIdx) => (
                                     <tr key={feature.name} style={{
                                         transition: 'background 0.2s',
-                                    }} onMouseEnter={(e) => e.currentTarget.style.background = 'var(--hover-primary)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
+                                    }}   data-hover-card>
                                         <td style={{
                                             padding: '16px',
                                             borderBottom: '1px solid var(--card-border)',

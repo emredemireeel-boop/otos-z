@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+
+
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
@@ -41,35 +41,22 @@ export default function AdPlaceholder({
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        let active=true;const controller=new AbortController();
         async function fetchAds() {
             try {
-                const adsQuery = query(
-                    collection(db, "advertisements"),
-                    where("status", "==", "active"),
-                    where("position", "==", position)
-                );
-                const snapshot = await getDocs(adsQuery);
-                let activeAds = snapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                })) as Ad[];
+                const response=await fetch('/api/advertisements?position='+encodeURIComponent(position),{signal:controller.signal});
+                if(!response.ok)throw new Error('Reklam verisi yüklenemedi');
+                const data=await response.json();
+                if(active)setAds(data.ads);
 
-                // En güncel olanlar en başta olacak şekilde sırala
-                activeAds.sort((a, b) => {
-                    const timeA = a.createdAt?.toMillis ? a.createdAt.toMillis() : (a.createdAt || 0);
-                    const timeB = b.createdAt?.toMillis ? b.createdAt.toMillis() : (b.createdAt || 0);
-                    return timeB - timeA;
-                });
-                
-                const limitedAds = activeAds.slice(0, 10);
-                setAds(limitedAds);
             } catch (error) {
                 console.error("Ads fetch error:", error);
             } finally {
-                setLoading(false);
+                if(active)setLoading(false);
             }
         }
         fetchAds();
+        return()=>{active=false;controller.abort();};
     }, [position]);
 
     useEffect(() => {
