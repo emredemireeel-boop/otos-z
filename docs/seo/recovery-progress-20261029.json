@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T09:45:22.725Z",
+  "updatedAt": "2026-10-29T11:18:14.096Z",
   "completedLocally": [
     1,
     2,
@@ -14,10 +14,10 @@
     9,
     10
   ],
-  "deployment": "not performed; final release must include subsequent steps only after their checks pass",
-  "pendingUserApproval": "20-page content pilot must be produced and approved before editorial content edits",
-  "network": "Local tools and HTTPS access working. Batch SSH public-key login denied; user supplied password authorization is available for later release.",
-  "next": "Implement and verify Step 8 internal links, then performance and monitoring.",
+  "deployment": "Step 10 trust pages and gates are live. Public and server full SEO checks pass; external Search Console API remains disabled.",
+  "pendingUserApproval": null,
+  "network": "HTTPS and password SSH access verified; external credentials are stored outside Git with mode 600.",
+  "next": "Complete the user-requested remaining Steps 8 (active HTML depth/link architecture) and 9 (mobile performance), then deploy and verify them.",
   "userProvidedResponsiblePerson": "Emre Demirel",
   "personClaims": "Responsible-person name only; no verified editor qualifications or social profiles supplied.",
   "startedStep6": [
@@ -28,5 +28,37 @@
     "QAPage without real answers removed",
     "Raster 512x512 logo from existing SVG"
   ],
-  "remainingStep6": []
+  "remainingStep6": [],
+  "deployedSteps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    10
+  ],
+  "pilot20": {
+    "approved": true,
+    "date": "2026-10-29",
+    "sourceReviewQueue": "pilot20-source-queue-20261029.json"
+  },
+  "step10": {
+    "implementation": "verified locally and deployed",
+    "weeklyAPI": "Blocked by Google Search Console API disabled (403)",
+    "weeklySchedule": "Installed: Monday 09:10 Europe/Istanbul",
+    "remaining": "Enable API and obtain a complete live weekly report; no traffic or index statuses fabricated."
+  },
+  "step8": {
+    "status": "active",
+    "baseline": {
+      "crawled": 2319,
+      "indexable": 691,
+      "orphans": 1,
+      "unreachable": 153,
+      "depthAbove3Percent": 36.32416787264834
+    },
+    "changes": "Server hub directories, contextual links and removal of invalid brand destinations are being verified."
+  }
 }

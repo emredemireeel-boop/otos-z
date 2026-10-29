@@ -1,0 +1,62 @@
+[
+  {
+    "path": "/hakkimizda",
+    "status": 200,
+    "h1": [
+      "OtoSöz Hakkında"
+    ],
+    "canonical": "https://otosoz.com/hakkimizda",
+    "robots": "index, follow",
+    "responsiblePerson": true,
+    "footerLinks": [
+      "/hakkimizda",
+      "/editoryal-politika",
+      "/kaynaklar"
+    ]
+  },
+  {
+    "path": "/editoryal-politika",
+    "status": 200,
+    "h1": [
+      "Editoryal Politika"
+    ],
+    "canonical": "https://otosoz.com/editoryal-politika",
+    "robots": "index, follow",
+    "responsiblePerson": true,
+    "footerLinks": [
+      "/hakkimizda",
+      "/editoryal-politika",
+      "/kaynaklar"
+    ]
+  },
+  {
+    "path": "/kaynaklar",
+    "status": 200,
+    "h1": [
+      "Kaynaklar"
+    ],
+    "canonical": "https://otosoz.com/kaynaklar",
+    "robots": "index, follow",
+    "responsiblePerson": false,
+    "footerLinks": [
+      "/hakkimizda",
+      "/editoryal-politika",
+      "/kaynaklar"
+    ]
+  },
+  {
+    "path": "/",
+    "status": 200,
+    "h1": [
+      "Otomobil forumu ve araç rehberi"
+    ],
+    "canonical": "https://otosoz.com/",
+    "robots": "index, follow",
+    "responsiblePerson": false,
+    "footerLinks": [
+      "/hakkimizda",
+      "/editoryal-politika",
+      "/kaynaklar"
+    ]
+  }
+]

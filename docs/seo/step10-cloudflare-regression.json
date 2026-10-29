@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-29T10:47:32.272Z",
+  "base": "https://otosoz.com",
+  "pages": 691,
+  "uniqueTargets": 1212,
+  "broken": 1,
+  "redirects": 0,
+  "pageErrors": [],
+  "failures": [
+    {
+      "path": "/cdn-cgi/l/email-protection",
+      "status": 404,
+      "location": null,
+      "from": [
+        {
+          "page": "https://otosoz.com/hakkimizda",
+          "anchor": "[email protected]"
+        },
+        {
+          "page": "https://otosoz.com/editoryal-politika",
+          "anchor": "[email protected]"
+        }
+      ]
+    }
+  ]
+}

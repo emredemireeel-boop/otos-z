@@ -1,7 +1,7 @@
 {
   "step": 10,
   "date": "2026-10-29",
-  "status": "verified-locally-deployment-pending",
+  "status": "deployed-and-verified-with-external-api-blocker",
   "changes": [
     "Real responsible person Emre Demirel and contact route shown on About; no invented company/qualifications or Person author profiles.",
     "New server-rendered editorial policy and source catalog, both indexable, in shared sitemap/quality gate and footer.",
@@ -15,7 +15,7 @@
   "validation": {
     "typescript": "npx tsc --noEmit: PASS, 0 errors",
     "build": "npm run build: PASS",
-    "tests": "node --test all tests/*.test.mjs: 36/36 PASS",
+    "tests": "node --test all tests/*.test.mjs: 37/37 PASS",
     "seoCheck": {
       "checkedAt": "2026-10-29T10:24:57.092Z",
       "base": "http://127.0.0.1:3010",
@@ -56,10 +56,133 @@
     "weekly": {
       "output": "weekly/2026-44.json",
       "status": "incomplete",
-      "error": "Google Search Console API has not been used in project 244436311966 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=244436311966 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+      "error": "Google Search Console API has not been used in project 244436311966 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=244436311966 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.",
+      "initialEvidence": "step10-weekly-first-run.json"
     },
     "secretFilesTracked": 0,
-    "archives": 84
+    "archives": 84,
+    "provenance": {
+      "pages": 645,
+      "realRecordDates": 45,
+      "unknownDates": 600,
+      "sourceLists": 29
+    },
+    "pilot": {
+      "approved": true,
+      "pages": 20,
+      "http200": 20,
+      "noindex": 14,
+      "withRecordedSources": 4
+    },
+    "localCheckAfterEmailFix": {
+      "checkedAt": "2026-10-29T10:51:23.427Z",
+      "base": "http://127.0.0.1:3010",
+      "passed": true,
+      "results": [
+        {
+          "name": "status",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\status.json"
+        },
+        {
+          "name": "sitemap",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\sitemap.json"
+        },
+        {
+          "name": "schema",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\schema.json"
+        },
+        {
+          "name": "metadata",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\metadata.json"
+        },
+        {
+          "name": "links",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\step10\\links.json"
+        }
+      ]
+    },
+    "weeklySchedule": {
+      "installed": true,
+      "path": "/etc/cron.d/otosoz-seo-weekly",
+      "schedule": "Monday 09:10 Europe/Istanbul",
+      "cronMode": "0o644",
+      "credentialPath": "/etc/otosoz/search-console.json",
+      "credentialMode": "0o600",
+      "weeklyExitCode": 1,
+      "scope": "webmasters.readonly",
+      "apiStatus": "incomplete"
+    },
+    "liveChecks": {
+      "summary": {
+        "passed": true,
+        "checkedAt": "2026-10-29T11:07:00.557Z",
+        "base": "https://otosoz.com",
+        "results": [
+          {
+            "name": "status",
+            "exitCode": 0,
+            "report": "docs\\seo\\ci\\live\\status.json"
+          },
+          {
+            "name": "sitemap",
+            "exitCode": 0,
+            "report": "docs\\seo\\ci\\live\\sitemap.json"
+          },
+          {
+            "name": "schema",
+            "exitCode": 0,
+            "report": "docs\\seo\\ci\\live\\schema.json"
+          },
+          {
+            "name": "metadata",
+            "exitCode": 0,
+            "report": "docs\\seo\\ci\\live\\metadata.json"
+          },
+          {
+            "name": "links",
+            "exitCode": 0,
+            "report": "docs\\seo\\ci\\live\\links.json"
+          }
+        ]
+      },
+      "status": {
+        "total": 231,
+        "passed": 231,
+        "failed": 0,
+        "metaRefreshCount": 0
+      },
+      "sitemap": {
+        "total": 691,
+        "duplicates": 0,
+        "failures": 0
+      },
+      "schema": {
+        "sampled": 691,
+        "errors": 0,
+        "parseErrors": 0
+      },
+      "metadata": {
+        "total": 691,
+        "duplicateTitles": 0,
+        "duplicateDescriptionPercent": 0,
+        "longTitlePercent": 0,
+        "failures": 0
+      },
+      "links": {
+        "pages": 691,
+        "uniqueTargets": 1211,
+        "broken": 0,
+        "redirects": 0,
+        "pageErrors": []
+      }
+    },
+    "serverTypeScript": "PASS: candidate-only next typegen + npx tsc --noEmit --project .tsconfig-release.json",
+    "serverBuild": "PASS: 106s compile, 1036 prerendered pages"
   },
   "approval": {
     "pilot20": "approved by user on 2026-10-29",
@@ -68,14 +191,24 @@
   "risks": [
     "Search Console API disabled in project 244436311966: metrics and indexed statuses unavailable; script and honest error report produced.",
     "8–9 remain separate incomplete recovery steps. This report does not claim those are complete.",
-    "Unknown content dates and unverified author credentials were not fabricated."
+    "Unknown content dates and unverified author credentials were not fabricated.",
+    "npm ci reported 23 dependency audit findings (10 moderate, 12 high, 1 critical); dependency remediation was not part of this step. No npm audit fix --force was run."
   ],
   "deployment": {
-    "status": "pending",
+    "status": "live",
     "host": "213.238.170.134",
     "root": "/var/www/otos-z",
     "application": "otosoz",
-    "notes": "SSH password authentication verified; current main checkout has an unrelated untracked Build folder which will be preserved."
+    "notes": "SSH password authentication verified; current main checkout has an unrelated untracked Build folder which will be preserved.",
+    "preflightFindings": [
+      "First preflight stopped before restart on stale .next/types validators after account routes moved; candidate typegen/config now isolates generated route types.",
+      "Second preflight stopped before restart on two achievement routes requiring Firebase Admin. Existing /etc/otosoz/firebase-admin.json is now loaded with GOOGLE_APPLICATION_CREDENTIALS; no key is stored in Git.",
+      "Node 20 lacks Object.groupBy; metadata audit now uses Map-based grouping.",
+      "Post-release Cloudflare HTML transformation rewrote the two public mailto links to a /cdn-cgi/l/email-protection endpoint that returned 404 to the crawler. Fixed with Cloudflare-documented per-address email_off comments; endpoint is not skipped by the link checker."
+    ],
+    "auditRevision": "39b4ea6",
+    "applicationBuildRevision": "39b4ea6",
+    "cloudflareEmailFix": "Verified public HTML retains mailto anchors and no longer introduces the broken email-protection link."
   },
   "evidence": [
     "step10-build.log",
@@ -86,6 +219,12 @@
     "pilot20-20261029.md",
     "pilot20-source-queue-20261029.json",
     "step10-operations.md",
-    "weekly/2026-44.json"
+    "step10-weekly-first-run.json",
+    "step10-cloudflare-regression.json",
+    "step10-server-ci.json",
+    "step10-live-trust-pages.json",
+    "step10-weekly-schedule.json",
+    "indexing20-20261029.md",
+    "step10-live-ci.json"
   ]
 }

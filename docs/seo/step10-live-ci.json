@@ -1,0 +1,64 @@
+{
+  "summary": {
+    "passed": true,
+    "checkedAt": "2026-10-29T11:07:00.557Z",
+    "base": "https://otosoz.com",
+    "results": [
+      {
+        "name": "status",
+        "exitCode": 0,
+        "report": "docs\\seo\\ci\\live\\status.json"
+      },
+      {
+        "name": "sitemap",
+        "exitCode": 0,
+        "report": "docs\\seo\\ci\\live\\sitemap.json"
+      },
+      {
+        "name": "schema",
+        "exitCode": 0,
+        "report": "docs\\seo\\ci\\live\\schema.json"
+      },
+      {
+        "name": "metadata",
+        "exitCode": 0,
+        "report": "docs\\seo\\ci\\live\\metadata.json"
+      },
+      {
+        "name": "links",
+        "exitCode": 0,
+        "report": "docs\\seo\\ci\\live\\links.json"
+      }
+    ]
+  },
+  "status": {
+    "total": 231,
+    "passed": 231,
+    "failed": 0,
+    "metaRefreshCount": 0
+  },
+  "sitemap": {
+    "total": 691,
+    "duplicates": 0,
+    "failures": 0
+  },
+  "schema": {
+    "sampled": 691,
+    "errors": 0,
+    "parseErrors": 0
+  },
+  "metadata": {
+    "total": 691,
+    "duplicateTitles": 0,
+    "duplicateDescriptionPercent": 0,
+    "longTitlePercent": 0,
+    "failures": 0
+  },
+  "links": {
+    "pages": 691,
+    "uniqueTargets": 1211,
+    "broken": 0,
+    "redirects": 0,
+    "pageErrors": []
+  }
+}

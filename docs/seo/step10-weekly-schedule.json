@@ -1,0 +1,11 @@
+{
+  "installed": true,
+  "path": "/etc/cron.d/otosoz-seo-weekly",
+  "schedule": "Monday 09:10 Europe/Istanbul",
+  "cronMode": "0o644",
+  "credentialPath": "/etc/otosoz/search-console.json",
+  "credentialMode": "0o600",
+  "weeklyExitCode": 1,
+  "scope": "webmasters.readonly",
+  "apiStatus": "incomplete"
+}

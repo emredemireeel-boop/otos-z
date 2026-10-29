@@ -18,6 +18,7 @@
 /temp.html
 /.index-progress.json
 /docs/seo/ci/
+/docs/seo/weekly/*.json
 /out/
 
 # production
