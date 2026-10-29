@@ -129,7 +129,7 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                     { "@type": "ListItem", "position": 1, "name": "Kütüphane", "item": "https://otosoz.com/kutuphane" },
-                    { "@type": "ListItem", "position": 2, "name": "Efsane Avcıları", "item": "https://otosoz.com/kutuphane?kategori=efsane-avcilari" },
+                    { "@type": "ListItem", "position": 2, "name": "Efsane Avcıları", "item": "https://otosoz.com/kutuphane/kategori/efsane-avcilari" },
                     { "@type": "ListItem", "position": 3, "name": myth.seoTitle, "item": pageUrl }
                 ]
             }
@@ -147,7 +147,7 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
                 <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '32px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                     <Link href="/kutuphane" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Kütüphane</Link>
                     <ChevronRight size={14} />
-                    <Link href="/kutuphane?kategori=efsane-avcilari" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Efsane Avcıları</Link>
+                    <Link href="/kutuphane/kategori/efsane-avcilari" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Efsane Avcıları</Link>
                     <ChevronRight size={14} />
                     <span style={{ color: 'var(--foreground)', fontWeight: '600' }}>Dosya #{myth.id}</span>
                 </nav>
@@ -350,7 +350,7 @@ export default async function EfsaneDetayPage({ params }: PageProps) {
 
                 {/* Alt Bağlantılar */}
                 <div style={{ paddingTop: "24px", borderTop: "1px solid var(--card-border)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: 'wrap', gap: '12px' }}>
-                    <Link href="/kutuphane?kategori=efsane-avcilari" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--primary)", textDecoration: "none", fontSize: "14px", fontWeight: "700" }}>
+                    <Link href="/kutuphane/kategori/efsane-avcilari" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--primary)", textDecoration: "none", fontSize: "14px", fontWeight: "700" }}>
                         <ArrowLeft size={16} /> Tüm Efsaneleri Gör
                     </Link>
                     <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "13px", fontWeight: "600", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>

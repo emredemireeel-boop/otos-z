@@ -52,7 +52,7 @@ export default function UlkePlakalariClient() {
 
                 {/* İç Menü */}
                 <div style={{ display: 'flex', gap: '12px', marginBottom: '32px', borderBottom: '1px solid var(--card-border)', paddingBottom: '16px', overflowX: 'auto' }}>
-                    <Link href="/kutuphane?kategori=plaka-kodlari" style={{ textDecoration: 'none' }}>
+                    <Link href="/kutuphane/kategori/plaka-kodlari" style={{ textDecoration: 'none' }}>
                         <button
                             style={{
                                 padding: '10px 20px', borderRadius: '10px', fontWeight: '600', fontSize: '14px',

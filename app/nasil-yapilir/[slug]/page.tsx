@@ -134,7 +134,7 @@ export default async function NasilYapilirPage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Kütüphane",
-                "item": "https://otosoz.com/kutuphane?kategori=nasil-yapilir"
+                "item": "https://otosoz.com/kutuphane/kategori/nasil-yapilir"
             },
             {
                 "@type": "ListItem",

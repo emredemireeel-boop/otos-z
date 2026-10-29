@@ -143,6 +143,12 @@ const nextConfig: NextConfig = {
     },
     async redirects() {
         return [
+            ...['arac-paketleri','kullanici-deneyimleri','begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri'].map(section=>({
+                source:`/arac-dna/chery/omoda-5-comfort/14-litre-benzin-otomatik-${section}`,
+                destination:`/arac-dna/chery/omoda-5-1-nesil-2023-2025/${section==='begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri'?'neden-alinir':section}`,
+                permanent:true,
+            })),
+            {source:'/trafik-cezasi/sitemap.xml',destination:'/sitemaps/trafik-cezasi.xml',permanent:true},
 
             {
                 source: '/bilgi-yarismasi',
@@ -277,12 +283,12 @@ const nextConfig: NextConfig = {
             {
                 // /kutuphane/tuvturk → slug adı farklı olduğu için ayrıca belirt
                 source: '/kutuphane/tuvturk',
-                destination: '/kutuphane?kategori=tuvturk-muayene',
+                destination: '/kutuphane/kategori/tuvturk-muayene',
                 permanent: true,
             },
             {
                 source: '/kutuphane/ehliyet-sinifari',
-                destination: '/kutuphane?kategori=ehliyet-siniflari',
+                destination: '/kutuphane/kategori/ehliyet-siniflari',
                 permanent: true,
             },
             // Aşağıdaki kategori slug'ları path ve query-string slug'ı birebir aynı:
@@ -316,7 +322,7 @@ const nextConfig: NextConfig = {
                     ? '/obd'
                     : slug === 'trafik-cezalari'
                         ? '/trafik-cezasi'
-                        : `/kutuphane?kategori=${slug}`,
+                        : `/kutuphane/kategori/${slug}`,
                 permanent: true,
             })),
             // ── Eski /kutuphane/rehber/ URL'leri → /kutuphane/{guideId} ──
@@ -343,7 +349,7 @@ const nextConfig: NextConfig = {
             },
             {
                 source: '/sozluk',
-                destination: '/kutuphane?kategori=otomotiv-sozluk',
+                destination: '/kutuphane/kategori/otomotiv-sozluk',
                 permanent: true,
             },
             // ── Eski /kullanim-kosullari → /kullanim-sartlari ──
@@ -406,12 +412,12 @@ const nextConfig: NextConfig = {
             // ── Hub sayfası olmayan eski URL'ler ──
             {
                 source: '/bakim-rehberi',
-                destination: '/kutuphane?kategori=bakim-zamanlari',
+                destination: '/kutuphane/kategori/bakim-zamanlari',
                 permanent: true,
             },
             {
                 source: '/ikinci-el-rehberi',
-                destination: '/kutuphane?kategori=ikinci-el-rehberi',
+                destination: '/kutuphane/kategori/ikinci-el-rehberi',
                 permanent: true,
             },
             // ── Bozuk URL'ler ──

@@ -125,7 +125,7 @@ export default async function SozlukTermPage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Otomotiv Sözlüğü",
-                "item": "https://otosoz.com/kutuphane?kategori=otomotiv-sozluk"
+                "item": "https://otosoz.com/kutuphane/kategori/otomotiv-sozluk"
             },
             {
                 "@type": "ListItem",

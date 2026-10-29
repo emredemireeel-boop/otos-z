@@ -7,7 +7,7 @@ import { getLibraryCategoryRedirect } from './lib/library-categories';
 import { getDnaLegacyRedirect } from './lib/arac-dna-redirects';
 import { getCanonicalDictionaryId } from './lib/seoUrls';
 import { getObdCode, obdDirectoryPageCount } from './lib/obd-catalog';
-import { forumCategories, forumHubPath, normalizeForumCategory } from './lib/forum-hub';
+import { forumCategories, forumHubPath, normalizeForumCategory, FORUM_PAGE_SIZE } from './lib/forum-hub';
 
 const ARTICLE_CANONICAL_SLUGS = new Map<string, string>(
     libraryGuides.guides.flatMap(guide => {
@@ -113,6 +113,12 @@ export async function proxy(request: NextRequest) {
             const category = legacyForumCategory !== null
                 ? forumCategories.find(item => item.name === normalizeForumCategory(legacyForumCategory))?.slug
                 : forumRootMatch[1];
+            if (page > 1) {
+                const {getForumHubThreadSummaries}=await import('./lib/forumDataServer');
+                const categoryName=forumCategories.find(item=>item.slug===category)?.name||null;
+                const threads=await getForumHubThreadSummaries(categoryName);
+                if ((page-1)*FORUM_PAGE_SIZE>=threads.length) return new NextResponse('<!doctype html><html lang="tr"><head><meta name="robots" content="noindex, follow"><title>Sayfa bulunamadı</title></head><body><h1>Sayfa bulunamadı</h1><a href="/forum">Forum</a></body></html>',{status:404,headers:{'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':'noindex, follow'}});
+            }
             const canonicalUrl = request.nextUrl.clone();
             canonicalUrl.pathname = forumHubPath(page, category);
             canonicalUrl.searchParams.delete('sayfa');

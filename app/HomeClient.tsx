@@ -97,9 +97,9 @@ const NEW_TOPIC_DRAFT_KEY = "otosoz_new_topic_draft_v1";
 
 const DRIVER_ESSENTIALS = [
     { href: "/obd", title: "OBD arıza kodları", description: "Nedenini ve çözümünü bul", icon: Wrench },
-    { href: "/kutuphane?kategori=gosterge-isiklari", title: "Gösterge ışıkları", description: "Uyarının önemini öğren", icon: AlertTriangle },
-    { href: "/kutuphane?kategori=ikinci-el-rehberi", title: "İkinci el kontrolü", description: "Almadan önce adım adım kontrol et", icon: ClipboardCheck },
-    { href: "/kutuphane?kategori=kaza-ilkyardim", title: "Kaza ve ilk yardım", description: "Doğru sırayla ne yapacağını gör", icon: ShieldCheck },
+    { href: "/kutuphane/kategori/gosterge-isiklari", title: "Gösterge ışıkları", description: "Uyarının önemini öğren", icon: AlertTriangle },
+    { href: "/kutuphane/kategori/ikinci-el-rehberi", title: "İkinci el kontrolü", description: "Almadan önce adım adım kontrol et", icon: ClipboardCheck },
+    { href: "/kutuphane/kategori/kaza-ilkyardim", title: "Kaza ve ilk yardım", description: "Doğru sırayla ne yapacağını gör", icon: ShieldCheck },
 ];
 
 type HomeMyth = { id: number; slug: string; myth: string };

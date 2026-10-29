@@ -38,10 +38,10 @@ interface Survey {
 const CURATED_VOTE_STORAGE_PREFIX = "otosoz-curated-survey-votes";
 
 const libraryShortcuts = [
-    { title: "Gösterge ışıkları", description: "Uyarı lambalarının anlamını öğrenin", href: "/kutuphane?kategori=gosterge-isiklari" },
+    { title: "Gösterge ışıkları", description: "Uyarı lambalarının anlamını öğrenin", href: "/kutuphane/kategori/gosterge-isiklari" },
     { title: "OBD arıza kodları", description: "Arıza kodunu hızlıca yorumlayın", href: "/obd" },
-    { title: "İkinci el rehberi", description: "Satın almadan önce kontrol listesi", href: "/kutuphane?kategori=ikinci-el-rehberi" },
-    { title: "Bakım zamanları", description: "Periyodik bakımı kaçırmayın", href: "/kutuphane?kategori=bakim-zamanlari" },
+    { title: "İkinci el rehberi", description: "Satın almadan önce kontrol listesi", href: "/kutuphane/kategori/ikinci-el-rehberi" },
+    { title: "Bakım zamanları", description: "Periyodik bakımı kaçırmayın", href: "/kutuphane/kategori/bakim-zamanlari" },
 ];
 
 function getCuratedSurveysForUser(curatedSurveys:Survey[],userId?: string): Survey[] {
@@ -667,7 +667,7 @@ export default function AnketClient({initialSurveys,featuredVehicles,curatedSurv
                                     </div>
                                 </div>
 
-                                <Link href="/kutuphane?kategori=ikinci-el-rehberi" style={{ display: 'block', background: 'linear-gradient(135deg, rgba(0,90,226,.12), rgba(59,130,246,.04))', border: '1px solid rgba(0,90,226,.25)', borderRadius: '16px', padding: '18px', textDecoration: 'none' }}>
+                                <Link href="/kutuphane/kategori/ikinci-el-rehberi" style={{ display: 'block', background: 'linear-gradient(135deg, rgba(0,90,226,.12), rgba(59,130,246,.04))', border: '1px solid rgba(0,90,226,.25)', borderRadius: '16px', padding: '18px', textDecoration: 'none' }}>
                                     <div style={{ width: '34px', height: '34px', borderRadius: '10px', background: 'rgba(0,90,226,.12)', display: 'grid', placeItems: 'center', marginBottom: '12px' }}><ShieldCheck size={18} color="var(--primary)" /></div>
                                     <div style={{ color: 'var(--primary)', fontSize: '10px', fontWeight: '800', letterSpacing: '.05em', marginBottom: '5px' }}>SATIN ALMA REHBERİ</div>
                                     <div style={{ color: 'var(--foreground)', fontSize: '14px', fontWeight: '800', lineHeight: 1.4 }}>İkinci el araçta doğru kontrol sırası</div>

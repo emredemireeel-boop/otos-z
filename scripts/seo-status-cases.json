@@ -314,7 +314,7 @@
   {
     "url": "/kutuphane?kategori=ehliyet-sinifari",
     "status": 308,
-    "location": "/kutuphane?kategori=ehliyet-siniflari",
+    "location": "/kutuphane/kategori/ehliyet-siniflari",
     "type": "redirect"
   },
   {
@@ -1262,7 +1262,7 @@
   {
     "url": "/kutuphane?kategori=lastik-rehberi&kategori=bilinmeyen",
     "status": 308,
-    "location": "/kutuphane?kategori=lastik-rehberi",
+    "location": "/kutuphane/kategori/lastik-rehberi",
     "type": "redirect"
   },
   {
@@ -1345,8 +1345,8 @@
   },
   {
     "url": "/forum?sayfa=2",
-    "status": 308,
-    "location": "/forum/sayfa/2",
+    "status": 404,
+    "location": null,
     "type": "forum-hub-regression"
   },
   {

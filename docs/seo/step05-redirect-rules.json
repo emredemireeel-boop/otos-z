@@ -1,0 +1,608 @@
+[
+  {
+    "source": "/trafik-cezasi/sitemap.xml",
+    "destination": "/sitemaps/trafik-cezasi.xml",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/trafik-cezasi/sitemap\\.xml(?:/)?$"
+  },
+  {
+    "source": "/bilgi-yarismasi",
+    "destination": "/",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/bilgi-yarismasi(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/istanbul-kartal-otopazari",
+    "destination": "/acik-oto-pazari/istanbul/kartal-eski-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/istanbul-kartal-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/ankara-pursaklar-otopazari",
+    "destination": "/acik-oto-pazari/ankara/pursaklar-karacaoren-acik-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/ankara-pursaklar-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/izmir-kemalpasa-otopazari",
+    "destination": "/acik-oto-pazari/izmir/kemalpasa-acik-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/izmir-kemalpasa-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/izmir-gaziemir-otopazari",
+    "destination": "/acik-oto-pazari/izmir/gaziemir-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/izmir-gaziemir-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/bursa-nilufer-otopazari",
+    "destination": "/acik-oto-pazari/bursa/nilufer-ucevler-acik-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/bursa-nilufer-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/adana-cukurova-otopazari",
+    "destination": "/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/adana-cukurova-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/antalya-kepez-otopazari",
+    "destination": "/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/antalya-kepez-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/aydin-efeler-otopazari",
+    "destination": "/acik-oto-pazari/aydin",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/aydin-efeler-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/balikesir-altieylul-otopazari",
+    "destination": "/acik-oto-pazari/balikesir",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/balikesir-altieylul-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/denizli-merkezefendi-otopazari",
+    "destination": "/acik-oto-pazari/denizli",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/denizli-merkezefendi-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/diyarbakir-kayapinar-otopazari",
+    "destination": "/acik-oto-pazari/diyarbakir",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/diyarbakir-kayapinar-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/erzurum-yakutiye-otopazari",
+    "destination": "/acik-oto-pazari/erzurum",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/erzurum-yakutiye-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/eskisehir-odunpazari-otopazari",
+    "destination": "/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/eskisehir-odunpazari-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/gaziantep-sehitkamil-otopazari",
+    "destination": "/acik-oto-pazari/gaziantep",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/gaziantep-sehitkamil-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/hatay-antakya-otopazari",
+    "destination": "/acik-oto-pazari/hatay",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/hatay-antakya-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/kahramanmaras-dulkadiroglu-otopazari",
+    "destination": "/acik-oto-pazari/kahramanmaras",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/kahramanmaras-dulkadiroglu-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/kayseri-kocasinan-otopazari",
+    "destination": "/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/kayseri-kocasinan-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/kocaeli-basiskele-otopazari",
+    "destination": "/acik-oto-pazari/kocaeli",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/kocaeli-basiskele-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/konya-karatay-otopazari",
+    "destination": "/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/konya-karatay-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/malatya-yesilyurt-otopazari",
+    "destination": "/acik-oto-pazari/malatya",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/malatya-yesilyurt-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/manisa-sehzadeler-otopazari",
+    "destination": "/acik-oto-pazari/manisa",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/manisa-sehzadeler-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/mardin-kiziltepe-otopazari",
+    "destination": "/acik-oto-pazari/mardin",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/mardin-kiziltepe-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/mersin-toroslar-otopazari",
+    "destination": "/acik-oto-pazari/mersin",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/mersin-toroslar-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/mugla-mentese-otopazari",
+    "destination": "/acik-oto-pazari/mugla",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/mugla-mentese-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/ordu-altinordu-otopazari",
+    "destination": "/acik-oto-pazari/ordu",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/ordu-altinordu-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/sakarya-adapazari-otopazari",
+    "destination": "/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/sakarya-adapazari-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/samsun-tekkekoy-otopazari",
+    "destination": "/acik-oto-pazari/samsun",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/samsun-tekkekoy-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/sanliurfa-haliliye-otopazari",
+    "destination": "/acik-oto-pazari/sanliurfa",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/sanliurfa-haliliye-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/tekirdag-suleymanpasa-otopazari",
+    "destination": "/acik-oto-pazari/tekirdag",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/tekirdag-suleymanpasa-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/trabzon-ortahisar-otopazari",
+    "destination": "/acik-oto-pazari/trabzon",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/trabzon-ortahisar-otopazari(?:/)?$"
+  },
+  {
+    "source": "/etkinlikler/van-tusba-otopazari",
+    "destination": "/acik-oto-pazari/van",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/etkinlikler/van-tusba-otopazari(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/:brand/:model/artilari-eksileri",
+    "destination": "/arac-dna/:brand/:model/neden-alinir",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna(?:/([^/]+?))(?:/([^/]+?))/artilari-eksileri(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/bmw/320i/:path*",
+    "destination": "/arac-dna/bmw/320i-f30-2012-2019/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/bmw/320i(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/renault/clio-3/:path*",
+    "destination": "/arac-dna/renault/clio-3-nesil-2005-2014/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/renault/clio-3(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/hyundai-renault/i20-clio-4/:path*",
+    "destination": "/arac-dna/hyundai/i20-2-nesil-gb-2014-2020/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/hyundai-renault/i20-clio-4(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/ford/focus/:path*",
+    "destination": "/arac-dna/ford/focus-4-nesil-mk4-2018-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/ford/focus(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/renault/clio/:path*",
+    "destination": "/arac-dna/renault/clio-5-nesil-2020-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/renault/clio(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/volkswagen/passat/:path*",
+    "destination": "/arac-dna/volkswagen/passat-b8-2015-2023/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/volkswagen/passat(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/skoda/octavia/:path*",
+    "destination": "/arac-dna/skoda/octavia-nx-4-nesil-2020-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/skoda/octavia(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/nissan/qashqai/:path*",
+    "destination": "/arac-dna/nissan/qashqai-j12-2021-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/nissan/qashqai(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/nissan/qashqai-j11-2014-2021/:path*",
+    "destination": "/arac-dna/nissan/qashqai-j12-2021-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/nissan/qashqai-j11-2014-2021(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/seat/leon/:path*",
+    "destination": "/arac-dna/seat/leon-kl-4-nesil-2020-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/seat/leon(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/fiat/egea/:path*",
+    "destination": "/arac-dna/fiat/egea-1-nesil-2015-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/fiat/egea(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/dacia/duster/:path*",
+    "destination": "/arac-dna/dacia/duster-2010-2024/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/dacia/duster(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/honda/civic/:path*",
+    "destination": "/arac-dna/honda/civic-11-nesil-fe1-2021-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/honda/civic(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/renault/megane/:path*",
+    "destination": "/arac-dna/renault/megane-4-nesil-2016-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/renault/megane(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/chery/tiggo-8-pro/:path*",
+    "destination": "/arac-dna/chery/tiggo-8-pro-1-nesil-2023-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/chery/tiggo-8-pro(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/chery/omoda-5-comfort/:path*",
+    "destination": "/arac-dna/chery/omoda-5-1-nesil-2023-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/chery/omoda-5-comfort(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/dacia/sandero-stepway/:path*",
+    "destination": "/arac-dna/dacia/sandero-stepway-2021-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/dacia/sandero-stepway(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/tesla/model-y/:path*",
+    "destination": "/arac-dna/tesla/model-y-1-nesil-2020-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/tesla/model-y(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/hyundai/i20/:path*",
+    "destination": "/arac-dna/hyundai/i20-3-nesil-bc3-2020-2025/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/hyundai/i20(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/renault/fuence-15-dci/:path*",
+    "destination": "/arac-dna/renault/fluence-15-dci/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/renault/fuence-15-dci(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/citroen/c3/:path*",
+    "destination": "/arac-dna/citroen/c3-12-puretech/:path*",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/citroen/c3(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/makaleler",
+    "destination": "/kutuphane",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/makaleler(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/tuvturk",
+    "destination": "/kutuphane/kategori/tuvturk-muayene",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/tuvturk(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/ehliyet-sinifari",
+    "destination": "/kutuphane/kategori/ehliyet-siniflari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/ehliyet-sinifari(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/ilginc-bilgiler",
+    "destination": "/kutuphane/kategori/ilginc-bilgiler",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/ilginc-bilgiler(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/otomotiv-sozluk",
+    "destination": "/kutuphane/kategori/otomotiv-sozluk",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/otomotiv-sozluk(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/trafik-isaretleri",
+    "destination": "/kutuphane/kategori/trafik-isaretleri",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/trafik-isaretleri(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/obd-ariza-kodlari",
+    "destination": "/obd",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/obd-ariza-kodlari(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/gosterge-isiklari",
+    "destination": "/kutuphane/kategori/gosterge-isiklari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/gosterge-isiklari(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/trafik-cezalari",
+    "destination": "/trafik-cezasi",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/trafik-cezalari(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/lastik-rehberi",
+    "destination": "/kutuphane/kategori/lastik-rehberi",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/lastik-rehberi(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/ikinci-el-rehberi",
+    "destination": "/kutuphane/kategori/ikinci-el-rehberi",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/ikinci-el-rehberi(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/kaza-ilkyardim",
+    "destination": "/kutuphane/kategori/kaza-ilkyardim",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/kaza-ilkyardim(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/mevsimsel-bakim",
+    "destination": "/kutuphane/kategori/mevsimsel-bakim",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/mevsimsel-bakim(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/sigorta-rehberi",
+    "destination": "/kutuphane/kategori/sigorta-rehberi",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/sigorta-rehberi(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/bakim-zamanlari",
+    "destination": "/kutuphane/kategori/bakim-zamanlari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/bakim-zamanlari(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/arac-segmentleri",
+    "destination": "/kutuphane/kategori/arac-segmentleri",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/arac-segmentleri(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/plaka-kodlari",
+    "destination": "/kutuphane/kategori/plaka-kodlari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/plaka-kodlari(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/noter-islemleri",
+    "destination": "/kutuphane/kategori/noter-islemleri",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/noter-islemleri(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/ehliyet-siniflari",
+    "destination": "/kutuphane/kategori/ehliyet-siniflari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/ehliyet-siniflari(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/hgs-siniflari",
+    "destination": "/kutuphane/kategori/hgs-siniflari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/hgs-siniflari(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/dolandiricilik-rehberi",
+    "destination": "/kutuphane/kategori/dolandiricilik-rehberi",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/dolandiricilik-rehberi(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/nereye-gitmeli",
+    "destination": "/kutuphane/kategori/nereye-gitmeli",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/nereye-gitmeli(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/hasar-sorgulama",
+    "destination": "/kutuphane/kategori/hasar-sorgulama",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/hasar-sorgulama(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/efsane-avcilari",
+    "destination": "/kutuphane/kategori/efsane-avcilari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/efsane-avcilari(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/nasil-yapilir",
+    "destination": "/kutuphane/kategori/nasil-yapilir",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/nasil-yapilir(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/otoyol-ve-kopru-ucretleri",
+    "destination": "/kutuphane/kategori/otoyol-ve-kopru-ucretleri",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/otoyol-ve-kopru-ucretleri(?:/)?$"
+  },
+  {
+    "source": "/kutuphane/rehber/:guideId",
+    "destination": "/kutuphane/:guideId",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kutuphane/rehber(?:/([^/]+?))(?:/)?$"
+  },
+  {
+    "source": "/yakit-hesaplama",
+    "destination": "/otohesap/yakit-hesaplama",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/yakit-hesaplama(?:/)?$"
+  },
+  {
+    "source": "/otohesap/kasko",
+    "destination": "/otohesap/kasko-deger-sorgulama",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/otohesap/kasko(?:/)?$"
+  },
+  {
+    "source": "/otohesap/kasko-deger",
+    "destination": "/otohesap/kasko-deger-sorgulama",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/otohesap/kasko-deger(?:/)?$"
+  },
+  {
+    "source": "/sozluk",
+    "destination": "/kutuphane/kategori/otomotiv-sozluk",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/sozluk(?:/)?$"
+  },
+  {
+    "source": "/kullanim-kosullari",
+    "destination": "/kullanim-sartlari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/kullanim-kosullari(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/opel-hyundai",
+    "destination": "/arac-dna/opel",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/opel-hyundai(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/opel-peugeot",
+    "destination": "/arac-dna/opel",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/opel-peugeot(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/toyota-honda",
+    "destination": "/arac-dna/toyota",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/toyota-honda(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/hyundai-kia",
+    "destination": "/arac-dna/hyundai",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/hyundai-kia(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/peugeot-citroen",
+    "destination": "/arac-dna/peugeot",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/peugeot-citroen(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/dacia-renault",
+    "destination": "/arac-dna/dacia",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/dacia-renault(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/skoda-seat",
+    "destination": "/arac-dna/skoda",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/skoda-seat(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/skoda-vw",
+    "destination": "/arac-dna/skoda",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/skoda-vw(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/seat-vw",
+    "destination": "/arac-dna/seat",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/seat-vw(?:/)?$"
+  },
+  {
+    "source": "/arac-dna/hyundai-renault",
+    "destination": "/arac-dna/hyundai",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/arac-dna/hyundai-renault(?:/)?$"
+  },
+  {
+    "source": "/bakim-rehberi",
+    "destination": "/kutuphane/kategori/bakim-zamanlari",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/bakim-rehberi(?:/)?$"
+  },
+  {
+    "source": "/ikinci-el-rehberi",
+    "destination": "/kutuphane/kategori/ikinci-el-rehberi",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/ikinci-el-rehberi(?:/)?$"
+  },
+  {
+    "source": "/\\&",
+    "destination": "/",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/&(?:/)?$"
+  },
+  {
+    "source": "/\\$",
+    "destination": "/",
+    "statusCode": 308,
+    "regex": "^(?!/_next)/\\$(?:/)?$"
+  }
+]

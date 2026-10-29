@@ -105,7 +105,7 @@ export default async function GostergePage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Gösterge Işıkları",
-                "item": "https://otosoz.com/kutuphane?kategori=gosterge-isiklari"
+                "item": "https://otosoz.com/kutuphane/kategori/gosterge-isiklari"
             },
             {
                 "@type": "ListItem",

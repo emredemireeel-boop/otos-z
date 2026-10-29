@@ -32,7 +32,7 @@ export default function OpenCarMarketPage() {
                         <span className={styles.eyebrow}>Adres · gün · kaynak</span>
                         <h1>Açık oto pazarı nerede, hangi gün?</h1>
                         <p>İlini seç, pazarın adresini ve kurulduğu günü kaynaklarıyla kontrol et. Teyit bekleyen veya kapanmış bir kaydı aktif pazar gibi sunmuyoruz.</p>
-                        <div className={styles.heroActions}><a className={styles.primaryButton} href="#iller-baslik">Şehrimi seç</a><Link className={styles.secondaryButton} href="/kutuphane?kategori=ikinci-el-rehberi">İkinci el alım rehberi</Link></div>
+                        <div className={styles.heroActions}><a className={styles.primaryButton} href="#iller-baslik">Şehrimi seç</a><Link className={styles.secondaryButton} href="/kutuphane/kategori/ikinci-el-rehberi">İkinci el alım rehberi</Link></div>
                     </div>
                     <aside className={styles.heroStats} aria-label="Rehberin kapsamı">
                         <div className={styles.statCard}><span className={styles.statValue}>81</span><div><strong>İl dizini</strong><span>Adres ve gün bilgisine şehrinden ulaş.</span></div></div>

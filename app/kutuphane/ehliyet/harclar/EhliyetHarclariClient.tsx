@@ -55,7 +55,7 @@ export default function EhliyetHarclariClient() {
     };
 
     const ilgiliKonular = [
-        { title: "Ehliyet Sınıfları Rehberi", desc: "M, A1, A2, B, C, D, E, F sınıfları", href: "/kutuphane?kategori=ehliyet-siniflari", icon: <Car size={16} /> },
+        { title: "Ehliyet Sınıfları Rehberi", desc: "M, A1, A2, B, C, D, E, F sınıfları", href: "/kutuphane/kategori/ehliyet-siniflari", icon: <Car size={16} /> },
         { title: "SRC Belgesi Nedir?", desc: "Ticari sürücüler için zorunlu belge", href: "/kutuphane/ehliyet/src-belgesi", icon: <FileText size={16} /> },
         { title: "Trafik Cezaları 2026", desc: "Güncel ceza tarifeleri tablosu", href: "/trafik-cezasi", icon: <AlertTriangle size={16} /> },
         { title: "OtoBütçe Hesaplama", desc: "Araç masraflarınızı planlayın", href: "/otobutce", icon: <Calculator size={16} /> },
@@ -84,7 +84,7 @@ export default function EhliyetHarclariClient() {
 
                 <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: 'rgba(255,255,255,0.6)', marginBottom: '16px' }}>
-                        <Link href="/kutuphane?kategori=ehliyet-siniflari" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <Link href="/kutuphane/kategori/ehliyet-siniflari" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
                             <ArrowLeft size={14} /> Kütüphane
                         </Link>
                         <span>/</span>

@@ -16,15 +16,15 @@
 - [OtoBütçe](https://otosoz.com/otobutce): Bütçeye göre araç önerileri.
 - [Piyasalar](https://otosoz.com/piyasalar): Otomotiv piyasa verileri, döviz, akaryakıt fiyatları.
 - [GüvenMetre](https://otosoz.com/guvenmetre): Marka ve model güvenilirlik değerlendirmesi.
-- [Sözlük](https://otosoz.com/kutuphane?kategori=otomotiv-sozluk): Otomotiv terimleri sözlüğü.
+- [Sözlük](https://otosoz.com/kutuphane/kategori/otomotiv-sozluk): Otomotiv terimleri sözlüğü.
 - [Uzmana Sor](https://otosoz.com/uzmana-sor): Uzman mekanikerlere soru sorma platformu.
 - [Anket](https://otosoz.com/anket): Otomotiv anketleri ve kullanıcı oylamaları.
 - [Etkinlikler](https://otosoz.com/etkinlikler): Otomotiv etkinlikleri ve buluşmalar.
 - [Altın Anahtar](https://otosoz.com/altin-anahtar): Araç bakım ve onarım ipuçları.
-- [Bakım Rehberi](https://otosoz.com/kutuphane?kategori=bakim-zamanlari): Adım adım araç bakım rehberi.
-- [İkinci El Rehberi](https://otosoz.com/kutuphane?kategori=ikinci-el-rehberi): İkinci el araç alım-satım rehberi.
-- [Trafik Cezaları](https://otosoz.com/kutuphane?kategori=trafik-cezalari): 2026 güncel trafik cezaları listesi.
-- [Gösterge Işıkları](https://otosoz.com/kutuphane?kategori=gosterge-isiklari): Araç gösterge paneli uyarı ışıkları rehberi.
+- [Bakım Rehberi](https://otosoz.com/kutuphane/kategori/bakim-zamanlari): Adım adım araç bakım rehberi.
+- [İkinci El Rehberi](https://otosoz.com/kutuphane/kategori/ikinci-el-rehberi): İkinci el araç alım-satım rehberi.
+- [Trafik Cezaları](https://otosoz.com/trafik-cezasi): 2026 güncel trafik cezaları listesi.
+- [Gösterge Işıkları](https://otosoz.com/kutuphane/kategori/gosterge-isiklari): Araç gösterge paneli uyarı ışıkları rehberi.
 - [Ajanda](https://otosoz.com/ajanda): Otomotiv ajandası — bakım hatırlatıcıları.
 
 ## Hakkında

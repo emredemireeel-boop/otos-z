@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-29T08:32:57.156Z",
+  "base": "http://127.0.0.1:3010",
+  "files": [
+    {
+      "url": "https://otosoz.com/sitemaps/core.xml",
+      "count": 13,
+      "bytes": 780,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/arac-dna.xml",
+      "count": 374,
+      "bytes": 33531,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/obd.xml",
+      "count": 6,
+      "bytes": 616,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/sozluk.xml",
+      "count": 0,
+      "bytes": 107,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/kutuphane.xml",
+      "count": 109,
+      "bytes": 10115,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/makale.xml",
+      "count": 50,
+      "bytes": 6361,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/forum.xml",
+      "count": 15,
+      "bytes": 2145,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/haberler.xml",
+      "count": 14,
+      "bytes": 1909,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/trafik-cezasi.xml",
+      "count": 39,
+      "bytes": 3425,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/otohesap.xml",
+      "count": 42,
+      "bytes": 3147,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/acik-oto-pazari.xml",
+      "count": 27,
+      "bytes": 2814,
+      "errors": []
+    }
+  ],
+  "total": 689,
+  "duplicates": 0,
+  "failures": 0,
+  "lastmodPresent": 45,
+  "failureExamples": []
+}

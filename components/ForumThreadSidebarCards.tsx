@@ -23,9 +23,9 @@ interface ForumThreadSidebarCardsProps {
 
 const DRIVER_ESSENTIALS = [
     { href: "/obd", title: "OBD arıza kodları", description: "Kodun nedenini ve çözümünü bul", icon: Wrench },
-    { href: "/kutuphane?kategori=gosterge-isiklari", title: "Gösterge ışıkları", description: "Uyarının önemini hemen öğren", icon: AlertTriangle },
-    { href: "/kutuphane?kategori=ikinci-el-rehberi", title: "İkinci el kontrolü", description: "Satın almadan önce kontrol et", icon: ClipboardCheck },
-    { href: "/kutuphane?kategori=kaza-ilkyardim", title: "Kaza ve ilk yardım", description: "Doğru adımları sırayla gör", icon: ShieldCheck },
+    { href: "/kutuphane/kategori/gosterge-isiklari", title: "Gösterge ışıkları", description: "Uyarının önemini hemen öğren", icon: AlertTriangle },
+    { href: "/kutuphane/kategori/ikinci-el-rehberi", title: "İkinci el kontrolü", description: "Satın almadan önce kontrol et", icon: ClipboardCheck },
+    { href: "/kutuphane/kategori/kaza-ilkyardim", title: "Kaza ve ilk yardım", description: "Doğru adımları sırayla gör", icon: ShieldCheck },
 ];
 
 const QUICK_CALCULATORS = [

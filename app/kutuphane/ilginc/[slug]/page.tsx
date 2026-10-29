@@ -254,7 +254,7 @@ export default async function IlgincDetayPage({ params }: PageProps) {
 
             <main style={{ maxWidth: "860px", margin: "0 auto", padding: "100px 24px 60px 24px" }}>
                 {/* Geri dön */}
-                <Link href="/kutuphane?kategori=ilginc-bilgiler" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "14px", fontWeight: "600", marginBottom: "32px", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
+                <Link href="/kutuphane/kategori/ilginc-bilgiler" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "14px", fontWeight: "600", marginBottom: "32px", padding: "8px 14px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
                     <ArrowLeft size={16} /> İlginç Bilgiler
                 </Link>
 
@@ -265,7 +265,7 @@ export default async function IlgincDetayPage({ params }: PageProps) {
 
                 {/* Alt bağlantı */}
                 <div style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--card-border)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <Link href="/kutuphane?kategori=ilginc-bilgiler" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--primary)", textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>
+                    <Link href="/kutuphane/kategori/ilginc-bilgiler" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--primary)", textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>
                         <ArrowLeft size={16} /> Tüm İlginç Bilgiler
                     </Link>
                     <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "13px" }}>

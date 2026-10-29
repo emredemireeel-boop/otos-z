@@ -68,7 +68,7 @@ export default function NasilYapilirDetailClient({ guide, category }: { guide: G
       <main style={{ minHeight: '100vh', background: 'var(--background)', padding: '40px 20px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', animation: "fadeIn 0.3s ease" }}>
           
-          <Link href="/kutuphane?kategori=nasil-yapilir" style={{ textDecoration: 'none' }}>
+          <Link href="/kutuphane/kategori/nasil-yapilir" style={{ textDecoration: 'none' }}>
             <button
               style={{
                 display: "flex", alignItems: "center", gap: "8px", padding: "10px 18px",

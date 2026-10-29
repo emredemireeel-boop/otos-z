@@ -33,9 +33,8 @@ export function isSeoUrlIndexable(value: string, context: { indexableThreads?: S
     if (url.origin !== 'https://otosoz.com' || url.pathname !== url.pathname.toLowerCase()
         || (url.pathname.length > 1 && url.pathname.endsWith('/'))) return false;
     const p = url.pathname.split('/').filter(Boolean);
-    if (p[0] === 'kutuphane' && p.length === 1 && url.search) {
-        const category = url.searchParams.get('kategori') || '';
-        return CATEGORIES.some(item => item.slug === category) && isHubIndexable('/kutuphane', { category });
+    if (p[0] === 'kutuphane' && p[1] === 'kategori' && p.length === 3 && !url.search) {
+        return CATEGORIES.some(item=>item.slug===p[2]) && isHubIndexable('/kutuphane',{category:p[2]});
     }
     if (url.search) return false;
     if (isHubIndexable(url.pathname)) return true;

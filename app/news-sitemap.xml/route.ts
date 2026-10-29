@@ -1,4 +1,4 @@
-import { isQualityGuide } from '@/lib/guide-quality';
+import { getIndexableUrls, recordDate } from '@/lib/seoRoutes';
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
@@ -25,15 +25,16 @@ export async function GET() {
         console.error('News sitemap data error:', error);
     }
 
+    const allowed=new Set((await getIndexableUrls('haberler')).map(entry=>entry.url));
     const now = Date.now();
     const urls = posts
         .filter(post => {
             const publishedAt = new Date(post.createdAt || '').getTime();
-            return isQualityGuide(post, 'news') && post.slug
+            return allowed.has(`${BASE_URL}/haberler/${post.slug}`) && post.slug
                 && post.title
                 && Number.isFinite(publishedAt)
                 && publishedAt >= now - TWO_DAYS_MS
-                && publishedAt <= now + 5 * 60 * 1000;
+                && publishedAt <= now;
         })
         .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
         .slice(0, 1000)
@@ -48,7 +49,7 @@ export async function GET() {
             `<news:publication_date>${new Date(post.createdAt).toISOString()}</news:publication_date>`,
             `<news:title>${escapeXml(String(post.title))}</news:title>`,
             '</news:news>',
-            `<lastmod>${new Date(post.updatedAt || post.createdAt).toISOString()}</lastmod>`,
+            ...(recordDate(post.updatedAt||post.createdAt)?[`<lastmod>${recordDate(post.updatedAt||post.createdAt)}</lastmod>`]:[]),
             '</url>',
         ].join(''));
 

@@ -6,17 +6,18 @@ const LEGACY_CATEGORY_MAP: Record<string, string | null> = {
     'makaleler': null, // null = redirect to /kutuphane (root)
 };
 
-/** Render başlamadan tek canonical kategori hedefine yönlendir. */
+export function libraryCategoryPath(category: string): string {
+    if(category==='makaleler')return '/kutuphane';
+    if(category==='kasko-deger')return '/kutuphane/kasko-deger';
+    if(category==='obd-ariza-kodlari')return '/obd';
+    if(category==='trafik-cezalari')return '/trafik-cezasi';
+    return `/kutuphane/kategori/${category}`;
+}
+/** A query URL always redirects once to its final canonical path. */
 export function getLibraryCategoryRedirect(category: string | null): string | null {
-    if (category === null) return null;
-    if (category === 'kasko-deger') return '/kutuphane/kasko-deger';
-    if (category === 'obd-ariza-kodlari') return '/obd';
-    if (category === 'trafik-cezalari') return '/trafik-cezasi';
-    if (Object.hasOwn(LEGACY_CATEGORY_MAP, category)) {
-        const target = LEGACY_CATEGORY_MAP[category];
-        return target ? `/kutuphane?kategori=${target}` : '/kutuphane';
-    }
-    return CATEGORIES.some(item => item.slug === category) ? null : '/kutuphane';
+    if(category===null)return null;
+    const slug=Object.hasOwn(LEGACY_CATEGORY_MAP,category)?LEGACY_CATEGORY_MAP[category]:category;
+    return slug && CATEGORIES.some(item=>item.slug===slug)?libraryCategoryPath(slug):'/kutuphane';
 }
 
 // Her kategori benzersiz başlık, açıklama ve arama niyetiyle sunulur.

@@ -255,7 +255,7 @@ export default function IkinciElRehberiDetailClient({ rehberItem }: IkinciElRehb
                                 padding: '20px'
                             }}>
                                 <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Tüm Ekspertiz Rehberi</h3>
-                                <Link href="/kutuphane?kategori=ikinci-el-rehberi" style={{
+                                <Link href="/kutuphane/kategori/ikinci-el-rehberi" style={{
                                     display: 'inline-block',
                                     fontSize: '14px',
                                     color: 'var(--primary)',

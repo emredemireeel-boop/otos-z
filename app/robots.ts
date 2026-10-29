@@ -51,7 +51,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
         sitemap: [
             'https://otosoz.com/sitemap.xml',
-            'https://otosoz.com/trafik-cezasi/sitemap.xml',
             'https://otosoz.com/news-sitemap.xml',
         ],
         host: 'https://otosoz.com',

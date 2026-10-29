@@ -1,0 +1,21 @@
+{
+  "updatedAt": "2026-10-29T08:33:45.734Z",
+  "completedLocally": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "remaining": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "deployment": "not performed; final release must include subsequent steps only after their checks pass",
+  "pendingUserApproval": "20-page content pilot must be produced and approved before editorial content edits",
+  "network": "Local tools and HTTPS access working. Batch SSH public-key login denied; user supplied password authorization is available for later release.",
+  "next": "Step 6 centralized server JSON-LD, then 7 metadata, 8 links, 9 performance, 10 trust/monitoring."
+}

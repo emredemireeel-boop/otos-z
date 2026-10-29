@@ -1,0 +1,4 @@
+import type {MetadataRoute} from 'next';
+export function xmlEscape(value:string){return value.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[char]!));}
+export function sitemapResponse(xml:string){if(Buffer.byteLength(xml)>=50*1024*1024)throw new Error('Sitemap exceeds 50 MB');return new Response(xml,{headers:{'Content-Type':'application/xml; charset=utf-8','Cache-Control':'public, max-age=0, s-maxage=900, stale-while-revalidate=60'}});}
+export function urlset(entries:MetadataRoute.Sitemap){if(entries.length>=50000)throw new Error('Sitemap needs pagination');return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${entries.map(entry=>`<url><loc>${xmlEscape(entry.url)}</loc>${entry.lastModified?`<lastmod>${xmlEscape(entry.lastModified instanceof Date?entry.lastModified.toISOString():entry.lastModified)}</lastmod>`:''}</url>`).join('')}</urlset>`;}

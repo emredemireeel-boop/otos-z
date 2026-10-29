@@ -47,7 +47,7 @@ export default function SatisAdimlariPage() {
             />}
 
             <main style={{ paddingTop: '100px', paddingBottom: '60px', maxWidth: '800px', margin: '0 auto', padding: '100px 24px 60px 24px' }}>
-                <Link href="/kutuphane?kategori=noter-islemleri" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', marginBottom: '24px', textDecoration: 'none', fontWeight: '600' }}>
+                <Link href="/kutuphane/kategori/noter-islemleri" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', marginBottom: '24px', textDecoration: 'none', fontWeight: '600' }}>
                     <ArrowLeft size={16} /> Kütüphaneye Dön
                 </Link>
 

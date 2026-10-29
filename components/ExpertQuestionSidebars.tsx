@@ -45,7 +45,7 @@ interface ExpertEntryPaginationProps {
 
 const BASE_RESOURCES = [
     { href: "/obd", title: "OBD kodunu araştır", description: "Arıza kodunun anlamını ve kontrol sırasını gör", icon: SearchCheck },
-    { href: "/kutuphane?kategori=gosterge-isiklari", title: "Gösterge ışıkları", description: "Uyarı lambasının aciliyetini öğren", icon: AlertTriangle },
+    { href: "/kutuphane/kategori/gosterge-isiklari", title: "Gösterge ışıkları", description: "Uyarı lambasının aciliyetini öğren", icon: AlertTriangle },
     { href: "/otohesap/arac-bakim", title: "Bakım maliyetini hesapla", description: "Muhtemel bakım bütçeni önceden planla", icon: BarChart3 },
 ];
 

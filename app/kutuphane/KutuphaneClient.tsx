@@ -410,7 +410,7 @@ export default function LibraryPage({ initialCategory = 'makaleler',initialGuide
                                             ? '/trafik-cezasi'
                                         : slug === 'kasko-deger'
                                             ? '/kutuphane/kasko-deger'
-                                            : `/kutuphane?kategori=${slug}`;
+                                            : `/kutuphane/kategori/${slug}`;
                                 return (
                                     <Link
                                         key={slug}

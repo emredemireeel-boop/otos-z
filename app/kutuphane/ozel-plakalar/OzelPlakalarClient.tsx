@@ -12,7 +12,7 @@ export default function OzelPlakalarClient() {
             <Navbar />
             
             <main style={{ paddingTop: '100px', paddingBottom: '60px', maxWidth: '1200px', margin: '0 auto', padding: '100px 24px 60px 24px' }}>
-                <Link href="/kutuphane?kategori=plaka-kodlari" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', marginBottom: '24px', textDecoration: 'none', fontWeight: '600' }}>
+                <Link href="/kutuphane/kategori/plaka-kodlari" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', marginBottom: '24px', textDecoration: 'none', fontWeight: '600' }}>
                     <ArrowLeft size={16} /> Kütüphaneye Dön
                 </Link>
 
@@ -42,7 +42,7 @@ export default function OzelPlakalarClient() {
 
                 {/* İç Menü */}
                 <div style={{ display: 'flex', gap: '12px', marginBottom: '32px', borderBottom: '1px solid var(--card-border)', paddingBottom: '16px', overflowX: 'auto' }}>
-                    <Link href="/kutuphane?kategori=plaka-kodlari" style={{ textDecoration: 'none' }}>
+                    <Link href="/kutuphane/kategori/plaka-kodlari" style={{ textDecoration: 'none' }}>
                         <button
                             style={{
                                 padding: '10px 20px', borderRadius: '10px', fontWeight: '600', fontSize: '14px',

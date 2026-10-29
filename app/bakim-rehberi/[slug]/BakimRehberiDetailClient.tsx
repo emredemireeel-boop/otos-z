@@ -232,7 +232,7 @@ export default function BakimRehberiDetailClient({ bakimItem }: BakimRehberiDeta
                                 padding: '20px'
                             }}>
                                 <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Tüm Bakım Rehberi</h3>
-                                <Link href="/kutuphane?kategori=bakim-zamanlari" style={{
+                                <Link href="/kutuphane/kategori/bakim-zamanlari" style={{
                                     display: 'inline-block',
                                     fontSize: '14px',
                                     color: 'var(--primary)',

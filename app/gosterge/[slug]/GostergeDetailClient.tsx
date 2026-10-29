@@ -40,7 +40,7 @@ export default function GostergeDetailClient({ light }: { light: any }) {
                         <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                             <Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Ana Sayfa</Link>
                             <ChevronRight size={14} />
-                            <Link href="/kutuphane?kategori=gosterge-isiklari" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Gösterge Işıkları</Link>
+                            <Link href="/kutuphane/kategori/gosterge-isiklari" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Gösterge Işıkları</Link>
                             <ChevronRight size={14} />
                             <span style={{ color: light.color, fontWeight: '600' }}>{light.title}</span>
                         </nav>
@@ -153,7 +153,7 @@ export default function GostergeDetailClient({ light }: { light: any }) {
                     </div>
 
                     <div style={{ marginTop: '20px', borderTop: '1px solid var(--card-border)', paddingTop: '32px', display: 'flex', justifyContent: 'center' }}>
-                        <Link href="/kutuphane?kategori=gosterge-isiklari" style={{ textDecoration: 'none' }}>
+                        <Link href="/kutuphane/kategori/gosterge-isiklari" style={{ textDecoration: 'none' }}>
                             <div style={{
                                 display: 'flex', alignItems: 'center', gap: '10px',
                                 padding: '16px 24px',

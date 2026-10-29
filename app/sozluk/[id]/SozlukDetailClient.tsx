@@ -46,7 +46,7 @@ export default function SozlukDetailClient({ term, relatedTerms, sameLetterTerms
                     <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                         <Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Ana Sayfa</Link>
                         <ChevronRight size={14} />
-                        <Link href="/kutuphane?kategori=otomotiv-sozluk" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Otomotiv Sözlüğü</Link>
+                        <Link href="/kutuphane/kategori/otomotiv-sozluk" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Otomotiv Sözlüğü</Link>
                         <ChevronRight size={14} />
                         <span style={{ color, fontWeight: '600' }}>{term.term}</span>
                     </nav>
@@ -263,7 +263,7 @@ export default function SozlukDetailClient({ term, relatedTerms, sameLetterTerms
                     </div>
 
                     {/* Back to Dictionary */}
-                    <Link href="/kutuphane?kategori=otomotiv-sozluk" style={{ textDecoration: 'none' }}>
+                    <Link href="/kutuphane/kategori/otomotiv-sozluk" style={{ textDecoration: 'none' }}>
                         <div style={{
                             display: 'flex', alignItems: 'center', gap: '10px',
                             padding: '16px',

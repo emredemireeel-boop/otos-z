@@ -34,7 +34,7 @@ async function readSitemaps(path, visited = new Set()) {
     if (response.status !== 200) throw new Error(`Sitemap ${url}: HTTP ${response.status}`);
     const xml = await response.text();
     const urls = [...xml.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/g)].map(match => decodeXml(match[1].trim()));
-    if (!urls.length) throw new Error(`No URLs in ${url}`);
+    if (!urls.length && !/<urlset\b/.test(xml)) throw new Error(`No URLs in ${url}`);
     if (/<sitemapindex\b/.test(xml)) {
         const nested = [];
         for (const child of urls) nested.push(...await readSitemaps(child, visited));

@@ -1,5 +1,7 @@
-import { MetadataRoute } from 'next';
-import { indexableObdCodes, obdDirectoryPageCount, OBD_LAST_REVIEWED } from '@/lib/obd-catalog';
+import 'server-only';
+import type { MetadataRoute } from 'next';
+import { CATEGORIES, libraryCategoryPath } from './library-categories';
+import { indexableObdCodes, obdDirectoryPageCount } from '@/lib/obd-catalog';
 import fs from 'fs';
 import path from 'path';
 import { getIndexableForumThreadSummaries, getForumHubThreadSummaries } from '@/lib/forumDataServer';
@@ -8,76 +10,45 @@ import { isForumCategoryIndexable } from '@/lib/forum-pagination';
 import { isSeoUrlIndexable } from '@/lib/seo-index-catalog';
 import { events } from '@/data/events';
 import { OTOHESAP_META } from '@/data/otohesap-meta';
-import { OTOHESAP_LAST_REVIEWED } from '@/data/otohesap-content';
 import { createSeoSlug as createSlug } from '@/lib/slug';
 import { dictionaryTerms } from '@/data/dictionary';
 import { mythsData } from '@/data/efsane-avcilari-data';
 import { getCanonicalDictionaryId } from '@/lib/seoUrls';
-import { topSellingVehicleGuides } from '@/data/top-selling-vehicle-guides';
 import { OPEN_CAR_MARKETS, TURKEY_PROVINCES, getMarketPath, hasVerifiedMarket } from '@/data/open-car-markets';
 
-// Sitemap'in 15 dakikada bir yeniden oluşturulması — yeni başlık/entry'ler hızla Google'a gider
-export const revalidate = 900;
+
 
 const BASE_URL = 'https://otosoz.com';
-const LIBRARY_LAST_REVIEWED = '2026-08-26';
-const DNA_LAST_REVIEWED = '2026-09-05';
-
-const LIBRARY_CATEGORY_SLUGS = [
-    'ilginc-bilgiler',
-    'otomotiv-sozluk',
-    'trafik-isaretleri',
-
-    'gosterge-isiklari',
-    'lastik-rehberi',
-    'ikinci-el-rehberi',
-    'kaza-ilkyardim',
-    'mevsimsel-bakim',
-    'sigorta-rehberi',
-    'otoyol-ve-kopru-ucretleri',
-    'bakim-zamanlari',
-    'tuvturk-muayene',
-    'arac-segmentleri',
-    'plaka-kodlari',
-    'noter-islemleri',
-    'ehliyet-siniflari',
-    'hgs-siniflari',
-    'dolandiricilik-rehberi',
-    'nereye-gitmeli',
-    'hasar-sorgulama',
-    'efsane-avcilari',
-    'nasil-yapilir',
-] as const;
 
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const generatedAt = Date.now();
+
+async function collectUrls(type?:SitemapType): Promise<MetadataRoute.Sitemap> {
     const sitemapEntries: MetadataRoute.Sitemap = [
         // Ana Hub Sayfaları
-        { url: `${BASE_URL}/trafik-cezasi`, changeFrequency: 'monthly', priority: 0.8 },
-        { url: `${BASE_URL}`, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
-        { url: `${BASE_URL}/kutuphane`, lastModified: new Date(LIBRARY_LAST_REVIEWED), changeFrequency: 'weekly', priority: 0.9 },
-        { url: `${BASE_URL}/makale`, changeFrequency: 'weekly', priority: 0.9 },
-        { url: `${BASE_URL}/kutuphane/kasko-deger`, lastModified: new Date(LIBRARY_LAST_REVIEWED), changeFrequency: 'monthly', priority: 0.8 },
-        { url: `${BASE_URL}/arac-dna`, lastModified: new Date(DNA_LAST_REVIEWED), changeFrequency: 'daily', priority: 0.95 },
-        { url: `${BASE_URL}/otobutce`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-        { url: `${BASE_URL}/haberler`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-        { url: `${BASE_URL}/karsilastirma`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
-        { url: `${BASE_URL}/uzmana-sor`, lastModified: new Date(), changeFrequency: 'always', priority: 0.8 },
-        { url: `${BASE_URL}/piyasalar`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
-        { url: `${BASE_URL}/guvenmetre`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
-        { url: `${BASE_URL}/altin-anahtar`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-        { url: `${BASE_URL}/anket`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-        { url: `${BASE_URL}/otohesap`, lastModified: new Date(OTOHESAP_LAST_REVIEWED), changeFrequency: 'weekly', priority: 0.9 },
-        { url: `${BASE_URL}/etkinlikler`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+        { url: `${BASE_URL}/trafik-cezasi`},
+        { url: `${BASE_URL}`},
+        { url: `${BASE_URL}/kutuphane`},
+        { url: `${BASE_URL}/makale`},
+        { url: `${BASE_URL}/kutuphane/kasko-deger`},
+        { url: `${BASE_URL}/arac-dna`},
+        { url: `${BASE_URL}/otobutce`},
+        { url: `${BASE_URL}/haberler`},
+        { url: `${BASE_URL}/karsilastirma`},
+        { url: `${BASE_URL}/uzmana-sor`},
+        { url: `${BASE_URL}/piyasalar`},
+        { url: `${BASE_URL}/guvenmetre`},
+        { url: `${BASE_URL}/altin-anahtar`},
+        { url: `${BASE_URL}/anket`},
+        { url: `${BASE_URL}/otohesap`},
+        { url: `${BASE_URL}/etkinlikler`},
 
-        { url: `${BASE_URL}/obd`, lastModified: new Date(OBD_LAST_REVIEWED), changeFrequency: 'weekly', priority: 0.9 },
-        { url: `${BASE_URL}/ajanda`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-        { url: `${BASE_URL}/hakkimizda`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
-        { url: `${BASE_URL}/iletisim`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
-        { url: `${BASE_URL}/gizlilik-politikasi`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-        { url: `${BASE_URL}/cerez-politikasi`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-        { url: `${BASE_URL}/kullanim-sartlari`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+        { url: `${BASE_URL}/obd`},
+        { url: `${BASE_URL}/ajanda`},
+        { url: `${BASE_URL}/hakkimizda`},
+        { url: `${BASE_URL}/iletisim`},
+        { url: `${BASE_URL}/gizlilik-politikasi`},
+        { url: `${BASE_URL}/cerez-politikasi`},
+        { url: `${BASE_URL}/kullanim-sartlari`},
     ];
 
     // Yalnızca kaynaklı, dizine açık pazar sayfalarını bildir.
@@ -90,12 +61,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     // Her kütüphane sekmesi ayrı ve kendi canonical'ına sahip bir koleksiyon sayfasıdır.
-    LIBRARY_CATEGORY_SLUGS.forEach(categorySlug => {
+    CATEGORIES.filter(cat => libraryCategoryPath(cat.slug).startsWith("/kutuphane/kategori/")).forEach(({slug: categorySlug}) => {
         sitemapEntries.push({
-            url: `${BASE_URL}/kutuphane?kategori=${categorySlug}`,
-            lastModified: new Date(LIBRARY_LAST_REVIEWED),
-            changeFrequency: 'weekly',
-            priority: 0.7,
+            url: `${BASE_URL}${libraryCategoryPath(categorySlug)}`,
+
         });
     });
 
@@ -122,7 +91,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const vehicleList = vehicleDNAData || [];
     const engineList = engineDNAData || [];
     const trimList = trimLevelsData || [];
-    const featuredVehiclePaths = new Set(topSellingVehicleGuides.map(guide => guide.vehiclePath));
     // Veri dosyasında aynı marka/model yolu bazı eski kayıtlar nedeniyle tekrar
     // edebiliyor. Sayfa çözümleyicisinin kullandığı ilk kaydı canonical kabul et;
     // sonraki kopyaların motorlarını aynı URL altında sitemap'e karıştırma.
@@ -139,9 +107,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     filteredBrands.forEach(brand => {
         sitemapEntries.push({
             url: `${BASE_URL}/arac-dna/${createSlug(brand)}`,
-            lastModified: new Date(DNA_LAST_REVIEWED),
-            changeFrequency: 'weekly',
-            priority: 0.8,
+
         });
     });
 
@@ -149,41 +115,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     uniqueVehicleList.forEach((vehicle: any) => {
         const brandSlug = createSlug(vehicle.brand);
         const modelSlug = createSlug(vehicle.model);
-        const isFeaturedVehicle = featuredVehiclePaths.has(`${brandSlug}/${modelSlug}`);
 
         // Model detay sayfası
         sitemapEntries.push({
             url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}`,
-            lastModified: new Date(DNA_LAST_REVIEWED),
-            changeFrequency: isFeaturedVehicle ? 'weekly' : 'monthly',
-            priority: isFeaturedVehicle ? 0.92 : 0.75,
+
         });
 
         // Yalnızca benzersiz ve görünür verisi olan alt sayfaları Google'a bildir.
         if (vehicle.chronicIssues?.length > 0) {
             sitemapEntries.push({
                 url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/kronik-sorunlar`,
-                lastModified: new Date(DNA_LAST_REVIEWED),
-                changeFrequency: 'weekly',
-                priority: isFeaturedVehicle ? 0.86 : 0.7,
+
             });
         }
 
         if (vehicle.strengths?.length > 0 || vehicle.weaknesses?.length > 0) {
             sitemapEntries.push({
                 url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/neden-alinir`,
-                lastModified: new Date(DNA_LAST_REVIEWED),
-                changeFrequency: 'weekly',
-                priority: isFeaturedVehicle ? 0.86 : 0.7,
+
             });
         }
 
         if (vehicle.userExperiences?.length > 0) {
             sitemapEntries.push({
                 url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/kullanici-deneyimleri`,
-                lastModified: new Date(DNA_LAST_REVIEWED),
-                changeFrequency: 'weekly',
-                priority: isFeaturedVehicle ? 0.86 : 0.7,
+
             });
         }
         
@@ -192,9 +149,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         if (hasTrim) {
             sitemapEntries.push({
                 url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/arac-paketleri`,
-                lastModified: new Date(DNA_LAST_REVIEWED),
-                changeFrequency: 'weekly',
-                priority: isFeaturedVehicle ? 0.86 : 0.7,
+
             });
         }
         
@@ -204,21 +159,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             vehicleEngines.engines.forEach((engine: any) => {
                 const engineSlug = engine.slug || createSlug(engine.name);
                 const engineUrls = [
-                    { suffix: '', include: true, priority: isFeaturedVehicle ? 0.88 : 0.72 },
-                    { suffix: '-kronik-sorunlari', include: engine.chronicIssues?.length > 0, priority: isFeaturedVehicle ? 0.82 : 0.64 },
+                    { suffix: '', include: true},
+                    { suffix: '-kronik-sorunlari', include: engine.chronicIssues?.length > 0},
                     {
                         suffix: '-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri',
                         include: Boolean(engine.pros?.length || engine.cons?.length),
-                        priority: isFeaturedVehicle ? 0.82 : 0.64,
                     },
                 ];
 
                 engineUrls.filter(item => item.include).forEach(item => {
                     sitemapEntries.push({
                         url: `${BASE_URL}/arac-dna/${brandSlug}/${modelSlug}/${engineSlug}${item.suffix}`,
-                        lastModified: new Date(DNA_LAST_REVIEWED),
-                        changeFrequency: 'weekly',
-                        priority: item.priority,
+
                     });
                 });
             });
@@ -229,9 +181,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         OTOBUTCE_CATEGORIES.forEach((category: any) => {
             sitemapEntries.push({
                 url: `${BASE_URL}/otobutce/${category.slug}`,
-                lastModified: new Date(),
-                changeFrequency: 'weekly',
-                priority: 0.8,
+
             });
         });
     }
@@ -240,13 +190,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     indexableObdCodes.forEach(code => {
         sitemapEntries.push({
             url: BASE_URL + '/obd/' + code.code.toLowerCase(),
-            lastModified: new Date(code.lastReviewed || OBD_LAST_REVIEWED),
-            changeFrequency: 'monthly',
-            priority: code.isGeneric ? 0.7 : 0.6,
+            ...(recordDate(code.lastReviewed) ? {lastModified:recordDate(code.lastReviewed)} : {}),
         });
     });
     for (let page = 1; page <= obdDirectoryPageCount; page++) {
-        sitemapEntries.push({ url: BASE_URL + '/obd-kodlari/' + page, changeFrequency: 'monthly', priority: 0.6 });
+        sitemapEntries.push({ url: BASE_URL + '/obd-kodlari/' + page});
     }
 
     // 3. Trafik Cezaları
@@ -257,9 +205,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 if (row.slug) {
                     sitemapEntries.push({
                         url: `${BASE_URL}/trafik-cezasi/${row.slug}`,
-                        lastModified: new Date(),
-                        changeFrequency: 'monthly',
-                        priority: 0.7,
+
                     });
                 }
             });
@@ -272,9 +218,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         guidesData.guides.forEach((guide: any) => {
             sitemapEntries.push({
                 url: `${BASE_URL}/makale/${createSlug(guide.title)}--${guide.urlId || guide.id}`,
-                lastModified: new Date(),
-                changeFrequency: 'monthly',
-                priority: 0.7,
+
             });
         });
     }
@@ -287,9 +231,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 cat.guides.forEach((guide: any) => {
                     sitemapEntries.push({
                         url: `${BASE_URL}/nasil-yapilir/${guide.slug || createSlug(guide.title)}`,
-                        lastModified: new Date(),
-                        changeFrequency: 'monthly',
-                        priority: 0.7,
+
                     });
                 });
             }
@@ -304,9 +246,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             arr.forEach(item => {
                 sitemapEntries.push({
                     url: `${BASE_URL}/kutuphane/ilginc/${createSlug(item[titleKey] || item.myth || item.text?.slice(0, 40))}-${item.id}`,
-                    lastModified: new Date(),
-                    changeFrequency: 'monthly',
-                    priority: 0.6,
+
                 });
             });
         };
@@ -329,9 +269,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     canonicalDictionaryIds.forEach(id => {
         sitemapEntries.push({
             url: `${BASE_URL}/sozluk/${id}`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.6,
+
         });
     });
 
@@ -341,9 +279,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         faultLights.warningLights.forEach((light: any) => {
             sitemapEntries.push({
                 url: `${BASE_URL}/gosterge/${createSlug(light.title)}--${light.urlId || light.id}`,
-                lastModified: new Date(),
-                changeFrequency: 'yearly',
-                priority: 0.5,
+
             });
         });
     }
@@ -358,9 +294,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             if (post.slug) {
                 sitemapEntries.push({
                     url: `${BASE_URL}/haberler/${post.slug}`,
-                    lastModified: post.createdAt ? new Date(post.createdAt) : new Date(),
-                    changeFrequency: 'weekly',
-                    priority: 0.8,
+                    ...(recordDate(post.updatedAt || post.createdAt) ? {lastModified: recordDate(post.updatedAt || post.createdAt)} : {}),
                 });
             }
         });
@@ -373,9 +307,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             if (item.id) {
                 sitemapEntries.push({
                     url: `${BASE_URL}/kutuphane/otoyol-ucretleri/${item.id}`,
-                    lastModified: new Date(),
-                    changeFrequency: 'monthly',
-                    priority: 0.6,
+
                 });
             }
         });
@@ -385,9 +317,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     mythsData.forEach((myth) => {
         sitemapEntries.push({
             url: `${BASE_URL}/kutuphane/efsane-avcilari/${myth.slug}--${myth.id}`,
-            lastModified: new Date(LIBRARY_LAST_REVIEWED),
-            changeFrequency: 'monthly',
-            priority: 0.7,
+
         });
     });
 
@@ -396,9 +326,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     otohesapModules.forEach(mod => {
         sitemapEntries.push({
             url: `${BASE_URL}/otohesap/${mod}`,
-            lastModified: new Date(OTOHESAP_LAST_REVIEWED),
-            changeFrequency: 'weekly',
-            priority: 0.82,
+
         });
     });
 
@@ -406,39 +334,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     events.filter(event => event.category !== 'pazar').forEach(event => {
         sitemapEntries.push({
             url: `${BASE_URL}/etkinlikler/${event.id}`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.6,
+
         });
     });
 
     // 15. Dinamik forum konuları: Admin erişimi yoksa güvenli public Firestore
     // yedeği devreye girer. Yeni başlık ve entry'ler 15 dakika içinde görünür.
-    const [forumThreads, visibleForumThreads] = await Promise.all([
+    const [forumThreads, visibleForumThreads] = !type || type==='forum' ? await Promise.all([
         getIndexableForumThreadSummaries(), getForumHubThreadSummaries(null),
-    ]);
+    ]) : [[],[]];
     // Thin/spam noindex kararı tekil metadata ile aynı politikadan gelir.
     forumThreads.forEach(thread => {
         sitemapEntries.push({
             url: `${BASE_URL}/forum/${thread.slug}`,
             ...(thread.lastEntryAt || thread.createdAt
-                ? { lastModified: new Date(thread.lastEntryAt || thread.createdAt || Date.now()) }
+                ? { lastModified: new Date((thread.lastEntryAt || thread.createdAt)!) }
                 : {}),
-            changeFrequency: 'hourly',
-            priority: 0.8,
         });
     });
 
-    sitemapEntries.push({ url: `${BASE_URL}/forum`, changeFrequency: 'hourly', priority: 0.9 });
+    sitemapEntries.push({ url: `${BASE_URL}/forum`});
     for (let page = 2; page <= Math.ceil(visibleForumThreads.length / FORUM_PAGE_SIZE); page++) {
-        sitemapEntries.push({ url: `${BASE_URL}${forumHubPath(page)}`, changeFrequency: 'hourly', priority: 0.6 });
+        sitemapEntries.push({ url: `${BASE_URL}${forumHubPath(page)}`});
     }
     for (const category of forumCategories) {
         const count = visibleForumThreads.filter(thread => thread.category === category.name).length;
         if (!isForumCategoryIndexable(count)) continue;
         for (let page = 1; page <= Math.ceil(count / FORUM_PAGE_SIZE); page++) {
-            sitemapEntries.push({ url: `${BASE_URL}${forumHubPath(page, category.slug)}`,
-                changeFrequency: 'hourly', priority: 0.7 });
+            sitemapEntries.push({ url: `${BASE_URL}${forumHubPath(page, category.slug)}`});
         }
     }
 
@@ -449,22 +372,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         if (!uniqueEntries.has(entry.url)) uniqueEntries.set(entry.url, entry);
     });
 
-    // "lastmod" yalnızca gerçek bir değişiklik tarihiyse güvenilir bir sinyaldir.
-    // Eski kod her sitemap yenilemesinde binlerce URL'yi o an değişmiş gibi
-    // işaretliyordu. Çalışma anında üretilmiş sentetik tarihleri kaldır; içerik
-    // veya Firestore kaydından gelen gerçek tarihleri koru.
     const indexableThreads = new Set(forumThreads.map(thread => thread.slug));
     const categoryCounts = new Map(forumCategories.map(category => [category.slug,
         visibleForumThreads.filter(thread => thread.category === category.name).length]));
-    return Array.from(uniqueEntries.values()).filter(entry => isSeoUrlIndexable(entry.url, { indexableThreads, categoryCounts })).map(entry => {
-        if (entry.lastModified instanceof Date) {
-            const isSynthetic = Math.abs(entry.lastModified.getTime() - generatedAt) < 5 * 60 * 1000;
-            const isForumThread = entry.url.startsWith(`${BASE_URL}/forum/`);
-            if (isSynthetic && !isForumThread) {
-                const { lastModified: _lastModified, ...stableEntry } = entry;
-                return stableEntry;
-            }
-        }
-        return entry;
-    });
+    return Array.from(uniqueEntries.values()).filter(entry => isSeoUrlIndexable(entry.url, {indexableThreads,categoryCounts}));
+}
+
+// Unknown dates are omitted. A build/deployment date is never a content date.
+export function recordDate(value: unknown): string | undefined {
+    if (!value || (typeof value !== 'string' && typeof value !== 'number' && !(value instanceof Date))) return undefined;
+    const date=new Date(value);
+    return Number.isFinite(date.getTime()) && date.getTime() <= Date.now() ? date.toISOString() : undefined;
+}
+export const SITEMAP_TYPES=['core','arac-dna','obd','sozluk','kutuphane','makale','forum','haberler','trafik-cezasi','otohesap','acik-oto-pazari'] as const;
+export type SitemapType=typeof SITEMAP_TYPES[number];
+export function seoRouteType(url:string):SitemapType {
+    const prefix=new URL(url).pathname.split('/')[1];
+    if(prefix==='otobutce')return 'otohesap';
+    if(['nasil-yapilir','gosterge'].includes(prefix))return 'kutuphane';
+    return SITEMAP_TYPES.includes(prefix as SitemapType)?prefix as SitemapType:'core';
+}
+export async function getIndexableUrls(type?:SitemapType):Promise<MetadataRoute.Sitemap> {
+    const urls=await collectUrls(type);
+    return type?urls.filter(entry=>seoRouteType(entry.url)===type):urls;
 }

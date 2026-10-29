@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import {getIndexableUrls} from '@/lib/seoRoutes';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { articles, articleCategories } from '@/lib/article-catalog';
@@ -9,8 +10,9 @@ export const metadata = createPageMetadata({ title: 'Otomobil Makaleleri ve Ara�
     description: 'OtoSöz makale arşivi: araç alım satımı, bakım ve arıza, sürüş, yakıt, sigorta ve otomobil teknolojisi üzerine seçilmiş rehberleri konularına göre keşfedin.',
     path: '/makale' });
 
-export default function ArticlesPage() {
-    const featuredArticles = articles.filter(article => article.indexable);
+export default async function ArticlesPage() {
+    const paths=new Set((await getIndexableUrls('makale')).map(entry=>new URL(entry.url).pathname));
+    const featuredArticles = articles.filter(article => paths.has(article.path));
     const groups = articleCategories.map(category => ({ ...category,
         articles: featuredArticles.filter(article => article.category === category.slug) })).filter(group => group.articles.length);
     const schema = { '@context': 'https://schema.org', '@type': 'CollectionPage',

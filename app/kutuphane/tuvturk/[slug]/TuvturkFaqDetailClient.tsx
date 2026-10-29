@@ -41,7 +41,7 @@ export default function TuvturkFaqDetailClient({ faq }: { faq: FaqProps }) {
                 {/* Header */}
                 <div style={{ background: 'var(--card-bg)', borderBottom: '1px solid var(--card-border)', padding: '32px 24px' }}>
                     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                        <Link href="/kutuphane?kategori=tuvturk-muayene" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "14px", fontWeight: "600", marginBottom: "24px", padding: "8px 14px", background: "var(--background)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
+                        <Link href="/kutuphane/kategori/tuvturk-muayene" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--text-muted)", textDecoration: "none", fontSize: "14px", fontWeight: "600", marginBottom: "24px", padding: "8px 14px", background: "var(--background)", border: "1px solid var(--card-border)", borderRadius: "10px" }}>
                             <ChevronLeft size={16} /> Kütüphaneye Dön
                         </Link>
                         
@@ -79,7 +79,7 @@ export default function TuvturkFaqDetailClient({ faq }: { faq: FaqProps }) {
                         <div>
                             <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '8px' }}>TÜVTÜRK Rehberi</h3>
                             <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '16px' }}>Aracınızın muayeneden sorunsuz geçmesi için ağır ve hafif kusur listelerine tam göz atın.</p>
-                            <Link href="/kutuphane?kategori=tuvturk-muayene" style={{ display: 'inline-block', padding: '8px 16px', background: 'var(--primary)', color: 'white', textDecoration: 'none', borderRadius: '8px', fontSize: '13px', fontWeight: '600' }}>
+                            <Link href="/kutuphane/kategori/tuvturk-muayene" style={{ display: 'inline-block', padding: '8px 16px', background: 'var(--primary)', color: 'white', textDecoration: 'none', borderRadius: '8px', fontSize: '13px', fontWeight: '600' }}>
                                 Tüm Kusur Listesini İncele
                             </Link>
                         </div>

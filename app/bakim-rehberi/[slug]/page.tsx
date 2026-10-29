@@ -102,7 +102,7 @@ export default async function BakimRehberiPage({ params }: PageProps) {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Bakım Zamanları",
-                "item": "https://otosoz.com/kutuphane?kategori=bakim-zamanlari"
+                "item": "https://otosoz.com/kutuphane/kategori/bakim-zamanlari"
             },
             {
                 "@type": "ListItem",
