@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {breadcrumb as buildSchemaBreadcrumbList,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { isQualityGuide } from '@/lib/guide-quality';
@@ -23,41 +24,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         const data = JSON.parse(fileContents);
         const light = data.warningLights.find((g: any) => g.urlId.toString() === id);
 
-        if (!light) return { title: 'Gösterge Bulunamadı | OtoSöz' };
+        if (!light) return createPageMetadata({
+        title: 'Gösterge Bulunamadı | OtoSöz'
+    });
 
         const ogUrl = `/api/og?title=${encodeURIComponent(light.title + ' İkaz Lambası')}&desc=${encodeURIComponent(light.meaning.slice(0, 160))}`;
 
-        return {
-            title: `${light.title} İkaz Lambası Anlamı | OtoSöz`,
-            robots: indexabilityRobots(isQualityGuide(light, 'warningLight')),
+        return createPageMetadata({
+        title: `${light.title} İkaz Lambası Anlamı | OtoSöz`,
         description: light.meaning,
-            keywords: light.tags,
-            openGraph: {
-                title: `${light.title} İkaz Lambası`,
-                description: light.meaning,
-                type: 'article',
-                url: `https://otosoz.com/gosterge/${slug}`,
-                images: [
-                    {
-                        url: ogUrl,
-                        width: 1200,
-                        height: 630,
-                        alt: `${light.title} İkaz Lambası`,
-                    }
-                ],
-            },
-            twitter: {
-                card: 'summary_large_image',
-                title: `${light.title} İkaz Lambası`,
-                description: light.meaning,
-                images: [ogUrl],
-            },
-            alternates: {
-                canonical: `https://otosoz.com/gosterge/${slug}`,
-            },
-        };
+        path: `https://otosoz.com/gosterge/${slug}`,
+        index: isQualityGuide(light, 'warningLight')
+    });
     } catch (error) {
-        return { title: 'Hata | OtoSöz' };
+        return createPageMetadata({
+        title: 'Hata | OtoSöz'
+    });
     }
 }
 

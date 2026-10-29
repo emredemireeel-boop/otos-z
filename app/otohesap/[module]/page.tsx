@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {faqPage as buildSchemaFAQPage,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
@@ -19,31 +20,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const resolvedParams = await params;
   const meta = OTOHESAP_META[resolvedParams.module];
   if (!meta) {
-    return { title: 'OtoHesap | Otosöz' };
+    return createPageMetadata({
+        title: 'OtoHesap | Otosöz'
+    });
   }
 
   const pageUrl = `https://otosoz.com/otohesap/${resolvedParams.module}`;
-  return {
-    title: meta.title,
-    description: meta.description,
-    keywords: meta.keywords,
-    authors: [{ name: 'Otosöz İçerik Ekibi', url: 'https://otosoz.com/hakkimizda' }],
-    creator: 'Otosöz',
-    publisher: 'Otosöz',
-    category: 'Otomotiv hesaplama araçları',
-    robots: indexabilityRobots(isGuideIndexable(meta, { kind: 'functional-utility', text: qualityContentText(OTOHESAP_GUIDES[resolvedParams.module]) })),
-    alternates: { canonical: pageUrl },
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      url: pageUrl,
-      siteName: 'Otosöz',
-      locale: 'tr_TR',
-      type: 'website',
-      images: [],
-    },
-    twitter: { card: 'summary', title: meta.title, description: meta.description, images: [] },
-  };
+  return createPageMetadata({
+        title: meta.title,
+        description: meta.description,
+        category: 'Otomotiv hesaplama araçları',
+        path: pageUrl,
+        index: isGuideIndexable(meta, { kind: 'functional-utility', text: qualityContentText(OTOHESAP_GUIDES[resolvedParams.module]) })
+    });
 }
 
 export function generateStaticParams() {

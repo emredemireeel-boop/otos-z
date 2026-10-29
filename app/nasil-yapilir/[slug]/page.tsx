@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import {schemaJson, article} from '@/lib/schema';
@@ -45,41 +46,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             }
         }
 
-        if (!guide) return { title: 'Rehber Bulunamadı | OtoSöz' };
+        if (!guide) return createPageMetadata({
+        title: 'Rehber Bulunamadı | OtoSöz'
+    });
 
         const ogUrl = `/api/og?title=${encodeURIComponent(guide.title)}&desc=${encodeURIComponent(guide.description.slice(0, 160))}`;
 
-        return {
-            title: `${guide.title} - Nasıl Yapılır? | OtoSöz`,
-            robots: indexabilityRobots(isQualityGuide(guide, 'howto')),
+        return createPageMetadata({
+        title: `${guide.title} - Nasıl Yapılır? | OtoSöz`,
         description: guide.description,
-            keywords: guide.tools.concat(["nasıl yapılır", "araç bakım", "rehber"]),
-            openGraph: {
-                title: guide.title,
-                description: guide.description,
-                type: 'article',
-                url: `https://otosoz.com/nasil-yapilir/${slug}`,
-                images: [
-                    {
-                        url: ogUrl,
-                        width: 1200,
-                        height: 630,
-                        alt: guide.title,
-                    }
-                ],
-            },
-            twitter: {
-                card: 'summary_large_image',
-                title: guide.title,
-                description: guide.description,
-                images: [ogUrl],
-            },
-            alternates: {
-                canonical: `https://otosoz.com/nasil-yapilir/${slug}`,
-            },
-        };
+        path: `https://otosoz.com/nasil-yapilir/${slug}`,
+        index: isQualityGuide(guide, 'howto')
+    });
     } catch (error) {
-        return { title: 'Hata | OtoSöz' };
+        return createPageMetadata({
+        title: 'Hata | OtoSöz'
+    });
     }
 }
 

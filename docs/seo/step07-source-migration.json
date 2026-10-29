@@ -1,0 +1,222 @@
+[
+  {
+    "file": "app/acik-oto-pazari/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/acik-oto-pazari/[city]/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/acik-oto-pazari/[city]/[market]/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/altin-anahtar/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/anket/[id]/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/arac-dna/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/arac-dna/[brand]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/arac-dna/[brand]/[model]/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/bakim-rehberi/[slug]/page.tsx",
+    "objects": 3
+  },
+  {
+    "file": "app/basarim/[userId]/[badge]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/etkinlikler/[eventId]/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/forum/[id]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/giris/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/gosterge/[slug]/page.tsx",
+    "objects": 3
+  },
+  {
+    "file": "app/guvenmetre/[categoryId]/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/guvenmetre/[categoryId]/[brandId]/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/haberler/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/haberler/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/ikinci-el-rehberi/[slug]/page.tsx",
+    "objects": 3
+  },
+  {
+    "file": "app/karsilastirma/[id]/layout.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/kayit/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/kutuphane/efsane-avcilari/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/kutuphane/ehliyet/harclar/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/kutuphane/ehliyet/sinif/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/kutuphane/ehliyet/src-belgesi/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/kutuphane/ilginc/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/kutuphane/kasa/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/kutuphane/kasko-deger/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/kutuphane/kasko-deger/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/kutuphane/noter/guvenli-odeme/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/kutuphane/noter/satis-adimlari/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/kutuphane/otoyol-ucretleri/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/kutuphane/ozel-plakalar/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/kutuphane/plaka/[slug]/page.tsx",
+    "objects": 3
+  },
+  {
+    "file": "app/kutuphane/segment/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/kutuphane/tuvturk/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/kutuphane/ulke-plakalari/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/kutuphane/[guideId]/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/makale/[slug]/page.tsx",
+    "objects": 3
+  },
+  {
+    "file": "app/mobil-giris/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/nasil-yapilir/[slug]/page.tsx",
+    "objects": 3
+  },
+  {
+    "file": "app/obd/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/obd/[slug]/page.tsx",
+    "objects": 3
+  },
+  {
+    "file": "app/obd-kodlari/[page]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/otobutce/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/otobutce/[slug]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/otohesap/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/otohesap/[module]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/sozluk/[id]/page.tsx",
+    "objects": 2
+  },
+  {
+    "file": "app/trafik-cezasi/page.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/trafik-cezasi/[slug]/page.tsx",
+    "objects": 3
+  },
+  {
+    "file": "app/uzmana-sor/[id]/layout.tsx",
+    "objects": 1
+  },
+  {
+    "file": "app/uzmana-sor/[id]/page.tsx",
+    "objects": 4
+  }
+]

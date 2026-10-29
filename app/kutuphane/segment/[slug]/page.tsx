@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -29,14 +30,16 @@ export async function generateMetadata({ params }: SegmentPageProps): Promise<Me
         const id = segmentIdMatch[1].toUpperCase();
         const segment = segmentData.segments.find(s => s.id === id);
         if (segment) {
-            return {
-                title: `${segment.title} Nedir? ${id} Segmenti Araçlar Nelerdir? | OtoSöz`,
-                description: `${segment.title} özellikleri nelerdir? Hangi arabalar ${id} segmentine girer? ${id} segmenti hakkında bilmeniz gereken tüm detaylar OtoSöz Kütüphane'de.`,
-            };
+            return createPageMetadata({
+        title: `${segment.title} Nedir? ${id} Segmenti Araçlar Nelerdir? | OtoSöz`,
+        description: `${segment.title} özellikleri nelerdir? Hangi arabalar ${id} segmentine girer? ${id} segmenti hakkında bilmeniz gereken tüm detaylar OtoSöz Kütüphane'de.`
+    });
         }
     }
 
-    return { title: 'Araç Segmentleri | OtoSöz' };
+    return createPageMetadata({
+        title: 'Araç Segmentleri | OtoSöz'
+    });
 }
 
 export default async function SegmentDetailPage({ params }: SegmentPageProps) {

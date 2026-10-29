@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isGuideIndexable, qualityContentText } from '@/lib/indexability';
 import { Metadata } from "next";
@@ -23,22 +24,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = OTOBUTCE_CATEGORIES.find((c) => c.slug === slug);
 
   if (!category) {
-    return { title: "Bulunamadı | OtoBütçe" };
+    return createPageMetadata({
+        title: "Bulunamadı | OtoBütçe"
+    });
   }
 
-  return {
-    robots: indexabilityRobots(isGuideIndexable(category, { kind: 'functional-utility', text: qualityContentText(category) })),
-    title: category.seoTitle,
-    description: category.seoDesc,
-    keywords: `araba, ikinci el, araç önerisi, ${category.title} araba, ${category.title} araçlar`,
-    alternates: { canonical: `https://otosoz.com/otobutce/${category.slug}` },
-    openGraph: {
-      title: category.seoTitle,
-      description: category.seoDesc,
-      url: `https://otosoz.com/otobutce/${category.slug}`,
-      type: "article",
-    },
-  };
+  return createPageMetadata({
+        title: category.seoTitle,
+        description: category.seoDesc,
+        path: `https://otosoz.com/otobutce/${category.slug}`,
+        index: isGuideIndexable(category, { kind: 'functional-utility', text: qualityContentText(category) }),
+        type: 'article'
+    });
 }
 
 export default async function OtoButceCategoryPage({ params }: Props) {

@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import tuvturkFaq from '@/data/tuvturk_faq.json';
@@ -22,26 +23,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const faq = tuvturkFaq.find(f => f.id === id);
 
     if (!faq) {
-        return {
-            title: 'Soru Bulunamadı | OtoSöz',
-            description: 'Aradığınız TÜVTÜRK sorusu bulunamadı.',
-        };
+        return createPageMetadata({
+        title: 'Soru Bulunamadı | OtoSöz',
+        description: 'Aradığınız TÜVTÜRK sorusu bulunamadı.'
+    });
     }
 
-    return {
+    return createPageMetadata({
         title: `${faq.question} | TÜVTÜRK Rehberi | OtoSöz`,
         description: faq.answer.substring(0, 150) + '...',
-        keywords: [...faq.tags, "tüvtürk", "araç muayene", "ağır kusur", "hafif kusur"],
-        alternates: {
-            canonical: `/kutuphane/tuvturk/${slug}`,
-        },
-        openGraph: {
-            title: faq.question,
-            description: faq.answer.substring(0, 150) + '...',
-            url: `https://otosoz.com/kutuphane/tuvturk/${slug}`,
-            type: 'article',
-        }
-    };
+        path: `/kutuphane/tuvturk/${slug}`
+    });
 }
 
 export default async function TuvturkFaqPage({ params }: Props) {

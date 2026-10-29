@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {schemaJson as serializeSchema} from '@/lib/schema';
 import { Metadata } from "next";
 import UzmanaSorClient from "./UzmanaSorClient";
@@ -18,63 +19,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     if (sampleQuestion) {
         const description = `${sampleQuestion.description} Bu içerik örnektir.`;
         const ogUrl = `/api/og?title=${encodeURIComponent(sampleQuestion.title)}&desc=${encodeURIComponent('Uzmana Sor örnek sayfa yapısı')}`;
-        return {
-            title: `${sampleQuestion.title} | Örnek Uzmana Sor | OtoSöz`,
-            description,
-            robots: { index: false, follow: true },
-            alternates: { canonical: `https://otosoz.com/uzmana-sor/${threadId}` },
-            openGraph: {
-                title: `${sampleQuestion.title} | Örnek içerik`,
-                description,
-                type: 'article',
-                url: `https://otosoz.com/uzmana-sor/${threadId}`,
-                images: [{ url: ogUrl, width: 1200, height: 630, alt: sampleQuestion.title }],
-            },
-        };
+        return createPageMetadata({
+        title: `${sampleQuestion.title} | Örnek Uzmana Sor | OtoSöz`,
+        description,
+        path: `https://otosoz.com/uzmana-sor/${threadId}`,
+        index: false
+    });
     }
 
     try {
         const thread = await getThreadById(threadId);
 
         if (!thread) {
-            return {
-                title: 'Soru Bulunamadı | Uzmana Sor',
-            };
+            return createPageMetadata({
+        title: 'Soru Bulunamadı | Uzmana Sor'
+    });
         }
 
         const ogUrl = `/api/og?title=${encodeURIComponent(thread.title)}&desc=${encodeURIComponent("Uzmanlara sorulan bu soruyu ve yanıtlarını inceleyin.")}`;
 
-        return {
-            title: `${thread.title} | Uzmana Sor | OtoSöz`,
-            description: `${thread.authorUsername} tarafından sorulan soru: ${thread.title}. Uzmanların yanıtlarını inceleyin veya siz de yanıtlayın.`,
-            openGraph: {
-                title: `${thread.title} | Uzmana Sor`,
-                description: `${thread.authorUsername} tarafından sorulan soru: ${thread.title}. Uzmanların yanıtlarını inceleyin veya siz de yanıtlayın.`,
-                type: 'article',
-                url: `https://otosoz.com/uzmana-sor/${threadId}`,
-                images: [
-                    {
-                        url: ogUrl,
-                        width: 1200,
-                        height: 630,
-                        alt: thread.title,
-                    }
-                ],
-            },
-            twitter: {
-                card: 'summary_large_image',
-                title: thread.title,
-                description: `Uzmana sorulan bu soruyu inceleyin.`,
-                images: [ogUrl],
-            },
-            alternates: {
-                canonical: `https://otosoz.com/uzmana-sor/${threadId}`,
-            },
-        };
+        return createPageMetadata({
+        title: `${thread.title} | Uzmana Sor | OtoSöz`,
+        description: `${thread.authorUsername} tarafından sorulan soru: ${thread.title}. Uzmanların yanıtlarını inceleyin veya siz de yanıtlayın.`,
+        path: `https://otosoz.com/uzmana-sor/${threadId}`
+    });
     } catch (error) {
-        return {
-            title: 'Hata | Uzmana Sor',
-        };
+        return createPageMetadata({
+        title: 'Hata | Uzmana Sor'
+    });
     }
 }
 

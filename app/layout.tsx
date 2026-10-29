@@ -1,74 +1,31 @@
+import {createPageMetadata} from '@/lib/seo';
 import {schemaJson, schemaGraph, organization, website} from '@/lib/schema';
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import "./cookie-consent.css";
 
-export const metadata: Metadata = {
-    metadataBase: new URL('https://otosoz.com'),
-    title: {
+export const metadata: Metadata = createPageMetadata({
+        path:"/",
+        metadataBase: new URL('https://otosoz.com'),
+        title: {
         default: "OtoSöz | Araç Alımı, Arıza Çözümü ve Karşılaştırma",
         // Alt sayfalar kendi marka eklerini yönetiyor. Burada tekrar eklemek
         // "... | Otosöz | Otosöz" biçiminde yinelenen başlıklar üretiyordu.
         template: '%s',
     },
-    description: "OtoSöz; araç alırken, arıza araştırırken veya iki otomobili karşılaştırırken gerçek sürücü deneyimini, uzman görüşünü ve veriyi bir araya getiren otomotiv karar platformudur.",
-    keywords: [
-        "otomotiv karar platformu", "araç satın alma", "araba alınır mı", "araç kullanıcı yorumları",
-        "otomobil arıza çözümü", "uzmana sor", "kronik sorunlar", "otomobil",
-        "araç arıza kodları", "OBD kodları", "gösterge ışıkları",
-        "ikinci el araç", "araç karşılaştırma", "araç DNA", "trafik cezaları 2026",
-        "yakıt hesaplama", "otomotiv forum", "araç bakım rehberi", "kasko değer listesi",
-        "motor arıza", "lastik rehberi", "ehliyet sınıfları", "MTV hesaplama",
-        "otomotiv sözlük", "araç muayene", "TÜVTÜRK randevu", "otoyol ücretleri",
-    ],
-    icons: {
+        description: "OtoSöz; araç alırken, arıza araştırırken veya iki otomobili karşılaştırırken gerçek sürücü deneyimini, uzman görüşünü ve veriyi bir araya getiren otomotiv karar platformudur.",
+        icons: {
         icon: [
             { url: '/dark_logo.svg', media: '(prefers-color-scheme: dark)' },
             { url: '/whitemode_logo.svg', media: '(prefers-color-scheme: light)' },
         ],
         apple: '/dark_logo.svg',
     },
-    manifest: '/manifest.json',
-    robots: {
-        index: false,
-        follow: true,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-        'max-video-preview': -1,
-        googleBot: {
-            index: false,
-            follow: true,
-            'max-image-preview': 'large',
-            'max-snippet': -1,
-            'max-video-preview': -1,
-        },
-    },
-    openGraph: {
-        title: "OtoSöz | Araç Alımı, Arıza Çözümü ve Karşılaştırma",
-        description: "Araç seçimi, arıza çözümü ve otomobil karşılaştırması için gerçek deneyim, uzman görüşü ve veriler tek platformda.",
-        url: 'https://otosoz.com',
-        siteName: 'OtoSöz',
-        locale: 'tr_TR',
-        type: 'website',
-        images: [
-            {
-                url: '/api/og',
-                width: 1200,
-                height: 630,
-                alt: 'OtoSöz — Otomotiv Karar Platformu',
-            },
-        ],
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: "OtoSöz | Araç Alımı, Arıza Çözümü ve Karşılaştırma",
-        description: "Araç seçimi, arıza çözümü ve otomobil karşılaştırması için doğru bilgi ve gerçek deneyim tek platformda.",
-        images: ['/api/og'],
-        creator: '@otosoz',
-    },
-    category: 'automotive',
-};
+        manifest: '/manifest.json',
+        category: 'automotive',
+        index: false
+    });
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -103,20 +60,6 @@ export default function RootLayout({
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
                 <meta name="apple-mobile-web-app-title" content="OtoSöz" />
-
-                {/* ── Geo & Language Sinyalleri ── */}
-                <meta name="geo.region" content="TR" />
-                <meta name="geo.placename" content="İzmir" />
-                <meta name="language" content="Turkish" />
-                {/* content-language artık html lang="tr" ile karşılanıyor */}
-
-                {/* ── Ek SEO Sinyalleri ── */}
-                <meta name="author" content="OtoSöz" />
-                <meta name="publisher" content="OtoSöz" />
-                <meta name="copyright" content="© 2024-2026 OtoSöz. Tüm hakları saklıdır." />
-                <meta name="rating" content="general" />
-                <meta name="distribution" content="global" />
-                <meta name="revisit-after" content="1 day" />
 
                 {/* Navbar görseli Next/Image tarafından yalnızca kullanılan tema için önyüklenir. */}
                 <link rel="alternate" type="application/rss+xml" title="OtoSöz Forum - Son Başlıklar" href="/forum/feed.xml" />

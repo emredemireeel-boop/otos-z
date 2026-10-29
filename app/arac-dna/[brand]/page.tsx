@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {breadcrumb as buildSchemaBreadcrumbList,collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { Metadata } from "next";
@@ -26,7 +27,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const { brand: brandSlug } = await params;
 
     const brandName = uniqueBrands.find(b => createSlug(b) === brandSlug.toLowerCase());
-    if (!brandName) return { title: "Marka Bulunamadı | OtoSöz" };
+    if (!brandName) return createPageMetadata({
+        title: "Marka Bulunamadı | OtoSöz"
+    });
 
     const brandModels = vehicleDNAData.filter(v => v.brand === brandName && isVehicleIndexable(v));
     const avgScore = Math.round(brandModels.reduce((s, v) => s + v.dnaScore, 0) / brandModels.length);
@@ -34,26 +37,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const title = `${brandName} Araç DNA Analizi – ${brandModels.length} Model İncelemesi [2026] | OtoSöz`;
     const description = `${brandName} marka araçların detaylı DNA analizi ✓ ${brandModels.length} model ✓ Ortalama DNA Puanı: ${avgScore}/100 ✓ Kronik sorunlar, güçlü yönler ve kullanıcı deneyimleri ✓ Motor seçenekleri karşılaştırması`;
 
-    return {
+    return createPageMetadata({
         title,
         description,
-        robots: indexabilityRobots(brandModels.length > 0),
-        keywords: [
-            `${brandName} araç analizi`, `${brandName} DNA puanı`, `${brandName} kronik sorunlar`,
-            `${brandName} modelleri`, `${brandName} arıza`, `${brandName} 2026`,
-            `${brandName} ikinci el`, `${brandName} kullanıcı yorumları`,
-        ],
-        openGraph: {
-            title,
-            description,
-            type: "website",
-            url: `https://otosoz.com/arac-dna/${brandSlug.toLowerCase()}`,
-            siteName: "OtoSöz",
-        },
-        alternates: {
-            canonical: `https://otosoz.com/arac-dna/${brandSlug.toLowerCase()}`,
-        },
-    };
+        path: `https://otosoz.com/arac-dna/${brandSlug.toLowerCase()}`,
+        index: brandModels.length > 0
+    });
 }
 
 export default async function BrandPage({ params }: PageProps) {

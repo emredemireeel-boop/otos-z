@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {breadcrumb as buildSchemaBreadcrumbList,faqPage as buildSchemaFAQPage,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
@@ -65,32 +66,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         );
         const url = `${BASE_URL}/obd/${normalizedSlug}`;
 
-        return {
-            title: `${brandName} OBD-II Arıza Kodu Sorgulama | OtoSöz`,
-            description,
-            alternates: { canonical: url },
-            robots: {
-                index: false,
-                follow: true,
-                googleBot: { index: false, follow: true },
-            },
-            openGraph: {
-                title: `${brandName} OBD-II Arıza Kodu Sorgulama | OtoSöz`,
-                description,
-                url,
-                type: "website",
-            },
-        };
+        return createPageMetadata({
+        title: `${brandName} OBD-II Arıza Kodu Sorgulama | OtoSöz`,
+        description,
+        path: url,
+        index: false
+    });
     }
 
     const upperCode = normalizedSlug.toUpperCase();
     const codeData = getObdCode(upperCode);
 
     if (!codeData) {
-        return {
-            title: "OBD Arıza Kodu Bulunamadı | OtoSöz",
-            robots: { index: false, follow: false },
-        };
+        return createPageMetadata({
+        title: "OBD Arıza Kodu Bulunamadı | OtoSöz",
+        index: false
+    });
     }
 
     const canonicalUrl = `${BASE_URL}/obd/${codeData.code.toLowerCase()}`;
@@ -99,26 +90,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     );
     const ogUrl = `/api/og?title=${encodeURIComponent(`${codeData.code} Arıza Kodu`)}&desc=${encodeURIComponent(codeData.title)}`;
 
-    return {
-        title: `${codeData.code} Arıza Kodu Nedir? Belirtileri ve Çözümü | OtoSöz`,
+    return createPageMetadata({
+        title: `${codeData.code} Arıza Kodu: ${codeData.title} — Nedenleri ve Çözümü`,
         description: metaDescription,
-        keywords: [`${codeData.code} arıza kodu`, `${codeData.code} nedir`, `OBD ${codeData.code}`, codeData.title],
-        alternates: { canonical: canonicalUrl },
-        robots: indexabilityRobots(isObdCodeIndexable(codeData)),
-        openGraph: {
-            title: `${codeData.code} Arıza Kodu: ${codeData.title} | OtoSöz`,
-            description: metaDescription,
-            type: "article",
-            url: canonicalUrl,
-            images: [{ url: ogUrl, width: 1200, height: 630, alt: `${codeData.code} arıza kodu açıklaması` }],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: `${codeData.code} Arıza Kodu: ${codeData.title} | OtoSöz`,
-            description: metaDescription,
-            images: [ogUrl],
-        },
-    };
+        path: canonicalUrl,
+        index: isObdCodeIndexable(codeData),
+        type: 'article'
+    });
 }
 
 export default async function OBDSlugPage({ params }: PageProps) {

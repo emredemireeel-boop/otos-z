@@ -9,9 +9,11 @@ import { articles, articleCategories } from '@/lib/article-catalog';
 import { createPageMetadata } from '@/lib/seo';
 import styles from '@/app/hubs.module.css';
 
-export const metadata = createPageMetadata({ title: 'Otomobil Makaleleri ve Araç Rehberleri',
-    description: 'OtoSöz makale arşivi: araç alım satımı, bakım ve arıza, sürüş, yakıt, sigorta ve otomobil teknolojisi üzerine seçilmiş rehberleri konularına göre keşfedin.',
-    path: '/makale' });
+export const metadata = createPageMetadata({
+        title: 'Otomobil Makaleleri ve Araç Rehberleri',
+        description: 'OtoSöz makale arşivi: araç alım satımı, bakım ve arıza, sürüş, yakıt, sigorta ve otomobil teknolojisi üzerine seçilmiş rehberleri konularına göre keşfedin.',
+        path: '/makale'
+    });
 
 export default async function ArticlesPage() {
     const paths=new Set((await getIndexableUrls('makale')).map(entry=>new URL(entry.url).pathname));

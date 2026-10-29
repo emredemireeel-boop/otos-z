@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
@@ -32,25 +33,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const item = getTollDataFromSlug(slug);
 
     if (!item) {
-        return { title: "Bulunamadı | OtoSöz" };
+        return createPageMetadata({
+        title: "Bulunamadı | OtoSöz"
+    });
     }
 
-    return {
+    return createPageMetadata({
         title: `${item.seoTitle} | OtoSöz`,
-        robots: indexabilityRobots(isQualityGuide(item, 'toll')),
         description: item.seoDescription,
-        openGraph: {
-            title: `${item.seoTitle} | OtoSöz`,
-            description: item.seoDescription,
-            url: `https://otosoz.com/kutuphane/otoyol-ucretleri/${slug}`,
-            siteName: "OtoSöz",
-            locale: "tr_TR",
-            type: "article",
-        },
-        alternates: {
-            canonical: `/kutuphane/otoyol-ucretleri/${slug}`,
-        },
-    };
+        path: `/kutuphane/otoyol-ucretleri/${slug}`,
+        index: isQualityGuide(item, 'toll'),
+        type: 'article'
+    });
 }
 
 const VEHICLE_TYPES = [

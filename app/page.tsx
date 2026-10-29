@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {schemaJson} from '@/lib/schema';
 import {vehicleDNAData} from '@/data/vehicle-dna';
 import {isVehicleIndexable} from '@/lib/indexability';
@@ -12,37 +13,12 @@ const title = "OtoSöz | Araç Alımı, Arıza Çözümü ve Karşılaştırma";
 const description = "Araç alırken, otomobil arızasını araştırırken veya iki aracı karşılaştırırken gerçek sürücü deneyimi, uzman görüşü ve düzenli veriyi OtoSöz'de inceleyin.";
 const canonicalUrl = "https://otosoz.com/";
 
-export const metadata: Metadata = {
-    robots: indexabilityRobots(isHubIndexable('/')),
-    title,
-    description,
-    keywords: [
-        "araç alımı",
-        "araba alınır mı",
-        "otomobil arıza çözümü",
-        "araç karşılaştırma",
-        "araç kullanıcı yorumları",
-        "kronik sorunlar",
-        "OBD arıza kodları",
-        "otomotiv karar platformu",
-    ],
-    alternates: { canonical: canonicalUrl },
-    openGraph: {
+export const metadata: Metadata = createPageMetadata({
+        path:"/",
         title,
         description,
-        url: canonicalUrl,
-        siteName: "OtoSöz",
-        locale: "tr_TR",
-        type: "website",
-        images: [{ url: "/api/og", width: 1200, height: 630, alt: "OtoSöz otomotiv karar platformu" }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title,
-        description,
-        images: ["/api/og"],
-    },
-};
+        index: isHubIndexable('/')
+    });
 
 const homePageJsonLd = {
     "@context": "https://schema.org",

@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {breadcrumb as buildSchemaBreadcrumbList,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
@@ -40,43 +41,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     try {
         const article = findArticle(getGuides(), id);
 
-        if (!article) return { title: 'Makale Bulunamadı | OtoSöz' };
+        if (!article) return createPageMetadata({
+        title: 'Makale Bulunamadı | OtoSöz'
+    });
 
         const canonicalSlug = getCanonicalSlug(article);
         const canonicalUrl = `https://otosoz.com/makale/${canonicalSlug}`;
         const ogUrl = `/api/og?title=${encodeURIComponent(article.title)}&desc=${encodeURIComponent(article.description.slice(0, 160))}`;
 
-        return {
-            title: `${article.title} | OtoSöz Makaleler`,
-            robots: indexabilityRobots(isQualityGuide(article, 'article')),
-            description: article.description,
-            keywords: article.tags,
-            openGraph: {
-                title: article.title,
-                description: article.description,
-                type: 'article',
-                url: canonicalUrl,
-                images: [
-                    {
-                        url: ogUrl,
-                        width: 1200,
-                        height: 630,
-                        alt: article.title,
-                    }
-                ],
-            },
-            twitter: {
-                card: 'summary_large_image',
-                title: article.title,
-                description: article.description,
-                images: [ogUrl],
-            },
-            alternates: {
-                canonical: canonicalUrl,
-            },
-        };
+        return createPageMetadata({
+        title: `${article.title} | OtoSöz Makaleler`,
+        description: article.description,
+        path: canonicalUrl,
+        index: isQualityGuide(article, 'article'),
+        type: 'article', publishedTime: article.createdAt, modifiedTime: article.updatedAt || article.lastReviewed
+    });
     } catch (error) {
-        return { title: 'Hata | OtoSöz' };
+        return createPageMetadata({
+        title: 'Hata | OtoSöz'
+    });
     }
 }
 

@@ -1,0 +1,519 @@
+{
+  "checkedAt": "2026-10-29T09:30:58.479Z",
+  "base": "http://127.0.0.1:3010",
+  "total": 689,
+  "duplicateTitles": 0,
+  "duplicateTitlePages": 0,
+  "duplicateDescriptions": 0,
+  "duplicateDescriptionPercent": 0,
+  "longTitlePercent": 53.99129172714078,
+  "descriptionLengthFailures": 215,
+  "forbiddenTagPages": 689,
+  "failures": 137,
+  "titles": [],
+  "descriptions": [],
+  "longTitles": [
+    {
+      "url": "https://otosoz.com/arac-dna/renault",
+      "status": 200,
+      "title": "Renault Araç DNA Analizi – 14 Model İncelemesi [2026] | OtoSöz",
+      "titleLength": 62,
+      "description": "Renault marka araçların detaylı DNA analizi ✓ 14 model ✓ Ortalama DNA Puanı: 67/100 ✓ Kronik sorunlar, güçlü yönler ve kullanıcı deneyimleri ✓ Motor seçenekleri karşılaştırması",
+      "descriptionLength": 176,
+      "canonical": "https://otosoz.com/arac-dna/renault",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after",
+        "keywords"
+      ],
+      "errors": [
+        "Missing OG image",
+        "Wrong OG dimensions"
+      ]
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/volkswagen",
+      "status": 200,
+      "title": "Volkswagen Araç DNA Analizi – 6 Model İncelemesi [2026] | OtoSöz",
+      "titleLength": 64,
+      "description": "Volkswagen marka araçların detaylı DNA analizi ✓ 6 model ✓ Ortalama DNA Puanı: 84/100 ✓ Kronik sorunlar, güçlü yönler ve kullanıcı deneyimleri ✓ Motor seçenekleri karşılaştırması",
+      "descriptionLength": 178,
+      "canonical": "https://otosoz.com/arac-dna/volkswagen",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after",
+        "keywords"
+      ],
+      "errors": [
+        "Missing OG image",
+        "Wrong OG dimensions"
+      ]
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/peugeot",
+      "status": 200,
+      "title": "Peugeot Araç DNA Analizi – 6 Model İncelemesi [2026] | OtoSöz",
+      "titleLength": 61,
+      "description": "Peugeot marka araçların detaylı DNA analizi ✓ 6 model ✓ Ortalama DNA Puanı: 76/100 ✓ Kronik sorunlar, güçlü yönler ve kullanıcı deneyimleri ✓ Motor seçenekleri karşılaştırması",
+      "descriptionLength": 175,
+      "canonical": "https://otosoz.com/arac-dna/peugeot",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after",
+        "keywords"
+      ],
+      "errors": [
+        "Missing OG image",
+        "Wrong OG dimensions"
+      ]
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/hyundai",
+      "status": 200,
+      "title": "Hyundai Araç DNA Analizi – 9 Model İncelemesi [2026] | OtoSöz",
+      "titleLength": 61,
+      "description": "Hyundai marka araçların detaylı DNA analizi ✓ 9 model ✓ Ortalama DNA Puanı: 78/100 ✓ Kronik sorunlar, güçlü yönler ve kullanıcı deneyimleri ✓ Motor seçenekleri karşılaştırması",
+      "descriptionLength": 175,
+      "canonical": "https://otosoz.com/arac-dna/hyundai",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after",
+        "keywords"
+      ],
+      "errors": [
+        "Missing OG image",
+        "Wrong OG dimensions"
+      ]
+    },
+    {
+      "url": "https://otosoz.com/arac-dna",
+      "status": 200,
+      "title": "Araç DNA Analizi: Jenerasyon, Motor ve Kronik Sorunlar | OtoSöz",
+      "titleLength": 63,
+      "description": "Aracın yılından jenerasyonunu bulun; motor ve şanzıman seçeneklerini, kronik riskleri, güçlü yönleri ve kullanıcı deneyimlerini karşılaştırın.",
+      "descriptionLength": 142,
+      "canonical": "https://otosoz.com/arac-dna",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7%20DNA%20Analizi%3A%20Jenerasyon%2C%20Motor%20ve%20Kronik%20Sorunlar%20%7C%20OtoS%C3%B6z&desc=Arac%C4%B1n%20y%C4%B1l%C4%B1ndan%20jenerasyonunu%20bulun%3B%20motor%20ve%20%C5%9Fanz%C4%B1man%20se%C3%A7eneklerini%2C%20kronik%20riskleri%2C%20g%C3%BC%C3%A7l%C3%BC%20y%C3%B6nleri%20ve%20kullan%C4%B1c%C4%B1%20deneyimlerini%20kar%C5%9F%C4%B1la%C5%9Ft%C4%B1r%C4%B1n.",
+      "forbidden": [
+        "keywords",
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after"
+      ],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/citroen",
+      "status": 200,
+      "title": "Citroen Araç DNA Analizi – 1 Model İncelemesi [2026] | OtoSöz",
+      "titleLength": 61,
+      "description": "Citroen marka araçların detaylı DNA analizi ✓ 1 model ✓ Ortalama DNA Puanı: 75/100 ✓ Kronik sorunlar, güçlü yönler ve kullanıcı deneyimleri ✓ Motor seçenekleri karşılaştırması",
+      "descriptionLength": 175,
+      "canonical": "https://otosoz.com/arac-dna/citroen",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "forbidden": [
+        "keywords",
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after"
+      ],
+      "errors": [
+        "Missing OG image",
+        "Wrong OG dimensions"
+      ]
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir",
+      "status": 200,
+      "title": "Renault Clio 5. Nesil (2020-2025) Neden Alınır? Artıları ve Eksileri | OtoSöz",
+      "titleLength": 77,
+      "description": "Renault Clio 5. Nesil (2020-2025) alınır mı? Modelin güçlü ve zayıf yönlerini, kullanım avantajlarını ve satın almadan önce bilinmesi gerekenleri inceleyin.",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/neden-alinir",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Renault%20Clio%205.%20Nesil%20(2020-2025)%20Neden%20Al%C4%B1n%C4%B1r%3F%20Art%C4%B1lar%C4%B1%20ve%20Eksileri%20%7C%20OtoS%C3%B6z&desc=Renault%20Clio%205.%20Nesil%20(2020-2025)%20al%C4%B1n%C4%B1r%20m%C4%B1%3F%20Modelin%20g%C3%BC%C3%A7l%C3%BC%20ve%20zay%C4%B1f%20y%C3%B6nlerini%2C%20kullan%C4%B1m%20avantajlar%C4%B1n%C4%B1%20ve%20sat%C4%B1n%20almadan%20%C3%B6nce%20bilinmesi%20gerekenleri%20inceleyin.",
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after",
+        "keywords"
+      ],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-kronik-sorunlari",
+      "status": 200,
+      "title": "Renault Clio 5. Nesil (2020-2025) 1.3 TCe 140 HP Kronik Sorunları | OtoSöz",
+      "titleLength": 74,
+      "description": "Renault Clio 5. Nesil (2020-2025) 1.3 TCe 140 HP seçeneğinde görülen kronik arızalar, önem seviyeleri, kullanıcı bildirimleri ve çözüm bilgileri.",
+      "descriptionLength": 145,
+      "canonical": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-kronik-sorunlari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Renault%20Clio%205.%20Nesil%20(2020-2025)%201.3%20TCe%20140%20HP%20Kronik%20Sorunlar%C4%B1%20%7C%20OtoS%C3%B6z&desc=Renault%20Clio%205.%20Nesil%20(2020-2025)%201.3%20TCe%20140%20HP%20se%C3%A7ene%C4%9Finde%20g%C3%B6r%C3%BClen%20kronik%20ar%C4%B1zalar%2C%20%C3%B6nem%20seviyeleri%2C%20kullan%C4%B1c%C4%B1%20bildirimleri%20ve%20%C3%A7%C3%B6z%C3%BCm%20bilgileri.",
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after",
+        "keywords"
+      ],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "status": 200,
+      "title": "Renault Clio 5. Nesil (2020-2025) 1.3 TCe 140 HP Artıları ve Eksileri | OtoSöz",
+      "titleLength": 78,
+      "description": "Renault Clio 5. Nesil (2020-2025) 1.3 TCe 140 HP motor ve şanzıman seçeneğinin beğenilen yönleri, zayıf noktaları ve kullanıcı şikâyetleri.",
+      "descriptionLength": 139,
+      "canonical": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc-begenilen-yonleri-ve-en-cok-sikayet-edilen-yonleri",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Renault%20Clio%205.%20Nesil%20(2020-2025)%201.3%20TCe%20140%20HP%20Art%C4%B1lar%C4%B1%20ve%20Eksileri%20%7C%20OtoS%C3%B6z&desc=Renault%20Clio%205.%20Nesil%20(2020-2025)%201.3%20TCe%20140%20HP%20motor%20ve%20%C5%9Fanz%C4%B1man%20se%C3%A7ene%C4%9Finin%20be%C4%9Fenilen%20y%C3%B6nleri%2C%20zay%C4%B1f%20noktalar%C4%B1%20ve%20kullan%C4%B1c%C4%B1%20%C5%9Fik%C3%A2yetleri.",
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after",
+        "keywords"
+      ],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc",
+      "status": 200,
+      "title": "Renault Clio 5. Nesil (2020-2025) 1.3 TCe 140 HP Motor İncelemesi | OtoSöz",
+      "titleLength": 74,
+      "description": "Renault Clio 5. Nesil (2020-2025) 1.3 TCe 140 HP için DNA puanı, yakıt ve şanzıman bilgileri, performans değerlendirmesi ve bilinen sorunlar.",
+      "descriptionLength": 141,
+      "canonical": "https://otosoz.com/arac-dna/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Renault%20Clio%205.%20Nesil%20(2020-2025)%201.3%20TCe%20140%20HP%20Motor%20%C4%B0ncelemesi%20%7C%20OtoS%C3%B6z&desc=Renault%20Clio%205.%20Nesil%20(2020-2025)%201.3%20TCe%20140%20HP%20i%C3%A7in%20DNA%20puan%C4%B1%2C%20yak%C4%B1t%20ve%20%C5%9Fanz%C4%B1man%20bilgileri%2C%20performans%20de%C4%9Ferlendirmesi%20ve%20bilinen%20sorunlar.",
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after",
+        "keywords"
+      ],
+      "errors": []
+    }
+  ],
+  "shortDescriptions": [
+    {
+      "url": "https://otosoz.com/altin-anahtar",
+      "status": 200,
+      "title": "Altın Anahtar — Türkiye'nin En İyi Oto Ustaları | OtoSöz",
+      "titleLength": 56,
+      "description": "Türkiye'nin ilk yıldızlı usta rehberi. Şehir şehir en güvenilir oto tamircileri, motor ustaları, kaportacılar ve elektrikçileri keşfedin. Altın Anahtar derecelendirmesiyle kaliteli hizmet garantisi.",
+      "descriptionLength": 198,
+      "canonical": "https://otosoz.com/altin-anahtar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "forbidden": [
+        "keywords",
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after"
+      ],
+      "errors": [
+        "Missing OG image",
+        "Wrong OG dimensions"
+      ]
+    },
+    {
+      "url": "https://otosoz.com/piyasalar",
+      "status": 200,
+      "title": "Otomotiv Piyasaları ve Güncel Fiyat Verileri | OtoSöz",
+      "titleLength": 53,
+      "description": "Akaryakıt, döviz, altın ve otomobil sahipliğini etkileyen güncel piyasa verilerini tek ekranda takip edin.",
+      "descriptionLength": 106,
+      "canonical": "https://otosoz.com/piyasalar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Otomotiv%20Piyasalar%C4%B1%20ve%20G%C3%BCncel%20Fiyat%20Verileri%20%7C%20OtoS%C3%B6z&desc=Akaryak%C4%B1t%2C%20d%C3%B6viz%2C%20alt%C4%B1n%20ve%20otomobil%20sahipli%C4%9Fini%20etkileyen%20g%C3%BCncel%20piyasa%20verilerini%20tek%20ekranda%20takip%20edin.",
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after"
+      ],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/iletisim",
+      "status": 200,
+      "title": "OtoSöz İletişim",
+      "titleLength": 15,
+      "description": "Soru, görüş, içerik bildirimi ve iş birliği talepleriniz için OtoSöz ekibiyle iletişime geçin.",
+      "descriptionLength": 94,
+      "canonical": "https://otosoz.com/iletisim",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=OtoS%C3%B6z%20%C4%B0leti%C5%9Fim&desc=Soru%2C%20g%C3%B6r%C3%BC%C5%9F%2C%20i%C3%A7erik%20bildirimi%20ve%20i%C5%9F%20birli%C4%9Fi%20talepleriniz%20i%C3%A7in%20OtoS%C3%B6z%20ekibiyle%20ileti%C5%9Fime%20ge%C3%A7in.",
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after"
+      ],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/gizlilik-politikasi",
+      "status": 200,
+      "title": "Gizlilik Politikası | OtoSöz",
+      "titleLength": 28,
+      "description": "OtoSöz platformunda kişisel verilerin işlenmesi, korunması, saklanması ve kullanıcı hakları hakkında bilgi edinin.",
+      "descriptionLength": 114,
+      "canonical": "https://otosoz.com/gizlilik-politikasi",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Gizlilik%20Politikas%C4%B1%20%7C%20OtoS%C3%B6z&desc=OtoS%C3%B6z%20platformunda%20ki%C5%9Fisel%20verilerin%20i%C5%9Flenmesi%2C%20korunmas%C4%B1%2C%20saklanmas%C4%B1%20ve%20kullan%C4%B1c%C4%B1%20haklar%C4%B1%20hakk%C4%B1nda%20bilgi%20edinin.",
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after"
+      ],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kullanim-sartlari",
+      "status": 200,
+      "title": "Kullanım Şartları | OtoSöz",
+      "titleLength": 26,
+      "description": "OtoSöz platformunun kullanım koşulları, içerik kuralları, sorumluluklar ve kullanıcı hakları hakkında bilgi edinin.",
+      "descriptionLength": 115,
+      "canonical": "https://otosoz.com/kullanim-sartlari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Kullan%C4%B1m%20%C5%9Eartlar%C4%B1%20%7C%20OtoS%C3%B6z&desc=OtoS%C3%B6z%20platformunun%20kullan%C4%B1m%20ko%C5%9Fullar%C4%B1%2C%20i%C3%A7erik%20kurallar%C4%B1%2C%20sorumluluklar%20ve%20kullan%C4%B1c%C4%B1%20haklar%C4%B1%20hakk%C4%B1nda%20bilgi%20edinin.",
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after"
+      ],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/fiat",
+      "status": 200,
+      "title": "Fiat Araç DNA Analizi – 6 Model İncelemesi [2026] | OtoSöz",
+      "titleLength": 58,
+      "description": "Fiat marka araçların detaylı DNA analizi ✓ 6 model ✓ Ortalama DNA Puanı: 69/100 ✓ Kronik sorunlar, güçlü yönler ve kullanıcı deneyimleri ✓ Motor seçenekleri karşılaştırması",
+      "descriptionLength": 172,
+      "canonical": "https://otosoz.com/arac-dna/fiat",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "forbidden": [
+        "keywords",
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after"
+      ],
+      "errors": [
+        "Missing OG image",
+        "Wrong OG dimensions"
+      ]
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/toyota",
+      "status": 200,
+      "title": "Toyota Araç DNA Analizi – 3 Model İncelemesi [2026] | OtoSöz",
+      "titleLength": 60,
+      "description": "Toyota marka araçların detaylı DNA analizi ✓ 3 model ✓ Ortalama DNA Puanı: 80/100 ✓ Kronik sorunlar, güçlü yönler ve kullanıcı deneyimleri ✓ Motor seçenekleri karşılaştırması",
+      "descriptionLength": 174,
+      "canonical": "https://otosoz.com/arac-dna/toyota",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "forbidden": [
+        "keywords",
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after"
+      ],
+      "errors": [
+        "Missing OG image",
+        "Wrong OG dimensions"
+      ]
+    },
+    {
+      "url": "https://otosoz.com/arac-dna/renault",
+      "status": 200,
+      "title": "Renault Araç DNA Analizi – 14 Model İncelemesi [2026] | OtoSöz",
+      "titleLength": 62,
+      "description": "Renault marka araçların detaylı DNA analizi ✓ 14 model ✓ Ortalama DNA Puanı: 67/100 ✓ Kronik sorunlar, güçlü yönler ve kullanıcı deneyimleri ✓ Motor seçenekleri karşılaştırması",
+      "descriptionLength": 176,
+      "canonical": "https://otosoz.com/arac-dna/renault",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "forbidden": [
+        "geo.region",
+        "geo.placename",
+        "language",
+        "author",
+        "publisher",
+        "copyright",
+        "rating",
+        "distribution",
+        "revisit-after",
+        "keywords"
+      ],
+      "errors": [
+        "Missing OG image",
+        "Wrong OG dimensions"
+      ]
+    }
+  ]
+}

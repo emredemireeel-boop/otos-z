@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {schemaJson, schemaGraph, newsArticle, breadcrumb} from '@/lib/schema';
 import type { Metadata } from 'next';
@@ -28,44 +29,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const post = getPost(slug);
 
     if (!post) {
-        return {
-            title: 'Haber Bulunamadı | OtoSöz Haberler',
-            robots: { index: false, follow: false },
-        };
+        return createPageMetadata({
+        title: 'Haber Bulunamadı | OtoSöz Haberler',
+        index: false
+    });
     }
 
     const canonicalUrl = `https://otosoz.com/haberler/${slug}`;
     const description = String(post.description || '').slice(0, 160);
     const ogUrl = `/api/og?title=${encodeURIComponent(post.title)}&desc=${encodeURIComponent(description)}`;
-    const publishedTime = new Date(post.createdAt).toISOString();
-    const modifiedTime = new Date(post.updatedAt || post.createdAt).toISOString();
 
-    return {
+    return createPageMetadata({
         title: `${post.title} | OtoSöz Haberler`,
-        robots: indexabilityRobots(isQualityGuide(post, 'news')),
         description,
-        keywords: post.tags,
-        authors: [{ name: post.author || 'OtoSöz Editör' }],
-        alternates: { canonical: canonicalUrl },
-        openGraph: {
-            title: post.title,
-            description,
-            type: 'article',
-            url: canonicalUrl,
-            siteName: 'OtoSöz',
-            publishedTime,
-            modifiedTime,
-            authors: [post.author || 'OtoSöz Editör'],
-            tags: post.tags || [],
-            images: [{ url: ogUrl, width: 1200, height: 630, alt: post.title }],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: post.title,
-            description,
-            images: [ogUrl],
-        },
-    };
+        path: canonicalUrl,
+        index: isQualityGuide(post, 'news'),
+        type: 'article',
+        publishedTime: post.createdAt,
+        modifiedTime: post.updatedAt || post.createdAt
+    });
 }
 
 export default async function HaberDetailServerPage({ params }: PageProps) {

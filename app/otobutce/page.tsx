@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
@@ -10,19 +11,12 @@ import PopularThreadsWidget from "@/components/PopularThreadsWidget";
 import { OTOBUTCE_CATEGORIES } from "@/data/otobutce-data";
 import { ChevronRight, Wallet, Target, Info, Lightbulb, TrendingUp, ShieldCheck, Sparkles } from "lucide-react";
 
-export const metadata: Metadata = {
-  robots: indexabilityRobots(isHubIndexable('/otobutce')),
-  title: "Bütçeye Göre Araç Önerileri 2026 | OtoBütçe",
-  description: "Bütçenizi seçin, uzmanlarımızın önerdiği en mantıklı, az yakan ve masrafsız ikinci el araçları anında keşfedin. Güncel piyasa analizleri.",
-  keywords: "bütçeye göre araç, fiyata göre araba, 200 bin tl araç, 500 bin tl araba, oto bütçe, ikinci el araba tavsiyesi",
-  alternates: { canonical: "https://otosoz.com/otobutce" },
-  openGraph: {
-    title: "Bütçeye Göre Araç Önerileri 2026 | OtoBütçe",
-    description: "Bütçenize göre en mantıklı, az yakan ve masrafsız ikinci el araç önerilerini karşılaştırın.",
-    url: "https://otosoz.com/otobutce",
-    type: "website",
-  },
-};
+export const metadata: Metadata = createPageMetadata({
+        path:"/otobutce",
+        title: "Bütçeye Göre Araç Önerileri 2026 | OtoBütçe",
+        description: "Bütçenizi seçin, uzmanlarımızın önerdiği en mantıklı, az yakan ve masrafsız ikinci el araçları anında keşfedin. Güncel piyasa analizleri.",
+        index: isHubIndexable('/otobutce')
+    });
 
 // Design constants
 const BRAND_GRADIENT = "linear-gradient(135deg, #10B981 0%, #059669 100%)";

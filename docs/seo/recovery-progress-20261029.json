@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-10-29T09:31:30.514Z",
+  "updatedAt": "2026-10-29T09:45:22.725Z",
   "completedLocally": [
     1,
     2,
     3,
     4,
     5,
-    6
+    6,
+    7
   ],
   "remaining": [
-    7,
     8,
     9,
     10
@@ -17,7 +17,7 @@
   "deployment": "not performed; final release must include subsequent steps only after their checks pass",
   "pendingUserApproval": "20-page content pilot must be produced and approved before editorial content edits",
   "network": "Local tools and HTTPS access working. Batch SSH public-key login denied; user supplied password authorization is available for later release.",
-  "next": "Implement and verify Step 7 metadata (active request).",
+  "next": "Implement and verify Step 8 internal links, then performance and monitoring.",
   "userProvidedResponsiblePerson": "Emre Demirel",
   "personClaims": "Responsible-person name only; no verified editor qualifications or social profiles supplied.",
   "startedStep6": [

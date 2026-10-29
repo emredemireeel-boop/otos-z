@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -29,14 +30,16 @@ export async function generateMetadata({ params }: EhliyetSinifPageProps): Promi
         const id = match[1].toUpperCase();
         const sinif = ehliyetData.siniflar.find(s => s.id === id);
         if (sinif) {
-            return {
-                title: `${sinif.isim} Nedir? Hangi Araçları Kullanır? | OtoSöz`,
-                description: `${sinif.id} sınıfı ehliyet özellikleri, yaş sınırı ve tecrübe şartları. ${sinif.isim} alarak hangi taşıtları kullanabileceğinizi öğrenin.`,
-            };
+            return createPageMetadata({
+        title: `${sinif.isim} Nedir? Hangi Araçları Kullanır? | OtoSöz`,
+        description: `${sinif.id} sınıfı ehliyet özellikleri, yaş sınırı ve tecrübe şartları. ${sinif.isim} alarak hangi taşıtları kullanabileceğinizi öğrenin.`
+    });
         }
     }
 
-    return { title: 'Ehliyet Sınıfları | OtoSöz' };
+    return createPageMetadata({
+        title: 'Ehliyet Sınıfları | OtoSöz'
+    });
 }
 
 export default async function EhliyetSinifDetailPage({ params }: EhliyetSinifPageProps) {

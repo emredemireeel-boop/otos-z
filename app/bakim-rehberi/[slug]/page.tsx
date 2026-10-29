@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {breadcrumb as buildSchemaBreadcrumbList,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -22,24 +23,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
         const bakimItem = data.bakim_icerikleri.find((r: any) => r.slug === slug);
 
-        if (!bakimItem) return { title: 'Bakım İçeriği Bulunamadı | OtoSöz' };
+        if (!bakimItem) return createPageMetadata({
+        title: 'Bakım İçeriği Bulunamadı | OtoSöz'
+    });
 
-        return {
-            title: `${bakimItem.title} - Ne Zaman Değişir? | OtoSöz Bakım Rehberi`,
-            description: bakimItem.description,
-            keywords: bakimItem.tags,
-            openGraph: {
-                title: `${bakimItem.title} Rehberi`,
-                description: bakimItem.description,
-                type: 'article',
-                url: `https://otosoz.com/bakim-rehberi/${slug}`,
-            },
-            alternates: {
-                canonical: `https://otosoz.com/bakim-rehberi/${slug}`,
-            },
-        };
+        return createPageMetadata({
+        title: `${bakimItem.title} - Ne Zaman Değişir? | OtoSöz Bakım Rehberi`,
+        description: bakimItem.description,
+        path: `https://otosoz.com/bakim-rehberi/${slug}`
+    });
     } catch (error) {
-        return { title: 'Hata | OtoSöz' };
+        return createPageMetadata({
+        title: 'Hata | OtoSöz'
+    });
     }
 }
 

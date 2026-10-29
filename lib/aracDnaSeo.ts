@@ -37,11 +37,17 @@ export function findVehicleByRoute(brand: string, model: string) {
     ));
 }
 
+
+// Kısa nesil adı başlıkta motoru/sekme niyetini görünür tutar; URL ve veri değişmez.
+export function vehicleMetadataName(vehicle: {brand:string;model:string}): string {
+    return `${vehicle.brand} ${vehicle.model.replace(/\s*Nesil/g, '').replace(/(\d+)\.\s*(?=\()/g, '$1 ').replace(/\s+/g, ' ').trim()}`;
+}
+
 function notFoundMetadata(title: string): Metadata {
-    return {
+    return createPageMetadata({
         title,
-        robots: indexabilityRobots(false),
-    };
+        index: false
+    });
 }
 
 export function createVehicleSectionMetadata(
@@ -52,19 +58,18 @@ export function createVehicleSectionMetadata(
     const vehicle = findVehicleByRoute(brand, model);
     if (!vehicle) return notFoundMetadata("Araç DNA Verisi Bulunamadı | OtoSöz");
 
-    const name = `${vehicle.brand} ${vehicle.model}`;
+    const name = vehicleMetadataName(vehicle);
     const config = sectionMetadata[section];
     const canonicalPath = `/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}/${section}`;
 
     const metadata = createPageMetadata({
-        title: config.title(name),
+        title: section === 'kronik-sorunlar' ? `${name} Kronik Sorunları: ${vehicle.chronicIssues.length} Arıza` : config.title(name),
         description: section === 'kullanici-deneyimleri' && vehicle.userExperiences.length === 0
             ? `${name} için henüz onaylanmış sürücü deneyimi bulunmuyor. Mevcut teknik kayıtları inceleyin veya forumda deneyiminizi paylaşın.`
             : config.description(name),
         path: canonicalPath,
-        keywords: [config.title(name), `${name} yorumları`, `${name} inceleme`],
         indexable: isVehicleSectionIndexable(vehicle, section,
-            { trims: trimLevelsData.find(item => item.vehicleId === vehicle.id)?.trims || [] }),
+            { trims: trimLevelsData.find(item => item.vehicleId === vehicle.id)?.trims || [] })
     });
 
     return metadata;
@@ -103,7 +108,7 @@ export function createEngineMetadata(brand: string, model: string, engineParam: 
 
     if (!engine) return notFoundMetadata("Motor Seçeneği Bulunamadı | OtoSöz");
 
-    const vehicleName = `${vehicle.brand} ${vehicle.model}`;
+    const vehicleName = vehicleMetadataName(vehicle).replace(/\s*\([^)]*\)/g, '').trim();
     const engineName = `${vehicleName} ${engine.name}`;
     const tabCopy: Record<EngineTab, { title: string; description: string }> = {
         "genel-bakis": {
@@ -150,8 +155,7 @@ export function createEngineMetadata(brand: string, model: string, engineParam: 
         title: tabCopy[currentTab].title,
         description: tabCopy[currentTab].description,
         path: canonicalPath,
-        keywords: [`${engineName} kronik sorunlar`, `${engineName} yorumları`, `${engineName} inceleme`],
-        indexable,
+        indexable
     });
 
     return metadata;

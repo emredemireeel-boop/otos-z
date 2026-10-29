@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -39,10 +40,10 @@ export async function generateMetadata({ params }: PlakaPageProps): Promise<Meta
             ? `${specialPlate.ornek || specialPlate.isim} Plakası Kime Ait? Anlamı Nedir? | OtoSöz`
             : `${specialPlate.isim} Nedir? Kimlere Verilir? | OtoSöz`;
 
-        return {
-            title: customTitle,
-            description: `${specialPlate.isim} anlamı nedir, bu plakayı kimler kullanabilir? ${specialPlate.kullananlar.join(', ')} tarafından kullanılan özel araç plakaları hakkında en detaylı ve güncel bilgiler.`,
-        };
+        return createPageMetadata({
+        title: customTitle,
+        description: `${specialPlate.isim} anlamı nedir, bu plakayı kimler kullanabilir? ${specialPlate.kullananlar.join(', ')} tarafından kullanılan özel araç plakaları hakkında en detaylı ve güncel bilgiler.`
+    });
     }
 
     // Check if it's a city plate
@@ -51,14 +52,16 @@ export async function generateMetadata({ params }: PlakaPageProps): Promise<Meta
         const kod = match[1];
         const il = plakaData.iller.find(i => i.kod === kod);
         if (il) {
-            return {
-                title: `${kod} Nerenin Plakası? ${kod} Hangi Şehrin Plaka Kodu? | OtoSöz`,
-                description: `Trafikte gördüğünüz ${kod} nerenin plakası? ${kod} plaka kodu ${il.il} ilimize aittir. ${il.il} plaka harf grupları, ilçeleri ve merak edilen tüm trafik tescil detayları.`,
-            };
+            return createPageMetadata({
+        title: `${kod} Nerenin Plakası? ${kod} Hangi Şehrin Plaka Kodu? | OtoSöz`,
+        description: `Trafikte gördüğünüz ${kod} nerenin plakası? ${kod} plaka kodu ${il.il} ilimize aittir. ${il.il} plaka harf grupları, ilçeleri ve merak edilen tüm trafik tescil detayları.`
+    });
         }
     }
 
-    return { title: 'Plaka Kodları Sorgulama | OtoSöz' };
+    return createPageMetadata({
+        title: 'Plaka Kodları Sorgulama | OtoSöz'
+    });
 }
 
 export default async function PlakaDetailPage({ params }: PlakaPageProps) {

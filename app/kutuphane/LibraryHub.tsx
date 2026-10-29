@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
@@ -39,27 +40,12 @@ export function libraryMetadata(kategori: string | null): Metadata {
             : `${BASE_URL}/kutuphane/kategori/${cat.slug}`;
     const ogUrl = `/api/og?title=${encodeURIComponent(cat.title.split("|")[0].trim())}&desc=${encodeURIComponent(cat.description.slice(0, 100))}`;
 
-    return {
+    return createPageMetadata({
         title: cat.title,
         description: cat.description,
-        keywords: cat.keywords,
-        openGraph: {
-            title: cat.title,
-            description: cat.description,
-            type: "website",
-            url: canonicalUrl,
-            siteName: "OtoSöz",
-            images: [{ url: ogUrl, width: 1200, height: 630, alt: cat.title }],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: cat.title,
-            description: cat.description,
-            images: [ogUrl],
-        },
-        alternates: { canonical: canonicalUrl },
-        robots: indexabilityRobots(isHubIndexable('/kutuphane', { category: cat.slug })),
-    };
+        index: isHubIndexable('/kutuphane', { category: cat.slug }),
+        path: canonicalUrl
+    });
 }
 
 // Sunucu tarafında görünür içerikle uyumlu CollectionPage ve BreadcrumbList üretir.

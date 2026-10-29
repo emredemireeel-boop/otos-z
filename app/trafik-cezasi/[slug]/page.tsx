@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import FaqAnswers from '@/components/FaqAnswers';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {breadcrumb as buildSchemaBreadcrumbList,faqPage as buildSchemaFAQPage,article as buildSchemaArticle} from '@/lib/schema';
@@ -77,10 +78,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         }
 
         if (!cezaItem) {
-            return {
-                title: "Trafik Cezası Bulunamadı | OtoSöz",
-                robots: { index: false, follow: false },
-            };
+            return createPageMetadata({
+        title: "Trafik Cezası Bulunamadı | OtoSöz",
+        index: false
+    });
         }
 
         const title = compactTitle(cezaItem);
@@ -88,37 +89,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         const canonicalUrl = `${BASE_URL}/trafik-cezasi/${slug}`;
         const ogImage = `${BASE_URL}/api/og?title=${encodeURIComponent(`${cezaItem.ihlal} Cezası 2026`)}&desc=${encodeURIComponent(`${cezaItem.ceza} · Madde ${cezaItem.madde}`)}`;
 
-        return {
-            title,
-            description,
-            keywords: [...(cezaItem.tags || []), "trafik cezası 2026", "güncel trafik cezaları", cezaItem.kanunMaddesi].filter(Boolean),
-            openGraph: {
-                title,
-                description,
-                type: 'article',
-                url: canonicalUrl,
-                siteName: 'OtoSöz',
-                publishedTime: "2026-04-25T10:26:05+03:00",
-                modifiedTime: LAST_REVIEWED,
-                images: [{ url: ogImage, width: 1200, height: 630, alt: `${cezaItem.ihlal} cezası 2026` }],
-            },
-            twitter: {
-                card: "summary_large_image",
-                title,
-                description,
-                images: [ogImage],
-            },
-            alternates: {
-                canonical: canonicalUrl,
-            },
-            robots: indexabilityRobots(isQualityGuide(cezaItem, 'trafficFine')),
-            category: "Trafik mevzuatı",
-        };
+        return createPageMetadata({
+        title,
+        description,
+        category: "Trafik mevzuatı",
+        path: canonicalUrl,
+        index: isQualityGuide(cezaItem, 'trafficFine'),
+        publishedTime: "2026-04-25T10:26:05+03:00",
+        modifiedTime: LAST_REVIEWED
+    });
     } catch {
-        return {
-            title: "Trafik Cezası Bulunamadı | OtoSöz",
-            robots: { index: false, follow: false },
-        };
+        return createPageMetadata({
+        title: "Trafik Cezası Bulunamadı | OtoSöz",
+        index: false
+    });
     }
 }
 

@@ -26,7 +26,7 @@ async function collectUrls(type?:SitemapType): Promise<MetadataRoute.Sitemap> {
     const sitemapEntries: MetadataRoute.Sitemap = [
         // Ana Hub Sayfaları
         { url: `${BASE_URL}/trafik-cezasi`},
-        { url: `${BASE_URL}`},
+        { url: `${BASE_URL}/`},
         { url: `${BASE_URL}/kutuphane`},
         { url: `${BASE_URL}/makale`},
         { url: `${BASE_URL}/kutuphane/kasko-deger`},

@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -21,24 +22,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
         const rehberItem = data.ikinci_el_icerikleri.find((r: any) => r.slug === slug);
 
-        if (!rehberItem) return { title: 'Rehber İçeriği Bulunamadı | OtoSöz' };
+        if (!rehberItem) return createPageMetadata({
+        title: 'Rehber İçeriği Bulunamadı | OtoSöz'
+    });
 
-        return {
-            title: `${rehberItem.title} - İkinci El Oto Ekspertiz Rehberi | OtoSöz`,
-            description: rehberItem.description,
-            keywords: rehberItem.tags,
-            openGraph: {
-                title: `${rehberItem.title} | Araç Alım Rehberi`,
-                description: rehberItem.description,
-                type: 'article',
-                url: `https://otosoz.com/ikinci-el-rehberi/${slug}`,
-            },
-            alternates: {
-                canonical: `https://otosoz.com/ikinci-el-rehberi/${slug}`,
-            },
-        };
+        return createPageMetadata({
+        title: `${rehberItem.title} - İkinci El Oto Ekspertiz Rehberi | OtoSöz`,
+        description: rehberItem.description,
+        path: `https://otosoz.com/ikinci-el-rehberi/${slug}`
+    });
     } catch (error) {
-        return { title: 'Hata | OtoSöz' };
+        return createPageMetadata({
+        title: 'Hata | OtoSöz'
+    });
     }
 }
 

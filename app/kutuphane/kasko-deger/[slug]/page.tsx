@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -42,12 +43,14 @@ function findArac(slug: string) {
 export async function generateMetadata({ params }: KaskoPageProps): Promise<Metadata> {
     const { slug } = await params;
     const { arac } = findArac(slug);
-    if (!arac) return { title: "Kasko Değer | OtoSöz" };
+    if (!arac) return createPageMetadata({
+        title: "Kasko Değer | OtoSöz"
+    });
 
-    return {
+    return createPageMetadata({
         title: `${arac.yil} ${arac.marka} ${arac.model} Kasko Değeri Ne Kadar? | OtoSöz`,
-        description: `${arac.yil} model ${arac.marka} ${arac.model} aracının güncel TSB kasko bedeli ${arac.deger.toLocaleString("tr-TR")} ₺. Yıllara göre değer değişimi ve rakip karşılaştırması.`,
-    };
+        description: `${arac.yil} model ${arac.marka} ${arac.model} aracının güncel TSB kasko bedeli ${arac.deger.toLocaleString("tr-TR")} ₺. Yıllara göre değer değişimi ve rakip karşılaştırması.`
+    });
 }
 
 export default async function KaskoDegerDetailPage({ params }: KaskoPageProps) {

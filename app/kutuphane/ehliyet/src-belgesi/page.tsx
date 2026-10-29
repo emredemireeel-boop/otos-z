@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -8,10 +9,11 @@ import Link from "next/link";
 import ehliyetData from "@/data/ehliyet_siniflari.json";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "SRC Belgesi Nedir? SRC 1, 2, 3, 4, 5 Ne İşe Yarar? | OtoSöz",
-    description: "Ticari araç sürücüleri için zorunlu olan SRC belgesi nedir? SRC türleri arasındaki farklar ve alma şartları hakkında detaylı rehber OtoSöz'de.",
-};
+export const metadata: Metadata = createPageMetadata({
+        path:"/kutuphane/ehliyet/src-belgesi",
+        title: "SRC Belgesi Nedir? SRC 1, 2, 3, 4, 5 Ne İşe Yarar? | OtoSöz",
+        description: "Ticari araç sürücüleri için zorunlu olan SRC belgesi nedir? SRC türleri arasındaki farklar ve alma şartları hakkında detaylı rehber OtoSöz'de."
+    });
 
 export default function SrcBelgesiPage() {
     const { srcBelgesi } = ehliyetData;

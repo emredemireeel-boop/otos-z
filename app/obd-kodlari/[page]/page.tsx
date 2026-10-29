@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import type { Metadata } from 'next';
@@ -25,15 +26,17 @@ function parsePage(value: string) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { page: rawPage } = await params;
     const page = parsePage(rawPage);
-    if (!page) return { title: 'OBD kod dizini bulunamadı | OtoSöz', robots: { index: false, follow: false } };
+    if (!page) return createPageMetadata({
+        title: 'OBD kod dizini bulunamadı | OtoSöz',
+        index: false
+    });
     const url = `${BASE_URL}/obd-kodlari/${page}`;
-    return {
+    return createPageMetadata({
         title: `Evrensel OBD-II Arıza Kodları Dizini – Sayfa ${page} | OtoSöz`,
         description: `P, B, C ve U tipi OBD-II arıza kodlarını alfabetik sırayla inceleyin. OBD kod dizini sayfa ${page}.`,
-        alternates: { canonical: url },
-        robots: indexabilityRobots(isGuideIndexable({ title: 'OBD kullanıcı kataloğu' }, { kind: 'utility-template' })),
-        openGraph: { title: `Evrensel OBD-II Kod Dizini – Sayfa ${page}`, description: 'Türkçe OBD-II arıza kodu açıklamalarına ulaşın.', url, type: 'website' },
-    };
+        path: url,
+        index: isGuideIndexable({ title: 'OBD kullanıcı kataloğu' }, { kind: 'utility-template' })
+    });
 }
 
 export default async function ObdDirectoryPage({ params }: Props) {

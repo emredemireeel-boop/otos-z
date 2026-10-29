@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {article as buildSchemaArticle,faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
@@ -47,31 +48,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const { slug } = await params;
     const item = getDataFromSlug(slug);
     if (!item) {
-        return { title: "Bulunamadı | OtoSöz" };
+        return createPageMetadata({
+        title: "Bulunamadı | OtoSöz"
+    });
     }
 
     const title = item.title || item.myth || item.text?.slice(0, 80) || "İlginç Bilgi";
     const description = item.tip || item.truth || item.text || item.items?.join(", ").slice(0, 160) || "";
 
-    return {
+    return createPageMetadata({
         title: `${title} | OtoSöz İlginç Bilgiler`,
-        robots: indexabilityRobots(isQualityGuide(item, 'interesting')),
         description: description.slice(0, 160),
-        openGraph: {
-            title: `${title} | OtoSöz`,
-            description: description.slice(0, 160),
-            url: `https://otosoz.com/kutuphane/ilginc/${slug}`,
-            siteName: "OtoSöz",
-            locale: "tr_TR",
-            type: "article",
-        },
-        alternates: {
-            canonical: `/kutuphane/ilginc/${slug}`,
-        },
         other: {
             "article:section": "İlginç Otomotiv Bilgileri",
         },
-    };
+        path: `/kutuphane/ilginc/${slug}`,
+        index: isQualityGuide(item, 'interesting'),
+        type: 'article'
+    });
 }
 
 export default async function IlgincDetayPage({ params }: PageProps) {

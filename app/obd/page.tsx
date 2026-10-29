@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {breadcrumb as buildSchemaBreadcrumbList,collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
@@ -12,36 +13,12 @@ import OBDListClient from "./OBDListClient";
 
 
 // ── SEO Metadata ──
-export const metadata: Metadata = {
-    title: "OBD-II Arıza Kodları: Türkçe Sorgulama | OtoSöz",
-    description: "3.500'den fazla OBD-II arıza kodunun Türkçe anlamını, belirtilerini, olası nedenlerini ve çözüm adımlarını sorgulayın. P, B, C ve U kodları.",
-    keywords: [
-        "OBD arıza kodları", "OBD-II kodları", "motor arıza kodu sorgulama",
-        "P0 kodları", "arıza kodu nedir", "DTC kodları", "EOBD arıza kodları",
-        "araç arıza kodları", "check engine light", "arıza lambası sorgulama",
-    ],
-    openGraph: {
-        title: "OBD Arıza Kodları Veritabanı — 3.500+ Kod | OtoSöz",
-        description: "Tüm OBD-II arıza kodlarının Türkçe açıklamaları, belirtileri ve çözüm önerileri. Motor arıza lambası kodlarını sorgulayın.",
-        url: "https://otosoz.com/obd",
-        type: "website",
-        images: [{
-            url: "/api/og?title=OBD%20Arıza%20Kodları&desc=3.500%2B%20arıza%20kodu%20veritabanı",
-            width: 1200,
-            height: 630,
-            alt: "OtoSöz OBD Arıza Kodları Veritabanı",
-        }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: "OBD Arıza Kodları Veritabanı | OtoSöz",
-        description: "3.500+ OBD-II arıza kodlarının Türkçe açıklamaları ve çözüm önerileri.",
-    },
-    alternates: {
-        canonical: "https://otosoz.com/obd",
-    },
-    robots: indexabilityRobots(isHubIndexable('/obd')),
-};
+export const metadata: Metadata = createPageMetadata({
+        path:"/obd",
+        title: "OBD-II Arıza Kodları: Türkçe Sorgulama | OtoSöz",
+        description: "3.500'den fazla OBD-II arıza kodunun Türkçe anlamını, belirtilerini, olası nedenlerini ve çözüm adımlarını sorgulayın. P, B, C ve U kodları.",
+        index: isHubIndexable('/obd')
+    });
 
 export default function ObdPage() {
 

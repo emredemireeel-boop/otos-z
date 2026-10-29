@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {verifiedForumAuthorUrl} from '@/lib/forum-author-schema';
 import {schemaJson} from '@/lib/schema';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
@@ -23,10 +24,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const thread = await getForumThreadSeo(id);
 
     if (!thread) {
-        return {
-            title: 'Konu Bulunamadı | OtoSöz Forum',
-            robots: { index: false, follow: false },
-        };
+        return createPageMetadata({
+        title: 'Konu Bulunamadı | OtoSöz Forum',
+        index: false
+    });
     }
 
     const canonicalUrl = `${BASE_URL}/forum/${thread.slug}`;
@@ -37,29 +38,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     );
     const ogUrl = `/api/og?title=${encodeURIComponent(thread.title)}&desc=${encodeURIComponent(description.slice(0, 120))}`;
 
-    return {
+    return createPageMetadata({
         title: `${thread.title} | OtoSöz Forum`,
         description,
-        robots: { index: thread.indexable, follow: true,
-            googleBot: { index: thread.indexable, follow: true } },
-        alternates: { canonical: canonicalUrl },
-        openGraph: {
-            title: thread.title,
-            description,
-            type: 'article',
-            url: canonicalUrl,
-            siteName: 'OtoSöz',
-            publishedTime: toIso(thread.createdAt),
-            modifiedTime: toIso(thread.lastEntryAt),
-            images: [{ url: ogUrl, width: 1200, height: 630, alt: thread.title }],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: thread.title,
-            description,
-            images: [ogUrl],
-        },
-    };
+        path: canonicalUrl,
+        index: thread.indexable,
+        publishedTime: toIso(thread.createdAt),
+        modifiedTime: toIso(thread.lastEntryAt)
+    });
 }
 
 export default async function ForumThreadServerPage({ params }: PageProps) {

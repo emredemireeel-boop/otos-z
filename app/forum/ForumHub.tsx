@@ -27,13 +27,14 @@ export async function forumHubMetadata(page = 1, categorySlug?: string) {
     const title = data.category
         ? `${data.category.name} Forum Başlıkları${page > 1 ? ` — Sayfa ${page}` : ''}`
         : `OtoSöz Forum — Otomobil Soru ve Tartışmaları${page > 1 ? ` — Sayfa ${page}` : ''}`;
-    return { ...createPageMetadata({ title,
+    return createPageMetadata({
+        title,
         description: data.category
             ? `${data.category.name} hakkında OtoSöz topluluğundaki ${data.threads.length} görünür başlığı, son yanıtları ve sürücü deneyimlerini inceleyin.`
             : 'Otomobil arızaları, bakım, ikinci el alım satım ve sürücü deneyimleri hakkında gerçek forum başlıkları. Kategorilere göz atın, soruları ve yanıtları okuyun.',
-        path: forumHubPath(page, categorySlug) }),
-        robots: { index: data.indexable, follow: true,
-            googleBot: { index: data.indexable, follow: true } } };
+        path: forumHubPath(page, categorySlug),
+        index: data.indexable
+    });
 }
 
 const date = (value: number) => new Intl.DateTimeFormat('tr-TR', {

@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {schemaJson} from '@/lib/schema';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {faqPage as buildSchemaFAQPage,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
@@ -49,34 +50,12 @@ export async function generateMetadata({ params }: MarketPageProps): Promise<Met
     const direct = `${market.shortName}${market.day ? ` ${market.day} günü` : ""}${market.address ? ` ${market.address} adresinde` : ""}.`;
     const isIndexable = isGuideIndexable(market, { kind: 'verified-market' });
 
-    return {
-        title: `${market.shortName} Nerede, Hangi Gün, Saat Kaçta? | OtoSöz`,
+    return createPageMetadata({
+        title: `${market.shortName} — Kurulduğu Gün, Saat ve Adres`,
         description: `${direct} Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak bağlantılarını inceleyin.`.slice(0, 160),
-        keywords: [
-            market.name,
-            `${market.province} oto pazarı`,
-            `${market.district} açık oto pazarı`,
-            `${market.shortName} hangi gün`,
-            `${market.shortName} saat kaçta açılıyor`,
-        ],
-        alternates: { canonical },
-        robots: indexabilityRobots(isIndexable),
-        openGraph: {
-            title: `${market.shortName}: Nerede, Hangi Gün?`,
-            description: market.verificationNote,
-            url: canonical,
-            siteName: "OtoSöz",
-            locale: "tr_TR",
-            type: "website",
-            images: [{ url: "/acik-oto-pazari-og.png", width: 1200, height: 630, alt: market.shortName }],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: `${market.shortName}: Nerede, Hangi Gün?`,
-            description: market.verificationNote,
-            images: ["/acik-oto-pazari-og.png"],
-        },
-    };
+        path: canonical,
+        index: isIndexable
+    });
 }
 
 export default async function OpenCarMarketDetailPage({ params }: MarketPageProps) {

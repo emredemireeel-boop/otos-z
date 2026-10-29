@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -26,13 +27,15 @@ export async function generateMetadata({ params }: KasaPageProps): Promise<Metad
     const type = segmentData.bodyTypes.find(t => t.id === slug);
 
     if (type) {
-        return {
-            title: `${type.title} Kasa Nedir? Avantajları ve Özellikleri | OtoSöz`,
-            description: `${type.title} nedir? Hangi araçlar ${type.title} olarak adlandırılır? ${type.title} kasa araçların avantajları ve dezavantajları hakkında detaylı bilgiler OtoSöz'de.`,
-        };
+        return createPageMetadata({
+        title: `${type.title} Kasa Nedir? Avantajları ve Özellikleri | OtoSöz`,
+        description: `${type.title} nedir? Hangi araçlar ${type.title} olarak adlandırılır? ${type.title} kasa araçların avantajları ve dezavantajları hakkında detaylı bilgiler OtoSöz'de.`
+    });
     }
 
-    return { title: 'Araç Kasa Tipleri | OtoSöz' };
+    return createPageMetadata({
+        title: 'Araç Kasa Tipleri | OtoSöz'
+    });
 }
 
 export default async function KasaDetailPage({ params }: KasaPageProps) {

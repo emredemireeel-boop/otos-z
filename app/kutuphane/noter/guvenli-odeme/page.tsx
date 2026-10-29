@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -8,10 +9,11 @@ import Link from "next/link";
 import noterData from "@/data/noter_islemleri.json";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Güvenli Ödeme Sistemi Nedir? Araç Satışında Nasıl Yapılır? | OtoSöz",
-    description: "Araç alım satımında dolandırıcılığı önleyen zorunlu Güvenli Ödeme Sistemi nedir, nasıl kullanılır? Noter işlemlerinde para transferi adımları OtoSöz'de.",
-};
+export const metadata: Metadata = createPageMetadata({
+        path:"/kutuphane/noter/guvenli-odeme",
+        title: "Güvenli Ödeme Sistemi Nedir? Araç Satışında Nasıl Yapılır? | OtoSöz",
+        description: "Araç alım satımında dolandırıcılığı önleyen zorunlu Güvenli Ödeme Sistemi nedir, nasıl kullanılır? Noter işlemlerinde para transferi adımları OtoSöz'de."
+    });
 
 export default function GuvenliOdemePage() {
     const { guvenliOdeme } = noterData;

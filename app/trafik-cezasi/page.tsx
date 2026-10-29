@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList,breadcrumb as buildSchemaBreadcrumbList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
@@ -14,40 +15,13 @@ const DESCRIPTION = "2026 trafik cezaları, güncel ceza tutarları, ehliyet cez
 
 const allFines = trafikCezalariData.categories.flatMap((category) => category.rows);
 
-export const metadata: Metadata = {
-    title: TITLE,
-    description: DESCRIPTION,
-    keywords: [
-        "2026 trafik cezaları",
-        "trafik cezası sorgulama",
-        "güncel trafik ceza tutarları",
-        "hız cezası 2026",
-        "ehliyet ceza puanı",
-        "trafik cezası erken ödeme",
-    ],
-    alternates: { canonical: PAGE_URL },
-    openGraph: {
+export const metadata: Metadata = createPageMetadata({
+        path:"/trafik-cezasi",
         title: TITLE,
         description: DESCRIPTION,
-        type: "website",
-        url: PAGE_URL,
-        siteName: "OtoSöz",
-        images: [{
-            url: `${BASE_URL}/api/og?title=${encodeURIComponent("2026 Trafik Cezaları")}&desc=${encodeURIComponent("Güncel tutarlar, ceza puanları ve yaptırımlar")}`,
-            width: 1200,
-            height: 630,
-            alt: "2026 trafik cezaları ve güncel ceza tutarları",
-        }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: TITLE,
-        description: DESCRIPTION,
-        images: [`${BASE_URL}/api/og?title=${encodeURIComponent("2026 Trafik Cezaları")}&desc=${encodeURIComponent("Güncel tutarlar, ceza puanları ve yaptırımlar")}`],
-    },
-    robots: indexabilityRobots(isHubIndexable('/trafik-cezasi')),
-    category: "Trafik mevzuatı",
-};
+        category: "Trafik mevzuatı",
+        index: isHubIndexable('/trafik-cezasi')
+    });
 
 const jsonLd = {
     "@context": "https://schema.org",

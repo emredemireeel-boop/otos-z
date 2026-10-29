@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
@@ -8,12 +9,12 @@ import { OPEN_CAR_MARKETS, TURKEY_PROVINCES, getMarketsByProvince, getMarketPath
 import MarketDirectory from "./market-directory";
 import styles from "./open-car-markets.module.css";
 
-export const metadata: Metadata = {
-    robots: indexabilityRobots(isHubIndexable('/acik-oto-pazari')),
-    title: "Açık Oto Pazarı Nerede, Hangi Gün? İl İl Rehber | OtoSöz",
-    description: "Şehrindeki açık oto pazarının adresini, kurulduğu günü ve kaynaklarını bul. Doğrulanmış kayıtları, teyit bekleyen ve kapanmış pazarlardan ayır.",
-    alternates: { canonical: "https://otosoz.com/acik-oto-pazari" },
-};
+export const metadata: Metadata = createPageMetadata({
+        path:"/acik-oto-pazari",
+        title: "Açık Oto Pazarı Nerede, Hangi Gün? İl İl Rehber | OtoSöz",
+        description: "Şehrindeki açık oto pazarının adresini, kurulduğu günü ve kaynaklarını bul. Doğrulanmış kayıtları, teyit bekleyen ve kapanmış pazarlardan ayır.",
+        index: isHubIndexable('/acik-oto-pazari')
+    });
 
 export default function OpenCarMarketPage() {
     const verifiedMarkets = OPEN_CAR_MARKETS.filter((market) => market.status === "verified");

@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {breadcrumb as buildSchemaBreadcrumbList,faqPage as buildSchemaFAQPage,article as buildSchemaArticle} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
@@ -51,27 +52,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const myth = getMythFromSlug(slug);
 
     if (!myth) {
-        return { title: "Efsane Bulunamadı | OtoSöz" };
+        return createPageMetadata({
+        title: "Efsane Bulunamadı | OtoSöz"
+    });
     }
 
     const canonicalPath = `/kutuphane/efsane-avcilari/${myth.slug}--${myth.id}`;
 
-    return {
+    return createPageMetadata({
         title: `${myth.seoTitle} | Oto Efsane Avcıları`,
-        robots: indexabilityRobots(isQualityGuide(myth, 'myth')),
         description: myth.seoDescription,
-        openGraph: {
-            title: `${myth.seoTitle} | OtoSöz`,
-            description: myth.seoDescription,
-            url: `https://otosoz.com${canonicalPath}`,
-            siteName: "OtoSöz",
-            locale: "tr_TR",
-            type: "article",
-        },
-        alternates: {
-            canonical: canonicalPath,
-        },
-    };
+        path: canonicalPath,
+        index: isQualityGuide(myth, 'myth'),
+        type: 'article'
+    });
 }
 
 export function generateStaticParams() {

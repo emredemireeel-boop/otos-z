@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo";
 import { createSlug } from "@/data/vehicle-dna";
 import { isVehicleIndexable } from '@/lib/indexability';
 import { engineDNAData } from "@/data/engine-dna";
-import { findVehicleByRoute } from "@/lib/aracDnaSeo";
+import { findVehicleByRoute, vehicleMetadataName } from "@/lib/aracDnaSeo";
 import AracDNAShell from "./AracDNAShell";
 
 interface LayoutProps {
@@ -18,10 +18,10 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     const vehicle = findVehicleByRoute(brand, model);
 
     if (!vehicle) {
-        return {
-            title: "Araç DNA Verisi Bulunamadı | OtoSöz",
-            robots: { index: false, follow: false },
-        };
+        return createPageMetadata({
+        title: "Araç DNA Verisi Bulunamadı | OtoSöz",
+        index: false
+    });
     }
 
     const canonicalPath = `/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}`;
@@ -32,18 +32,10 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
         `${vehicle.brand} ${vehicle.model} ${engine.name} alınır mı`,
     ]);
     const metadata = createPageMetadata({
-        title: `${vehicle.brand} ${vehicle.model} Araç DNA Analizi`,
+        title: `${vehicleMetadataName(vehicle)} Alınır mı? Kronik Sorunlar ve Motorlar`,
         description: `${vehicle.brand} ${vehicle.model} için motor seçenekleri, DNA puanı, kronik sorunlar, kullanıcı deneyimleri ve donanım paketlerini inceleyin.`,
         path: canonicalPath,
-        indexable: isVehicleIndexable(vehicle),
-        keywords: [
-            `${vehicle.brand} ${vehicle.model} kronik sorunlar`,
-            `${vehicle.brand} ${vehicle.model} yorumları`,
-            `${vehicle.brand} ${vehicle.model} motor seçenekleri`,
-            `${vehicle.brand} ${vehicle.model} yakıt tüketimi`,
-            `${vehicle.brand} ${vehicle.model} alınır mı`,
-            ...engineKeywords,
-        ],
+        indexable: isVehicleIndexable(vehicle)
     });
 
     return metadata;

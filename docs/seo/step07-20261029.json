@@ -1,0 +1,94 @@
+{
+  "step": 7,
+  "date": "2026-10-29",
+  "status": "implemented-and-verified-locally",
+  "scope": "Central metadata for all current indexable routes; no deployment performed",
+  "changes": [
+    "All app metadata definitions now call createPageMetadata directly or through shared vehicle/forum/library helpers. Source AST check finds no hand-built metadata objects.",
+    "Canonical, robots, Open Graph and Twitter use one helper. index=false always emits noindex,follow; quality decisions are retained.",
+    "Titles use one OtoSöz suffix; word-boundary shortening removes the suffix first. OBD titles include the specific fault, DNA chronic counts use actual issue counts; engine titles preserve tab intent.",
+    "Descriptions use complete words within 120–158 characters. Short source summaries retain their subject and receive neutral descriptive context, with no invented facts.",
+    "Root keywords and obsolete author/publisher/copyright/geo/language/rating/distribution/revisit-after tags removed. lang, viewport, theme colors, icons, manifest and RSS retained.",
+    "Home canonical and sitemap now both use https://otosoz.com/. Installed Next 16 root URL normalization required metadataBase:null for the home definition; all canonical and social URLs remain absolute.",
+    "Real news/article dates are forwarded when present; no build date substituted. Each page generates a meaningful 1200×630 OG image. Pagination retains self canonical and Sayfa N."
+  ],
+  "measurements": {
+    "before": {
+      "total": 689,
+      "duplicateTitles": 0,
+      "duplicateDescriptionPercent": 0,
+      "longTitlePercent": 53.99129172714078,
+      "descriptionLengthFailures": 215,
+      "forbiddenTagPages": 689
+    },
+    "after": {
+      "total": 689,
+      "duplicateTitles": 0,
+      "duplicateDescriptionPercent": 0,
+      "longTitlePercent": 0,
+      "descriptionLengthFailures": 0,
+      "forbiddenTagPages": 0,
+      "errors": 0,
+      "sourceDefinitions": 84,
+      "manualMetadataObjects": 0
+    }
+  },
+  "validation": [
+    {
+      "command": "npx tsc --noEmit",
+      "result": "PASS: 0 errors"
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS: 1034 generated pages; existing edge-runtime deprecation warning"
+    },
+    {
+      "command": "node --test tests/metadata.test.mjs tests/schema.test.mjs tests/schema-breadcrumbs.test.mjs tests/sitemap-routing.test.mjs",
+      "result": "PASS: 11/11"
+    },
+    {
+      "command": "node scripts/seo-metadata-audit.mjs http://127.0.0.1:3010 docs/seo/step07-after.json",
+      "result": "PASS: all 689 sitemap URLs, 0 errors"
+    },
+    {
+      "command": "node scripts/seo-sitemap-audit.mjs http://127.0.0.1:3010 docs/seo/step07-sitemap-audit.json",
+      "result": "PASS: 689 URLs; 0 duplicates, noindex or canonical errors"
+    },
+    {
+      "command": "node scripts/seo-schema-audit.mjs --all http://127.0.0.1:3010 docs/seo/step07-schema-audit.json",
+      "result": "PASS: 0 errors after metadata migration"
+    },
+    {
+      "command": "node scripts/seo-status-check.mjs --base http://127.0.0.1:3010 --report docs/seo/step07-status.json",
+      "result": "PASS: existing status cases"
+    },
+    {
+      "command": "OG HTTP requests for home, OBD, model, chronic, category, thread",
+      "result": "PASS: 6/6 PNG files are 1200×630; see step07-og-http.json"
+    },
+    {
+      "command": "curl.exe -sS -I https://otosoz.com/obd/p0420",
+      "result": "Live current version HTTP 200; x-nextjs-cache HIT. This does not verify undeployed metadata changes."
+    },
+    {
+      "command": "curl.exe -sS -o NUL -w HTTP_CODE (local /, /obd/p0420, /obd/p9zzz, /kutuphane?kategori=ikinci-el-rehberi)",
+      "result": "PASS: 200, 200, 404, 308 with Location http://127.0.0.1:3010/kutuphane/kategori/ikinci-el-rehberi"
+    }
+  ],
+  "evidence": [
+    "step07-before.json",
+    "step07-after.json",
+    "step07-build.log",
+    "step07-source-migration.json",
+    "step07-status.json",
+    "step07-sitemap-audit.json",
+    "step07-schema-audit.json",
+    "step07-og-http.json"
+  ],
+  "risks": [
+    "Local changes have not been deployed; live metadata must be rechecked after release.",
+    "Google may rewrite titles/descriptions; 60 and 158 character limits are editorial project targets, not display guarantees.",
+    "Browser automation is disabled in Work settings; validation uses actual server HTML and PNG responses.",
+    "New content can create title collisions; the full sitemap metadata audit exits nonzero on regression."
+  ]
+}

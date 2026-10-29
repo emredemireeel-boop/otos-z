@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { SUPPORTING_TEMPLATE_INDEXABLE } from '@/lib/indexability';
@@ -8,10 +9,11 @@ import Link from "next/link";
 import noterData from "@/data/noter_islemleri.json";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Araç Satış Adımları ve Dolandırıcılık Uyarıları | OtoSöz",
-    description: "Noterde 2. el araç alım satım süreci nasıl işler? Araç alırken ve satarken dolandırıcılara karşı nelere dikkat edilmeli? Adım adım rehber OtoSöz'de.",
-};
+export const metadata: Metadata = createPageMetadata({
+        path:"/kutuphane/noter/satis-adimlari",
+        title: "Araç Satış Adımları ve Dolandırıcılık Uyarıları | OtoSöz",
+        description: "Noterde 2. el araç alım satım süreci nasıl işler? Araç alırken ve satarken dolandırıcılara karşı nelere dikkat edilmeli? Adım adım rehber OtoSöz'de."
+    });
 
 export default function SatisAdimlariPage() {
     const { adimlar, dolandiricilikUyarilari } = noterData;

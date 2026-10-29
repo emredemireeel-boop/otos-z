@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {schemaJson} from '@/lib/schema';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {faqPage as buildSchemaFAQPage,itemList as buildSchemaItemList,breadcrumb as buildSchemaBreadcrumbList,collectionPage as buildSchemaCollectionPage} from '@/lib/schema';
@@ -53,31 +54,12 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
         ? `${first.shortName}${first.day ? ` ${first.day} günü` : ""}${first.address ? `, ${first.address} konumunda` : ""}.`
         : `${province.name} için güncel resmî kaynakla doğrulanmış aktif açık oto pazarı kaydı henüz bulunmuyor.`;
 
-    return {
+    return createPageMetadata({
         title: `${province.name} Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz`,
         description: `${directAnswer} ${province.name} oto pazarı adres, gün, saat ve kaynak bilgilerini kontrol edin.`.slice(0, 160),
-        keywords: [
-            `${province.name} açık oto pazarı`, `${province.name} oto pazarı nerede`,
-            `${province.name} araba pazarı hangi gün`, `${province.name} oto pazarı saat kaçta açılıyor`,
-        ],
-        alternates: { canonical },
-        robots: indexabilityRobots(hasVerified),
-        openGraph: {
-            title: `${province.name} Açık Oto Pazarı Rehberi`,
-            description: directAnswer,
-            url: canonical,
-            siteName: "OtoSöz",
-            locale: "tr_TR",
-            type: "website",
-            images: [{ url: "/acik-oto-pazari-og.png", width: 1200, height: 630, alt: `${province.name} açık oto pazarı` }],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: `${province.name} Açık Oto Pazarı Rehberi`,
-            description: directAnswer,
-            images: ["/acik-oto-pazari-og.png"],
-        },
-    };
+        path: canonical,
+        index: hasVerified
+    });
 }
 
 export default async function CityOpenCarMarketPage({ params }: CityPageProps) {

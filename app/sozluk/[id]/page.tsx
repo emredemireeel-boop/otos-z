@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {breadcrumb as buildSchemaBreadcrumbList,article as buildSchemaArticle,faqPage as buildSchemaFAQPage} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
 import { notFound } from "next/navigation";
@@ -20,42 +21,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const term = dictionaryTerms.find(t => t.id === canonicalId);
 
     if (!term) {
-        return { title: 'Terim Bulunamadı | OtoSöz Sözlük' };
+        return createPageMetadata({
+        title: 'Terim Bulunamadı | OtoSöz Sözlük'
+    });
     }
 
     const description = `${term.term} nedir? ${term.description.slice(0, 120)}... OtoSöz Otomotiv Sözlüğünde ${term.category} kategorisinde.`;
 
     const ogUrl = `/api/og?title=${encodeURIComponent(term.term)}&desc=${encodeURIComponent(term.description.slice(0, 160))}`;
 
-    return {
+    return createPageMetadata({
         title: `${term.term} Nedir? Anlamı ve Önemi | OtoSöz Otomotiv Sözlüğü`,
-        robots: indexabilityRobots(isQualityDictionaryTerm(term)),
         description: description.slice(0, 160),
-        keywords: [term.term, `${term.term} nedir`, `${term.term} ne demek`, `otomotiv ${term.term}`, term.category, 'otomotiv sözlük', 'araba terimleri'],
-        openGraph: {
-            title: `${term.term} Nedir? | OtoSöz`,
-            description: description.slice(0, 160),
-            type: 'article',
-            url: `https://otosoz.com/sozluk/${canonicalId}`,
-            images: [
-                {
-                    url: ogUrl,
-                    width: 1200,
-                    height: 630,
-                    alt: term.term,
-                }
-            ],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${term.term} Nedir? | OtoSöz`,
-            description: description.slice(0, 160),
-            images: [ogUrl],
-        },
-        alternates: {
-            canonical: `https://otosoz.com/sozluk/${canonicalId}`,
-        },
-    };
+        path: `https://otosoz.com/sozluk/${canonicalId}`,
+        index: isQualityDictionaryTerm(term)
+    });
 }
 
 export default async function SozlukTermPage({ params }: PageProps) {

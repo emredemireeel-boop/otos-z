@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import {schemaJson,schemaGraph,itemList} from '@/lib/schema';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {indexabilityRobots,isHubIndexable} from '@/lib/indexability';
@@ -368,5 +369,8 @@ export default async function AracDNAPage({searchParams}:{searchParams:Promise<R
 }
 
 export async function generateMetadata({searchParams}:{searchParams:Promise<Record<string,string|undefined>>}){
- const query=await searchParams;return {robots:indexabilityRobots(!query.brand&&!query.model&&!query.year&&isHubIndexable('/arac-dna'))};
+ const query=await searchParams;return createPageMetadata({
+        path:"/arac-dna",
+        index: !query.brand&&!query.model&&!query.year&&isHubIndexable('/arac-dna')
+    });
 }

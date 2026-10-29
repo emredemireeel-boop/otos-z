@@ -1,3 +1,4 @@
+import {createPageMetadata} from '@/lib/seo';
 import type { Metadata } from 'next';
 import { SAMPLE_COMPARISONS, getSampleComparison } from '@/data/showcase-content';
 import { notFound } from 'next/navigation';
@@ -17,29 +18,22 @@ export async function generateMetadata({ params }: ComparisonLayoutProps): Promi
     const comparison = getSampleComparison(id);
 
     if (!comparison) {
-        return {
-            title: 'Araç Karşılaştırması | OtoSöz',
-            robots: { index: false, follow: true },
-        };
+        return createPageMetadata({
+        title: 'Araç Karşılaştırması | OtoSöz',
+        index: false
+    });
     }
 
     const description = `${comparison.description} Bu içerik örnektir.`;
     const canonical = `https://otosoz.com/karsilastirma/${comparison.id}`;
     const ogImage = `/api/og?title=${encodeURIComponent(comparison.title)}&desc=${encodeURIComponent('OtoSöz örnek araç karşılaştırması')}`;
 
-    return {
+    return createPageMetadata({
         title: `${comparison.title} | Örnek Karşılaştırma | OtoSöz`,
         description,
-        robots: { index: false, follow: true },
-        alternates: { canonical },
-        openGraph: {
-            title: `${comparison.title} | Örnek içerik`,
-            description,
-            type: 'article',
-            url: canonical,
-            images: [{ url: ogImage, width: 1200, height: 630, alt: comparison.title }],
-        },
-    };
+        path: canonical,
+        index: false
+    });
 }
 
 export default async function ComparisonDetailLayout({ children, params }: ComparisonLayoutProps) {
