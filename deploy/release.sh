@@ -24,6 +24,10 @@ for ((i=0; i<60; i++)); do if curl -fsS "http://127.0.0.1:$port/robots.txt" > /d
 npm run seo:check -- --base "http://127.0.0.1:$port" --output docs/seo/ci/deploy
 cleanup
 preview_pid=""
+if [[ "${RELEASE_PREPARE_ONLY:-0}" == "1" ]]; then
+    printf 'PREPARED_CANDIDATE %s\n' "$candidate"
+    exit 0
+fi
 pm2 restart "$PM2_APP" --update-env
 pm2 save
 printf 'Activated build %s. Previous build directories remain available for rollback.\n' "$candidate"
