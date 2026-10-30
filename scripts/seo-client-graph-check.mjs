@@ -27,10 +27,12 @@ function dependencies(file){
 }
 const violations=[];
 for(const entry of entries){const seen=new Set();function walk(file,chain){if(seen.has(file))return;seen.add(file);if(heavy.test(file)){violations.push([...chain,file].map(value=>path.relative('.',value).replaceAll('\\','/')));return;}for(const child of dependencies(file))walk(child,[...chain,file]);}walk(path.resolve(entry),[]);}
-const chunks=fs.existsSync('.next/static/chunks')?filesJs('.next/static/chunks'):[];
+const dist=process.argv[2]||'.next',chunkDirectory=path.join(dist,'static/chunks');
+if(!fs.existsSync(chunkDirectory))throw Error('Build chunks unavailable: '+chunkDirectory);
+const chunks=filesJs(chunkDirectory);
 function filesJs(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?filesJs(path.join(dir,entry.name)):entry.name.endsWith('.js')?[path.join(dir,entry.name)]:[]);}
 const clioMatches=chunks.filter(file=>fs.readFileSync(file,'utf8').includes('Clio')).map(file=>({file,context:fs.readFileSync(file,'utf8').match(/.{0,45}Clio.{0,90}/)?.[0]}));
-const report={checkedAt:new Date().toISOString(),clientEntries:entries.length,checkedModules:parsed.size,
+const report={checkedAt:new Date().toISOString(),dist,clientEntries:entries.length,checkedModules:parsed.size,
     forbiddenRuntimeImports:violations.length,violations,chunkCount:chunks.length,clioChunkMatches:clioMatches};
 fs.writeFileSync('docs/seo/step04-client-graph.json',JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));
