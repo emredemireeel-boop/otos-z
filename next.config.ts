@@ -100,6 +100,9 @@ const openCarMarketRedirects = [
 
 const nextConfig: NextConfig = {
     distDir: process.env.OTOSOZ_DIST_DIR || '.next',
+    // Measure the first-visit CSS waterfall in an isolated candidate before release.
+    // Next 16's documented inlineCss option trades stylesheet caching for earlier paint.
+    experimental: { inlineCss: process.env.OTOSOZ_INLINE_CSS === '1' },
     // Üst dizindeki ilgisiz lockfile'ın Turbopack çalışma kökü olarak
     // seçilmesini engelle; derleme yalnızca bu projeyi tarasın.
     turbopack: {

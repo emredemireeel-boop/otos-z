@@ -1,11 +1,12 @@
 import fs from 'node:fs';
 import {load} from 'cheerio';
 
-export function forumStyleDecision(html,styles){
+export function forumStyleDecision(html,styles=[]){
     const $=load(html),button=$('button.forum-thread-action-primary');
     if(button.length!==1)return {passed:false,reason:'Forum reply action missing'};
     const matched=[];
-    for(const css of styles)for(const [,selector,body] of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)){
+    const delivered=[...styles,...$('style').map((_,node)=>$(node).text()).get()];
+    for(const css of delivered)for(const [,selector,body] of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)){
         for(const candidate of selector.split(',')){
             try{if(button.is(candidate.trim()))matched.push(body);}catch{/* unrelated pseudo selectors */}
         }

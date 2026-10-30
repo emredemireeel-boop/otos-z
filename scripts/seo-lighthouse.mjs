@@ -28,7 +28,7 @@ for(const [type,route] of routes.filter(([type])=>!only.length||only.includes(ty
     if(!fs.existsSync(report)){results.push({type,route,error:'Lighthouse failed',exit});continue;}
     const data=JSON.parse(fs.readFileSync(report)),audits=data.audits,requests=audits['network-requests']?.details?.items||[],scripts=requests.filter(r=>r.resourceType==='Script');
     results.push({type,route,score:Math.round((data.categories?.performance?.score||0)*100),lcpMs:audits['largest-contentful-paint']?.numericValue,tbtMs:audits['total-blocking-time']?.numericValue,cls:audits['cumulative-layout-shift']?.numericValue,jsTransferBytes:scripts.reduce((n,r)=>n+(r.transferSize||0),0),jsResourceBytes:scripts.reduce((n,r)=>n+(r.resourceSize||0),0),scripts:scripts.map(r=>({url:r.url,transferSize:r.transferSize,resourceSize:r.resourceSize})),errors:data.runtimeError?[data.runtimeError]:[],report});
-    fs.writeFileSync(summaryFile,JSON.stringify({measuredAt:new Date().toISOString(),stage,base,chrome,mode:'Lighthouse mobile navigation (simulated throttling); TBT is a lab proxy, not a measured field INP.',results},null,2)+'\n');
+    fs.writeFileSync(summaryFile,JSON.stringify({measuredAt:new Date().toISOString(),stage,base,chrome,mode:'Lighthouse mobile navigation; saved LHR configSettings records the throttling method. TBT is a separate lab metric, not measured field INP.',results},null,2)+'\n');
     console.log(JSON.stringify(results.at(-1),(k,v)=>k==='scripts'?undefined:v));
 }
 process.exitCode=results.some(r=>r.error||r.errors?.length)?1:0;

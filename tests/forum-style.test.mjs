@@ -11,3 +11,8 @@ test('server HTML with the matching scope has usable reply-action styles before 
     assert.equal(forumStyleDecision(html,[css]).passed,true);
     assert.equal(forumStyleDecision(html,[]).passed,false);
 });
+test('inline CSS in the first HTML is checked against the actual rendered action',()=>{
+    const html=`<style>${css}</style><div class="scope"><div class="forum-thread-actions"><button class="forum-thread-action-primary">Yanıt yaz</button></div></div>`;
+    assert.equal(forumStyleDecision(html).passed,true);
+    assert.equal(forumStyleDecision(html.replace('class="scope"','class="other"')).passed,false);
+});
