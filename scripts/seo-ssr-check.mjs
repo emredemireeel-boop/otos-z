@@ -22,8 +22,14 @@ for(const vehicle of models.slice(0,2)){
     const engine=engineDNAData.find(record=>record.vehicleId===vehicle.id)?.engines[0];
     if(engine)expected.set(`${pathFor(vehicle)}/${engine.slug}`,[engine.name,...(engine.pros||[]),...(engine.cons||[])]);
 }
-const sitemap=await fetch(new URL('/sitemap.xml',base)).then(response=>response.text());
-const sitemapUrls=[...sitemap.matchAll(/<loc>\s*([^<]+)<\/loc>/g)].map(match=>match[1].replaceAll('&amp;','&'));
+async function sitemapPages(target,seen=new Set()){
+    if(seen.has(target))throw Error('Sitemap cycle');seen.add(target);
+    const response=await fetch(new URL(target,base),{redirect:'manual'});
+    if(response.status!==200)throw Error(`Sitemap ${target}: HTTP ${response.status}`);
+    const xml=await response.text(),locations=[...xml.matchAll(/<loc>\s*([^<]+)<\/loc>/g)].map(match=>match[1].replaceAll('&amp;','&'));
+    return /<sitemapindex\b/.test(xml)?(await Promise.all(locations.map(url=>sitemapPages(new URL(url).pathname,seen)))).flat():locations;
+}
+const sitemapUrls=await sitemapPages('/sitemap.xml');
 const htmlPaths=sitemapUrls.map(url=>new URL(url)).filter(url=>!url.pathname.endsWith('.xml')&&!url.pathname.startsWith('/api/')).map(url=>url.pathname+url.search);
 const targets=[...new Set([...htmlPaths,...expected.keys(),...['kullanici-deneyimleri','arac-paketleri'].map(section=>`${pathFor(models[0])}/${section}`)])];
 const results=[];let next=0;
