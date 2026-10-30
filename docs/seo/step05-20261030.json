@@ -1,0 +1,137 @@
+{
+  "step": 5,
+  "status": "application-verified-edge-http-www-normalization-open",
+  "categoryChoice": "/kutuphane/kategori/{slug}",
+  "reason": "Existing [guideId] and nested guide routes are preserved.",
+  "changes": [
+    "11 type sitemaps from lib/seoRoutes.getIndexableUrls",
+    "Custom root sitemap index; generateSitemaps documented ID route convention not needed for explicit type files",
+    "Shared registry feeds article and library hubs",
+    "Only record-sourced lastmod; unknown dates omitted",
+    "Legacy queries and short category paths permanently redirect before render",
+    "robots announces root index and News; old traffic sitemap 308",
+    "News retains only published qualified records in prior 48 hours"
+  ],
+  "manualSearchConsole": [
+    "After deployment open Search Console, select https://otosoz.com property, Sitemaps, submit sitemap.xml.",
+    "Verify 11 discovered child sitemaps and total qualified URL count.",
+    "Remove redundant traffic sitemap submission; keep news-sitemap.xml if used for News."
+  ],
+  "openRisks": [
+    "Not deployed.",
+    "Google Search Console needs post-deployment submission and recrawl.",
+    "Steps 6–10 remain unimplemented; no completion claim for those steps."
+  ],
+  "date": "2026-10-29",
+  "deployed": false,
+  "counts": [
+    {
+      "url": "https://otosoz.com/sitemaps/core.xml",
+      "count": 13,
+      "bytes": 780
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/arac-dna.xml",
+      "count": 374,
+      "bytes": 33531
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/obd.xml",
+      "count": 6,
+      "bytes": 616
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/sozluk.xml",
+      "count": 0,
+      "bytes": 107
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/kutuphane.xml",
+      "count": 109,
+      "bytes": 10115
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/makale.xml",
+      "count": 50,
+      "bytes": 6361
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/forum.xml",
+      "count": 15,
+      "bytes": 2145
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/haberler.xml",
+      "count": 14,
+      "bytes": 1909
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/trafik-cezasi.xml",
+      "count": 39,
+      "bytes": 3425
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/otohesap.xml",
+      "count": 42,
+      "bytes": 3147
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/acik-oto-pazari.xml",
+      "count": 27,
+      "bytes": 2814
+    }
+  ],
+  "total": 689,
+  "duplicates": 0,
+  "indexabilityFailures": 0,
+  "lastmodRecords": 45,
+  "redirectCases": 1268,
+  "redirectFailures": 0,
+  "validation": [
+    {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "command": "node --test tests/sitemap-routing.test.mjs tests/client-boundaries.test.mjs tests/indexability.test.mjs tests/forum-index-policy.test.mjs tests/forum-pagination.test.mjs",
+      "passed": 24,
+      "failed": 0
+    },
+    {
+      "command": "node scripts/seo-sitemap-audit.mjs",
+      "checked": 689,
+      "failed": 0
+    },
+    {
+      "command": "node scripts/seo-redirect-audit.mjs",
+      "checked": 1268,
+      "failed": 0
+    },
+    {
+      "command": "node scripts/seo-status-check.mjs --base http://127.0.0.1:3010",
+      "passed": 231,
+      "failed": 0
+    },
+    {
+      "command": "node scripts/seo-status-check.mjs --base http://127.0.0.1:3010 --sitemap",
+      "passed": 689,
+      "failed": 0
+    }
+  ],
+  "notes": [
+    "Dictionary sitemap is intentionally empty: Step 3 has no qualified terms; no content was fabricated.",
+    "The root remains https://otosoz.com in this step, matching prior sitemap/canonical; Step 7 requests the slash form.",
+    "Redirect audit instantiates configurable dynamic patterns and catalogue-derived paths, not every possible arbitrary wildcard input.",
+    "Invalid forum query pagination now returns real 404; old Chery engine redirects now reach final model sections."
+  ],
+  "finalInfrastructureFollowUp": {
+    "date": "2026-10-30",
+    "applicationChecksPassed": true,
+    "edgeHttpWwwExtraHop": true,
+    "evidence": "cloudflare-canonical-follow-up-20261030.md"
+  }
+}

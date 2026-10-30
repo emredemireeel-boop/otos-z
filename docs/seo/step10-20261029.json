@@ -15,36 +15,41 @@
   "validation": {
     "typescript": "npx tsc --noEmit: PASS, 0 errors",
     "build": "npm run build: PASS",
-    "tests": "node --test all tests/*.test.mjs: 37/37 PASS",
+    "tests": "node --test tests/*.test.mjs: 44/44 PASS",
     "seoCheck": {
-      "checkedAt": "2026-10-29T10:24:57.092Z",
-      "base": "http://127.0.0.1:3010",
+      "checkedAt": "2026-10-30T13:10:18.330Z",
+      "base": "http://127.0.0.1:3012",
       "passed": true,
       "results": [
         {
           "name": "status",
           "exitCode": 0,
-          "report": "docs\\seo\\ci\\step10\\status.json"
+          "report": "docs\\seo\\ci\\final-inline-local\\status.json"
         },
         {
           "name": "sitemap",
           "exitCode": 0,
-          "report": "docs\\seo\\ci\\step10\\sitemap.json"
+          "report": "docs\\seo\\ci\\final-inline-local\\sitemap.json"
         },
         {
           "name": "schema",
           "exitCode": 0,
-          "report": "docs\\seo\\ci\\step10\\schema.json"
+          "report": "docs\\seo\\ci\\final-inline-local\\schema.json"
         },
         {
           "name": "metadata",
           "exitCode": 0,
-          "report": "docs\\seo\\ci\\step10\\metadata.json"
+          "report": "docs\\seo\\ci\\final-inline-local\\metadata.json"
         },
         {
           "name": "links",
           "exitCode": 0,
-          "report": "docs\\seo\\ci\\step10\\links.json"
+          "report": "docs\\seo\\ci\\final-inline-local\\links.json"
+        },
+        {
+          "name": "styles",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\styles.json"
         }
       ]
     },
@@ -54,10 +59,15 @@
     "redirectingInternalLinks": 0,
     "internalLinkTargets": 1211,
     "weekly": {
-      "output": "weekly/2026-44.json",
       "status": "incomplete",
-      "error": "Google Search Console API has not been used in project 244436311966 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=244436311966 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.",
-      "initialEvidence": "step10-weekly-first-run.json"
+      "errors": [
+        {
+          "status": 403,
+          "message": "Google Search Console API has not been used in project 244436311966 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=244436311966 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+        }
+      ],
+      "output": "deployment-20261029/weekly.json",
+      "scope": "webmasters.readonly"
     },
     "secretFilesTracked": 0,
     "archives": 84,
@@ -119,34 +129,39 @@
     },
     "liveChecks": {
       "summary": {
-        "passed": true,
-        "checkedAt": "2026-10-29T11:07:00.557Z",
+        "checkedAt": "2026-10-30T13:34:32.596Z",
         "base": "https://otosoz.com",
+        "passed": true,
         "results": [
           {
             "name": "status",
             "exitCode": 0,
-            "report": "docs\\seo\\ci\\live\\status.json"
+            "report": "docs\\seo\\ci\\final-inline-live\\status.json"
           },
           {
             "name": "sitemap",
             "exitCode": 0,
-            "report": "docs\\seo\\ci\\live\\sitemap.json"
+            "report": "docs\\seo\\ci\\final-inline-live\\sitemap.json"
           },
           {
             "name": "schema",
             "exitCode": 0,
-            "report": "docs\\seo\\ci\\live\\schema.json"
+            "report": "docs\\seo\\ci\\final-inline-live\\schema.json"
           },
           {
             "name": "metadata",
             "exitCode": 0,
-            "report": "docs\\seo\\ci\\live\\metadata.json"
+            "report": "docs\\seo\\ci\\final-inline-live\\metadata.json"
           },
           {
             "name": "links",
             "exitCode": 0,
-            "report": "docs\\seo\\ci\\live\\links.json"
+            "report": "docs\\seo\\ci\\final-inline-live\\links.json"
+          },
+          {
+            "name": "styles",
+            "exitCode": 0,
+            "report": "docs\\seo\\ci\\final-inline-live\\styles.json"
           }
         ]
       },
@@ -159,7 +174,8 @@
       "sitemap": {
         "total": 691,
         "duplicates": 0,
-        "failures": 0
+        "failures": 0,
+        "lastmodPresent": 45
       },
       "schema": {
         "sampled": 691,
@@ -175,14 +191,19 @@
       },
       "links": {
         "pages": 691,
-        "uniqueTargets": 1211,
+        "uniqueTargets": 1212,
         "broken": 0,
         "redirects": 0,
         "pageErrors": []
+      },
+      "styles": {
+        "passed": true,
+        "backgroundApplied": true,
+        "minHeightApplied": true
       }
     },
     "serverTypeScript": "PASS: candidate-only next typegen + npx tsc --noEmit --project .tsconfig-release.json",
-    "serverBuild": "PASS: 106s compile, 1036 prerendered pages"
+    "serverBuild": "PASS: corrected final candidate, 1037 prerendered pages"
   },
   "approval": {
     "pilot20": "approved by user on 2026-10-29",
@@ -190,7 +211,6 @@
   },
   "risks": [
     "Search Console API disabled in project 244436311966: metrics and indexed statuses unavailable; script and honest error report produced.",
-    "8–9 remain separate incomplete recovery steps. This report does not claim those are complete.",
     "Unknown content dates and unverified author credentials were not fabricated.",
     "npm ci reported 23 dependency audit findings (10 moderate, 12 high, 1 critical); dependency remediation was not part of this step. No npm audit fix --force was run."
   ],
@@ -206,9 +226,10 @@
       "Node 20 lacks Object.groupBy; metadata audit now uses Map-based grouping.",
       "Post-release Cloudflare HTML transformation rewrote the two public mailto links to a /cdn-cgi/l/email-protection endpoint that returned 404 to the crawler. Fixed with Cloudflare-documented per-address email_off comments; endpoint is not skipped by the link checker."
     ],
-    "auditRevision": "39b4ea6",
-    "applicationBuildRevision": "39b4ea6",
-    "cloudflareEmailFix": "Verified public HTML retains mailto anchors and no longer introduces the broken email-protection link."
+    "auditRevision": "c50ec3b9e411950cf005c78514ead4aaad203ee8",
+    "applicationBuildRevision": "cdcd292209875e8e53484770ccebe3035e041ea1",
+    "cloudflareEmailFix": "Verified public HTML retains mailto anchors and no longer introduces the broken email-protection link.",
+    "build": ".next-candidate-20261030125737"
   },
   "evidence": [
     "step10-build.log",
@@ -225,6 +246,9 @@
     "step10-live-trust-pages.json",
     "step10-weekly-schedule.json",
     "indexing20-20261029.md",
-    "step10-live-ci.json"
-  ]
+    "step10-live-ci.json",
+    "deployment-20261029/server-proof.json",
+    "deployment-20261029/live-summary.json"
+  ],
+  "completedAt": "2026-10-30T13:46:46.571Z"
 }

@@ -1,0 +1,1078 @@
+{
+  "measuredAt": "2026-10-29T11:36:46.372Z",
+  "stage": "before",
+  "base": "http://127.0.0.1:3010",
+  "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "mode": "Lighthouse mobile navigation (simulated throttling); TBT is a lab proxy, not a measured field INP.",
+  "results": [
+    {
+      "type": "home",
+      "route": "/",
+      "score": 74,
+      "lcpMs": 1934.242,
+      "tbtMs": 715.3390000000027,
+      "cls": 0.1535540364309627,
+      "jsTransferBytes": 814389,
+      "jsResourceBytes": 2629531,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3pte2bhq_td_3.js",
+          "transferSize": 5388,
+          "resourceSize": 15981
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1l-sy2-dwyarq.js",
+          "transferSize": 10943,
+          "resourceSize": 27373
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3mgkc9p6j2ij0.js",
+          "transferSize": 12226,
+          "resourceSize": 33856
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3hzm7va-5gxsb.js",
+          "transferSize": 11524,
+          "resourceSize": 27147
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/21eri0zp6plpc.js",
+          "transferSize": 4330,
+          "resourceSize": 7822
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/09f3qh9nvan-0.js",
+          "transferSize": 9259,
+          "resourceSize": 21188
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2mugqb6hvwmzx.js",
+          "transferSize": 15416,
+          "resourceSize": 49719
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0_j7y384lcrni.js",
+          "transferSize": 11029,
+          "resourceSize": 29573
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2wkza3mzpiael.js",
+          "transferSize": 168159,
+          "resourceSize": 568350
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44-l-omb06ube.js",
+          "transferSize": 37637,
+          "resourceSize": 127300
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/071ul-6w_2seq.js",
+          "transferSize": 16440,
+          "resourceSize": 51387
+        },
+        {
+          "url": "https://apis.google.com/js/api.js?onload=__iframefcb674222",
+          "transferSize": 6425,
+          "resourceSize": 14582
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2jev9wprygfa-.js",
+          "transferSize": 2384,
+          "resourceSize": 5164
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3x848eb59otnx.js",
+          "transferSize": 2239,
+          "resourceSize": 929
+        },
+        {
+          "url": "https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.tr.q31lGk-SS6A.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo8K8XyD40Td94PmQJ4CzaCJL9ewig/cb=gapi.loaded_0?le=scs",
+          "transferSize": 35492,
+          "resourceSize": 107056
+        },
+        {
+          "url": "https://otosoz.firebaseapp.com/__/auth/iframe.js",
+          "transferSize": 95332,
+          "resourceSize": 289777
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2j1moky6r6_e-.js",
+          "transferSize": 9419,
+          "resourceSize": 30608
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2_ey4-9r_ea_w.js",
+          "transferSize": 6659,
+          "resourceSize": 19898
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26o2if52hjkfw.js",
+          "transferSize": 10679,
+          "resourceSize": 38484
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1894,
+          "resourceSize": 584
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26526,
+          "resourceSize": 76912
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/13hjimemwz2x0.js",
+          "transferSize": 48724,
+          "resourceSize": 161771
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0ta58owbo1-99.js",
+          "transferSize": 97492,
+          "resourceSize": 395201
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3e_0hbvuww-i_.js",
+          "transferSize": 9318,
+          "resourceSize": 30327
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1h3bra6dng5ik.js",
+          "transferSize": 8200,
+          "resourceSize": 26169
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2w8n8rj7tre3m.js",
+          "transferSize": 3697,
+          "resourceSize": 5397
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44mi6ihbq6_9r.js",
+          "transferSize": 9647,
+          "resourceSize": 26311
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-before\\home.json"
+    },
+    {
+      "type": "obd",
+      "route": "/obd/p0420",
+      "score": 91,
+      "lcpMs": 2107.159,
+      "tbtMs": 298.75399999975934,
+      "cls": 0.00002506835028629803,
+      "jsTransferBytes": 890606,
+      "jsResourceBytes": 2881391,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3pte2bhq_td_3.js",
+          "transferSize": 5388,
+          "resourceSize": 15981
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1l-sy2-dwyarq.js",
+          "transferSize": 10943,
+          "resourceSize": 27373
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3mgkc9p6j2ij0.js",
+          "transferSize": 12226,
+          "resourceSize": 33856
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3hzm7va-5gxsb.js",
+          "transferSize": 11524,
+          "resourceSize": 27147
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1894,
+          "resourceSize": 584
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0b0w6-u2zhyf7.js",
+          "transferSize": 11645,
+          "resourceSize": 35248
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1rca6ix3n-jdt.js",
+          "transferSize": 21502,
+          "resourceSize": 84584
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26526,
+          "resourceSize": 76912
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2jev9wprygfa-.js",
+          "transferSize": 2384,
+          "resourceSize": 5164
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44-l-omb06ube.js",
+          "transferSize": 37637,
+          "resourceSize": 127300
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0_j7y384lcrni.js",
+          "transferSize": 11029,
+          "resourceSize": 29573
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3x848eb59otnx.js",
+          "transferSize": 2239,
+          "resourceSize": 929
+        },
+        {
+          "url": "https://apis.google.com/js/api.js?onload=__iframefcb119114",
+          "transferSize": 6425,
+          "resourceSize": 14582
+        },
+        {
+          "url": "https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.tr.q31lGk-SS6A.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo8K8XyD40Td94PmQJ4CzaCJL9ewig/cb=gapi.loaded_0?le=scs",
+          "transferSize": 35492,
+          "resourceSize": 107056
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/21eri0zp6plpc.js",
+          "transferSize": 4330,
+          "resourceSize": 7822
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/09f3qh9nvan-0.js",
+          "transferSize": 9259,
+          "resourceSize": 21188
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2mugqb6hvwmzx.js",
+          "transferSize": 15416,
+          "resourceSize": 49719
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2wkza3mzpiael.js",
+          "transferSize": 168159,
+          "resourceSize": 568350
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/071ul-6w_2seq.js",
+          "transferSize": 16440,
+          "resourceSize": 51387
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2_ey4-9r_ea_w.js",
+          "transferSize": 6659,
+          "resourceSize": 19898
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26o2if52hjkfw.js",
+          "transferSize": 10679,
+          "resourceSize": 38484
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2yrvuay_ksugy.js",
+          "transferSize": 38229,
+          "resourceSize": 112988
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3v81g4sfo7k1p.js",
+          "transferSize": 14276,
+          "resourceSize": 49648
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3e_0hbvuww-i_.js",
+          "transferSize": 9318,
+          "resourceSize": 30327
+        },
+        {
+          "url": "https://otosoz.firebaseapp.com/__/auth/iframe.js",
+          "transferSize": 95316,
+          "resourceSize": 289777
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/13hjimemwz2x0.js",
+          "transferSize": 48724,
+          "resourceSize": 161771
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0ta58owbo1-99.js",
+          "transferSize": 97492,
+          "resourceSize": 395201
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1h3bra6dng5ik.js",
+          "transferSize": 8200,
+          "resourceSize": 26169
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2w8n8rj7tre3m.js",
+          "transferSize": 3697,
+          "resourceSize": 5397
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44mi6ihbq6_9r.js",
+          "transferSize": 9647,
+          "resourceSize": 26311
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-before\\obd.json"
+    },
+    {
+      "type": "dna-model",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "score": 93,
+      "lcpMs": 2111.105,
+      "tbtMs": 230.95700000000033,
+      "cls": 0,
+      "jsTransferBytes": 814440,
+      "jsResourceBytes": 2629616,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3pte2bhq_td_3.js",
+          "transferSize": 5388,
+          "resourceSize": 15981
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1l-sy2-dwyarq.js",
+          "transferSize": 10943,
+          "resourceSize": 27373
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3mgkc9p6j2ij0.js",
+          "transferSize": 12226,
+          "resourceSize": 33856
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3hzm7va-5gxsb.js",
+          "transferSize": 11524,
+          "resourceSize": 27147
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3vsrj660nbyvm.js",
+          "transferSize": 9454,
+          "resourceSize": 30693
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2jev9wprygfa-.js",
+          "transferSize": 2384,
+          "resourceSize": 5164
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44-l-omb06ube.js",
+          "transferSize": 37637,
+          "resourceSize": 127300
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0_j7y384lcrni.js",
+          "transferSize": 11029,
+          "resourceSize": 29573
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3x848eb59otnx.js",
+          "transferSize": 2239,
+          "resourceSize": 929
+        },
+        {
+          "url": "https://apis.google.com/js/api.js?onload=__iframefcb248986",
+          "transferSize": 6425,
+          "resourceSize": 14582
+        },
+        {
+          "url": "https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.tr.q31lGk-SS6A.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo8K8XyD40Td94PmQJ4CzaCJL9ewig/cb=gapi.loaded_0?le=scs",
+          "transferSize": 35492,
+          "resourceSize": 107056
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/21eri0zp6plpc.js",
+          "transferSize": 4330,
+          "resourceSize": 7822
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/09f3qh9nvan-0.js",
+          "transferSize": 9259,
+          "resourceSize": 21188
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2mugqb6hvwmzx.js",
+          "transferSize": 15416,
+          "resourceSize": 49719
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2wkza3mzpiael.js",
+          "transferSize": 168159,
+          "resourceSize": 568350
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/071ul-6w_2seq.js",
+          "transferSize": 16440,
+          "resourceSize": 51387
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2_ey4-9r_ea_w.js",
+          "transferSize": 6659,
+          "resourceSize": 19898
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3e_0hbvuww-i_.js",
+          "transferSize": 9318,
+          "resourceSize": 30327
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1894,
+          "resourceSize": 584
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26526,
+          "resourceSize": 76912
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/13hjimemwz2x0.js",
+          "transferSize": 48724,
+          "resourceSize": 161771
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0ta58owbo1-99.js",
+          "transferSize": 97492,
+          "resourceSize": 395201
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26o2if52hjkfw.js",
+          "transferSize": 10679,
+          "resourceSize": 38484
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1h3bra6dng5ik.js",
+          "transferSize": 8200,
+          "resourceSize": 26169
+        },
+        {
+          "url": "https://otosoz.firebaseapp.com/__/auth/iframe.js",
+          "transferSize": 95348,
+          "resourceSize": 289777
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2w8n8rj7tre3m.js",
+          "transferSize": 3697,
+          "resourceSize": 5397
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44mi6ihbq6_9r.js",
+          "transferSize": 9647,
+          "resourceSize": 26311
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-before\\dna-model.json"
+    },
+    {
+      "type": "dna-chronic",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "score": 92,
+      "lcpMs": 2061.366,
+      "tbtMs": 272.94399999999996,
+      "cls": 0,
+      "jsTransferBytes": 819766,
+      "jsResourceBytes": 2643385,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3pte2bhq_td_3.js",
+          "transferSize": 5388,
+          "resourceSize": 15981
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1l-sy2-dwyarq.js",
+          "transferSize": 10943,
+          "resourceSize": 27373
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3mgkc9p6j2ij0.js",
+          "transferSize": 12226,
+          "resourceSize": 33856
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3hzm7va-5gxsb.js",
+          "transferSize": 11524,
+          "resourceSize": 27147
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2k1_tavhw8e8g.js",
+          "transferSize": 1630,
+          "resourceSize": 320
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/09f3qh9nvan-0.js",
+          "transferSize": 9259,
+          "resourceSize": 21188
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2jir0sl4gzycb.js",
+          "transferSize": 13141,
+          "resourceSize": 44142
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2wkza3mzpiael.js",
+          "transferSize": 168159,
+          "resourceSize": 568350
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0_j7y384lcrni.js",
+          "transferSize": 11029,
+          "resourceSize": 29573
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44-l-omb06ube.js",
+          "transferSize": 37637,
+          "resourceSize": 127300
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2jev9wprygfa-.js",
+          "transferSize": 2384,
+          "resourceSize": 5164
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3x848eb59otnx.js",
+          "transferSize": 2239,
+          "resourceSize": 929
+        },
+        {
+          "url": "https://apis.google.com/js/api.js?onload=__iframefcb226256",
+          "transferSize": 6425,
+          "resourceSize": 14582
+        },
+        {
+          "url": "https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.tr.q31lGk-SS6A.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo8K8XyD40Td94PmQJ4CzaCJL9ewig/cb=gapi.loaded_0?le=scs",
+          "transferSize": 35492,
+          "resourceSize": 107056
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2_ey4-9r_ea_w.js",
+          "transferSize": 6659,
+          "resourceSize": 19898
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/21eri0zp6plpc.js",
+          "transferSize": 4330,
+          "resourceSize": 7822
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2mugqb6hvwmzx.js",
+          "transferSize": 15416,
+          "resourceSize": 49719
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/071ul-6w_2seq.js",
+          "transferSize": 16440,
+          "resourceSize": 51387
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1894,
+          "resourceSize": 584
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26526,
+          "resourceSize": 76912
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/13hjimemwz2x0.js",
+          "transferSize": 48724,
+          "resourceSize": 161771
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0ta58owbo1-99.js",
+          "transferSize": 97492,
+          "resourceSize": 395201
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3e_0hbvuww-i_.js",
+          "transferSize": 9318,
+          "resourceSize": 30327
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1h3bra6dng5ik.js",
+          "transferSize": 8200,
+          "resourceSize": 26169
+        },
+        {
+          "url": "https://otosoz.firebaseapp.com/__/auth/iframe.js",
+          "transferSize": 95357,
+          "resourceSize": 289777
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26o2if52hjkfw.js",
+          "transferSize": 10679,
+          "resourceSize": 38484
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2w8n8rj7tre3m.js",
+          "transferSize": 3697,
+          "resourceSize": 5397
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44mi6ihbq6_9r.js",
+          "transferSize": 9647,
+          "resourceSize": 26311
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-before\\dna-chronic.json"
+    },
+    {
+      "type": "library-category",
+      "route": "/kutuphane/kategori/ikinci-el-rehberi",
+      "score": 90,
+      "lcpMs": 2082.022,
+      "tbtMs": 306.6409999999996,
+      "cls": 0,
+      "jsTransferBytes": 804965,
+      "jsResourceBytes": 2598923,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3pte2bhq_td_3.js",
+          "transferSize": 5388,
+          "resourceSize": 15981
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1l-sy2-dwyarq.js",
+          "transferSize": 10943,
+          "resourceSize": 27373
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3mgkc9p6j2ij0.js",
+          "transferSize": 12226,
+          "resourceSize": 33856
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3hzm7va-5gxsb.js",
+          "transferSize": 11524,
+          "resourceSize": 27147
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1894,
+          "resourceSize": 584
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26526,
+          "resourceSize": 76912
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/13hjimemwz2x0.js",
+          "transferSize": 48724,
+          "resourceSize": 161771
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0ta58owbo1-99.js",
+          "transferSize": 97492,
+          "resourceSize": 395201
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2jev9wprygfa-.js",
+          "transferSize": 2384,
+          "resourceSize": 5164
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44-l-omb06ube.js",
+          "transferSize": 37637,
+          "resourceSize": 127300
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0_j7y384lcrni.js",
+          "transferSize": 11029,
+          "resourceSize": 29573
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3x848eb59otnx.js",
+          "transferSize": 2239,
+          "resourceSize": 929
+        },
+        {
+          "url": "https://apis.google.com/js/api.js?onload=__iframefcb527836",
+          "transferSize": 6427,
+          "resourceSize": 14582
+        },
+        {
+          "url": "https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.tr.q31lGk-SS6A.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo8K8XyD40Td94PmQJ4CzaCJL9ewig/cb=gapi.loaded_0?le=scs",
+          "transferSize": 35492,
+          "resourceSize": 107056
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/21eri0zp6plpc.js",
+          "transferSize": 4330,
+          "resourceSize": 7822
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/09f3qh9nvan-0.js",
+          "transferSize": 9259,
+          "resourceSize": 21188
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2mugqb6hvwmzx.js",
+          "transferSize": 15416,
+          "resourceSize": 49719
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2wkza3mzpiael.js",
+          "transferSize": 168159,
+          "resourceSize": 568350
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/071ul-6w_2seq.js",
+          "transferSize": 16440,
+          "resourceSize": 51387
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2_ey4-9r_ea_w.js",
+          "transferSize": 6659,
+          "resourceSize": 19898
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3e_0hbvuww-i_.js",
+          "transferSize": 9318,
+          "resourceSize": 30327
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1h3bra6dng5ik.js",
+          "transferSize": 8200,
+          "resourceSize": 26169
+        },
+        {
+          "url": "https://otosoz.firebaseapp.com/__/auth/iframe.js",
+          "transferSize": 95325,
+          "resourceSize": 289777
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26o2if52hjkfw.js",
+          "transferSize": 10679,
+          "resourceSize": 38484
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2w8n8rj7tre3m.js",
+          "transferSize": 3697,
+          "resourceSize": 5397
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44mi6ihbq6_9r.js",
+          "transferSize": 9647,
+          "resourceSize": 26311
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-before\\library-category.json"
+    },
+    {
+      "type": "forum-thread",
+      "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "score": 85,
+      "lcpMs": 1970.466,
+      "tbtMs": 426.0019999995243,
+      "cls": 0.08927727205915206,
+      "jsTransferBytes": 840718,
+      "jsResourceBytes": 2714965,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3pte2bhq_td_3.js",
+          "transferSize": 5388,
+          "resourceSize": 15981
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1l-sy2-dwyarq.js",
+          "transferSize": 10943,
+          "resourceSize": 27373
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3mgkc9p6j2ij0.js",
+          "transferSize": 12226,
+          "resourceSize": 33856
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3hzm7va-5gxsb.js",
+          "transferSize": 11524,
+          "resourceSize": 27147
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1cbuqzu3ezfmm.js",
+          "transferSize": 7254,
+          "resourceSize": 16595
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/09f3qh9nvan-0.js",
+          "transferSize": 9259,
+          "resourceSize": 21188
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1ocwf1ajre_g8.js",
+          "transferSize": 12456,
+          "resourceSize": 48876
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2wkza3mzpiael.js",
+          "transferSize": 168159,
+          "resourceSize": 568350
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0_j7y384lcrni.js",
+          "transferSize": 11029,
+          "resourceSize": 29573
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44-l-omb06ube.js",
+          "transferSize": 37637,
+          "resourceSize": 127300
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/43407jb97_e39.js",
+          "transferSize": 16033,
+          "resourceSize": 50572
+        },
+        {
+          "url": "https://apis.google.com/js/api.js?onload=__iframefcb84310",
+          "transferSize": 6423,
+          "resourceSize": 14581
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2jev9wprygfa-.js",
+          "transferSize": 2384,
+          "resourceSize": 5164
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3x848eb59otnx.js",
+          "transferSize": 2239,
+          "resourceSize": 929
+        },
+        {
+          "url": "https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.tr.q31lGk-SS6A.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo8K8XyD40Td94PmQJ4CzaCJL9ewig/cb=gapi.loaded_0?le=scs",
+          "transferSize": 35492,
+          "resourceSize": 107056
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/21eri0zp6plpc.js",
+          "transferSize": 4330,
+          "resourceSize": 7822
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2mugqb6hvwmzx.js",
+          "transferSize": 15416,
+          "resourceSize": 49719
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/071ul-6w_2seq.js",
+          "transferSize": 16440,
+          "resourceSize": 51387
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2_ey4-9r_ea_w.js",
+          "transferSize": 6659,
+          "resourceSize": 19898
+        },
+        {
+          "url": "https://otosoz.firebaseapp.com/__/auth/iframe.js",
+          "transferSize": 95339,
+          "resourceSize": 289777
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/26o2if52hjkfw.js",
+          "transferSize": 10679,
+          "resourceSize": 38484
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/3e_0hbvuww-i_.js",
+          "transferSize": 9318,
+          "resourceSize": 30327
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1894,
+          "resourceSize": 584
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26526,
+          "resourceSize": 76912
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/13hjimemwz2x0.js",
+          "transferSize": 48724,
+          "resourceSize": 161771
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/0ta58owbo1-99.js",
+          "transferSize": 97492,
+          "resourceSize": 395201
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/1h3bra6dng5ik.js",
+          "transferSize": 8200,
+          "resourceSize": 26169
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/2w8n8rj7tre3m.js",
+          "transferSize": 3697,
+          "resourceSize": 5397
+        },
+        {
+          "url": "http://127.0.0.1:3010/_next/static/chunks/44mi6ihbq6_9r.js",
+          "transferSize": 9647,
+          "resourceSize": 26311
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-before\\forum-thread.json"
+    }
+  ]
+}

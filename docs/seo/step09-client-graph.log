@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-10-30T13:35:26.897Z",
+  "dist": ".next-candidate-inline-css-local",
+  "clientEntries": 173,
+  "checkedModules": 222,
+  "forbiddenRuntimeImports": 0,
+  "violations": [],
+  "chunkCount": 166,
+  "clioChunkMatches": []
+}

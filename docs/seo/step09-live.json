@@ -1,0 +1,88 @@
+{
+  "measuredAt": "2026-10-30T12:39:16.000Z",
+  "stage": "live",
+  "base": "https://otosoz.com",
+  "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "mode": "Lighthouse mobile navigation (simulated throttling); TBT is a lab proxy, not a measured field INP.",
+  "results": [
+    {
+      "type": "dna-model",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "score": 51,
+      "lcpMs": 6625.638,
+      "tbtMs": 430.91299999999956,
+      "cls": 0.0002535782703267333,
+      "jsTransferBytes": 207255,
+      "jsResourceBytes": 662556,
+      "scripts": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 4256,
+          "resourceSize": 13894
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9539,
+          "resourceSize": 31996
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 71825,
+          "resourceSize": 228084
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 43281,
+          "resourceSize": 155744
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 4644,
+          "resourceSize": 10947
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "transferSize": 4423,
+          "resourceSize": 16187
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 13994,
+          "resourceSize": 37726
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "transferSize": 12515,
+          "resourceSize": 37117
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2jz6e72e_1ycd.js",
+          "transferSize": 8443,
+          "resourceSize": 30849
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "transferSize": 0,
+          "resourceSize": 0
+        },
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/h/g/scripts/jsd/c787ce48cf6b/main.js?ray=a52a7a9d4af0edc8",
+          "transferSize": 17229,
+          "resourceSize": 43252
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9110,
+          "resourceSize": 30483
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 7996,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-live\\dna-model.json"
+    }
+  ]
+}

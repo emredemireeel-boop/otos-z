@@ -1,0 +1,185 @@
+{
+  "method": "Middle performance score, three consecutive runs per template; no best-run selection",
+  "samples": [
+    {
+      "type": "home",
+      "selectedRun": 2,
+      "runs": [
+        {
+          "run": 1,
+          "score": 77,
+          "lcpMs": 2752.733,
+          "tbtMs": 584.0310000000004,
+          "cls": 0.000114592029655262,
+          "jsTransferBytes": 245361
+        },
+        {
+          "run": 2,
+          "score": 77,
+          "lcpMs": 2839.185,
+          "tbtMs": 522.7120000000014,
+          "cls": 0.000114592029655262,
+          "jsTransferBytes": 245183
+        },
+        {
+          "run": 3,
+          "score": 78,
+          "lcpMs": 2799.254,
+          "tbtMs": 521.4620000000004,
+          "cls": 0.000114592029655262,
+          "jsTransferBytes": 237739
+        }
+      ]
+    },
+    {
+      "type": "obd",
+      "selectedRun": 1,
+      "runs": [
+        {
+          "run": 1,
+          "score": 77,
+          "lcpMs": 3065.901,
+          "tbtMs": 459.82000000000016,
+          "cls": 0.00040465428054445215,
+          "jsTransferBytes": 309903
+        },
+        {
+          "run": 2,
+          "score": 77,
+          "lcpMs": 2925.043,
+          "tbtMs": 504.5320000000015,
+          "cls": 0.00041219691352399097,
+          "jsTransferBytes": 310384
+        },
+        {
+          "run": 3,
+          "score": 76,
+          "lcpMs": 2933.797,
+          "tbtMs": 540.1700000000014,
+          "cls": 0.0004053542879493233,
+          "jsTransferBytes": 309686
+        }
+      ]
+    },
+    {
+      "type": "dna-model",
+      "selectedRun": 1,
+      "runs": [
+        {
+          "run": 1,
+          "score": 81,
+          "lcpMs": 2820.765,
+          "tbtMs": 419.83799999999974,
+          "cls": 0.0002535782703267333,
+          "jsTransferBytes": 212794
+        },
+        {
+          "run": 2,
+          "score": 80,
+          "lcpMs": 2789.204,
+          "tbtMs": 438.98999999618536,
+          "cls": 0.0002535782703267333,
+          "jsTransferBytes": 213547
+        },
+        {
+          "run": 3,
+          "score": 81,
+          "lcpMs": 2789.721,
+          "tbtMs": 416.8260000000005,
+          "cls": 0.0002535782703267333,
+          "jsTransferBytes": 206441
+        }
+      ]
+    },
+    {
+      "type": "dna-chronic",
+      "selectedRun": 2,
+      "runs": [
+        {
+          "run": 1,
+          "score": 81,
+          "lcpMs": 2752.566,
+          "tbtMs": 427.8900000000003,
+          "cls": 0.0000184369251540535,
+          "jsTransferBytes": 217705
+        },
+        {
+          "run": 2,
+          "score": 82,
+          "lcpMs": 2758.07,
+          "tbtMs": 392.79800000000114,
+          "cls": 0.0000184369251540535,
+          "jsTransferBytes": 210460
+        },
+        {
+          "run": 3,
+          "score": 82,
+          "lcpMs": 2716.753,
+          "tbtMs": 405.1520000000005,
+          "cls": 0.0000184369251540535,
+          "jsTransferBytes": 218068
+        }
+      ]
+    },
+    {
+      "type": "library-category",
+      "selectedRun": 3,
+      "runs": [
+        {
+          "run": 1,
+          "score": 75,
+          "lcpMs": 3016.408,
+          "tbtMs": 549.620999996187,
+          "cls": 0.0001080569101330301,
+          "jsTransferBytes": 379747
+        },
+        {
+          "run": 2,
+          "score": 74,
+          "lcpMs": 2916.549,
+          "tbtMs": 613.8219999999997,
+          "cls": 0.0001080569101330301,
+          "jsTransferBytes": 368982
+        },
+        {
+          "run": 3,
+          "score": 74,
+          "lcpMs": 3033.538,
+          "tbtMs": 564.3929999961842,
+          "cls": 0.0001080569101330301,
+          "jsTransferBytes": 378923
+        }
+      ]
+    },
+    {
+      "type": "forum-thread",
+      "selectedRun": 3,
+      "runs": [
+        {
+          "run": 1,
+          "score": 77,
+          "lcpMs": 2802.318,
+          "tbtMs": 528.0080000000012,
+          "cls": 0,
+          "jsTransferBytes": 233383
+        },
+        {
+          "run": 2,
+          "score": 78,
+          "lcpMs": 2656.696,
+          "tbtMs": 563.9340000000007,
+          "cls": 0,
+          "jsTransferBytes": 234398
+        },
+        {
+          "run": 3,
+          "score": 77,
+          "lcpMs": 2627.8,
+          "tbtMs": 633.433,
+          "cls": 0,
+          "jsTransferBytes": 233379
+        }
+      ]
+    }
+  ]
+}

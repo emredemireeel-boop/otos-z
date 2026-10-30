@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-30T13:34:32.596Z",
+  "base": "https://otosoz.com",
+  "passed": true,
+  "results": [
+    {
+      "name": "status",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\final-inline-live\\status.json"
+    },
+    {
+      "name": "sitemap",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\final-inline-live\\sitemap.json"
+    },
+    {
+      "name": "schema",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\final-inline-live\\schema.json"
+    },
+    {
+      "name": "metadata",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\final-inline-live\\metadata.json"
+    },
+    {
+      "name": "links",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\final-inline-live\\links.json"
+    },
+    {
+      "name": "styles",
+      "exitCode": 0,
+      "report": "docs\\seo\\ci\\final-inline-live\\styles.json"
+    }
+  ]
+}

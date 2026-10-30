@@ -1,0 +1,91 @@
+{
+  "checkedAt": "2026-10-30T13:21:08.776Z",
+  "rows": [
+    {
+      "route": "/forum",
+      "status": 200,
+      "canonical": "https://otosoz.com/forum",
+      "robots": "index, follow",
+      "h1": [
+        "OtoSöz Forum — Otomobil Soru ve Tartışmaları"
+      ],
+      "textCharacters": 6312,
+      "footerTrustLinks": [
+        "/hakkimizda",
+        "/editoryal-politika",
+        "/kaynaklar"
+      ],
+      "hasResponsiblePerson": false,
+      "realThreadLinks": 13
+    },
+    {
+      "route": "/makale",
+      "status": 200,
+      "canonical": "https://otosoz.com/makale",
+      "robots": "index, follow",
+      "h1": [
+        "Otomobil Makaleleri ve Araç Rehberleri"
+      ],
+      "textCharacters": 14444,
+      "footerTrustLinks": [
+        "/hakkimizda",
+        "/editoryal-politika",
+        "/kaynaklar"
+      ],
+      "hasResponsiblePerson": false,
+      "articleLinks": 49
+    },
+    {
+      "route": "/hakkimizda",
+      "status": 200,
+      "canonical": "https://otosoz.com/hakkimizda",
+      "robots": "index, follow",
+      "h1": [
+        "OtoSöz Hakkında"
+      ],
+      "textCharacters": 1159,
+      "footerTrustLinks": [
+        "/hakkimizda",
+        "/editoryal-politika",
+        "/kaynaklar"
+      ],
+      "hasResponsiblePerson": true
+    },
+    {
+      "route": "/editoryal-politika",
+      "status": 200,
+      "canonical": "https://otosoz.com/editoryal-politika",
+      "robots": "index, follow",
+      "h1": [
+        "Editoryal Politika"
+      ],
+      "textCharacters": 2304,
+      "footerTrustLinks": [
+        "/hakkimizda",
+        "/editoryal-politika",
+        "/kaynaklar"
+      ],
+      "hasResponsiblePerson": true
+    },
+    {
+      "route": "/kaynaklar",
+      "status": 200,
+      "canonical": "https://otosoz.com/kaynaklar",
+      "robots": "index, follow",
+      "h1": [
+        "Kaynaklar"
+      ],
+      "textCharacters": 1883,
+      "footerTrustLinks": [
+        "/hakkimizda",
+        "/editoryal-politika",
+        "/kaynaklar"
+      ],
+      "hasResponsiblePerson": false
+    }
+  ],
+  "notes": [
+    "13 real forum topics approved instead of fabricated topics.",
+    "49 eligible article links; the duplicate remains HTTP 200 + noindex under user approval."
+  ]
+}

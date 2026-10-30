@@ -1,0 +1,1064 @@
+{
+  "completedAt": "2026-10-30T13:46:46.571Z",
+  "localDate": "2026-10-30",
+  "site": "https://otosoz.com",
+  "status": "deployed-with-external-cloudflare-and-search-console-follow-ups",
+  "implementationStepsDeployed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "applicationRevision": "cdcd292209875e8e53484770ccebe3035e041ea1",
+  "sourceRevisionBeforeEvidenceCommit": "c50ec3b9e411950cf005c78514ead4aaad203ee8",
+  "candidate": ".next-candidate-20261030125737",
+  "buildId": "yv2nJI7nD_zvXjEzlcylw",
+  "checks": {
+    "typescript": {
+      "command": "npx tsc --noEmit",
+      "errors": 0
+    },
+    "build": {
+      "command": "npm run build",
+      "passed": true,
+      "pages": 1037
+    },
+    "tests": {
+      "command": "node --test tests/*.test.mjs",
+      "passed": 44,
+      "failed": 0
+    },
+    "localSeoCheck": {
+      "checkedAt": "2026-10-30T13:10:18.330Z",
+      "base": "http://127.0.0.1:3012",
+      "passed": true,
+      "results": [
+        {
+          "name": "status",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\status.json"
+        },
+        {
+          "name": "sitemap",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\sitemap.json"
+        },
+        {
+          "name": "schema",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\schema.json"
+        },
+        {
+          "name": "metadata",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\metadata.json"
+        },
+        {
+          "name": "links",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\links.json"
+        },
+        {
+          "name": "styles",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\styles.json"
+        }
+      ]
+    },
+    "serverSeoCheck": {
+      "checkedAt": "2026-10-30T13:16:11.061Z",
+      "base": "http://127.0.0.1:3011",
+      "passed": true,
+      "results": [
+        {
+          "name": "status",
+          "exitCode": 0,
+          "report": "docs/seo/ci/deploy/status.json"
+        },
+        {
+          "name": "sitemap",
+          "exitCode": 0,
+          "report": "docs/seo/ci/deploy/sitemap.json"
+        },
+        {
+          "name": "schema",
+          "exitCode": 0,
+          "report": "docs/seo/ci/deploy/schema.json"
+        },
+        {
+          "name": "metadata",
+          "exitCode": 0,
+          "report": "docs/seo/ci/deploy/metadata.json"
+        },
+        {
+          "name": "links",
+          "exitCode": 0,
+          "report": "docs/seo/ci/deploy/links.json"
+        },
+        {
+          "name": "styles",
+          "exitCode": 0,
+          "report": "docs/seo/ci/deploy/styles.json"
+        }
+      ]
+    },
+    "publicSeoCheck": {
+      "checkedAt": "2026-10-30T13:34:32.596Z",
+      "base": "https://otosoz.com",
+      "passed": true,
+      "results": [
+        {
+          "name": "status",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-live\\status.json"
+        },
+        {
+          "name": "sitemap",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-live\\sitemap.json"
+        },
+        {
+          "name": "schema",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-live\\schema.json"
+        },
+        {
+          "name": "metadata",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-live\\metadata.json"
+        },
+        {
+          "name": "links",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-live\\links.json"
+        },
+        {
+          "name": "styles",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-live\\styles.json"
+        }
+      ]
+    },
+    "status": {
+      "passed": 231,
+      "total": 231,
+      "metaRefresh": 0
+    },
+    "sitemap": {
+      "urls": 691,
+      "duplicates": 0,
+      "failures": 0,
+      "types": [
+        {
+          "url": "https://otosoz.com/sitemaps/core.xml",
+          "count": 15
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/arac-dna.xml",
+          "count": 374
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/obd.xml",
+          "count": 6
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/sozluk.xml",
+          "count": 0
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/kutuphane.xml",
+          "count": 109
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/makale.xml",
+          "count": 50
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/forum.xml",
+          "count": 15
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/haberler.xml",
+          "count": 14
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/trafik-cezasi.xml",
+          "count": 39
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/otohesap.xml",
+          "count": 42
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/acik-oto-pazari.xml",
+          "count": 27
+        }
+      ],
+      "realLastmodEntries": 45
+    },
+    "schema": {
+      "pages": 691,
+      "errors": 0,
+      "parseErrors": 0
+    },
+    "metadata": {
+      "pages": 691,
+      "duplicateTitles": 0,
+      "duplicateDescriptionPercent": 0,
+      "longTitlePercent": 0,
+      "failures": 0
+    },
+    "links": {
+      "indexable": 691,
+      "crawled": 2302,
+      "orphans": 0,
+      "unreachable": 0,
+      "deep": 0,
+      "deepPercent": 0,
+      "depthCounts": {
+        "0": 1,
+        "1": 48,
+        "2": 408,
+        "3": 234
+      },
+      "brokenLinks": 0,
+      "redirectLinks": 0,
+      "aliasLinks": 0
+    },
+    "mobile": {
+      "base": "http://127.0.0.1:3012",
+      "method": "Median of three valid mobile Lighthouse runs per template",
+      "rows": [
+        {
+          "type": "home",
+          "route": "/",
+          "beforeScore": 74,
+          "afterScore": 92,
+          "beforeJsTransferBytes": 814389,
+          "afterJsTransferBytes": 231173,
+          "jsReductionPercent": 71.61,
+          "lcpMs": 1239.507,
+          "tbtMs": 340.29200000000037,
+          "cls": 0.000114592029655262,
+          "firebaseChunks": [],
+          "fetchTime": "2026-10-30T12:58:02.629Z"
+        },
+        {
+          "type": "obd",
+          "route": "/obd/p0420",
+          "beforeScore": 91,
+          "afterScore": 95,
+          "beforeJsTransferBytes": 890606,
+          "afterJsTransferBytes": 296792,
+          "jsReductionPercent": 66.68,
+          "lcpMs": 1341.489,
+          "tbtMs": 259.7279999999996,
+          "cls": 0.0003869455825786689,
+          "firebaseChunks": [],
+          "fetchTime": "2026-10-30T12:59:26.989Z"
+        },
+        {
+          "type": "dna-model",
+          "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+          "beforeScore": 93,
+          "afterScore": 96,
+          "beforeJsTransferBytes": 814440,
+          "afterJsTransferBytes": 198968,
+          "jsReductionPercent": 75.57,
+          "lcpMs": 1276.16,
+          "tbtMs": 237.11199999618566,
+          "cls": 0.0002535782703267333,
+          "firebaseChunks": [],
+          "fetchTime": "2026-10-30T13:01:47.140Z"
+        },
+        {
+          "type": "dna-chronic",
+          "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+          "beforeScore": 92,
+          "afterScore": 96,
+          "beforeJsTransferBytes": 819766,
+          "afterJsTransferBytes": 203298,
+          "jsReductionPercent": 75.2,
+          "lcpMs": 1263.446,
+          "tbtMs": 218.16800000000012,
+          "cls": 1.84369251540535e-05,
+          "firebaseChunks": [],
+          "fetchTime": "2026-10-30T13:03:34.728Z"
+        },
+        {
+          "type": "library-category",
+          "route": "/kutuphane/kategori/ikinci-el-rehberi",
+          "beforeScore": 90,
+          "afterScore": 93,
+          "beforeJsTransferBytes": 804965,
+          "afterJsTransferBytes": 365483,
+          "jsReductionPercent": 54.6,
+          "lcpMs": 1335.716,
+          "tbtMs": 301.48799999999983,
+          "cls": 0.0001080569101330301,
+          "firebaseChunks": [],
+          "fetchTime": "2026-10-30T13:04:30.838Z"
+        },
+        {
+          "type": "forum-thread",
+          "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+          "beforeScore": 85,
+          "afterScore": 94,
+          "beforeJsTransferBytes": 840718,
+          "afterJsTransferBytes": 219195,
+          "jsReductionPercent": 73.93,
+          "lcpMs": 1181.807,
+          "tbtMs": 295.00099999999975,
+          "cls": 0,
+          "firebaseChunks": [],
+          "fetchTime": "2026-10-30T13:06:23.045Z"
+        }
+      ],
+      "passed": true
+    },
+    "publicMobile": {
+      "checkedAt": "2026-10-30T13:46:11.921Z",
+      "base": "https://otosoz.com",
+      "stage": "inline-live",
+      "conditions": "Three consecutive valid mobile Lighthouse runs per template, median performance run retained. Full SEO/BFS crawls had completed before these measurements started. Earlier measurement during crawls is retained separately as step09-live.json.",
+      "publicTargetsMet": true,
+      "errors": [],
+      "rows": [
+        {
+          "type": "home",
+          "route": "/",
+          "localScore": 92,
+          "liveScore": 87,
+          "lcpMs": 1360.723,
+          "tbtMs": 506.64200000000073,
+          "cls": 0.000114592029655262,
+          "jsTransferBytes": 244636,
+          "serverResponseMs": 158,
+          "cloudflare": [
+            {
+              "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52acdfa4d71eea3",
+              "totalCpuMs": 237.50800000000086,
+              "scriptingMs": 216.28800000000086
+            }
+          ],
+          "firebaseChunks": [],
+          "sdkRequests": [],
+          "loadedChunks": [
+            {
+              "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+              "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+              "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+              "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+              "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+              "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+              "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+              "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+              "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0a9k84w_kni-a.js",
+              "sha256": "a4559763ffad3b2b7881eeed2cd7d488eb9bfc24ac7e273695fab1aa7dcaa3cb",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0fz_s85gi3_8j.js",
+              "sha256": "a1b5afdabb9d0011f948c7a580b45ed9662a76405be9502756b7abaac5deb98e",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/1cg_4zerf-iha.js",
+              "sha256": "c74fe1f65c109dc4c74a27dbf8459bb40da46efe9b3aa6b396b2b218e8386427",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+              "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+              "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/1e7ia3w933d0v.js",
+              "sha256": "7fab5e4c0c28de30c8aad30de2068fd9e941d1e7d15966f3e0b3159171384d21",
+              "firebase": false
+            }
+          ],
+          "fetchTime": "2026-10-30T13:35:41.245Z",
+          "targetsMet": true
+        },
+        {
+          "type": "obd",
+          "route": "/obd/p0420",
+          "localScore": 95,
+          "liveScore": 88,
+          "lcpMs": 1339.465,
+          "tbtMs": 463.3170000000018,
+          "cls": 0.0004157650363749604,
+          "jsTransferBytes": 309884,
+          "serverResponseMs": 164,
+          "cloudflare": [
+            {
+              "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ad2dbea13ed9f",
+              "totalCpuMs": 233.6540000000005,
+              "scriptingMs": 213.09300000000053
+            }
+          ],
+          "firebaseChunks": [],
+          "sdkRequests": [],
+          "loadedChunks": [
+            {
+              "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+              "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+              "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+              "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+              "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+              "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+              "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+              "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+              "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/1azdb-x2k3txw.js",
+              "sha256": "c208319d00a04b8005e3880bd9403df92965d6d6f04f71b48e015e4bcee6a0c7",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/07_c_gvbazgj0.js",
+              "sha256": "2f8deb08668f97e9fc2e8638d25845422e9d5c7a3a91d1fc396c89132c4787cb",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/23n1i7_5uarcy.js",
+              "sha256": "8fd08b0ce339b3dd424b9808c28e23098437452a4a06c210c0c2a294897497a1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/10q3t5xuv2p24.js",
+              "sha256": "d77db58905a7a21195c02e9a86bebd6ac2765b271e2f7aac4a883b4958411be7",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0a9k84w_kni-a.js",
+              "sha256": "a4559763ffad3b2b7881eeed2cd7d488eb9bfc24ac7e273695fab1aa7dcaa3cb",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0fz_s85gi3_8j.js",
+              "sha256": "a1b5afdabb9d0011f948c7a580b45ed9662a76405be9502756b7abaac5deb98e",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/1cg_4zerf-iha.js",
+              "sha256": "c74fe1f65c109dc4c74a27dbf8459bb40da46efe9b3aa6b396b2b218e8386427",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/1bottwuz2jqrq.js",
+              "sha256": "e4f69f1f1ac63251fdcf43cf04ad3bca16e6d5f888e6bf9725c258c4c99e6e38",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+              "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+              "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+              "firebase": false
+            }
+          ],
+          "fetchTime": "2026-10-30T13:39:01.242Z",
+          "targetsMet": true
+        },
+        {
+          "type": "dna-model",
+          "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+          "localScore": 96,
+          "liveScore": 88,
+          "lcpMs": 1731.717,
+          "tbtMs": 428.0459999999998,
+          "cls": 0.0002535782703267333,
+          "jsTransferBytes": 214351,
+          "serverResponseMs": 148,
+          "cloudflare": [
+            {
+              "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ad59d9cb7ed2f",
+              "totalCpuMs": 229.48800000000068,
+              "scriptingMs": 209.74300000000065
+            }
+          ],
+          "firebaseChunks": [],
+          "sdkRequests": [],
+          "loadedChunks": [
+            {
+              "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+              "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+              "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+              "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+              "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+              "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+              "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+              "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+              "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2jz6e72e_1ycd.js",
+              "sha256": "c6af8dfa56cb75fe73b0d5982d9d496455741ebd03f46412fbab44a7a827d893",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+              "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+              "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+              "firebase": false
+            }
+          ],
+          "fetchTime": "2026-10-30T13:40:53.820Z",
+          "targetsMet": true
+        },
+        {
+          "type": "dna-chronic",
+          "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+          "localScore": 96,
+          "liveScore": 91,
+          "lcpMs": 1293.194,
+          "tbtMs": 375.317,
+          "cls": 1.84369251540535e-05,
+          "jsTransferBytes": 216358,
+          "serverResponseMs": 129,
+          "cloudflare": [
+            {
+              "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ad6f6e87a5183",
+              "totalCpuMs": 221.45200000000116,
+              "scriptingMs": 202.06000000000114
+            }
+          ],
+          "firebaseChunks": [],
+          "sdkRequests": [],
+          "loadedChunks": [
+            {
+              "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+              "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+              "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+              "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+              "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+              "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+              "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+              "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+              "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2kpj1nn8-rygo.js",
+              "sha256": "8f246d17fb0fb0006467f1dc3dfbe1fd6664d536cf8bb249f9890865bcce0467",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/23915gh9l5s_y.js",
+              "sha256": "340489324bdf3cd3d5c5bf9e4417833bc9746e0afb9a83330d2fd266f669b705",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+              "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+              "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+              "firebase": false
+            }
+          ],
+          "fetchTime": "2026-10-30T13:41:49.318Z",
+          "targetsMet": true
+        },
+        {
+          "type": "library-category",
+          "route": "/kutuphane/kategori/ikinci-el-rehberi",
+          "localScore": 93,
+          "liveScore": 88,
+          "lcpMs": 1359.889,
+          "tbtMs": 478.84399999999914,
+          "cls": 0.0001080569101330301,
+          "jsTransferBytes": 379132,
+          "serverResponseMs": 447,
+          "cloudflare": [
+            {
+              "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ad904c80959d7",
+              "totalCpuMs": 244.72800000000046,
+              "scriptingMs": 225.4470000000005
+            }
+          ],
+          "firebaseChunks": [],
+          "sdkRequests": [],
+          "loadedChunks": [
+            {
+              "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+              "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+              "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+              "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+              "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+              "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+              "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+              "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+              "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/1azdb-x2k3txw.js",
+              "sha256": "c208319d00a04b8005e3880bd9403df92965d6d6f04f71b48e015e4bcee6a0c7",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/20_0y3ic-eqtu.js",
+              "sha256": "018b09688e04383ae2b510932fbbd3bd9f36347b8e3913c36f285fac4f7f402c",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/10q3t5xuv2p24.js",
+              "sha256": "d77db58905a7a21195c02e9a86bebd6ac2765b271e2f7aac4a883b4958411be7",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0ta58owbo1-99.js",
+              "sha256": "dcc18d8dc3fad693a87071cb589d0ca0a337a8305cb2df2d558969d9d6b239fe",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/31uki-evkc47k.js",
+              "sha256": "51c43dde37e713239e27af3fa0814495fcc8b4e09c47abc00f27bc3b9db353db",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+              "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+              "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+              "firebase": false
+            }
+          ],
+          "fetchTime": "2026-10-30T13:43:13.393Z",
+          "targetsMet": true
+        },
+        {
+          "type": "forum-thread",
+          "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+          "localScore": 94,
+          "liveScore": 87,
+          "lcpMs": 1276.753,
+          "tbtMs": 511.1409999999996,
+          "cls": 0,
+          "jsTransferBytes": 232963,
+          "serverResponseMs": 285,
+          "cloudflare": [
+            {
+              "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52adb1f3ea8ed22",
+              "totalCpuMs": 248.74100000000064,
+              "scriptingMs": 226.32500000000064
+            }
+          ],
+          "firebaseChunks": [],
+          "sdkRequests": [],
+          "loadedChunks": [
+            {
+              "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+              "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+              "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+              "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+              "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+              "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+              "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+              "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+              "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/3cffy41t0fq4n.js",
+              "sha256": "ee64d45c0e81e9d966c322b0d627abfa4440d10348cf8b5b42e8954c21717baa",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/22iqj4_rtgded.js",
+              "sha256": "5efa41683458e065a4e19f678f5bad7bc4c1502bbe54a419fdff402f36a1cd9e",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/07_c_gvbazgj0.js",
+              "sha256": "2f8deb08668f97e9fc2e8638d25845422e9d5c7a3a91d1fc396c89132c4787cb",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+              "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+              "firebase": false
+            },
+            {
+              "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+              "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+              "firebase": false
+            }
+          ],
+          "fetchTime": "2026-10-30T13:44:39.709Z",
+          "targetsMet": true
+        }
+      ],
+      "inp": "INP not measured by navigation Lighthouse. TBT is a separate lab metric.",
+      "cloudflareDocumentation": "https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/",
+      "localComparison": "docs/seo/step09-inline-comparison.json"
+    },
+    "inlineCss": true,
+    "anonymousFirebaseLoaded": 0,
+    "ssrCurl": {
+      "checkedAt": "2026-10-30T13:20:38.484Z",
+      "base": "https://otosoz.com",
+      "path": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "userAgent": "Googlebot",
+      "tool": "curl",
+      "scriptsExecuted": false,
+      "status": 200,
+      "checks": [
+        {
+          "title": "Trim Sesleri (B Sütunu & Kemer)",
+          "inFirstHtml": true
+        },
+        {
+          "title": "Akü Zayıflığı ve Start-Stop Hatası",
+          "inFirstHtml": true
+        }
+      ],
+      "passed": true,
+      "observe": false
+    },
+    "forumCss": {
+      "checkedAt": "2026-10-30T13:20:40.492Z",
+      "base": "https://otosoz.com",
+      "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "httpStatus": 200,
+      "scriptsExecuted": false,
+      "passed": true,
+      "replyButtonMatches": 9,
+      "backgroundApplied": true,
+      "minHeightApplied": true,
+      "reason": null
+    }
+  },
+  "trust": {
+    "responsiblePerson": "Emre Demirel",
+    "authorType": "Organization",
+    "pages": [
+      "/hakkimizda",
+      "/editoryal-politika",
+      "/kaynaklar"
+    ],
+    "evidence": "final10-live-hubs-trust.json"
+  },
+  "monitoring": {
+    "cron": "Monday 09:10 Europe/Istanbul (06:10 UTC)",
+    "weeklyStatus": "incomplete",
+    "weeklyErrors": [
+      {
+        "status": 403,
+        "message": "Google Search Console API has not been used in project 244436311966 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=244436311966 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+      }
+    ],
+    "pilot": "pilot20-20261029.md",
+    "operations": "step10-operations.md"
+  },
+  "exceptionsApproved": {
+    "forum": "13 real topics accepted by user",
+    "duplicateArticle": "HTTP 200 + noindex only; article hub promotes 49 eligible articles",
+    "cloudflare": "User chose: Güvenlik ayarlarını koru, kalan hız hedefini raporla. No Cloudflare security settings changed."
+  },
+  "openItems": [
+    "HTTP www normalizes through HTTPS www before HTTPS apex (two 301 hops); Cloudflare account access required for the documented single-hop rule. Security settings unchanged.",
+    "Search Console API disabled: HTTP 403, weekly metrics and 50 indexed URL statuses unavailable",
+    "Field INP measurement after release",
+    "Manual sitemap submission / eligible URL indexing requests / Bing setup"
+  ],
+  "risks": [
+    "Lab TBT is not INP; no field INP or ranking recovery claim is made.",
+    "Source-review pilot is approved and prepared; unverified claims and dates were not fabricated to promote pages.",
+    "The failed intermediate rollback is documented separately; final full public checks are successful.",
+    "Existing dependency audit findings and experimental analyzer warning remain documented in step09 report.",
+    "Local C drive ran out of space during an audit report write. Generated traces were preserved on E with verified hashes; the failed local graph report was rerun successfully."
+  ],
+  "evidence": [
+    "final-acceptance-20261029.md",
+    "step09-inline-comparison.md",
+    "step09-public-performance.md",
+    "deployment-20261029/server-proof.json",
+    "deployment-20261029/live-summary.json",
+    "final10-inline-depth-live.json",
+    "deployment-20261029/incident-and-recovery.json",
+    "step09-canonical-hosts.json",
+    "cloudflare-canonical-follow-up-20261030.md"
+  ],
+  "verifiedTechnicalSteps": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9
+  ],
+  "allAcceptanceConditionsComplete": false,
+  "remainingAcceptance": [
+    5,
+    10
+  ],
+  "edgeHostCanonicalization": {
+    "checkedAt": "2026-10-30T13:50:34.356Z",
+    "rows": [
+      {
+        "source": "http://otosoz.com/",
+        "hops": [
+          {
+            "url": "http://otosoz.com/",
+            "status": 301,
+            "location": "https://otosoz.com/",
+            "server": "cloudflare"
+          },
+          {
+            "url": "https://otosoz.com/",
+            "status": 200,
+            "location": null,
+            "server": "cloudflare"
+          }
+        ]
+      },
+      {
+        "source": "http://www.otosoz.com/",
+        "hops": [
+          {
+            "url": "http://www.otosoz.com/",
+            "status": 301,
+            "location": "https://www.otosoz.com/",
+            "server": "cloudflare"
+          },
+          {
+            "url": "https://www.otosoz.com/",
+            "status": 301,
+            "location": "https://otosoz.com/",
+            "server": "cloudflare"
+          },
+          {
+            "url": "https://otosoz.com/",
+            "status": 200,
+            "location": null,
+            "server": "cloudflare"
+          }
+        ]
+      },
+      {
+        "source": "https://www.otosoz.com/",
+        "hops": [
+          {
+            "url": "https://www.otosoz.com/",
+            "status": 301,
+            "location": "https://otosoz.com/",
+            "server": "cloudflare"
+          },
+          {
+            "url": "https://otosoz.com/",
+            "status": 200,
+            "location": null,
+            "server": "cloudflare"
+          }
+        ]
+      }
+    ],
+    "extraHopSources": [
+      "http://www.otosoz.com/"
+    ]
+  }
+}

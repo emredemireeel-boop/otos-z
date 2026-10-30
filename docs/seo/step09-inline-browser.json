@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-30T13:13:20.948198+00:00",
+  "base": "http://127.0.0.1:3012",
+  "method": "CUA in-app browser, fresh DOM and screenshots; anonymous account. Inline CSS candidate.",
+  "models": [
+    "renault/clio-5-nesil-2020-2025",
+    "fiat/egea-1-nesil-2015-2025",
+    "toyota/corolla-12-nesil-2019-2025"
+  ],
+  "engines": [
+    "renault/clio-5-nesil-2020-2025/10-tce-90-hp-benzin-manuel-x-tronic",
+    "fiat/egea-1-nesil-2015-2025/14-fire-95-hp-benzin-manuel"
+  ],
+  "sections": [
+    "neden-alinir",
+    "arac-paketleri",
+    "kronik-sorunlar",
+    "kullanici-deneyimleri"
+  ],
+  "checks": {
+    "singleH1AndLoadedFont": true,
+    "actualTabLinksNavigateToStrengthsAndEquipment": true,
+    "trimTableJoyTouchIcon": true,
+    "anonymousReportRequiresLoginBeforeSubmission": true,
+    "consoleWarningsOrErrorsObserved": []
+  },
+  "visualReview": "Clio equipment, Corolla overview, Egea engine and Clio engine screenshots inspected; no observed style regression. Three model routes, two engine routes and four sections inspected in DOM.",
+  "limits": [
+    "No authenticated write, vote or real user content was created.",
+    "This UI check does not independently verify legacy mechanical claims, catalogue scores or report counters."
+  ]
+}

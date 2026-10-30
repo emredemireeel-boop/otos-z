@@ -1,0 +1,83 @@
+{
+  "checkedAt": "2026-10-29T15:39:26.229Z",
+  "base": "http://127.0.0.1:3010",
+  "passed": true,
+  "rows": [
+    {
+      "route": "/",
+      "samples": [
+        {
+          "status": 200,
+          "cache": "STALE",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        },
+        {
+          "status": 200,
+          "cache": "STALE",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        },
+        {
+          "status": 200,
+          "cache": "HIT",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        }
+      ]
+    },
+    {
+      "route": "/obd/p0420",
+      "samples": [
+        {
+          "status": 200,
+          "cache": "STALE",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        },
+        {
+          "status": 200,
+          "cache": "STALE",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        },
+        {
+          "status": 200,
+          "cache": "HIT",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "samples": [
+        {
+          "status": 200,
+          "cache": "STALE",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        },
+        {
+          "status": 200,
+          "cache": "STALE",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        },
+        {
+          "status": 200,
+          "cache": "HIT",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        }
+      ]
+    },
+    {
+      "route": "/sozluk/turbo",
+      "samples": [
+        {
+          "status": 200,
+          "cache": "MISS",
+          "cacheControl": "s-maxage=3600, stale-while-revalidate=31532400"
+        },
+        {
+          "status": 200,
+          "cache": "HIT",
+          "cacheControl": "s-maxage=3600, stale-while-revalidate=31532400"
+        }
+      ]
+    }
+  ],
+  "note": "STALE responses were retained while normal ISR background revalidation completed; final samples must be HIT."
+}

@@ -1,0 +1,162 @@
+{
+  "measuredAt": "2026-10-30T12:56:04.555Z",
+  "stage": "inline-smoke",
+  "base": "http://127.0.0.1:3012",
+  "chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "mode": "Lighthouse mobile navigation; saved LHR configSettings records the throttling method. TBT is a separate lab metric, not measured field INP.",
+  "results": [
+    {
+      "type": "home",
+      "route": "/",
+      "score": 92,
+      "lcpMs": 1225.05,
+      "tbtMs": 343.2650000000003,
+      "cls": 0.000114592029655262,
+      "jsTransferBytes": 231173,
+      "jsResourceBytes": 718516,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "transferSize": 5445,
+          "resourceSize": 16187
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 15034,
+          "resourceSize": 37726
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "transferSize": 13573,
+          "resourceSize": 37117
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0a9k84w_kni-a.js",
+          "transferSize": 6456,
+          "resourceSize": 15501
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0fz_s85gi3_8j.js",
+          "transferSize": 15353,
+          "resourceSize": 49699
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1cg_4zerf-iha.js",
+          "transferSize": 10430,
+          "resourceSize": 34097
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9327,
+          "resourceSize": 30483
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8214,
+          "resourceSize": 26277
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1e7ia3w933d0v.js",
+          "transferSize": 9430,
+          "resourceSize": 30764
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-smoke\\home.json"
+    },
+    {
+      "type": "dna-model",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "score": 97,
+      "lcpMs": 1397.846,
+      "tbtMs": 175.57600000000002,
+      "cls": 0.0002535782703267333,
+      "jsTransferBytes": 198968,
+      "jsResourceBytes": 619304,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "transferSize": 5445,
+          "resourceSize": 16187
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 15034,
+          "resourceSize": 37726
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "transferSize": 13573,
+          "resourceSize": 37117
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2jz6e72e_1ycd.js",
+          "transferSize": 9464,
+          "resourceSize": 30849
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9327,
+          "resourceSize": 30483
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8214,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-smoke\\dna-model.json"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "checkedAt": "2026-10-30T13:46:46.571Z",
+  "applicationRevision": "cdcd292209875e8e53484770ccebe3035e041ea1",
+  "base": "http://127.0.0.1:3012",
+  "checks": {
+    "summary": {
+      "checkedAt": "2026-10-30T13:10:18.330Z",
+      "base": "http://127.0.0.1:3012",
+      "passed": true,
+      "results": [
+        {
+          "name": "status",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\status.json"
+        },
+        {
+          "name": "sitemap",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\sitemap.json"
+        },
+        {
+          "name": "schema",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\schema.json"
+        },
+        {
+          "name": "metadata",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\metadata.json"
+        },
+        {
+          "name": "links",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\links.json"
+        },
+        {
+          "name": "styles",
+          "exitCode": 0,
+          "report": "docs\\seo\\ci\\final-inline-local\\styles.json"
+        }
+      ]
+    },
+    "status": {
+      "total": 231,
+      "passed": 231,
+      "failed": 0,
+      "metaRefreshCount": 0
+    },
+    "sitemap": {
+      "total": 691,
+      "duplicates": 0,
+      "failures": 0,
+      "lastmodPresent": 45
+    },
+    "schema": {
+      "sampled": 691,
+      "errors": 0,
+      "parseErrors": 0
+    },
+    "metadata": {
+      "total": 691,
+      "duplicateTitles": 0,
+      "duplicateDescriptionPercent": 0,
+      "longTitlePercent": 0,
+      "failures": 0
+    },
+    "links": {
+      "pages": 691,
+      "uniqueTargets": 1212,
+      "broken": 0,
+      "redirects": 0,
+      "pageErrors": []
+    },
+    "styles": {
+      "passed": true,
+      "backgroundApplied": true,
+      "minHeightApplied": true
+    }
+  },
+  "depth": {
+    "indexable": 691,
+    "crawled": 2302,
+    "orphans": 0,
+    "unreachable": 0,
+    "deep": 0,
+    "deepPercent": 0,
+    "depthCounts": {
+      "0": 1,
+      "1": 48,
+      "2": 408,
+      "3": 234
+    },
+    "brokenLinks": 0,
+    "redirectLinks": 0,
+    "aliasLinks": 0
+  },
+  "ssr": {
+    "pages": 696,
+    "failures": 0,
+    "evidence": "final10-inline-ssr.json"
+  },
+  "detailedLocalReports": "docs/seo/ci/final-inline-local"
+}

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T11:18:14.096Z",
+  "updatedAt": "2026-10-30T13:46:46.571Z",
   "completedLocally": [
     1,
     2,
@@ -7,17 +7,19 @@
     4,
     5,
     6,
-    7
-  ],
-  "remaining": [
+    7,
     8,
     9,
     10
   ],
-  "deployment": "Step 10 trust pages and gates are live. Public and server full SEO checks pass; external Search Console API remains disabled.",
+  "remaining": [
+    5,
+    10
+  ],
+  "deployment": "All ten implementation steps are deployed. Local, candidate and final public six-stage SEO gates passed. External verification tasks remain explicitly open.",
   "pendingUserApproval": null,
   "network": "HTTPS and password SSH access verified; external credentials are stored outside Git with mode 600.",
-  "next": "Complete the user-requested remaining Steps 8 (active HTML depth/link architecture) and 9 (mobile performance), then deploy and verify them.",
+  "next": "Finish the documented Cloudflare HTTP-www single-hop rule with account access; enable Search Console API and obtain real weekly data; follow manual Search Console/Bing and field INP verification steps.",
   "userProvidedResponsiblePerson": "Emre Demirel",
   "personClaims": "Responsible-person name only; no verified editor qualifications or social profiles supplied.",
   "startedStep6": [
@@ -37,6 +39,8 @@
     5,
     6,
     7,
+    8,
+    9,
     10
   ],
   "pilot20": {
@@ -51,14 +55,54 @@
     "remaining": "Enable API and obtain a complete live weekly report; no traffic or index statuses fabricated."
   },
   "step8": {
-    "status": "active",
-    "baseline": {
-      "crawled": 2319,
-      "indexable": 691,
-      "orphans": 1,
-      "unreachable": 153,
-      "depthAbove3Percent": 36.32416787264834
+    "status": "deployed-and-verified",
+    "indexable": 691,
+    "crawled": 2302,
+    "orphans": 0,
+    "unreachable": 0,
+    "deep": 0,
+    "deepPercent": 0,
+    "depthCounts": {
+      "0": 1,
+      "1": 48,
+      "2": 408,
+      "3": 234
     },
-    "changes": "Server hub directories, contextual links and removal of invalid brand destinations are being verified."
-  }
+    "brokenLinks": 0,
+    "redirectLinks": 0,
+    "aliasLinks": 0,
+    "evidence": "final10-inline-depth-live.json"
+  },
+  "step9": {
+    "status": "deployed-and-measured-with-field-inp-follow-up",
+    "typescriptErrors": 0,
+    "ignoreBuildErrors": false,
+    "testsPassed": 44,
+    "localPerformancePassed": true,
+    "publicPerformancePassed": true,
+    "evidence": "step09-comparison.json"
+  },
+  "completedLocallyDefinition": "Implementation and local checks; remainingAcceptance separately records live/external conditions.",
+  "remainingAcceptance": [
+    5,
+    10
+  ],
+  "implementedSteps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "externalOpenItems": [
+    "HTTP www normalizes through HTTPS www before HTTPS apex (two 301 hops); Cloudflare account access required for the documented single-hop rule. Security settings unchanged.",
+    "Search Console API disabled: HTTP 403, weekly metrics and 50 indexed URL statuses unavailable",
+    "Field INP measurement after release",
+    "Manual sitemap submission / eligible URL indexing requests / Bing setup"
+  ]
 }

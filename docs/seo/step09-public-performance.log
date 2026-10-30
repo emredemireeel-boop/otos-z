@@ -1,0 +1,145 @@
+{
+  "checkedAt": "2026-10-30T13:46:11.921Z",
+  "base": "https://otosoz.com",
+  "stage": "inline-live",
+  "conditions": "Three consecutive valid mobile Lighthouse runs per template, median performance run retained. Full SEO/BFS crawls had completed before these measurements started. Earlier measurement during crawls is retained separately as step09-live.json.",
+  "publicTargetsMet": true,
+  "errors": [],
+  "rows": [
+    {
+      "type": "home",
+      "route": "/",
+      "localScore": 92,
+      "liveScore": 87,
+      "lcpMs": 1360.723,
+      "tbtMs": 506.64200000000073,
+      "cls": 0.000114592029655262,
+      "jsTransferBytes": 244636,
+      "serverResponseMs": 158,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52acdfa4d71eea3",
+          "totalCpuMs": 237.50800000000086,
+          "scriptingMs": 216.28800000000086
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "fetchTime": "2026-10-30T13:35:41.245Z",
+      "targetsMet": true
+    },
+    {
+      "type": "obd",
+      "route": "/obd/p0420",
+      "localScore": 95,
+      "liveScore": 88,
+      "lcpMs": 1339.465,
+      "tbtMs": 463.3170000000018,
+      "cls": 0.0004157650363749604,
+      "jsTransferBytes": 309884,
+      "serverResponseMs": 164,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ad2dbea13ed9f",
+          "totalCpuMs": 233.6540000000005,
+          "scriptingMs": 213.09300000000053
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "fetchTime": "2026-10-30T13:39:01.242Z",
+      "targetsMet": true
+    },
+    {
+      "type": "dna-model",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "localScore": 96,
+      "liveScore": 88,
+      "lcpMs": 1731.717,
+      "tbtMs": 428.0459999999998,
+      "cls": 0.0002535782703267333,
+      "jsTransferBytes": 214351,
+      "serverResponseMs": 148,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ad59d9cb7ed2f",
+          "totalCpuMs": 229.48800000000068,
+          "scriptingMs": 209.74300000000065
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "fetchTime": "2026-10-30T13:40:53.820Z",
+      "targetsMet": true
+    },
+    {
+      "type": "dna-chronic",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "localScore": 96,
+      "liveScore": 91,
+      "lcpMs": 1293.194,
+      "tbtMs": 375.317,
+      "cls": 0.0000184369251540535,
+      "jsTransferBytes": 216358,
+      "serverResponseMs": 129,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ad6f6e87a5183",
+          "totalCpuMs": 221.45200000000116,
+          "scriptingMs": 202.06000000000114
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "fetchTime": "2026-10-30T13:41:49.318Z",
+      "targetsMet": true
+    },
+    {
+      "type": "library-category",
+      "route": "/kutuphane/kategori/ikinci-el-rehberi",
+      "localScore": 93,
+      "liveScore": 88,
+      "lcpMs": 1359.889,
+      "tbtMs": 478.84399999999914,
+      "cls": 0.0001080569101330301,
+      "jsTransferBytes": 379132,
+      "serverResponseMs": 447,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ad904c80959d7",
+          "totalCpuMs": 244.72800000000046,
+          "scriptingMs": 225.4470000000005
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "fetchTime": "2026-10-30T13:43:13.393Z",
+      "targetsMet": true
+    },
+    {
+      "type": "forum-thread",
+      "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "localScore": 94,
+      "liveScore": 87,
+      "lcpMs": 1276.753,
+      "tbtMs": 511.1409999999996,
+      "cls": 0,
+      "jsTransferBytes": 232963,
+      "serverResponseMs": 285,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52adb1f3ea8ed22",
+          "totalCpuMs": 248.74100000000064,
+          "scriptingMs": 226.32500000000064
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "fetchTime": "2026-10-30T13:44:39.709Z",
+      "targetsMet": true
+    }
+  ],
+  "inp": "INP not measured by navigation Lighthouse. TBT is a separate lab metric.",
+  "cloudflareDocumentation": "https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/",
+  "localComparison": "docs/seo/step09-inline-comparison.json"
+}

@@ -1,6 +1,6 @@
 {
   "step": 5,
-  "status": "implemented-verified-locally",
+  "status": "application-verified-edge-http-www-normalization-open",
   "categoryChoice": "/kutuphane/kategori/{slug}",
   "reason": "Existing [guideId] and nested guide routes are preserved.",
   "changes": [
@@ -127,5 +127,11 @@
     "The root remains https://otosoz.com in this step, matching prior sitemap/canonical; Step 7 requests the slash form.",
     "Redirect audit instantiates configurable dynamic patterns and catalogue-derived paths, not every possible arbitrary wildcard input.",
     "Invalid forum query pagination now returns real 404; old Chery engine redirects now reach final model sections."
-  ]
+  ],
+  "finalInfrastructureFollowUp": {
+    "date": "2026-10-30",
+    "applicationChecksPassed": true,
+    "edgeHttpWwwExtraHop": true,
+    "evidence": "cloudflare-canonical-follow-up-20261030.md"
+  }
 }

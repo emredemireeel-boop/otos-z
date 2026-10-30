@@ -1,0 +1,523 @@
+{
+  "checkedAt": "2026-10-30T13:07:02.517Z",
+  "buildId": "-9-YmMMYi9USSZhZ8zqsL",
+  "dist": ".next-candidate-inline-css-local",
+  "stage": "inline-local",
+  "base": "http://127.0.0.1:3012",
+  "passed": true,
+  "failures": [],
+  "rows": [
+    {
+      "type": "home",
+      "route": "/",
+      "beforeScore": 74,
+      "afterScore": 92,
+      "beforeJsTransferBytes": 814389,
+      "afterJsTransferBytes": 231173,
+      "jsReductionPercent": 71.61,
+      "lcpMs": 1239.507,
+      "tbtMs": 340.29200000000037,
+      "cls": 0.000114592029655262,
+      "firebaseChunks": [],
+      "network": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "bytes": 5300,
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "bytes": 9899,
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "bytes": 72803,
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "bytes": 44241,
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "bytes": 5668,
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "bytes": 5445,
+          "sha256": "47edce6997da741af141c735cd98eee5b84a8f1562b4ec7a456019a2b187845b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "bytes": 15034,
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "bytes": 13573,
+          "sha256": "368dee1a07c648022f305dfcdc00126a9a1a609cad0227564f668a9651789422"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0a9k84w_kni-a.js",
+          "bytes": 6456,
+          "sha256": "a4559763ffad3b2b7881eeed2cd7d488eb9bfc24ac7e273695fab1aa7dcaa3cb"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0fz_s85gi3_8j.js",
+          "bytes": 15353,
+          "sha256": "a1b5afdabb9d0011f948c7a580b45ed9662a76405be9502756b7abaac5deb98e"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1cg_4zerf-iha.js",
+          "bytes": 10430,
+          "sha256": "c74fe1f65c109dc4c74a27dbf8459bb40da46efe9b3aa6b396b2b218e8386427"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "bytes": 9327,
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "bytes": 8214,
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1e7ia3w933d0v.js",
+          "bytes": 9430,
+          "sha256": "7fab5e4c0c28de30c8aad30de2068fd9e941d1e7d15966f3e0b3159171384d21"
+        }
+      ],
+      "fetchTime": "2026-10-30T12:58:02.629Z"
+    },
+    {
+      "type": "obd",
+      "route": "/obd/p0420",
+      "beforeScore": 91,
+      "afterScore": 95,
+      "beforeJsTransferBytes": 890606,
+      "afterJsTransferBytes": 296792,
+      "jsReductionPercent": 66.68,
+      "lcpMs": 1341.489,
+      "tbtMs": 259.7279999999996,
+      "cls": 0.0003869455825786689,
+      "firebaseChunks": [],
+      "network": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "bytes": 5300,
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "bytes": 9899,
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "bytes": 72803,
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "bytes": 44241,
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "bytes": 5668,
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "bytes": 5445,
+          "sha256": "47edce6997da741af141c735cd98eee5b84a8f1562b4ec7a456019a2b187845b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "bytes": 15034,
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "bytes": 13573,
+          "sha256": "368dee1a07c648022f305dfcdc00126a9a1a609cad0227564f668a9651789422"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1azdb-x2k3txw.js",
+          "bytes": 1894,
+          "sha256": "c208319d00a04b8005e3880bd9403df92965d6d6f04f71b48e015e4bcee6a0c7"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/07_c_gvbazgj0.js",
+          "bytes": 11119,
+          "sha256": "2f8deb08668f97e9fc2e8638d25845422e9d5c7a3a91d1fc396c89132c4787cb"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/23n1i7_5uarcy.js",
+          "bytes": 22929,
+          "sha256": "8fd08b0ce339b3dd424b9808c28e23098437452a4a06c210c0c2a294897497a1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/10q3t5xuv2p24.js",
+          "bytes": 26526,
+          "sha256": "d77db58905a7a21195c02e9a86bebd6ac2765b271e2f7aac4a883b4958411be7"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0a9k84w_kni-a.js",
+          "bytes": 6456,
+          "sha256": "a4559763ffad3b2b7881eeed2cd7d488eb9bfc24ac7e273695fab1aa7dcaa3cb"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0fz_s85gi3_8j.js",
+          "bytes": 15353,
+          "sha256": "a1b5afdabb9d0011f948c7a580b45ed9662a76405be9502756b7abaac5deb98e"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1cg_4zerf-iha.js",
+          "bytes": 10430,
+          "sha256": "c74fe1f65c109dc4c74a27dbf8459bb40da46efe9b3aa6b396b2b218e8386427"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "bytes": 9327,
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "bytes": 8214,
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1bottwuz2jqrq.js",
+          "bytes": 12581,
+          "sha256": "e4f69f1f1ac63251fdcf43cf04ad3bca16e6d5f888e6bf9725c258c4c99e6e38"
+        }
+      ],
+      "fetchTime": "2026-10-30T12:59:26.989Z"
+    },
+    {
+      "type": "dna-model",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "beforeScore": 93,
+      "afterScore": 96,
+      "beforeJsTransferBytes": 814440,
+      "afterJsTransferBytes": 198968,
+      "jsReductionPercent": 75.57,
+      "lcpMs": 1276.16,
+      "tbtMs": 237.11199999618566,
+      "cls": 0.0002535782703267333,
+      "firebaseChunks": [],
+      "network": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "bytes": 5300,
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "bytes": 9899,
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "bytes": 72803,
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "bytes": 44241,
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "bytes": 5668,
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "bytes": 5445,
+          "sha256": "47edce6997da741af141c735cd98eee5b84a8f1562b4ec7a456019a2b187845b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "bytes": 15034,
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "bytes": 13573,
+          "sha256": "368dee1a07c648022f305dfcdc00126a9a1a609cad0227564f668a9651789422"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2jz6e72e_1ycd.js",
+          "bytes": 9464,
+          "sha256": "c6af8dfa56cb75fe73b0d5982d9d496455741ebd03f46412fbab44a7a827d893"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "bytes": 9327,
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "bytes": 8214,
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89"
+        }
+      ],
+      "fetchTime": "2026-10-30T13:01:47.140Z"
+    },
+    {
+      "type": "dna-chronic",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "beforeScore": 92,
+      "afterScore": 96,
+      "beforeJsTransferBytes": 819766,
+      "afterJsTransferBytes": 203298,
+      "jsReductionPercent": 75.2,
+      "lcpMs": 1263.446,
+      "tbtMs": 218.16800000000012,
+      "cls": 0.0000184369251540535,
+      "firebaseChunks": [],
+      "network": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "bytes": 5300,
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "bytes": 9899,
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "bytes": 72803,
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "bytes": 44241,
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "bytes": 5668,
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "bytes": 5445,
+          "sha256": "47edce6997da741af141c735cd98eee5b84a8f1562b4ec7a456019a2b187845b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "bytes": 15034,
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "bytes": 13573,
+          "sha256": "368dee1a07c648022f305dfcdc00126a9a1a609cad0227564f668a9651789422"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2kpj1nn8-rygo.js",
+          "bytes": 2129,
+          "sha256": "8f246d17fb0fb0006467f1dc3dfbe1fd6664d536cf8bb249f9890865bcce0467"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/23915gh9l5s_y.js",
+          "bytes": 11665,
+          "sha256": "340489324bdf3cd3d5c5bf9e4417833bc9746e0afb9a83330d2fd266f669b705"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "bytes": 9327,
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "bytes": 8214,
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89"
+        }
+      ],
+      "fetchTime": "2026-10-30T13:03:34.728Z"
+    },
+    {
+      "type": "library-category",
+      "route": "/kutuphane/kategori/ikinci-el-rehberi",
+      "beforeScore": 90,
+      "afterScore": 93,
+      "beforeJsTransferBytes": 804965,
+      "afterJsTransferBytes": 365483,
+      "jsReductionPercent": 54.6,
+      "lcpMs": 1335.716,
+      "tbtMs": 301.48799999999983,
+      "cls": 0.0001080569101330301,
+      "firebaseChunks": [],
+      "network": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "bytes": 5300,
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "bytes": 9899,
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "bytes": 72803,
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "bytes": 44241,
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "bytes": 5668,
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "bytes": 5445,
+          "sha256": "47edce6997da741af141c735cd98eee5b84a8f1562b4ec7a456019a2b187845b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "bytes": 15034,
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "bytes": 13573,
+          "sha256": "368dee1a07c648022f305dfcdc00126a9a1a609cad0227564f668a9651789422"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1azdb-x2k3txw.js",
+          "bytes": 1894,
+          "sha256": "c208319d00a04b8005e3880bd9403df92965d6d6f04f71b48e015e4bcee6a0c7"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/20_0y3ic-eqtu.js",
+          "bytes": 21469,
+          "sha256": "018b09688e04383ae2b510932fbbd3bd9f36347b8e3913c36f285fac4f7f402c"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/10q3t5xuv2p24.js",
+          "bytes": 26526,
+          "sha256": "d77db58905a7a21195c02e9a86bebd6ac2765b271e2f7aac4a883b4958411be7"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0ta58owbo1-99.js",
+          "bytes": 97492,
+          "sha256": "dcc18d8dc3fad693a87071cb589d0ca0a337a8305cb2df2d558969d9d6b239fe"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/31uki-evkc47k.js",
+          "bytes": 28598,
+          "sha256": "51c43dde37e713239e27af3fa0814495fcc8b4e09c47abc00f27bc3b9db353db"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "bytes": 9327,
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "bytes": 8214,
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89"
+        }
+      ],
+      "fetchTime": "2026-10-30T13:04:30.838Z"
+    },
+    {
+      "type": "forum-thread",
+      "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "beforeScore": 85,
+      "afterScore": 94,
+      "beforeJsTransferBytes": 840718,
+      "afterJsTransferBytes": 219195,
+      "jsReductionPercent": 73.93,
+      "lcpMs": 1181.807,
+      "tbtMs": 295.00099999999975,
+      "cls": 0,
+      "firebaseChunks": [],
+      "network": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "bytes": 5300,
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "bytes": 9899,
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "bytes": 72803,
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "bytes": 44241,
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "bytes": 5668,
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "bytes": 5445,
+          "sha256": "47edce6997da741af141c735cd98eee5b84a8f1562b4ec7a456019a2b187845b"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "bytes": 15034,
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "bytes": 13573,
+          "sha256": "368dee1a07c648022f305dfcdc00126a9a1a609cad0227564f668a9651789422"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3cffy41t0fq4n.js",
+          "bytes": 6842,
+          "sha256": "ee64d45c0e81e9d966c322b0d627abfa4440d10348cf8b5b42e8954c21717baa"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/22iqj4_rtgded.js",
+          "bytes": 11730,
+          "sha256": "5efa41683458e065a4e19f678f5bad7bc4c1502bbe54a419fdff402f36a1cd9e"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/07_c_gvbazgj0.js",
+          "bytes": 11119,
+          "sha256": "2f8deb08668f97e9fc2e8638d25845422e9d5c7a3a91d1fc396c89132c4787cb"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "bytes": 9327,
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1"
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "bytes": 8214,
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89"
+        }
+      ],
+      "fetchTime": "2026-10-30T13:06:23.045Z"
+    }
+  ],
+  "inp": "Not measured by navigation Lighthouse. TBT is reported separately and is not claimed as INP. Field INP <200ms needs real-user/CrUX data after deployment."
+}

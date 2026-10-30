@@ -1,0 +1,96 @@
+{
+  "checkedAt": "2026-10-30T13:20:56.621Z",
+  "rows": [
+    {
+      "route": "/",
+      "samples": [
+        {
+          "status": 200,
+          "cache": "STALE",
+          "cfCache": "DYNAMIC",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100",
+          "font": true,
+          "hasFirebaseIframe": false
+        },
+        {
+          "status": 200,
+          "cache": "HIT",
+          "cfCache": "DYNAMIC",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100",
+          "font": true,
+          "hasFirebaseIframe": false
+        }
+      ]
+    },
+    {
+      "route": "/obd/p0420",
+      "samples": [
+        {
+          "status": 200,
+          "cache": "STALE",
+          "cfCache": "DYNAMIC",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100",
+          "font": true,
+          "hasFirebaseIframe": false
+        },
+        {
+          "status": 200,
+          "cache": "STALE",
+          "cfCache": "DYNAMIC",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100",
+          "font": true,
+          "hasFirebaseIframe": false
+        },
+        {
+          "checkedAt": "2026-10-30T13:22:36.375Z",
+          "status": 200,
+          "cache": "HIT",
+          "cfCache": "DYNAMIC",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100"
+        }
+      ]
+    },
+    {
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "samples": [
+        {
+          "status": 200,
+          "cache": "HIT",
+          "cfCache": "DYNAMIC",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100",
+          "font": true,
+          "hasFirebaseIframe": false
+        },
+        {
+          "status": 200,
+          "cache": "HIT",
+          "cfCache": "DYNAMIC",
+          "cacheControl": "s-maxage=900, stale-while-revalidate=31535100",
+          "font": true,
+          "hasFirebaseIframe": false
+        }
+      ]
+    },
+    {
+      "route": "/sozluk/turbo",
+      "samples": [
+        {
+          "status": 200,
+          "cache": "MISS",
+          "cfCache": "DYNAMIC",
+          "cacheControl": "s-maxage=3600, stale-while-revalidate=31532400",
+          "font": true,
+          "hasFirebaseIframe": false
+        },
+        {
+          "status": 200,
+          "cache": "HIT",
+          "cfCache": "DYNAMIC",
+          "cacheControl": "s-maxage=3600, stale-while-revalidate=31532400",
+          "font": true,
+          "hasFirebaseIframe": false
+        }
+      ]
+    }
+  ]
+}

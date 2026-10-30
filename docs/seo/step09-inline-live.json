@@ -1,0 +1,580 @@
+{
+  "measuredAt": "2026-10-30T13:45:32.431Z",
+  "stage": "inline-live",
+  "base": "https://otosoz.com",
+  "rawArtifactRoot": "E:/otosoz-seo-artifacts-20261030/lighthouse-inline-live/trials",
+  "mode": "Lighthouse mobile navigation; median performance run of 3 per template. All repeats retained. TBT is not field INP.",
+  "results": [
+    {
+      "type": "home",
+      "route": "/",
+      "score": 87,
+      "lcpMs": 1360.723,
+      "tbtMs": 506.64200000000073,
+      "cls": 0.000114592029655262,
+      "jsTransferBytes": 244636,
+      "jsResourceBytes": 758483,
+      "scripts": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5087,
+          "resourceSize": 13894
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9724,
+          "resourceSize": 31996
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72576,
+          "resourceSize": 228084
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44014,
+          "resourceSize": 155744
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5457,
+          "resourceSize": 10947
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "transferSize": 5235,
+          "resourceSize": 16187
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 14828,
+          "resourceSize": 37726
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "transferSize": 13361,
+          "resourceSize": 37117
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0a9k84w_kni-a.js",
+          "transferSize": 6237,
+          "resourceSize": 15501
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0fz_s85gi3_8j.js",
+          "transferSize": 15145,
+          "resourceSize": 49699
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1cg_4zerf-iha.js",
+          "transferSize": 10217,
+          "resourceSize": 34097
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "transferSize": 0,
+          "resourceSize": 0
+        },
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/h/g/scripts/jsd/c787ce48cf6b/main.js?ray=a52acdfa4d71eea3",
+          "transferSize": 16408,
+          "resourceSize": 39967
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9120,
+          "resourceSize": 30483
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8006,
+          "resourceSize": 26277
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1e7ia3w933d0v.js",
+          "transferSize": 9221,
+          "resourceSize": 30764
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-live\\home.json",
+      "selectedRun": 1,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "obd",
+      "route": "/obd/p0420",
+      "score": 88,
+      "lcpMs": 1339.465,
+      "tbtMs": 463.3170000000018,
+      "cls": 0.0004157650363749604,
+      "jsTransferBytes": 309884,
+      "jsResourceBytes": 981627,
+      "scripts": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5089,
+          "resourceSize": 13894
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9695,
+          "resourceSize": 31996
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72571,
+          "resourceSize": 228084
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44020,
+          "resourceSize": 155744
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5451,
+          "resourceSize": 10947
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "transferSize": 5235,
+          "resourceSize": 16187
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 14822,
+          "resourceSize": 37726
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "transferSize": 13362,
+          "resourceSize": 37117
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1448,
+          "resourceSize": 584
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/07_c_gvbazgj0.js",
+          "transferSize": 10910,
+          "resourceSize": 37849
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/23n1i7_5uarcy.js",
+          "transferSize": 22706,
+          "resourceSize": 89975
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26317,
+          "resourceSize": 76912
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "transferSize": 0,
+          "resourceSize": 0
+        },
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/h/g/scripts/jsd/c787ce48cf6b/main.js?ray=a52ad2dbea13ed9f",
+          "transferSize": 17174,
+          "resourceSize": 42750
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0a9k84w_kni-a.js",
+          "transferSize": 6241,
+          "resourceSize": 15501
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0fz_s85gi3_8j.js",
+          "transferSize": 15140,
+          "resourceSize": 49699
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1cg_4zerf-iha.js",
+          "transferSize": 10218,
+          "resourceSize": 34097
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1bottwuz2jqrq.js",
+          "transferSize": 12367,
+          "resourceSize": 45805
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9113,
+          "resourceSize": 30483
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8005,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-live\\obd.json",
+      "selectedRun": 3,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "dna-model",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "score": 88,
+      "lcpMs": 1731.717,
+      "tbtMs": 428.0459999999998,
+      "cls": 0.0002535782703267333,
+      "jsTransferBytes": 214351,
+      "jsResourceBytes": 662983,
+      "scripts": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5090,
+          "resourceSize": 13894
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9696,
+          "resourceSize": 31996
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72566,
+          "resourceSize": 228084
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44018,
+          "resourceSize": 155744
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5455,
+          "resourceSize": 10947
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "transferSize": 5229,
+          "resourceSize": 16187
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 14824,
+          "resourceSize": 37726
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "transferSize": 13359,
+          "resourceSize": 37117
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2jz6e72e_1ycd.js",
+          "transferSize": 9293,
+          "resourceSize": 30849
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "transferSize": 0,
+          "resourceSize": 0
+        },
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/h/g/scripts/jsd/c787ce48cf6b/main.js?ray=a52ad59d9cb7ed2f",
+          "transferSize": 17701,
+          "resourceSize": 43679
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9118,
+          "resourceSize": 30483
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8002,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-live\\dna-model.json",
+      "selectedRun": 3,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "dna-chronic",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "score": 91,
+      "lcpMs": 1293.194,
+      "tbtMs": 375.317,
+      "cls": 0.0000184369251540535,
+      "jsTransferBytes": 216358,
+      "jsResourceBytes": 670382,
+      "scripts": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5082,
+          "resourceSize": 13894
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9691,
+          "resourceSize": 31996
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72569,
+          "resourceSize": 228084
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44015,
+          "resourceSize": 155744
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5455,
+          "resourceSize": 10947
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "transferSize": 5233,
+          "resourceSize": 16187
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 14822,
+          "resourceSize": 37726
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "transferSize": 13371,
+          "resourceSize": 37117
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2kpj1nn8-rygo.js",
+          "transferSize": 1479,
+          "resourceSize": 819
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/23915gh9l5s_y.js",
+          "transferSize": 11452,
+          "resourceSize": 39832
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "transferSize": 0,
+          "resourceSize": 0
+        },
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/h/g/scripts/jsd/c787ce48cf6b/main.js?ray=a52ad6f6e87a5183",
+          "transferSize": 16059,
+          "resourceSize": 41276
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9125,
+          "resourceSize": 30483
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8005,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-live\\dna-chronic.json",
+      "selectedRun": 2,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "library-category",
+      "route": "/kutuphane/kategori/ikinci-el-rehberi",
+      "score": 88,
+      "lcpMs": 1359.889,
+      "tbtMs": 478.84399999999914,
+      "cls": 0.0001080569101330301,
+      "jsTransferBytes": 379132,
+      "jsResourceBytes": 1266603,
+      "scripts": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5087,
+          "resourceSize": 13894
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9686,
+          "resourceSize": 31996
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72567,
+          "resourceSize": 228084
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44020,
+          "resourceSize": 155744
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5456,
+          "resourceSize": 10947
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "transferSize": 5236,
+          "resourceSize": 16187
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 14823,
+          "resourceSize": 37726
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "transferSize": 13363,
+          "resourceSize": 37117
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1453,
+          "resourceSize": 584
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/20_0y3ic-eqtu.js",
+          "transferSize": 21253,
+          "resourceSize": 55559
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26308,
+          "resourceSize": 76912
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0ta58owbo1-99.js",
+          "transferSize": 97243,
+          "resourceSize": 395201
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/31uki-evkc47k.js",
+          "transferSize": 28374,
+          "resourceSize": 106752
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "transferSize": 0,
+          "resourceSize": 0
+        },
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/h/g/scripts/jsd/c787ce48cf6b/main.js?ray=a52ad904c80959d7",
+          "transferSize": 17145,
+          "resourceSize": 43140
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9116,
+          "resourceSize": 30483
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8002,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-live\\library-category.json",
+      "selectedRun": 2,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "forum-thread",
+      "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "score": 87,
+      "lcpMs": 1276.753,
+      "tbtMs": 511.1409999999996,
+      "cls": 0,
+      "jsTransferBytes": 232963,
+      "jsResourceBytes": 724837,
+      "scripts": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5085,
+          "resourceSize": 13894
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9689,
+          "resourceSize": 31996
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72572,
+          "resourceSize": 228084
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44022,
+          "resourceSize": 155744
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5451,
+          "resourceSize": 10947
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "transferSize": 5236,
+          "resourceSize": 16187
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 14824,
+          "resourceSize": 37726
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "transferSize": 13360,
+          "resourceSize": 37117
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3cffy41t0fq4n.js",
+          "transferSize": 6628,
+          "resourceSize": 15820
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/22iqj4_rtgded.js",
+          "transferSize": 11518,
+          "resourceSize": 41769
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/07_c_gvbazgj0.js",
+          "transferSize": 10907,
+          "resourceSize": 37849
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "transferSize": 0,
+          "resourceSize": 0
+        },
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/h/g/scripts/jsd/c787ce48cf6b/main.js?ray=a52adb1f3ea8ed22",
+          "transferSize": 16555,
+          "resourceSize": 40944
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9113,
+          "resourceSize": 30483
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8003,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-live\\forum-thread.json",
+      "selectedRun": 2,
+      "selection": "Median performance score of three consecutive valid runs"
+    }
+  ]
+}

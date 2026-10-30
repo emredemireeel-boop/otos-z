@@ -10,9 +10,9 @@
 
 The release script also compares the installed dependency-tree marker `node_modules/.otosoz-lock-sha256` with `package-lock.json`. A matching tree is reused. If dependencies changed or the marker is absent while PM2 is online, the script stops before `npm ci`: replacing shared live dependencies can break a process even when its Next build directory is separate. Install dependencies in an isolated release directory or during planned maintenance, then record the successful install's lock hash. The marker for this release was recorded only after the clean `npm ci` and candidate checks succeeded. Rollback targets must also be previewed and health-checked; an old `BUILD_ID` alone does not prove a usable release.
 
-## Weekly Search Console report
-
 The measured production release uses `OTOSOZ_INLINE_CSS=1`. `release.sh` exports this default for the build, preview and PM2 restart together. Override it with `OTOSOZ_INLINE_CSS=0` only when intentionally building and verifying the external-stylesheet variant. Next's `experimental.inlineCss` reduces first-visit CSS request waterfalls but increases HTML and repeats CSS in the RSC payload; stylesheet caching is no longer independent on initial navigation. Local performance results and public Cloudflare results must be reported separately. The user explicitly chose to preserve Cloudflare security settings and report any remaining public performance gap.
+
+## Weekly Search Console report
 
 `npm run seo:weekly -- --site sc-domain:otosoz.com --key /etc/otosoz/search-console.json`
 

@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-30T12:55:10.582Z",
+  "base": "http://127.0.0.1:3012",
+  "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+  "httpStatus": 200,
+  "scriptsExecuted": false,
+  "passed": true,
+  "replyButtonMatches": 9,
+  "backgroundApplied": true,
+  "minHeightApplied": true,
+  "reason": null
+}

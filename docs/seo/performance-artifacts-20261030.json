@@ -1,0 +1,13 @@
+{
+  "archivedAt": "2026-10-30T13:18:53.568765+00:00",
+  "reason": "C drive filled during final BFS report write; only agent-generated raw Lighthouse trace/devtoolslog files moved, preserving SHA-256. Full LHR JSON and metric summaries remain in the repo.",
+  "artifactRoot": "E:/otosoz-seo-artifacts-20261030",
+  "manifest": "E:\\otosoz-seo-artifacts-20261030\\manifest.json",
+  "files": 162,
+  "bytes": 853543970,
+  "integrity": "Every destination SHA-256 matched the source SHA-256 before proceeding.",
+  "removedUserFiles": 0,
+  "finalRawTrials": "E:/otosoz-seo-artifacts-20261030/lighthouse-inline-live/trials",
+  "finalRawTrialCount": 18,
+  "selectedFullLhrInRepository": "docs/seo/lighthouse-inline-live/{type}.json"
+}

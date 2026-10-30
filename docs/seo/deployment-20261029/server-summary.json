@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-30T13:16:11.061Z",
+  "base": "http://127.0.0.1:3011",
+  "passed": true,
+  "results": [
+    {
+      "name": "status",
+      "exitCode": 0,
+      "report": "docs/seo/ci/deploy/status.json"
+    },
+    {
+      "name": "sitemap",
+      "exitCode": 0,
+      "report": "docs/seo/ci/deploy/sitemap.json"
+    },
+    {
+      "name": "schema",
+      "exitCode": 0,
+      "report": "docs/seo/ci/deploy/schema.json"
+    },
+    {
+      "name": "metadata",
+      "exitCode": 0,
+      "report": "docs/seo/ci/deploy/metadata.json"
+    },
+    {
+      "name": "links",
+      "exitCode": 0,
+      "report": "docs/seo/ci/deploy/links.json"
+    },
+    {
+      "name": "styles",
+      "exitCode": 0,
+      "report": "docs/seo/ci/deploy/styles.json"
+    }
+  ]
+}

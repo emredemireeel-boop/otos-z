@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-30T13:15:59.180Z",
+  "rows": [
+    {
+      "dist": ".next",
+      "htmlBytes": 84799,
+      "gzipBytes": 16387,
+      "brotliBytes": 13027,
+      "inlineStyles": 0
+    },
+    {
+      "dist": ".next-candidate-inline-css-local",
+      "htmlBytes": 482991,
+      "gzipBytes": 86973,
+      "brotliBytes": 33711,
+      "inlineStyles": 1
+    }
+  ],
+  "note": "HTML only. The external-CSS build also transfers stylesheet files; this is not total-page transfer."
+}

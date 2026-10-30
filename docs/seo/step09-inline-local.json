@@ -1,0 +1,519 @@
+{
+  "measuredAt": "2026-10-30T13:06:46.861Z",
+  "stage": "inline-local",
+  "base": "http://127.0.0.1:3012",
+  "mode": "Lighthouse mobile navigation; median performance run of 3 per template. All repeats retained. TBT is not field INP.",
+  "results": [
+    {
+      "type": "home",
+      "route": "/",
+      "score": 92,
+      "lcpMs": 1239.507,
+      "tbtMs": 340.29200000000037,
+      "cls": 0.000114592029655262,
+      "jsTransferBytes": 231173,
+      "jsResourceBytes": 718516,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "transferSize": 5445,
+          "resourceSize": 16187
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 15034,
+          "resourceSize": 37726
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "transferSize": 13573,
+          "resourceSize": 37117
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0a9k84w_kni-a.js",
+          "transferSize": 6456,
+          "resourceSize": 15501
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0fz_s85gi3_8j.js",
+          "transferSize": 15353,
+          "resourceSize": 49699
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1cg_4zerf-iha.js",
+          "transferSize": 10430,
+          "resourceSize": 34097
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9327,
+          "resourceSize": 30483
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8214,
+          "resourceSize": 26277
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1e7ia3w933d0v.js",
+          "transferSize": 9430,
+          "resourceSize": 30764
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-local\\home.json",
+      "selectedRun": 3,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "obd",
+      "route": "/obd/p0420",
+      "score": 95,
+      "lcpMs": 1341.489,
+      "tbtMs": 259.7279999999996,
+      "cls": 0.0003869455825786689,
+      "jsTransferBytes": 296792,
+      "jsResourceBytes": 938877,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "transferSize": 5445,
+          "resourceSize": 16187
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 15034,
+          "resourceSize": 37726
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "transferSize": 13573,
+          "resourceSize": 37117
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1894,
+          "resourceSize": 584
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/07_c_gvbazgj0.js",
+          "transferSize": 11119,
+          "resourceSize": 37849
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/23n1i7_5uarcy.js",
+          "transferSize": 22929,
+          "resourceSize": 89975
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26526,
+          "resourceSize": 76912
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0a9k84w_kni-a.js",
+          "transferSize": 6456,
+          "resourceSize": 15501
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0fz_s85gi3_8j.js",
+          "transferSize": 15353,
+          "resourceSize": 49699
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1cg_4zerf-iha.js",
+          "transferSize": 10430,
+          "resourceSize": 34097
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9327,
+          "resourceSize": 30483
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8214,
+          "resourceSize": 26277
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1bottwuz2jqrq.js",
+          "transferSize": 12581,
+          "resourceSize": 45805
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-local\\obd.json",
+      "selectedRun": 2,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "dna-model",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "score": 96,
+      "lcpMs": 1276.16,
+      "tbtMs": 237.11199999618566,
+      "cls": 0.0002535782703267333,
+      "jsTransferBytes": 198968,
+      "jsResourceBytes": 619304,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "transferSize": 5445,
+          "resourceSize": 16187
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 15034,
+          "resourceSize": 37726
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "transferSize": 13573,
+          "resourceSize": 37117
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2jz6e72e_1ycd.js",
+          "transferSize": 9464,
+          "resourceSize": 30849
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9327,
+          "resourceSize": 30483
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8214,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-local\\dna-model.json",
+      "selectedRun": 2,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "dna-chronic",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "score": 96,
+      "lcpMs": 1263.446,
+      "tbtMs": 218.16800000000012,
+      "cls": 0.0000184369251540535,
+      "jsTransferBytes": 203298,
+      "jsResourceBytes": 629106,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "transferSize": 5445,
+          "resourceSize": 16187
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 15034,
+          "resourceSize": 37726
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "transferSize": 13573,
+          "resourceSize": 37117
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2kpj1nn8-rygo.js",
+          "transferSize": 2129,
+          "resourceSize": 819
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/23915gh9l5s_y.js",
+          "transferSize": 11665,
+          "resourceSize": 39832
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9327,
+          "resourceSize": 30483
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8214,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-local\\dna-chronic.json",
+      "selectedRun": 3,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "library-category",
+      "route": "/kutuphane/kategori/ikinci-el-rehberi",
+      "score": 93,
+      "lcpMs": 1335.716,
+      "tbtMs": 301.48799999999983,
+      "cls": 0.0001080569101330301,
+      "jsTransferBytes": 365483,
+      "jsResourceBytes": 1223463,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "transferSize": 5445,
+          "resourceSize": 16187
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 15034,
+          "resourceSize": 37726
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "transferSize": 13573,
+          "resourceSize": 37117
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1azdb-x2k3txw.js",
+          "transferSize": 1894,
+          "resourceSize": 584
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/20_0y3ic-eqtu.js",
+          "transferSize": 21469,
+          "resourceSize": 55559
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/10q3t5xuv2p24.js",
+          "transferSize": 26526,
+          "resourceSize": 76912
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/0ta58owbo1-99.js",
+          "transferSize": 97492,
+          "resourceSize": 395201
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/31uki-evkc47k.js",
+          "transferSize": 28598,
+          "resourceSize": 106752
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9327,
+          "resourceSize": 30483
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8214,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-local\\library-category.json",
+      "selectedRun": 2,
+      "selection": "Median performance score of three consecutive valid runs"
+    },
+    {
+      "type": "forum-thread",
+      "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "score": 94,
+      "lcpMs": 1181.807,
+      "tbtMs": 295.00099999999975,
+      "cls": 0,
+      "jsTransferBytes": 219195,
+      "jsResourceBytes": 683893,
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/431bw722fec3m.js",
+          "transferSize": 5300,
+          "resourceSize": 13894
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/26g4tn5b226u5.js",
+          "transferSize": 9899,
+          "resourceSize": 31996
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2q4-4somkyld6.js",
+          "transferSize": 72803,
+          "resourceSize": 228084
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/2zx3q7e7c69qs.js",
+          "transferSize": 44241,
+          "resourceSize": 155744
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "transferSize": 5668,
+          "resourceSize": 10947
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/1vz772cyfz5yp.js",
+          "transferSize": 5445,
+          "resourceSize": 16187
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/14fooi6juq240.js",
+          "transferSize": 15034,
+          "resourceSize": 37726
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/06o-zl7dq5l98.js",
+          "transferSize": 13573,
+          "resourceSize": 37117
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3cffy41t0fq4n.js",
+          "transferSize": 6842,
+          "resourceSize": 15820
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/22iqj4_rtgded.js",
+          "transferSize": 11730,
+          "resourceSize": 41769
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/07_c_gvbazgj0.js",
+          "transferSize": 11119,
+          "resourceSize": 37849
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/3ejn9ymh4mepv.js",
+          "transferSize": 9327,
+          "resourceSize": 30483
+        },
+        {
+          "url": "http://127.0.0.1:3012/_next/static/chunks/34r6wm2yrzu3n.js",
+          "transferSize": 8214,
+          "resourceSize": 26277
+        }
+      ],
+      "errors": [],
+      "report": "C:\\Users\\GAMER\\Desktop\\otosoz-web\\docs\\seo\\lighthouse-inline-local\\forum-thread.json",
+      "selectedRun": 3,
+      "selection": "Median performance score of three consecutive valid runs"
+    }
+  ]
+}

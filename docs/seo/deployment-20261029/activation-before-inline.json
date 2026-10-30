@@ -1,0 +1,45 @@
+{
+  "sourceRevision": "1d0dc63ffa245ef895cfd468802871d421ba4cf2",
+  "candidate": ".next-candidate-20261029155921",
+  "buildId": "i0MhE5gG6ITeRtO1beSAq",
+  "previousBuild": ".next-candidate-20261029152538",
+  "mobileAcceptancePassed": true,
+  "serverGate": {
+    "checkedAt": "2026-10-29T16:13:06.842Z",
+    "base": "http://127.0.0.1:3011",
+    "passed": true,
+    "results": [
+      {
+        "name": "status",
+        "exitCode": 0,
+        "report": "docs/seo/ci/deploy/status.json"
+      },
+      {
+        "name": "sitemap",
+        "exitCode": 0,
+        "report": "docs/seo/ci/deploy/sitemap.json"
+      },
+      {
+        "name": "schema",
+        "exitCode": 0,
+        "report": "docs/seo/ci/deploy/schema.json"
+      },
+      {
+        "name": "metadata",
+        "exitCode": 0,
+        "report": "docs/seo/ci/deploy/metadata.json"
+      },
+      {
+        "name": "links",
+        "exitCode": 0,
+        "report": "docs/seo/ci/deploy/links.json"
+      },
+      {
+        "name": "styles",
+        "exitCode": 0,
+        "report": "docs/seo/ci/deploy/styles.json"
+      }
+    ]
+  },
+  "activationExitCode": 0
+}

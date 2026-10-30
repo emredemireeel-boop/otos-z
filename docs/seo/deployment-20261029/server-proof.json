@@ -1,0 +1,62 @@
+{
+  "timezone": "Etc/UTC",
+  "weeklySchedule": "Monday 09:10 Europe/Istanbul (06:10 UTC)",
+  "candidateChecks": {
+    "summary": {
+      "passed": true,
+      "checkedAt": "2026-10-30T13:16:11.061Z",
+      "base": "http://127.0.0.1:3011"
+    },
+    "status": {
+      "total": 231,
+      "passed": 231,
+      "failed": 0,
+      "metaRefreshCount": 0
+    },
+    "sitemap": {
+      "total": 691,
+      "duplicates": 0,
+      "failures": 0
+    },
+    "schema": {
+      "sampled": 691,
+      "errors": 0,
+      "parseErrors": 0
+    },
+    "metadata": {
+      "total": 691,
+      "duplicateTitles": 0,
+      "duplicateDescriptionPercent": 0,
+      "longTitlePercent": 0,
+      "failures": 0
+    },
+    "links": {
+      "pages": 691,
+      "uniqueTargets": 1212,
+      "broken": 0,
+      "redirects": 0,
+      "pageErrors": []
+    },
+    "styles": {
+      "passed": true,
+      "backgroundApplied": true,
+      "minHeightApplied": true
+    }
+  },
+  "serverRevision": "c50ec3b9e411950cf005c78514ead4aaad203ee8",
+  "applications": [
+    {
+      "name": "otosoz",
+      "status": "online",
+      "build": ".next-candidate-20261030125737"
+    }
+  ],
+  "weeklyExitCode": 1,
+  "weeklyStatus": "incomplete",
+  "weeklyErrors": [
+    {
+      "status": 403,
+      "message": "Google Search Console API has not been used in project 244436311966 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=244436311966 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+    }
+  ]
+}

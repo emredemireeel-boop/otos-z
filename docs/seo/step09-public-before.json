@@ -1,0 +1,571 @@
+{
+  "checkedAt": "2026-10-30T12:53:01.457Z",
+  "base": "https://otosoz.com",
+  "stage": "live-idle",
+  "conditions": "Three consecutive valid mobile Lighthouse runs per template, median performance run retained. Full SEO/BFS crawls had completed before these measurements started. Earlier measurement during crawls is retained separately as step09-live.json.",
+  "publicTargetsMet": false,
+  "errors": [],
+  "rows": [
+    {
+      "type": "home",
+      "route": "/",
+      "localScore": 92,
+      "liveScore": 77,
+      "lcpMs": 2839.185,
+      "tbtMs": 522.7120000000014,
+      "cls": 0.000114592029655262,
+      "jsTransferBytes": 245183,
+      "serverResponseMs": 162,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52a816eea57ed1f",
+          "totalCpuMs": 238.74100000000087,
+          "scriptingMs": 219.23000000000087
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "loadedChunks": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0a9k84w_kni-a.js",
+          "sha256": "a4559763ffad3b2b7881eeed2cd7d488eb9bfc24ac7e273695fab1aa7dcaa3cb",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0fz_s85gi3_8j.js",
+          "sha256": "a1b5afdabb9d0011f948c7a580b45ed9662a76405be9502756b7abaac5deb98e",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1cg_4zerf-iha.js",
+          "sha256": "c74fe1f65c109dc4c74a27dbf8459bb40da46efe9b3aa6b396b2b218e8386427",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1e7ia3w933d0v.js",
+          "sha256": "7fab5e4c0c28de30c8aad30de2068fd9e941d1e7d15966f3e0b3159171384d21",
+          "firebase": false
+        }
+      ],
+      "fetchTime": "2026-10-30T12:43:25.985Z",
+      "targetsMet": false
+    },
+    {
+      "type": "obd",
+      "route": "/obd/p0420",
+      "localScore": 91,
+      "liveScore": 77,
+      "lcpMs": 3065.901,
+      "tbtMs": 459.82000000000016,
+      "cls": 0.00040465428054445215,
+      "jsTransferBytes": 309903,
+      "serverResponseMs": 158,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52a82cb1f6ebab7",
+          "totalCpuMs": 256.1890000000004,
+          "scriptingMs": 236.7460000000004
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "loadedChunks": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1azdb-x2k3txw.js",
+          "sha256": "c208319d00a04b8005e3880bd9403df92965d6d6f04f71b48e015e4bcee6a0c7",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/07_c_gvbazgj0.js",
+          "sha256": "2f8deb08668f97e9fc2e8638d25845422e9d5c7a3a91d1fc396c89132c4787cb",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/23n1i7_5uarcy.js",
+          "sha256": "8fd08b0ce339b3dd424b9808c28e23098437452a4a06c210c0c2a294897497a1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/10q3t5xuv2p24.js",
+          "sha256": "d77db58905a7a21195c02e9a86bebd6ac2765b271e2f7aac4a883b4958411be7",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0a9k84w_kni-a.js",
+          "sha256": "a4559763ffad3b2b7881eeed2cd7d488eb9bfc24ac7e273695fab1aa7dcaa3cb",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0fz_s85gi3_8j.js",
+          "sha256": "a1b5afdabb9d0011f948c7a580b45ed9662a76405be9502756b7abaac5deb98e",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1cg_4zerf-iha.js",
+          "sha256": "c74fe1f65c109dc4c74a27dbf8459bb40da46efe9b3aa6b396b2b218e8386427",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1bottwuz2jqrq.js",
+          "sha256": "e4f69f1f1ac63251fdcf43cf04ad3bca16e6d5f888e6bf9725c258c4c99e6e38",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+          "firebase": false
+        }
+      ],
+      "fetchTime": "2026-10-30T12:44:21.610Z",
+      "targetsMet": false
+    },
+    {
+      "type": "dna-model",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025",
+      "localScore": 92,
+      "liveScore": 81,
+      "lcpMs": 2820.765,
+      "tbtMs": 419.83799999999974,
+      "cls": 0.0002535782703267333,
+      "jsTransferBytes": 212794,
+      "serverResponseMs": 132,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52a86efdfc1ba91",
+          "totalCpuMs": 224.7180000000009,
+          "scriptingMs": 207.44100000000094
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "loadedChunks": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2jz6e72e_1ycd.js",
+          "sha256": "c6af8dfa56cb75fe73b0d5982d9d496455741ebd03f46412fbab44a7a827d893",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+          "firebase": false
+        }
+      ],
+      "fetchTime": "2026-10-30T12:47:11.458Z",
+      "targetsMet": false
+    },
+    {
+      "type": "dna-chronic",
+      "route": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "localScore": 93,
+      "liveScore": 82,
+      "lcpMs": 2758.07,
+      "tbtMs": 392.79800000000114,
+      "cls": 0.0000184369251540535,
+      "jsTransferBytes": 210460,
+      "serverResponseMs": 173,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52a89923e5faeee",
+          "totalCpuMs": 242.98700000000116,
+          "scriptingMs": 224.20100000000113
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "loadedChunks": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2kpj1nn8-rygo.js",
+          "sha256": "8f246d17fb0fb0006467f1dc3dfbe1fd6664d536cf8bb249f9890865bcce0467",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/23915gh9l5s_y.js",
+          "sha256": "340489324bdf3cd3d5c5bf9e4417833bc9746e0afb9a83330d2fd266f669b705",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+          "firebase": false
+        }
+      ],
+      "fetchTime": "2026-10-30T12:48:59.151Z",
+      "targetsMet": false
+    },
+    {
+      "type": "library-category",
+      "route": "/kutuphane/kategori/ikinci-el-rehberi",
+      "localScore": 91,
+      "liveScore": 74,
+      "lcpMs": 3033.538,
+      "tbtMs": 564.3929999961842,
+      "cls": 0.0001080569101330301,
+      "jsTransferBytes": 378923,
+      "serverResponseMs": 414,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52a8c4749e2ee88",
+          "totalCpuMs": 257.94900000000047,
+          "scriptingMs": 238.59500000000048
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "loadedChunks": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/1azdb-x2k3txw.js",
+          "sha256": "c208319d00a04b8005e3880bd9403df92965d6d6f04f71b48e015e4bcee6a0c7",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/20_0y3ic-eqtu.js",
+          "sha256": "018b09688e04383ae2b510932fbbd3bd9f36347b8e3913c36f285fac4f7f402c",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/10q3t5xuv2p24.js",
+          "sha256": "d77db58905a7a21195c02e9a86bebd6ac2765b271e2f7aac4a883b4958411be7",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0ta58owbo1-99.js",
+          "sha256": "dcc18d8dc3fad693a87071cb589d0ca0a337a8305cb2df2d558969d9d6b239fe",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/31uki-evkc47k.js",
+          "sha256": "51c43dde37e713239e27af3fa0814495fcc8b4e09c47abc00f27bc3b9db353db",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+          "firebase": false
+        }
+      ],
+      "fetchTime": "2026-10-30T12:50:50.356Z",
+      "targetsMet": false
+    },
+    {
+      "type": "forum-thread",
+      "route": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "localScore": 94,
+      "liveScore": 77,
+      "lcpMs": 2627.8,
+      "tbtMs": 633.433,
+      "cls": 0,
+      "jsTransferBytes": 233379,
+      "serverResponseMs": 250,
+      "cloudflare": [
+        {
+          "url": "https://otosoz.com/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52a8e4fef24ed44",
+          "totalCpuMs": 239.3160000000004,
+          "scriptingMs": 221.42200000000042
+        }
+      ],
+      "firebaseChunks": [],
+      "sdkRequests": [],
+      "loadedChunks": [
+        {
+          "url": "https://otosoz.com/_next/static/chunks/431bw722fec3m.js",
+          "sha256": "2530de10810d785f883895182c2049e0a16f0d8e2cfcd73cb7b497e71448cae1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/26g4tn5b226u5.js",
+          "sha256": "9882888c4c654545dc12df98ecd755a711563ca428114ed7ca9d686e4e58ce00",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2q4-4somkyld6.js",
+          "sha256": "2085c8508697fe2c17899e5ea98ba45443400022a359ee7d3f170d7802501e40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2zx3q7e7c69qs.js",
+          "sha256": "729e9318852f6b492473da50bc0cc42818112ee7f9b7600508a23b9525ef047f",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/turbopack-29imzz4y3kfz1.js",
+          "sha256": "18aa9e4ccbbfb6699065fece2e074f8c23a85040a699c41162c59606d5b46c0b",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/0c_-btqu-aaxx.js",
+          "sha256": "da6fa76de833db27970ba51c4d6681bdbe339386576afa0d3b8583b9ebf63a40",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/14fooi6juq240.js",
+          "sha256": "b5db26c1657169e29ffb784c0efc7b6235f404b6ef36612073410eb2c6b2a915",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/2ale5oai9xiwo.js",
+          "sha256": "f66dfa767cf554f20d83a87c51f876bf9b52ae7e1d40bb7970add523b9628173",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3cffy41t0fq4n.js",
+          "sha256": "ee64d45c0e81e9d966c322b0d627abfa4440d10348cf8b5b42e8954c21717baa",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/22iqj4_rtgded.js",
+          "sha256": "5efa41683458e065a4e19f678f5bad7bc4c1502bbe54a419fdff402f36a1cd9e",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/07_c_gvbazgj0.js",
+          "sha256": "2f8deb08668f97e9fc2e8638d25845422e9d5c7a3a91d1fc396c89132c4787cb",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/3ejn9ymh4mepv.js",
+          "sha256": "ae55d3b692e8505f9f78e6304bd3a9d0add1a26794f2150fea8a96c43263b9e1",
+          "firebase": false
+        },
+        {
+          "url": "https://otosoz.com/_next/static/chunks/34r6wm2yrzu3n.js",
+          "sha256": "96e4c8d76d252f1f6d3af61e09ab826ce890cab1b3698a5ee398725f0abe9d89",
+          "firebase": false
+        }
+      ],
+      "fetchTime": "2026-10-30T12:52:13.563Z",
+      "targetsMet": false
+    }
+  ],
+  "inp": "INP not measured by navigation Lighthouse. TBT is a separate lab metric.",
+  "cloudflareDocumentation": "https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/"
+}

@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-29T15:36:33.348Z",
+  "revision": "898e359",
+  "command": "OTOSOZ_DIST_DIR=.next-candidate-analyze-final-step09 npx next experimental-analyze --output",
+  "documentation": "node_modules/next/dist/docs/01-app/02-guides/package-bundling.md",
+  "nativeData": ".next-candidate-analyze-final-step09/diagnostics/analyze/data",
+  "experimentalWarning": "Next 16.3 experimental analyzer logged a Rust nft.rs Option::unwrap warning but returned exit 0 and emitted parsable module/route data. Production next build, tsc, Lighthouse and SEO checks are independent. Bundle totals below include asynchronously reachable chunks; they are not first-navigation transfer.",
+  "modules": 7170,
+  "clientModules": 1203,
+  "clientFirebaseAsyncModules": 39,
+  "clientHeavyVehicleModules": [],
+  "framerClientPaths": 61,
+  "routes": [
+    {
+      "route": "/",
+      "clientRawBytes": 1801679,
+      "clientCompressedBytes": 634684
+    },
+    {
+      "route": "/obd/[slug]",
+      "clientRawBytes": 1898080,
+      "clientCompressedBytes": 659140
+    },
+    {
+      "route": "/arac-dna/[brand]/[model]",
+      "clientRawBytes": 1724081,
+      "clientCompressedBytes": 604273
+    },
+    {
+      "route": "/arac-dna/[brand]/[model]/kronik-sorunlar",
+      "clientRawBytes": 1738520,
+      "clientCompressedBytes": 609444
+    },
+    {
+      "route": "/kutuphane/kategori/[slug]",
+      "clientRawBytes": 2328333,
+      "clientCompressedBytes": 794472
+    },
+    {
+      "route": "/forum/[id]",
+      "clientRawBytes": 1812970,
+      "clientCompressedBytes": 635256
+    }
+  ]
+}

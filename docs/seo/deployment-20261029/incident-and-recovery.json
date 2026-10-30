@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-29",
+  "status": "corrected-final-candidate-deployed-and-publicly-verified",
+  "initialIssue": "Forum CSS module root class was missing; an unconsumed stylesheet import had been optimized away. First visual review found unstyled reply/share controls.",
+  "rollback": {
+    "attempted": ".next-candidate-20261029105049",
+    "observedFailure": "Old build module evaluation failed and public HTTP 500 responses were observed. Exact outage duration and complete root cause were not established.",
+    "observedAt": "2026-10-29T15:55:17.533Z",
+    "affectedTargetsInIntermediateCrawl": 494,
+    "sampleTargets": [
+      {
+        "path": "/acik-oto-pazari/adiyaman",
+        "status": 500
+      },
+      {
+        "path": "/acik-oto-pazari/afyonkarahisar",
+        "status": 500
+      },
+      {
+        "path": "/acik-oto-pazari/agri",
+        "status": 500
+      },
+      {
+        "path": "/acik-oto-pazari/aksaray",
+        "status": 500
+      },
+      {
+        "path": "/acik-oto-pazari/amasya",
+        "status": 500
+      }
+    ],
+    "recoveredTo": ".next-candidate-20261029152538",
+    "recoveryEvidence": "Origin and public home/city returned HTTP 200 after restarting the known healthy candidate."
+  },
+  "fix": {
+    "commits": [
+      "36f7fbf",
+      "1d0dc63",
+      "4f44ba8"
+    ],
+    "changes": [
+      "Render the actual forum CSS scope class",
+      "Use supported keyframe syntax; global inline-animation names are unique to forum",
+      "Add a real HTML/CSS matching gate plus two regression tests",
+      "Refuse shared live node_modules replacement unless its lock marker matches; old rollback builds require a preview health check"
+    ]
+  },
+  "finalAcceptance": {
+    "checkedAt": "2026-10-30T13:34:32.596Z",
+    "passed": true,
+    "candidate": ".next-candidate-20261030125737",
+    "applicationRevision": "cdcd292209875e8e53484770ccebe3035e041ea1",
+    "liveGate": "live-summary.json",
+    "brokenLinks": 0,
+    "redirects": 0
+  }
+}

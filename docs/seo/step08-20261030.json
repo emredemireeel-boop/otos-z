@@ -1,0 +1,93 @@
+{
+  "step": 8,
+  "date": "2026-10-29",
+  "status": "deployed-and-verified",
+  "changes": [
+    "HTML-only graph crawler seeds every indexable URL to find orphans but starts BFS at / only; follows real anchors, not RSC/JSON/onClick; no redirect following.",
+    "Server-rendered model and guide directories share getIndexableUrls with the sitemap quality gate.",
+    "Homepage discovery section links 10 models using actual historical impressions and up to 10 qualified OBD codes; only 5 OBD records are currently qualified, so noindex codes were not promoted to fill a quota.",
+    "OBD type/system clusters are visible in the existing hub with anchored navigation, avoiding empty programmatic hub pages. Related codes require a real shared system.",
+    "Explicit code mentions in model issues and matching brand/model forum titles supply contextual links. Articles link to relevant qualified calculators by topic.",
+    "Market/city pages link to second-hand/inspection guides and documented neighboring provinces where a qualified market hub exists.",
+    "Footer contains 21 hub/corporate links; orphan Piyasalar and disconnected OtoButce cluster now reachable.",
+    "Old unreviewed vehicle records lead back to an existing model directory instead of nonexistent or redirected brand hubs."
+  ],
+  "validation": {
+    "typescript": "npx tsc --noEmit: PASS",
+    "build": "npm run build: PASS (1036 generated pages)",
+    "graphUnitTest": "PASS: cycles and disconnected sitemap seeds do not create false reachability",
+    "before": {
+      "indexable": 691,
+      "crawled": 2319,
+      "orphans": 1,
+      "unreachable": 153,
+      "deep": 251,
+      "deepPercent": 36.32416787264834,
+      "brokenLinks": 8,
+      "redirectLinks": 9
+    },
+    "after": {
+      "indexable": 691,
+      "crawled": 2302,
+      "orphans": 0,
+      "unreachable": 0,
+      "deep": 0,
+      "deepPercent": 0,
+      "brokenLinks": 0,
+      "redirectLinks": 0,
+      "aliasLinks": 0,
+      "depthCounts": {
+        "0": 1,
+        "1": 61,
+        "2": 418,
+        "3": 211
+      }
+    },
+    "clientData": "Client import graph still reports 0 forbidden large-data imports and no Clio catalog content in chunks.",
+    "finalLocal": {
+      "evidence": "step08-final.json",
+      "indexable": 691,
+      "orphans": 0,
+      "unreachable": 0,
+      "depthAbove3Percent": 0,
+      "brokenLinks": 0,
+      "redirectLinks": 0
+    },
+    "live": {
+      "indexable": 691,
+      "crawled": 2302,
+      "orphans": 0,
+      "unreachable": 0,
+      "deep": 0,
+      "deepPercent": 0,
+      "depthCounts": {
+        "0": 1,
+        "1": 48,
+        "2": 408,
+        "3": 234
+      },
+      "brokenLinks": 0,
+      "redirectLinks": 0,
+      "aliasLinks": 0,
+      "evidence": "final10-inline-depth-live.json"
+    }
+  },
+  "dataSources": [
+    "docs/seo/performance-20261022/Sayfa sayısı.csv",
+    "docs/seo/historical-landing-audit-20261022.json",
+    "data/province-neighbors.ts (official province geography references)"
+  ],
+  "risks": [
+    "Only five qualified OBD pages exist; the requested ten/six related-code quotas are bounded by real, qualified content instead of filled with weak pages.",
+    "Geographic neighbor relationships are intentionally partial and sourced; no guessed complete 81-province border map was created."
+  ],
+  "evidence": [
+    "step08-before.json",
+    "step08-after.json",
+    "step08-build.log",
+    "../..//data/seo-discovery.json",
+    "step08-final.json",
+    "final10-inline-depth-live.json"
+  ],
+  "completedAt": "2026-10-30T13:46:46.571Z"
+}

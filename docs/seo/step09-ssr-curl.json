@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-29T15:38:37.682Z",
+  "base": "http://127.0.0.1:3010",
+  "path": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+  "userAgent": "Googlebot",
+  "tool": "curl",
+  "scriptsExecuted": false,
+  "status": 200,
+  "checks": [
+    {
+      "title": "Trim Sesleri (B Sütunu & Kemer)",
+      "inFirstHtml": true
+    },
+    {
+      "title": "Akü Zayıflığı ve Start-Stop Hatası",
+      "inFirstHtml": true
+    }
+  ],
+  "passed": true,
+  "observe": false
+}
