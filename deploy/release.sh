@@ -6,6 +6,8 @@ port="${SEO_PREVIEW_PORT:-3011}"
 candidate=".next-candidate-$(date -u +%Y%m%d%H%M%S)"
 export OTOSOZ_DIST_DIR="$candidate"
 export OTOSOZ_TSCONFIG=".tsconfig-release.json"
+# Keep candidate build, preview and PM2 runtime on the same measured CSS mode.
+export OTOSOZ_INLINE_CSS="${OTOSOZ_INLINE_CSS:-1}"
 if [[ -z "${GOOGLE_APPLICATION_CREDENTIALS:-}" && -r /etc/otosoz/firebase-admin.json ]]; then
     export GOOGLE_APPLICATION_CREDENTIALS=/etc/otosoz/firebase-admin.json
 fi

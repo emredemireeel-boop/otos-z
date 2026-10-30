@@ -3,7 +3,8 @@ import crypto from 'node:crypto';
 const stage=process.argv[2]||'live-idle';
 if(!/^[a-z0-9-]+$/.test(stage))throw Error('Invalid report stage');
 const input=JSON.parse(fs.readFileSync(`docs/seo/step09-${stage}.json`));
-const local=JSON.parse(fs.readFileSync('docs/seo/step09-comparison.json'));
+const localComparison=process.argv[3]||'docs/seo/step09-comparison.json';
+const local=JSON.parse(fs.readFileSync(localComparison));
 const expected=['home','obd','dna-model','dna-chronic','library-category','forum-thread'];
 const rows=[],errors=[];
 const marker=/@firebase\/|firestore\.googleapis\.com|firebase-heartbeat|auth\/argument-error/;
@@ -35,6 +36,7 @@ for(const type of expected){
   rows.push(row);
 }
 const report={checkedAt:new Date().toISOString(),base:input.base,stage,conditions:'Three consecutive valid mobile Lighthouse runs per template, median performance run retained. Full SEO/BFS crawls had completed before these measurements started. Earlier measurement during crawls is retained separately as step09-live.json.',publicTargetsMet:rows.length===expected.length&&rows.every(x=>x.targetsMet)&&!errors.length,errors,rows,inp:'INP not measured by navigation Lighthouse. TBT is a separate lab metric.',cloudflareDocumentation:'https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/'};
+report.localComparison=localComparison;
 fs.writeFileSync('docs/seo/step09-public-performance.json',JSON.stringify(report,null,2)+'\n');
 const table=['# Canlı mobil performans — 30.10.2026','','Yerel sonuçlar ile Cloudflare üzerinden canlı sonuçlar ayrı tutulur. Her şablonun üç geçerli ölçümünde ortanca performans çalıştırması kullanılır. Önceki tek ölçüm ve tüm tekrarlar korunur.','','| Şablon | Yerel puan | Canlı puan | Canlı LCP sn | Canlı TBT ms | CLS | Hedef |','|---|---:|---:|---:|---:|---:|---|',...rows.map(x=>`| ${x.type} | ${x.localScore} | ${x.liveScore} | ${(x.lcpMs/1000).toFixed(2)} | ${Math.round(x.tbtMs)} | ${x.cls.toFixed(4)} | ${x.targetsMet?'Geçti':'Karşılanmadı'} |`),'','Canlı kabul: '+(report.publicTargetsMet?'geçti.':'henüz karşılanmadı. Yerel yeşil sonuç, canlı hedefin geçtiği anlamına gelmez.'),'','Cloudflare tarafından eklenen doğrulama betiğinin CPU ölçümü ve yüklenen uygulama dosyalarının SHA-256 kanıtı JSON raporundadır. Bu betik tüm farkın nedeni olarak gösterilmez. Güvenlik ayarı bu çalışma sırasında değiştirilmedi. [Cloudflare JavaScript Detections belgesi]('+report.cloudflareDocumentation+').','','TBT, gerçek kullanıcı INP değeri değildir. Alan INP doğrulaması yayından sonra gerekir.',''];
 fs.writeFileSync('docs/seo/step09-public-performance.md',table.join('\n'));

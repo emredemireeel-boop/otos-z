@@ -12,6 +12,8 @@ The release script also compares the installed dependency-tree marker `node_modu
 
 ## Weekly Search Console report
 
+The measured production release uses `OTOSOZ_INLINE_CSS=1`. `release.sh` exports this default for the build, preview and PM2 restart together. Override it with `OTOSOZ_INLINE_CSS=0` only when intentionally building and verifying the external-stylesheet variant. Next's `experimental.inlineCss` reduces first-visit CSS request waterfalls but increases HTML and repeats CSS in the RSC payload; stylesheet caching is no longer independent on initial navigation. Local performance results and public Cloudflare results must be reported separately. The user explicitly chose to preserve Cloudflare security settings and report any remaining public performance gap.
+
 `npm run seo:weekly -- --site sc-domain:otosoz.com --key /etc/otosoz/search-console.json`
 
 The script requests only `https://www.googleapis.com/auth/webmasters.readonly` and calls `searchanalytics.query` plus `urlInspection.index.inspect`. The last complete seven-day period ends three days before the report date; prior-week totals and 50 critical URL inspection results are saved to `docs/seo/weekly/YYYY-WW.json`. Missing/denied API data is recorded as unavailable, never as fabricated zero traffic. Failed reports exit 1. Runtime weekly JSON files are ignored by Git so scheduled updates do not block a later pull; the initial run is preserved as `step10-weekly-first-run.json`. Inspection is of Google's indexed version, not a live indexing request.
