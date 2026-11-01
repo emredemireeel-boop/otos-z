@@ -1,0 +1,17 @@
+▲ Next.js 16.3.3
+- Local:         http://127.0.0.1:3013
+- Network:       http://127.0.0.1:3013
+✓ Ready in 360ms
+✓ Running next.config.ts took 97ms
+Error: Internal: NoFallbackError
+    at ignore-listed frames
+Error: Internal: NoFallbackError
+    at ignore-listed frames
+Error: Internal: NoFallbackError
+    at ignore-listed frames
+Error: Internal: NoFallbackError
+    at ignore-listed frames
+Error: Internal: NoFallbackError
+    at ignore-listed frames
+Error: Internal: NoFallbackError
+    at ignore-listed frames

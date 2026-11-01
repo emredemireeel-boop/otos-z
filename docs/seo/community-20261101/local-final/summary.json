@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-01T09:34:35.336Z",
+  "base": "http://127.0.0.1:3013",
+  "passed": true,
+  "results": [
+    {
+      "name": "status",
+      "exitCode": 0,
+      "report": "docs\\seo\\community-20261101\\local-final\\status.json"
+    },
+    {
+      "name": "sitemap",
+      "exitCode": 0,
+      "report": "docs\\seo\\community-20261101\\local-final\\sitemap.json"
+    },
+    {
+      "name": "schema",
+      "exitCode": 0,
+      "report": "docs\\seo\\community-20261101\\local-final\\schema.json"
+    },
+    {
+      "name": "metadata",
+      "exitCode": 0,
+      "report": "docs\\seo\\community-20261101\\local-final\\metadata.json"
+    },
+    {
+      "name": "links",
+      "exitCode": 0,
+      "report": "docs\\seo\\community-20261101\\local-final\\links.json"
+    },
+    {
+      "name": "styles",
+      "exitCode": 0,
+      "report": "docs\\seo\\community-20261101\\local-final\\styles.json"
+    },
+    {
+      "name": "publication",
+      "exitCode": 0,
+      "report": "docs\\seo\\community-20261101\\local-final\\publication.json"
+    }
+  ]
+}

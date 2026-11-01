@@ -1,0 +1,866 @@
+{
+  "checkedAt": "2026-11-01T09:45:35.947Z",
+  "base": "http://127.0.0.1:3011",
+  "definition": "Complete HTML a[href] graph; sitemap seeds identify orphans, only / seeds shortest-path BFS. Redirects are not followed. No script/RSC/onClick links are counted.",
+  "indexable": 140,
+  "crawled": 1294,
+  "discovered": 1294,
+  "limit": 7000,
+  "exceeded": false,
+  "orphans": 0,
+  "unreachable": 0,
+  "deep": 0,
+  "deepPercent": 0,
+  "depthCounts": {
+    "0": 1,
+    "1": 30,
+    "2": 109
+  },
+  "aliasLinks": [],
+  "brokenLinks": [],
+  "redirectLinks": [],
+  "orphanPages": [],
+  "deepPages": [],
+  "pages": [
+    {
+      "url": "https://otosoz.com/",
+      "path": "/",
+      "depth": 0,
+      "inbound": 1293
+    },
+    {
+      "url": "https://otosoz.com/karsilastirma",
+      "path": "/karsilastirma",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/piyasalar",
+      "path": "/piyasalar",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/guvenmetre",
+      "path": "/guvenmetre",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/altin-anahtar",
+      "path": "/altin-anahtar",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/etkinlikler",
+      "path": "/etkinlikler",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/hakkimizda",
+      "path": "/hakkimizda",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/editoryal-politika",
+      "path": "/editoryal-politika",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/kaynaklar",
+      "path": "/kaynaklar",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/iletisim",
+      "path": "/iletisim",
+      "depth": 1,
+      "inbound": 1290
+    },
+    {
+      "url": "https://otosoz.com/gizlilik-politikasi",
+      "path": "/gizlilik-politikasi",
+      "depth": 1,
+      "inbound": 1291
+    },
+    {
+      "url": "https://otosoz.com/cerez-politikasi",
+      "path": "/cerez-politikasi",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/kullanim-sartlari",
+      "path": "/kullanim-sartlari",
+      "depth": 1,
+      "inbound": 1291
+    },
+    {
+      "url": "https://otosoz.com/obd",
+      "path": "/obd",
+      "depth": 1,
+      "inbound": 1291
+    },
+    {
+      "url": "https://otosoz.com/obd/p0171",
+      "path": "/obd/p0171",
+      "depth": 2,
+      "inbound": 115
+    },
+    {
+      "url": "https://otosoz.com/obd/p0299",
+      "path": "/obd/p0299",
+      "depth": 2,
+      "inbound": 28
+    },
+    {
+      "url": "https://otosoz.com/obd/p0300",
+      "path": "/obd/p0300",
+      "depth": 2,
+      "inbound": 114
+    },
+    {
+      "url": "https://otosoz.com/obd/p0420",
+      "path": "/obd/p0420",
+      "depth": 2,
+      "inbound": 85
+    },
+    {
+      "url": "https://otosoz.com/obd/p1000",
+      "path": "/obd/p1000",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "path": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "path": "/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "path": "/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "path": "/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "path": "/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "path": "/forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/hyundai-i20-14-mpi--85879525",
+      "path": "/forum/hyundai-i20-14-mpi--85879525",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "path": "/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "path": "/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "path": "/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "path": "/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "path": "/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "path": "/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "depth": 1,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi",
+      "path": "/trafik-cezasi",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "path": "/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "path": "/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+      "path": "/trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
+      "path": "/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "path": "/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "path": "/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-3-kez-48-5-c",
+      "path": "/trafik-cezasi/alkollu-arac-kullanmak-3-kez-48-5-c",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/uyusturucu-etkisinde-arac-kullanmak-48-8",
+      "path": "/trafik-cezasi/uyusturucu-etkisinde-arac-kullanmak-48-8",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/saldirgan-surus-israrli-takip-73-a",
+      "path": "/trafik-cezasi/saldirgan-surus-israrli-takip-73-a",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/drift-yapmak-67-1-d",
+      "path": "/trafik-cezasi/drift-yapmak-67-1-d",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/makas-atmak-46-2-g",
+      "path": "/trafik-cezasi/makas-atmak-46-2-g",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/dur-ihtarina-uymamak-47-1-a",
+      "path": "/trafik-cezasi/dur-ihtarina-uymamak-47-1-a",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/sahte-plaka-kullanma-23-5-b",
+      "path": "/trafik-cezasi/sahte-plaka-kullanma-23-5-b",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "path": "/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
+      "path": "/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "path": "/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/plakasiz-arac-kullanma-23-1",
+      "path": "/trafik-cezasi/plakasiz-arac-kullanma-23-1",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/kirmizi-isik-ihlali-47-1-b",
+      "path": "/trafik-cezasi/kirmizi-isik-ihlali-47-1-b",
+      "depth": 2,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/seyir-halinde-cep-telefonu-73-c",
+      "path": "/trafik-cezasi/seyir-halinde-cep-telefonu-73-c",
+      "depth": 2,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
+      "path": "/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
+      "depth": 2,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ters-yonde-arac-kullanmak-46-2-h",
+      "path": "/trafik-cezasi/ters-yonde-arac-kullanmak-46-2-h",
+      "depth": 2,
+      "inbound": 13
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/yayaya-yol-vermemek-74-b",
+      "path": "/trafik-cezasi/yayaya-yol-vermemek-74-b",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/cocuk-koltugu-kullanmamak-78-1-a",
+      "path": "/trafik-cezasi/cocuk-koltugu-kullanmamak-78-1-a",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "path": "/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
+      "path": "/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "path": "/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
+      "path": "/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/cakarli-isik-kullanmak-28-2",
+      "path": "/trafik-cezasi/cakarli-isik-kullanmak-28-2",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/egzoz-emisyon-sinirini-asmak-30-1-a",
+      "path": "/trafik-cezasi/egzoz-emisyon-sinirini-asmak-30-1-a",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/yangin-sondurucu-bulundurmamak-30-3",
+      "path": "/trafik-cezasi/yangin-sondurucu-bulundurmamak-30-3",
+      "depth": 2,
+      "inbound": 1
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
+      "path": "/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
+      "path": "/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "path": "/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "path": "/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/takograf-veri-mudahalesi-31-1-b",
+      "path": "/trafik-cezasi/takograf-veri-mudahalesi-31-1-b",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/taksimetre-bulundurmamak-kullanmamak-31-1-c",
+      "path": "/trafik-cezasi/taksimetre-bulundurmamak-kullanmamak-31-1-c",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/korsan-taksi-izinsiz-yolcu-tasima-31-2",
+      "path": "/trafik-cezasi/korsan-taksi-izinsiz-yolcu-tasima-31-2",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/tonaj-sinirini-asmak-65-1-a",
+      "path": "/trafik-cezasi/tonaj-sinirini-asmak-65-1-a",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/otobutce",
+      "path": "/otobutce",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/otohesap",
+      "path": "/otohesap",
+      "depth": 1,
+      "inbound": 1291
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-bin-tl-alti-arabalar",
+      "path": "/otobutce/150-bin-tl-alti-arabalar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-250-bin-tl-arasi-araclar",
+      "path": "/otobutce/150-250-bin-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/250-350-bin-tl-arasi-araclar",
+      "path": "/otobutce/250-350-bin-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/350-450-bin-tl-arasi-araclar",
+      "path": "/otobutce/350-450-bin-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/450-550-bin-tl-arasi-araclar",
+      "path": "/otobutce/450-550-bin-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/550-650-bin-tl-arasi-araclar",
+      "path": "/otobutce/550-650-bin-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/750-850-bin-tl-arasi-araclar",
+      "path": "/otobutce/750-850-bin-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/850-950-bin-tl-arasi-araclar",
+      "path": "/otobutce/850-950-bin-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "path": "/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "path": "/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "path": "/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "path": "/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "path": "/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "depth": 2,
+      "inbound": 19
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yakit-hesaplama",
+      "path": "/otohesap/yakit-hesaplama",
+      "depth": 2,
+      "inbound": 34
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yatirim-kiyaslama",
+      "path": "/otohesap/yatirim-kiyaslama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/al-sat-analizi",
+      "path": "/otohesap/al-sat-analizi",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/otv-muafiyeti",
+      "path": "/otohesap/otv-muafiyeti",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/deger-kaybi",
+      "path": "/otohesap/deger-kaybi",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/tasit-kredisi",
+      "path": "/otohesap/tasit-kredisi",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-bakim",
+      "path": "/otohesap/arac-bakim",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/lastik-ebat",
+      "path": "/otohesap/lastik-ebat",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/kredi-karti-hesaplama",
+      "path": "/otohesap/kredi-karti-hesaplama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/butce-planlama",
+      "path": "/otohesap/butce-planlama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/dijital-senet-hesaplama",
+      "path": "/otohesap/dijital-senet-hesaplama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/mtv-hesaplama",
+      "path": "/otohesap/mtv-hesaplama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/kasko-deger-sorgulama",
+      "path": "/otohesap/kasko-deger-sorgulama",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/elektrikli-arac-sarj-maliyeti",
+      "path": "/otohesap/elektrikli-arac-sarj-maliyeti",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-ithalat-vergisi",
+      "path": "/otohesap/arac-ithalat-vergisi",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-vs-taksi",
+      "path": "/otohesap/arac-vs-taksi",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/km-basina-maliyet",
+      "path": "/otohesap/km-basina-maliyet",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yillik-sahip-olma-maliyeti",
+      "path": "/otohesap/yillik-sahip-olma-maliyeti",
+      "depth": 2,
+      "inbound": 34
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yakit-turu-karsilastirma",
+      "path": "/otohesap/yakit-turu-karsilastirma",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/motor-gucu-donusturme",
+      "path": "/otohesap/motor-gucu-donusturme",
+      "depth": 2,
+      "inbound": 21
+    },
+    {
+      "url": "https://otosoz.com/otohesap/lastik-basinci-donusturme",
+      "path": "/otohesap/lastik-basinci-donusturme",
+      "depth": 2,
+      "inbound": 34
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari",
+      "path": "/acik-oto-pazari",
+      "depth": 1,
+      "inbound": 1289
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/adana",
+      "path": "/acik-oto-pazari/adana",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/antalya",
+      "path": "/acik-oto-pazari/antalya",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir",
+      "path": "/acik-oto-pazari/balikesir",
+      "depth": 2,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/bursa",
+      "path": "/acik-oto-pazari/bursa",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir",
+      "path": "/acik-oto-pazari/eskisehir",
+      "depth": 2,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri",
+      "path": "/acik-oto-pazari/kayseri",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/konya",
+      "path": "/acik-oto-pazari/konya",
+      "depth": 2,
+      "inbound": 10
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kutahya",
+      "path": "/acik-oto-pazari/kutahya",
+      "depth": 2,
+      "inbound": 12
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/manisa",
+      "path": "/acik-oto-pazari/manisa",
+      "depth": 2,
+      "inbound": 7
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/ordu",
+      "path": "/acik-oto-pazari/ordu",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/sakarya",
+      "path": "/acik-oto-pazari/sakarya",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/samsun",
+      "path": "/acik-oto-pazari/samsun",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "path": "/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
+      "path": "/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "path": "/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "path": "/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "depth": 2,
+      "inbound": 4
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "path": "/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "path": "/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/tepebasi-camlica-acik-oto-pazari",
+      "path": "/acik-oto-pazari/eskisehir/tepebasi-camlica-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+      "path": "/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 3
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "path": "/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 5
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "path": "/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
+      "path": "/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/manisa/demirci-ikinci-el-oto-pazari",
+      "path": "/acik-oto-pazari/manisa/demirci-ikinci-el-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kutahya/tavsanli-acik-oto-pazari",
+      "path": "/acik-oto-pazari/kutahya/tavsanli-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/ordu/fatsa-acik-oto-pazari",
+      "path": "/acik-oto-pazari/ordu/fatsa-acik-oto-pazari",
+      "depth": 2,
+      "inbound": 2
+    }
+  ]
+}

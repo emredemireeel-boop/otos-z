@@ -1,0 +1,1569 @@
+{
+  "checkedAt": "2026-11-01T09:28:23.009Z",
+  "base": "http://127.0.0.1:3013",
+  "scriptsExecuted": false,
+  "sitemapHtmlCount": 140,
+  "checked": 140,
+  "failures": 0,
+  "apiFailures": 0,
+  "comparisons": [],
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "h1s": [
+        "OtoSöz Otomobil Forumu"
+      ],
+      "textCharacters": 1887,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 5350,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/adana",
+      "status": 200,
+      "h1s": [
+        "Adana açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1645,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Belediye Evleri Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1782,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/antalya",
+      "status": 200,
+      "h1s": [
+        "Antalya açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1584,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Kepez Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1782,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/balikesir",
+      "status": 200,
+      "h1s": [
+        "Balıkesir açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1601,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Bandırma İkinci El Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1716,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/bursa",
+      "status": 200,
+      "h1s": [
+        "Bursa açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1959,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "İnegöl MERPA Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1723,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/eskisehir",
+      "status": 200,
+      "h1s": [
+        "Eskişehir açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1921,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Odunpazarı Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1885,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/eskisehir/tepebasi-camlica-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Tepebaşı Çamlıca Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1818,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kayseri",
+      "status": 200,
+      "h1s": [
+        "Kayseri açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1877,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Kocasinan Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 2050,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Yahyalı Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1629,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/konya",
+      "status": 200,
+      "h1s": [
+        "Konya açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1605,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Karatay Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1690,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kutahya",
+      "status": 200,
+      "h1s": [
+        "Kütahya açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1566,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/kutahya/tavsanli-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Tavşanlı Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1612,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/manisa",
+      "status": 200,
+      "h1s": [
+        "Manisa açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1642,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/manisa/demirci-ikinci-el-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Demirci 2. El Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1858,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/ordu",
+      "status": 200,
+      "h1s": [
+        "Ordu açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1554,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/ordu/fatsa-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Fatsa Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1569,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/sakarya",
+      "status": 200,
+      "h1s": [
+        "Sakarya açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1667,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Güneşler Açık Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1720,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/samsun",
+      "status": 200,
+      "h1s": [
+        "Samsun açık oto pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1638,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "status": 200,
+      "h1s": [
+        "Bafra 2. El Oto Pazarı nerede, hangi gün?"
+      ],
+      "textCharacters": 1753,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/altin-anahtar",
+      "status": 200,
+      "h1s": [
+        "Altın Anahtar"
+      ],
+      "textCharacters": 421,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/cerez-politikasi",
+      "status": 200,
+      "h1s": [
+        "Çerez politikası"
+      ],
+      "textCharacters": 2670,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/editoryal-politika",
+      "status": 200,
+      "h1s": [
+        "Editoryal Politika"
+      ],
+      "textCharacters": 1745,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/etkinlikler",
+      "status": 200,
+      "h1s": [
+        "Etkinlikler"
+      ],
+      "textCharacters": 7647,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "status": 200,
+      "h1s": [
+        "D Segmentinde Gizli Patron: Yok Yok Dedirten Kia Optima"
+      ],
+      "textCharacters": 2224,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "status": 200,
+      "h1s": [
+        "En çok kronik sorunu olan araçlar"
+      ],
+      "textCharacters": 2174,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "status": 200,
+      "h1s": [
+        "en sorunsuz otomobil markası"
+      ],
+      "textCharacters": 1825,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "status": 200,
+      "h1s": [
+        "Fiat Egea aracımda kalkışta ve rölantide aşırı titreme var, vites topuzu sallanıyor. Neden olabilir?"
+      ],
+      "textCharacters": 1835,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "status": 200,
+      "h1s": [
+        "fiat egea'nın bitmek bilmeyen kronik sorunları"
+      ],
+      "textCharacters": 2024,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/hyundai-i20-14-mpi--85879525",
+      "status": 200,
+      "h1s": [
+        "hyundai i20 1.4 mpi"
+      ],
+      "textCharacters": 1288,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "status": 200,
+      "h1s": [
+        "İ20'de siyah duman atma sorunu!"
+      ],
+      "textCharacters": 1173,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "status": 200,
+      "h1s": [
+        "Karavan Masrafından Kurtaran Aile Gemisi: Peugeot 5008"
+      ],
+      "textCharacters": 2730,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "status": 200,
+      "h1s": [
+        "LPG'li aracım çok yakıyor ve çekişi düştü. Ne yapmalıyım?"
+      ],
+      "textCharacters": 2057,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "status": 200,
+      "h1s": [
+        "müşteri 2 tampon boyalı diye araç iade istedi"
+      ],
+      "textCharacters": 1148,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "status": 200,
+      "h1s": [
+        "sanayi ustasının en sorunsuz araba tavsiyeleri"
+      ],
+      "textCharacters": 1275,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "status": 200,
+      "h1s": [
+        "Triger kayışını ne zaman değiştirmeliyim? Geciktirirsem ne olur?"
+      ],
+      "textCharacters": 1701,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "status": 200,
+      "h1s": [
+        "Uygun Fiyatlı İtalyan Yakışıklısı: Grande Punto Alınır mı?"
+      ],
+      "textCharacters": 2049,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/gizlilik-politikasi",
+      "status": 200,
+      "h1s": [
+        "Gizlilik Politikası"
+      ],
+      "textCharacters": 9321,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/guvenmetre",
+      "status": 200,
+      "h1s": [
+        "GüvenMetre"
+      ],
+      "textCharacters": 1192,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/hakkimizda",
+      "status": 200,
+      "h1s": [
+        "OtoSöz Hakkında"
+      ],
+      "textCharacters": 1157,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/iletisim",
+      "status": 200,
+      "h1s": [
+        "Bize Ulaşın"
+      ],
+      "textCharacters": 228,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/karsilastirma",
+      "status": 200,
+      "h1s": [
+        "Araç Karşılaştırma"
+      ],
+      "textCharacters": 1013,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kaynaklar",
+      "status": 200,
+      "h1s": [
+        "Kaynaklar"
+      ],
+      "textCharacters": 1820,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/kullanim-sartlari",
+      "status": 200,
+      "h1s": [
+        "Kullanım Şartları"
+      ],
+      "textCharacters": 9398,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd",
+      "status": 200,
+      "h1s": [
+        "OBD-II Arıza Kodları: Türkçe Anlam ve Çözüm Rehberi"
+      ],
+      "textCharacters": 4124,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p0171",
+      "status": 200,
+      "h1s": [
+        "P0171 Arıza Kodu: Yakıt-Hava Karışımı Fazla Fakir (Bank 1)"
+      ],
+      "textCharacters": 4324,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p0299",
+      "status": 200,
+      "h1s": [
+        "P0299 Arıza Kodu: Turbo / Süperşarj Basıncı Beklenenin Altında"
+      ],
+      "textCharacters": 4114,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p0300",
+      "status": 200,
+      "h1s": [
+        "P0300 Arıza Kodu: Rastgele veya Birden Fazla Silindirde Tekleme"
+      ],
+      "textCharacters": 4161,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p0420",
+      "status": 200,
+      "h1s": [
+        "P0420 Arıza Kodu: Katalizör Verimliliği Eşik Değerinin Altında (Bank 1)"
+      ],
+      "textCharacters": 4033,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/obd/p1000",
+      "status": 200,
+      "h1s": [
+        "P1000 Arıza Kodu: Ford P1000: OBD Hazırlık Testleri Tamamlanmadı"
+      ],
+      "textCharacters": 4016,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce",
+      "status": 200,
+      "h1s": [
+        "Bütçenize Uygun En İyi Araçlar"
+      ],
+      "textCharacters": 2617,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.150.000 TL - 1.250.000 TL Arası"
+      ],
+      "textCharacters": 3520,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.250.000 TL - 1.350.000 TL Arası (Hatchback ve Crossover)"
+      ],
+      "textCharacters": 3011,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.450.000 TL - 1.550.000 TL Arası (C Segmenti ve Crossover)"
+      ],
+      "textCharacters": 3391,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.550.000 TL - 1.650.000 TL Arası (Ekspertiz Gözünden Neredeyse Sıfır)"
+      ],
+      "textCharacters": 2766,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.700.000 TL - 1.800.000 TL Arası (Sıfır Kilometre ve Hibritler)"
+      ],
+      "textCharacters": 2935,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.800.000 TL - 1.900.000 TL Arası"
+      ],
+      "textCharacters": 3242,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "1.900.000 TL - 2.100.000 TL Arası (2 Milyon Bandı)"
+      ],
+      "textCharacters": 2997,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/150-250-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "150.000 TL - 250.000 TL Arası"
+      ],
+      "textCharacters": 2262,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/150-bin-tl-alti-arabalar",
+      "status": 200,
+      "h1s": [
+        "150.000 TL Altı: \"Ayağımı Yerden Kessin\" Arabaları"
+      ],
+      "textCharacters": 2733,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "2.100.000 TL - 2.300.000 TL Arası (D Segmenti Lüksü ve Elektrikli Rekabeti)"
+      ],
+      "textCharacters": 3888,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "2.500.000 TL - 3.500.000 TL Arası"
+      ],
+      "textCharacters": 3247,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/250-350-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "250.000 TL - 350.000 TL Arası"
+      ],
+      "textCharacters": 3030,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "3.500.000 TL - 5.000.000 TL Arası"
+      ],
+      "textCharacters": 2681,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/350-450-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "350.000 TL - 450.000 TL Arası"
+      ],
+      "textCharacters": 2596,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/450-550-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "450.000 TL - 550.000 TL Arası"
+      ],
+      "textCharacters": 3529,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/550-650-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "550.000 TL - 650.000 TL Arası"
+      ],
+      "textCharacters": 3439,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/750-850-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "750.000 TL - 850.000 TL Arası"
+      ],
+      "textCharacters": 3936,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/850-950-bin-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "850.000 TL - 950.000 TL Arası"
+      ],
+      "textCharacters": 2887,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "status": 200,
+      "h1s": [
+        "950.000 TL - 1.050.000 TL Arası (1 Milyon Bandı)"
+      ],
+      "textCharacters": 3339,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap",
+      "status": 200,
+      "h1s": [
+        "Aracınızla ilgili her hesabı tek yerde netleştirin"
+      ],
+      "textCharacters": 5351,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/al-sat-analizi",
+      "status": 200,
+      "h1s": [
+        "Araç Al-Sat Net Kâr Marjı Hesaplama"
+      ],
+      "textCharacters": 2934,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/arac-bakim",
+      "status": 200,
+      "h1s": [
+        "Araç Periyodik Bakım Maliyeti Hesaplama"
+      ],
+      "textCharacters": 2507,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/arac-ithalat-vergisi",
+      "status": 200,
+      "h1s": [
+        "Yurt Dışından Araç Getirme Vergi ve Maliyet Hesaplama"
+      ],
+      "textCharacters": 2786,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/arac-vs-taksi",
+      "status": 200,
+      "h1s": [
+        "Araç Sahibi Olmak mı Taksi Kullanmak mı? Maliyet Kıyaslama"
+      ],
+      "textCharacters": 3731,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/butce-planlama",
+      "status": 200,
+      "h1s": [
+        "Araç Alım Toplam Bütçe ve Ek Gider Hesaplama"
+      ],
+      "textCharacters": 2452,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/deger-kaybi",
+      "status": 200,
+      "h1s": [
+        "Kaza Sonrası Araç Değer Kaybı Hesaplama"
+      ],
+      "textCharacters": 2765,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/dijital-senet-hesaplama",
+      "status": 200,
+      "h1s": [
+        "Dijital Senetle Araç Alma Reel Maliyet Hesaplama"
+      ],
+      "textCharacters": 2819,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/elektrikli-arac-sarj-maliyeti",
+      "status": 200,
+      "h1s": [
+        "Elektrikli Araç Şarj Maliyeti Hesaplama"
+      ],
+      "textCharacters": 3871,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/kasko-deger-sorgulama",
+      "status": 200,
+      "h1s": [
+        "2026 Araç Kasko Değer Listesi Sorgulama"
+      ],
+      "textCharacters": 2174,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/km-basina-maliyet",
+      "status": 200,
+      "h1s": [
+        "Kilometre Başı Araç Maliyeti Hesaplama"
+      ],
+      "textCharacters": 2882,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/kredi-karti-hesaplama",
+      "status": 200,
+      "h1s": [
+        "Kredi Kartıyla Araç Alma Komisyon ve Taksit Hesaplama"
+      ],
+      "textCharacters": 3073,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/lastik-basinci-donusturme",
+      "status": 200,
+      "h1s": [
+        "Lastik Basıncı PSI, Bar ve kPa Dönüştürme"
+      ],
+      "textCharacters": 2488,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/lastik-ebat",
+      "status": 200,
+      "h1s": [
+        "Lastik Ebat, Çap ve Hız Sapması Hesaplama"
+      ],
+      "textCharacters": 2629,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/motor-gucu-donusturme",
+      "status": 200,
+      "h1s": [
+        "kW, HP ve PS Motor Gücü Dönüştürme"
+      ],
+      "textCharacters": 2367,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/mtv-hesaplama",
+      "status": 200,
+      "h1s": [
+        "2026 Motorlu Taşıtlar Vergisi (MTV) Hesaplama"
+      ],
+      "textCharacters": 3250,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/otv-muafiyeti",
+      "status": 200,
+      "h1s": [
+        "Engelli Araç ÖTV Muafiyeti Hesaplama 2026"
+      ],
+      "textCharacters": 2722,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/tasit-kredisi",
+      "status": 200,
+      "h1s": [
+        "Taşıt Kredisi Taksit ve Toplam Geri Ödeme Hesaplama"
+      ],
+      "textCharacters": 2505,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/yakit-hesaplama",
+      "status": 200,
+      "h1s": [
+        "Şehirler Arası Yakıt Maliyeti Hesaplama"
+      ],
+      "textCharacters": 2168,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/yakit-turu-karsilastirma",
+      "status": 200,
+      "h1s": [
+        "Benzin, Dizel, LPG ve Elektrik Maliyet Karşılaştırma"
+      ],
+      "textCharacters": 3126,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/yatirim-kiyaslama",
+      "status": 200,
+      "h1s": [
+        "Araç, Altın, Dolar ve Mevduat Yatırım Kıyaslama"
+      ],
+      "textCharacters": 2831,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/otohesap/yillik-sahip-olma-maliyeti",
+      "status": 200,
+      "h1s": [
+        "Yıllık ve Toplam Araç Sahip Olma Maliyeti Hesaplama"
+      ],
+      "textCharacters": 3038,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/piyasalar",
+      "status": 200,
+      "h1s": [
+        "2026 Türkiye Otomobil Pazar Endeksi"
+      ],
+      "textCharacters": 5019,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi",
+      "status": 200,
+      "h1s": [
+        "Trafik Cezaları"
+      ],
+      "textCharacters": 1668,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "status": 200,
+      "h1s": [
+        "Alkol Testini Reddetme Cezası 2026"
+      ],
+      "textCharacters": 2580,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "status": 200,
+      "h1s": [
+        "Alkollü Araç Kullanmak (1. Kez, 0.50 Promil Üstü) Cezası 2026"
+      ],
+      "textCharacters": 2972,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/alkollu-arac-kullanmak-3-kez-48-5-c",
+      "status": 200,
+      "h1s": [
+        "Alkollü Araç Kullanmak (3. Kez ve Sonrası) Cezası 2026"
+      ],
+      "textCharacters": 2260,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
+      "status": 200,
+      "h1s": [
+        "Araçta Cam Filmi Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 2059,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/cakarli-isik-kullanmak-28-2",
+      "status": 200,
+      "h1s": [
+        "Çakarlı Işık Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 1954,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/cocuk-koltugu-kullanmamak-78-1-a",
+      "status": 200,
+      "h1s": [
+        "Çocuk Koltuğu Kullanmamak Cezası 2026"
+      ],
+      "textCharacters": 2013,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/drift-yapmak-67-1-d",
+      "status": 200,
+      "h1s": [
+        "Drift Yapmak Cezası 2026"
+      ],
+      "textCharacters": 2037,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/dur-ihtarina-uymamak-47-1-a",
+      "status": 200,
+      "h1s": [
+        "\"Dur\" İhtarına Uymayıp Kaçma Cezası 2026"
+      ],
+      "textCharacters": 1870,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/egzoz-emisyon-sinirini-asmak-30-1-a",
+      "status": 200,
+      "h1s": [
+        "Egzoz Emisyon Sınırını Aşmak Cezası 2026"
+      ],
+      "textCharacters": 1864,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "status": 200,
+      "h1s": [
+        "Ehliyeti Alınmışken Araç Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 1839,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
+      "status": 200,
+      "h1s": [
+        "Ehliyetsiz Araç Kullanma Cezası 2026"
+      ],
+      "textCharacters": 2088,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "status": 200,
+      "h1s": [
+        "Emniyet Kemeri Takmamak Cezası 2026"
+      ],
+      "textCharacters": 2260,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
+      "status": 200,
+      "h1s": [
+        "Emniyet Şeridi İhlali Cezası 2026"
+      ],
+      "textCharacters": 1823,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "status": 200,
+      "h1s": [
+        "Engelli Park Yerini İşgal Etmek Cezası 2026"
+      ],
+      "textCharacters": 1726,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
+      "status": 200,
+      "h1s": [
+        "Geçme Yasağı İhlali Cezası 2026"
+      ],
+      "textCharacters": 2046,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "status": 200,
+      "h1s": [
+        "Hatalı Park Etmek Cezası 2026"
+      ],
+      "textCharacters": 1954,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
+      "status": 200,
+      "h1s": [
+        "Hız Sınırını 66 km/s ve Üzeri Aşmak Cezası 2026"
+      ],
+      "textCharacters": 2216,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "status": 200,
+      "h1s": [
+        "Hız Sınırını 6-45 km/s Aşmak (Kademeli) Cezası 2026"
+      ],
+      "textCharacters": 3142,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "status": 200,
+      "h1s": [
+        "Hız Sınırını 46-55 km/s Aşmak Cezası 2026"
+      ],
+      "textCharacters": 2544,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+      "status": 200,
+      "h1s": [
+        "Hız Sınırını 56-65 km/s Aşmak Cezası 2026"
+      ],
+      "textCharacters": 2283,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "status": 200,
+      "h1s": [
+        "Kask Takmamak (Motosiklet) Cezası 2026"
+      ],
+      "textCharacters": 1831,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/kirmizi-isik-ihlali-47-1-b",
+      "status": 200,
+      "h1s": [
+        "Kırmızı Işık İhlali Cezası 2026"
+      ],
+      "textCharacters": 2754,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/korsan-taksi-izinsiz-yolcu-tasima-31-2",
+      "status": 200,
+      "h1s": [
+        "Korsan Taksi (İzinsiz Yolcu Taşıma) Cezası 2026"
+      ],
+      "textCharacters": 1935,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/makas-atmak-46-2-g",
+      "status": 200,
+      "h1s": [
+        "Makas Atmak Cezası 2026"
+      ],
+      "textCharacters": 1958,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
+      "status": 200,
+      "h1s": [
+        "Muayenesiz Araçla Trafiğe Çıkma Cezası 2026"
+      ],
+      "textCharacters": 1859,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/plakasiz-arac-kullanma-23-1",
+      "status": 200,
+      "h1s": [
+        "Plakasız Araç Kullanma Cezası 2026"
+      ],
+      "textCharacters": 1835,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "status": 200,
+      "h1s": [
+        "Plakayı Okunmaz Hale Getirmek Cezası 2026"
+      ],
+      "textCharacters": 1790,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/sahte-plaka-kullanma-23-5-b",
+      "status": 200,
+      "h1s": [
+        "Sahte Plaka Kullanma Cezası 2026"
+      ],
+      "textCharacters": 1923,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/saldirgan-surus-israrli-takip-73-a",
+      "status": 200,
+      "h1s": [
+        "Saldırgan Sürüş / Israrlı Takip Cezası 2026"
+      ],
+      "textCharacters": 2298,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/seyir-halinde-cep-telefonu-73-c",
+      "status": 200,
+      "h1s": [
+        "Seyir Halinde Cep Telefonu Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 2318,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/takograf-veri-mudahalesi-31-1-b",
+      "status": 200,
+      "h1s": [
+        "Takograf Veri Müdahalesi Cezası 2026"
+      ],
+      "textCharacters": 1754,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/taksimetre-bulundurmamak-kullanmamak-31-1-c",
+      "status": 200,
+      "h1s": [
+        "Taksimetre Bulundurmamak/Kullanmamak Cezası 2026"
+      ],
+      "textCharacters": 1732,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/ters-yonde-arac-kullanmak-46-2-h",
+      "status": 200,
+      "h1s": [
+        "Ters Yönde Araç Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 1818,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/tonaj-sinirini-asmak-65-1-a",
+      "status": 200,
+      "h1s": [
+        "Tonaj/Ağırlık Sınırını Aşmak Cezası 2026"
+      ],
+      "textCharacters": 1840,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
+      "status": 200,
+      "h1s": [
+        "Trafik Sigortasız Araç Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 2009,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/uyusturucu-etkisinde-arac-kullanmak-48-8",
+      "status": 200,
+      "h1s": [
+        "Uyuşturucu Etkisinde Araç Kullanmak Cezası 2026"
+      ],
+      "textCharacters": 2238,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/yangin-sondurucu-bulundurmamak-30-3",
+      "status": 200,
+      "h1s": [
+        "Yangın Söndürücü Bulundurmamak Cezası 2026"
+      ],
+      "textCharacters": 1965,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "path": "/trafik-cezasi/yayaya-yol-vermemek-74-b",
+      "status": 200,
+      "h1s": [
+        "Yayaya Yol Vermemek Cezası 2026"
+      ],
+      "textCharacters": 1885,
+      "expectedFields": 0,
+      "missing": [],
+      "errors": []
+    }
+  ],
+  "apiResults": [
+    {
+      "path": "/api/car-options?brand=Renault",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "path": "/api/car-options?brand=invalid-brand",
+      "status": 404,
+      "errors": []
+    },
+    {
+      "path": "/api/advertisements?position=invalid!position",
+      "status": 400,
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-01",
+  "sourceRevision": "588fb54",
+  "base": "http://127.0.0.1:3013",
+  "desktop": {
+    "expertChoiceShownBeforeForm": true,
+    "freeChoiceOpensQuestionForm": true,
+    "premiumIsNonInteractiveComingSoon": true,
+    "pollsOpenOnHome": true,
+    "anonymousVotingDisabledWithSignInLink": true,
+    "consoleErrorsObserved": 0,
+    "screenshot": "question-choice-desktop.png"
+  },
+  "mobile": {
+    "viewportWidth": 390,
+    "viewportHeight": 844,
+    "documentWidth": 382,
+    "horizontalOverflow": false,
+    "pollCategoryWorks": true,
+    "expertChoicesStackVertically": true,
+    "legacyRootHrefCount": 0,
+    "screenshot": "question-choice-mobile.png"
+  },
+  "dataWritesPerformed": false,
+  "notExercised": [
+    "Authenticated production voting and question submission were not sent; existing user data was not changed."
+  ],
+  "categoryValidation": {
+    "sourceRevision": "a0530c0",
+    "experienceThreads": 5,
+    "technicalThreads": 3,
+    "screenshot": "category-filter-desktop.png",
+    "legacyNamesNormalizedForSsrAndLiveSnapshots": true
+  },
+  "live": {
+    "base": "https://otosoz.com/",
+    "sourceRevision": "a0530c0",
+    "forumTitleVerified": true,
+    "categoryCounts": {
+      "Genel": 4,
+      "Teknik & Arıza": 3,
+      "Deneyim & İnceleme": 5
+    },
+    "expertChoiceShownBeforeForm": true,
+    "premiumComingSoon": true,
+    "screenshot": "live-question-choice.png"
+  }
+}

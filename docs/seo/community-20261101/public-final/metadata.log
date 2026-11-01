@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-01T09:47:56.726Z",
+  "base": "https://otosoz.com",
+  "total": 140,
+  "duplicateTitles": 0,
+  "duplicateTitlePages": 0,
+  "duplicateDescriptions": 0,
+  "duplicateDescriptionPercent": 0,
+  "longTitlePercent": 0,
+  "descriptionLengthFailures": 0,
+  "forbiddenTagPages": 0,
+  "failures": 0,
+  "sources": {
+    "definitions": 86,
+    "manual": []
+  },
+  "titles": [],
+  "descriptions": [],
+  "longTitles": [],
+  "shortDescriptions": []
+}

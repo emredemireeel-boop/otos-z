@@ -1,0 +1,2263 @@
+{
+  "checkedAt": "2026-11-01T09:34:24.738Z",
+  "base": "http://127.0.0.1:3013",
+  "total": 140,
+  "duplicateTitles": 0,
+  "duplicateTitlePages": 0,
+  "duplicateDescriptions": 0,
+  "duplicateDescriptionPercent": 0,
+  "longTitlePercent": 0,
+  "descriptionLengthFailures": 0,
+  "forbiddenTagPages": 0,
+  "failures": 0,
+  "sources": {
+    "definitions": 86,
+    "manual": []
+  },
+  "titles": [],
+  "descriptions": [],
+  "longTitles": [],
+  "shortDescriptions": [],
+  "results": [
+    {
+      "url": "https://otosoz.com/",
+      "status": 200,
+      "title": "Otomobil Forumu, Sorular ve Sürücü Deneyimleri | OtoSöz",
+      "titleLength": 55,
+      "description": "OtoSöz otomobil forumunda arıza ve bakım sorularını sorun, sürücü deneyimlerini okuyun. Topluluk anketlerine katılın, otomobiller hakkında fikir paylaşın.",
+      "descriptionLength": 154,
+      "canonical": "https://otosoz.com/",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Otomobil%20Forumu%2C%20Sorular%20ve%20S%C3%BCr%C3%BCc%C3%BC%20Deneyimleri%20%7C%20OtoS%C3%B6z&desc=OtoS%C3%B6z%20otomobil%20forumunda%20ar%C4%B1za%20ve%20bak%C4%B1m%20sorular%C4%B1n%C4%B1%20sorun%2C%20s%C3%BCr%C3%BCc%C3%BC%20deneyimlerini%20okuyun.%20Topluluk%20anketlerine%20kat%C4%B1l%C4%B1n%2C%20otomobiller%20hakk%C4%B1nda%20fikir%20payla%C5%9F%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/altin-anahtar",
+      "status": 200,
+      "title": "Altın Anahtar — Türkiye'nin En İyi Oto Ustaları | OtoSöz",
+      "titleLength": 56,
+      "description": "Türkiye'nin ilk yıldızlı usta rehberi. Şehir şehir en güvenilir oto tamircileri, motor ustaları, kaportacılar ve elektrikçileri keşfedin. Altın Anahtar",
+      "descriptionLength": 151,
+      "canonical": "https://otosoz.com/altin-anahtar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Alt%C4%B1n%20Anahtar%20%E2%80%94%20T%C3%BCrkiye%27nin%20En%20%C4%B0yi%20Oto%20Ustalar%C4%B1%20%7C%20OtoS%C3%B6z&desc=T%C3%BCrkiye%27nin%20ilk%20y%C4%B1ld%C4%B1zl%C4%B1%20usta%20rehberi.%20%C5%9Eehir%20%C5%9Fehir%20en%20g%C3%BCvenilir%20oto%20tamircileri%2C%20motor%20ustalar%C4%B1%2C%20kaportac%C4%B1lar%20ve%20elektrik%C3%A7ileri%20ke%C5%9Ffedin.%20Alt%C4%B1n%20Anahtar",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/guvenmetre",
+      "status": 200,
+      "title": "GüvenMetre: Otomotiv Marka ve Hizmet Puanları | OtoSöz",
+      "titleLength": 54,
+      "description": "Otomobil markaları, servisler, bayiler ve otomotiv hizmetleri için kullanıcı değerlendirmelerini ve güven puanlarını karşılaştırın.",
+      "descriptionLength": 131,
+      "canonical": "https://otosoz.com/guvenmetre",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=G%C3%BCvenMetre%3A%20Otomotiv%20Marka%20ve%20Hizmet%20Puanlar%C4%B1%20%7C%20OtoS%C3%B6z&desc=Otomobil%20markalar%C4%B1%2C%20servisler%2C%20bayiler%20ve%20otomotiv%20hizmetleri%20i%C3%A7in%20kullan%C4%B1c%C4%B1%20de%C4%9Ferlendirmelerini%20ve%20g%C3%BCven%20puanlar%C4%B1n%C4%B1%20kar%C5%9F%C4%B1la%C5%9Ft%C4%B1r%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/karsilastirma",
+      "status": 200,
+      "title": "Araç Karşılaştırma: Model ve Motor Kıyaslama | OtoSöz",
+      "titleLength": 53,
+      "description": "Otomobilleri teknik özellik, motor, yakıt tüketimi, donanım, kullanım maliyeti ve kullanıcı deneyimi açısından yan yana karşılaştırın.",
+      "descriptionLength": 134,
+      "canonical": "https://otosoz.com/karsilastirma",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7%20Kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rma%3A%20Model%20ve%20Motor%20K%C4%B1yaslama%20%7C%20OtoS%C3%B6z&desc=Otomobilleri%20teknik%20%C3%B6zellik%2C%20motor%2C%20yak%C4%B1t%20t%C3%BCketimi%2C%20donan%C4%B1m%2C%20kullan%C4%B1m%20maliyeti%20ve%20kullan%C4%B1c%C4%B1%20deneyimi%20a%C3%A7%C4%B1s%C4%B1ndan%20yan%20yana%20kar%C5%9F%C4%B1la%C5%9Ft%C4%B1r%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/piyasalar",
+      "status": 200,
+      "title": "Otomotiv Piyasaları ve Güncel Fiyat Verileri | OtoSöz",
+      "titleLength": 53,
+      "description": "Otomotiv Piyasaları ve Güncel Fiyat Verileri: Akaryakıt, döviz, altın ve otomobil sahipliğini etkileyen güncel piyasa verilerini tek ekranda takip edin.",
+      "descriptionLength": 152,
+      "canonical": "https://otosoz.com/piyasalar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Otomotiv%20Piyasalar%C4%B1%20ve%20G%C3%BCncel%20Fiyat%20Verileri%20%7C%20OtoS%C3%B6z&desc=Otomotiv%20Piyasalar%C4%B1%20ve%20G%C3%BCncel%20Fiyat%20Verileri%3A%20Akaryak%C4%B1t%2C%20d%C3%B6viz%2C%20alt%C4%B1n%20ve%20otomobil%20sahipli%C4%9Fini%20etkileyen%20g%C3%BCncel%20piyasa%20verilerini%20tek%20ekranda%20takip%20edin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/hakkimizda",
+      "status": 200,
+      "title": "OtoSöz Hakkında | Otomotiv Karar Platformu | OtoSöz",
+      "titleLength": 51,
+      "description": "OtoSöz; araç satın alma, arıza çözümü ve otomobil karşılaştırması kararlarında gerçek deneyim, uzman görüşü ve veriyi buluşturan otomotiv karar platformudur.",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/hakkimizda",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=OtoS%C3%B6z%20Hakk%C4%B1nda%20%7C%20Otomotiv%20Karar%20Platformu%20%7C%20OtoS%C3%B6z&desc=OtoS%C3%B6z%3B%20ara%C3%A7%20sat%C4%B1n%20alma%2C%20ar%C4%B1za%20%C3%A7%C3%B6z%C3%BCm%C3%BC%20ve%20otomobil%20kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rmas%C4%B1%20kararlar%C4%B1nda%20ger%C3%A7ek%20deneyim%2C%20uzman%20g%C3%B6r%C3%BC%C5%9F%C3%BC%20ve%20veriyi%20bulu%C5%9Fturan%20otomotiv%20karar%20platformudur.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/editoryal-politika",
+      "status": 200,
+      "title": "Editoryal Politika ve Düzeltme Süreci | OtoSöz",
+      "titleLength": 46,
+      "description": "OtoSöz forum paylaşımlarında ve OBD açıklamalarında kaynak kullanımı, bilginin sınırları, içerik sorumluluğu ve düzeltme talebi sürecini inceleyin.",
+      "descriptionLength": 147,
+      "canonical": "https://otosoz.com/editoryal-politika",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Editoryal%20Politika%20ve%20D%C3%BCzeltme%20S%C3%BCreci%20%7C%20OtoS%C3%B6z&desc=OtoS%C3%B6z%20forum%20payla%C5%9F%C4%B1mlar%C4%B1nda%20ve%20OBD%20a%C3%A7%C4%B1klamalar%C4%B1nda%20kaynak%20kullan%C4%B1m%C4%B1%2C%20bilginin%20s%C4%B1n%C4%B1rlar%C4%B1%2C%20i%C3%A7erik%20sorumlulu%C4%9Fu%20ve%20d%C3%BCzeltme%20talebi%20s%C3%BCrecini%20inceleyin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kaynaklar",
+      "status": 200,
+      "title": "İçerik Kaynakları ve Başvuru Belgeleri | OtoSöz",
+      "titleLength": 47,
+      "description": "OtoSöz OBD açıklamalarında ve açık oto pazarı rehberlerinde kayıtlı üretici belgeleri ile resmî başvuru kaynaklarına ulaşın.",
+      "descriptionLength": 124,
+      "canonical": "https://otosoz.com/kaynaklar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=%C4%B0%C3%A7erik%20Kaynaklar%C4%B1%20ve%20Ba%C5%9Fvuru%20Belgeleri%20%7C%20OtoS%C3%B6z&desc=OtoS%C3%B6z%20OBD%20a%C3%A7%C4%B1klamalar%C4%B1nda%20ve%20a%C3%A7%C4%B1k%20oto%20pazar%C4%B1%20rehberlerinde%20kay%C4%B1tl%C4%B1%20%C3%BCretici%20belgeleri%20ile%20resm%C3%AE%20ba%C5%9Fvuru%20kaynaklar%C4%B1na%20ula%C5%9F%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/etkinlikler",
+      "status": 200,
+      "title": "Otomobil Etkinlikleri, Fuarlar ve Buluşmalar | OtoSöz",
+      "titleLength": 53,
+      "description": "Türkiye genelindeki otomobil fuarlarını, klasik araç buluşmalarını, pist günlerini ve otomotiv etkinliklerini tarih ve konum bilgileriyle keşfedin.",
+      "descriptionLength": 147,
+      "canonical": "https://otosoz.com/etkinlikler",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Otomobil%20Etkinlikleri%2C%20Fuarlar%20ve%20Bulu%C5%9Fmalar%20%7C%20OtoS%C3%B6z&desc=T%C3%BCrkiye%20genelindeki%20otomobil%20fuarlar%C4%B1n%C4%B1%2C%20klasik%20ara%C3%A7%20bulu%C5%9Fmalar%C4%B1n%C4%B1%2C%20pist%20g%C3%BCnlerini%20ve%20otomotiv%20etkinliklerini%20tarih%20ve%20konum%20bilgileriyle%20ke%C5%9Ffedin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/iletisim",
+      "status": 200,
+      "title": "OtoSöz İletişim | OtoSöz",
+      "titleLength": 24,
+      "description": "OtoSöz İletişim: Soru, görüş, içerik bildirimi ve iş birliği talepleriniz için OtoSöz ekibiyle iletişime geçin. Konuyla ilgili açıklamaları, sayfanın",
+      "descriptionLength": 149,
+      "canonical": "https://otosoz.com/iletisim",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=OtoS%C3%B6z%20%C4%B0leti%C5%9Fim%20%7C%20OtoS%C3%B6z&desc=OtoS%C3%B6z%20%C4%B0leti%C5%9Fim%3A%20Soru%2C%20g%C3%B6r%C3%BC%C5%9F%2C%20i%C3%A7erik%20bildirimi%20ve%20i%C5%9F%20birli%C4%9Fi%20talepleriniz%20i%C3%A7in%20OtoS%C3%B6z%20ekibiyle%20ileti%C5%9Fime%20ge%C3%A7in.%20Konuyla%20ilgili%20a%C3%A7%C4%B1klamalar%C4%B1%2C%20sayfan%C4%B1n",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/cerez-politikasi",
+      "status": 200,
+      "title": "Çerez Politikası | OtoSöz",
+      "titleLength": 25,
+      "description": "OtoSöz'ün kullandığı zorunlu ve isteğe bağlı çerezleri, amaçlarını, sağlayıcılarını, saklama sürelerini ve tercihlerinizi nasıl yönetebileceğinizi inceleyin.",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/cerez-politikasi",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=%C3%87erez%20Politikas%C4%B1%20%7C%20OtoS%C3%B6z&desc=OtoS%C3%B6z%27%C3%BCn%20kulland%C4%B1%C4%9F%C4%B1%20zorunlu%20ve%20iste%C4%9Fe%20ba%C4%9Fl%C4%B1%20%C3%A7erezleri%2C%20ama%C3%A7lar%C4%B1n%C4%B1%2C%20sa%C4%9Flay%C4%B1c%C4%B1lar%C4%B1n%C4%B1%2C%20saklama%20s%C3%BCrelerini%20ve%20tercihlerinizi%20nas%C4%B1l%20y%C3%B6netebilece%C4%9Finizi%20inceleyin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/gizlilik-politikasi",
+      "status": 200,
+      "title": "Gizlilik Politikası | OtoSöz",
+      "titleLength": 28,
+      "description": "Gizlilik Politikası: OtoSöz platformunda kişisel verilerin işlenmesi, korunması, saklanması ve kullanıcı hakları hakkında bilgi edinin.",
+      "descriptionLength": 135,
+      "canonical": "https://otosoz.com/gizlilik-politikasi",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Gizlilik%20Politikas%C4%B1%20%7C%20OtoS%C3%B6z&desc=Gizlilik%20Politikas%C4%B1%3A%20OtoS%C3%B6z%20platformunda%20ki%C5%9Fisel%20verilerin%20i%C5%9Flenmesi%2C%20korunmas%C4%B1%2C%20saklanmas%C4%B1%20ve%20kullan%C4%B1c%C4%B1%20haklar%C4%B1%20hakk%C4%B1nda%20bilgi%20edinin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kullanim-sartlari",
+      "status": 200,
+      "title": "Kullanım Şartları | OtoSöz",
+      "titleLength": 26,
+      "description": "Kullanım Şartları: OtoSöz platformunun kullanım koşulları, içerik kuralları, sorumluluklar ve kullanıcı hakları hakkında bilgi edinin.",
+      "descriptionLength": 134,
+      "canonical": "https://otosoz.com/kullanim-sartlari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Kullan%C4%B1m%20%C5%9Eartlar%C4%B1%20%7C%20OtoS%C3%B6z&desc=Kullan%C4%B1m%20%C5%9Eartlar%C4%B1%3A%20OtoS%C3%B6z%20platformunun%20kullan%C4%B1m%20ko%C5%9Fullar%C4%B1%2C%20i%C3%A7erik%20kurallar%C4%B1%2C%20sorumluluklar%20ve%20kullan%C4%B1c%C4%B1%20haklar%C4%B1%20hakk%C4%B1nda%20bilgi%20edinin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd",
+      "status": 200,
+      "title": "OBD-II Arıza Kodları: Türkçe Sorgulama | OtoSöz",
+      "titleLength": 47,
+      "description": "3.500'den fazla OBD-II arıza kodunun Türkçe anlamını, belirtilerini, olası nedenlerini ve çözüm adımlarını sorgulayın. P, B, C ve U kodları.",
+      "descriptionLength": 140,
+      "canonical": "https://otosoz.com/obd",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=OBD-II%20Ar%C4%B1za%20Kodlar%C4%B1%3A%20T%C3%BCrk%C3%A7e%20Sorgulama%20%7C%20OtoS%C3%B6z&desc=3.500%27den%20fazla%20OBD-II%20ar%C4%B1za%20kodunun%20T%C3%BCrk%C3%A7e%20anlam%C4%B1n%C4%B1%2C%20belirtilerini%2C%20olas%C4%B1%20nedenlerini%20ve%20%C3%A7%C3%B6z%C3%BCm%20ad%C4%B1mlar%C4%B1n%C4%B1%20sorgulay%C4%B1n.%20P%2C%20B%2C%20C%20ve%20U%20kodlar%C4%B1.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p0171",
+      "status": 200,
+      "title": "P0171 Arıza Kodu: Fakir Karışım — Nedenleri ve Çözümü",
+      "titleLength": 53,
+      "description": "P0171 arıza kodu: Yakıt-Hava Karışımı Fazla Fakir (Bank 1). Türkçe anlamı, belirtileri, olası nedenleri, ciddiyet seviyesi ve kontrol edilmesi gereken çözüm…",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/obd/p0171",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=P0171%20Ar%C4%B1za%20Kodu%3A%20Fakir%20Kar%C4%B1%C5%9F%C4%B1m%20%E2%80%94%20Nedenleri%20ve%20%C3%87%C3%B6z%C3%BCm%C3%BC&desc=P0171%20ar%C4%B1za%20kodu%3A%20Yak%C4%B1t-Hava%20Kar%C4%B1%C5%9F%C4%B1m%C4%B1%20Fazla%20Fakir%20(Bank%201).%20T%C3%BCrk%C3%A7e%20anlam%C4%B1%2C%20belirtileri%2C%20olas%C4%B1%20nedenleri%2C%20ciddiyet%20seviyesi%20ve%20kontrol%20edilmesi%20gereken%20%C3%A7%C3%B6z%C3%BCm%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p0299",
+      "status": 200,
+      "title": "P0299 Arıza Kodu: Düşük Turbo Basıncı ve Çözümü | OtoSöz",
+      "titleLength": 56,
+      "description": "P0299 arıza kodu: Turbo / Süperşarj Basıncı Beklenenin Altında. Türkçe anlamı, belirtileri, olası nedenleri, ciddiyet seviyesi ve kontrol edilmesi gereken…",
+      "descriptionLength": 155,
+      "canonical": "https://otosoz.com/obd/p0299",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=P0299%20Ar%C4%B1za%20Kodu%3A%20D%C3%BC%C5%9F%C3%BCk%20Turbo%20Bas%C4%B1nc%C4%B1%20ve%20%C3%87%C3%B6z%C3%BCm%C3%BC%20%7C%20OtoS%C3%B6z&desc=P0299%20ar%C4%B1za%20kodu%3A%20Turbo%20%2F%20S%C3%BCper%C5%9Farj%20Bas%C4%B1nc%C4%B1%20Beklenenin%20Alt%C4%B1nda.%20T%C3%BCrk%C3%A7e%20anlam%C4%B1%2C%20belirtileri%2C%20olas%C4%B1%20nedenleri%2C%20ciddiyet%20seviyesi%20ve%20kontrol%20edilmesi%20gereken%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p0300",
+      "status": 200,
+      "title": "P0300 Arıza Kodu: Rastgele Tekleme — Nedenleri ve Çözümü",
+      "titleLength": 56,
+      "description": "P0300 arıza kodu: Rastgele veya Birden Fazla Silindirde Tekleme. Türkçe anlamı, belirtileri, olası nedenleri, ciddiyet seviyesi ve kontrol edilmesi gereken…",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/obd/p0300",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=P0300%20Ar%C4%B1za%20Kodu%3A%20Rastgele%20Tekleme%20%E2%80%94%20Nedenleri%20ve%20%C3%87%C3%B6z%C3%BCm%C3%BC&desc=P0300%20ar%C4%B1za%20kodu%3A%20Rastgele%20veya%20Birden%20Fazla%20Silindirde%20Tekleme.%20T%C3%BCrk%C3%A7e%20anlam%C4%B1%2C%20belirtileri%2C%20olas%C4%B1%20nedenleri%2C%20ciddiyet%20seviyesi%20ve%20kontrol%20edilmesi%20gereken%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p0420",
+      "status": 200,
+      "title": "P0420 Arıza Kodu: Katalizör Verimi Düşük ve Çözümü | OtoSöz",
+      "titleLength": 59,
+      "description": "P0420 arıza kodu: Katalizör Verimliliği Eşik Değerinin Altında (Bank 1). Türkçe anlamı, belirtileri, olası nedenleri, ciddiyet seviyesi ve kontrol edilmesi…",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/obd/p0420",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=P0420%20Ar%C4%B1za%20Kodu%3A%20Kataliz%C3%B6r%20Verimi%20D%C3%BC%C5%9F%C3%BCk%20ve%20%C3%87%C3%B6z%C3%BCm%C3%BC%20%7C%20OtoS%C3%B6z&desc=P0420%20ar%C4%B1za%20kodu%3A%20Kataliz%C3%B6r%20Verimlili%C4%9Fi%20E%C5%9Fik%20De%C4%9Ferinin%20Alt%C4%B1nda%20(Bank%201).%20T%C3%BCrk%C3%A7e%20anlam%C4%B1%2C%20belirtileri%2C%20olas%C4%B1%20nedenleri%2C%20ciddiyet%20seviyesi%20ve%20kontrol%20edilmesi%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p1000",
+      "status": 200,
+      "title": "P1000 Arıza Kodu: Ford OBD Testleri Tamamlanmadı | OtoSöz",
+      "titleLength": 57,
+      "description": "P1000 arıza kodu: Ford P1000: OBD Hazırlık Testleri Tamamlanmadı. Türkçe anlamı, belirtileri, olası nedenleri, ciddiyet seviyesi ve kontrol edilmesi gereken…",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/obd/p1000",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=P1000%20Ar%C4%B1za%20Kodu%3A%20Ford%20OBD%20Testleri%20Tamamlanmad%C4%B1%20%7C%20OtoS%C3%B6z&desc=P1000%20ar%C4%B1za%20kodu%3A%20Ford%20P1000%3A%20OBD%20Haz%C4%B1rl%C4%B1k%20Testleri%20Tamamlanmad%C4%B1.%20T%C3%BCrk%C3%A7e%20anlam%C4%B1%2C%20belirtileri%2C%20olas%C4%B1%20nedenleri%2C%20ciddiyet%20seviyesi%20ve%20kontrol%20edilmesi%20gereken%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "status": 200,
+      "title": "müşteri 2 tampon boyalı diye araç iade istedi | OtoSöz",
+      "titleLength": 54,
+      "description": "müşteri 2 tampon boyalı diye araç iade istedi: Sizce tamponlar boyalı diye araç iade edilmeli mi, biz bu süreçte ettik ama abiyi bir türlü anlayamadık?",
+      "descriptionLength": 151,
+      "canonical": "https://otosoz.com/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=m%C3%BC%C5%9Fteri%202%20tampon%20boyal%C4%B1%20diye%20ara%C3%A7%20iade%20istedi%20%7C%20OtoS%C3%B6z&desc=m%C3%BC%C5%9Fteri%202%20tampon%20boyal%C4%B1%20diye%20ara%C3%A7%20iade%20istedi%3A%20Sizce%20tamponlar%20boyal%C4%B1%20diye%20ara%C3%A7%20iade%20edilmeli%20mi%2C%20biz%20bu%20s%C3%BCre%C3%A7te%20ettik%20ama%20abiyi%20bir%20t%C3%BCrl%C3%BC%20anlayamad%C4%B1k%3F",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "status": 200,
+      "title": "en sorunsuz otomobil markası | OtoSöz",
+      "titleLength": 37,
+      "description": "\"en sorunsuz otomobil hangisi?\" diye kime sorsanız, akla ilk gelen cevap genellikle toyota ya da suzuki olur. yılların getirdiği bu \"sorunsuz toyota\" imajı",
+      "descriptionLength": 155,
+      "canonical": "https://otosoz.com/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=en%20sorunsuz%20otomobil%20markas%C4%B1%20%7C%20OtoS%C3%B6z&desc=%22en%20sorunsuz%20otomobil%20hangisi%3F%22%20diye%20kime%20sorsan%C4%B1z%2C%20akla%20ilk%20gelen%20cevap%20genellikle%20toyota%20ya%20da%20suzuki%20olur.%20y%C4%B1llar%C4%B1n%20getirdi%C4%9Fi%20bu%20%22sorunsuz%20toyota%22%20imaj%C4%B1",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "status": 200,
+      "title": "En çok kronik sorunu olan araçlar | OtoSöz",
+      "titleLength": 42,
+      "description": "Piyasada çok tutulan ve sıkça tercih edilen bazı popüler araçlar, içerdikleri kronik arızalarla sahiplerini sanayiye abone edebiliyor. Örneğin, D segmentinin",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=En%20%C3%A7ok%20kronik%20sorunu%20olan%20ara%C3%A7lar%20%7C%20OtoS%C3%B6z&desc=Piyasada%20%C3%A7ok%20tutulan%20ve%20s%C4%B1k%C3%A7a%20tercih%20edilen%20baz%C4%B1%20pop%C3%BCler%20ara%C3%A7lar%2C%20i%C3%A7erdikleri%20kronik%20ar%C4%B1zalarla%20sahiplerini%20sanayiye%20abone%20edebiliyor.%20%C3%96rne%C4%9Fin%2C%20D%20segmentinin",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "status": 200,
+      "title": "sanayi ustasının en sorunsuz araba tavsiyeleri | OtoSöz",
+      "titleLength": 55,
+      "description": "youtube'da karşıma çıkan bir videoda, kısıtlı bütçesi olan ve sanayiye girmek istemeyen birine hangi arabaların alınabileceği soruluyor. videoda bu",
+      "descriptionLength": 147,
+      "canonical": "https://otosoz.com/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=sanayi%20ustas%C4%B1n%C4%B1n%20en%20sorunsuz%20araba%20tavsiyeleri%20%7C%20OtoS%C3%B6z&desc=youtube%27da%20kar%C5%9F%C4%B1ma%20%C3%A7%C4%B1kan%20bir%20videoda%2C%20k%C4%B1s%C4%B1tl%C4%B1%20b%C3%BCt%C3%A7esi%20olan%20ve%20sanayiye%20girmek%20istemeyen%20birine%20hangi%20arabalar%C4%B1n%20al%C4%B1nabilece%C4%9Fi%20soruluyor.%20videoda%20bu",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "status": 200,
+      "title": "fiat egea'nın bitmek bilmeyen kronik sorunları | OtoSöz",
+      "titleLength": 55,
+      "description": "O meşhur lastik basınç sensörü uyarısı... arabayı bayiden sıfır aldım, ertesi gün sensör ötmeye başladı. ben şişiriyorum o ötüyor, ben şişiriyorum o ötüyor",
+      "descriptionLength": 155,
+      "canonical": "https://otosoz.com/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=fiat%20egea%27n%C4%B1n%20bitmek%20bilmeyen%20kronik%20sorunlar%C4%B1%20%7C%20OtoS%C3%B6z&desc=O%20me%C5%9Fhur%20lastik%20bas%C4%B1n%C3%A7%20sens%C3%B6r%C3%BC%20uyar%C4%B1s%C4%B1...%20arabay%C4%B1%20bayiden%20s%C4%B1f%C4%B1r%20ald%C4%B1m%2C%20ertesi%20g%C3%BCn%20sens%C3%B6r%20%C3%B6tmeye%20ba%C5%9Flad%C4%B1.%20ben%20%C5%9Fi%C5%9Firiyorum%20o%20%C3%B6t%C3%BCyor%2C%20ben%20%C5%9Fi%C5%9Firiyorum%20o%20%C3%B6t%C3%BCyor",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "status": 200,
+      "title": "İ20'de siyah duman atma sorunu! | OtoSöz",
+      "titleLength": 40,
+      "description": "İ20'de siyah duman atma sorunu!: Merhaba aracım 2018 model 1.4 crdi motorlu i20, araç 200.000 km ve siyah duman atıyor sizce nedeni ne olabilir?",
+      "descriptionLength": 144,
+      "canonical": "https://otosoz.com/forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=%C4%B020%27de%20siyah%20duman%20atma%20sorunu!%20%7C%20OtoS%C3%B6z&desc=%C4%B020%27de%20siyah%20duman%20atma%20sorunu!%3A%20Merhaba%20arac%C4%B1m%202018%20model%201.4%20crdi%20motorlu%20i20%2C%20ara%C3%A7%20200.000%20km%20ve%20siyah%20duman%20at%C4%B1yor%20sizce%20nedeni%20ne%20olabilir%3F",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "status": 200,
+      "title": "D Segmentinde Gizli Patron: Yok Yok Dedirten Kia Optima",
+      "titleLength": 55,
+      "description": "Beyler selam, geçenlerde D segmenti şöyle konforlu, içi dolu dolu bir araç arayışına girdim ve Kia Optima ile göz göze geldik. Yemin ediyorum arabaya",
+      "descriptionLength": 149,
+      "canonical": "https://otosoz.com/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=D%20Segmentinde%20Gizli%20Patron%3A%20Yok%20Yok%20Dedirten%20Kia%20Optima&desc=Beyler%20selam%2C%20ge%C3%A7enlerde%20D%20segmenti%20%C5%9F%C3%B6yle%20konforlu%2C%20i%C3%A7i%20dolu%20dolu%20bir%20ara%C3%A7%20aray%C4%B1%C5%9F%C4%B1na%20girdim%20ve%20Kia%20Optima%20ile%20g%C3%B6z%20g%C3%B6ze%20geldik.%20Yemin%20ediyorum%20arabaya",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/hyundai-i20-14-mpi--85879525",
+      "status": 200,
+      "title": "hyundai i20 1.4 mpi | OtoSöz",
+      "titleLength": 28,
+      "description": "abi araba tam bir sorunsuzluk abidesi ama işte bazı kronik sıkıntıları can sıkabiliyor. 1.4 atmosferik motor ve tork konvertörlü şanzıman ikilisi evet",
+      "descriptionLength": 150,
+      "canonical": "https://otosoz.com/forum/hyundai-i20-14-mpi--85879525",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=hyundai%20i20%201.4%20mpi%20%7C%20OtoS%C3%B6z&desc=abi%20araba%20tam%20bir%20sorunsuzluk%20abidesi%20ama%20i%C5%9Fte%20baz%C4%B1%20kronik%20s%C4%B1k%C4%B1nt%C4%B1lar%C4%B1%20can%20s%C4%B1kabiliyor.%201.4%20atmosferik%20motor%20ve%20tork%20konvert%C3%B6rl%C3%BC%20%C5%9Fanz%C4%B1man%20ikilisi%20evet",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "status": 200,
+      "title": "Karavan Masrafından Kurtaran Aile Gemisi: Peugeot 5008",
+      "titleLength": 54,
+      "description": "Selamlar dostlar. Özellikle geniş aileler ve hafta sonu kampına, uzun yola çıkmayı sevenler için resmen karavan niyetine kullanılabilecek, içi yayla gibi bir",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Karavan%20Masraf%C4%B1ndan%20Kurtaran%20Aile%20Gemisi%3A%20Peugeot%205008&desc=Selamlar%20dostlar.%20%C3%96zellikle%20geni%C5%9F%20aileler%20ve%20hafta%20sonu%20kamp%C4%B1na%2C%20uzun%20yola%20%C3%A7%C4%B1kmay%C4%B1%20sevenler%20i%C3%A7in%20resmen%20karavan%20niyetine%20kullan%C4%B1labilecek%2C%20i%C3%A7i%20yayla%20gibi%20bir",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "status": 200,
+      "title": "Uygun Fiyatlı İtalyan Yakışıklısı: Grande Punto Alınır mı?",
+      "titleLength": 58,
+      "description": "Dostlar selam, geçenlerde 300 400 bin TL bandında, hem günlük işe gidip gelirken üzmeyecek hem de az yakan manuel bir araba arayışına girdim ve radarım Fiat",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Uygun%20Fiyatl%C4%B1%20%C4%B0talyan%20Yak%C4%B1%C5%9F%C4%B1kl%C4%B1s%C4%B1%3A%20Grande%20Punto%20Al%C4%B1n%C4%B1r%20m%C4%B1%3F&desc=Dostlar%20selam%2C%20ge%C3%A7enlerde%20300%20400%20bin%20TL%20band%C4%B1nda%2C%20hem%20g%C3%BCnl%C3%BCk%20i%C5%9Fe%20gidip%20gelirken%20%C3%BCzmeyecek%20hem%20de%20az%20yakan%20manuel%20bir%20araba%20aray%C4%B1%C5%9F%C4%B1na%20girdim%20ve%20radar%C4%B1m%20Fiat",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi",
+      "status": 200,
+      "title": "2026 Trafik Cezaları ve Güncel Ceza Tutarları | OtoSöz",
+      "titleLength": 54,
+      "description": "2026 trafik cezaları, güncel ceza tutarları, ehliyet ceza puanları, araç men süreleri, erken ödeme ve itiraz bilgilerini madde madde inceleyin.",
+      "descriptionLength": 143,
+      "canonical": "https://otosoz.com/trafik-cezasi",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=2026%20Trafik%20Cezalar%C4%B1%20ve%20G%C3%BCncel%20Ceza%20Tutarlar%C4%B1%20%7C%20OtoS%C3%B6z&desc=2026%20trafik%20cezalar%C4%B1%2C%20g%C3%BCncel%20ceza%20tutarlar%C4%B1%2C%20ehliyet%20ceza%20puanlar%C4%B1%2C%20ara%C3%A7%20men%20s%C3%BCreleri%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgilerini%20madde%20madde%20inceleyin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "status": 200,
+      "title": "LPG'li aracım çok yakıyor ve çekişi düştü. Ne yapmalıyım?",
+      "titleLength": 57,
+      "description": "Aracımda LPG sistemi takılı ancak son zamanlarda yakıt tüketimim normalin çok üzerine çıktı. Eskiden daha az yakarken şimdi cebimi zorlamaya başladı. Ayrıca",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=LPG%27li%20arac%C4%B1m%20%C3%A7ok%20yak%C4%B1yor%20ve%20%C3%A7eki%C5%9Fi%20d%C3%BC%C5%9Ft%C3%BC.%20Ne%20yapmal%C4%B1y%C4%B1m%3F&desc=Arac%C4%B1mda%20LPG%20sistemi%20tak%C4%B1l%C4%B1%20ancak%20son%20zamanlarda%20yak%C4%B1t%20t%C3%BCketimim%20normalin%20%C3%A7ok%20%C3%BCzerine%20%C3%A7%C4%B1kt%C4%B1.%20Eskiden%20daha%20az%20yakarken%20%C5%9Fimdi%20cebimi%20zorlamaya%20ba%C5%9Flad%C4%B1.%20Ayr%C4%B1ca",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "status": 200,
+      "title": "Fiat Egea aracımda kalkışta ve rölantide aşırı titreme var",
+      "titleLength": 58,
+      "description": "2022 model Fiat Egea aracım var. Son zamanlarda özellikle kalkışlarda araçta belirgin bir titreme hissediyorum. Ayrıca rölantide beklerken vites topuzu",
+      "descriptionLength": 151,
+      "canonical": "https://otosoz.com/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Fiat%20Egea%20arac%C4%B1mda%20kalk%C4%B1%C5%9Fta%20ve%20r%C3%B6lantide%20a%C5%9F%C4%B1r%C4%B1%20titreme%20var&desc=2022%20model%20Fiat%20Egea%20arac%C4%B1m%20var.%20Son%20zamanlarda%20%C3%B6zellikle%20kalk%C4%B1%C5%9Flarda%20ara%C3%A7ta%20belirgin%20bir%20titreme%20hissediyorum.%20Ayr%C4%B1ca%20r%C3%B6lantide%20beklerken%20vites%20topuzu",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "status": 200,
+      "title": "Hız Sınırını 6-45 km/s Aşmak: Kademeli Cezası 2026 | OtoSöz",
+      "titleLength": 59,
+      "description": "2026 hız sınırını 6-45 km/s aşmak (kademeli) cezası: 2.000 - 15.000 ₺. Ehliyet yaptırımı: 10 - 20 Ceza Puanı; araç men durumu: Yok. Madde 51/2-a, erken ödeme…",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=H%C4%B1z%20S%C4%B1n%C4%B1r%C4%B1n%C4%B1%206-45%20km%2Fs%20A%C5%9Fmak%3A%20Kademeli%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20h%C4%B1z%20s%C4%B1n%C4%B1r%C4%B1n%C4%B1%206-45%20km%2Fs%20a%C5%9Fmak%20(kademeli)%20cezas%C4%B1%3A%202.000%20-%2015.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2010%20-%2020%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2051%2F2-a%2C%20erken%20%C3%B6deme%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "status": 200,
+      "title": "Hız Sınırını 46-55 km/s Aşmak Cezası 2026 | OtoSöz",
+      "titleLength": 50,
+      "description": "2026 hız sınırını 46-55 km/s aşmak cezası: 20.000 ₺. Ehliyet yaptırımı: 30 Gün El Koyma; araç men durumu: Yok. Madde 51/2-b, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=H%C4%B1z%20S%C4%B1n%C4%B1r%C4%B1n%C4%B1%2046-55%20km%2Fs%20A%C5%9Fmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20h%C4%B1z%20s%C4%B1n%C4%B1r%C4%B1n%C4%B1%2046-55%20km%2Fs%20a%C5%9Fmak%20cezas%C4%B1%3A%2020.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2030%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2051%2F2-b%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "status": 200,
+      "title": "Triger kayışını ne zaman değiştirmeliyim? Geciktirirsem ne",
+      "titleLength": 58,
+      "description": "Aracım 90 bin kilometreye geldi. Servis triger kayışının değişmesi gerektiğini söylüyor ama kayış dışarıdan bakınca sağlam duruyor. Birkaç bin kilometre daha",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Triger%20kay%C4%B1%C5%9F%C4%B1n%C4%B1%20ne%20zaman%20de%C4%9Fi%C5%9Ftirmeliyim%3F%20Geciktirirsem%20ne&desc=Arac%C4%B1m%2090%20bin%20kilometreye%20geldi.%20Servis%20triger%20kay%C4%B1%C5%9F%C4%B1n%C4%B1n%20de%C4%9Fi%C5%9Fmesi%20gerekti%C4%9Fini%20s%C3%B6yl%C3%BCyor%20ama%20kay%C4%B1%C5%9F%20d%C4%B1%C5%9Far%C4%B1dan%20bak%C4%B1nca%20sa%C4%9Flam%20duruyor.%20Birka%C3%A7%20bin%20kilometre%20daha",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+      "status": 200,
+      "title": "Hız Sınırını 56-65 km/s Aşmak Cezası 2026 | OtoSöz",
+      "titleLength": 50,
+      "description": "2026 hız sınırını 56-65 km/s aşmak cezası: 25.000 ₺. Ehliyet yaptırımı: 60 Gün El Koyma; araç men durumu: Yok. Madde 51/2-c, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=H%C4%B1z%20S%C4%B1n%C4%B1r%C4%B1n%C4%B1%2056-65%20km%2Fs%20A%C5%9Fmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20h%C4%B1z%20s%C4%B1n%C4%B1r%C4%B1n%C4%B1%2056-65%20km%2Fs%20a%C5%9Fmak%20cezas%C4%B1%3A%2025.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2060%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2051%2F2-c%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
+      "status": 200,
+      "title": "Hız Sınırını 66 km/s ve Üzeri Aşmak Cezası 2026 | OtoSöz",
+      "titleLength": 56,
+      "description": "2026 hız sınırını 66 km/s ve üzeri aşmak cezası: 30.000 ₺. Ehliyet yaptırımı: 90 Gün El Koyma; araç men durumu: Yok. Madde 51/2-d, erken ödeme ve itiraz bilg…",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=H%C4%B1z%20S%C4%B1n%C4%B1r%C4%B1n%C4%B1%2066%20km%2Fs%20ve%20%C3%9Czeri%20A%C5%9Fmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20h%C4%B1z%20s%C4%B1n%C4%B1r%C4%B1n%C4%B1%2066%20km%2Fs%20ve%20%C3%BCzeri%20a%C5%9Fmak%20cezas%C4%B1%3A%2030.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2090%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2051%2F2-d%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilg%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "status": 200,
+      "title": "Alkol Testini Reddetme Cezası 2026 | OtoSöz",
+      "titleLength": 43,
+      "description": "2026 alkol testini reddetme cezası: 150.000 ₺. Ehliyet yaptırımı: 5 Yıl El Koyma; araç men durumu: Men Edilir. Madde 48/9, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 155,
+      "canonical": "https://otosoz.com/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Alkol%20Testini%20Reddetme%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20alkol%20testini%20reddetme%20cezas%C4%B1%3A%20150.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%205%20Y%C4%B1l%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Men%20Edilir.%20Madde%2048%2F9%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "status": 200,
+      "title": "Alkollü Araç Kullanmak: 1. Kez Cezası 2026 | OtoSöz",
+      "titleLength": 51,
+      "description": "2026 alkollü araç kullanmak (1. kez, 0.50 promil üstü) cezası: 25.000 ₺. Ehliyet yaptırımı: 6 Ay El Koyma; araç men durumu: Men (Yedek şoför yok). Madde 48/5…",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Alkoll%C3%BC%20Ara%C3%A7%20Kullanmak%3A%201.%20Kez%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20alkoll%C3%BC%20ara%C3%A7%20kullanmak%20(1.%20kez%2C%200.50%20promil%20%C3%BCst%C3%BC)%20cezas%C4%B1%3A%2025.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%206%20Ay%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Men%20(Yedek%20%C5%9Fof%C3%B6r%20yok).%20Madde%2048%2F5%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-3-kez-48-5-c",
+      "status": 200,
+      "title": "Alkollü Araç Kullanmak: 3. Kez ve Sonrası Cezası 2026",
+      "titleLength": 53,
+      "description": "2026 alkollü araç kullanmak (3. kez ve sonrası) cezası: 150.000 ₺. Ehliyet yaptırımı: 5 Yıl El Koyma; araç men durumu: Kesin Men. Madde 48/5-c, erken ödeme v…",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-3-kez-48-5-c",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Alkoll%C3%BC%20Ara%C3%A7%20Kullanmak%3A%203.%20Kez%20ve%20Sonras%C4%B1%20Cezas%C4%B1%202026&desc=2026%20alkoll%C3%BC%20ara%C3%A7%20kullanmak%20(3.%20kez%20ve%20sonras%C4%B1)%20cezas%C4%B1%3A%20150.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%205%20Y%C4%B1l%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Kesin%20Men.%20Madde%2048%2F5-c%2C%20erken%20%C3%B6deme%20v%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/uyusturucu-etkisinde-arac-kullanmak-48-8",
+      "status": 200,
+      "title": "Uyuşturucu Etkisinde Araç Kullanmak Cezası 2026 | OtoSöz",
+      "titleLength": 56,
+      "description": "2026 uyuşturucu etkisinde araç kullanmak cezası: 150.000 ₺. Ehliyet yaptırımı: Ehliyet İptali; araç men durumu: Kesin Men. Madde 48/8, erken ödeme ve itiraz…",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/trafik-cezasi/uyusturucu-etkisinde-arac-kullanmak-48-8",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Uyu%C5%9Fturucu%20Etkisinde%20Ara%C3%A7%20Kullanmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20uyu%C5%9Fturucu%20etkisinde%20ara%C3%A7%20kullanmak%20cezas%C4%B1%3A%20150.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20Ehliyet%20%C4%B0ptali%3B%20ara%C3%A7%20men%20durumu%3A%20Kesin%20Men.%20Madde%2048%2F8%2C%20erken%20%C3%B6deme%20ve%20itiraz%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/saldirgan-surus-israrli-takip-73-a",
+      "status": 200,
+      "title": "Saldırgan Sürüş / Israrlı Takip Cezası 2026 | OtoSöz",
+      "titleLength": 52,
+      "description": "2026 saldırgan sürüş / ısrarlı takip cezası: 180.000 ₺. Ehliyet yaptırımı: 60 Gün El Koyma; araç men durumu: 30-60 Gün Men. Madde 73/a, erken ödeme ve itiraz…",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/trafik-cezasi/saldirgan-surus-israrli-takip-73-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Sald%C4%B1rgan%20S%C3%BCr%C3%BC%C5%9F%20%2F%20Israrl%C4%B1%20Takip%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20sald%C4%B1rgan%20s%C3%BCr%C3%BC%C5%9F%20%2F%20%C4%B1srarl%C4%B1%20takip%20cezas%C4%B1%3A%20180.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2060%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%2030-60%20G%C3%BCn%20Men.%20Madde%2073%2Fa%2C%20erken%20%C3%B6deme%20ve%20itiraz%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/drift-yapmak-67-1-d",
+      "status": 200,
+      "title": "Drift Yapmak Cezası 2026 | OtoSöz",
+      "titleLength": 33,
+      "description": "2026 drift yapmak cezası: 140.000 ₺. Ehliyet yaptırımı: 60 Gün El Koyma; araç men durumu: 60 Gün Men. Madde 67/1-d, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 148,
+      "canonical": "https://otosoz.com/trafik-cezasi/drift-yapmak-67-1-d",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Drift%20Yapmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20drift%20yapmak%20cezas%C4%B1%3A%20140.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2060%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%2060%20G%C3%BCn%20Men.%20Madde%2067%2F1-d%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/makas-atmak-46-2-g",
+      "status": 200,
+      "title": "Makas Atmak Cezası 2026 | OtoSöz",
+      "titleLength": 32,
+      "description": "2026 makas atmak cezası: 90.000 ₺. Ehliyet yaptırımı: 60 Gün El Koyma; araç men durumu: Yok. Madde 46/2-g, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 139,
+      "canonical": "https://otosoz.com/trafik-cezasi/makas-atmak-46-2-g",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Makas%20Atmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20makas%20atmak%20cezas%C4%B1%3A%2090.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2060%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2046%2F2-g%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/dur-ihtarina-uymamak-47-1-a",
+      "status": 200,
+      "title": "\"Dur\" İhtarına Uymayıp Kaçma Cezası 2026 | OtoSöz",
+      "titleLength": 49,
+      "description": "2026 \"dur\" ihtarına uymayıp kaçma cezası: 200.000 ₺. Ehliyet yaptırımı: 60 Gün El Koyma; araç men durumu: 60 Gün Men. Madde 47/1-a, erken ödeme ve itiraz bil…",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/trafik-cezasi/dur-ihtarina-uymamak-47-1-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=%22Dur%22%20%C4%B0htar%C4%B1na%20Uymay%C4%B1p%20Ka%C3%A7ma%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20%22dur%22%20ihtar%C4%B1na%20uymay%C4%B1p%20ka%C3%A7ma%20cezas%C4%B1%3A%20200.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2060%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%2060%20G%C3%BCn%20Men.%20Madde%2047%2F1-a%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bil%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/sahte-plaka-kullanma-23-5-b",
+      "status": 200,
+      "title": "Sahte Plaka Kullanma Cezası 2026 | OtoSöz",
+      "titleLength": 41,
+      "description": "2026 sahte plaka kullanma cezası: 140.000 ₺. Ehliyet yaptırımı: Adli Soruşturma; araç men durumu: 30 Gün Men. Madde 23/5-b, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/trafik-cezasi/sahte-plaka-kullanma-23-5-b",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Sahte%20Plaka%20Kullanma%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20sahte%20plaka%20kullanma%20cezas%C4%B1%3A%20140.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20Adli%20Soru%C5%9Fturma%3B%20ara%C3%A7%20men%20durumu%3A%2030%20G%C3%BCn%20Men.%20Madde%2023%2F5-b%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "status": 200,
+      "title": "Plakayı Okunmaz Hale Getirmek Cezası 2026 | OtoSöz",
+      "titleLength": 50,
+      "description": "2026 plakayı okunmaz hale getirmek cezası: 140.000 ₺. Ehliyet yaptırımı: Tekrarde 280.000 ₺; araç men durumu: 30 Gün Men. Madde 23/3-a, erken ödeme ve itiraz…",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Plakay%C4%B1%20Okunmaz%20Hale%20Getirmek%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20plakay%C4%B1%20okunmaz%20hale%20getirmek%20cezas%C4%B1%3A%20140.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20Tekrarde%20280.000%20%E2%82%BA%3B%20ara%C3%A7%20men%20durumu%3A%2030%20G%C3%BCn%20Men.%20Madde%2023%2F3-a%2C%20erken%20%C3%B6deme%20ve%20itiraz%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
+      "status": 200,
+      "title": "Ehliyetsiz Araç Kullanma Cezası 2026 | OtoSöz",
+      "titleLength": 45,
+      "description": "2026 ehliyetsiz araç kullanma cezası: 40.000 ₺. Ehliyet yaptırımı: -; araç men durumu: Araçtan Men. Madde 36/3-a, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 146,
+      "canonical": "https://otosoz.com/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ehliyetsiz%20Ara%C3%A7%20Kullanma%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20ehliyetsiz%20ara%C3%A7%20kullanma%20cezas%C4%B1%3A%2040.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20-%3B%20ara%C3%A7%20men%20durumu%3A%20Ara%C3%A7tan%20Men.%20Madde%2036%2F3-a%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "status": 200,
+      "title": "Ehliyeti Alınmışken Araç Kullanmak Cezası 2026 | OtoSöz",
+      "titleLength": 55,
+      "description": "2026 ehliyeti alınmışken araç kullanmak cezası: 200.000 ₺. Ehliyet yaptırımı: +40.000 ₺ (İşletene); araç men durumu: Kesin Men. Madde 36/3-b, erken ödeme ve…",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ehliyeti%20Al%C4%B1nm%C4%B1%C5%9Fken%20Ara%C3%A7%20Kullanmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20ehliyeti%20al%C4%B1nm%C4%B1%C5%9Fken%20ara%C3%A7%20kullanmak%20cezas%C4%B1%3A%20200.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20%2B40.000%20%E2%82%BA%20(%C4%B0%C5%9Fletene)%3B%20ara%C3%A7%20men%20durumu%3A%20Kesin%20Men.%20Madde%2036%2F3-b%2C%20erken%20%C3%B6deme%20ve%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/plakasiz-arac-kullanma-23-1",
+      "status": 200,
+      "title": "Plakasız Araç Kullanma Cezası 2026 | OtoSöz",
+      "titleLength": 43,
+      "description": "2026 plakasız araç kullanma cezası: 140.000 ₺. Ehliyet yaptırımı: Adli Soruşturma; araç men durumu: Kesin Men. Madde 23/1, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 155,
+      "canonical": "https://otosoz.com/trafik-cezasi/plakasiz-arac-kullanma-23-1",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Plakas%C4%B1z%20Ara%C3%A7%20Kullanma%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20plakas%C4%B1z%20ara%C3%A7%20kullanma%20cezas%C4%B1%3A%20140.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20Adli%20Soru%C5%9Fturma%3B%20ara%C3%A7%20men%20durumu%3A%20Kesin%20Men.%20Madde%2023%2F1%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/kirmizi-isik-ihlali-47-1-b",
+      "status": 200,
+      "title": "Kırmızı Işık İhlali Cezası 2026 | OtoSöz",
+      "titleLength": 40,
+      "description": "2026 kırmızı ışık ihlali cezası: 3.000 ₺. Ehliyet yaptırımı: 15 Ceza Puanı; araç men durumu: Yok. Madde 47/1-b, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 144,
+      "canonical": "https://otosoz.com/trafik-cezasi/kirmizi-isik-ihlali-47-1-b",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=K%C4%B1rm%C4%B1z%C4%B1%20I%C5%9F%C4%B1k%20%C4%B0hlali%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20k%C4%B1rm%C4%B1z%C4%B1%20%C4%B1%C5%9F%C4%B1k%20ihlali%20cezas%C4%B1%3A%203.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2015%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2047%2F1-b%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/seyir-halinde-cep-telefonu-73-c",
+      "status": 200,
+      "title": "Seyir Halinde Cep Telefonu Kullanmak Cezası 2026 | OtoSöz",
+      "titleLength": 57,
+      "description": "2026 seyir halinde cep telefonu kullanmak cezası: 5.000 ₺. Ehliyet yaptırımı: 20 Ceza Puanı; araç men durumu: Yok. Madde 73/c, erken ödeme ve itiraz",
+      "descriptionLength": 148,
+      "canonical": "https://otosoz.com/trafik-cezasi/seyir-halinde-cep-telefonu-73-c",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Seyir%20Halinde%20Cep%20Telefonu%20Kullanmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20seyir%20halinde%20cep%20telefonu%20kullanmak%20cezas%C4%B1%3A%205.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2020%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2073%2Fc%2C%20erken%20%C3%B6deme%20ve%20itiraz",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
+      "status": 200,
+      "title": "Emniyet Şeridi İhlali Cezası 2026 | OtoSöz",
+      "titleLength": 42,
+      "description": "2026 emniyet şeridi ihlali cezası: 11.631 ₺. Ehliyet yaptırımı: 20 Ceza Puanı; araç men durumu: Yok. Madde 46/2-f, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 147,
+      "canonical": "https://otosoz.com/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Emniyet%20%C5%9Eeridi%20%C4%B0hlali%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20emniyet%20%C5%9Feridi%20ihlali%20cezas%C4%B1%3A%2011.631%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2020%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2046%2F2-f%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ters-yonde-arac-kullanmak-46-2-h",
+      "status": 200,
+      "title": "Ters Yönde Araç Kullanmak Cezası 2026 | OtoSöz",
+      "titleLength": 46,
+      "description": "2026 ters yönde araç kullanmak cezası: 90.000 ₺. Ehliyet yaptırımı: 60 Gün El Koyma; araç men durumu: Men Edilir. Madde 46/2-h, erken ödeme ve itiraz",
+      "descriptionLength": 149,
+      "canonical": "https://otosoz.com/trafik-cezasi/ters-yonde-arac-kullanmak-46-2-h",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ters%20Y%C3%B6nde%20Ara%C3%A7%20Kullanmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20ters%20y%C3%B6nde%20ara%C3%A7%20kullanmak%20cezas%C4%B1%3A%2090.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2060%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Men%20Edilir.%20Madde%2046%2F2-h%2C%20erken%20%C3%B6deme%20ve%20itiraz",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/yayaya-yol-vermemek-74-b",
+      "status": 200,
+      "title": "Yayaya Yol Vermemek Cezası 2026 | OtoSöz",
+      "titleLength": 40,
+      "description": "2026 yayaya yol vermemek cezası: 5.661 ₺. Ehliyet yaptırımı: 20 Ceza Puanı; araç men durumu: Yok. Madde 74/b, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 142,
+      "canonical": "https://otosoz.com/trafik-cezasi/yayaya-yol-vermemek-74-b",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Yayaya%20Yol%20Vermemek%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20yayaya%20yol%20vermemek%20cezas%C4%B1%3A%205.661%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2020%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2074%2Fb%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/cocuk-koltugu-kullanmamak-78-1-a",
+      "status": 200,
+      "title": "Çocuk Koltuğu Kullanmamak Cezası 2026 | OtoSöz",
+      "titleLength": 46,
+      "description": "2026 çocuk koltuğu kullanmamak cezası: 5.000 ₺. Ehliyet yaptırımı: 10 Ceza Puanı; araç men durumu: Yok. Madde 78/1-a, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 150,
+      "canonical": "https://otosoz.com/trafik-cezasi/cocuk-koltugu-kullanmamak-78-1-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=%C3%87ocuk%20Koltu%C4%9Fu%20Kullanmamak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20%C3%A7ocuk%20koltu%C4%9Fu%20kullanmamak%20cezas%C4%B1%3A%205.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2010%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2078%2F1-a%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "status": 200,
+      "title": "Emniyet Kemeri Takmamak Cezası 2026 | OtoSöz",
+      "titleLength": 44,
+      "description": "2026 emniyet kemeri takmamak cezası: 1.504 ₺. Ehliyet yaptırımı: 10 Ceza Puanı; araç men durumu: Yok. Madde 78/1, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 146,
+      "canonical": "https://otosoz.com/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Emniyet%20Kemeri%20Takmamak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20emniyet%20kemeri%20takmamak%20cezas%C4%B1%3A%201.504%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2010%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2078%2F1%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
+      "status": 200,
+      "title": "Geçme Yasağı İhlali Cezası 2026 | OtoSöz",
+      "titleLength": 40,
+      "description": "2026 geçme yasağı ihlali cezası: 3.000 ₺. Ehliyet yaptırımı: 15 Ceza Puanı; araç men durumu: Yok. Madde 52/2-a, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 144,
+      "canonical": "https://otosoz.com/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ge%C3%A7me%20Yasa%C4%9F%C4%B1%20%C4%B0hlali%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20ge%C3%A7me%20yasa%C4%9F%C4%B1%20ihlali%20cezas%C4%B1%3A%203.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2015%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2052%2F2-a%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "status": 200,
+      "title": "Kask Takmamak: Motosiklet Cezası 2026 | OtoSöz",
+      "titleLength": 46,
+      "description": "2026 kask takmamak (motosiklet) cezası: 1.504 ₺. Ehliyet yaptırımı: 10 Ceza Puanı; araç men durumu: Yok. Madde 78/1-b, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 151,
+      "canonical": "https://otosoz.com/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Kask%20Takmamak%3A%20Motosiklet%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20kask%20takmamak%20(motosiklet)%20cezas%C4%B1%3A%201.504%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2010%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2078%2F1-b%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
+      "status": 200,
+      "title": "Araçta Cam Filmi Kullanmak Cezası 2026 | OtoSöz",
+      "titleLength": 47,
+      "description": "2026 araçta cam filmi kullanmak cezası: 3.000 ₺. Ehliyet yaptırımı: -; araç men durumu: Muayeneden Geçemez. Madde 30/1-b, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 154,
+      "canonical": "https://otosoz.com/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7ta%20Cam%20Filmi%20Kullanmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20ara%C3%A7ta%20cam%20filmi%20kullanmak%20cezas%C4%B1%3A%203.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20-%3B%20ara%C3%A7%20men%20durumu%3A%20Muayeneden%20Ge%C3%A7emez.%20Madde%2030%2F1-b%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/cakarli-isik-kullanmak-28-2",
+      "status": 200,
+      "title": "Çakarlı Işık Kullanmak Cezası 2026 | OtoSöz",
+      "titleLength": 43,
+      "description": "2026 çakarlı ışık kullanmak cezası: 20.000 ₺. Ehliyet yaptırımı: 30 Gün El Koyma; araç men durumu: Yok. Madde 28/2, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 148,
+      "canonical": "https://otosoz.com/trafik-cezasi/cakarli-isik-kullanmak-28-2",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=%C3%87akarl%C4%B1%20I%C5%9F%C4%B1k%20Kullanmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20%C3%A7akarl%C4%B1%20%C4%B1%C5%9F%C4%B1k%20kullanmak%20cezas%C4%B1%3A%2020.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2030%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2028%2F2%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/egzoz-emisyon-sinirini-asmak-30-1-a",
+      "status": 200,
+      "title": "Egzoz Emisyon Sınırını Aşmak Cezası 2026 | OtoSöz",
+      "titleLength": 49,
+      "description": "2026 egzoz emisyon sınırını aşmak cezası: 3.000 ₺. Ehliyet yaptırımı: -; araç men durumu: Muayeneden Geçemez. Madde 30/1-a, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/trafik-cezasi/egzoz-emisyon-sinirini-asmak-30-1-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Egzoz%20Emisyon%20S%C4%B1n%C4%B1r%C4%B1n%C4%B1%20A%C5%9Fmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20egzoz%20emisyon%20s%C4%B1n%C4%B1r%C4%B1n%C4%B1%20a%C5%9Fmak%20cezas%C4%B1%3A%203.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20-%3B%20ara%C3%A7%20men%20durumu%3A%20Muayeneden%20Ge%C3%A7emez.%20Madde%2030%2F1-a%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/yangin-sondurucu-bulundurmamak-30-3",
+      "status": 200,
+      "title": "Yangın Söndürücü Bulundurmamak Cezası 2026 | OtoSöz",
+      "titleLength": 51,
+      "description": "2026 yangın söndürücü bulundurmamak cezası: 1.504 ₺. Ehliyet yaptırımı: -; araç men durumu: Muayeneden Geçemez. Madde 30/3, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/trafik-cezasi/yangin-sondurucu-bulundurmamak-30-3",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Yang%C4%B1n%20S%C3%B6nd%C3%BCr%C3%BCc%C3%BC%20Bulundurmamak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20yang%C4%B1n%20s%C3%B6nd%C3%BCr%C3%BCc%C3%BC%20bulundurmamak%20cezas%C4%B1%3A%201.504%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20-%3B%20ara%C3%A7%20men%20durumu%3A%20Muayeneden%20Ge%C3%A7emez.%20Madde%2030%2F3%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
+      "status": 200,
+      "title": "Trafik Sigortasız Araç Kullanmak Cezası 2026 | OtoSöz",
+      "titleLength": 53,
+      "description": "2026 trafik sigortasız araç kullanmak cezası: 1.246 ₺. Ehliyet yaptırımı: -; araç men durumu: Anında Men. Madde 85/1, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 150,
+      "canonical": "https://otosoz.com/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Trafik%20Sigortas%C4%B1z%20Ara%C3%A7%20Kullanmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20trafik%20sigortas%C4%B1z%20ara%C3%A7%20kullanmak%20cezas%C4%B1%3A%201.246%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20-%3B%20ara%C3%A7%20men%20durumu%3A%20An%C4%B1nda%20Men.%20Madde%2085%2F1%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "status": 200,
+      "title": "Engelli Park Yerini İşgal Etmek Cezası 2026 | OtoSöz",
+      "titleLength": 52,
+      "description": "2026 engelli park yerini işgal etmek cezası: 2.492 ₺. Ehliyet yaptırımı: 15 Ceza Puanı; araç men durumu: Anında Çekilir. Madde 61/1-o, erken ödeme ve itiraz…",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Engelli%20Park%20Yerini%20%C4%B0%C5%9Fgal%20Etmek%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20engelli%20park%20yerini%20i%C5%9Fgal%20etmek%20cezas%C4%B1%3A%202.492%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2015%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20An%C4%B1nda%20%C3%87ekilir.%20Madde%2061%2F1-o%2C%20erken%20%C3%B6deme%20ve%20itiraz%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
+      "status": 200,
+      "title": "Muayenesiz Araçla Trafiğe Çıkma Cezası 2026 | OtoSöz",
+      "titleLength": 52,
+      "description": "2026 muayenesiz araçla trafiğe çıkma cezası: 2.719 ₺. Ehliyet yaptırımı: 10 Ceza Puanı; araç men durumu: İzin Belgesi. Madde 34/a, erken ödeme ve itiraz bilg…",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Muayenesiz%20Ara%C3%A7la%20Trafi%C4%9Fe%20%C3%87%C4%B1kma%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20muayenesiz%20ara%C3%A7la%20trafi%C4%9Fe%20%C3%A7%C4%B1kma%20cezas%C4%B1%3A%202.719%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2010%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20%C4%B0zin%20Belgesi.%20Madde%2034%2Fa%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilg%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "status": 200,
+      "title": "Hatalı Park Etmek Cezası 2026 | OtoSöz",
+      "titleLength": 38,
+      "description": "2026 hatalı park etmek cezası: 1.246 ₺. Ehliyet yaptırımı: 10 Ceza Puanı; araç men durumu: Engelse Çekilir. Madde 61/1-a, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 154,
+      "canonical": "https://otosoz.com/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Hatal%C4%B1%20Park%20Etmek%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20hatal%C4%B1%20park%20etmek%20cezas%C4%B1%3A%201.246%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2010%20Ceza%20Puan%C4%B1%3B%20ara%C3%A7%20men%20durumu%3A%20Engelse%20%C3%87ekilir.%20Madde%2061%2F1-a%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/takograf-veri-mudahalesi-31-1-b",
+      "status": 200,
+      "title": "Takograf Veri Müdahalesi Cezası 2026 | OtoSöz",
+      "titleLength": 45,
+      "description": "2026 takograf veri müdahalesi cezası: 185.000 ₺. Ehliyet yaptırımı: 30-90 Gün El Koyma; araç men durumu: Yok. Madde 31/1-b, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/trafik-cezasi/takograf-veri-mudahalesi-31-1-b",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Takograf%20Veri%20M%C3%BCdahalesi%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20takograf%20veri%20m%C3%BCdahalesi%20cezas%C4%B1%3A%20185.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%2030-90%20G%C3%BCn%20El%20Koyma%3B%20ara%C3%A7%20men%20durumu%3A%20Yok.%20Madde%2031%2F1-b%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/taksimetre-bulundurmamak-kullanmamak-31-1-c",
+      "status": 200,
+      "title": "Taksimetre Bulundurmamak/Kullanmamak Cezası 2026 | OtoSöz",
+      "titleLength": 57,
+      "description": "2026 taksimetre bulundurmamak/kullanmamak cezası: 46.000 ₺. Ehliyet yaptırımı: -; araç men durumu: Men Edilir. Madde 31/1-c, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/trafik-cezasi/taksimetre-bulundurmamak-kullanmamak-31-1-c",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Taksimetre%20Bulundurmamak%2FKullanmamak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20taksimetre%20bulundurmamak%2Fkullanmamak%20cezas%C4%B1%3A%2046.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20-%3B%20ara%C3%A7%20men%20durumu%3A%20Men%20Edilir.%20Madde%2031%2F1-c%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/korsan-taksi-izinsiz-yolcu-tasima-31-2",
+      "status": 200,
+      "title": "Korsan Taksi: İzinsiz Yolcu Taşıma Cezası 2026 | OtoSöz",
+      "titleLength": 55,
+      "description": "2026 korsan taksi (izinsiz yolcu taşıma) cezası: 46.000 ₺. Ehliyet yaptırımı: -; araç men durumu: 60 Gün Men. Madde 31/2, erken ödeme ve itiraz bilgileri.",
+      "descriptionLength": 154,
+      "canonical": "https://otosoz.com/trafik-cezasi/korsan-taksi-izinsiz-yolcu-tasima-31-2",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Korsan%20Taksi%3A%20%C4%B0zinsiz%20Yolcu%20Ta%C5%9F%C4%B1ma%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20korsan%20taksi%20(izinsiz%20yolcu%20ta%C5%9F%C4%B1ma)%20cezas%C4%B1%3A%2046.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20-%3B%20ara%C3%A7%20men%20durumu%3A%2060%20G%C3%BCn%20Men.%20Madde%2031%2F2%2C%20erken%20%C3%B6deme%20ve%20itiraz%20bilgileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/tonaj-sinirini-asmak-65-1-a",
+      "status": 200,
+      "title": "Tonaj/Ağırlık Sınırını Aşmak Cezası 2026 | OtoSöz",
+      "titleLength": 49,
+      "description": "2026 tonaj/ağırlık sınırını aşmak cezası: 5.000 - 30.000 ₺. Ehliyet yaptırımı: -; araç men durumu: Fazla Yük İndirilir. Madde 65/1-a, erken ödeme ve itiraz b…",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/trafik-cezasi/tonaj-sinirini-asmak-65-1-a",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Tonaj%2FA%C4%9F%C4%B1rl%C4%B1k%20S%C4%B1n%C4%B1r%C4%B1n%C4%B1%20A%C5%9Fmak%20Cezas%C4%B1%202026%20%7C%20OtoS%C3%B6z&desc=2026%20tonaj%2Fa%C4%9F%C4%B1rl%C4%B1k%20s%C4%B1n%C4%B1r%C4%B1n%C4%B1%20a%C5%9Fmak%20cezas%C4%B1%3A%205.000%20-%2030.000%20%E2%82%BA.%20Ehliyet%20yapt%C4%B1r%C4%B1m%C4%B1%3A%20-%3B%20ara%C3%A7%20men%20durumu%3A%20Fazla%20Y%C3%BCk%20%C4%B0ndirilir.%20Madde%2065%2F1-a%2C%20erken%20%C3%B6deme%20ve%20itiraz%20b%E2%80%A6",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce",
+      "status": 200,
+      "title": "Bütçeye Göre Araç Önerileri 2026 | OtoBütçe | OtoSöz",
+      "titleLength": 52,
+      "description": "Bütçenizi seçin, uzmanlarımızın önerdiği en mantıklı, az yakan ve masrafsız ikinci el araçları anında keşfedin. Güncel piyasa analizleri.",
+      "descriptionLength": 137,
+      "canonical": "https://otosoz.com/otobutce",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=B%C3%BCt%C3%A7eye%20G%C3%B6re%20Ara%C3%A7%20%C3%96nerileri%202026%20%7C%20OtoB%C3%BCt%C3%A7e%20%7C%20OtoS%C3%B6z&desc=B%C3%BCt%C3%A7enizi%20se%C3%A7in%2C%20uzmanlar%C4%B1m%C4%B1z%C4%B1n%20%C3%B6nerdi%C4%9Fi%20en%20mant%C4%B1kl%C4%B1%2C%20az%20yakan%20ve%20masrafs%C4%B1z%20ikinci%20el%20ara%C3%A7lar%C4%B1%20an%C4%B1nda%20ke%C5%9Ffedin.%20G%C3%BCncel%20piyasa%20analizleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap",
+      "status": 200,
+      "title": "OtoHesap: 21 Ücretsiz Araç Hesaplama Aracı | OtoSöz",
+      "titleLength": 51,
+      "description": "Yakıt, araç maliyeti, kredi, MTV, bakım, değer kaybı, motor gücü ve lastik basıncı için 21 ücretsiz otomotiv hesaplama aracını kullanın.",
+      "descriptionLength": 136,
+      "canonical": "https://otosoz.com/otohesap",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=OtoHesap%3A%2021%20%C3%9Ccretsiz%20Ara%C3%A7%20Hesaplama%20Arac%C4%B1%20%7C%20OtoS%C3%B6z&desc=Yak%C4%B1t%2C%20ara%C3%A7%20maliyeti%2C%20kredi%2C%20MTV%2C%20bak%C4%B1m%2C%20de%C4%9Fer%20kayb%C4%B1%2C%20motor%20g%C3%BCc%C3%BC%20ve%20lastik%20bas%C4%B1nc%C4%B1%20i%C3%A7in%2021%20%C3%BCcretsiz%20otomotiv%20hesaplama%20arac%C4%B1n%C4%B1%20kullan%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-bin-tl-alti-arabalar",
+      "status": 200,
+      "title": "150.000 TL Altı Alınabilecek Arabalar | OtoSöz",
+      "titleLength": 46,
+      "description": "150.000 TL altı bütçeyle alınabilecek, az yakan, parçası ucuz ve sanayide kolay tamir edilebilen en iyi otomobil tavsiyeleri.",
+      "descriptionLength": 125,
+      "canonical": "https://otosoz.com/otobutce/150-bin-tl-alti-arabalar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=150.000%20TL%20Alt%C4%B1%20Al%C4%B1nabilecek%20Arabalar%20%7C%20OtoS%C3%B6z&desc=150.000%20TL%20alt%C4%B1%20b%C3%BCt%C3%A7eyle%20al%C4%B1nabilecek%2C%20az%20yakan%2C%20par%C3%A7as%C4%B1%20ucuz%20ve%20sanayide%20kolay%20tamir%20edilebilen%20en%20iyi%20otomobil%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-250-bin-tl-arasi-araclar",
+      "status": 200,
+      "title": "150.000 TL - 250.000 TL Arası Alınabilecek Araçlar | OtoSöz",
+      "titleLength": 59,
+      "description": "150 bin TL ile 250 bin TL arası bütçeyle alınabilecek, az yakan, parçası ucuz ve sanayide kolay tamir edilebilen en iyi otomobil tavsiyeleri.",
+      "descriptionLength": 141,
+      "canonical": "https://otosoz.com/otobutce/150-250-bin-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=150.000%20TL%20-%20250.000%20TL%20Aras%C4%B1%20Al%C4%B1nabilecek%20Ara%C3%A7lar%20%7C%20OtoS%C3%B6z&desc=150%20bin%20TL%20ile%20250%20bin%20TL%20aras%C4%B1%20b%C3%BCt%C3%A7eyle%20al%C4%B1nabilecek%2C%20az%20yakan%2C%20par%C3%A7as%C4%B1%20ucuz%20ve%20sanayide%20kolay%20tamir%20edilebilen%20en%20iyi%20otomobil%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/250-350-bin-tl-arasi-araclar",
+      "status": 200,
+      "title": "250.000 TL - 350.000 TL Arası İkinci El Araba Tavsiyeleri",
+      "titleLength": 57,
+      "description": "200.000 TL ile 300.000 TL arası bütçeyle alınabilecek, gerçek piyasa fiyatlarına göre değerlendirilmiş güvenilir otomobil önerileri.",
+      "descriptionLength": 132,
+      "canonical": "https://otosoz.com/otobutce/250-350-bin-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=250.000%20TL%20-%20350.000%20TL%20Aras%C4%B1%20%C4%B0kinci%20El%20Araba%20Tavsiyeleri&desc=200.000%20TL%20ile%20300.000%20TL%20aras%C4%B1%20b%C3%BCt%C3%A7eyle%20al%C4%B1nabilecek%2C%20ger%C3%A7ek%20piyasa%20fiyatlar%C4%B1na%20g%C3%B6re%20de%C4%9Ferlendirilmi%C5%9F%20g%C3%BCvenilir%20otomobil%20%C3%B6nerileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/350-450-bin-tl-arasi-araclar",
+      "status": 200,
+      "title": "350.000 TL - 450.000 TL Arası Araba Tavsiyeleri | Çeyrek",
+      "titleLength": 56,
+      "description": "350 bin ile 450 bin TL arası bütçeyle alınabilecek, piyasası hızlı 'çeyrek altın' kıvamındaki en mantıklı ve sorunsuz araba önerileri.",
+      "descriptionLength": 134,
+      "canonical": "https://otosoz.com/otobutce/350-450-bin-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=350.000%20TL%20-%20450.000%20TL%20Aras%C4%B1%20Araba%20Tavsiyeleri%20%7C%20%C3%87eyrek&desc=350%20bin%20ile%20450%20bin%20TL%20aras%C4%B1%20b%C3%BCt%C3%A7eyle%20al%C4%B1nabilecek%2C%20piyasas%C4%B1%20h%C4%B1zl%C4%B1%20%27%C3%A7eyrek%20alt%C4%B1n%27%20k%C4%B1vam%C4%B1ndaki%20en%20mant%C4%B1kl%C4%B1%20ve%20sorunsuz%20araba%20%C3%B6nerileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/450-550-bin-tl-arasi-araclar",
+      "status": 200,
+      "title": "450.000 TL - 550.000 TL Arası Araba Tavsiyeleri | Konfor",
+      "titleLength": 56,
+      "description": "450.000 TL - 550.000 TL Arası Araba Tavsiyeleri: 450 bin ile 550 bin TL arası bütçeyle alınabilecek, donanım ve konforuyla öne çıkan en mantıklı otomobil",
+      "descriptionLength": 153,
+      "canonical": "https://otosoz.com/otobutce/450-550-bin-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=450.000%20TL%20-%20550.000%20TL%20Aras%C4%B1%20Araba%20Tavsiyeleri%20%7C%20Konfor&desc=450.000%20TL%20-%20550.000%20TL%20Aras%C4%B1%20Araba%20Tavsiyeleri%3A%20450%20bin%20ile%20550%20bin%20TL%20aras%C4%B1%20b%C3%BCt%C3%A7eyle%20al%C4%B1nabilecek%2C%20donan%C4%B1m%20ve%20konforuyla%20%C3%B6ne%20%C3%A7%C4%B1kan%20en%20mant%C4%B1kl%C4%B1%20otomobil",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/550-650-bin-tl-arasi-araclar",
+      "status": 200,
+      "title": "550.000 TL - 650.000 TL Arası İkinci El Araba Tavsiyeleri",
+      "titleLength": 57,
+      "description": "550.000 TL - 650.000 TL Arası İkinci El Araba Tavsiyeleri: 550 bin ile 650 bin TL bütçeyle alınabilecek, modeli yüksek, masrafsız ve donanımlı mantıklı araç",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/otobutce/550-650-bin-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=550.000%20TL%20-%20650.000%20TL%20Aras%C4%B1%20%C4%B0kinci%20El%20Araba%20Tavsiyeleri&desc=550.000%20TL%20-%20650.000%20TL%20Aras%C4%B1%20%C4%B0kinci%20El%20Araba%20Tavsiyeleri%3A%20550%20bin%20ile%20650%20bin%20TL%20b%C3%BCt%C3%A7eyle%20al%C4%B1nabilecek%2C%20modeli%20y%C3%BCksek%2C%20masrafs%C4%B1z%20ve%20donan%C4%B1ml%C4%B1%20mant%C4%B1kl%C4%B1%20ara%C3%A7",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/850-950-bin-tl-arasi-araclar",
+      "status": 200,
+      "title": "850.000 TL - 950.000 TL Arası İkinci El Araçlar | Yeni",
+      "titleLength": 54,
+      "description": "850.000 TL ile 950.000 TL bütçeyle alınabilecek sıçrama eşiğindeki yeni nesil tam otomatik, genç ve mantıklı araç önerileri.",
+      "descriptionLength": 124,
+      "canonical": "https://otosoz.com/otobutce/850-950-bin-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=850.000%20TL%20-%20950.000%20TL%20Aras%C4%B1%20%C4%B0kinci%20El%20Ara%C3%A7lar%20%7C%20Yeni&desc=850.000%20TL%20ile%20950.000%20TL%20b%C3%BCt%C3%A7eyle%20al%C4%B1nabilecek%20s%C4%B1%C3%A7rama%20e%C5%9Fi%C4%9Findeki%20yeni%20nesil%20tam%20otomatik%2C%20gen%C3%A7%20ve%20mant%C4%B1kl%C4%B1%20ara%C3%A7%20%C3%B6nerileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/750-850-bin-tl-arasi-araclar",
+      "status": 200,
+      "title": "750.000 TL - 850.000 TL Arası Araç Tavsiyeleri | Genç",
+      "titleLength": 53,
+      "description": "700.000 TL ile 800.000 TL bütçeyle alınabilecek, piyasası hızlı, donanımlı ve genç yaşlardaki en mantıklı araba önerileri.",
+      "descriptionLength": 122,
+      "canonical": "https://otosoz.com/otobutce/750-850-bin-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=750.000%20TL%20-%20850.000%20TL%20Aras%C4%B1%20Ara%C3%A7%20Tavsiyeleri%20%7C%20Gen%C3%A7&desc=700.000%20TL%20ile%20800.000%20TL%20b%C3%BCt%C3%A7eyle%20al%C4%B1nabilecek%2C%20piyasas%C4%B1%20h%C4%B1zl%C4%B1%2C%20donan%C4%B1ml%C4%B1%20ve%20gen%C3%A7%20ya%C5%9Flardaki%20en%20mant%C4%B1kl%C4%B1%20araba%20%C3%B6nerileri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "1 Milyon TL Bütçe ile Alınabilecek İkinci El Araçlar",
+      "titleLength": 52,
+      "description": "1.000.000 TL bandında ağır hasarlı premium araçlardan uzak durarak alınabilecek en zekice C segmenti ve genç model araba tavsiyeleri.",
+      "descriptionLength": 133,
+      "canonical": "https://otosoz.com/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=1%20Milyon%20TL%20B%C3%BCt%C3%A7e%20ile%20Al%C4%B1nabilecek%20%C4%B0kinci%20El%20Ara%C3%A7lar&desc=1.000.000%20TL%20band%C4%B1nda%20a%C4%9F%C4%B1r%20hasarl%C4%B1%20premium%20ara%C3%A7lardan%20uzak%20durarak%20al%C4%B1nabilecek%20en%20zekice%20C%20segmenti%20ve%20gen%C3%A7%20model%20araba%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "1.2 Milyon TL Bütçeyle İkinci El Araç Önerileri | D",
+      "titleLength": 51,
+      "description": "1.2 Milyon TL Bütçeyle İkinci El Araç Önerileri: 1.200.000 TL bandında alınabilecek sıfıra yakın mantıklı otomobiller veya genç D segmenti ikinci el araç",
+      "descriptionLength": 153,
+      "canonical": "https://otosoz.com/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=1.2%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20%C4%B0kinci%20El%20Ara%C3%A7%20%C3%96nerileri%20%7C%20D&desc=1.2%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20%C4%B0kinci%20El%20Ara%C3%A7%20%C3%96nerileri%3A%201.200.000%20TL%20band%C4%B1nda%20al%C4%B1nabilecek%20s%C4%B1f%C4%B1ra%20yak%C4%B1n%20mant%C4%B1kl%C4%B1%20otomobiller%20veya%20gen%C3%A7%20D%20segmenti%20ikinci%20el%20ara%C3%A7",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "1.3 Milyon TL Bütçeyle İkinci El Araç Önerileri | Otomatik",
+      "titleLength": 58,
+      "description": "1.300.000 TL bandında alınabilecek en mantıklı otomatik, düşük yakıt tüketimli, düşük kilometreli hatchback ve crossover araç tavsiyeleri.",
+      "descriptionLength": 138,
+      "canonical": "https://otosoz.com/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=1.3%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20%C4%B0kinci%20El%20Ara%C3%A7%20%C3%96nerileri%20%7C%20Otomatik&desc=1.300.000%20TL%20band%C4%B1nda%20al%C4%B1nabilecek%20en%20mant%C4%B1kl%C4%B1%20otomatik%2C%20d%C3%BC%C5%9F%C3%BCk%20yak%C4%B1t%20t%C3%BCketimli%2C%20d%C3%BC%C5%9F%C3%BCk%20kilometreli%20hatchback%20ve%20crossover%20ara%C3%A7%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "1.5 Milyon TL Bütçeyle İkinci El Araç Önerileri | C",
+      "titleLength": 51,
+      "description": "1.500.000 TL bandında Egea yerine tercih edilebilecek en mantıklı C segmenti hatchback, crossover ve donanımlı ikinci el araç tavsiyeleri.",
+      "descriptionLength": 138,
+      "canonical": "https://otosoz.com/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=1.5%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20%C4%B0kinci%20El%20Ara%C3%A7%20%C3%96nerileri%20%7C%20C&desc=1.500.000%20TL%20band%C4%B1nda%20Egea%20yerine%20tercih%20edilebilecek%20en%20mant%C4%B1kl%C4%B1%20C%20segmenti%20hatchback%2C%20crossover%20ve%20donan%C4%B1ml%C4%B1%20ikinci%20el%20ara%C3%A7%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "1.6 Milyon TL Bütçeyle İkinci El Araç Önerileri | Neredeyse",
+      "titleLength": 59,
+      "description": "1.600.000 TL bandında garantili B-SUV mu yoksa yaşlı D segmenti mi tartışmasına nokta koyan, ekspertiz onaylı en mantıklı ikinci el araç tavsiyeleri.",
+      "descriptionLength": 149,
+      "canonical": "https://otosoz.com/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=1.6%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20%C4%B0kinci%20El%20Ara%C3%A7%20%C3%96nerileri%20%7C%20Neredeyse&desc=1.600.000%20TL%20band%C4%B1nda%20garantili%20B-SUV%20mu%20yoksa%20ya%C5%9Fl%C4%B1%20D%20segmenti%20mi%20tart%C4%B1%C5%9Fmas%C4%B1na%20nokta%20koyan%2C%20ekspertiz%20onayl%C4%B1%20en%20mant%C4%B1kl%C4%B1%20ikinci%20el%20ara%C3%A7%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "1.8 Milyon TL Bütçeyle Sıfır Kilometre Araç Önerileri",
+      "titleLength": 53,
+      "description": "1.800.000 TL bandında ikinci el riskine girmeden alınabilecek sıfır kilometre elektrikli (TOGG, BYD) ve hafif hibrit araç tavsiyeleri.",
+      "descriptionLength": 134,
+      "canonical": "https://otosoz.com/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=1.8%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20S%C4%B1f%C4%B1r%20Kilometre%20Ara%C3%A7%20%C3%96nerileri&desc=1.800.000%20TL%20band%C4%B1nda%20ikinci%20el%20riskine%20girmeden%20al%C4%B1nabilecek%20s%C4%B1f%C4%B1r%20kilometre%20elektrikli%20(TOGG%2C%20BYD)%20ve%20hafif%20hibrit%20ara%C3%A7%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "1.8 Milyon - 1.9 Milyon TL Bütçeyle Sıfır Kilometre Araçlar",
+      "titleLength": 59,
+      "description": "1.800.000-1.900.000 TL bütçeyle alınabilecek TOGG T10F, BYD Dolphin ve alternatif sıfır kilometre elektrikli araç tavsiyelerini karşılaştırın.",
+      "descriptionLength": 142,
+      "canonical": "https://otosoz.com/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=1.8%20Milyon%20-%201.9%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20S%C4%B1f%C4%B1r%20Kilometre%20Ara%C3%A7lar&desc=1.800.000-1.900.000%20TL%20b%C3%BCt%C3%A7eyle%20al%C4%B1nabilecek%20TOGG%20T10F%2C%20BYD%20Dolphin%20ve%20alternatif%20s%C4%B1f%C4%B1r%20kilometre%20elektrikli%20ara%C3%A7%20tavsiyelerini%20kar%C5%9F%C4%B1la%C5%9Ft%C4%B1r%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "2 Milyon TL Bütçeyle İkinci El Araç Önerileri | Premium",
+      "titleLength": 55,
+      "description": "2 Milyon TL Bütçeyle İkinci El Araç Önerileri: 2.000.000 TL bandında lüks segment, geniş aile SUV'ları ve sorunsuz premium ikinci el araç tavsiyeleri.",
+      "descriptionLength": 150,
+      "canonical": "https://otosoz.com/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=2%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20%C4%B0kinci%20El%20Ara%C3%A7%20%C3%96nerileri%20%7C%20Premium&desc=2%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20%C4%B0kinci%20El%20Ara%C3%A7%20%C3%96nerileri%3A%202.000.000%20TL%20band%C4%B1nda%20l%C3%BCks%20segment%2C%20geni%C5%9F%20aile%20SUV%27lar%C4%B1%20ve%20sorunsuz%20premium%20ikinci%20el%20ara%C3%A7%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "2.3 Milyon TL Bütçeyle İkinci El Araç Önerileri | D",
+      "titleLength": 51,
+      "description": "2.300.000 TL bandında boş C segmenti premiumlar yerine alınabilecek en dolu D segmenti ve tam elektrikli SUV (Tesla, BYD) araç tavsiyeleri.",
+      "descriptionLength": 139,
+      "canonical": "https://otosoz.com/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=2.3%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20%C4%B0kinci%20El%20Ara%C3%A7%20%C3%96nerileri%20%7C%20D&desc=2.300.000%20TL%20band%C4%B1nda%20bo%C5%9F%20C%20segmenti%20premiumlar%20yerine%20al%C4%B1nabilecek%20en%20dolu%20D%20segmenti%20ve%20tam%20elektrikli%20SUV%20(Tesla%2C%20BYD)%20ara%C3%A7%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "2.5 Milyon - 3.5 Milyon TL Bütçeyle Lüks ve Performans",
+      "titleLength": 54,
+      "description": "2.500.000 - 3.500.000 TL bandında alınabilecek en prestijli, güvenli ve Quattro performansına sahip lüks otomobil tavsiyeleri.",
+      "descriptionLength": 126,
+      "canonical": "https://otosoz.com/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=2.5%20Milyon%20-%203.5%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20L%C3%BCks%20ve%20Performans&desc=2.500.000%20-%203.500.000%20TL%20band%C4%B1nda%20al%C4%B1nabilecek%20en%20prestijli%2C%20g%C3%BCvenli%20ve%20Quattro%20performans%C4%B1na%20sahip%20l%C3%BCks%20otomobil%20tavsiyeleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yakit-hesaplama",
+      "status": 200,
+      "title": "Şehirler Arası Yakıt Hesaplama 2026 | OtoHesap | OtoSöz",
+      "titleLength": 55,
+      "description": "Şehirler arası yolculuklarda güncel akaryakıt fiyatları ile aracınızın ne kadar yakıt tüketeceğini ve toplam yakıt maliyetini ücretsiz hesaplayın.",
+      "descriptionLength": 146,
+      "canonical": "https://otosoz.com/otohesap/yakit-hesaplama",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=%C5%9Eehirler%20Aras%C4%B1%20Yak%C4%B1t%20Hesaplama%202026%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=%C5%9Eehirler%20aras%C4%B1%20yolculuklarda%20g%C3%BCncel%20akaryak%C4%B1t%20fiyatlar%C4%B1%20ile%20arac%C4%B1n%C4%B1z%C4%B1n%20ne%20kadar%20yak%C4%B1t%20t%C3%BCketece%C4%9Fini%20ve%20toplam%20yak%C4%B1t%20maliyetini%20%C3%BCcretsiz%20hesaplay%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yatirim-kiyaslama",
+      "status": 200,
+      "title": "Araç, Dolar, Altın Yatırım Kıyaslama | OtoHesap | OtoSöz",
+      "titleLength": 56,
+      "description": "Otomobil alımı ile Dolar, Altın veya Mevduat yatırımlarını karşılaştırın. Hangi yatırım daha kârlı? Güncel enflasyon oranlarıyla detaylı analiz.",
+      "descriptionLength": 144,
+      "canonical": "https://otosoz.com/otohesap/yatirim-kiyaslama",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7%2C%20Dolar%2C%20Alt%C4%B1n%20Yat%C4%B1r%C4%B1m%20K%C4%B1yaslama%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=Otomobil%20al%C4%B1m%C4%B1%20ile%20Dolar%2C%20Alt%C4%B1n%20veya%20Mevduat%20yat%C4%B1r%C4%B1mlar%C4%B1n%C4%B1%20kar%C5%9F%C4%B1la%C5%9Ft%C4%B1r%C4%B1n.%20Hangi%20yat%C4%B1r%C4%B1m%20daha%20k%C3%A2rl%C4%B1%3F%20G%C3%BCncel%20enflasyon%20oranlar%C4%B1yla%20detayl%C4%B1%20analiz.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "status": 200,
+      "title": "3.5 Milyon - 5 Milyon TL Bütçeyle Alman Efsaneleri ve VIP",
+      "titleLength": 57,
+      "description": "3.5 Milyon - 5 Milyon TL Bütçeyle Alman Efsaneleri ve VIP Konfor: 3.500.000 - 5.000.000 TL bandında alınabilecek prestijli E segmenti sedanlar ve VIP tasarım",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=3.5%20Milyon%20-%205%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20Alman%20Efsaneleri%20ve%20VIP&desc=3.5%20Milyon%20-%205%20Milyon%20TL%20B%C3%BCt%C3%A7eyle%20Alman%20Efsaneleri%20ve%20VIP%20Konfor%3A%203.500.000%20-%205.000.000%20TL%20band%C4%B1nda%20al%C4%B1nabilecek%20prestijli%20E%20segmenti%20sedanlar%20ve%20VIP%20tasar%C4%B1m",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/al-sat-analizi",
+      "status": 200,
+      "title": "Araç Al-Sat Kâr Marjı Analizi | OtoHesap | OtoSöz",
+      "titleLength": 49,
+      "description": "Araç Al-Sat Kâr Marjı Analizi: Oto galeri ve bireysel al-sat işlemleri için kâr marjı, noter, ekspertiz ve vergi giderleri dahil net kâr hesaplayıcı.",
+      "descriptionLength": 149,
+      "canonical": "https://otosoz.com/otohesap/al-sat-analizi",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7%20Al-Sat%20K%C3%A2r%20Marj%C4%B1%20Analizi%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=Ara%C3%A7%20Al-Sat%20K%C3%A2r%20Marj%C4%B1%20Analizi%3A%20Oto%20galeri%20ve%20bireysel%20al-sat%20i%C5%9Flemleri%20i%C3%A7in%20k%C3%A2r%20marj%C4%B1%2C%20noter%2C%20ekspertiz%20ve%20vergi%20giderleri%20dahil%20net%20k%C3%A2r%20hesaplay%C4%B1c%C4%B1.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/otv-muafiyeti",
+      "status": 200,
+      "title": "Engelli ÖTV Muafiyet Hesaplama 2026 | OtoHesap | OtoSöz",
+      "titleLength": 55,
+      "description": "2026 yılı ÖTV muafiyetli araç fiyatı hesaplama. %90 ve üzeri engelli raporu ile sıfır araç alımında indirimli fiyatı anında öğrenin.",
+      "descriptionLength": 132,
+      "canonical": "https://otosoz.com/otohesap/otv-muafiyeti",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Engelli%20%C3%96TV%20Muafiyet%20Hesaplama%202026%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=2026%20y%C4%B1l%C4%B1%20%C3%96TV%20muafiyetli%20ara%C3%A7%20fiyat%C4%B1%20hesaplama.%20%2590%20ve%20%C3%BCzeri%20engelli%20raporu%20ile%20s%C4%B1f%C4%B1r%20ara%C3%A7%20al%C4%B1m%C4%B1nda%20indirimli%20fiyat%C4%B1%20an%C4%B1nda%20%C3%B6%C4%9Frenin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/deger-kaybi",
+      "status": 200,
+      "title": "Araç Değer Kaybı Hesaplama | OtoHesap | OtoSöz",
+      "titleLength": 46,
+      "description": "Kaza sonrası aracınızda oluşan değer kaybını tahmini olarak hesaplayın. Tramer, kilometre, parça değişimi ve yaş etkisine göre değer kaybı analizi.",
+      "descriptionLength": 147,
+      "canonical": "https://otosoz.com/otohesap/deger-kaybi",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7%20De%C4%9Fer%20Kayb%C4%B1%20Hesaplama%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=Kaza%20sonras%C4%B1%20arac%C4%B1n%C4%B1zda%20olu%C5%9Fan%20de%C4%9Fer%20kayb%C4%B1n%C4%B1%20tahmini%20olarak%20hesaplay%C4%B1n.%20Tramer%2C%20kilometre%2C%20par%C3%A7a%20de%C4%9Fi%C5%9Fimi%20ve%20ya%C5%9F%20etkisine%20g%C3%B6re%20de%C4%9Fer%20kayb%C4%B1%20analizi.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-bakim",
+      "status": 200,
+      "title": "Araç Bakım Maliyeti Hesaplama | OtoHesap | OtoSöz",
+      "titleLength": 49,
+      "description": "Aracınızın periyodik bakım masraflarını, yağ değişimi, filtreler ve işçilik ücretlerini güncel fiyatlarla hesaplayıp yıllık bakım bütçenizi planlayın.",
+      "descriptionLength": 150,
+      "canonical": "https://otosoz.com/otohesap/arac-bakim",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7%20Bak%C4%B1m%20Maliyeti%20Hesaplama%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=Arac%C4%B1n%C4%B1z%C4%B1n%20periyodik%20bak%C4%B1m%20masraflar%C4%B1n%C4%B1%2C%20ya%C4%9F%20de%C4%9Fi%C5%9Fimi%2C%20filtreler%20ve%20i%C5%9F%C3%A7ilik%20%C3%BCcretlerini%20g%C3%BCncel%20fiyatlarla%20hesaplay%C4%B1p%20y%C4%B1ll%C4%B1k%20bak%C4%B1m%20b%C3%BCt%C3%A7enizi%20planlay%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/tasit-kredisi",
+      "status": 200,
+      "title": "Taşıt Kredisi Hesaplama 2026 - Faiz ve Taksit Oranları",
+      "titleLength": 54,
+      "description": "Sıfır ve ikinci el araçlar için güncel banka faiz oranlarıyla taşıt kredisi hesaplama. Aylık taksit, toplam geri ödeme ve dosya masrafı analizi.",
+      "descriptionLength": 144,
+      "canonical": "https://otosoz.com/otohesap/tasit-kredisi",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ta%C5%9F%C4%B1t%20Kredisi%20Hesaplama%202026%20-%20Faiz%20ve%20Taksit%20Oranlar%C4%B1&desc=S%C4%B1f%C4%B1r%20ve%20ikinci%20el%20ara%C3%A7lar%20i%C3%A7in%20g%C3%BCncel%20banka%20faiz%20oranlar%C4%B1yla%20ta%C5%9F%C4%B1t%20kredisi%20hesaplama.%20Ayl%C4%B1k%20taksit%2C%20toplam%20geri%20%C3%B6deme%20ve%20dosya%20masraf%C4%B1%20analizi.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/lastik-ebat",
+      "status": 200,
+      "title": "Lastik Ebat Hesaplama ve Hız Sapması | OtoHesap | OtoSöz",
+      "titleLength": 56,
+      "description": "Araç lastik değişimi öncesi yeni ve eski ebatların çap farkını, hız kadrana yansıyacak sapmayı ve uyumluluğu hesaplayın.",
+      "descriptionLength": 120,
+      "canonical": "https://otosoz.com/otohesap/lastik-ebat",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Lastik%20Ebat%20Hesaplama%20ve%20H%C4%B1z%20Sapmas%C4%B1%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=Ara%C3%A7%20lastik%20de%C4%9Fi%C5%9Fimi%20%C3%B6ncesi%20yeni%20ve%20eski%20ebatlar%C4%B1n%20%C3%A7ap%20fark%C4%B1n%C4%B1%2C%20h%C4%B1z%20kadrana%20yans%C4%B1yacak%20sapmay%C4%B1%20ve%20uyumlulu%C4%9Fu%20hesaplay%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/kredi-karti-hesaplama",
+      "status": 200,
+      "title": "Kredi Kartı ile Araç Alma Hesaplayıcı 2026 | OtoHesap",
+      "titleLength": 53,
+      "description": "Kredi kartı ile araç alırken komisyon oranını, taksit tutarını ve toplam maliyeti hesaplayın. Kredi kartı komisyon kesintisi hesaplayıcı.",
+      "descriptionLength": 137,
+      "canonical": "https://otosoz.com/otohesap/kredi-karti-hesaplama",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Kredi%20Kart%C4%B1%20ile%20Ara%C3%A7%20Alma%20Hesaplay%C4%B1c%C4%B1%202026%20%7C%20OtoHesap&desc=Kredi%20kart%C4%B1%20ile%20ara%C3%A7%20al%C4%B1rken%20komisyon%20oran%C4%B1n%C4%B1%2C%20taksit%20tutar%C4%B1n%C4%B1%20ve%20toplam%20maliyeti%20hesaplay%C4%B1n.%20Kredi%20kart%C4%B1%20komisyon%20kesintisi%20hesaplay%C4%B1c%C4%B1.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/butce-planlama",
+      "status": 200,
+      "title": "Araç Alım Bütçe Hesaplayıcı 2026 - Kredi, Nakit, Ek",
+      "titleLength": 51,
+      "description": "Araç alırken toplam maliyeti hesaplayın: nakit, banka kredisi faizi, kredi kartı komisyonu, noter, sigorta, kasko ve tüm ek giderler dahil bütçe planlama",
+      "descriptionLength": 153,
+      "canonical": "https://otosoz.com/otohesap/butce-planlama",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7%20Al%C4%B1m%20B%C3%BCt%C3%A7e%20Hesaplay%C4%B1c%C4%B1%202026%20-%20Kredi%2C%20Nakit%2C%20Ek&desc=Ara%C3%A7%20al%C4%B1rken%20toplam%20maliyeti%20hesaplay%C4%B1n%3A%20nakit%2C%20banka%20kredisi%20faizi%2C%20kredi%20kart%C4%B1%20komisyonu%2C%20noter%2C%20sigorta%2C%20kasko%20ve%20t%C3%BCm%20ek%20giderler%20dahil%20b%C3%BCt%C3%A7e%20planlama",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/dijital-senet-hesaplama",
+      "status": 200,
+      "title": "Dijital Senet Hesaplayıcı 2026 - Reel Faiz Oranı Hesaplama",
+      "titleLength": 58,
+      "description": "Dijital senet ile araç alımının gerçek maliyetini hesaplayın. Dosya masrafı dahil reel faiz oranı, aylık taksit tutarı ve ödeme tablosu.",
+      "descriptionLength": 136,
+      "canonical": "https://otosoz.com/otohesap/dijital-senet-hesaplama",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Dijital%20Senet%20Hesaplay%C4%B1c%C4%B1%202026%20-%20Reel%20Faiz%20Oran%C4%B1%20Hesaplama&desc=Dijital%20senet%20ile%20ara%C3%A7%20al%C4%B1m%C4%B1n%C4%B1n%20ger%C3%A7ek%20maliyetini%20hesaplay%C4%B1n.%20Dosya%20masraf%C4%B1%20dahil%20reel%20faiz%20oran%C4%B1%2C%20ayl%C4%B1k%20taksit%20tutar%C4%B1%20ve%20%C3%B6deme%20tablosu.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/mtv-hesaplama",
+      "status": 200,
+      "title": "MTV Hesaplayıcı 2026 - Motorlu Taşıtlar Vergisi Hesaplama",
+      "titleLength": 57,
+      "description": "2026 yılı MTV tutarını hesaplayın. Motor silindir hacmi, araç yaşı ve taşıt değerine göre Motorlu Taşıtlar Vergisi hesaplama aracı. Ocak ve Temmuz taksitleri.",
+      "descriptionLength": 158,
+      "canonical": "https://otosoz.com/otohesap/mtv-hesaplama",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=MTV%20Hesaplay%C4%B1c%C4%B1%202026%20-%20Motorlu%20Ta%C5%9F%C4%B1tlar%20Vergisi%20Hesaplama&desc=2026%20y%C4%B1l%C4%B1%20MTV%20tutar%C4%B1n%C4%B1%20hesaplay%C4%B1n.%20Motor%20silindir%20hacmi%2C%20ara%C3%A7%20ya%C5%9F%C4%B1%20ve%20ta%C5%9F%C4%B1t%20de%C4%9Ferine%20g%C3%B6re%20Motorlu%20Ta%C5%9F%C4%B1tlar%20Vergisi%20hesaplama%20arac%C4%B1.%20Ocak%20ve%20Temmuz%20taksitleri.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/kasko-deger-sorgulama",
+      "status": 200,
+      "title": "Kasko Değer Listesi Sorgulama 2026 - TSB Araç Kasko Bedeli",
+      "titleLength": 58,
+      "description": "2026 güncel kasko değer listesi sorgulama. Marka, model ve yıla göre aracınızın TSB kasko bedelini öğrenin. 78.000+ araç kaydı.",
+      "descriptionLength": 127,
+      "canonical": "https://otosoz.com/otohesap/kasko-deger-sorgulama",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Kasko%20De%C4%9Fer%20Listesi%20Sorgulama%202026%20-%20TSB%20Ara%C3%A7%20Kasko%20Bedeli&desc=2026%20g%C3%BCncel%20kasko%20de%C4%9Fer%20listesi%20sorgulama.%20Marka%2C%20model%20ve%20y%C4%B1la%20g%C3%B6re%20arac%C4%B1n%C4%B1z%C4%B1n%20TSB%20kasko%20bedelini%20%C3%B6%C4%9Frenin.%2078.000%2B%20ara%C3%A7%20kayd%C4%B1.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/elektrikli-arac-sarj-maliyeti",
+      "status": 200,
+      "title": "Elektrikli Araç Şarj Maliyeti Hesaplayıcı 2026 | OtoHesap",
+      "titleLength": 57,
+      "description": "Elektrikli araç şarj maliyetini hesaplayın. Ev şarjı gece/gündüz tarifesi, DC hızlı şarj fiyatları ve benzinli araçla karşılaştırma. Togg, Tesla, BYD ve daha",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/otohesap/elektrikli-arac-sarj-maliyeti",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Elektrikli%20Ara%C3%A7%20%C5%9Earj%20Maliyeti%20Hesaplay%C4%B1c%C4%B1%202026%20%7C%20OtoHesap&desc=Elektrikli%20ara%C3%A7%20%C5%9Farj%20maliyetini%20hesaplay%C4%B1n.%20Ev%20%C5%9Farj%C4%B1%20gece%2Fg%C3%BCnd%C3%BCz%20tarifesi%2C%20DC%20h%C4%B1zl%C4%B1%20%C5%9Farj%20fiyatlar%C4%B1%20ve%20benzinli%20ara%C3%A7la%20kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rma.%20Togg%2C%20Tesla%2C%20BYD%20ve%20daha",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-ithalat-vergisi",
+      "status": 200,
+      "title": "Yurtdışından Araç Getirme Vergi Hesaplayıcı 2026 | OtoHesap",
+      "titleLength": 59,
+      "description": "Almanya, Avrupa veya diğer ülkelerden Türkiye'ye araç ithal ederken ödeyeceğiniz Gümrük Vergisi, ÖTV ve %20 KDV tutarlarını hesaplayın.",
+      "descriptionLength": 135,
+      "canonical": "https://otosoz.com/otohesap/arac-ithalat-vergisi",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Yurtd%C4%B1%C5%9F%C4%B1ndan%20Ara%C3%A7%20Getirme%20Vergi%20Hesaplay%C4%B1c%C4%B1%202026%20%7C%20OtoHesap&desc=Almanya%2C%20Avrupa%20veya%20di%C4%9Fer%20%C3%BClkelerden%20T%C3%BCrkiye%27ye%20ara%C3%A7%20ithal%20ederken%20%C3%B6deyece%C4%9Finiz%20G%C3%BCmr%C3%BCk%20Vergisi%2C%20%C3%96TV%20ve%20%2520%20KDV%20tutarlar%C4%B1n%C4%B1%20hesaplay%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-vs-taksi",
+      "status": 200,
+      "title": "Araç Sahibi Olmak vs Taksi Kiralama Maliyet Hesaplama",
+      "titleLength": 53,
+      "description": "Yıllık kilometrenize göre otomobil sahibi olmanın masraflarıyla (MTV, Kasko, Bakım) Taksi ve TikTak/Moov gibi kiralama uygulamalarını kıyaslayın.",
+      "descriptionLength": 145,
+      "canonical": "https://otosoz.com/otohesap/arac-vs-taksi",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7%20Sahibi%20Olmak%20vs%20Taksi%20Kiralama%20Maliyet%20Hesaplama&desc=Y%C4%B1ll%C4%B1k%20kilometrenize%20g%C3%B6re%20otomobil%20sahibi%20olman%C4%B1n%20masraflar%C4%B1yla%20(MTV%2C%20Kasko%2C%20Bak%C4%B1m)%20Taksi%20ve%20TikTak%2FMoov%20gibi%20kiralama%20uygulamalar%C4%B1n%C4%B1%20k%C4%B1yaslay%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/km-basina-maliyet",
+      "status": 200,
+      "title": "Kilometre Başı Araç Maliyeti Hesaplama | OtoHesap | OtoSöz",
+      "titleLength": 58,
+      "description": "Yakıt, sigorta, kasko, MTV, bakım ve diğer giderleri ekleyerek aracınızın gerçek kilometre başı, aylık ve yıllık kullanım maliyetini hesaplayın.",
+      "descriptionLength": 144,
+      "canonical": "https://otosoz.com/otohesap/km-basina-maliyet",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Kilometre%20Ba%C5%9F%C4%B1%20Ara%C3%A7%20Maliyeti%20Hesaplama%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=Yak%C4%B1t%2C%20sigorta%2C%20kasko%2C%20MTV%2C%20bak%C4%B1m%20ve%20di%C4%9Fer%20giderleri%20ekleyerek%20arac%C4%B1n%C4%B1z%C4%B1n%20ger%C3%A7ek%20kilometre%20ba%C5%9F%C4%B1%2C%20ayl%C4%B1k%20ve%20y%C4%B1ll%C4%B1k%20kullan%C4%B1m%20maliyetini%20hesaplay%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yillik-sahip-olma-maliyeti",
+      "status": 200,
+      "title": "Araç Sahip Olma Maliyeti Hesaplama | OtoHesap | OtoSöz",
+      "titleLength": 54,
+      "description": "Araç fiyatı, değer kaybı, yakıt, vergi, sigorta ve bakım giderleriyle 1-10 yıllık toplam araç sahip olma maliyetini ücretsiz hesaplayın.",
+      "descriptionLength": 136,
+      "canonical": "https://otosoz.com/otohesap/yillik-sahip-olma-maliyeti",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ara%C3%A7%20Sahip%20Olma%20Maliyeti%20Hesaplama%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=Ara%C3%A7%20fiyat%C4%B1%2C%20de%C4%9Fer%20kayb%C4%B1%2C%20yak%C4%B1t%2C%20vergi%2C%20sigorta%20ve%20bak%C4%B1m%20giderleriyle%201-10%20y%C4%B1ll%C4%B1k%20toplam%20ara%C3%A7%20sahip%20olma%20maliyetini%20%C3%BCcretsiz%20hesaplay%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/motor-gucu-donusturme",
+      "status": 200,
+      "title": "kW - HP - PS Beygir Gücü Çevirme | OtoHesap | OtoSöz",
+      "titleLength": 52,
+      "description": "Motor gücünü kW, HP ve PS arasında anında dönüştürün. Ruhsattaki kilovat değerinin beygir gücü karşılığını doğru katsayılarla hesaplayın.",
+      "descriptionLength": 137,
+      "canonical": "https://otosoz.com/otohesap/motor-gucu-donusturme",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=kW%20-%20HP%20-%20PS%20Beygir%20G%C3%BCc%C3%BC%20%C3%87evirme%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=Motor%20g%C3%BCc%C3%BCn%C3%BC%20kW%2C%20HP%20ve%20PS%20aras%C4%B1nda%20an%C4%B1nda%20d%C3%B6n%C3%BC%C5%9Ft%C3%BCr%C3%BCn.%20Ruhsattaki%20kilovat%20de%C4%9Ferinin%20beygir%20g%C3%BCc%C3%BC%20kar%C5%9F%C4%B1l%C4%B1%C4%9F%C4%B1n%C4%B1%20do%C4%9Fru%20katsay%C4%B1larla%20hesaplay%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yakit-turu-karsilastirma",
+      "status": 200,
+      "title": "Benzin mi Dizel mi? Yakıt Maliyeti Karşılaştırma | OtoHesap",
+      "titleLength": 59,
+      "description": "Benzin, dizel, LPG ve elektrikli araçların kilometre başı ve yıllık yakıt maliyetini kendi tüketim ve birim fiyatlarınızla ücretsiz karşılaştırın.",
+      "descriptionLength": 146,
+      "canonical": "https://otosoz.com/otohesap/yakit-turu-karsilastirma",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Benzin%20mi%20Dizel%20mi%3F%20Yak%C4%B1t%20Maliyeti%20Kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rma%20%7C%20OtoHesap&desc=Benzin%2C%20dizel%2C%20LPG%20ve%20elektrikli%20ara%C3%A7lar%C4%B1n%20kilometre%20ba%C5%9F%C4%B1%20ve%20y%C4%B1ll%C4%B1k%20yak%C4%B1t%20maliyetini%20kendi%20t%C3%BCketim%20ve%20birim%20fiyatlar%C4%B1n%C4%B1zla%20%C3%BCcretsiz%20kar%C5%9F%C4%B1la%C5%9Ft%C4%B1r%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/lastik-basinci-donusturme",
+      "status": 200,
+      "title": "Lastik Basıncı PSI - Bar - kPa Çevirme | OtoHesap | OtoSöz",
+      "titleLength": 58,
+      "description": "Lastik hava basıncını PSI, bar ve kPa arasında anında dönüştürün. Pompa ve araç etiketi değerlerini ücretsiz karşılaştırın.",
+      "descriptionLength": 123,
+      "canonical": "https://otosoz.com/otohesap/lastik-basinci-donusturme",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Lastik%20Bas%C4%B1nc%C4%B1%20PSI%20-%20Bar%20-%20kPa%20%C3%87evirme%20%7C%20OtoHesap%20%7C%20OtoS%C3%B6z&desc=Lastik%20hava%20bas%C4%B1nc%C4%B1n%C4%B1%20PSI%2C%20bar%20ve%20kPa%20aras%C4%B1nda%20an%C4%B1nda%20d%C3%B6n%C3%BC%C5%9Ft%C3%BCr%C3%BCn.%20Pompa%20ve%20ara%C3%A7%20etiketi%20de%C4%9Ferlerini%20%C3%BCcretsiz%20kar%C5%9F%C4%B1la%C5%9Ft%C4%B1r%C4%B1n.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari",
+      "status": 200,
+      "title": "Açık Oto Pazarı Nerede, Hangi Gün? İl İl Rehber | OtoSöz",
+      "titleLength": 56,
+      "description": "Şehrindeki açık oto pazarının adresini, kurulduğu günü ve kaynaklarını bul. Doğrulanmış kayıtları, teyit bekleyen ve kapanmış pazarlardan ayır.",
+      "descriptionLength": 143,
+      "canonical": "https://otosoz.com/acik-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%C4%B0l%20%C4%B0l%20Rehber%20%7C%20OtoS%C3%B6z&desc=%C5%9Eehrindeki%20a%C3%A7%C4%B1k%20oto%20pazar%C4%B1n%C4%B1n%20adresini%2C%20kuruldu%C4%9Fu%20g%C3%BCn%C3%BC%20ve%20kaynaklar%C4%B1n%C4%B1%20bul.%20Do%C4%9Frulanm%C4%B1%C5%9F%20kay%C4%B1tlar%C4%B1%2C%20teyit%20bekleyen%20ve%20kapanm%C4%B1%C5%9F%20pazarlardan%20ay%C4%B1r.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/adana",
+      "status": 200,
+      "title": "Adana Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 49,
+      "description": "Belediye Evleri Oto Pazarı, Belediye Evleri Mahallesi, Çoban Yurtçu Bulvarı üzeri, Çukurova konumunda. Adana oto pazarı adres, gün, saat ve kaynak",
+      "descriptionLength": 146,
+      "canonical": "https://otosoz.com/acik-oto-pazari/adana",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Adana%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=Belediye%20Evleri%20Oto%20Pazar%C4%B1%2C%20Belediye%20Evleri%20Mahallesi%2C%20%C3%87oban%20Yurt%C3%A7u%20Bulvar%C4%B1%20%C3%BCzeri%2C%20%C3%87ukurova%20konumunda.%20Adana%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/antalya",
+      "status": 200,
+      "title": "Antalya Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 51,
+      "description": "Kepez Açık Oto Pazarı, Baraj Mahallesi, Kepez konumunda. Antalya oto pazarı adres, gün, saat ve kaynak bilgilerini kontrol edin.",
+      "descriptionLength": 128,
+      "canonical": "https://otosoz.com/acik-oto-pazari/antalya",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Antalya%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=Kepez%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%2C%20Baraj%20Mahallesi%2C%20Kepez%20konumunda.%20Antalya%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak%20bilgilerini%20kontrol%20edin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir",
+      "status": 200,
+      "title": "Balıkesir Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 53,
+      "description": "Balıkesir Açık Oto Pazarı Nerede, Hangi Gün?: Bandırma İkinci El Oto Pazarı. Balıkesir oto pazarı adres, gün, saat ve kaynak bilgilerini kontrol edin.",
+      "descriptionLength": 150,
+      "canonical": "https://otosoz.com/acik-oto-pazari/balikesir",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Bal%C4%B1kesir%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=Bal%C4%B1kesir%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%3A%20Band%C4%B1rma%20%C4%B0kinci%20El%20Oto%20Pazar%C4%B1.%20Bal%C4%B1kesir%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak%20bilgilerini%20kontrol%20edin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/bursa",
+      "status": 200,
+      "title": "Bursa Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 49,
+      "description": "İnegöl MERPA Oto Pazarı Cumartesi günü, MERPA Merkez Pazar Yeri, İnegöl konumunda. Bursa oto pazarı adres, gün, saat ve kaynak bilgilerini kontrol edin.",
+      "descriptionLength": 152,
+      "canonical": "https://otosoz.com/acik-oto-pazari/bursa",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Bursa%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=%C4%B0neg%C3%B6l%20MERPA%20Oto%20Pazar%C4%B1%20Cumartesi%20g%C3%BCn%C3%BC%2C%20MERPA%20Merkez%20Pazar%20Yeri%2C%20%C4%B0neg%C3%B6l%20konumunda.%20Bursa%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak%20bilgilerini%20kontrol%20edin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir",
+      "status": 200,
+      "title": "Eskişehir Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 53,
+      "description": "Odunpazarı Açık Oto Pazarı Pazar günü, 75. Yıl Mahallesi, Oto Center bitişiği, Odunpazarı konumunda. Eskişehir oto pazarı adres, gün, saat ve kaynak",
+      "descriptionLength": 148,
+      "canonical": "https://otosoz.com/acik-oto-pazari/eskisehir",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Eski%C5%9Fehir%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=Odunpazar%C4%B1%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Pazar%20g%C3%BCn%C3%BC%2C%2075.%20Y%C4%B1l%20Mahallesi%2C%20Oto%20Center%20biti%C5%9Fi%C4%9Fi%2C%20Odunpazar%C4%B1%20konumunda.%20Eski%C5%9Fehir%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri",
+      "status": 200,
+      "title": "Kayseri Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 51,
+      "description": "Kocasinan Açık Oto Pazarı Pazar günü, Yıldızevler Mahallesi, Oto Galericiler Sitesi çevresi, Kocasinan konumunda. Kayseri oto pazarı adres, gün, saat",
+      "descriptionLength": 149,
+      "canonical": "https://otosoz.com/acik-oto-pazari/kayseri",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Kayseri%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=Kocasinan%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Pazar%20g%C3%BCn%C3%BC%2C%20Y%C4%B1ld%C4%B1zevler%20Mahallesi%2C%20Oto%20Galericiler%20Sitesi%20%C3%A7evresi%2C%20Kocasinan%20konumunda.%20Kayseri%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/konya",
+      "status": 200,
+      "title": "Konya Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 49,
+      "description": "Karatay Açık Oto Pazarı Hafta sonu günü, Galericiler Sitesi, Karatay konumunda. Konya oto pazarı adres, gün, saat ve kaynak bilgilerini kontrol edin.",
+      "descriptionLength": 149,
+      "canonical": "https://otosoz.com/acik-oto-pazari/konya",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Konya%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=Karatay%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Hafta%20sonu%20g%C3%BCn%C3%BC%2C%20Galericiler%20Sitesi%2C%20Karatay%20konumunda.%20Konya%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak%20bilgilerini%20kontrol%20edin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kutahya",
+      "status": 200,
+      "title": "Kütahya Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 51,
+      "description": "Kütahya Açık Oto Pazarı Nerede, Hangi Gün?: Tavşanlı Açık Oto Pazarı. Kütahya oto pazarı adres, gün, saat ve kaynak bilgilerini kontrol edin.",
+      "descriptionLength": 141,
+      "canonical": "https://otosoz.com/acik-oto-pazari/kutahya",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=K%C3%BCtahya%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=K%C3%BCtahya%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%3A%20Tav%C5%9Fanl%C4%B1%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1.%20K%C3%BCtahya%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak%20bilgilerini%20kontrol%20edin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/ordu",
+      "status": 200,
+      "title": "Ordu Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 48,
+      "description": "Ordu Açık Oto Pazarı Nerede, Hangi Gün?: Fatsa Açık Oto Pazarı. Ordu oto pazarı adres, gün, saat ve kaynak bilgilerini kontrol edin.",
+      "descriptionLength": 132,
+      "canonical": "https://otosoz.com/acik-oto-pazari/ordu",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Ordu%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=Ordu%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%3A%20Fatsa%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1.%20Ordu%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak%20bilgilerini%20kontrol%20edin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/manisa",
+      "status": 200,
+      "title": "Manisa Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 50,
+      "description": "Demirci 2. El Oto Pazarı Pazar günü, Camiatik Mahallesi, Açık Pazar Yeri, Demirci konumunda. Manisa oto pazarı adres, gün, saat ve kaynak bilgilerini kontrol",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/acik-oto-pazari/manisa",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Manisa%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=Demirci%202.%20El%20Oto%20Pazar%C4%B1%20Pazar%20g%C3%BCn%C3%BC%2C%20Camiatik%20Mahallesi%2C%20A%C3%A7%C4%B1k%20Pazar%20Yeri%2C%20Demirci%20konumunda.%20Manisa%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak%20bilgilerini%20kontrol",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/sakarya",
+      "status": 200,
+      "title": "Sakarya Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 51,
+      "description": "Güneşler Açık Oto Pazarı Pazar günü, Güneşler bölgesi, Zirai Aletler ve Açık Oto Pazarı, Adapazarı konumunda. Sakarya oto pazarı adres, gün, saat ve kaynak",
+      "descriptionLength": 155,
+      "canonical": "https://otosoz.com/acik-oto-pazari/sakarya",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Sakarya%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=G%C3%BCne%C5%9Fler%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Pazar%20g%C3%BCn%C3%BC%2C%20G%C3%BCne%C5%9Fler%20b%C3%B6lgesi%2C%20Zirai%20Aletler%20ve%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%2C%20Adapazar%C4%B1%20konumunda.%20Sakarya%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/samsun",
+      "status": 200,
+      "title": "Samsun Açık Oto Pazarı Nerede, Hangi Gün? | OtoSöz",
+      "titleLength": 50,
+      "description": "Bafra 2. El Oto Pazarı Cumartesi günü, Fatih Mahallesi, Kale Sokak No:50, Bafra konumunda. Samsun oto pazarı adres, gün, saat ve kaynak bilgilerini kontrol",
+      "descriptionLength": 155,
+      "canonical": "https://otosoz.com/acik-oto-pazari/samsun",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Samsun%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Nerede%2C%20Hangi%20G%C3%BCn%3F%20%7C%20OtoS%C3%B6z&desc=Bafra%202.%20El%20Oto%20Pazar%C4%B1%20Cumartesi%20g%C3%BCn%C3%BC%2C%20Fatih%20Mahallesi%2C%20Kale%20Sokak%20No%3A50%2C%20Bafra%20konumunda.%20Samsun%20oto%20pazar%C4%B1%20adres%2C%20g%C3%BCn%2C%20saat%20ve%20kaynak%20bilgilerini%20kontrol",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "status": 200,
+      "title": "Kocasinan Açık Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 56,
+      "description": "Kocasinan Açık Oto Pazarı Pazar günü Yıldızevler Mahallesi, Oto Galericiler Sitesi çevresi, Kocasinan adresinde. Güncel adres, çalışma günü, saat, doğrulama",
+      "descriptionLength": 156,
+      "canonical": "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Kocasinan%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Kocasinan%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Pazar%20g%C3%BCn%C3%BC%20Y%C4%B1ld%C4%B1zevler%20Mahallesi%2C%20Oto%20Galericiler%20Sitesi%20%C3%A7evresi%2C%20Kocasinan%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
+      "status": 200,
+      "title": "Yahyalı Oto Pazarı — Kurulduğu Gün, Saat ve Adres | OtoSöz",
+      "titleLength": 58,
+      "description": "Yahyalı Oto Pazarı Cumartesi günü. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak bağlantılarını inceleyin.",
+      "descriptionLength": 121,
+      "canonical": "https://otosoz.com/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Yahyal%C4%B1%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres%20%7C%20OtoS%C3%B6z&desc=Yahyal%C4%B1%20Oto%20Pazar%C4%B1%20Cumartesi%20g%C3%BCn%C3%BC.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak%20ba%C4%9Flant%C4%B1lar%C4%B1n%C4%B1%20inceleyin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "status": 200,
+      "title": "Belediye Evleri Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 57,
+      "description": "Belediye Evleri Oto Pazarı Belediye Evleri Mahallesi, Çoban Yurtçu Bulvarı üzeri, Çukurova adresinde. Güncel adres, çalışma günü, saat, doğrulama tarihi",
+      "descriptionLength": 152,
+      "canonical": "https://otosoz.com/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Belediye%20Evleri%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Belediye%20Evleri%20Oto%20Pazar%C4%B1%20Belediye%20Evleri%20Mahallesi%2C%20%C3%87oban%20Yurt%C3%A7u%20Bulvar%C4%B1%20%C3%BCzeri%2C%20%C3%87ukurova%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "status": 200,
+      "title": "Kepez Açık Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 52,
+      "description": "Kepez Açık Oto Pazarı Baraj Mahallesi, Kepez adresinde. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak bağlantılarını inceleyin.",
+      "descriptionLength": 142,
+      "canonical": "https://otosoz.com/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Kepez%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Kepez%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Baraj%20Mahallesi%2C%20Kepez%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak%20ba%C4%9Flant%C4%B1lar%C4%B1n%C4%B1%20inceleyin.",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "status": 200,
+      "title": "İnegöl MERPA Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 54,
+      "description": "İnegöl MERPA Oto Pazarı Cumartesi günü MERPA Merkez Pazar Yeri, İnegöl adresinde. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak bağlantılarını",
+      "descriptionLength": 157,
+      "canonical": "https://otosoz.com/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=%C4%B0neg%C3%B6l%20MERPA%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=%C4%B0neg%C3%B6l%20MERPA%20Oto%20Pazar%C4%B1%20Cumartesi%20g%C3%BCn%C3%BC%20MERPA%20Merkez%20Pazar%20Yeri%2C%20%C4%B0neg%C3%B6l%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak%20ba%C4%9Flant%C4%B1lar%C4%B1n%C4%B1",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "status": 200,
+      "title": "Odunpazarı Açık Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 57,
+      "description": "Odunpazarı Açık Oto Pazarı Pazar günü 75. Yıl Mahallesi, Oto Center bitişiği, Odunpazarı adresinde. Güncel adres, çalışma günü, saat, doğrulama tarihi",
+      "descriptionLength": 150,
+      "canonical": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Odunpazar%C4%B1%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Odunpazar%C4%B1%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Pazar%20g%C3%BCn%C3%BC%2075.%20Y%C4%B1l%20Mahallesi%2C%20Oto%20Center%20biti%C5%9Fi%C4%9Fi%2C%20Odunpazar%C4%B1%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/tepebasi-camlica-acik-oto-pazari",
+      "status": 200,
+      "title": "Tepebaşı Çamlıca Açık Oto Pazarı — Kurulduğu Gün, Saat",
+      "titleLength": 54,
+      "description": "Tepebaşı Çamlıca Açık Oto Pazarı Pazar günü Çamlıca Kapalı Pazar Yeri, Tepebaşı adresinde. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak",
+      "descriptionLength": 151,
+      "canonical": "https://otosoz.com/acik-oto-pazari/eskisehir/tepebasi-camlica-acik-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Tepeba%C5%9F%C4%B1%20%C3%87aml%C4%B1ca%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat&desc=Tepeba%C5%9F%C4%B1%20%C3%87aml%C4%B1ca%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Pazar%20g%C3%BCn%C3%BC%20%C3%87aml%C4%B1ca%20Kapal%C4%B1%20Pazar%20Yeri%2C%20Tepeba%C5%9F%C4%B1%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+      "status": 200,
+      "title": "Karatay Açık Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 54,
+      "description": "Karatay Açık Oto Pazarı Hafta sonu günü Galericiler Sitesi, Karatay adresinde. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak bağlantılarını",
+      "descriptionLength": 154,
+      "canonical": "https://otosoz.com/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Karatay%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Karatay%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Hafta%20sonu%20g%C3%BCn%C3%BC%20Galericiler%20Sitesi%2C%20Karatay%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak%20ba%C4%9Flant%C4%B1lar%C4%B1n%C4%B1",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "status": 200,
+      "title": "Güneşler Açık Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 55,
+      "description": "Güneşler Açık Oto Pazarı Pazar günü Güneşler bölgesi, Zirai Aletler ve Açık Oto Pazarı, Adapazarı adresinde. Güncel adres, çalışma günü, saat, doğrulama",
+      "descriptionLength": 152,
+      "canonical": "https://otosoz.com/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=G%C3%BCne%C5%9Fler%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=G%C3%BCne%C5%9Fler%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20Pazar%20g%C3%BCn%C3%BC%20G%C3%BCne%C5%9Fler%20b%C3%B6lgesi%2C%20Zirai%20Aletler%20ve%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%2C%20Adapazar%C4%B1%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "status": 200,
+      "title": "Bafra 2. El Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 53,
+      "description": "Bafra 2. El Oto Pazarı Cumartesi günü Fatih Mahallesi, Kale Sokak No:50, Bafra adresinde. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak",
+      "descriptionLength": 150,
+      "canonical": "https://otosoz.com/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Bafra%202.%20El%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Bafra%202.%20El%20Oto%20Pazar%C4%B1%20Cumartesi%20g%C3%BCn%C3%BC%20Fatih%20Mahallesi%2C%20Kale%20Sokak%20No%3A50%2C%20Bafra%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
+      "status": 200,
+      "title": "Bandırma İkinci El Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 60,
+      "description": "Bandırma İkinci El Oto Pazarı — Kurulduğu Gün, Saat ve Adres: Bandırma İkinci El Oto Pazarı. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak",
+      "descriptionLength": 153,
+      "canonical": "https://otosoz.com/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Band%C4%B1rma%20%C4%B0kinci%20El%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Band%C4%B1rma%20%C4%B0kinci%20El%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres%3A%20Band%C4%B1rma%20%C4%B0kinci%20El%20Oto%20Pazar%C4%B1.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/manisa/demirci-ikinci-el-oto-pazari",
+      "status": 200,
+      "title": "Demirci 2. El Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 55,
+      "description": "Demirci 2. El Oto Pazarı Pazar günü Camiatik Mahallesi, Açık Pazar Yeri, Demirci adresinde. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak",
+      "descriptionLength": 152,
+      "canonical": "https://otosoz.com/acik-oto-pazari/manisa/demirci-ikinci-el-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Demirci%202.%20El%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Demirci%202.%20El%20Oto%20Pazar%C4%B1%20Pazar%20g%C3%BCn%C3%BC%20Camiatik%20Mahallesi%2C%20A%C3%A7%C4%B1k%20Pazar%20Yeri%2C%20Demirci%20adresinde.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kutahya/tavsanli-acik-oto-pazari",
+      "status": 200,
+      "title": "Tavşanlı Açık Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 55,
+      "description": "Tavşanlı Açık Oto Pazarı — Kurulduğu Gün, Saat ve Adres: Tavşanlı Açık Oto Pazarı. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak",
+      "descriptionLength": 143,
+      "canonical": "https://otosoz.com/acik-oto-pazari/kutahya/tavsanli-acik-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Tav%C5%9Fanl%C4%B1%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Tav%C5%9Fanl%C4%B1%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres%3A%20Tav%C5%9Fanl%C4%B1%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak",
+      "forbidden": [],
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/ordu/fatsa-acik-oto-pazari",
+      "status": 200,
+      "title": "Fatsa Açık Oto Pazarı — Kurulduğu Gün, Saat ve Adres",
+      "titleLength": 52,
+      "description": "Fatsa Açık Oto Pazarı — Kurulduğu Gün, Saat ve Adres: Fatsa Açık Oto Pazarı. Güncel adres, çalışma günü, saat, doğrulama tarihi ve kaynak bağlantılarını",
+      "descriptionLength": 152,
+      "canonical": "https://otosoz.com/acik-oto-pazari/ordu/fatsa-acik-oto-pazari",
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "image": "https://otosoz.com/api/og?title=Fatsa%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres&desc=Fatsa%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1%20%E2%80%94%20Kuruldu%C4%9Fu%20G%C3%BCn%2C%20Saat%20ve%20Adres%3A%20Fatsa%20A%C3%A7%C4%B1k%20Oto%20Pazar%C4%B1.%20G%C3%BCncel%20adres%2C%20%C3%A7al%C4%B1%C5%9Fma%20g%C3%BCn%C3%BC%2C%20saat%2C%20do%C4%9Frulama%20tarihi%20ve%20kaynak%20ba%C4%9Flant%C4%B1lar%C4%B1n%C4%B1",
+      "forbidden": [],
+      "errors": []
+    }
+  ]
+}

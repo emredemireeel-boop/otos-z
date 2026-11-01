@@ -1,0 +1,91 @@
+{
+  "checkedAt": "2026-11-01T09:47:29.058Z",
+  "base": "http://127.0.0.1:3000",
+  "mode": "all-indexable",
+  "sitemapCount": 140,
+  "sampled": 140,
+  "types": 19,
+  "parseErrors": 0,
+  "errors": 0,
+  "missingRecordDates": 81,
+  "clientEmitters": [],
+  "byType": {
+    "home": {
+      "available": 1,
+      "sampled": 1
+    },
+    "karsilastirma": {
+      "available": 1,
+      "sampled": 1
+    },
+    "piyasalar": {
+      "available": 1,
+      "sampled": 1
+    },
+    "guvenmetre": {
+      "available": 1,
+      "sampled": 1
+    },
+    "altin-anahtar": {
+      "available": 1,
+      "sampled": 1
+    },
+    "etkinlikler": {
+      "available": 1,
+      "sampled": 1
+    },
+    "hakkimizda": {
+      "available": 1,
+      "sampled": 1
+    },
+    "editoryal-politika": {
+      "available": 1,
+      "sampled": 1
+    },
+    "kaynaklar": {
+      "available": 1,
+      "sampled": 1
+    },
+    "iletisim": {
+      "available": 1,
+      "sampled": 1
+    },
+    "gizlilik-politikasi": {
+      "available": 1,
+      "sampled": 1
+    },
+    "cerez-politikasi": {
+      "available": 1,
+      "sampled": 1
+    },
+    "kullanim-sartlari": {
+      "available": 1,
+      "sampled": 1
+    },
+    "obd": {
+      "available": 6,
+      "sampled": 6
+    },
+    "forum": {
+      "available": 13,
+      "sampled": 13
+    },
+    "trafik-cezasi": {
+      "available": 39,
+      "sampled": 39
+    },
+    "otobutce": {
+      "available": 20,
+      "sampled": 20
+    },
+    "otohesap": {
+      "available": 22,
+      "sampled": 22
+    },
+    "acik-oto-pazari": {
+      "available": 27,
+      "sampled": 27
+    }
+  },
+  "results": []
+}

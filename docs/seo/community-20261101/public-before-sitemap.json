@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-11-01T09:31:05.917Z",
+  "base": "https://otosoz.com",
+  "total": 691,
+  "files": [
+    {
+      "url": "https://otosoz.com/sitemaps/core.xml",
+      "count": 15
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/arac-dna.xml",
+      "count": 374
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/obd.xml",
+      "count": 6
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/sozluk.xml",
+      "count": 0
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/kutuphane.xml",
+      "count": 109
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/makale.xml",
+      "count": 50
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/forum.xml",
+      "count": 15
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/haberler.xml",
+      "count": 14
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/trafik-cezasi.xml",
+      "count": 39
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/otohesap.xml",
+      "count": 42
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/acik-oto-pazari.xml",
+      "count": 27
+    }
+  ]
+}
