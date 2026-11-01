@@ -7,6 +7,7 @@ import Link from "@/components/PublishedLink";
 import { BookOpen, ArrowRight, MessageSquare, TrendingUp, BarChart3, Clock, Flame, ChevronRight, Plus, MapPin, Search, X, CalendarDays, Newspaper, Car, Dna, Wrench, AlertTriangle, ClipboardCheck, ShieldCheck, Lightbulb, Save, Loader2, Trash2 } from "lucide-react";
 import HomePollsClient from '@/components/HomePollsClient';
 import type { CommunitySurvey } from '@/lib/community';
+import { normalizeForumCategory } from '@/lib/forum-hub';
 import DesktopWidgets from "@/components/DesktopWidgets";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -157,6 +158,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, initial
 
     const [liveThreads, setLiveThreads] = useState<FirestoreThread[]>(() => initialThreads.map((thread) => ({
         ...thread,
+        category: normalizeForumCategory(thread.category),
         authorId: "",
         tags: [],
         urlId: /--(\d+)$/.test(thread.slug) ? Number(thread.slug.match(/--(\d+)$/)?.[1]) : undefined,
@@ -371,7 +373,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, initial
     useEffect(() => {
         if(!user){setLoadingThreads(false);return;}
         const unsub = subscribeToThreads((threads) => {
-            setLiveThreads(threads);
+            setLiveThreads(threads.map(thread => ({ ...thread, category: normalizeForumCategory(thread.category) })));
             setLoadingThreads(false);
             setLiveDates(true);
         }, 100);
