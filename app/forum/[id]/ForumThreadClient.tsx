@@ -402,7 +402,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                     <div style={{ textAlign: 'center' }}>
                         <h1 style={{ fontSize: '48px', marginBottom: '16px', color: 'var(--foreground)' }}>404</h1>
                         <p style={{ fontSize: '18px', color: 'var(--text-muted)', marginBottom: '24px' }}>Konu bulunamadi</p>
-                        <Link prefetch={false} href="/forum">
+                        <Link prefetch={false} href="/">
                             <button style={{
                                 padding: '12px 24px', background: 'var(--primary)',
                                 color: 'white', border: 'none', borderRadius: '8px',
@@ -473,7 +473,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                 }}>
                     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '16px' }}>
-                            <Link prefetch={false} href="/forum" style={{ color: 'rgba(255, 255, 255, 0.6)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <Link prefetch={false} href="/" style={{ color: 'rgba(255, 255, 255, 0.6)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
                                 <ArrowLeft size={14} /> Forum
                             </Link>
                             <span>/</span>

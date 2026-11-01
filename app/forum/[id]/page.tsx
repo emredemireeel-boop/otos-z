@@ -108,9 +108,8 @@ isPartOf: {
         '@graph': [
             discussionPosting,
             buildSchemaBreadcrumbList({itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: BASE_URL },
-                    { '@type': 'ListItem', position: 2, name: 'Forum', item: `${BASE_URL}/forum` },
-                    { '@type': 'ListItem', position: 3, name: thread.title, item: canonicalUrl },
+                    { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: BASE_URL + '/' },
+                    { '@type': 'ListItem', position: 2, name: thread.title, item: canonicalUrl },
                 ]}),
         ],
     };

@@ -394,7 +394,7 @@ export default function EhliyetHarclariClient() {
                                     <MessageSquare size={16} /> Foruma Git
                                 </button>
                             </Link>
-                            <Link href="/uzmana-sor" style={{ textDecoration: 'none' }}>
+                            <Link href="/#uzmana-sor" style={{ textDecoration: 'none' }}>
                                 <button style={{
                                     padding: '14px 28px', background: 'rgba(255,255,255,0.1)', color: 'white',
                                     border: '1px solid rgba(255,255,255,0.2)', borderRadius: '12px', fontSize: '15px', fontWeight: '700',

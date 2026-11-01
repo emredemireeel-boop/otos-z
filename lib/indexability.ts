@@ -1,4 +1,4 @@
-import {isPublishedPath} from './site-sections';
+import {isSearchDiscoverablePath} from './site-sections';
 import { isVehicleEditoriallyReviewed } from './vehicle-editorial';
 
 export const QUALITY_THRESHOLDS = {
@@ -40,7 +40,7 @@ const CORE_HUB_PATHS = new Set([
     '/hakkimizda', '/editoryal-politika', '/kaynaklar', '/iletisim', '/gizlilik-politikasi', '/cerez-politikasi', '/kullanim-sartlari',
 ]);
 export function isHubIndexable(path: string, context: { category?: string; visibleThreads?: number } = {}): boolean {
-    if (!isPublishedPath(path)) return false;
+    if (!isSearchDiscoverablePath(path)) return false;
     if (path.startsWith('/forum/kategori/')) return isForumCategoryIndexable(context.visibleThreads || 0);
     if (path.startsWith('/forum/sayfa/')) return (context.visibleThreads || 0) > 0;
     if (path === '/kutuphane' && context.category) return !['otomotiv-sozluk', 'gosterge-isiklari'].includes(context.category);

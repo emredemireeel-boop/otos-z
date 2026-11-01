@@ -23,7 +23,7 @@ const decodeXml = text => text.replace(/&(?:amp|lt|gt|quot|apos);/g, entity =>
     ({ '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&apos;': "'" })[entity]);
 const routePath = value => {
     const url = new URL(value, base);
-    return url.pathname + url.search;
+    return url.pathname + url.search + url.hash;
 };
 const localUrl = value => { const url=new URL(value,base); return url.hostname==='otosoz.com'||url.origin===base.origin ? new URL(routePath(value), base).href : url.href; };
 

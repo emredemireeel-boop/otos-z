@@ -117,7 +117,7 @@ export default function ObdPage() {
                         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                             <Link href="/kutuphane/kategori/gosterge-isiklari" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Gösterge ışıkları rehberi →</Link>
                             <Link href="/kutuphane/kategori/nereye-gitmeli" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Hangi ustaya gitmeli? →</Link>
-                            <Link href="/uzmana-sor" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Uzmana sor →</Link>
+                            <Link href="/#uzmana-sor" style={{ color: 'var(--primary)', fontSize: '14px', fontWeight: '650', textDecoration: 'none' }}>Uzmana sor →</Link>
                         </div>
                     </div>
                 </section>

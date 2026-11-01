@@ -3,6 +3,10 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 : "${PM2_APP:?Set PM2_APP to the existing OtoSoz PM2 application name}"
 port="${SEO_PREVIEW_PORT:-3011}"
+if ss -H -ltn "sport = :$port" | grep -q .; then
+    printf 'Preview port %s is occupied; refusing to validate another build.\n' "$port" >&2
+    exit 1
+fi
 candidate=".next-candidate-$(date -u +%Y%m%d%H%M%S)"
 export OTOSOZ_DIST_DIR="$candidate"
 export OTOSOZ_TSCONFIG=".tsconfig-release.json"
@@ -34,6 +38,7 @@ npm run build
 node node_modules/next/dist/bin/next start -H 127.0.0.1 --port "$port" > /tmp/otosoz-seo-preview.log 2>&1 &
 preview_pid=$!
 for ((i=0; i<60; i++)); do if curl -fsS "http://127.0.0.1:$port/robots.txt" > /dev/null; then break; fi; sleep 1; done
+kill -0 "$preview_pid"
 # A failure leaves the currently running PM2 build untouched.
 npm run seo:check -- --base "http://127.0.0.1:$port" --output docs/seo/ci/deploy
 cleanup

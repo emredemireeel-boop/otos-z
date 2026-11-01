@@ -247,8 +247,8 @@
   },
   {
     "url": "/forum",
-    "status": 200,
-    "location": null,
+    "status": 308,
+    "location": "/",
     "type": "valid:forum-hub"
   },
   {
@@ -1165,21 +1165,21 @@
   },
   {
     "url": "/uzmana-sor/ornek-dizel-arac-sogukta-beyaz-duman",
-    "status": 200,
+    "status": 404,
     "location": null,
-    "type": "valid:expert-question"
+    "type": "removed:demo-expert"
   },
   {
     "url": "/uzmana-sor/ornek-dsg-kalkista-titreme",
-    "status": 200,
+    "status": 404,
     "location": null,
-    "type": "valid:expert-question"
+    "type": "removed:demo-expert"
   },
   {
     "url": "/uzmana-sor/ornek-lastik-ebadi-degisimi",
-    "status": 200,
+    "status": 404,
     "location": null,
-    "type": "valid:expert-question"
+    "type": "removed:demo-expert"
   },
   {
     "url": "/etkinlikler/istanbul-kartal-otopazari",
@@ -1201,15 +1201,15 @@
   },
   {
     "url": "/anket/3sVPpK20DlnYNiPMSu54",
-    "status": 200,
-    "location": null,
-    "type": "valid:survey"
+    "status": 308,
+    "location": "/#anket-3sVPpK20DlnYNiPMSu54",
+    "type": "legacy:survey"
   },
   {
     "url": "/anket/KqV2UX1jFmjNTDrwwBXk",
-    "status": 200,
-    "location": null,
-    "type": "valid:survey"
+    "status": 308,
+    "location": "/#anket-KqV2UX1jFmjNTDrwwBXk",
+    "type": "legacy:survey"
   },
   {
     "url": "/profil/bmwcanavari33",
@@ -1298,7 +1298,7 @@
   {
     "url": "/forum/sayfa/1",
     "status": 308,
-    "location": "/forum",
+    "location": "/",
     "type": "forum-hub-regression"
   },
   {
@@ -1334,13 +1334,13 @@
   {
     "url": "/forum?kategori=deneyim",
     "status": 308,
-    "location": "/forum/kategori/deneyim-inceleme",
+    "location": "/#kategori-deneyim-inceleme",
     "type": "forum-hub-regression"
   },
   {
     "url": "/forum?sayfa=1",
     "status": 308,
-    "location": "/forum",
+    "location": "/",
     "type": "forum-hub-regression"
   },
   {
@@ -1351,20 +1351,20 @@
   },
   {
     "url": "/forum/kategori/deneyim-inceleme",
-    "status": 200,
-    "location": null,
+    "status": 308,
+    "location": "/#kategori-deneyim-inceleme",
     "type": "forum-hub-regression"
   },
   {
     "url": "/forum/kategori/genel",
-    "status": 200,
-    "location": null,
+    "status": 308,
+    "location": "/#kategori-genel",
     "type": "forum-hub-regression"
   },
   {
     "url": "/forum/kategori/teknik-ariza",
-    "status": 200,
-    "location": null,
+    "status": 308,
+    "location": "/#kategori-teknik-ariza",
     "type": "forum-hub-regression"
   },
   {
@@ -1376,7 +1376,7 @@
   {
     "url": "/forum/kategori/deneyim-inceleme/sayfa/1",
     "status": 308,
-    "location": "/forum/kategori/deneyim-inceleme",
+    "location": "/#kategori-deneyim-inceleme",
     "type": "forum-hub-regression"
   },
   {
@@ -1384,5 +1384,17 @@
     "status": 404,
     "location": null,
     "type": "forum-hub-regression"
+  },
+  {
+    "url": "/anket",
+    "status": 308,
+    "location": "/#anket",
+    "type": "unified:community"
+  },
+  {
+    "url": "/uzmana-sor",
+    "status": 308,
+    "location": "/#uzmana-sor",
+    "type": "unified:community"
   }
 ]

@@ -148,7 +148,7 @@ export function ExpertQuestionSidebars({ side, questionId, category }: ExpertQue
                     <span className="expert-side-kicker">Senin aracın, senin sorun</span>
                     <h2>Belirtiyi yaz, doğru görüşe daha hızlı ulaş.</h2>
                     <p>Model, motor, kilometre ve arıza anını ekleyerek yeni bir uzman sorusu oluştur.</p>
-                    <Link href="/uzmana-sor" className="expert-side-primary-link">
+                    <Link href="/#uzmana-sor" className="expert-side-primary-link">
                         Kendi sorunu sor <ArrowRight size={14} />
                     </Link>
                 </section>
@@ -227,7 +227,7 @@ export function ExpertQuestionSidebars({ side, questionId, category }: ExpertQue
                             </Link>
                         ))}
                     </div>
-                    <Link href="/uzmana-sor" className="expert-side-text-link expert-side-footer-link">
+                    <Link href="/#uzmana-sor" className="expert-side-text-link expert-side-footer-link">
                         Tüm soruları incele <ArrowRight size={13} />
                     </Link>
                 </section>

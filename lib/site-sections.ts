@@ -16,7 +16,7 @@ export const isPublishedPath = (value: string) => pausedSection(value) === null;
 /** Standalone library helpers remain useful at old URLs, without search promotion. */
 export function isSearchDiscoverablePath(value: string) {
     const path = new URL(value, 'https://otosoz.com').pathname.toLowerCase();
-    return isPublishedPath(value) && (sections.library || !/^\/(?:nasil-yapilir|gosterge|sozluk|bakim-rehberi|ikinci-el-rehberi)(?:\/|$)/.test(path));
+    return !/^\/(?:forum(?:\/(?:kategori|sayfa)(?:\/|$)|$)|anket(?:\/|$)|uzmana-sor(?:\/|$))/.test(path) && isPublishedPath(value) && (sections.library || !/^\/(?:nasil-yapilir|gosterge|sozluk|bakim-rehberi|ikinci-el-rehberi)(?:\/|$)/.test(path));
 }
 
 /** No guessed model mappings or bulk redirects to another site's home page. */

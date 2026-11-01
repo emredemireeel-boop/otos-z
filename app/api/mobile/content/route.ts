@@ -1,11 +1,12 @@
 import { siteSections, isPublishedPath } from '@/lib/site-sections';
 import { NextRequest, NextResponse } from "next/server";
 
-import { curatedSurveys } from "@/data/curated-surveys";
+import { getCommunitySurveys } from '@/lib/community-server';
+import { getForumHubThreadSummaries } from '@/lib/forumDataServer';
 import { events, eventCategories } from "@/data/events";
 import { categories as trustCategories } from "@/data/guvenmetre";
 import { turkeyBrandMarkets, turkeyModelMarkets } from "@/data/markets";
-import { SAMPLE_COMPARISONS, SAMPLE_EXPERT_QUESTIONS } from "@/data/showcase-content";
+import { SAMPLE_COMPARISONS } from "@/data/showcase-content";
 import newsData from "@/public/data/news_posts.json";
 import { getAltinAnahtarMasters } from "@/lib/altinAnahtar";
 import { createSlug, vehicleDNAData } from "@/data/vehicle-dna";
@@ -49,7 +50,7 @@ export async function GET(request: NextRequest) {
       case "events":
         return { items: events, categories: eventCategories };
       case "surveys":
-        return { items: curatedSurveys };
+        return { items: await getCommunitySurveys() };
       case "trust":
         return { items: trustCategories };
       case "masters":
@@ -62,7 +63,7 @@ export async function GET(request: NextRequest) {
       case "comparisons":
         return { items: SAMPLE_COMPARISONS };
       case "expert-questions":
-        return { items: SAMPLE_EXPERT_QUESTIONS };
+        return { items: await getForumHubThreadSummaries('Uzmana Sor') };
       case "vehicle-dna":
         return {
           items: vehicleDNAData

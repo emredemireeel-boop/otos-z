@@ -1,4 +1,5 @@
 import {sectionHttpDecision} from './lib/site-sections';
+import {communityHomeRedirect, communitySurvey} from './lib/community';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import libraryGuides from './public/data/library_guides.json';
@@ -91,7 +92,41 @@ export async function proxy(request: NextRequest) {
 
     const publication = sectionHttpDecision(decodedPath);
     if (publication?.location) return NextResponse.redirect(publication.location, publication.status);
-    if (publication) return new NextResponse('<!doctype html><html lang="tr"><head><meta name="robots" content="noindex, follow"><title>Sayfa bulunamadı | OtoSöz</title></head><body><h1>Sayfa bulunamadı</h1><p>Bu bölüm şu anda yayında değil.</p><a href="/forum">OtoSöz Forum</a><a href="/">Ana sayfa</a></body></html>', { status:404, headers:{'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':'noindex, follow','Cache-Control':'no-store'} });
+    if (publication) return new NextResponse('<!doctype html><html lang="tr"><head><meta name="robots" content="noindex, follow"><title>Sayfa bulunamadı | OtoSöz</title></head><body><h1>Sayfa bulunamadı</h1><p>Bu bölüm şu anda yayında değil.</p><a href="/">OtoSöz Forum</a></body></html>', { status:404, headers:{'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':'noindex, follow','Cache-Control':'no-store'} });
+
+    // Community lists now live on the home. Real topic URLs are never collapsed.
+    const homeTarget = communityHomeRedirect(path);
+    if (homeTarget) {
+        const legacyPage = request.nextUrl.searchParams.get('sayfa');
+        if (path === '/forum' && legacyPage && legacyPage !== '1') {
+            return new NextResponse('<!doctype html><html lang="tr"><head><meta name="robots" content="noindex, follow"><title>Sayfa bulunamadı</title></head><body><h1>Sayfa bulunamadı</h1><a href="/">Forum</a></body></html>', {status:404,headers:{'Content-Type':'text/html; charset=utf-8'}});
+        }
+        let target = homeTarget;
+        const category = request.nextUrl.searchParams.get('kategori');
+        const known = category && forumCategories.find(item => item.name === normalizeForumCategory(category));
+        if (path === '/forum' && known) target = '/#kategori-' + known.slug;
+        return NextResponse.redirect(new URL(target, request.url), 308);
+    }
+    const categoryHub = path.match(/^\/forum\/kategori\/([^/]+)(?:\/sayfa\/1)?$/);
+    if (categoryHub && forumCategories.some(item => item.slug === categoryHub[1])) {
+        return NextResponse.redirect(new URL('/#kategori-' + categoryHub[1], request.url), 308);
+    }
+    if (path === '/forum/sayfa/1') return NextResponse.redirect(new URL('/', request.url), 308);
+
+    const legacyCommunityDetail = path.match(/^\/(anket|uzmana-sor)\/([^/]+)$/);
+    if (legacyCommunityDetail) {
+        const [, kind, id] = legacyCommunityDetail;
+        if (kind === 'uzmana-sor') {
+            const {getForumThreadSeo} = await import('./lib/forumDataServer');
+            const thread = await getForumThreadSeo(id);
+            if (thread) return NextResponse.redirect(new URL('/forum/' + thread.slug, request.url), 308);
+        } else {
+            const {getPublicContentDocument} = await import('./lib/public-content-server');
+            const record = await getPublicContentDocument('surveys', id);
+            if (record && communitySurvey(id, record.data)) return NextResponse.redirect(new URL('/#anket-' + id, request.url), 308);
+        }
+        return new NextResponse('<!doctype html><html lang="tr"><head><meta name="robots" content="noindex, follow"><title>İçerik bulunamadı | OtoSöz</title></head><body><h1>İçerik bulunamadı</h1><a href="/">Foruma dön</a></body></html>', {status:404,headers:{'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':'noindex, follow'}});
+    }
 
     // Hub sayfa 1 ve eski query sayfalaması tek path canonical'a taşınır.
     // Ayrılmış segmentler tekil konu belge kimliği gibi Firestore'da aranmaz.

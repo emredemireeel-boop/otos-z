@@ -53,7 +53,7 @@ export default function LatestThreadsWidget() {
                     <Clock size={14} color="var(--text-muted)" />
                     Son başlıklar
                 </h3>
-                <Link prefetch={false} href="/forum" style={{
+                <Link prefetch={false} href="/" style={{
                     fontSize: '11px', color: 'var(--text-muted)', fontWeight: '500',
                     textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '2px',
                 }}>

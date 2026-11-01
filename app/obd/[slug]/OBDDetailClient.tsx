@@ -441,7 +441,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                                     <MessageSquare size={14} /> Foruma Git
                                 </span>
                             </Link>
-                            <Link href="/uzmana-sor" style={{ textDecoration: 'none' }}>
+                            <Link href="/#uzmana-sor" style={{ textDecoration: 'none' }}>
                                 <span style={{
                                     padding: '12px 24px', background: 'rgba(255,255,255,0.1)', color: 'white',
                                     border: '1px solid rgba(255,255,255,0.2)', borderRadius: '10px', fontSize: '14px', fontWeight: '700',
@@ -513,7 +513,7 @@ export default function OBDDetailClient({ codeData, relatedCodes, typeLabel, bra
                     <AdPlaceholder position="sidebar-obd" />
 
                     {/* ── Uzmana Sor CTA ── */}
-                    <Link href="/uzmana-sor" style={{ textDecoration: 'none' }}>
+                    <Link href="/#uzmana-sor" style={{ textDecoration: 'none' }}>
                         <div style={{
                             background: 'linear-gradient(135deg, rgba(16,185,129,0.08), rgba(16,185,129,0.02))',
                             border: '1px solid rgba(16,185,129,0.2)',

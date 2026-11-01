@@ -5,15 +5,15 @@
 ## Ana Sayfalar
 
 - [Ana Sayfa](https://otosoz.com): Araç alımı, arıza çözümü ve araç karşılaştırma için OtoSöz karar merkezi.
-- [Forum](https://otosoz.com/forum): Sunucuda listelenen gerçek otomobil başlıkları, kategori bağlantıları, ileti sayıları ve son yanıt tarihleri. Sayfalama /forum/sayfa/N, kategoriler /forum/kategori/slug biçimindedir.
+- [OtoSöz Forum](https://otosoz.com/): Gerçek otomobil başlıkları, topluluk anketleri ve ücretsiz sorular aynı ana sayfada. Tekil başlıklar /forum/slug--id adresindedir.
 - [OBD Kodları](https://otosoz.com/obd): OBD-II arıza kodları veritabanı ve açıklamaları.
 - [Karşılaştırma](https://otosoz.com/karsilastirma): Araç karşılaştırma aracı.
 - [OtoHesap](https://otosoz.com/otohesap/yakit-hesaplama): Yakıt hesaplama, MTV, ÖTV, KDV ve diğer otomotiv hesaplayıcılar.
 - [OtoBütçe](https://otosoz.com/otobutce): Bütçeye göre araç önerileri.
 - [Piyasalar](https://otosoz.com/piyasalar): Otomotiv piyasa verileri, döviz, akaryakıt fiyatları.
 - [GüvenMetre](https://otosoz.com/guvenmetre): Marka ve model güvenilirlik değerlendirmesi.
-- [Uzmana Sor](https://otosoz.com/uzmana-sor): Uzman mekanikerlere soru sorma platformu.
-- [Anket](https://otosoz.com/anket): Otomotiv anketleri ve kullanıcı oylamaları.
+- [Uzmana Sor](https://otosoz.com/#uzmana-sor): Uzman mekanikerlere soru sorma platformu.
+- [Anket](https://otosoz.com/#anket): Otomotiv anketleri ve kullanıcı oylamaları.
 - [Etkinlikler](https://otosoz.com/etkinlikler): Otomotiv etkinlikleri ve buluşmalar.
 - [Altın Anahtar](https://otosoz.com/altin-anahtar): Araç bakım ve onarım ipuçları.
 - [Trafik Cezaları](https://otosoz.com/trafik-cezasi): 2026 güncel trafik cezaları listesi.

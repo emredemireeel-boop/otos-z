@@ -3605,3 +3605,13 @@ select {
 @keyframes forum-spin { to { transform: rotate(360deg); } }
 @keyframes forum-pop-in { from { transform: translate(-50%,-50%) scale(.9); opacity: 0; } to { transform: translate(-50%,-50%) scale(1); opacity: 1; } }
 @keyframes forum-slide-up { from { transform: translateY(80px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.expert-support-choices { padding:22px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.expert-support-choice { display:flex; flex-direction:column; align-items:flex-start; gap:14px; padding:26px; border:1px solid var(--card-border); border-radius:16px; background:var(--background); color:var(--foreground); text-align:left; }
+button.expert-support-choice { cursor:pointer; border-color:var(--primary); }
+button.expert-support-choice:hover { background:var(--hover-primary); }
+.expert-support-choice > strong { font-size:20px; }
+.expert-support-choice > span { line-height:1.6; }
+.expert-choice-action { display:flex; align-items:center; gap:8px; color:var(--primary); font-weight:700; }
+.expert-support-coming { color:var(--text-muted); }
+.expert-premium-badge,.expert-coming-badge { font-size:12px!important; padding:4px 10px; border-radius:20px; background:var(--secondary); }
+@media(max-width:600px) { .expert-support-choices { grid-template-columns:1fr; } }

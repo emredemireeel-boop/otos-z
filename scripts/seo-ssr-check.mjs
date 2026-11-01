@@ -32,7 +32,7 @@ async function sitemapPages(target,seen=new Set()){
 }
 const sitemapUrls=await sitemapPages('/sitemap.xml');
 const htmlPaths=sitemapUrls.map(url=>new URL(url)).filter(url=>!url.pathname.endsWith('.xml')&&!url.pathname.startsWith('/api/')).map(url=>url.pathname+url.search);
-const targets=[...new Set([...htmlPaths,...expected.keys(),...['kullanici-deneyimleri','arac-paketleri'].map(section=>`${pathFor(models[0])}/${section}`)])];
+const targets=[...new Set([...htmlPaths,...expected.keys(),...(models.length ? ['kullanici-deneyimleri','arac-paketleri'].map(section=>`${pathFor(models[0])}/${section}`) : [])])];
 const results=[];let next=0;
 await Promise.all(Array.from({length:6},async()=>{
     while(next<targets.length){

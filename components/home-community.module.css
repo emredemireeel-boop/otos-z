@@ -1,0 +1,12 @@
+.polls { display: grid; gap: 16px; padding: 20px; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.heading h2 { font-size: 18px; font-weight: 700; }
+.heading button { color: var(--primary); cursor: pointer; font-weight: 600; }
+.poll { border: 1px solid var(--card-border); background: var(--card-bg); border-radius: 12px; padding: 18px; scroll-margin-top: 110px; }
+.poll h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.poll p { color: var(--text-muted); margin: 8px 0; }
+.poll small { color: var(--text-muted); }
+.options { display: grid; gap: 8px; margin: 16px 0; }
+.options button { display: flex; justify-content: space-between; gap: 16px; text-align: left; padding: 12px; border: 1px solid var(--card-border); border-radius: 8px; color: var(--foreground); background: var(--background); cursor: pointer; }
+.options button[aria-pressed=true] { border-color: var(--primary); }
+.options button:disabled { cursor: default; opacity: .75; }

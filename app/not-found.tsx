@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const links = [
     { href: "/", label: "Ana sayfa" },
-    { href: "/forum", label: "Forum" },
+    { href: "/", label: "Forum" },
     { href: "/obd", label: "OBD arıza kodları" },
     { href: "/otohesap", label: "OtoHesap" },
 ];

@@ -1,10 +1,12 @@
 "use client";
 import { siteSections, isPublishedPath } from '@/lib/site-sections';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import Link from "@/components/PublishedLink";
 import { BookOpen, ArrowRight, MessageSquare, TrendingUp, BarChart3, Clock, Flame, ChevronRight, Plus, MapPin, Search, X, CalendarDays, Newspaper, Car, Dna, Wrench, AlertTriangle, ClipboardCheck, ShieldCheck, Lightbulb, Save, Loader2, Trash2 } from "lucide-react";
+import HomePollsClient from '@/components/HomePollsClient';
+import type { CommunitySurvey } from '@/lib/community';
 import DesktopWidgets from "@/components/DesktopWidgets";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -70,7 +72,7 @@ const categories = [
     { name: "Tümü", count: 0, type: "topic" },
     ...FORUM_CATS.map(cat => ({ name: cat, count: 0, type: "topic" })),
     { name: "Anket", count: 0, type: "survey", special: true },
-    { name: "Uzmana Sor", count: 3, type: "expert", special: true },
+    { name: "Uzmana Sor", count: 0, type: "expert", special: true },
 ];
 
 type NewContentType = "topic" | "survey" | "expert";
@@ -121,21 +123,16 @@ const HOME_MYTHS: HomeMyth[] = [
 
 
 
-const HOME_FEATURED_EVENT = {
-    id: "istanbul-kartal-otopazari",
-    title: "Kartal Oto Pazarı (Anadolu Yakası)",
-    date: "2026-09-12T06:00:00.000Z",
-    city: "İstanbul",
-    href: "/acik-oto-pazari/istanbul/kartal-eski-oto-pazari",
-};
 
-export default function Home({ initialThreads = [], featuredDnaVehicles, discovery, selectedGuide, initialNews=[], dailySeed=0 }: { initialThreads?: ForumSeoSummary[];featuredDnaVehicles:{id:number;brand:string;model:string;dnaScore:number;totalReports:number;chronicIssueCount:number}[];discovery?:React.ReactNode;selectedGuide?:{title:string;description:string;href:string};initialNews?:{id:string|number;title:string;slug:string;readTime:number}[];dailySeed?:number }) {
+export default function Home({ initialThreads = [], featuredDnaVehicles, initialSurveys = [], selectedGuide, initialNews=[], dailySeed=0 }: { initialThreads?: ForumSeoSummary[];featuredDnaVehicles:{id:number;brand:string;model:string;dnaScore:number;totalReports:number;chronicIssueCount:number}[];initialSurveys?:CommunitySurvey[];selectedGuide?:{title:string;description:string;href:string};initialNews?:{id:string|number;title:string;slug:string;readTime:number}[];dailySeed?:number }) {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
     const user = useAuthUser();
     const [selectedCategory, setSelectedCategory] = useState<string>("Tümü");
     const [sortBy, setSortBy] = useState<"popular" | "new">("new");
     const [showNewTopicModal, setShowNewTopicModal] = useState(false);
+    const [expertStep, setExpertStep] = useState<'choice' | 'forum'>('choice');
+    const modalIntent = useRef<NewContentType | null>(null);
     const [carModelsData, setCarModelsData] = useState<Record<string, string[]>>({});
     const [newTopicData, setNewTopicData] = useState<NewTopicFormData>({ ...EMPTY_NEW_TOPIC_DATA });
     const [newSurveyOptions, setNewSurveyOptions] = useState(["Evet", "Hayır"]);
@@ -145,10 +142,12 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
     const [newTopicError, setNewTopicError] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const ITEMS_PER_PAGE = 10;
+    const ITEMS_PER_PAGE = 20;
     const randomGuide=selectedGuide;
     const randomMyth=siteSections.library && HOME_MYTHS[dailySeed%HOME_MYTHS.length];
     const latestNews=initialNews;
+
+    useEffect(() => { if (showNewTopicModal) setExpertStep('choice'); }, [showNewTopicModal]);
 
     const availableBrands = Object.keys(carModelsData).sort();
     const availableModels = newTopicData.carBrand && (carModelsData as Record<string, string[]>)[newTopicData.carBrand]
@@ -169,7 +168,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
     const formatHomeTimestamp = (timestamp: Timestamp | null) => liveDates
         ? formatTimestamp(timestamp)
         : timestamp ? new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "short", timeZone: "Europe/Istanbul" }).format(timestamp.toDate()) : "";
-    const [homeSurveys, setHomeSurveys] = useState<any[]>([]);
+    const [homeSurveys, setHomeSurveys] = useState<CommunitySurvey[]>(initialSurveys);
 
     const [globalUserMap, setGlobalUserMap] = useState<Record<string, { photoURL: string | null }>>({});
 
@@ -250,17 +249,47 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
         return () => { active = false; };
     }, [showNewTopicModal, carModelsData]);
 
-    // ── Global New Topic Modal Listener ──────────────────────────────────────
+    // The home is the sole community listing; fragments select a view without new indexable URLs.
     useEffect(() => {
-        const handleOpenModal = () => setShowNewTopicModal(true);
-        window.addEventListener('open_new_topic_modal', handleOpenModal);
-
+        const openModal = (event: Event) => {
+            const type = (event as CustomEvent).detail?.type;
+            if (type === 'expert' || type === 'survey') {
+                modalIntent.current = type;
+                setNewTopicData(previous => ({ ...previous, type, category: type === 'expert' ? 'Uzmana Sor' : 'Anket' }));
+                setExpertStep('choice');
+            }
+            setShowNewTopicModal(true);
+        };
+        const selectView = () => {
+            const hash = decodeURIComponent(window.location.hash.slice(1));
+            if (hash === 'anket' || hash.startsWith('anket-')) setSelectedCategory('Anket');
+            else if (hash === 'uzmana-sor') {
+                modalIntent.current = 'expert';
+                setSelectedCategory('Uzmana Sor');
+                setNewTopicData(previous => ({ ...previous, type: 'expert', category: 'Uzmana Sor' }));
+                setExpertStep('choice'); setShowNewTopicModal(true);
+            } else if (hash.startsWith('kategori-')) {
+                const category = FORUM_CATS.find(name => createVehicleSlug(name) === hash.slice(9));
+                if (category) setSelectedCategory(category);
+            } else if (!hash || hash === 'forum') setSelectedCategory('Tümü');
+        };
         const params = new URLSearchParams(window.location.search);
-        const initialSearch = params.get('q');
-        if (initialSearch) setSearchQuery(initialSearch);
+        if (params.get('q')) setSearchQuery(params.get('q')!);
         if (params.get('yeni') === '1') setShowNewTopicModal(true);
-
-        return () => window.removeEventListener('open_new_topic_modal', handleOpenModal);
+        selectView();
+        window.addEventListener('open_new_topic_modal', openModal);
+        window.addEventListener('hashchange', selectView);
+        const homeNavigation = (event: MouseEvent) => {
+            const anchor = (event.target as Element).closest?.('a');
+            const href = anchor?.getAttribute('href');
+            if (!['/', '/#anket', '/#uzmana-sor'].includes(href || '')) return;
+            if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+            if (href === '/#anket') setSelectedCategory('Anket');
+            else if (href === '/#uzmana-sor') { setSelectedCategory('Uzmana Sor'); openModal(new CustomEvent('open_new_topic_modal', { detail: { type: 'expert' } })); }
+            else setSelectedCategory('Tümü');
+        };
+        document.addEventListener('click', homeNavigation);
+        return () => { document.removeEventListener('click', homeNavigation); window.removeEventListener('open_new_topic_modal', openModal); window.removeEventListener('hashchange', selectView); };
     }, []);
 
     // ── Yeni başlık taslağı ve modal davranışı ───────────────────────────────
@@ -270,9 +299,9 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
             const savedDraft = localStorage.getItem(NEW_TOPIC_DRAFT_KEY);
             if (savedDraft) {
                 const parsed = JSON.parse(savedDraft);
-                const savedType: NewContentType = ["topic", "survey", "expert"].includes(parsed?.data?.type)
+                const savedType: NewContentType = modalIntent.current || (["topic", "survey", "expert"].includes(parsed?.data?.type)
                     ? parsed.data.type
-                    : "topic";
+                    : "topic");
                 const restoredData: NewTopicFormData = {
                     ...EMPTY_NEW_TOPIC_DATA,
                     ...(parsed.data || {}),
@@ -494,6 +523,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
     ];
 
     const resetNewTopicForm = () => {
+        modalIntent.current = null;
         setNewTopicData({ ...EMPTY_NEW_TOPIC_DATA });
         setNewSurveyOptions(["Evet", "Hayır"]);
         setDraftRestored(false);
@@ -502,6 +532,8 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
     };
 
     const handleContentTypeChange = (type: NewContentType) => {
+        modalIntent.current = type;
+        if (type === "expert") setExpertStep("choice");
         setNewTopicData(previous => ({
             ...previous,
             type,
@@ -511,6 +543,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
 
     const handleCreateContent = async () => {
         if (isSubmittingTopic) return;
+        if (newTopicData.type === "expert" && expertStep !== "forum") return;
         if (!titleValidation.valid) {
             setNewTopicError(titleValidation.error || "Başlığınızı kontrol edin.");
             return;
@@ -551,7 +584,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
             if (newTopicData.type === "survey") {
                 const {addDoc,collection,db,serverTimestamp}=await clientDatabase();
                 const nominees = validSurveyOptions.map((name, index) => ({ id: index + 1, name, votes: 0 }));
-                await addDoc(collection(db, "surveys"), {
+                const created = await addDoc(collection(db, "surveys"), {
                     title: newTopicData.title.trim(),
                     description: newTopicData.content.trim(),
                     category: "Genel",
@@ -564,9 +597,11 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                     createdById: user.id as string,
                     createdAt: serverTimestamp(),
                 });
+                setHomeSurveys(previous => [{ id: created.id, title: newTopicData.title.trim(), description: newTopicData.content.trim(), status: 'active', totalVotes: 0, nominees }, ...previous]);
                 resetNewTopicForm();
                 setShowNewTopicModal(false);
-                window.location.href = "/anket";
+                setSelectedCategory('Anket');
+                window.location.hash = 'anket-' + created.id;
                 return;
             }
 
@@ -639,29 +674,15 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
     // Reset page on filter change
     useEffect(() => { setCurrentPage(1); }, [selectedCategory, searchQuery, sortBy]);
 
+    useEffect(() => {
+        if (selectedCategory !== 'Anket' || !window.location.hash.startsWith('#anket-')) return;
+        document.getElementById(window.location.hash.slice(1))?.scrollIntoView({ block: 'start' });
+    }, [selectedCategory, homeSurveys]);
+
 
     const renderContent = () => {
         if (currentCat?.type === 'survey') {
-            return (
-                <div style={{ display: 'grid', gap: '16px' }}>
-                    {homeSurveys.map((survey: any) => (
-                        <Link prefetch={false} key={survey.id} href={`/anket/${survey.id}`}>
-                            <div className="survey-card">
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                                    <h3 style={{ fontSize: '18px', fontWeight: '600', color: 'var(--foreground)' }}>{survey.title}</h3>
-                                    <span style={{ fontSize: '12px', padding: '4px 10px', background: 'rgba(34, 197, 94, 0.15)', color: '#22c55e', borderRadius: '6px', fontWeight: '600' }}>
-                                        {survey.status === 'active' ? 'Aktif' : 'Tamamlandı'}
-                                    </span>
-                                </div>
-                                <div style={{ display: 'flex', gap: '16px', fontSize: '13px', color: 'var(--text-muted)' }}>
-                                    <span>📊 {survey.totalVotes.toLocaleString()} Oy</span>
-                                    <span>📅 Bitiş: {survey.endDate}</span>
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-            );
+            return <HomePollsClient polls={homeSurveys} onCreate={() => { handleContentTypeChange('survey'); setShowNewTopicModal(true); }} />;
         }
 
         if (currentCat?.type === 'expert') {
@@ -672,15 +693,15 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                     <div className="expert-empty-state">
                         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px', color: 'var(--text-muted)' }}><MessageSquare size={44} /></div>
                         <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--foreground)', marginBottom: '12px' }}>Henüz soru sorulmadı</h3>
-                        <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '24px' }}>Otomotiv uzmanlarından profesyonel cevaplar almak için ilk soruyu siz sorun!</p>
-                        <Link prefetch={false} href="/uzmana-sor" style={{ padding: '12px 24px', background: 'var(--primary)', color: 'white', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none', display: 'inline-block' }}>Uzmana Sor Sayfasına Git</Link>
+                        <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '24px' }}>Sorunuzu toplulukla paylaşın. Sürücüler ve gönüllü uzmanlar yanıtlayabilir.</p>
+                        <button type="button" className="new-topic-primary-button" onClick={() => { handleContentTypeChange('expert'); setShowNewTopicModal(true); }}>Uzmana Soru Sor</button>
                     </div>
                 );
             }
             return (
                 <div style={{ display: 'grid', gap: '16px' }}>
                     {expertThreads.slice(0, 5).map((thread) => (
-                        <Link prefetch={false} key={thread.id} href={`/uzmana-sor/${thread.id}`} style={{ textDecoration: 'none' }}>
+                        <Link prefetch={false} key={thread.id} href={getThreadSlugUrl(thread)} style={{ textDecoration: 'none' }}>
                             <div className="expert-card">
                                 <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
                                     <div style={{ flex: 1 }}>
@@ -839,7 +860,6 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
         }))
     };
 
-    const featuredEvent = HOME_FEATURED_EVENT;
     return (
         <div>
 
@@ -1162,13 +1182,13 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                         <h3 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--foreground)', display: 'flex', alignItems: 'center', gap: '8px', margin: 0 }}>
                                             <BarChart3 size={16} color="var(--primary)" /> Aktif Anketler
                                         </h3>
-                                        <Link prefetch={false} href="/anket" style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                        <Link prefetch={false} href="/#anket" style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: '600', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
                                             Tümünü gör <ChevronRight size={14} />
                                         </Link>
                                     </div>
                                     <div style={{ display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: '4px' }}>
                                         {homeSurveys.slice(0, 3).map((survey: any) => (
-                                            <Link prefetch={false} key={survey.id} href={`/anket/${survey.id}`} style={{ textDecoration: 'none', minWidth: '200px', flex: '1' }}>
+                                            <Link prefetch={false} key={survey.id} href={`/#anket-${survey.id}`} style={{ textDecoration: 'none', minWidth: '200px', flex: '1' }}>
                                                 <div style={{
                                                     padding: '12px 16px',
                                                     background: 'var(--secondary)',
@@ -1350,56 +1370,12 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                     </Link>
                                 </section>}
 
-                                {featuredEvent && (
-                                    <section className="forum-sidebar-card forum-event-card forum-sidebar-bottom">
-                                        <span className="forum-sidebar-kicker">Takvim</span>
-                                        <div className="forum-event-meta">
-                                            <span className="forum-event-date">
-                                                <CalendarDays size={15} />
-                                                {new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'short' }).format(new Date(featuredEvent.date))}
-                                            </span>
-                                            <span>{featuredEvent.city}</span>
-                                        </div>
-                                        <h2>{featuredEvent.title}</h2>
-                                        <Link prefetch={false} href={featuredEvent.href} className="forum-card-link">
-                                            Etkinliği incele <ArrowRight size={14} />
-                                        </Link>
-                                    </section>
-                                )}
+
                             </div>
                         </DesktopWidgets></aside>
                     </div>
                 </div>
 
-                {(siteSections.vehicleDna || siteSections.library) && <section className="home-seo-guide" aria-labelledby="home-seo-guide-title">
-                    <div className="home-seo-guide-heading">
-                        <span>OtoSöz karar rehberi</span>
-                        <h2 id="home-seo-guide-title">Araç alımı, arıza çözümü ve otomobil karşılaştırma rehberi</h2>
-                        <p>Karar vermeden önce gerçek sürücü deneyimini, uzman bilgisini ve düzenli araç verisini aynı yerde inceleyin.</p>
-                    </div>
-                    <div className="home-seo-guide-grid">
-                        <article>
-                            <h3>Açık oto pazarı hangi gün?</h3>
-                            <p>Şehrindeki pazarın adresini, kurulduğu günü ve kaynaklarını kontrol et. Aktif, teyit bekleyen ve kapanmış kayıtları ayırt et.</p>
-                            <Link prefetch={false} href="/acik-oto-pazari">İl il oto pazarı rehberini aç <ArrowRight size={14} /></Link>
-                        </article>
-                        <article>
-                            <h3>Araba alırken doğru karar</h3>
-                            <p>Araç DNA dosyalarında kronik sorunları, kullanıcı raporlarını ve model bazlı güçlü-zayıf yönleri karşılaştırın.</p>
-                            <Link prefetch={false} href="/arac-dna">Araç DNA analizlerini incele <ArrowRight size={14} /></Link>
-                        </article>
-                        <article>
-                            <h3>Otomobil arızasını doğru tanı</h3>
-                            <p>Belirtileri uzmanlara sorun; OBD arıza kodları ve bakım rehberleriyle olası nedeni araştırın.</p>
-                            <Link prefetch={false} href="/obd">OBD arıza kodlarını bul <ArrowRight size={14} /></Link>
-                        </article>
-                        <article>
-                            <h3>İki aracı verilerle karşılaştır</h3>
-                            <p>Yakıt, kullanım maliyeti, sürücü görüşü ve topluluk oyuyla seçeneklerinizi yan yana değerlendirin.</p>
-                            <Link prefetch={false} href="/karsilastirma">Araç karşılaştırmaya başla <ArrowRight size={14} /></Link>
-                        </article>
-                    </div>
-                </section>}
             </main>
 
 
@@ -1424,8 +1400,8 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                         <header className="new-topic-modal-header">
                             <div>
                                 <span className="new-topic-modal-kicker"><MessageSquare size={13} /> Topluluğa katkı</span>
-                                <h2 id="new-topic-modal-title">Yeni başlık aç</h2>
-                                <p>Konuyu net anlatın; doğru sürücüler daha hızlı yanıt versin.</p>
+                                <h2 id="new-topic-modal-title">{newTopicData.type === 'expert' ? 'Uzmana Soru Sor' : newTopicData.type === 'survey' ? 'Anket oluştur' : 'Yeni başlık aç'}</h2>
+                                <p>{newTopicData.type === 'expert' && expertStep === 'choice' ? 'Nasıl soru sormak istiyorsun?' : 'Konuyu net anlatın; topluluk deneyimlerini paylaşsın.'}</p>
                             </div>
                             <button
                                 type="button"
@@ -1445,7 +1421,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                 void handleCreateContent();
                             }}
                         >
-                            <div className="new-topic-type-grid" role="group" aria-label="İçerik türü">
+                            {!(newTopicData.type === 'expert' && expertStep === 'choice') && <div className="new-topic-type-grid" role="group" aria-label="İçerik türü">
                                 {([
                                     { id: "topic", label: "Forum başlığı", description: "Deneyim veya tartışma", icon: MessageSquare },
                                     { id: "survey", label: "Anket", description: "Topluluğun fikrini al", icon: BarChart3 },
@@ -1469,8 +1445,19 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                         </button>
                                     );
                                 })}
-                            </div>
+                            </div>}
 
+                            {newTopicData.type === 'expert' && expertStep === 'choice' ? (
+                                <div className="expert-support-choices">
+                                    <button type="button" className="expert-support-choice" onClick={() => setExpertStep('forum')}>
+                                        <MessageSquare size={24} /><strong>Foruma Sor</strong><span>Topluluk ve gönüllü uzmanlar yanıtlar. Ücretsiz.</span><span className="expert-choice-action">Sorumu yaz <ArrowRight size={16} /></span>
+                                    </button>
+                                    <div className="expert-support-choice expert-support-coming" aria-disabled="true">
+                                        <span className="expert-premium-badge">PREMİUM</span><strong>Profesyonel Destek Al</strong><span>Bizzat ustaya gider, foruma düşmez. Alım-satım, arıza veya kaza desteği.</span><strong className="expert-coming-badge">Yakında</strong>
+                                    </div>
+                                </div>
+                            ) : <>
+                            {newTopicData.type === 'expert' && <button type="button" className="new-topic-text-button" onClick={() => setExpertStep('choice')}>← Destek seçimine dön</button>}
                             <div className="new-topic-modal-layout">
                                 <div className="new-topic-form-column">
                                     <div className="new-topic-field">
@@ -1744,11 +1731,11 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                                 : "Başlığı yayınla"}
                                 </button>
                             </footer>
+                            </>}
                         </form>
                     </section>
                 </div>
             )}
-            {discovery}
             <Footer />
         </div >
     );

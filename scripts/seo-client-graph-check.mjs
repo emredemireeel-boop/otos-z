@@ -34,6 +34,6 @@ function filesJs(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(en
 const clioMatches=chunks.filter(file=>fs.readFileSync(file,'utf8').includes('Clio')).map(file=>({file,context:fs.readFileSync(file,'utf8').match(/.{0,45}Clio.{0,90}/)?.[0]}));
 const report={checkedAt:new Date().toISOString(),dist,clientEntries:entries.length,checkedModules:parsed.size,
     forbiddenRuntimeImports:violations.length,violations,chunkCount:chunks.length,clioChunkMatches:clioMatches};
-fs.writeFileSync('docs/seo/step04-client-graph.json',JSON.stringify(report,null,2)+'\n');
+fs.writeFileSync(process.argv[3] || 'docs/seo/step04-client-graph.json',JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));
 process.exitCode=violations.length || clioMatches.length ? 1 : 0;

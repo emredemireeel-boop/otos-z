@@ -16,7 +16,7 @@ test('Only the DNA entry point redirects externally; no guessed model redirects'
 });
 test('Publication state vetoes even otherwise quality-qualified sitemap candidates',{skip:Object.values(siteSections).some(Boolean)},()=>{
     for(const path of ['/arac-dna','/arac-dna/renault/clio-5-nesil-2020-2025','/kutuphane/kategori/ikinci-el-rehberi','/haberler','/makale'])assert.equal(isSeoUrlIndexable(path),false);
-    assert.equal(isSeoUrlIndexable('/forum'),true);
+    assert.equal(isSeoUrlIndexable('/forum'),false);
 });
 test('Disconnected library helpers cannot override noindex through explicit metadata options',{skip:siteSections.library},()=>{
     const {createPageMetadata}=loadSource('lib/seo.ts');

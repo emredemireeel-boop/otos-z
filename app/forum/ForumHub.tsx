@@ -72,7 +72,7 @@ itemListElement: data.visible.map((thread, index) => ({ '@type': 'ListItem',
                     </div>
                 </header>
                 <nav className={styles.categories} aria-label="Forum kategorileri">
-                    <Link href="/forum" aria-current={!categorySlug ? 'page' : undefined}>Tüm başlıklar ({allThreads.length})</Link>
+                    <Link href="/" aria-current={!categorySlug ? 'page' : undefined}>Tüm başlıklar ({allThreads.length})</Link>
                     {forumCategories.map(category => <Link key={category.slug}
                         href={forumHubPath(1, category.slug)} aria-current={category.slug === categorySlug ? 'page' : undefined}>
                         {category.name} ({allThreads.filter(thread => thread.category === category.name).length})
@@ -91,7 +91,7 @@ itemListElement: data.visible.map((thread, index) => ({ '@type': 'ListItem',
                             </div>
                         </li>)}
                     </ol>
-                    {!data.visible.length ? <p>Bu kategoride henüz görünür başlık yok. Diğer kategorilerdeki konuşmalara <Link href="/forum">forum merkezinden</Link> ulaşabilirsiniz.</p> : null}
+                    {!data.visible.length ? <p>Bu kategoride henüz görünür başlık yok. Diğer kategorilerdeki konuşmalara <Link href="/">forum merkezinden</Link> ulaşabilirsiniz.</p> : null}
                 </section>
                 {data.pages > 1 ? <nav className={styles.pagination} aria-label="Forum sayfaları">
                     {page > 1 ? <Link rel="prev" href={forumHubPath(page - 1, categorySlug)}>Önceki</Link> : null}

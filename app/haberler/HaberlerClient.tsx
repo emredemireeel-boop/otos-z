@@ -181,7 +181,7 @@ export default function HaberlerClient({ initialPosts = [] ,breadcrumbs}: { init
                                 </div>
                                 <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'white', marginBottom: '12px' }}>Sorunuz mu var?</h3>
                                 <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '24px', lineHeight: 1.6 }}>Otomobilinizle ilgili tüm teknik soruları uzmanlarımıza ücretsiz sorabilirsiniz.</p>
-                                <Link href="/uzmana-sor">
+                                <Link href="/#uzmana-sor">
                                     <button style={{ width: '100%', padding: '14px', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '12px', fontSize: '14px', fontWeight: '700', cursor: 'pointer', transition: 'background 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.background = '#2563eb'} onMouseLeave={(e) => e.currentTarget.style.background = '#3b82f6'}>
                                         Uzmana Sor
                                     </button>

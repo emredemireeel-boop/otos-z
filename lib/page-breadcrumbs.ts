@@ -39,7 +39,7 @@ const libraryParents:Record<string,string>={'ilginc':'ilginc-bilgiler','otoyol-u
 export function pageBreadcrumbItems(value:string,label?:string):BreadcrumbItem[]{
  const url=new URL(value,SITE);if(url.origin!==SITE)throw new Error('Breadcrumb URL must use canonical host');
  const path=url.pathname.replace(/\/$/,'')||'/',parts=path.split('/').filter(Boolean),items:BreadcrumbItem[]=[{name:names['/'],url:SITE+'/'}];
- const push=(p:string,name=names[p])=>{if(name&&isPublishedPath(p)&&items.at(-1)?.url!==SITE+p)items.push({name,url:SITE+p});};
+ const push=(p:string,name=names[p])=>{if(name&&!['/forum','/anket','/uzmana-sor'].includes(p)&&isPublishedPath(p)&&items.at(-1)?.url!==SITE+p)items.push({name,url:SITE+p});};
  if(path==='/')return items;
  if(parts.length>1){push('/'+parts[0]);if(parts[0]==='arac-dna'){if(parts[1])push('/arac-dna/'+parts[1]);if(parts.length>3)push('/'+parts.slice(0,3).join('/'));}
  if(parts[0]==='acik-oto-pazari'&&parts.length>2)push('/acik-oto-pazari/'+parts[1]);

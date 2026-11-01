@@ -204,17 +204,14 @@ export default function Navbar() {
 
 
     const navLinks = [
-        { name: 'Forum', href: '/forum' },
-        { name: 'Anket', href: '/anket' },
-        { name: 'Uzmana Sor', href: '/uzmana-sor' },
-        { name: 'Karşılaştırma', href: '/karsilastirma' },
+        { name: 'Forum', href: '/' },
+        { name: 'Anket', href: '/#anket' },
+        { name: 'Uzmana Sor', href: '/#uzmana-sor' },
         { name: siteSections.vehicleDna ? 'Araç DNA' : 'OtoKusur', href: siteSections.vehicleDna ? '/arac-dna' : 'https://otokusur.com/' },
         ...(siteSections.library ? [{ name: 'Kütüphane', href: '/kutuphane' }] : []),
         ...(siteSections.news ? [{ name: 'Haberler', href: '/haberler' }] : []),
         { name: 'OtoHesap', href: '/otohesap' },
-        { name: 'Altın Anahtar', href: '/altin-anahtar' },
-        { name: 'Etkinlikler', href: '/etkinlikler' },
-        { name: 'Güvenmetre', href: '/guvenmetre' },
+        { name: 'OBD Kodları', href: '/obd' },
     ];
 
     return (

@@ -131,7 +131,7 @@ export default function QuestionDetailPage({ initialPage = 1 }: { initialPage?: 
                     <div style={{ textAlign: 'center' }}>
                         <h1 style={{ fontSize: '48px', marginBottom: '16px', color: 'var(--foreground)' }}>404</h1>
                         <p style={{ fontSize: '18px', color: 'var(--text-muted)', marginBottom: '24px' }}>Soru bulunamadı</p>
-                        <Link href="/uzmana-sor"><button style={{ padding: '12px 24px', background: 'var(--foreground)', color: 'var(--card-bg)', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Sorulara dön</button></Link>
+                        <Link href="/#uzmana-sor"><button style={{ padding: '12px 24px', background: 'var(--foreground)', color: 'var(--card-bg)', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Sorulara dön</button></Link>
                     </div>
                 </main><Footer />
             </div>
@@ -148,7 +148,7 @@ export default function QuestionDetailPage({ initialPage = 1 }: { initialPage?: 
                     borderBottom: '1px solid var(--card-border)', padding: '32px 24px'
                 }}>
                     <div className="expert-detail-header-inner">
-                        <Link href="/uzmana-sor" style={{ color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '14px', marginBottom: '16px' }}>
+                        <Link href="/#uzmana-sor" style={{ color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '14px', marginBottom: '16px' }}>
                             <ArrowLeft size={14} /> Uzmana Sor
                         </Link>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
@@ -263,7 +263,7 @@ export default function QuestionDetailPage({ initialPage = 1 }: { initialPage?: 
                                 <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: 1.6, marginBottom: '16px' }}>
                                     Örnek kayda yanıt gönderilmez. Kendi araç sorunuzu açarak topluluktan ve uzmanlardan görüş alabilirsiniz.
                                 </p>
-                                <Link href="/uzmana-sor" style={{ display: 'inline-flex', padding: '11px 20px', background: 'var(--foreground)', color: 'var(--card-bg)', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none' }}>
+                                <Link href="/#uzmana-sor" style={{ display: 'inline-flex', padding: '11px 20px', background: 'var(--foreground)', color: 'var(--card-bg)', borderRadius: '10px', fontSize: '14px', fontWeight: '700', textDecoration: 'none' }}>
                                     Kendi sorunu sor
                                 </Link>
                             </div>
