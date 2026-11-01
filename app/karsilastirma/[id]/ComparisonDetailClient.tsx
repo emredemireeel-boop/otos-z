@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -320,11 +320,11 @@ export default function ComparisonDetailClient({threadId,sampleComparison,server
                                                                 )}
                                                             </div>
                                                             <div style={{ display: 'flex', gap: '12px' }}>
-                                                                <a href={v.url} target={v.url.startsWith('/') ? undefined : '_blank'} rel={v.url.startsWith('/') ? undefined : 'noopener noreferrer'} style={{ flex: 1, padding: '12px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '14px', fontWeight: '700', transition: 'all 0.2s' }}
+                                                                <Link href={v.url} target={v.url.startsWith('/') ? undefined : '_blank'} rel={v.url.startsWith('/') ? undefined : 'noopener noreferrer'} style={{ flex: 1, padding: '12px', background: 'var(--secondary)', border: '1px solid var(--card-border)', borderRadius: '10px', color: 'var(--foreground)', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '14px', fontWeight: '700', transition: 'all 0.2s' }}
                                                                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--foreground)'; e.currentTarget.style.background = 'var(--card-bg)'; }}
                                                                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--card-border)'; e.currentTarget.style.background = 'var(--secondary)'; }}>
                                                                     <ExternalLink size={16} /> {v.url.startsWith('/') ? 'Araç DNA' : 'İlana git'}
-                                                                </a>
+                                                                </Link>
                                                                 <button onClick={() => handleVehicleVote(v.name)}
                                                                         disabled={isSample || votingVehicle === v.name}
                                                                         style={{ flex: 1, padding: '12px', background: isVoted ? '#22c55e' : 'rgba(34, 197, 94, 0.1)', border: '1px solid', borderColor: isVoted ? '#22c55e' : 'rgba(34, 197, 94, 0.3)', borderRadius: '10px', color: isVoted ? 'white' : '#22c55e', fontSize: '14px', fontWeight: '800', cursor: isSample ? 'not-allowed' : votingVehicle === v.name ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', transition: 'all 0.2s' }}>
