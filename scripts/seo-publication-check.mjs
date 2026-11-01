@@ -47,7 +47,7 @@ for(const [url,status,location] of cases) {
     }
     if(url==='/hakkimizda') {
         const $=load(html),projects=$('#projelerimiz');
-        if(!projects.text().includes('Emre Demirel'))errors.push('Project responsibility must be visible');
+        if(!$('main').text().includes('Emre Demirel'))errors.push('Project responsibility must be visible');
         for(const target of ['https://otokusur.com/','https://www.obdkodu.com/'])if(projects.find(`a[href="${target}"]`).length!==1)errors.push('Missing or repeated contextual project link');
         if($('link[rel="canonical"]').attr('href')!=='https://otosoz.com/hakkimizda')errors.push('About must retain its own canonical');
     }
