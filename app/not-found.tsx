@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const links = [
     { href: "/", label: "Ana sayfa" },
-    { href: "/kutuphane", label: "Kütüphane" },
+    { href: "/forum", label: "Forum" },
     { href: "/obd", label: "OBD arıza kodları" },
-    { href: "/arac-dna", label: "Araç DNA" },
+    { href: "/otohesap", label: "OtoHesap" },
 ];
 
 export default function NotFound() {

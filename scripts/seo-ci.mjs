@@ -21,6 +21,7 @@ try{
     await run('metadata','scripts/seo-metadata-audit.mjs',[base,path.join(out,'metadata.json')]);
     await run('links','scripts/seo-link-check.mjs',['--base',base,'--report',path.join(out,'links.json')]);
     await run('styles','scripts/seo-forum-style-check.mjs',[base,path.join(out,'styles.json')]);
+    await run('publication','scripts/seo-publication-check.mjs',['--base',base,'--report',path.join(out,'publication.json')]);
     console.log('SEO checks passed.');
 }catch(e){console.error(e.message);process.exitCode=1;}
-finally{if(server)server.kill();fs.writeFileSync(path.join(out,'summary.json'),JSON.stringify({checkedAt:new Date().toISOString(),base,passed:results.length===6&&results.every(r=>r.exitCode===0),results},null,2)+'\n');}
+finally{if(server)server.kill();fs.writeFileSync(path.join(out,'summary.json'),JSON.stringify({checkedAt:new Date().toISOString(),base,passed:results.length===7&&results.every(r=>r.exitCode===0),results},null,2)+'\n');}

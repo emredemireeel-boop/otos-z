@@ -1,6 +1,7 @@
 "use client";
+import { siteSections, isPublishedPath } from '@/lib/site-sections';
 
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import Image from "next/image";
 import { Youtube, Instagram, MapPin, Mail } from "lucide-react";
 import CookieSettingsTrigger from "@/components/CookieSettingsTrigger";
@@ -67,7 +68,7 @@ export default function Footer() {
 
                     <nav className="site-footer-nav" aria-labelledby="site-footer-guides-title">
                         <h2 id="site-footer-guides-title">Karar araçları</h2>
-                        {guideLinks.map(link => <Link prefetch={false} key={link.href} href={link.href}>{link.label}</Link>)}
+                        {guideLinks.filter(link => isPublishedPath(link.href)).map(link => <Link prefetch={false} key={link.href} href={link.href}>{link.label}</Link>)}
                     </nav>
 
                     <nav className="site-footer-nav" aria-labelledby="site-footer-corporate-title">
@@ -79,7 +80,7 @@ export default function Footer() {
 
                 <div className="site-footer-bottom">
                     <p>© {currentYear} OtoSöz. Tüm hakları saklıdır.</p>
-                    <span>Türkiye&apos;nin otomotiv karar platformu</span>
+                    <span>Otomobil soru ve deneyim topluluğu</span>
                 </div>
             </div>
         </footer>

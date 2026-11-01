@@ -3,7 +3,7 @@ import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isGuideIndexable, qualityContentText } from '@/lib/indexability';
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

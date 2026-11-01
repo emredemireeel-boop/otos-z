@@ -1,3 +1,4 @@
+import {isPublishedPath} from './site-sections';
 import 'server-only';
 import { isHubIndexable, isVehicleIndexable, isVehicleSectionIndexable } from './indexability';
 import { vehicleDNAData, createSlug } from '../data/vehicle-dna';
@@ -32,6 +33,7 @@ export function isSeoUrlIndexable(value: string, context: { indexableThreads?: S
     const url = new URL(value, 'https://otosoz.com');
     if (url.origin !== 'https://otosoz.com' || url.pathname !== url.pathname.toLowerCase()
         || (url.pathname.length > 1 && url.pathname.endsWith('/'))) return false;
+    if (!isPublishedPath(url.href)) return false;
     const p = url.pathname.split('/').filter(Boolean);
     if (p[0] === 'kutuphane' && p[1] === 'kategori' && p.length === 3 && !url.search) {
         return CATEGORIES.some(item=>item.slug===p[2]) && isHubIndexable('/kutuphane',{category:p[2]});

@@ -1,8 +1,9 @@
 "use client";
+import { siteSections, isPublishedPath } from '@/lib/site-sections';
 
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import { BookOpen, ArrowRight, MessageSquare, TrendingUp, BarChart3, Clock, Flame, ChevronRight, Plus, MapPin, Search, X, CalendarDays, Newspaper, Car, Dna, Wrench, AlertTriangle, ClipboardCheck, ShieldCheck, Lightbulb, Save, Loader2, Trash2 } from "lucide-react";
 import DesktopWidgets from "@/components/DesktopWidgets";
 import Navbar from "@/components/Navbar";
@@ -146,7 +147,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
     const [currentPage, setCurrentPage] = useState(1);
     const ITEMS_PER_PAGE = 10;
     const randomGuide=selectedGuide;
-    const randomMyth=HOME_MYTHS[dailySeed%HOME_MYTHS.length];
+    const randomMyth=siteSections.library && HOME_MYTHS[dailySeed%HOME_MYTHS.length];
     const latestNews=initialNews;
 
     const availableBrands = Object.keys(carModelsData).sort();
@@ -850,8 +851,8 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                     <div className="forum-subheader-inner">
                         <div className="subheader-row forum-subheader-row">
                             <div className="forum-page-heading">
-                                <span className="forum-page-eyebrow">OtoSöz karar topluluğu</span>
-                                        <h1>Otomobil forumu ve araç rehberi</h1>
+                                <span className="forum-page-eyebrow">Otomobil soru ve deneyim topluluğu</span>
+                                        <h1>OtoSöz Otomobil Forumu</h1>
                                 <p>Kararını gerçek sürücü deneyimleri ve teknik çözümlerle güçlendir.</p>
                             </div>
 
@@ -960,7 +961,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                         <Link prefetch={false} href="/kutuphane" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                                     </div>
                                     <div className="forum-resource-list">
-                                        {DRIVER_ESSENTIALS.map(({ href, title, description, icon: ToolIcon }) => (
+                                        {DRIVER_ESSENTIALS.filter(item=>isPublishedPath(item.href)).map(({ href, title, description, icon: ToolIcon }) => (
                                             <Link prefetch={false} key={href} href={href} className="forum-resource-row">
                                                 <span className="forum-resource-icon"><ToolIcon size={15} /></span>
                                                 <span className="forum-resource-copy">
@@ -1322,7 +1323,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                     </section>
                                 )}
 
-                                <section className="forum-sidebar-card forum-dna-card forum-sidebar-fill" aria-labelledby="featured-dna-title">
+                                {siteSections.vehicleDna && <section className="forum-sidebar-card forum-dna-card forum-sidebar-fill" aria-labelledby="featured-dna-title">
                                     <div className="forum-sidebar-heading">
                                         <div>
                                             <span className="forum-sidebar-kicker">Araç DNA&apos;dan</span>
@@ -1347,7 +1348,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                                     <Link prefetch={false} href="/arac-dna" className="forum-card-link forum-card-footer-link">
                                         Tüm araçları keşfet <ArrowRight size={14} />
                                     </Link>
-                                </section>
+                                </section>}
 
                                 {featuredEvent && (
                                     <section className="forum-sidebar-card forum-event-card forum-sidebar-bottom">
@@ -1370,7 +1371,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                     </div>
                 </div>
 
-                <section className="home-seo-guide" aria-labelledby="home-seo-guide-title">
+                {(siteSections.vehicleDna || siteSections.library) && <section className="home-seo-guide" aria-labelledby="home-seo-guide-title">
                     <div className="home-seo-guide-heading">
                         <span>OtoSöz karar rehberi</span>
                         <h2 id="home-seo-guide-title">Araç alımı, arıza çözümü ve otomobil karşılaştırma rehberi</h2>
@@ -1398,7 +1399,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, discove
                             <Link prefetch={false} href="/karsilastirma">Araç karşılaştırmaya başla <ArrowRight size={14} /></Link>
                         </article>
                     </div>
-                </section>
+                </section>}
             </main>
 
 

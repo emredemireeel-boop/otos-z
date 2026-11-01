@@ -1,7 +1,8 @@
+import {siteSections} from '@/lib/site-sections';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import {collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemList} from '@/lib/schema';
 import {schemaJson} from '@/lib/schema';
-import Link from 'next/link';
+import Link from '@/components/PublishedLink';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -103,7 +104,7 @@ itemListElement: data.visible.map((thread, index) => ({ '@type': 'ListItem',
                     <p>Bir başlığı değerlendirirken marka, model, üretim yılı, motor, kilometre ve bakım geçmişini birlikte düşünün. Aynı belirti farklı araçlarda farklı nedenlerden kaynaklanabilir. Paylaşımları okurken önerilen işlemin hangi bulguyla desteklendiğine, işlemin sonucunun yazılıp yazılmadığına ve benzer araçlardan yanıt gelip gelmediğine bakın.</p>
                     <h2>Sorunuzu anlaşılır biçimde paylaşın</h2>
                     <p>Yeni bir soru hazırlarken önce benzer başlıkları okuyun. Belirtinin ne zaman başladığını, soğuk veya sıcak motorda görülüp görülmediğini, ekrandaki uyarıyı ve yakın zamanda yapılan işlemleri yazın. Arıza kodu varsa kodu eksiksiz belirtin. Araştırmanız ilerledikçe yaptığınız kontrolleri ve elde ettiğiniz sonucu aynı başlığa ekleyin; sonraki okuyucular da çözümün hangi araçta işe yaradığını takip edebilsin.</p>
-                    <p>Teknik terimleri kontrol etmek için <Link href="/kutuphane">bilgi kütüphanesine</Link>, kod açıklamaları için <Link href="/obd">OBD merkezine</Link>, model ve motor seçenekleri için <Link href="/arac-dna">Araç DNA sayfalarına</Link> bakabilirsiniz. Uzun rehberleri <Link href="/makale">Makaleler</Link> bölümünde bulabilirsiniz. Konuşmalara katılmak için <Link href="/giris">hesabınıza giriş yapın</Link>.</p>
+                    {siteSections.library && siteSections.vehicleDna ? <p>Teknik terimleri kontrol etmek için <Link href="/kutuphane">bilgi kütüphanesine</Link>, kod açıklamaları için <Link href="/obd">OBD merkezine</Link>, model ve motor seçenekleri için <Link href="/arac-dna">Araç DNA sayfalarına</Link> bakabilirsiniz. Uzun rehberleri <Link href="/makale">Makaleler</Link> bölümünde bulabilirsiniz. Konuşmalara katılmak için <Link href="/giris">hesabınıza giriş yapın</Link>.</p> : <p>Arıza kodlarını <Link href="/obd">OBD merkezinde</Link> araştırın. Soru sormak veya deneyiminizi paylaşmak için <Link href="/giris">hesabınıza giriş yapın</Link>.</p>}
                 </section>
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaJson(schema) }} />
             </div>

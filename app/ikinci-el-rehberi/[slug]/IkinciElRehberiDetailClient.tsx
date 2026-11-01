@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowLeft, ShieldCheck, AlertOctagon, Info, Activity, AlertCircle, TrendingDown, ClipboardList, HelpCircle } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 
 interface IkinciElRehberiDetailClientProps {
     rehberItem: any;

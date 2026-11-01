@@ -4,6 +4,7 @@ import {loadSource} from '../scripts/seo-quality-loader.mjs';
 const {CATEGORIES,getLibraryCategoryRedirect,libraryCategoryPath}=loadSource('lib/library-categories.ts');
 const {urlset,xmlEscape}=loadSource('lib/sitemap-xml.ts');
 const {isSeoUrlIndexable}=loadSource('lib/seo-index-catalog.ts');
+const {siteSections}=loadSource('lib/site-sections.ts');
 test('Every legacy category query resolves directly to a canonical route',()=>{
  for(const cat of CATEGORIES){assert.equal(getLibraryCategoryRedirect(cat.slug),libraryCategoryPath(cat.slug));assert.ok(!getLibraryCategoryRedirect(cat.slug).includes('?'));}
  assert.equal(getLibraryCategoryRedirect('ehliyet-sinifari'),'/kutuphane/kategori/ehliyet-siniflari');
@@ -12,7 +13,7 @@ test('Every legacy category query resolves directly to a canonical route',()=>{
 });
 test('The quality registry rejects query duplicates and retains category quality decisions',()=>{
  assert.equal(isSeoUrlIndexable('/kutuphane?kategori=ikinci-el-rehberi'),false);
- assert.equal(isSeoUrlIndexable('/kutuphane/kategori/ikinci-el-rehberi'),true);
+ assert.equal(isSeoUrlIndexable('/kutuphane/kategori/ikinci-el-rehberi'),siteSections.library);
  assert.equal(isSeoUrlIndexable('/kutuphane/kategori/otomotiv-sozluk'),false);
  assert.equal(isSeoUrlIndexable('/kutuphane/kategori/unknown'),false);
 });

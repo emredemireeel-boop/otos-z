@@ -11,12 +11,12 @@ export const metadata: Metadata = createPageMetadata({
         path:"/",
         metadataBase: new URL('https://otosoz.com'),
         title: {
-        default: "OtoSöz | Araç Alımı, Arıza Çözümü ve Karşılaştırma",
+        default: "Otomobil Forumu, Sorular ve Sürücü Deneyimleri",
         // Alt sayfalar kendi marka eklerini yönetiyor. Burada tekrar eklemek
         // "... | Otosöz | Otosöz" biçiminde yinelenen başlıklar üretiyordu.
         template: '%s',
     },
-        description: "OtoSöz; araç alırken, arıza araştırırken veya iki otomobili karşılaştırırken gerçek sürücü deneyimini, uzman görüşünü ve veriyi bir araya getiren otomotiv karar platformudur.",
+        description: "OtoSöz otomobil forumunda arıza, bakım ve araç alım satımı hakkında sorularınızı sorun; sürücü deneyimlerini ve topluluğun yanıtlarını inceleyin.",
         icons: {
         icon: [
             { url: '/dark_logo.svg', media: '(prefers-color-scheme: dark)' },

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import { ArrowLeft, AlertTriangle, Activity, Wrench, CheckCircle2, ChevronRight, Share2, ExternalLink, Cpu, Zap, DollarSign, HelpCircle, MessageSquare, BookOpen, Star } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

@@ -1,3 +1,5 @@
+import {loadSource} from './seo-quality-loader.mjs';
+const {sectionHttpDecision}=loadSource('lib/site-sections.ts');
 import { readFile, writeFile } from 'node:fs/promises';
 
 // node scripts/seo-status-check.mjs [--base URL] [--cases FILE] [--sitemap] [--report FILE]
@@ -23,7 +25,7 @@ const routePath = value => {
     const url = new URL(value, base);
     return url.pathname + url.search;
 };
-const localUrl = value => new URL(routePath(value), base).href;
+const localUrl = value => { const url=new URL(value,base); return url.hostname==='otosoz.com'||url.origin===base.origin ? new URL(routePath(value), base).href : url.href; };
 
 async function readSitemaps(path, visited = new Set()) {
     const url = localUrl(path);
@@ -86,6 +88,7 @@ async function main() {
             throw new Error('Each case requires url, integer status, and location (string or null)');
         }
     }
+    if(!sitemapMode) for(const fixture of fixtures){const decision=sectionHttpDecision(fixture.url);if(decision)Object.assign(fixture,decision);}
     const results = new Array(fixtures.length);
     let cursor = 0;
     let completed = 0;

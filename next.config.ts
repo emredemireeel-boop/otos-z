@@ -1,3 +1,4 @@
+import {isPublishedPath} from './lib/site-sections';
 import type { NextConfig } from "next";
 
 const contentSecurityPolicy = [
@@ -435,11 +436,10 @@ const nextConfig: NextConfig = {
                 destination: '/',
                 permanent: true,
             },
-        ];
+        ].filter(rule => isPublishedPath(rule.source) && isPublishedPath(rule.destination));
     },
     // Powered-by header'ını kaldır (bilgi sızıntısı önleme)
     poweredByHeader: false,
-    // TypeScript kontrolünü build aşamasında atla (bellek tasarrufu ~800MB)
     // Yerel tsc kontrolüne ek olarak production build de tip hatasında durur.
     typescript: {
         tsconfigPath: process.env.OTOSOZ_TSCONFIG || 'tsconfig.json',

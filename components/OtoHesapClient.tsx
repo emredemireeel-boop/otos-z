@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import { Fuel, MapPin, ArrowRightLeft, Search, Navigation, ChevronDown, X, Info, ChevronRight, RefreshCw, Clock, Map as MapIcon, Calculator, CreditCard, Wallet, FileText, Banknote, Shield, Zap, Activity, Circle, Wrench, BadgePercent, TrendingUp, LineChart, Printer, MessageCircle, Route, Car, CheckCircle2, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

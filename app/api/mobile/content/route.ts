@@ -1,3 +1,4 @@
+import { siteSections, isPublishedPath } from '@/lib/site-sections';
 import { NextRequest, NextResponse } from "next/server";
 
 import { curatedSurveys } from "@/data/curated-surveys";
@@ -33,6 +34,7 @@ const mobileVehiclePaths = new Set([
 
 export async function GET(request: NextRequest) {
   const moduleName = request.nextUrl.searchParams.get("module") ?? "";
+  if ((moduleName === 'news' && !siteSections.news) || (moduleName === 'vehicle-dna' && !siteSections.vehicleDna)) return NextResponse.json({success:false,message:'Bu bölüm şu anda yayında değil.'},{status:404,headers:{'X-Robots-Tag':'noindex, follow','Cache-Control':'no-store'}});
   if (!supportedModules.has(moduleName)) {
     return NextResponse.json(
       { success: false, message: "Desteklenmeyen mobil içerik modülü." },

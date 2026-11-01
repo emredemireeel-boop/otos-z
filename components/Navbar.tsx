@@ -1,7 +1,8 @@
 "use client";
+import { siteSections, isPublishedPath } from '@/lib/site-sections';
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import Image from "next/image";
 import { Bell, Settings, User, LogOut, MessageCircle, Wrench, Briefcase, Crown, Sun, Moon, Flame } from "lucide-react";
 
@@ -207,9 +208,9 @@ export default function Navbar() {
         { name: 'Anket', href: '/anket' },
         { name: 'Uzmana Sor', href: '/uzmana-sor' },
         { name: 'Karşılaştırma', href: '/karsilastirma' },
-        { name: 'Araç DNA', href: '/arac-dna' },
-        { name: 'Kütüphane', href: '/kutuphane' },
-        { name: 'Haberler', href: '/haberler' },
+        { name: siteSections.vehicleDna ? 'Araç DNA' : 'OtoKusur', href: siteSections.vehicleDna ? '/arac-dna' : 'https://otokusur.com/' },
+        ...(siteSections.library ? [{ name: 'Kütüphane', href: '/kutuphane' }] : []),
+        ...(siteSections.news ? [{ name: 'Haberler', href: '/haberler' }] : []),
         { name: 'OtoHesap', href: '/otohesap' },
         { name: 'Altın Anahtar', href: '/altin-anahtar' },
         { name: 'Etkinlikler', href: '/etkinlikler' },

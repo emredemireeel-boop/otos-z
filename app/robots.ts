@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import {siteSections} from '@/lib/site-sections';
 
 export default function robots(): MetadataRoute.Robots {
     return {
@@ -51,7 +52,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
         sitemap: [
             'https://otosoz.com/sitemap.xml',
-            'https://otosoz.com/news-sitemap.xml',
+            ...(siteSections.news ? ['https://otosoz.com/news-sitemap.xml'] : []),
         ],
         host: 'https://otosoz.com',
     };

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowLeft, Wrench, AlertTriangle, CheckCircle, Info, CalendarClock, TurkishLira, Activity, Settings2 } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import AutoLinkText from "@/components/AutoLinkText";
 import RelatedContent from "@/components/RelatedContent";
 import FloatingActionBar from "@/components/FloatingActionBar";

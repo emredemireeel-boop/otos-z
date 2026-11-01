@@ -5,7 +5,7 @@ import {
   Wrench, AlertTriangle, Shield, Lightbulb, ChevronDown, ChevronUp,
   Clock, CheckCircle, Target, ArrowLeft, BookOpen, Tag
 } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 

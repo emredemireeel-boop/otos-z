@@ -21,7 +21,7 @@ export default function MobileBottomNav() {
                 <Home size={24} />
             </Link>
             
-            <Link prefetch={false} href="/kutuphane" className={`nav-item ${pathname === '/kutuphane' ? 'active' : ''}`}>
+            <Link prefetch={false} href="/forum" aria-label="Forum başlıkları" className={`nav-item ${pathname.startsWith('/forum') ? 'active' : ''}`}>
                 <Search size={24} />
             </Link>
 

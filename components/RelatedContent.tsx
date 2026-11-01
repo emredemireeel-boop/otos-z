@@ -1,7 +1,8 @@
 "use client";
+import {siteSections} from '@/lib/site-sections';
 
 import { useEffect, useState, useMemo } from "react";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import { BookOpen, Wrench, AlertTriangle, ArrowRight, BookMarked, Settings } from "lucide-react";
 import faultData from "@/data/fault_lights.json";
 import obdLinks from "@/data/seo-quality/link-candidates.json";
@@ -76,7 +77,7 @@ export default function RelatedContent({ currentId, tags, titleKeywords = [] }: 
 
         // We can fetch Makale (Library Guides) and Bakim from public JSONs if needed
         Promise.all([
-            fetch(`/data/library_guides.json?t=${Date.now()}`).then(res => res.ok ? res.json() : null).catch(() => null),
+            siteSections.library ? fetch(`/data/library_guides.json?t=${Date.now()}`).then(res => res.ok ? res.json() : null).catch(() => null) : Promise.resolve(null),
             fetch(`/data/bakim_icerikleri.json?t=${Date.now()}`).then(res => res.ok ? res.json() : null).catch(() => null)
         ]).then(([libraryData, bakimData]) => {
             

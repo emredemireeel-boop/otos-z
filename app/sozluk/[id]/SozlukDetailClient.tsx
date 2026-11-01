@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import { ArrowLeft, BookMarked, TrendingUp, ChevronRight, Share2, Tag, Lightbulb } from "lucide-react";
 import { DictionaryTerm, categoryColors } from "@/data/dictionary";
 import Navbar from "@/components/Navbar";

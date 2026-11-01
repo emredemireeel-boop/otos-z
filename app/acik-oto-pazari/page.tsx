@@ -2,7 +2,7 @@ import {createPageMetadata} from '@/lib/seo';
 import PageBreadcrumbs from '@/components/PageBreadcrumbs';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { OPEN_CAR_MARKETS, TURKEY_PROVINCES, getMarketsByProvince, getMarketPath } from "@/data/open-car-markets";

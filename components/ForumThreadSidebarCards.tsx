@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { siteSections, isPublishedPath } from '@/lib/site-sections';
+import Link from "@/components/PublishedLink";
 import {
     AlertTriangle,
     ArrowRight,
@@ -63,7 +64,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                         <Link prefetch={false} href="/kutuphane" className="forum-heading-link">Tümü <ChevronRight size={13} /></Link>
                     </div>
                     <div className="forum-resource-list">
-                        {DRIVER_ESSENTIALS.map(({ href, title, description, icon: ToolIcon }) => (
+                        {DRIVER_ESSENTIALS.filter(item=>isPublishedPath(item.href)).map(({ href, title, description, icon: ToolIcon }) => (
                             <Link prefetch={false} key={href} href={href} className="forum-resource-row">
                                 <span className="forum-resource-icon"><ToolIcon size={15} /></span>
                                 <span className="forum-resource-copy">
@@ -76,7 +77,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                     </div>
                 </section>
 
-                {myth && (
+                {siteSections.library && myth && (
                     <section className="forum-sidebar-card forum-myth-card">
                         <span className="forum-sidebar-kicker">Kütüphaneden ilginç bilgi</span>
                         <h3>Doğru mu, efsane mi?</h3>
@@ -92,7 +93,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
 
     return (
         <>
-            <section className="forum-sidebar-card forum-guide-card">
+            {siteSections.library && <section className="forum-sidebar-card forum-guide-card">
                 <span className="forum-sidebar-kicker">Kütüphane seçkisi</span>
                 <div className="forum-guide-icon"><BookOpen size={18} /></div>
                 <h2>Aracını doğru tanı, masrafı önceden gör</h2>
@@ -100,7 +101,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                 <Link prefetch={false} href="/kutuphane" className="forum-card-link">
                     Kütüphaneyi keşfet <ArrowRight size={14} />
                 </Link>
-            </section>
+            </section>}
 
             <section className="forum-sidebar-card forum-resource-card" aria-labelledby="thread-calculators-title">
                 <div className="forum-sidebar-heading">
@@ -124,7 +125,7 @@ export default function ForumThreadSidebarCards({ side, seedKey }: ForumThreadSi
                 </div>
             </section>
 
-            {featuredDna.length > 0 && (
+            {siteSections.vehicleDna && featuredDna.length > 0 && (
                 <section className="forum-sidebar-card forum-dna-card" aria-labelledby="thread-dna-title">
                     <div className="forum-sidebar-heading">
                         <div>

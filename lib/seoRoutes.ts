@@ -1,3 +1,4 @@
+import {isPublishedPath, siteSections} from './site-sections';
 import 'server-only';
 import type { MetadataRoute } from 'next';
 import { CATEGORIES, libraryCategoryPath } from './library-categories';
@@ -386,15 +387,17 @@ export function recordDate(value: unknown): string | undefined {
     const date=new Date(value);
     return Number.isFinite(date.getTime()) && date.getTime() <= Date.now() ? date.toISOString() : undefined;
 }
-export const SITEMAP_TYPES=['core','arac-dna','obd','sozluk','kutuphane','makale','forum','haberler','trafik-cezasi','otohesap','acik-oto-pazari'] as const;
-export type SitemapType=typeof SITEMAP_TYPES[number];
+export const ALL_SITEMAP_TYPES=['core','arac-dna','obd','sozluk','kutuphane','rehberler','makale','forum','haberler','trafik-cezasi','otohesap','acik-oto-pazari'] as const;
+export type SitemapType=typeof ALL_SITEMAP_TYPES[number];
+export const SITEMAP_TYPES = ALL_SITEMAP_TYPES.filter(type => isPublishedPath('/'+type));
 export function seoRouteType(url:string):SitemapType {
     const prefix=new URL(url).pathname.split('/')[1];
     if(prefix==='otobutce')return 'otohesap';
-    if(['nasil-yapilir','gosterge'].includes(prefix))return 'kutuphane';
+    if(['nasil-yapilir','gosterge'].includes(prefix))return 'rehberler';
     return SITEMAP_TYPES.includes(prefix as SitemapType)?prefix as SitemapType:'core';
 }
 export async function getIndexableUrls(type?:SitemapType):Promise<MetadataRoute.Sitemap> {
+    if(type && !SITEMAP_TYPES.includes(type)) return [];
     const urls=await collectUrls(type);
     return type?urls.filter(entry=>seoRouteType(entry.url)===type):urls;
 }

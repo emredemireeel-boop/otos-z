@@ -5,7 +5,7 @@ import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import { Metadata } from "next";
 import { obdCodes as allCodes, obdSearchCodes, OBD_LAST_REVIEWED, obdDirectoryPageCount, indexableObdCodes } from "@/lib/obd-catalog";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import carModelsData from "@/data/carmodels.json";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

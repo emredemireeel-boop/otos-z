@@ -1,7 +1,8 @@
 "use client";
+import { siteSections, isPublishedPath } from '@/lib/site-sections';
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 import {
     AlertTriangle,
     ArrowRight,
@@ -232,7 +233,7 @@ export function ExpertQuestionSidebars({ side, questionId, category }: ExpertQue
                 </section>
             )}
 
-            {myth && (
+            {siteSections.library && myth && (
                 <section className="expert-side-card expert-myth-card">
                     <span className="expert-side-kicker">Kütüphaneden</span>
                     <h2>Doğru mu, efsane mi?</h2>

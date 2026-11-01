@@ -4,7 +4,7 @@ import {collectionPage as buildSchemaCollectionPage,itemList as buildSchemaItemL
 import {schemaJson} from '@/lib/schema';
 import { indexabilityRobots, isHubIndexable } from '@/lib/indexability';
 import type { Metadata } from "next";
-import KutuphaneClient from "@/app/kutuphane/KutuphaneClient";
+import TrafficDirectory from '@/components/TrafficDirectory';
 import trafikCezalariData from "@/data/trafik_cezalari.json";
 
 const BASE_URL = "https://otosoz.com";
@@ -65,7 +65,7 @@ export default function TrafikCezalariPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: schemaJson(jsonLd) }}
             />
-            <KutuphaneClient breadcrumbs={<PageBreadcrumbs url="/trafik-cezasi"/>} initialCategory="trafik-cezalari" />
+            <TrafficDirectory />
         </>
     );
 }

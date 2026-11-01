@@ -1,3 +1,4 @@
+import {sectionHttpDecision} from './lib/site-sections';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import libraryGuides from './public/data/library_guides.json';
@@ -87,6 +88,10 @@ export async function proxy(request: NextRequest) {
     } catch {
         return new NextResponse('Geçersiz istek yolu.', { status: 400 });
     }
+
+    const publication = sectionHttpDecision(decodedPath);
+    if (publication?.location) return NextResponse.redirect(publication.location, publication.status);
+    if (publication) return new NextResponse('<!doctype html><html lang="tr"><head><meta name="robots" content="noindex, follow"><title>Sayfa bulunamadı | OtoSöz</title></head><body><h1>Sayfa bulunamadı</h1><p>Bu bölüm şu anda yayında değil.</p><a href="/forum">OtoSöz Forum</a><a href="/">Ana sayfa</a></body></html>', { status:404, headers:{'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':'noindex, follow','Cache-Control':'no-store'} });
 
     // Hub sayfa 1 ve eski query sayfalaması tek path canonical'a taşınır.
     // Ayrılmış segmentler tekil konu belge kimliği gibi Firestore'da aranmaz.
@@ -292,6 +297,7 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
     matcher: [
+        '/news-sitemap.xml', '/data/news_posts.json', '/data/library_guides.json',
         // www redirect için tüm sayfaları yakala (statik dosyalar hariç)
         '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|css|js|woff|woff2|ttf|eot|json|xml|txt|map)).*)',
     ],

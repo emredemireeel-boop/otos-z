@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { Search, Car, Calendar, Shield, ChevronDown, Loader2 } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 
 interface Arac {
   marka: string;
