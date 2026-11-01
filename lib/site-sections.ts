@@ -5,6 +5,7 @@ export const siteSections = sections;
 export function pausedSection(value: string): keyof typeof sections | null {
     const path = new URL(value, 'https://otosoz.com').pathname.toLowerCase().replace(/\/$/, '') || '/';
     const within = (prefix: string) => path === prefix || path.startsWith(prefix + '/');
+    if (!sections.obd && (within('/obd') || within('/obd-kodlari') || within('/api/obd'))) return 'obd';
     if (!sections.vehicleDna && (within('/arac-dna') || within('/api/arac-dna'))) return 'vehicleDna';
     if (!sections.library && (within('/kutuphane') || within('/makale') || path === '/data/library_guides.json')) return 'library';
     if (!sections.news && (within('/haberler') || path === '/news-sitemap.xml' || path === '/data/news_posts.json')) return 'news';

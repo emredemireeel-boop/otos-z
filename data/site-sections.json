@@ -1,5 +1,6 @@
 {
   "vehicleDna": false,
   "library": false,
-  "news": false
+  "news": false,
+  "obd": false
 }

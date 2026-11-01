@@ -50,7 +50,7 @@ test('noindex follows links for general and Googlebot directives', () => {
 });
 
 test('URL registry rejects unqualified, noncanonical and unknown routes', () => {
-    assert.equal(isSeoUrlIndexable('https://otosoz.com/obd/p0420'), true);
+    assert.equal(isSeoUrlIndexable('https://otosoz.com/obd/p0420'), false);
     assert.equal(isSeoUrlIndexable('https://otosoz.com/obd/p20ee'), false);
     assert.equal(isSeoUrlIndexable('https://otosoz.com/sozluk/abs'), false);
     assert.equal(isSeoUrlIndexable('https://otosoz.com/obd/P0420'), false);

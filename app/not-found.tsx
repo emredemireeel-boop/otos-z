@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/PublishedLink";
 
 const links = [
     { href: "/", label: "Ana sayfa" },

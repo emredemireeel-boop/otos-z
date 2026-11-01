@@ -6,7 +6,6 @@
 
 - [Ana Sayfa](https://otosoz.com): Araç alımı, arıza çözümü ve araç karşılaştırma için OtoSöz karar merkezi.
 - [OtoSöz Forum](https://otosoz.com/): Gerçek otomobil başlıkları, topluluk anketleri ve ücretsiz sorular aynı ana sayfada. Tekil başlıklar /forum/slug--id adresindedir.
-- [OBD Kodları](https://otosoz.com/obd): OBD-II arıza kodları veritabanı ve açıklamaları.
 - [Karşılaştırma](https://otosoz.com/karsilastirma): Araç karşılaştırma aracı.
 - [OtoHesap](https://otosoz.com/otohesap/yakit-hesaplama): Yakıt hesaplama, MTV, ÖTV, KDV ve diğer otomotiv hesaplayıcılar.
 - [OtoBütçe](https://otosoz.com/otobutce): Bütçeye göre araç önerileri.

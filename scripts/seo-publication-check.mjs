@@ -17,12 +17,12 @@ const cases=[
     ['/',200], ['/forum',308,'/'], ['/anket',308,'/'], ['/uzmana-sor',308,'/'], ['/hakkimizda',200],
     ['/forum/kategori/genel',308,'/#kategori-genel'],
     ['/uzmana-sor/ornek-dizel-arac-sogukta-beyaz-duman',404], ['/anket/curated-city-powertrain',404],
-    ['/obd/p0420',200], ['/otohesap',200], ['/acik-oto-pazari',200],
+    ['/obd',404], ['/obd/p0420',404], ['/obd/P0420',404], ['/obd-kodlari/1',404], ['/api/obd',404], ['/otohesap',200], ['/acik-oto-pazari',200],
     ['/nasil-yapilir/patlak-lastik-nasil-degistirilir',200],
 ];
 const checks=[];
 for(const [url,status,location] of cases) {
-    const key=/arac-dna/i.test(url)||url.includes('vehicle-dna')?'vehicleDna':/haberler|news/.test(url)?'news':/^\/(?:kutuphane|makale|data\/library_guides)/.test(url)?'library':null;
+    const key=/^\/(?:obd|obd-kodlari|api\/obd)(?:[/?]|$)/.test(url)?'obd':/arac-dna/i.test(url)||url.includes('vehicle-dna')?'vehicleDna':/haberler|news/.test(url)?'news':/^\/(?:kutuphane|makale|data\/library_guides)/.test(url)?'library':null;
     if(key && sections[key])continue;
     const r=await fetch(new URL(url,base),{redirect:'manual',signal:AbortSignal.timeout(45000)}),html=await r.text(),errors=[];
     if(r.status!==status)errors.push(`HTTP ${r.status}, expected ${status}`);

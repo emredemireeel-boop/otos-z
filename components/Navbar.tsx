@@ -209,7 +209,7 @@ export default function Navbar() {
         ...(siteSections.library ? [{ name: 'Kütüphane', href: '/kutuphane' }] : []),
         ...(siteSections.news ? [{ name: 'Haberler', href: '/haberler' }] : []),
         { name: 'OtoHesap', href: '/otohesap' },
-        { name: 'OBD Kodları', href: '/obd' },
+        ...(siteSections.obd ? [{name:'OBD Kodları',href:'/obd'}] : []),
         { name: 'Hakkımızda', href: '/hakkimizda' },
     ];
 

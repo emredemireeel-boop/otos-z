@@ -29,7 +29,7 @@ const homePageJsonLd = {
     isPartOf: { "@id": "https://otosoz.com/#website" },
     about: [
         { "@type": "Thing", name: "Otomobil forumu ve sürücü deneyimleri" },
-        { "@type": "Thing", name: "Otomobil arızaları ve OBD kodları" },
+        { "@type": "Thing", name: "Otomobil soruları ve topluluk yanıtları" },
         { "@type": "Thing", name: "Topluluk soruları ve anketleri" },
     ],
     inLanguage: "tr-TR",

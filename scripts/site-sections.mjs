@@ -2,8 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const [action, selection = 'all'] = process.argv.slice(2);
-if (!['hide', 'restore'].includes(action)) throw Error('Usage: node scripts/site-sections.mjs hide|restore [all|vehicleDna|library|news]');
-const roots = { vehicleDna: ['app/arac-dna', 'app/api/arac-dna'], library: ['app/kutuphane', 'app/makale'], news: ['app/haberler', 'app/news-sitemap.xml'] };
+if (!['hide', 'restore'].includes(action)) throw Error('Usage: node scripts/site-sections.mjs hide|restore [all|vehicleDna|library|news|obd]');
+const roots = { vehicleDna: ['app/arac-dna', 'app/api/arac-dna'], library: ['app/kutuphane', 'app/makale'], news: ['app/haberler', 'app/news-sitemap.xml'], obd: ['app/obd','app/obd-kodlari','app/api/obd'] };
 if (selection !== 'all' && !Object.hasOwn(roots, selection)) throw Error('Unknown section');
 const settingsPath = 'data/site-sections.json', settings = JSON.parse(fs.readFileSync(settingsPath));
 const names = selection === 'all' ? Object.keys(roots) : [selection];
