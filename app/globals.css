@@ -3615,3 +3615,6 @@ button.expert-support-choice:hover { background:var(--hover-primary); }
 .expert-support-coming { color:var(--text-muted); }
 .expert-premium-badge,.expert-coming-badge { font-size:12px!important; padding:4px 10px; border-radius:20px; background:var(--secondary); }
 @media(max-width:600px) { .expert-support-choices { grid-template-columns:1fr; } }
+
+.forum-topic-type-badge { display:inline-flex; align-items:center; padding:4px 10px; border:1px solid var(--card-border); border-radius:6px; color:var(--primary); background:var(--hover-primary); font-size:12px; font-weight:600; margin-left:4px; }
+[data-community-type="survey"] { scroll-margin-top:90px; }

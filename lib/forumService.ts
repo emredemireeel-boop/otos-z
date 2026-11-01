@@ -36,6 +36,7 @@ export interface ForumThread {
     id: string;
     title: string;
     category: string;
+    type?: 'topic' | 'expert';
     description: string;
     authorId: string;
     authorUsername: string;
@@ -80,6 +81,7 @@ function mapThread(docSnap: DocumentData, id: string): ForumThread {
         id,
         title: d.title || "",
         category: d.category || "Genel",
+        type: d.type === 'expert' || d.category === 'Uzmana Sor' ? 'expert' : 'topic',
         description: d.description || "",
         authorId: d.authorId || "",
         authorUsername: d.authorUsername || "",
@@ -242,6 +244,7 @@ export async function getUserEntries(username: string): Promise<(ForumEntry & { 
 export async function createThread(data: {
     title: string;
     category: string;
+    type?: 'topic' | 'expert';
     content: string;
     description?: string;
     tags: string[];
@@ -279,6 +282,7 @@ export async function createThread(data: {
     const threadRef = await addDoc(collection(db, "threads"), {
         title: filteredTitle,
         category: safeCategory,
+        type: data.type === 'expert' ? 'expert' : 'topic',
         description: safeDescription,
         seoExcerpt: filteredContent.slice(0, 240),
         authorId: data.authorId,

@@ -123,6 +123,7 @@ isPartOf: {
                     id: thread.id,
                     title: thread.title,
                     category: thread.category,
+                    type: thread.type,
                     description: thread.description,
                     authorUsername: thread.authorUsername,
                     createdAt: thread.createdAt,

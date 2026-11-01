@@ -7,8 +7,8 @@ import os from 'node:os';
 import {execFileSync} from 'node:child_process';
 const {sectionHttpDecision, isPublishedPath,siteSections}=loadSource('lib/site-sections.ts');
 const {isSeoUrlIndexable}=loadSource('lib/seo-index-catalog.ts');
-test('Only the DNA entry point redirects externally; no guessed model redirects',{skip:Object.values(siteSections).some(Boolean)},()=>{
-    assert.deepEqual(sectionHttpDecision('/arac-dna?x=1'),{status:307,location:'https://otokusur.com/'});
+test('Paused sections do not force visitors to a different project',{skip:Object.values(siteSections).some(Boolean)},()=>{
+    assert.deepEqual(sectionHttpDecision('/arac-dna?x=1'),{status:404,location:null});
     assert.deepEqual(sectionHttpDecision('/ARAC-DNA/Renault/clio'),{status:404,location:null});
     for(const path of ['/kutuphane','/kutuphane?kategori=lastik-rehberi','/haberler/test','/makale/test','/api/arac-dna?ids=1','/data/news_posts.json','/news-sitemap.xml']) assert.deepEqual(sectionHttpDecision(path),{status:404,location:null});
     for(const path of ['/','/forum','/obd/p0420','/otohesap','/acik-oto-pazari'])assert.equal(sectionHttpDecision(path),null);

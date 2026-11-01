@@ -8,8 +8,6 @@ import CookieSettingsTrigger from "@/components/CookieSettingsTrigger";
 
 const forumLinks = [
     { href: "/", label: "Forum başlıkları" },
-    { href: "/#anket", label: "Topluluk anketleri" },
-    { href: "/#uzmana-sor", label: "Uzmana sor" },
     { href: "/altin-anahtar", label: "Altın Anahtar" },
     { href: "/etkinlikler", label: "Etkinlikler" },
     { href: "/guvenmetre", label: "Güvenmetre" },

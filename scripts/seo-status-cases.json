@@ -1388,13 +1388,13 @@
   {
     "url": "/anket",
     "status": 308,
-    "location": "/#anket",
+    "location": "/",
     "type": "unified:community"
   },
   {
     "url": "/uzmana-sor",
     "status": 308,
-    "location": "/#uzmana-sor",
+    "location": "/",
     "type": "unified:community"
   }
 ]

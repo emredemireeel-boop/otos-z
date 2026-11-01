@@ -1,5 +1,7 @@
 # Forum odaklı yayın düzeni — 01.11.2026
 
+> Güncel akış: [Tek başlık akışı ve ortak projeler](topic-feed-20261101.md). Bu dosya önceki yayının tarihsel açıklamasıdır.
+
 Araç DNA, OtoKütüphane (makale arşivi dahil) ve Haberler yayından kaldırıldı. Veri silinmedi. Bu işlem kalıcı içerik silme veya alan adı taşıması değildir.
 
 - 42 Next route kaynağı `page.paused.tsx`, `layout.paused.tsx`, `route.paused.ts` gibi dosyalara taşındı. Next bu dosyaları sayfa olarak derlemez. Ortak hesaplayıcı bileşenleri çalışmaya devam eder.

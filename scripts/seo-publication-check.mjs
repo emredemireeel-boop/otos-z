@@ -7,14 +7,14 @@ const base=option('--base','http://127.0.0.1:3010'), report=option('--report','d
 const sections=JSON.parse(fs.readFileSync('data/site-sections.json'));
 // These expectations are deliberately independent of the publication resolver.
 const cases=[
-    ['/arac-dna',307,'https://otokusur.com/'],
+    ['/arac-dna',404],
     ['/arac-dna/renault/clio',404], ['/arac-dna/Renault/clio-5-nesil-2020-2025',404],
     ['/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar',404],
     ['/kutuphane',404], ['/kutuphane?kategori=bilinmeyen',404], ['/kutuphane/kategori/ikinci-el-rehberi',404],
     ['/makale',404], ['/haberler',404], ['/haberler/olmayan-haber',404], ['/news-sitemap.xml',404],
     ['/api/arac-dna?ids=1',404], ['/api/mobile/content?module=news',404], ['/api/mobile/content?module=vehicle-dna',404],
     ['/data/news_posts.json',404], ['/data/library_guides.json',404],
-    ['/',200], ['/forum',308,'/'], ['/anket',308,'/#anket'], ['/uzmana-sor',308,'/#uzmana-sor'],
+    ['/',200], ['/forum',308,'/'], ['/anket',308,'/'], ['/uzmana-sor',308,'/'], ['/hakkimizda',200],
     ['/forum/kategori/genel',308,'/#kategori-genel'],
     ['/uzmana-sor/ornek-dizel-arac-sogukta-beyaz-duman',404], ['/anket/curated-city-powertrain',404],
     ['/obd/p0420',200], ['/otohesap',200], ['/acik-oto-pazari',200],
@@ -41,7 +41,15 @@ for(const [url,status,location] of cases) {
         if($('.home-seo-guide').length || /İçerikleri keşfet/.test($('body').text()))errors.push('Removed promotional home blocks remain');
         for(const old of ['/forum','/anket','/uzmana-sor'])if($(`a[href="${old}"]`).length)errors.push('Legacy listing link: '+old);
         if(!Object.values(sections).some(Boolean)&&/Araç DNA|Kütüphaneden|Son haberler/.test($('body').text()))errors.push('Retired homepage promotion remains');
-        if(!sections.vehicleDna&&!$('a[href="https://otokusur.com/"]').length)errors.push('Missing OtoKusur link');
+        if($('a[href="https://otokusur.com/"],a[href="https://www.obdkodu.com/"],a[href="/#anket"],a[href="/#uzmana-sor"]').length)errors.push('Separate feature/project navigation remains on the home');
+        if(/Aktif Anketler|Topluluk anketleri/.test($('body').text()))errors.push('Separate poll listing remains');
+        for(const card of $('[data-community-type="survey"]').toArray())if(!$(card).find('a[aria-expanded="false"]').length || !$(card).find('.forum-topic-type-badge').text().includes('Anket'))errors.push('Poll is not a collapsed forum title');
+    }
+    if(url==='/hakkimizda') {
+        const $=load(html),projects=$('#projelerimiz');
+        if(!projects.text().includes('Emre Demirel'))errors.push('Project responsibility must be visible');
+        for(const target of ['https://otokusur.com/','https://www.obdkodu.com/'])if(projects.find(`a[href="${target}"]`).length!==1)errors.push('Missing or repeated contextual project link');
+        if($('link[rel="canonical"]').attr('href')!=='https://otosoz.com/hakkimizda')errors.push('About must retain its own canonical');
     }
     checks.push({url,status:r.status,location:r.headers.get('location'),errors});
 }

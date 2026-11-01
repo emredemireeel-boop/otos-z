@@ -376,3 +376,7 @@
     margin-top: 48px;
   }
 }
+
+#projelerimiz { scroll-margin-top:80px; }
+#projelerimiz h3 { font-size:1.2rem; font-weight:700; margin-bottom:12px; }
+#projelerimiz article a { display:inline-block; margin-top:12px; color:var(--primary); font-weight:600; }

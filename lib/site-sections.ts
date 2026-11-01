@@ -2,7 +2,6 @@ import sections from '../data/site-sections.json';
 
 /** Publication switches, shared by navigation, HTTP handling and SEO discovery. */
 export const siteSections = sections;
-export const VEHICLE_RESEARCH_URL = 'https://otokusur.com/';
 export function pausedSection(value: string): keyof typeof sections | null {
     const path = new URL(value, 'https://otosoz.com').pathname.toLowerCase().replace(/\/$/, '') || '/';
     const within = (prefix: string) => path === prefix || path.startsWith(prefix + '/');
@@ -23,8 +22,5 @@ export function isSearchDiscoverablePath(value: string) {
 export function sectionHttpDecision(value: string) {
     const section = pausedSection(value);
     if (!section) return null;
-    const path = new URL(value, 'https://otosoz.com').pathname.toLowerCase().replace(/\/$/, '');
-    return section === 'vehicleDna' && path === '/arac-dna'
-        ? { status: 307, location: VEHICLE_RESEARCH_URL }
-        : { status: 404, location: null };
+    return { status: 404, location: null };
 }

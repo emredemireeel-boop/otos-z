@@ -1,8 +1,8 @@
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-        title: 'OtoSöz Hakkında | Otomotiv Karar Platformu',
-        description: 'OtoSöz; araç satın alma, arıza çözümü ve otomobil karşılaştırması kararlarında gerçek deneyim, uzman görüşü ve veriyi buluşturan otomotiv karar platformudur.',
+        title: 'Hakkımızda: OtoSöz ve Otomotiv Projelerimiz',
+        description: 'OtoSöz otomobil topluluğunu, çalışma ilkelerimizi ve bize ait OtoKusur ile OBDKodu projelerini tanıyın. Site sorumlusu ve iletişim bilgilerine ulaşın.',
         path: '/hakkimizda'
     });
 

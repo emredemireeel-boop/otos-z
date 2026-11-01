@@ -12,14 +12,11 @@
 - [OtoBütçe](https://otosoz.com/otobutce): Bütçeye göre araç önerileri.
 - [Piyasalar](https://otosoz.com/piyasalar): Otomotiv piyasa verileri, döviz, akaryakıt fiyatları.
 - [GüvenMetre](https://otosoz.com/guvenmetre): Marka ve model güvenilirlik değerlendirmesi.
-- [Uzmana Sor](https://otosoz.com/#uzmana-sor): Uzman mekanikerlere soru sorma platformu.
-- [Anket](https://otosoz.com/#anket): Otomotiv anketleri ve kullanıcı oylamaları.
 - [Etkinlikler](https://otosoz.com/etkinlikler): Otomotiv etkinlikleri ve buluşmalar.
 - [Altın Anahtar](https://otosoz.com/altin-anahtar): Araç bakım ve onarım ipuçları.
 - [Trafik Cezaları](https://otosoz.com/trafik-cezasi): 2026 güncel trafik cezaları listesi.
 - [Ajanda](https://otosoz.com/ajanda): Otomotiv ajandası — bakım hatırlatıcıları.
 
-- [OtoKusur](https://otokusur.com/): Araç kronik sorun araştırması için ayrı site.
 
 ## Hakkında
 
@@ -30,3 +27,6 @@
 
 - [Gizlilik Politikası](https://otosoz.com/gizlilik-politikasi)
 - [Kullanım Şartları](https://otosoz.com/kullanim-sartlari)
+
+## Ortak projeler
+OtoSöz topluluk, OtoKusur araç araştırması, OBDKodu arıza kodu rehberidir. Ortak sorumluluk ve proje bağlantıları: https://otosoz.com/hakkimizda#projelerimiz

@@ -25,6 +25,7 @@ export interface ForumSeoThread {
     slug: string;
     title: string;
     category: string;
+    type?: 'topic' | 'expert';
     description: string;
     authorUsername: string;
     createdAt: number | null;
@@ -41,6 +42,7 @@ export interface ForumSeoSummary {
     slug: string;
     title: string;
     category: string;
+    type?: 'topic' | 'expert';
     description: string;
     authorUsername: string;
     createdAt: number | null;
@@ -79,6 +81,7 @@ function summaryFromThread(thread: ForumSeoThread): ForumSeoSummary {
     return {
         id: thread.id, slug: thread.slug, title: thread.title,
         category: thread.category,
+        type: thread.type,
         description: plainTextExcerpt(thread.description || thread.entries[0]?.content || '', 240),
         authorUsername: thread.authorUsername, createdAt: thread.createdAt,
         lastEntryAt: thread.lastEntryAt, entryCount: thread.entryCount,
@@ -148,7 +151,7 @@ const readForumCatalog = unstable_cache(async (): Promise<ForumSeoThread[]> => {
         console.warn('Forum Admin unavailable; public fallback will be used.');
     }
     return getPublicCatalog();
-}, ['forum-visible-catalog-v2'], { revalidate: 900, tags: ['forum'] });
+}, ['forum-visible-catalog-v3'], { revalidate: 900, tags: ['forum'] });
 
 export const getForumCatalog = cache(async () => (await readForumCatalog())
     .sort((a, b) => (b.lastEntryAt || b.createdAt || 0) - (a.lastEntryAt || a.createdAt || 0)
@@ -239,6 +242,7 @@ function buildSeoThread(result: { document: PortableDocument; entries: PortableD
         slug: data.urlId ? `${createSeoSlug(title)}--${data.urlId}` : result.document.id,
         title,
         category: String(data.category || 'Genel'),
+        type: data.type === 'expert' || data.category === 'Uzmana Sor' ? 'expert' : 'topic',
         description: String(data.description || '').trim(),
         authorUsername: String(data.authorUsername || firstEntry?.username || 'OtoSöz üyesi'),
         createdAt: timestampToMillis(data.createdAt) || firstEntry?.createdAt || null,

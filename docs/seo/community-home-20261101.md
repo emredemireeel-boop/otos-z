@@ -1,5 +1,7 @@
 # OtoSöz: tek topluluk ana sayfası
 
+> Güncel akış: [Tek başlık akışı ve ortak projeler](topic-feed-20261101.md). Bu dosya önceki yayının tarihsel açıklamasıdır.
+
 1 Kasım 2026: Forum, Anket ve Uzmana Sor ayrı liste ekranlarından ana sayfaya taşındı. Gerçek `/forum/slug--id` başlıkları, içerikleri ve canonical adresleri korundu.
 
 - `/forum` → HTTP 308 `/`; `/anket` → 308 `/#anket`; `/uzmana-sor` → 308 `/#uzmana-sor`.

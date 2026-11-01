@@ -63,7 +63,7 @@ export async function GET(request: NextRequest) {
       case "comparisons":
         return { items: SAMPLE_COMPARISONS };
       case "expert-questions":
-        return { items: await getForumHubThreadSummaries('Uzmana Sor') };
+        return { items: (await getForumHubThreadSummaries(null)).filter(thread => thread.type === 'expert' || thread.category === 'Uzmana Sor') };
       case "vehicle-dna":
         return {
           items: vehicleDNAData

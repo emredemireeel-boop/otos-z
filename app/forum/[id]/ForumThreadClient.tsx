@@ -40,6 +40,7 @@ interface InitialForumThread {
     id: string;
     title: string;
     category: string;
+    type?: 'topic' | 'expert';
     description: string;
     authorUsername: string;
     createdAt: number | null;
@@ -492,6 +493,7 @@ export default function ForumThreadPage({ initialThread, initialEntries = [], si
                             }}>
                                 {thread.category}
                             </span>
+                            {thread.type === 'expert' && <span className="forum-topic-type-badge" style={{background:catStyle.badgeBg,color:catStyle.badgeColor}}>Uzmana Sor</span>}
                         </div>
 
                         <h1 style={{ fontSize: '28px', fontWeight: '800', color: 'white', marginBottom: '16px', lineHeight: 1.3 }}>
