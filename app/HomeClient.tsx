@@ -788,7 +788,7 @@ export default function Home({ initialThreads = [], featuredDnaVehicles, initial
                             </div>
                         </article>
                     </Link>
-                    {topic.poll && expandedSurveyId === topic.poll.id && <div id={'poll-panel-' + topic.poll.id}><ForumPollClient poll={topic.poll}/></div>}
+                    {topic.poll && expandedSurveyId === topic.poll.id && <div id={'poll-panel-' + topic.poll.id}><ForumPollClient poll={topic.poll} onChange={updated => setHomeSurveys(previous => previous.map(poll => poll.id === updated.id ? updated : poll))}/></div>}
                     </div>
                 )))}
             </div>

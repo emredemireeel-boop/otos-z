@@ -6,7 +6,7 @@ import { clientDatabase } from '@/lib/client-services';
 import { communitySurvey, type CommunitySurvey } from '@/lib/community';
 import styles from './home-community.module.css';
 
-export default function ForumPollClient({ poll: original }: { poll: CommunitySurvey }) {
+export default function ForumPollClient({ poll: original, onChange }: { poll: CommunitySurvey; onChange?: (poll: CommunitySurvey) => void }) {
     const user = useAuthUser();
     const [updates, setUpdates] = useState<Record<string, CommunitySurvey>>({});
     const [choices, setChoices] = useState<Record<string, number>>({});
@@ -32,6 +32,7 @@ export default function ForumPollClient({ poll: original }: { poll: CommunitySur
             });
             setUpdates(previous => ({ ...previous, [id]: updated }));
             setChoices(previous => ({ ...previous, [id]: choice }));
+            onChange?.(updated);
         } catch (reason) { setError(reason instanceof Error ? reason.message : 'Oyunuz kaydedilemedi.'); }
         finally { setBusy(null); }
     }
