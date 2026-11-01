@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {load} from 'cheerio';
+const base=process.argv[2]||'http://127.0.0.1:3013',report=process.argv[3]||'docs/seo/about-check.json';
+const response=await fetch(new URL('/hakkimizda',base),{redirect:'manual'}),html=await response.text(),$=load(html),errors=[];
+if(response.status!==200)errors.push('HTTP '+response.status);
+if($('h1').length!==1)errors.push('Expected one H1');
+if($('link[rel="canonical"]').attr('href')!=='https://otosoz.com/hakkimizda')errors.push('Canonical mismatch');
+if($('meta[name="robots"]').attr('content')?.includes('noindex'))errors.push('Unexpected noindex');
+if($('.about-map-node').length!==3||$('.about-map-connector').length!==2)errors.push('Project map must have three nodes and two connectors');
+for(const url of ['https://otosoz.com/','https://otokusur.com/','https://www.obdkodu.com/'])if($('#projelerimiz').find(`a[href="${url}"]`).length!==1)errors.push('Project URL missing or repeated: '+url);
+if(!$('body').text().includes('Emre Demirel'))errors.push('Responsible person missing');
+const out={checkedAt:new Date().toISOString(),base,status:response.status,projectNodes:$('.about-map-node').length,connectors:$('.about-map-connector').length,firstHtml:true,passed:!errors.length,errors,visualInspection:'Browser access disabled in Work settings; no screenshot/visual pass claimed.'};
+fs.mkdirSync(path.dirname(report),{recursive:true});
+fs.writeFileSync(report,JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify(out));process.exitCode=errors.length?1:0;
