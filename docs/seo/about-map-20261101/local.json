@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-11-01T10:46:05.513Z",
+  "base": "http://127.0.0.1:3013",
+  "status": 200,
+  "projectNodes": 3,
+  "connectors": 2,
+  "firstHtml": true,
+  "passed": true,
+  "errors": [],
+  "visualInspection": "Browser access disabled in Work settings; no screenshot/visual pass claimed."
+}

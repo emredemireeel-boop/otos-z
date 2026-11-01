@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-01T10:56:49.349Z",
+  "base": "http://127.0.0.1:3000",
+  "total": 140,
+  "duplicateTitles": 0,
+  "duplicateTitlePages": 0,
+  "duplicateDescriptions": 0,
+  "duplicateDescriptionPercent": 0,
+  "longTitlePercent": 0,
+  "descriptionLengthFailures": 0,
+  "forbiddenTagPages": 0,
+  "failures": 0,
+  "sources": {
+    "definitions": 86,
+    "manual": []
+  },
+  "titles": [],
+  "descriptions": [],
+  "longTitles": [],
+  "shortDescriptions": []
+}

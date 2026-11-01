@@ -1,0 +1,52 @@
+{
+  "step": 13,
+  "date": "2026-11-01",
+  "status": "deployed",
+  "deployment": {
+    "sourceRevision": "a5ff941336e999e296edc9ed66a4a534d47bc2e5",
+    "previousBuild": ".next-candidate-20261101102642",
+    "activeBuild": ".next-candidate-20261101104621",
+    "preparedBeforeActivation": true,
+    "serverFreeBytesBefore": 12067147776,
+    "checkedAt": "2026-11-01T10:57:25Z"
+  },
+  "changes": [
+    "Hakkımızda sayfasına OtoSöz → OtoKusur → OBDKodu proje haritası eklendi.",
+    "Harita masaüstünde yatay, 850px altında dikey ve aşağı oklarla gösterilir.",
+    "Gerçek sahiplik, kaynak ilkeleri ve iletişim bilgileri korunur.",
+    "Sunucuda render edilen içerik, gerçek bağlantılar, tek H1, kendi canonical adresi korunur.",
+    "Hareket azaltma tercihi ve klavye odak göstergeleri eklendi."
+  ],
+  "validation": {
+    "tsc": "PASS; zero errors",
+    "build": "PASS",
+    "local": {
+      "checkedAt": "2026-11-01T10:46:05.513Z",
+      "base": "http://127.0.0.1:3013",
+      "status": 200,
+      "projectNodes": 3,
+      "connectors": 2,
+      "firstHtml": true,
+      "passed": true,
+      "errors": [],
+      "visualInspection": "Browser access disabled in Work settings; no screenshot/visual pass claimed."
+    },
+    "originSeo": true,
+    "liveSeo": true,
+    "about": {
+      "checkedAt": "2026-11-01T10:55:13.131Z",
+      "base": "https://otosoz.com",
+      "status": 200,
+      "projectNodes": 3,
+      "connectors": 2,
+      "firstHtml": true,
+      "passed": true,
+      "errors": [],
+      "visualInspection": "Browser access disabled in Work settings; no screenshot/visual pass claimed."
+    }
+  },
+  "risks": [
+    "Work ayarlarında tarayıcı erişimi kapalı; görsel ekran kontrolü ve ekran görüntüsü alınamadı. Mobil düzen CSS kurallarıyla uygulanmıştır; görsel doğrulama geçtiği iddia edilmez.",
+    "Google sıralama etkisi bu yayınla garanti edilmez."
+  ]
+}

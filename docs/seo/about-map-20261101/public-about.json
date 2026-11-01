@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-11-01T10:55:13.131Z",
+  "base": "https://otosoz.com",
+  "status": 200,
+  "projectNodes": 3,
+  "connectors": 2,
+  "firstHtml": true,
+  "passed": true,
+  "errors": [],
+  "visualInspection": "Browser access disabled in Work settings; no screenshot/visual pass claimed."
+}
