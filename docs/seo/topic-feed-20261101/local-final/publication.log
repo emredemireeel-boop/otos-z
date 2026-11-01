@@ -1,0 +1,176 @@
+{
+  "checkedAt": "2026-11-01T10:26:51.880Z",
+  "base": "http://127.0.0.1:3013",
+  "total": 28,
+  "failed": 0,
+  "checks": [
+    {
+      "url": "/arac-dna",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/arac-dna/renault/clio",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/arac-dna/Renault/clio-5-nesil-2020-2025",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/arac-dna/renault/clio-5-nesil-2020-2025/kronik-sorunlar",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/kutuphane",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/kutuphane?kategori=bilinmeyen",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/kutuphane/kategori/ikinci-el-rehberi",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/makale",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/haberler",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/haberler/olmayan-haber",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/news-sitemap.xml",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/api/arac-dna?ids=1",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/api/mobile/content?module=news",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/api/mobile/content?module=vehicle-dna",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/data/news_posts.json",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/data/library_guides.json",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/",
+      "status": 200,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/forum",
+      "status": 308,
+      "location": "/",
+      "errors": []
+    },
+    {
+      "url": "/anket",
+      "status": 308,
+      "location": "/",
+      "errors": []
+    },
+    {
+      "url": "/uzmana-sor",
+      "status": 308,
+      "location": "/",
+      "errors": []
+    },
+    {
+      "url": "/hakkimizda",
+      "status": 200,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/forum/kategori/genel",
+      "status": 308,
+      "location": "/#kategori-genel",
+      "errors": []
+    },
+    {
+      "url": "/uzmana-sor/ornek-dizel-arac-sogukta-beyaz-duman",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/anket/curated-city-powertrain",
+      "status": 404,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/obd/p0420",
+      "status": 200,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/otohesap",
+      "status": 200,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/acik-oto-pazari",
+      "status": 200,
+      "location": null,
+      "errors": []
+    },
+    {
+      "url": "/nasil-yapilir/patlak-lastik-nasil-degistirilir",
+      "status": 200,
+      "location": null,
+      "errors": []
+    }
+  ]
+}

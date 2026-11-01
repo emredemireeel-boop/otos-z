@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-11-01T10:36:08.568Z",
+  "results": [
+    {
+      "url": "https://otokusur.com/",
+      "status": 200,
+      "location": null,
+      "title": "OtoKusur | Araç Kronik Arıza ve Kusur Veritabanı",
+      "canonical": "https://otokusur.com"
+    },
+    {
+      "url": "https://www.obdkodu.com/",
+      "status": 200,
+      "location": null,
+      "title": "OBD Arıza Kodları: Anlamı ve Teşhis | OBDKODU",
+      "canonical": "https://www.obdkodu.com/"
+    }
+  ]
+}

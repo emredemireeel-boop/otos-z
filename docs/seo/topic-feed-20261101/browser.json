@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-01T10:36:08.570Z",
+  "sourceRevision": "367b35b19dbacabfef8ff95cc6f7f3f3adbec482",
+  "base": "http://127.0.0.1:3013",
+  "observed": {
+    "totalTitleCards": 15,
+    "forumThreads": 13,
+    "polls": 2,
+    "generalCategoryCards": 6,
+    "separateFeatureNavigation": 0,
+    "pollsShareNormalCategoryCards": true,
+    "pollTitleOpensInline": true,
+    "categoryPreservedOnOpening": true,
+    "anonymousVotingDisabled": true,
+    "expertSupportChoiceBeforeForm": true,
+    "premiumComingSoon": true,
+    "expertCategoryIsIndependentFromType": true,
+    "emptyLegacyDraftDoesNotForceExpertFlow": true,
+    "visibleProjectLinks": [
+      "https://otosoz.com/",
+      "https://otokusur.com/",
+      "https://www.obdkodu.com/"
+    ]
+  },
+  "mobile": {
+    "viewportWidth": 390,
+    "viewportHeight": 844,
+    "documentWidth": 382,
+    "horizontalOverflow": false
+  },
+  "screenshots": [
+    "forum-poll-desktop.png",
+    "forum-poll-mobile.png",
+    "about-projects-desktop.png"
+  ],
+  "productionDataWritesPerformed": false
+}

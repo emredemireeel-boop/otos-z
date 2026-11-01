@@ -1,0 +1,151 @@
+{
+  "step": 12,
+  "date": "2026-11-01",
+  "status": "deployed-and-verified",
+  "site": "https://otosoz.com/",
+  "sourceRevision": "367b35b19dbacabfef8ff95cc6f7f3f3adbec482",
+  "deployment": {
+    "sourceRevision": "367b35b19dbacabfef8ff95cc6f7f3f3adbec482",
+    "previousBuild": ".next-candidate-20261101093340",
+    "activeBuild": ".next-candidate-20261101102642",
+    "preparedBeforeActivation": true,
+    "serverFreeBytesBefore": 13929639936,
+    "checkedAt": "2026-11-01T10:41:13Z"
+  },
+  "changes": [
+    "Normal konular, anketler ve uzman soruları aynı forum başlık akışında gösterilir. Ayrı Anket/Uzmana Sor menüsü, sekmesi veya listesi yoktur.",
+    "Kategori ve içerik türü ayrıdır: Genel · Anket veya Teknik & Arıza · Uzmana Sor gibi etiketler kullanılır. Yeni uzman soruları type:expert ile kaydedilir; eski kategori kayıtları tanınır.",
+    "Anket başlığı aynı akışta açılır; kategori/arama seçimi korunur. İşlem sonucu başlık oy sayacına ve açık oylamaya aynı veriden yansır.",
+    "Gerçek soru ve oylamalar silinmez, kopyalanmaz veya örnek kayıtlarla değiştirilmez. Yazılmış taslaklar korunur; yalnızca boş kategori seçimleri taslak sayılmaz.",
+    "Uzmana Sor oluşturulurken önce ücretsiz forum / pasif Premium Yakında seçimi gösterilir.",
+    "OtoKusur dış menüsü ve Araç DNA ana girişinin dış siteye otomatik 307 geçişi kaldırıldı. Kapalı DNA adresleri 404 kalır.",
+    "OtoSöz Hakkımızda sayfasında üç proje, farklı amaçları ve ortak sorumlusu Emre Demirel ile açıklanır. Projeler bağlamlı, normal bağlantılarla tanıtılır.",
+    "OtoKusur için https://otokusur.com/; OBDKodu için doğrulanmış nihai https://www.obdkodu.com/ adresi kullanılır. OtoSöz canonical adresleri korunur."
+  ],
+  "seoDecision": {
+    "roles": {
+      "OtoSöz": "Topluluk, deneyim, soru ve anket",
+      "OtoKusur": "Model/motor ve kronik sorun araştırması",
+      "OBDKodu": "OBD kodu ve teşhis kontrol rehberleri"
+    },
+    "rationale": "Google açıklayıcı, bağlamlı dış bağlantıları destekler. Ortak sahiplik şeffaf açıklanır; sıralama için toplu karşılıklı bağlantı, içerik kopyalama veya farklı sayfaları tek alan adına canonical yapma yaklaşımı kullanılmaz. Hakkımızda yerleşimi bu sitenin sade forum odağına göre seçilen editoryal karardır.",
+    "sources": [
+      "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+      "https://developers.google.com/search/docs/essentials/spam-policies#link-spam",
+      "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+    ],
+    "modifiedRepository": "otosoz-web",
+    "ownershipSource": "Site sahibi kullanıcı beyanı",
+    "otherProjectRepositoriesModified": false
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "npx tsc --noEmit",
+        "result": "PASS; 0 errors"
+      },
+      {
+        "command": "npm run build",
+        "result": "PASS; 403 generated pages; ignoreBuildErrors=false"
+      },
+      {
+        "command": "node --test tests/*.test.mjs",
+        "result": "PASS; 51 tests"
+      },
+      {
+        "command": "npm run seo:check -- --base http://127.0.0.1:3000",
+        "result": "PASS; 7 origin gates"
+      },
+      {
+        "command": "npm run seo:check -- --base https://otosoz.com",
+        "result": "PASS; 7 live gates"
+      }
+    ],
+    "sitemap": {
+      "total": 140,
+      "failures": 0,
+      "duplicates": 0,
+      "distribution": [
+        {
+          "url": "https://otosoz.com/sitemaps/core.xml",
+          "count": 13
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/obd.xml",
+          "count": 6
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/sozluk.xml",
+          "count": 0
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/forum.xml",
+          "count": 13
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/trafik-cezasi.xml",
+          "count": 39
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/otohesap.xml",
+          "count": 42
+        },
+        {
+          "url": "https://otosoz.com/sitemaps/acik-oto-pazari.xml",
+          "count": 27
+        }
+      ]
+    },
+    "status": {
+      "checked": 233,
+      "failed": 0,
+      "metaRefresh": 0
+    },
+    "metadata": {
+      "duplicateTitles": 0,
+      "duplicateDescriptions": 0,
+      "longTitlePercent": 0
+    },
+    "schema": {
+      "parseErrors": 0,
+      "errors": 0
+    },
+    "links": {
+      "broken": 0,
+      "redirects": 0
+    },
+    "htmlGraph": {
+      "crawled": 1294,
+      "indexable": 140,
+      "orphans": 0,
+      "unreachable": 0,
+      "deep": 0,
+      "depthCounts": {
+        "0": 1,
+        "1": 30,
+        "2": 109
+      },
+      "broken": 0,
+      "redirects": 0
+    },
+    "ssr": {
+      "checked": 140,
+      "failures": 0,
+      "apiFailures": 0
+    },
+    "client": {
+      "forbiddenRuntimeImports": 0,
+      "clioChunkMatches": []
+    },
+    "browserEvidence": "topic-feed-20261101/browser.json",
+    "productionDataWritesPerformedForTesting": false
+  },
+  "risks": [
+    "Girişli gerçek oy/soru gönderimleri üretim verisine test kaydı eklememek için gönderilmedi. Anonim akış, form seçimi, kategori korunması ve tür etiketleri tarayıcıda kontrol edildi.",
+    "Uzman sorusu etiketinin yeni kayıt formatı unit test ve TypeScript ile kontrol edildi; doğrulama amacıyla sahte uzman sorusu yayımlanmadı.",
+    "Bu sürüm OtoSöz deposunu günceller. Diğer iki sitenin içerik, canonical ve yayın ayarları kendi depolarında yönetilir.",
+    "Google yeniden taraması veya sıralama artışı garanti edilmez. Önceki GSC API 403 ve saha performansı ölçüm sınırları bu değişiklikle çözülmüş sayılmaz.",
+    "Cloudflare güvenlik ayarları korundu; kaynak tarihi bilinmeyen kayıtlara tarih uydurulmadı."
+  ],
+  "rollback": "Veri göçü/silme yapılmadı. Önceki doğrulanmış build tutulur; değişiklikler ayrı Git commitleriyle geri alınabilir."
+}

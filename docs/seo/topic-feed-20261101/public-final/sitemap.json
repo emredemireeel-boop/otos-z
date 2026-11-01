@@ -1,0 +1,894 @@
+{
+  "checkedAt": "2026-11-01T10:41:35.539Z",
+  "base": "https://otosoz.com",
+  "files": [
+    {
+      "url": "https://otosoz.com/sitemaps/core.xml",
+      "count": 13,
+      "bytes": 793,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/obd.xml",
+      "count": 6,
+      "bytes": 616,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/sozluk.xml",
+      "count": 0,
+      "bytes": 107,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/forum.xml",
+      "count": 13,
+      "bytes": 2027,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/trafik-cezasi.xml",
+      "count": 39,
+      "bytes": 3425,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/otohesap.xml",
+      "count": 42,
+      "bytes": 3147,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/acik-oto-pazari.xml",
+      "count": 27,
+      "bytes": 2814,
+      "errors": []
+    }
+  ],
+  "total": 140,
+  "duplicates": 0,
+  "failures": 0,
+  "lastmodPresent": 32,
+  "checks": [
+    {
+      "url": "https://otosoz.com/",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/hakkimizda",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/etkinlikler",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/editoryal-politika",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/karsilastirma",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kaynaklar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/guvenmetre",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/altin-anahtar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/piyasalar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/iletisim",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/gizlilik-politikasi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/cerez-politikasi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/kullanim-sartlari",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p0171",
+      "lastmod": "2026-09-18T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p0300",
+      "lastmod": "2026-09-18T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p0299",
+      "lastmod": "2026-09-18T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p0420",
+      "lastmod": "2026-09-18T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/obd/p1000",
+      "lastmod": "2026-10-22T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/musteri-2-tampon-boyali-diye-arac-iade-istedi--76882527",
+      "lastmod": "2026-09-05T11:29:13.492Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/sanayi-ustasinin-en-sorunsuz-araba-tavsiyeleri--82348584",
+      "lastmod": "2026-06-06T15:29:34.575Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/en-sorunsuz-otomobil-markasi--25319783",
+      "lastmod": "2026-06-13T20:43:34.281Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/en-cok-kronik-sorunu-olan-araclar--60448115",
+      "lastmod": "2026-06-01T06:26:49.083Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/fiat-egeanin-bitmek-bilmeyen-kronik-sorunlari--79082112",
+      "lastmod": "2026-06-01T06:26:11.615Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/i20de-siyah-duman-atma-sorunu--17202308",
+      "lastmod": "2026-06-01T06:25:28.877Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/hyundai-i20-14-mpi--85879525",
+      "lastmod": "2026-05-24T12:24:56.445Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/karavan-masrafindan-kurtaran-aile-gemisi-peugeot-5008--16861745",
+      "lastmod": "2026-05-23T03:53:27.363Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/d-segmentinde-gizli-patron-yok-yok-dedirten-kia-optima--83438801",
+      "lastmod": "2026-05-23T03:54:10.883Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/uygun-fiyatli-italyan-yakisiklisi-grande-punto-alinir-mi--78732177",
+      "lastmod": "2026-05-23T03:49:12.010Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/triger-kayisini-ne-zaman-degistirmeliyim-geciktirirsem-ne-olur--56869115",
+      "lastmod": "2026-04-30T03:52:20.793Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/fiat-egea-aracimda-kalkista-ve-rolantide-asiri-titreme-var-vites-topuzu-sallaniyor-neden-olabilir--74934954",
+      "lastmod": "2026-05-12T07:06:19.680Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/forum/lpgli-aracim-cok-yakiyor-ve-cekisi-dustu-ne-yapmaliyim--43063764",
+      "lastmod": "2026-05-12T07:06:35.903Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-asmak-51-2-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-30-50-asmak-51-2-b",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-sinirini-yuzde-50-uzeri-asmak-51-2-c",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hiz-siniri-agir-ihlal-51-2-d",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkol-testini-reddetme-48-9",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-1-kez-48-5",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/alkollu-arac-kullanmak-3-kez-48-5-c",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/uyusturucu-etkisinde-arac-kullanmak-48-8",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/saldirgan-surus-israrli-takip-73-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/drift-yapmak-67-1-d",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/dur-ihtarina-uymamak-47-1-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/makas-atmak-46-2-g",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/sahte-plaka-kullanma-23-5-b",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/plakayi-okunmaz-hale-getirmek-23-3-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ehliyetsiz-arac-kullanma-36-3-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ehliyeti-alinmisken-arac-kullanmak-36-3-b",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/kirmizi-isik-ihlali-47-1-b",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/plakasiz-arac-kullanma-23-1",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/seyir-halinde-cep-telefonu-73-c",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-seridi-ihlali-46-2-f",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/ters-yonde-arac-kullanmak-46-2-h",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/yayaya-yol-vermemek-74-b",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/cocuk-koltugu-kullanmamak-78-1-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/emniyet-kemeri-takmamak-78-1",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/gecme-yasagi-ihlali-52-2-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/egzoz-emisyon-sinirini-asmak-30-1-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/aracta-cam-filmi-kullanmak-30-1-b",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/kask-takmamak-motosiklet-78-1-b",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/cakarli-isik-kullanmak-28-2",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/yangin-sondurucu-bulundurmamak-30-3",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/muayenesiz-arac-kullanmak-34-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/trafik-sigortasiz-arac-kullanmak-85-1",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/hatali-park-etmek-61-1-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/engelli-park-yeri-ihlali-61-1-o",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/takograf-veri-mudahalesi-31-1-b",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/taksimetre-bulundurmamak-kullanmamak-31-1-c",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/korsan-taksi-izinsiz-yolcu-tasima-31-2",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/trafik-cezasi/tonaj-sinirini-asmak-65-1-a",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-bin-tl-alti-arabalar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/350-450-bin-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/250-350-bin-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/150-250-bin-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/450-550-bin-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/550-650-bin-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/750-850-bin-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/850-950-bin-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-15-1-25-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/950-bin-1-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-45-1-55-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-25-1-35-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-55-1-65-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-7-1-8-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-8-1-9-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-1-2-3-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/1-9-2-1-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/3-5-5-0-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otobutce/2-5-3-5-milyon-tl-arasi-araclar",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yakit-hesaplama",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yatirim-kiyaslama",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/al-sat-analizi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/tasit-kredisi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/otv-muafiyeti",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/deger-kaybi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/kredi-karti-hesaplama",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/lastik-ebat",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-bakim",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/butce-planlama",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/dijital-senet-hesaplama",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/mtv-hesaplama",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/kasko-deger-sorgulama",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/elektrikli-arac-sarj-maliyeti",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-ithalat-vergisi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/arac-vs-taksi",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/km-basina-maliyet",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yillik-sahip-olma-maliyeti",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/yakit-turu-karsilastirma",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/motor-gucu-donusturme",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/otohesap/lastik-basinci-donusturme",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/adana",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/antalya",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kutahya",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/manisa",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/ordu",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/bursa",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/sakarya",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/samsun",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/kocasinan-acik-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kayseri/yahyali-ikinci-el-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/konya",
+      "lastmod": null,
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/antalya/kepez-acik-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/adana/belediye-evleri-semt-ve-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/bursa/inegol-merpa-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/odunpazari-acik-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/eskisehir/tepebasi-camlica-acik-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/konya/karatay-galericiler-sitesi-acik-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/samsun/bafra-ikinci-el-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/sakarya/gunesler-acik-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/balikesir/bandirma-ikinci-el-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/manisa/demirci-ikinci-el-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/kutahya/tavsanli-acik-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/acik-oto-pazari/ordu/fatsa-acik-oto-pazari",
+      "lastmod": "2026-07-21T00:00:00.000Z",
+      "status": 200,
+      "errors": []
+    }
+  ]
+}
