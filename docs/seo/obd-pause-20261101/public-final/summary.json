@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-01T11:10:12.896Z",
+  "base": "https://otosoz.com",
+  "passed": true,
+  "results": [
+    {
+      "name": "status",
+      "exitCode": 0,
+      "report": "docs\\seo\\obd-pause-20261101\\public-final\\status.json"
+    },
+    {
+      "name": "sitemap",
+      "exitCode": 0,
+      "report": "docs\\seo\\obd-pause-20261101\\public-final\\sitemap.json"
+    },
+    {
+      "name": "schema",
+      "exitCode": 0,
+      "report": "docs\\seo\\obd-pause-20261101\\public-final\\schema.json"
+    },
+    {
+      "name": "metadata",
+      "exitCode": 0,
+      "report": "docs\\seo\\obd-pause-20261101\\public-final\\metadata.json"
+    },
+    {
+      "name": "links",
+      "exitCode": 0,
+      "report": "docs\\seo\\obd-pause-20261101\\public-final\\links.json"
+    },
+    {
+      "name": "styles",
+      "exitCode": 0,
+      "report": "docs\\seo\\obd-pause-20261101\\public-final\\styles.json"
+    },
+    {
+      "name": "publication",
+      "exitCode": 0,
+      "report": "docs\\seo\\obd-pause-20261101\\public-final\\publication.json"
+    }
+  ]
+}

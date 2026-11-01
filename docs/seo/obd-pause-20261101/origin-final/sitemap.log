@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-11-01T11:09:07.054Z",
+  "base": "http://127.0.0.1:3000",
+  "files": [
+    {
+      "url": "https://otosoz.com/sitemaps/core.xml",
+      "count": 13,
+      "bytes": 793,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/sozluk.xml",
+      "count": 0,
+      "bytes": 107,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/forum.xml",
+      "count": 13,
+      "bytes": 2027,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/trafik-cezasi.xml",
+      "count": 39,
+      "bytes": 3425,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/otohesap.xml",
+      "count": 42,
+      "bytes": 3147,
+      "errors": []
+    },
+    {
+      "url": "https://otosoz.com/sitemaps/acik-oto-pazari.xml",
+      "count": 27,
+      "bytes": 2814,
+      "errors": []
+    }
+  ],
+  "total": 134,
+  "duplicates": 0,
+  "failures": 0,
+  "lastmodPresent": 27,
+  "failureExamples": []
+}

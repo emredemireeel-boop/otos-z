@@ -1,0 +1,13 @@
+{
+  "total": 233,
+  "passed": 233,
+  "failed": 0,
+  "metaRefreshCount": 0,
+  "statusCounts": {
+    "200": 54,
+    "307": 6,
+    "308": 19,
+    "404": 154
+  },
+  "failures": []
+}

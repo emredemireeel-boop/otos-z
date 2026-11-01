@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-11-01T11:07:55.547Z",
+  "dist": ".next-candidate-20261101110100",
+  "clientEntries": 174,
+  "checkedModules": 231,
+  "forbiddenRuntimeImports": 0,
+  "violations": [],
+  "chunkCount": 138,
+  "clioChunkMatches": []
+}

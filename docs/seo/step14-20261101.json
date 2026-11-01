@@ -1,0 +1,34 @@
+{
+  "step": 14,
+  "date": "2026-11-01",
+  "status": "deployed-and-verified",
+  "deployment": {
+    "sourceRevision": "f920d6f5fbffe9fd8588886326de712f3526d5e7",
+    "previousBuild": ".next-candidate-20261101104621",
+    "activeBuild": ".next-candidate-20261101110100",
+    "preparedBeforeActivation": true,
+    "serverFreeBytesBefore": 11203858432,
+    "checkedAt": "2026-11-01T11:10:46Z"
+  },
+  "changes": [
+    "OBD ana sayfası, kod detayları, marka/kod yolları, kod dizini ve API yayından alındı.",
+    "Beş route kaynak dosyası byte-for-byte .paused adıyla saklandı; OBD verileri silinmedi.",
+    "OBD menüden, iç bağlantılardan, llms ve sitemap keşfinden kaldırıldı.",
+    "OBDKodu tanıtımı Hakkımızda sayfasında kalır; eski OBD adresleri topluca dış ana sayfaya yönlendirilmez."
+  ],
+  "validation": {
+    "tsc": "PASS",
+    "build": "PASS",
+    "tests": 51,
+    "localSeo": true,
+    "originSeo": true,
+    "liveSeo": true,
+    "indexable": 134,
+    "sitemapFailures": 0
+  },
+  "restoration": "node scripts/site-sections.mjs restore obd; ardından tsc, build, SEO kontrolleri ve doğrulanmış dağıtım gerekir.",
+  "risks": [
+    "Google eski sonuçları yeniden taradıkça günceller; anlık indeks kaldırma garanti edilmez.",
+    "Kaynaklar repo ve sunucuda saklıdır; halka açık route değildir."
+  ]
+}

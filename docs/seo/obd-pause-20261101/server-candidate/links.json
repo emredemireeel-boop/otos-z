@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-11-01T11:07:08.900Z",
+  "base": "http://127.0.0.1:3011",
+  "pages": 134,
+  "uniqueTargets": 224,
+  "broken": 0,
+  "redirects": 0,
+  "pageErrors": [],
+  "failures": []
+}
