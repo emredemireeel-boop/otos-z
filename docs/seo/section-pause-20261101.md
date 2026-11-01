@@ -8,7 +8,7 @@ Araç DNA, OtoKütüphane (makale arşivi dahil) ve Haberler yayından kaldırı
 - DNA detayları, kütüphane/makale ve haber adresleri gerçek HTTP 404 döndürür. Bilinmeyen model adresleri başka sitenin ana sayfasına topluca yönlendirilmez.
 - Kaldırılan bölümler sitemap'te, ana sayfa tanıtımlarında, yan kartlarda, alt menüde veya llms.txt keşif listesinde bulunmaz. Robots.txt ile 404 yanıtlarını taramaktan kaçırmıyoruz.
 - Haber sitemap'i ve bölümlerin doğrudan veri/API girişleri de kapalıdır. Yönetim verileri ve Firestore kayıtları silinmedi.
-- Bağımsız OBD, forum, oto pazarı, hesaplayıcı ve trafik cezası sayfaları korunur. Gösterge/Nasıl Yapılır gibi açık kalan bağımsız rehberler `sitemaps/rehberler.xml` altında bildirilir.
+- Bağımsız OBD, forum, oto pazarı, hesaplayıcı ve trafik cezası sayfaları korunur. Eski Gösterge/Nasıl Yapılır/sözlük/bakım/ikinci el yardımcı adresleri kullanıcılar için 200 kalır; kütüphane kapalıyken noindex olur ve sitemap'te bulunmaz. Tam taramada bağlantısız kalan 14 Nasıl Yapılır sayfası için de aynı politika uygulanır.
 - Trafik Cezaları artık gizlenen kütüphane portalını yüklemez. Görünür breadcrumb ile JSON-LD aynı açık URL'leri kullanır.
 
 ## Geri getirme

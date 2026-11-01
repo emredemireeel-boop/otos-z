@@ -15,6 +15,7 @@ const cases=[
     ['/api/arac-dna?ids=1',404], ['/api/mobile/content?module=news',404], ['/api/mobile/content?module=vehicle-dna',404],
     ['/data/news_posts.json',404], ['/data/library_guides.json',404],
     ['/',200], ['/forum',200], ['/obd/p0420',200], ['/otohesap',200], ['/acik-oto-pazari',200],
+    ['/nasil-yapilir/patlak-lastik-nasil-degistirilir',200],
 ];
 const checks=[];
 for(const [url,status,location] of cases) {
@@ -23,6 +24,11 @@ for(const [url,status,location] of cases) {
     if(r.status!==status)errors.push(`HTTP ${r.status}, expected ${status}`);
     if((r.headers.get('location')||undefined)!==location)errors.push('Unexpected Location');
     if(/<meta\b[^>]*http-equiv\s*=\s*["']?refresh/i.test(html))errors.push('Meta refresh');
+    if(url.startsWith('/nasil-yapilir/') && !sections.library){
+        const $=load(html);
+        if(!$('meta[name="robots"]').attr('content')?.includes('noindex'))errors.push('Disconnected helper must be noindex');
+        if(/"@type"\s*:\s*"(?:Article|FAQPage)"/.test($('script[type="application/ld+json"]').text()))errors.push('Noindex helper must not emit Article/FAQ');
+    }
     if(url==='/') {
         const $=load(html);$('script,style,template').remove();
         if($('h1').length!==1)errors.push('Homepage H1 count');

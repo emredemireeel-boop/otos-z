@@ -1,4 +1,4 @@
-import {isPublishedPath} from './site-sections';
+import {isSearchDiscoverablePath} from './site-sections';
 import type { Metadata } from 'next';
 import { indexabilityRobots, isHubIndexable } from './indexability';
 export const SITE_URL = 'https://otosoz.com';
@@ -56,7 +56,7 @@ export function createPageMetadata(options: PageMetadataOptions): Metadata {
         canonical = url.href;
     }
     const robots = typeof options.robots === 'object' && options.robots ? options.robots : null;
-    const shouldIndex = (!canonical || isPublishedPath(canonical)) && (index ?? indexable ?? (robots?.index === false ? false : robots?.index === true ? true : isHubIndexable(canonical ? new URL(canonical).pathname : '')));
+    const shouldIndex = (!canonical || isSearchDiscoverablePath(canonical)) && (index ?? indexable ?? (robots?.index === false ? false : robots?.index === true ? true : isHubIndexable(canonical ? new URL(canonical).pathname : '')));
     const contentType = type || (og.type === 'article' ? 'article' : 'website');
     const ogImage = new URL(image || `/api/og?title=${encodeURIComponent(title)}&desc=${encodeURIComponent(description)}`, SITE_URL).href;
     const published = date(publishedTime || og.publishedTime), modified = date(modifiedTime || og.modifiedTime);

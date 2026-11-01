@@ -389,7 +389,7 @@ export function recordDate(value: unknown): string | undefined {
 }
 export const ALL_SITEMAP_TYPES=['core','arac-dna','obd','sozluk','kutuphane','rehberler','makale','forum','haberler','trafik-cezasi','otohesap','acik-oto-pazari'] as const;
 export type SitemapType=typeof ALL_SITEMAP_TYPES[number];
-export const SITEMAP_TYPES = ALL_SITEMAP_TYPES.filter(type => isPublishedPath('/'+type));
+export const SITEMAP_TYPES = ALL_SITEMAP_TYPES.filter(type => isPublishedPath('/'+type) && (type !== 'rehberler' || siteSections.library));
 export function seoRouteType(url:string):SitemapType {
     const prefix=new URL(url).pathname.split('/')[1];
     if(prefix==='otobutce')return 'otohesap';

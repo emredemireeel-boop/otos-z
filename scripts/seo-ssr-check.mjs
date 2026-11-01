@@ -9,7 +9,8 @@ const normalize=value=>String(value).replace(/\s+/g,' ').trim();
 const {vehicleDNAData,createSlug}=loadSource('data/vehicle-dna.ts');
 const {isVehicleIndexable}=loadSource('lib/indexability.ts');
 const {engineDNAData}=loadSource('data/engine-dna.ts');
-const models=['Renault','Fiat','Toyota'].map(brand=>vehicleDNAData.find(vehicle=>vehicle.brand===brand && isVehicleIndexable(vehicle)));
+const {siteSections}=loadSource('lib/site-sections.ts');
+const models=siteSections.vehicleDna ? ['Renault','Fiat','Toyota'].map(brand=>vehicleDNAData.find(vehicle=>vehicle.brand===brand && isVehicleIndexable(vehicle))) : [];
 const pathFor=vehicle=>`/arac-dna/${createSlug(vehicle.brand)}/${createSlug(vehicle.model)}`;
 const expected=new Map();
 for(const vehicle of models){
@@ -53,9 +54,11 @@ await Promise.all(Array.from({length:6},async()=>{
 }));
 const apiResults=[];
 for(const [path,status,count] of [
+    ...(siteSections.vehicleDna ? [
     [`/api/arac-dna?ids=${models[0].id}`,200,1],
     [`/api/arac-dna?ids=${models.map(vehicle=>vehicle.id).join(',')}`,200,3],
     ['/api/arac-dna?ids=1,2,3,4',400],['/api/arac-dna?ids=invalid',400],['/api/arac-dna?ids=999999999',404],
+    ] : []),
     ['/api/car-options?brand=Renault',200],['/api/car-options?brand=invalid-brand',404],
     ['/api/advertisements?position=invalid!position',400]
 ]){

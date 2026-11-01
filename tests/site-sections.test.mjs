@@ -18,6 +18,13 @@ test('Publication state vetoes even otherwise quality-qualified sitemap candidat
     for(const path of ['/arac-dna','/arac-dna/renault/clio-5-nesil-2020-2025','/kutuphane/kategori/ikinci-el-rehberi','/haberler','/makale'])assert.equal(isSeoUrlIndexable(path),false);
     assert.equal(isSeoUrlIndexable('/forum'),true);
 });
+test('Disconnected library helpers cannot override noindex through explicit metadata options',{skip:siteSections.library},()=>{
+    const {createPageMetadata}=loadSource('lib/seo.ts');
+    const path='/nasil-yapilir/patlak-lastik-nasil-degistirilir';
+    assert.equal(sectionHttpDecision(path),null);
+    assert.equal(isSeoUrlIndexable(path),false);
+    assert.equal(createPageMetadata({path,title:'Lastik değiştirme',description:'Mevcut rehber.',index:true}).robots.index,false);
+});
 test('Hidden route sources can be restored and paused again byte for byte',()=>{
     const root=fs.mkdtempSync(path.join(os.tmpdir(),'otosoz-publication-'));
     const script=path.resolve('scripts/site-sections.mjs');

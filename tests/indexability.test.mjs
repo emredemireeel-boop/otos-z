@@ -68,8 +68,9 @@ test('curation preserves all thirteen existing OBD directory pages', () => {
 
 test('approved duplicate action remains noindex with no new redirect', () => {
     const { articles } = loadSource('lib/article-catalog.ts');
-    assert.equal(articles.filter(article => article.indexable).length, 49);
+    const {siteSections}=loadSource('lib/site-sections.ts');
+    assert.equal(articles.filter(article => article.indexable).length, siteSections.library ? 49 : 0);
     assert.equal(articles.find(article => article.path.endsWith('--10029')).indexable, false);
-    assert.equal(articles.find(article => article.path.endsWith('--10012')).indexable, true);
+    assert.equal(articles.find(article => article.path.endsWith('--10012')).indexable, siteSections.library);
     assert.equal(fs.readFileSync('next.config.ts', 'utf8').includes('--10029'), false);
 });
